@@ -6362,7 +6362,7 @@ const Gear44=(()=>{
   else{act=(lv<5?`<button class="main" data-g="up" data-id="${d.id}" ${costOk(d.steps[lv]).length?'disabled':''}>NÂNG Lv${lv+1} · ${esc(costTxt(d.steps[lv]))}</button>`:'<p class="g44-st">Đã đạt Lv5</p>')+(on?`<button data-g="unequip" data-id="${d.id}">GỠ SSS (dùng món mẹ thường)</button>`:`<button data-g="equip" data-id="${d.id}">CHỌN XUẤT CHIẾN</button>`);}
   root.querySelector('#g44-det').innerHTML=`<div class="g44-art">${pic(d,96,0)}${pic(d,96,1)}</div><div class="g44-txt"><h3 style="color:${d.color}">${esc(d.name)} <em>SSS · Nhóm ${GN[d.group]}</em></h3>
    <p>Món mẹ: <b>${esc(nameOf(d.parents[0]))}</b> ${pTag(d.parents[0])} + <b>${esc(nameOf(d.parents[1]))}</b> ${pTag(d.parents[1])}</p>
-   ${window.DET197!==false?`<div class="g44-act">${act}</div><div class="k197"><div><i>Nội tại</i><b>${esc(d.trait.name)}</b><small>Lv${lv||1}/5</small></div><div><i>Kỹ năng</i><b>${esc(d.skill.name)}</b><small>${d.skill.cooldown}s</small></div><div><i>Bạo Tẩu</i><b>${esc(d.super.name)}</b></div><div><i>Tuyệt kỹ</i><b>${esc(d.ult.name)}</b></div></div><details class="d197"><summary>Chi tiết</summary>`:''}
+   ${window.DET197!==false?`<div class="g44-act">${act}</div><div class="k197"><div><i>Nội tại</i><b>${esc(d.trait.name)}</b><small>Lv${lv||1}/5</small></div><div><i>Kỹ năng</i><b>${esc(d.skill.name)}</b><small>${d.skill.cooldown}s</small></div><div><i>Bạo Tẩu</i><b>${esc(d.super.name)}</b></div><div><i>Tuyệt kỹ</i><b>${esc(d.ult.name)}</b></div></div>${typeof TapBan200!=='undefined'&&TapBan200.on()?TapBan200.btn:''}<details class="d197"><summary>Chi tiết</summary>`:''}
    <p class="g44-tr">Nội tại · <b>${esc(d.trait.name)}</b>${lv?' (Lv'+lv+')':' (Lv1)'}: ${esc(shown.desc)}</p>${nx?`<p class="g44-fl">Lv${lv+1}: ${esc(nx.desc)}</p>`:''}
    <p>Kỹ năng · <b>${esc(d.skill.name)}</b> (${d.skill.cooldown}s): ${esc(d.skill.effect)}</p><p>Bạo Tẩu · <b>${esc(d.super.name)}</b>: ${esc(d.super.effect)}</p><p>Tuyệt kỹ · <b>${esc(d.ult.name)}</b>: ${esc(d.ult.effect)}</p>
    <p class="g44-st">${tabK==='armor'?'Máu + khiên của giáp':'Hỏa lực'} ×1,35 · thêm 3%/cấp cường hóa · Cường hóa = 2 × min(Tím +n hai món mẹ) = <b>+${sssEnh(d.id)}</b></p>
@@ -10161,7 +10161,7 @@ const Chip72=(()=>{
   el.innerHTML=`<div class="m63-card adv-card u72-card"><div class="m63-eye">CHIP GIAO THỨC · ${esc(U.nm[W].toUpperCase())}</div><h3>${isMain?'':'<span class="c72-warn">Chỉ có tác dụng khi là CHỦ CHIẾN</span>'}</h3>${matRow()}
    <div class="c72-socks">${socks}</div>
    <div class="adv-cmp"><div><i>CHỈ SỐ TỪ CHIP</i>Tấn công +${pc(T.atk)} · Máu +${pc(T.hp)} · Giáp +${pc(T.armor)} <small>(trần ${pc(C.statCap)})</small></div><div><i>KỸ NĂNG</i>ST +${pc(T.skill)} · Sạc +${pc(T.charge)} · Lên boss +${pc(T.boss)}</div></div>
-   ${nlBox193(T)}<div class="c72-sets">${sets}</div>
+   ${typeof TapBan200!=='undefined'&&TapBan200.on()?TapBan200.btn:''}${nlBox193(T)}<div class="c72-sets">${sets}</div>
    <div class="adv-btns"><button class="adv-x" data-a="back">‹ VŨ KHÍ</button><button class="adv-x" data-a="inv" data-v="all">KHO CHIP · ${S.ch.length}</button><button class="m63-go" data-a="forge">LÒ SẢN XUẤT</button></div></div>`;el.hidden=false;}
  function nlBox193(T){if(!V193()||!T.nl||!T.nl.length)return '';const G={};for(const [a,t,v] of T.nl){const f=NL.f[a];const key=f.cat?'all:'+t:t;const g=G[key]=G[key]||{t,cat:!!f.cat,b:0,bs:0,f:0,fs:0};
    if(f.cat)g.f+=v;else if(f.b)(f.sup?g.fs+=v:g.f+=v);else (f.sup?g.bs+=v:g.b+=v);}
@@ -18451,6 +18451,66 @@ const Ruong194=(()=>{
   el.addEventListener('click',end);setTimeout(end,dur);try{if(k!=='none')tone(k==='sss'?990:k==='vang'?880:660,.22,'triangle',.06);}catch{}}
  return {note,play,rarity};
 })();
+</script><style id="v200-css">/* V200 · phòng tập bắn */
+.tb200-btn{display:block;width:100%;min-height:42px;margin:6px 0;border-radius:10px;border:1px solid #3a7ab0;background:linear-gradient(180deg,#123a5e,#0b2440);color:#bfe6ff;font-weight:900;font-size:13px;letter-spacing:.5px}
+.tb200-hud{position:fixed;top:calc(env(safe-area-inset-top,0px) + 46px);left:50%;transform:translateX(-50%);z-index:99990;display:flex;gap:10px;align-items:center;padding:5px 10px;border-radius:12px;background:rgba(6,16,31,.82);border:1px solid #2f5d86;color:#cfe8ff;font-size:12px;pointer-events:auto}
+.tb200-hud b{color:#7fdcff}.tb200-hud button{min-height:0;padding:3px 10px;border-radius:8px;border:1px solid #6a3a48;background:#3a1622;color:#ffc2cc;font-size:11px}
+.tb200{position:fixed;inset:0;z-index:100000;display:grid;place-items:center;background:rgba(2,6,14,.72);padding:16px}
+.tb200-b{width:min(360px,100%);padding:16px;border-radius:16px;background:linear-gradient(180deg,#13243c,#0a1626);border:1px solid #2f5478;color:#dbeafe;box-shadow:0 10px 40px #000a}
+.tb200-b h3{margin:0 0 4px;font-size:16px;color:#fff;text-align:center}.tb200-b p{margin:0 0 10px;font-size:12px;color:#9fc0da;text-align:center}
+.tb200-r{display:grid;gap:5px;margin-bottom:8px}.tb200-r div{display:flex;align-items:baseline;gap:8px;padding:7px 10px;border-radius:9px;background:rgba(255,255,255,.05)}
+.tb200-r span{flex:1;font-size:13px}.tb200-r b{font-size:15px;color:#fff}.tb200-r.big b{font-size:20px;color:#ffe49a}
+.tb200-r i{font-style:normal;font-size:12px;font-weight:800;min-width:58px;text-align:right}.tb200-r i.up{color:#46ffb2}.tb200-r i.dn{color:#ff7a8a}.tb200-r i.eq{color:#9fc0da}
+.tb200-b .nt{font-size:11px}
+.tb200-a{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px}.tb200-a button{min-height:42px;border-radius:10px;border:1px solid #3a6a96;background:#12304e;color:#e5f2ff;font-weight:800;font-size:13px}.tb200-a button.x{background:#25303e;border-color:#46566a}
+
+/* game ẩn mọi con trực tiếp của body khi đang ở màn chơi (body.play-screen > :not(main)) → cho phép riêng 3 lớp này */
+html body.play-screen>.tb200,html body>.tb200{display:grid!important}
+html body.play-screen>.tb200-hud,html body>.tb200-hud{display:flex!important}
+</style><script id="v200-js">'use strict';
+// V200 · PHÒNG TẬP BẮN 30 GIÂY (Gemini rà soát 07/11, mục 9). Tắt: window.TAPBAN200=false
+//  Vào thẳng pha boss của ải boss cao nhất đã mở (≤ 160), boss không chết, tàu không mất máu, KHÔNG tốn năng lượng,
+//  KHÔNG thưởng / KHÔNG tính tiến trình (thoát trước khi xử lý kết quả ải). Đo ST/s tách 3 phần như bộ đo t190:
+//  Đạn chính · Trang bị / SSS · Kỹ năng / VKTT. So với lần tập trước (khóa mới saobang-tapban-v200, không đụng khóa cũ).
+//  Nút "🎯 TẬP BẮN" ở: màn Chip, màn Hợp thể, chi tiết Trang bị SSS. Chạy được cả chế độ Bạo Tẩu để thử dòng chip BT.
+const TapBan200=(()=>{
+ const KEY='saobang-tapban-v200',DUR=30;
+ const on=()=>window.TAPBAN200!==false;
+ let R=null,hud=null,iv=null;
+ const host=()=>document.fullscreenElement||document.webkitFullscreenElement||document.body;/* trận chạy toàn màn hình: phần tử ngoài vùng fullscreen không được vẽ */
+ const last=()=>{try{return JSON.parse(localStorage.getItem(KEY)||'null');}catch{return null;}};
+ const fmt=n=>n>=1e6?(n/1e6).toFixed(2).replace('.',',')+'M':n>=1e4?(n/1e3).toFixed(1).replace('.',',')+'K':String(Math.round(n));
+ function pickStage(){let mx=0;try{const c=JSON.parse(localStorage.getItem('saobang-hangar-v1')||'{}').cleared||[];mx=Math.max(0,...c);}catch{}
+  let s=Math.min(160,Math.max(10,mx+1));try{while(s>10&&!Campaign36.bossKind(s))s--;}catch{s=10;}return s;}
+ function hook(){if(window.__db200)return;window.__db200=1;const od=damageBoss;const nb=function(a,s){try{if(R&&R.on){const v=+a||0;const k=(s==='gear'||(s&&s.gearKind))?'tb':(typeof s==='string'&&s!=='bomb')?'kn':s==='bomb'?'bom':'chinh';R.acc[k]=(R.acc[k]||0)+v;}}catch{}return od.apply(this,arguments);};window.damageBoss=nb;try{damageBoss=nb;}catch{}}
+ function stop(show){clearInterval(iv);iv=null;if(hud){hud.remove();hud=null;}if(!R)return;const r=R;R=null;window.__tb200=false;
+  try{Revive393.close();}catch{}try{Combat26.cancelSkill();}catch{}try{superTime=0;bullets=[];beams=[];enemies=[];boss=null;}catch{}try{if(typeof PlayScreen!=='undefined')PlayScreen.exit(false);}catch{}try{mode='menu';}catch{}try{Lobby.show();}catch{}try{document.getElementById('overlay').hidden=true;}catch{}
+  try{const d=V75.energy()-r.en0;if(d<0)V75.addEn(-d);}catch{}
+  if(!show)return;const sec=Math.max(1,r.sec),a=r.acc,res={t:Date.now(),bt:r.bt,stage:r.stage,chinh:(a.chinh||0)/sec,tb:(a.tb||0)/sec,kn:((a.kn||0)+(a.bom||0))/sec};res.tong=res.chinh+res.tb+res.kn;
+  const prev=last();const L=(prev||{})[r.bt?'bt':'n'];try{const o=prev||{};o[r.bt?'bt':'n']=res;localStorage.setItem(KEY,JSON.stringify(o));}catch{}
+  setTimeout(()=>panel(res,L),350);}
+ function delta(n,o){if(!o)return '';const p=(n/o-1)*100;if(Math.abs(p)<0.5)return '<i class="eq">=</i>';return `<i class="${p>0?'up':'dn'}">${p>0?'▲':'▼'} ${Math.abs(p).toFixed(1).replace('.',',')}%</i>`;}
+ function panel(res,L){const el=document.createElement('div');el.className='tb200';const row=(n,k)=>`<div><span>${n}</span><b>${fmt(res[k])}</b>${delta(res[k],L&&L[k])}</div>`;
+  el.innerHTML=`<div class="tb200-b"><h3>🎯 KẾT QUẢ TẬP BẮN${res.bt?' · BẠO TẨU':''}</h3><p>Sát thương mỗi giây lên boss ải ${res.stage} · ${DUR} giây${L?' · so với lần tập trước':''}</p>
+   <div class="tb200-r big">${row('Tổng ST/s','tong')}</div><div class="tb200-r">${row('Đạn chính','chinh')}${row('Trang bị / SSS','tb')}${row('Kỹ năng / VKTT','kn')}</div>
+   <p class="nt">Đổi chip, trang bị hoặc cặp SSS rồi tập lại để so. Không tốn năng lượng, không tính tiến trình.</p>
+   <div class="tb200-a"><button type="button" data-a="n">Tập lại</button><button type="button" data-a="bt">Tập Bạo Tẩu</button><button type="button" data-a="x" class="x">Đóng</button></div></div>`;
+  el.addEventListener('click',e=>{const b=e.target.closest('[data-a]');if(!b&&e.target!==el)return;el.remove();if(b&&b.dataset.a!=='x')start(b.dataset.a==='bt');});host().appendChild(el);}
+ function start(bt){if(!on()||R)return;hook();const stage=pickStage();let en0=0;try{en0=V75.energy();}catch{}
+  try{document.querySelectorAll('.c72,.m63,.adv70,.st71,#g44,#hub40').forEach(e=>{if(e.id==='hub40'||e.classList.contains('c72')||e.id==='g44')e.hidden=true;});}catch{}
+  try{mode='menu';Lobby.show();const sel=document.getElementById('mission-select');if(![...sel.options].some(o=>o.value==String(stage))){const o=document.createElement('option');o.value=String(stage);o.textContent='Tập bắn';sel.appendChild(o);}document.getElementById('gamemode').value='campaign';sel.value=String(stage);Lobby.hide();reset();if(mode==='pause')mode='play';}catch(e){try{toast('Chưa vào được phòng tập');}catch{}return;}
+  R={on:false,acc:{},sec:0,stage,bt,en0};window.__tb200=true;
+  hud=document.createElement('div');hud.className='tb200-hud';hud.innerHTML=`<b>🎯 TẬP BẮN${bt?' · BẠO TẨU':''}</b><span>Đang gọi boss…</span><button type="button">Dừng</button>`;hud.querySelector('button').onclick=()=>stop(R&&R.on&&R.sec>3);host().appendChild(hud);
+  setTimeout(()=>{try{enemies=[];startBoss();}catch{}},700);
+  let t0=0,last_=performance.now();
+  iv=setInterval(()=>{if(!R)return;try{const h=host();if(hud&&hud.parentElement!==h)h.appendChild(hud);}catch{}try{invuln=999;hp=maxHp;for(const e of enemies)if(!e.boss&&!e.bossPart)e.dead=true;if(R.bt)superTime=Math.max(superTime,2);
+    if(!R.on){if(boss&&boss.bossHealthReady&&boss.y>60){const m=1e4;boss.max*=m;boss.hp=boss.max;if(boss.coreMax){boss.coreMax*=m;boss.coreHp=boss.coreMax;}for(const p of (boss.parts||[]))if(p.max){p.max*=m;p.hp=p.max;}R.on=true;R.acc={};t0=time;}return;}
+    if(mode==='play')R.sec=time-t0;const left=Math.max(0,DUR-R.sec);if(hud)hud.querySelector('span').textContent=Math.ceil(left)+' giây';if(left<=0||!boss||boss.dead)stop(true);}catch(e){}},100);}
+ // nút mở ở các màn
+ document.addEventListener('click',e=>{const b=e.target.closest('[data-tb200]');if(!b)return;e.preventDefault();e.stopPropagation();start(false);},true);
+ const btn='<button type="button" class="tb200-btn" data-tb200="1">🎯 TẬP BẮN 30 GIÂY</button>';
+ return {start,stop,btn,on,last};
+})();
 </script><style id="v199-css">/* V199 · hộp thoại thoát app (chỉ hiện trong APK) */
 .apk199{position:fixed;inset:0;z-index:100001;display:grid;place-items:center;background:rgba(2,6,14,.72);padding:16px}
 .apk199-b{width:min(320px,100%);padding:18px 16px 14px;border-radius:16px;background:linear-gradient(180deg,#13243c,#0a1626);border:1px solid #2f5478;box-shadow:0 10px 40px #000a;text-align:center;color:#dbeafe}
@@ -18459,6 +18519,8 @@ const Ruong194=(()=>{
 .apk199-b div{display:grid;grid-template-columns:1fr 1fr;gap:10px}
 .apk199-b button{min-height:44px;border-radius:10px;border:1px solid #3a6a96;background:#12304e;color:#e5f2ff;font-weight:800;font-size:14px}
 .apk199-b button.ex{background:#5a1f2b;border-color:#a8435a}
+
+html body.play-screen>.apk199,html body>.apk199{display:grid!important}
 </style><script id="v199-js">'use strict';
 // V199 · Hoàn thiện bản APK (chỉ chạy khi mở trong app Android Capacitor; bản web không đổi).
 //  - Nút Back Android: đang chơi → tạm dừng · đang tạm dừng → chơi tiếp · có bảng/hộp đang mở → đóng bảng trên cùng
@@ -18478,7 +18540,7 @@ const APK199=(()=>{
  function askExit(){if(dlg)return;dlg=document.createElement('div');dlg.className='apk199';
   dlg.innerHTML='<div class="apk199-b"><b>Thoát Phi Đội Sao Băng?</b><p>Tiến trình đã được lưu.</p><div><button type="button" data-k="0">Ở lại</button><button type="button" data-k="1" class="ex">Thoát</button></div></div>';
   dlg.addEventListener('click',e=>{const b=e.target.closest('[data-k]');if(e.target===dlg||(b&&b.dataset.k==='0'))closeDlg();else if(b){save();try{App.exitApp();}catch{}}});
-  document.body.appendChild(dlg);}
+  (document.fullscreenElement||document.webkitFullscreenElement||document.body).appendChild(dlg);}
  function back(){
   if(dlg){closeDlg();return;}
   try{if(typeof Revive393!=='undefined'&&Revive393.active())return;}catch{}
@@ -18575,6 +18637,7 @@ const HT197V=(()=>{
      return `<button type="button" class="ht-s ${k===i?'sel':''} ${ok?'own':''} ${us?'us':''}" data-k="${k}"><span class="hb-sss" style="background-position:${pos(k)} 100%"></span><b>${short(M[k].name)}</b>${!ok&&rd?'<i class="hb-dot"></i>':''}</button>`;}).join('')}</div>
    <details class="ht-more"><summary>Kỹ năng &amp; chi tiết</summary><p class="hb-desc">✦ ${m.skills}<br><b>MAX:</b> ${m.max}<br><b>Tuyệt kỹ:</b> ${m.ult}</p>
     <p class="hb-desc">Hợp thể miễn phí, giữ nguyên 2 chiến cơ gốc. Level và cường hóa lấy từ 2 chiến cơ thành phần.</p><div class="ht-meta">${typeof Meta407!=='undefined'?Meta407.sssCard(i,!!o):''}</div></details>
+   ${typeof TapBan200!=='undefined'&&TapBan200.on()?TapBan200.btn:''}
    <button type="button" class="ht-lnk" id="ht-n" ${sel?'':'disabled'}>${sel?'Dùng chiến cơ thường':'✓ Đang dùng chiến cơ thường'}</button></div>`;
   body.querySelectorAll('[data-k]').forEach(b=>b.onclick=()=>{pick=+b.dataset.k;re();});
   body.querySelectorAll('[data-cr]').forEach(b=>b.onclick=()=>openCraft(+b.dataset.cr));
