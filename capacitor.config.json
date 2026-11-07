@@ -1,0 +1,9 @@
+{
+  "appId": "vn.phidoisaobang.game",
+  "appName": "Phi Đội Sao Băng",
+  "webDir": "www",
+  "android": {
+    "backgroundColor": "#08101c",
+    "allowMixedContent": false
+  }
+}

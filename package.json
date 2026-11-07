@@ -1,0 +1,17 @@
+{
+  "name": "phi-doi-sao-bang",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Phi Đội Sao Băng – game bắn máy bay (bản Android đóng gói bằng Capacitor)",
+  "scripts": {
+    "android:add": "cap add android",
+    "android:sync": "cap sync android"
+  },
+  "dependencies": {
+    "@capacitor/android": "6.1.2",
+    "@capacitor/core": "6.1.2"
+  },
+  "devDependencies": {
+    "@capacitor/cli": "6.1.2"
+  }
+}
