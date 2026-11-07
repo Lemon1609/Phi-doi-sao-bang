@@ -44,6 +44,19 @@ jobs:
           V=$(head -1 VERSION)
           sed -i "s/versionCode [0-9]*/versionCode ${GITHUB_RUN_NUMBER}/; s/versionName \"[^\"]*\"/versionName \"${V}.${GITHUB_RUN_NUMBER}\"/" "$G"
           grep -n "versionCode\|versionName" "$G"
+          cat >> "$G" <<'EOF'
+
+android {
+    signingConfigs {
+        debug {
+            storeFile file("../../signing/debug.keystore")
+            storePassword "android"
+            keyAlias "androiddebugkey"
+            keyPassword "android"
+        }
+    }
+}
+EOF
 
       - name: Đồng bộ mã game
         run: npx cap sync android
@@ -58,6 +71,7 @@ jobs:
         run: |
           mkdir -p out
           cp android/app/build/outputs/apk/debug/app-debug.apk "out/PhiDoiSaoBang-$(head -1 VERSION).${GITHUB_RUN_NUMBER}.apk"
+          keytool -printcert -jarfile out/*.apk | grep -q "Lemon1609" || { echo "APK KHÔNG ký bằng khóa cố định"; exit 1; }
           ls -la out
 
       - uses: actions/upload-artifact@v4
