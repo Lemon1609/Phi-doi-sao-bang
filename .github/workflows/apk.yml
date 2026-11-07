@@ -3,7 +3,7 @@ name: Build APK
 on:
   push:
     branches: ["**"]
-    paths: ["www/**", "VERSION", "signing/**", "capacitor.config.json", "package.json", ".github/workflows/apk.yml"]
+    paths: ["www/**", "VERSION", "signing/**", "assets/**", "capacitor.config.json", "package.json", ".github/workflows/apk.yml"]
   workflow_dispatch:
 
 permissions:
@@ -57,6 +57,15 @@ jobs:
               }
           }
           EOF
+
+      - name: Biểu tượng app + màn chờ
+        run: npx capacitor-assets generate --android --iconBackgroundColor '#06101f' --splashBackgroundColor '#06101f' --splashBackgroundColorDark '#06101f'
+
+      - name: Quyền rung
+        run: |
+          M=android/app/src/main/AndroidManifest.xml
+          grep -q VIBRATE "$M" || sed -i 's#<uses-permission android:name="android.permission.INTERNET" />#<uses-permission android:name="android.permission.INTERNET" />\n    <uses-permission android:name="android.permission.VIBRATE" />#' "$M"
+          grep -n "permission" "$M"
 
       - name: Đồng bộ mã game
         run: npx cap sync android
