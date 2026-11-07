@@ -6,6 +6,9 @@ on:
     paths: ["www/**", "VERSION", "signing/**", "capacitor.config.json", "package.json", ".github/workflows/apk.yml"]
   workflow_dispatch:
 
+permissions:
+  contents: write
+
 jobs:
   apk:
     runs-on: ubuntu-latest
@@ -62,3 +65,10 @@ jobs:
           name: PhiDoiSaoBang-apk
           path: out/*.apk
           retention-days: 30
+
+      - name: Đăng lên Releases (tải thẳng APK trên điện thoại)
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          TAG="$(head -1 VERSION).${GITHUB_RUN_NUMBER}"
+          gh release create "$TAG" out/*.apk --repo "$GITHUB_REPOSITORY" --target "$GITHUB_SHA" --title "Phi Đội Sao Băng $TAG" --notes "Cài đè lên bản cũ, giữ nguyên dữ liệu chơi." --latest
