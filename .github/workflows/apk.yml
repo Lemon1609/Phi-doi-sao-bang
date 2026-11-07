@@ -46,17 +46,17 @@ jobs:
           grep -n "versionCode\|versionName" "$G"
           cat >> "$G" <<'EOF'
 
-android {
-    signingConfigs {
-        debug {
+          android {
+              signingConfigs {
+                  debug {
             storeFile file("../../signing/debug.keystore")
             storePassword "android"
             keyAlias "androiddebugkey"
             keyPassword "android"
-        }
-    }
-}
-EOF
+                  }
+              }
+          }
+          EOF
 
       - name: Đồng bộ mã game
         run: npx cap sync android
