@@ -1,0 +1,25 @@
+# V78 · lễ hội + điểm danh ngày 7. python3 tests/t78.py <html tuyệt đối>
+import sys,json,os
+from playwright.sync_api import sync_playwright
+f=sys.argv[1];R={};O='/tmp/claude-0/t78/';os.makedirs(O,exist_ok=True)
+with sync_playwright() as p:
+    b=p.chromium.launch();pg=b.new_page(viewport={'width':393,'height':852});errs=[];pg.on('pageerror',lambda e:errs.append(str(e)))
+    pg.goto('file://'+f+'?nopop');pg.wait_for_timeout(3500);pg.add_style_tag(content='#g74{display:none!important}')
+    pg.evaluate("()=>{Gfx66.open()}");pg.fill('#st66-code','SAOBANG-ADMIN-2026');pg.click('[data-adm]');pg.click('[data-adm]');pg.wait_for_timeout(8000)
+    pg.evaluate("()=>{document.getElementById('tutorial392')?.remove();document.getElementById('rite408')?.remove();document.querySelectorAll('.adv70,.st71,.u72').forEach(e=>e.hidden=true)}")
+    R['active']=pg.evaluate("()=>{const a=Fest78.active();return a&&a.id}")
+    R['all']=pg.evaluate("()=>['halloween','noel','tet','trungthu','thongnhat','quockhanh'].map(k=>{window.__fest78=k;const a=Fest78.active();return a&&a.n}).concat([(window.__fest78=undefined,1)])")
+    R['gift']=pg.evaluate("()=>{const g0=Econ74.gems();const a=Fest78.claimGift(),b=Fest78.claimGift();return [a,b,Econ74.gems()-g0]}")
+    pg.evaluate("()=>{Nav74.tab('home');}");pg.wait_for_timeout(300)
+    R['row']=pg.evaluate("()=>{try{Nav74.page&&Nav74.page('gifts')}catch{};return !!document.querySelector('[data-go74=\"g_fest\"]')}")
+    pg.screenshot(path=O+'gifts.png')
+    pg.evaluate("()=>{document.querySelectorAll('.n74p').forEach(e=>e.hidden=true);document.getElementById('gamemode').value='campaign';document.getElementById('mission-select').value='12';Lobby.hide();reset();}")
+    R['drops']=pg.evaluate("()=>new Promise(res=>{const t0=performance.now();const iv=setInterval(()=>{invuln=99;if(mode!=='play'||performance.now()-t0>40000){clearInterval(iv);const st=Fest78.state();res({mode,day:st.day,tok:st.tok});}},300);})")
+    pg.evaluate("()=>{Fest78._set({tok:{['halloween@'+new Date(Date.now()+7*3600000).getUTCFullYear()]:300}})}")
+    R['buy']=pg.evaluate("()=>[Fest78.buy('aura'),Fest78.buy('gem'),Fest78.buy('ph'),Fest78.state().on]")
+    pg.evaluate("()=>{mode='menu';try{Lobby.show()}catch{};document.getElementById('gamemode').value='campaign';document.getElementById('mission-select').value='12';Lobby.hide();reset();invuln=99}");pg.wait_for_timeout(3000)
+    pg.screenshot(path=O+'battle.png')
+    pg.evaluate("()=>{mode='menu';Fest78.open()}");pg.wait_for_timeout(300);pg.screenshot(path=O+'panel.png')
+    R['days']=pg.evaluate("()=>document.documentElement.innerHTML.includes('credits:4000,stones:300,frag:10')")
+    R['errs']=errs;b.close()
+print(json.dumps(R,ensure_ascii=False))

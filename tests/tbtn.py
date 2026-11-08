@@ -1,0 +1,21 @@
+import sys
+from playwright.sync_api import sync_playwright
+f=sys.argv[1];tag=sys.argv[2];out='shots/'+tag;import os;os.makedirs(out,exist_ok=True)
+with sync_playwright() as p:
+    b=p.chromium.launch();c=b.new_context(viewport={'width':390,'height':844},device_scale_factor=3,is_mobile=True,has_touch=True)
+    pg=c.new_page();errs=[];pg.on('pageerror',lambda e:errs.append(str(e)))
+    pg.goto('file://'+f+'?nopop');pg.wait_for_timeout(3000)
+    pg.evaluate("()=>{document.getElementById('tutorial392')?.remove();try{Campaign36.finishTutorial()}catch(e){};Lobby.hide();reset();window.__g=setInterval(()=>{if(mode==='play')hp=maxHp},16)}");pg.wait_for_timeout(5000)
+    pg.screenshot(path=f'{out}/start.png');pg.wait_for_function("()=>!document.getElementById('missile-action').disabled",timeout=20000);pg.screenshot(path=f'{out}/ready.png');pg.tap('#missile-action');pg.wait_for_timeout(1500);pg.screenshot(path=f'{out}/cd.png')
+    pg.evaluate("()=>{bombs=0}");pg.wait_for_timeout(400);pg.screenshot(path=f'{out}/empty.png')
+    pg.evaluate("()=>{bombs=3;activateSuper()}");pg.wait_for_timeout(900);pg.screenshot(path=f'{out}/super.png')
+    pg.tap('#pause');pg.wait_for_timeout(600);pg.screenshot(path=f'{out}/pause.png')
+    m=pg.evaluate("()=>[...document.querySelectorAll('#pause,#fullscreen-toggle,#missile-action,#bomb,#start,#dock-return')].map(e=>{const r=e.getBoundingClientRect();return [e.id,Math.round(r.width),Math.round(r.height),getComputedStyle(e).visibility]})")
+    hint=pg.evaluate("()=>{const e=document.getElementById('ovhint');return e?[getComputedStyle(e).display,e.textContent.trim()]:null}")
+    pg.tap('#pause');pg.wait_for_timeout(400);st=pg.evaluate("()=>mode")
+    print(tag,m,'hint',hint,'mode sau tiep tuc',st,errs)
+    c.close()
+    pg=b.new_page(viewport={'width':1280,'height':720});pg.goto('file://'+f+'?nopop');pg.wait_for_timeout(3000)
+    pg.evaluate("()=>{document.getElementById('tutorial392')?.remove();Lobby.hide();reset();}");pg.wait_for_timeout(2000)
+    print('desk BOM label',pg.evaluate("()=>getComputedStyle(document.getElementById('bomb'),'::after').content"))
+    b.close()

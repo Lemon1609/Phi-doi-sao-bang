@@ -1,0 +1,40 @@
+import sys,json
+from playwright.sync_api import sync_playwright
+f=sys.argv[1];R={};O='/tmp/claude-0/t69/';import os;os.makedirs(O,exist_ok=True)
+with sync_playwright() as p:
+    b=p.chromium.launch();errs=[]
+    c=b.new_context(viewport={'width':412,'height':1012},device_scale_factor=2);pg=c.new_page();pg.on('pageerror',lambda e:errs.append(str(e)));pg.goto('file://'+f+'?nopop');pg.wait_for_timeout(3500)
+    pg.evaluate("()=>{document.getElementById('tutorial392')?.remove();document.getElementById('m40')?.remove()}")
+    R['drops']=pg.evaluate("()=>{const out=[];for(let n=1;n<=20;n++){Progress.rewardStage(n);if(n%5===0)out.push([n,JSON.stringify(Adv69.state().m)]);}return out}")
+    R['sweep']=pg.evaluate("()=>{const before=JSON.stringify(Adv69.state().m);const r=Workshop.rollStage(10,0);return [before,JSON.stringify(Adv69.state().m),r]}")
+    R['lvl']=pg.evaluate("()=>{Progress.grantCredits(900000);Workshop.grant({exp:90000});const it=Progress.getState().items[0];let k=0;while(Progress.upgrade(it.id)&&k<200)k++;const it2=Progress.getState().items.find(x=>x.id===it.id);return [it2.id,it2.kind,it2.level,Workshop.cap(it2),it2.enhance||0,Workshop.cost(it2),JSON.stringify(Adv69.req('gear',it2))]}")
+    gid=R['lvl'][0]
+    pg.evaluate("()=>{for(const k in Adv69.state().m)Adv69.add(k,-999)}")
+    R['noMat']=pg.evaluate("(id)=>[Progress.promote(id),(Progress.getState().items.find(x=>x.id===id).enhance||0)]",gid)
+    pg.evaluate("()=>Hub40.open('gear')");pg.wait_for_timeout(600)
+    pg.evaluate("(id)=>document.querySelector('#hub40 [data-it=\"'+id+'\"]').click()",gid);pg.wait_for_timeout(500)
+    R['btn']=pg.evaluate("()=>{const b=document.querySelector('#sh-en');return [b.innerText,b.disabled,b.dataset.adv]}")
+    pg.evaluate("()=>document.querySelector('#sh-en').click()");pg.wait_for_timeout(500);pg.screenshot(path=O+'panel_lack.png')
+    pg.evaluate("()=>{for(const t of ['alloy1','crystal1','circuit1','plasma1'])Adv69.add(t,10)}")
+    pg.evaluate("()=>{document.querySelector('.adv69 [data-a=back]')||0;Adv69.open('gear',%s)}"%json.dumps(gid));pg.wait_for_timeout(300);pg.screenshot(path=O+'panel_ok.png')
+    cr0=pg.evaluate("()=>Progress.balance()")
+    pg.evaluate("()=>document.querySelector('.adv69 [data-a=go]').click()");pg.wait_for_timeout(500);pg.screenshot(path=O+'panel_done.png')
+    R['done']=pg.evaluate("(id)=>{const it=Progress.getState().items.find(x=>x.id===id);return [it.enhance,Workshop.cap(it),JSON.stringify(Adv69.state().m)]}",gid)
+    R['credits']=[cr0,pg.evaluate("()=>Progress.balance()")]
+    R['sheetOpen']=pg.evaluate("()=>[!!document.querySelector('#hub40 .hb-sheet.open'),document.querySelector('#sh-en')?.innerText]")
+    pg.evaluate("()=>document.querySelector('.adv69 [data-a=src]')?.click()");pg.wait_for_timeout(300);pg.screenshot(path=O+'panel_src.png')
+    pg.evaluate("()=>{Adv69.inv()}");pg.wait_for_timeout(300);pg.screenshot(path=O+'panel_inv.png')
+    # craft
+    R['craft']=pg.evaluate("()=>{let k=0;while(Workshop.upgradeCraft(0)&&k<200)k++;const v=Workshop.craftProgress(0);const a=Workshop.promoteCraft(0);for(const t of ['alloy1','crystal1','circuit1','plasma1'])Adv69.add(t,10);const b2=Workshop.promoteCraft(0);return [v.level,Workshop.cap(v),a,b2,Workshop.craftProgress(0).enhance,JSON.stringify(Adv69.state().m)]}")
+    c.close()
+    c=b.new_context(viewport={'width':412,'height':1012},device_scale_factor=2);pg=c.new_page();pg.on('pageerror',lambda e:errs.append(str(e)));pg.goto('file://'+f+'?nopop');pg.wait_for_timeout(3000)
+    pg.evaluate("()=>{Gfx66.open()}");pg.fill('#st66-code','SAOBANG-ADMIN-2026');pg.click('[data-adm]');pg.click('[data-adm]');pg.wait_for_timeout(8000)
+    pg.evaluate("()=>{document.getElementById('tutorial392')?.remove()}")
+    R['sss0']=pg.evaluate("()=>[Combat.stats().cp,+Adv69.sssMult().toFixed(3)]")
+    pg.evaluate("()=>{Adv69.add('sss_core',200);Adv69.sss()}");pg.wait_for_timeout(300);pg.screenshot(path=O+'sss.png')
+    pg.evaluate("()=>document.querySelector('.adv69 [data-a=sup]').click()");pg.wait_for_timeout(300)
+    pg.evaluate("()=>document.querySelector('.adv69 [data-a=sup]').click()");pg.wait_for_timeout(300);pg.screenshot(path=O+'sss2.png')
+    R['sss1']=pg.evaluate("()=>[Combat.stats().cp,+Adv69.sssMult().toFixed(3),Adv69.state().star,Adv69.have('sss_core')]")
+    pg.evaluate("()=>{Adv69.add('sss_core',-999);document.querySelector('.adv69')&&(document.querySelector('.adv69').hidden=true);Lobby68.set('kho')}");pg.wait_for_timeout(600);pg.screenshot(path=O+'kho.png')
+    R['errs']=errs;b.close()
+print(json.dumps(R,ensure_ascii=False))

@@ -1,0 +1,48 @@
+# V78 · Phá Vây + Thử thách Hạt giống. python3 tests/t78b.py <html tuyệt đối>
+import sys,json,os
+from playwright.sync_api import sync_playwright
+f=sys.argv[1];R={};O='/tmp/claude-0/t78b/';os.makedirs(O,exist_ok=True)
+with sync_playwright() as p:
+    b=p.chromium.launch();pg=b.new_page(viewport={'width':393,'height':852});errs=[];logs=[];pg.on('pageerror',lambda e:errs.append(str(e)));pg.on('console',lambda m:logs.append(m.text[:160]) if 'BK78' in m.text else None)
+    pg.goto('file://'+f+'?nopop');pg.wait_for_timeout(3500);pg.add_style_tag(content='#g74{display:none!important}')
+    pg.evaluate("()=>{Gfx66.open()}");pg.fill('#st66-code','SAOBANG-ADMIN-2026');pg.click('[data-adm]');pg.click('[data-adm]');pg.wait_for_timeout(8000)
+    pg.evaluate("()=>{document.getElementById('tutorial392')?.remove();document.getElementById('rite408')?.remove();document.querySelectorAll('.adv70,.st71,.u72').forEach(e=>e.hidden=true);mode='menu'}")
+    pg.evaluate("()=>{Nav74.tab('combat');setTimeout(()=>Nav74.sub('challenge'),80)}");pg.wait_for_timeout(900)
+    R['cards']=pg.evaluate("()=>[!!document.querySelector('[data-go74=\"breakout\"]'),!!document.querySelector('[data-go74=\"seed78\"]')]");pg.screenshot(path=O+'challenge.png')
+    pg.evaluate("()=>{document.querySelectorAll('.n74p').forEach(e=>e.hidden=true);BK78.open()}");pg.wait_for_timeout(300);pg.screenshot(path=O+'home.png')
+    R['start']=pg.evaluate("()=>{window.__e0=V75.energy();BK78.start('run');return [BK78.run().offer,document.querySelector('.bk78p:not([hidden]) .bk78-c')?1:0]}")
+    pg.wait_for_timeout(300);pg.screenshot(path=O+'draft.png')
+    R['pick']=pg.evaluate("()=>{const r=BK78.run();BK78._pick('P_F3');return [mode,window.__bk78w,BK78.run().lv,V75.energy()-window.__e0,+Combat.factor().toFixed(3)]}")
+    pg.wait_for_timeout(2500)
+    # thắng chặng tự nhiên (admin bắn)
+    R['natural']=pg.evaluate("""()=>new Promise(res=>{const t0=performance.now();const iv=setInterval(()=>{invuln=99;const r=BK78.run();if(r&&r.k>=2){clearInterval(iv);res({t:Math.round((performance.now()-t0)/1000),r,mode});}if(performance.now()-t0>90000){clearInterval(iv);res({timeout:true,r,mode,w:Waves30.state()});}},300);})""")
+    pg.wait_for_timeout(1500)
+    R['k2']=pg.evaluate("()=>[mode,BK78.run()]")
+    pg.evaluate("()=>{BK78._clear()}");pg.wait_for_timeout(500)
+    R['afterK2']=pg.evaluate("()=>[mode,BK78.run().k,document.querySelector('.bk78p:not([hidden]) .bk78-c')?'draft':'none']")
+    pg.evaluate("()=>{BK78._pick(BK78.run().offer[0])}");pg.wait_for_timeout(800)
+    pg.evaluate("()=>{BK78._clear()}");pg.wait_for_timeout(600)  # k3 -> k4
+    pg.evaluate("()=>{BK78._clear()}");pg.wait_for_timeout(600)  # k4 boss -> supply
+    R['supply']=pg.evaluate("()=>[BK78.run().k,!!document.querySelector('.bk78p:not([hidden]) [data-bk=heal]')]")
+    pg.click('.bk78p:not([hidden]) [data-bk=heal]');pg.wait_for_timeout(300)
+    pg.evaluate("()=>{BK78._pick(BK78.run().offer[0])}");pg.wait_for_timeout(2500)
+    pg.screenshot(path=O+'run_k5.png')
+    R['death']=pg.evaluate("()=>{const t0=V77.state().tok,s0=BK78.state().shards;invuln=0;hp=0;end(false);return [mode,BK78.state().shards-s0,V77.state().tok-t0,!!document.querySelector('.bk78p:not([hidden]) [data-bk=done]')]}")
+    pg.wait_for_timeout(500);pg.screenshot(path=O+'result.png')
+    pg.click('.bk78p:not([hidden]) [data-bk=done]');pg.wait_for_timeout(800)
+    R['back']=pg.evaluate("()=>[mode,window.__m78,BK78.run()]")
+    # hạt giống
+    pg.evaluate("()=>{BK78.openSeed()}");pg.wait_for_timeout(300);pg.screenshot(path=O+'seedhome.png')
+    pg.evaluate("()=>{BK78.start('seed')}");pg.wait_for_timeout(300);pg.click('.bk78p:not([hidden]) [data-bk=seedgo]');pg.wait_for_timeout(4000)
+    R['seedrun']=pg.evaluate("()=>BK78.run()")
+    pg.evaluate("()=>{BK78._clear()}");pg.wait_for_timeout(600);pg.screenshot(path=O+'seedresult.png')
+    R['seedres']=pg.evaluate("()=>{const c=document.querySelector('.bk78p:not([hidden]) [data-bk=copy]');return c&&c.dataset.c}")
+    code=R['seedres']
+    pg.click('.bk78p:not([hidden]) [data-bk=done]');pg.wait_for_timeout(500)
+    pg.evaluate("()=>{BK78.openSeed()}");pg.wait_for_timeout(200)
+    fc=pg.evaluate("()=>BK78.code(new Date(Date.now()+7*3600000).toISOString().slice(5,10).replace('-',''),36000)")
+    pg.fill('#bk78code',fc);pg.click('.bk78p:not([hidden]) [data-bk=code]');pg.wait_for_timeout(200)
+    pg.click('.bk78p:not([hidden]) [data-bk=tab][data-v=seedboard]');pg.wait_for_timeout(200);pg.screenshot(path=O+'board.png')
+    R['board']=pg.evaluate("()=>{const b=BK78.board();return [b.length,b.findIndex(x=>x.me)+1,b.findIndex(x=>x.friend)+1]}")
+    R['errs']=errs;R['logs']=logs[:5];b.close()
+print(json.dumps(R,ensure_ascii=False))

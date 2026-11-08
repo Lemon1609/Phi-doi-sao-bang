@@ -1,0 +1,10 @@
+const {chromium,devices}=require('playwright');
+const seed=(robot)=>{if(sessionStorage.getItem('seeded'))return;sessionStorage.setItem('seeded','1');const stars={};for(let i=1;i<=60;i++)stars[i]=3;localStorage.setItem('saobang-campaign-v36',JSON.stringify({version:36,tutorial:true,crafts:[0,1,2,3,4,5,6,7,8,9],models:['aegis','inferno','rail'],claims:[],endlessBest:12,stars,sweep:{day:'2026-10-18',used:0}}));
+ localStorage.setItem('saobang-hangar-v1',JSON.stringify({version:2,catalogVersion:36,cleared:Array.from({length:60},(_,i)=>i+1),credits:5000,items:[{id:'a1',kind:'armor',rarity:'legendary',level:10,variant:'aegis'},{id:'m1',kind:'missiles',rarity:'legendary',level:4,variant:'inferno'},{id:'s1',kind:'sidearm',rarity:'legendary',level:5,variant:'rail'}],equipped:{armor:'a1',missiles:'m1',sidearm:'s1'},totalKills:900,bosses:12}));
+ localStorage.setItem('saobang-workshop-v1',JSON.stringify({version:1,crafts:Array(10).fill(''),craftEnhancements:Array(10).fill(3),craftLevels:Array(10).fill(60),craftFragments:Array(10).fill(5),fusionProgress:{},gearFragments:{},exp:100,aux:0}));
+ localStorage.setItem('saobang-meta-v40',JSON.stringify({daily:{last:99999}}));
+ if(robot)localStorage.setItem('saobang-robots-v1',JSON.stringify(robot));};
+const SSS={unlocked:[],selected:'sss:1',supers:[{key:'sss:1',model:1,a:5,b:7,form:0}],fusionVersion:2};
+async function open(b,file,{robot=null,mobile=true}={}){const ctx=await b.newContext(mobile?{...devices['iPhone 13']}:{viewport:{width:1366,height:900}});await ctx.addInitScript(seed,robot);const p=await ctx.newPage();p.errs=[];p.on('pageerror',e=>p.errs.push(e.message));p.on('dialog',d=>d.accept());await p.goto('file://'+(file.startsWith('/')?file:require('path').resolve(__dirname,file))+'?nopop');await p.waitForTimeout(2500);return p;}
+async function play(p,lvl){await p.evaluate(l=>{document.getElementById('mission-select').value=String(l);Lobby.hide();reset();window.__god=setInterval(()=>{if(mode==='play'){hp=maxHp;}},16);},lvl);}
+module.exports={chromium,devices,open,play,SSS};
