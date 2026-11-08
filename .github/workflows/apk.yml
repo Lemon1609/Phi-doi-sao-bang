@@ -77,7 +77,12 @@ jobs:
           chmod +x gradlew
           W=gradle/wrapper/gradle-wrapper.properties
           sed -i 's/^networkTimeout=.*/networkTimeout=120000/' "$W"; grep -q networkTimeout "$W" || echo networkTimeout=120000 >> "$W"
-          for i in 1 2 3 4; do ./gradlew assembleDebug --no-daemon && exit 0; echo "thu lai $i"; sleep 45; done; exit 1
+          sed -i '/^distributionSha256Sum=/d' "$W"; echo 'distributionSha256Sum=03ec176d388f2aa99defcadc3ac6adf8dd2bce5145a129659537c0874dea5ad1' >> "$W"
+          # Gradle tự kiểm SHA-256 chính thức của gradle-8.2.1-bin.zip → nguồn dự phòng không thể thay tệp
+          for U in 'https\://services.gradle.org/distributions/gradle-8.2.1-bin.zip' 'https\://mirrors.cloud.tencent.com/gradle/gradle-8.2.1-bin.zip' 'https\://services.gradle.org/distributions/gradle-8.2.1-bin.zip' 'https\://mirrors.cloud.tencent.com/gradle/gradle-8.2.1-bin.zip'; do
+            sed -i "s#^distributionUrl=.*#distributionUrl=$U#" "$W"; grep distributionUrl "$W"
+            ./gradlew assembleDebug --no-daemon && exit 0; echo "thu lai"; sleep 30
+          done; exit 1
 
       - name: Đổi tên APK
         run: |
