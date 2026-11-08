@@ -14923,6 +14923,9 @@ body.play-screen #missile-action,body.play-screen #bomb{font-size:11px!important
   };
   // hiệu chỉnh sau đo bot (DPS boss ±5%)
   const FUDGE=window.FUDGE120||{"0": 1.513, "1": 0.943, "2": 1.326, "3": 0.844, "4": 0.782, "5": 0.859, "6": 0.818, "7": 1.12, "8": 0.927, "9": 0.96, "10": 1.937, "11": 1.205, "12": 0.77};/* đo đứng yên dưới boss 160, 2 vòng (V120) */
+  // V205 · BƯỚC B (Gemini 08/11): hệ số cân 13 tàu theo máu boss mất thật (bot, TK ải 200, bậc SS). Tắt: window.BAL205=false
+  const K205={0:.92,1:.68,2:1.07,3:.82,4:.95,5:.96,6:.87,7:1.04,8:1.00,9:1.45,10:1.04,11:2.58,12:2.70};/* Gemini chốt: neo trung vị, #2/#4/#7 giảm ½ mức */
+  const k205=i=>window.BAL205===false?1:((window.K205X&&window.K205X[i])||K205[i]||1);
   const st={acc:{},salvo:{},pend:[],fx:[],dots:[],vort:[],delay:[],stats:{}};
   const now=()=>typeof time==='number'?time:performance.now()/1000;
   const lite=()=>{try{return VisualFX.counts().quality==='light';}catch{return false;}};
@@ -14934,7 +14937,7 @@ body.play-screen #missile-action,body.play-screen #bomb{font-size:11px!important
   const dist2=(a,b)=>Math.hypot(a.x-b.x,a.y-b.y);
   // ---------- tạo loạt đạn ----------
   function build(i,L,tmpl,D){const c=C[i];let list=c.b(L);const wsum=list.reduce((a,p)=>a+(p.w||1),0);
-    const per=D/(c.rate*wsum*(1+c.bonus))*(FUDGE[i]||1);const out=[];const t0=now();
+    const per=D/(c.rate*wsum*(1+c.bonus))*(FUDGE[i]||1)*k205(i);const out=[];const t0=now();
     for(const p of list){const s=clone(tmpl);const sp=c.ray?0:(c.sp||1000);s.p120={i,L,k:p.k,born:t0,ox:p.dx,...p};
       s.damage=per*(p.w||1);s.x=player.x+p.dx;s.y=player.y-27;
       if(c.ray){s.p120.bx=p.dx;if(p120i(i)){s.p120.vw=.45;s.p120.va=.65;}}
@@ -18557,6 +18560,30 @@ const EV204X=(()=>{
  return {panel,ships,featOn,state:()=>({...S}),C};
 })();
 window.EV204X=EV204X;
+</script><script id="v205">'use strict';
+// V205 · SHIP_AND_GEAR_BAL_V205 (Gemini 08/11) · BƯỚC A. Tắt: window.BAL205=false
+//  • Sát thương trang bị (auxDamage → đạn trang bị, hiệu ứng GEAR_FX qua refDPS) nhân theo bậc chiến cơ đang lái:
+//    Thường ×1,00 · S ×2,20 · SS ×3,90 (hợp thể robot tính như SS).
+//  • Bù máu boss Chiến dịch = bù bước B (theo tàu chuẩn từng mốc) × bù bước A (+10% S, +15% SS), nội suy. Bảng combinedAnchors Gemini 08/11.
+//  Bước B (hệ số 13 tàu) nằm trong src/v120.js (K205, cùng cờ).
+const BAL205X=(()=>{
+ const C={rank:{'':1,S:2.2,SS:3.9},boss:[[1,1],[20,.92],[40,.60],[60,1],[80,.82],[100,1.05],[120,1.19],[140,1.20],[160,1.67],[180,2.76],[200,2.81]]}/* 40/120/180/200 vi chỉnh theo đo bot 08/11 để giữ thời gian hạ boss như V204 */;
+ const on=()=>window.BAL205!==false;
+ function grade(){try{if(typeof activeRobot!=='undefined'&&activeRobot)return 'SS';}catch{}try{const r=Fusion.getSelected();if(r)return 'SS';}catch{}
+  try{return Workshop.craftProgress(launchCraft).grade||'';}catch{return '';}}
+ const rankM=()=>on()?(C.rank[grade()]||1):1;
+ // ---- A1: trang bị theo bậc tàu ----
+ try{const ops=Progress.stats;if(!ops.__b205){const f=function(){const o=ops.apply(this,arguments);try{const m=rankM();if(m!==1)for(const e of (o&&o.equipment)||[]){if(e&&e.auxDamage>0&&!e.__b205){e.auxDamage*=m;e.__b205=m;}}}catch{}return o;};f.__b205=1;Progress.stats=f;}}catch{}
+ // ---- A2: bù máu boss theo ải ----
+ function bossK(st){const A=C.boss;if(st<=A[0][0])return A[0][1];for(let i=1;i<A.length;i++){const [x1,y1]=A[i],[x0,y0]=A[i-1];if(st<=x1)return x1===x0?y1:y0+(y1-y0)*(st-x0)/(x1-x0);}return A[A.length-1][1];}
+ function eligible(){try{if(typeof gameMode!=='undefined'&&gameMode!=='campaign')return false;}catch{}try{if(typeof Dungeons!=='undefined'&&Dungeons.active())return false;}catch{}
+  try{if(Event83.inRaid())return false;}catch{}if(window.__tb200)return false;try{if(Eclipse67.active())return false;}catch{}return true;}
+ let seen=null;
+ setInterval(()=>{if(!on())return;try{if(typeof boss==='undefined'||!boss||boss.dead||boss===seen||!boss.bossHealthReady)return;seen=boss;if(boss.__b205||!eligible())return;
+  const k=bossK(+level||0);if(k===1)return;boss.__b205=k;boss.max*=k;boss.hp*=k;if(boss.coreMax){boss.coreMax*=k;boss.coreHp*=k;}for(const p of (boss.parts||[]))if(p.max){p.max*=k;p.hp*=k;}}catch{}},60);
+ return {C,rankM,bossK,grade};
+})();
+window.BAL205X=BAL205X;
 </script><script id="v201-js">'use strict';
 // V201 · SURVIVE_BAL_V200 (Gemini chốt 07/11 từ số đo DO_SONG_SOT_V200): nhân sát thương MỖI ĐÒN địch gây cho người chơi
 //  theo mốc ải chiến dịch, nội suy tuyến tính. Chỉ chế độ Chiến dịch (không Nguyệt Thực / Vô tận / Tháp). Tắt: window.SURV200=false
