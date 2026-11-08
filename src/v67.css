@@ -1,0 +1,91 @@
+/* V67 · bảng VIỄN CHINH (Chương 9 + Nguyệt Thực) */
+html body .ex67 .ex67-card{max-width:400px}
+html body .ex67 .ex67-tabs,html body .ex67 .ex67-chs,html body .pl67 .ex67-tabs{display:flex;gap:6px;margin:10px 0}
+html body .ex67 .ex67-tabs button,html body .ex67 .ex67-chs button,html body .pl67 .ex67-tabs button{flex:1;min-height:36px;border-radius:9px;border:1px solid #3a2a5a;background:#120a20;color:#e6d6ff;font:800 11px sans-serif;letter-spacing:1px}
+html body .ex67 .ex67-tabs button[aria-pressed="true"],html body .pl67 .ex67-tabs button[aria-pressed="true"]{background:linear-gradient(#c77dff,#7b2cbf);color:#fff;border-color:#e0aaff}
+html body .ex67 .ex67-chs button[aria-pressed="true"]{background:linear-gradient(#ff4d6a,#9b1030);color:#fff;border-color:#ffb3c1}
+html body .ex67 .ex67-chs button.lk{opacity:.45}
+html body .ex67 .ex67-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:6px;margin:8px 0}
+html body .ex67 .ex67-grid button{min-height:50px;border-radius:9px;border:1px solid #3d2a63;background:linear-gradient(#1a1030,#0c0718);color:#e9dcff;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;padding:2px}
+html body .ex67 .ex67-grid button b{font:800 13px sans-serif}
+html body .ex67 .ex67-grid button i{font:700 9px sans-serif;font-style:normal;color:#ffd166}
+html body .ex67 .ex67-grid button.mini{border-color:#c77dff}
+html body .ex67 .ex67-grid button.boss{border-color:#ff4d6a;box-shadow:inset 0 0 0 1px #ff4d6a55}
+html body .ex67 .ex67-grid button.ecl{background:linear-gradient(#2a0612,#12040a);border-color:#6a1a2e}
+html body .ex67 .ex67-grid button.done{background:linear-gradient(#24164a,#140c28)}
+html body .ex67 .ex67-grid button:disabled{opacity:.4}
+html body .ex67 .ex67-row{display:flex;gap:6px;align-items:center;flex-wrap:wrap;margin:6px 0;font-size:11px;color:#e6d6ff}
+html body .ex67 .ex67-row button{min-height:30px;padding:0 10px;border-radius:8px;border:1px solid #ff4d6a;background:#2a0612;color:#ffd0d8;font:800 10px sans-serif}
+html body .ex67 .ex67-row button:disabled{opacity:.4}
+html body .ex67 .ex67-dust{font-size:11px;color:#e0aaff;margin:4px 0}
+html body .ex67 .ex67-lock{font-size:12px;color:#ffd0d8;line-height:1.5;background:#1a0812;border:1px dashed #6a1a2e;border-radius:9px;padding:10px}
+html body .ex67 .ex67-badge{width:64px;height:64px;float:right;margin-top:-46px}
+html body #hgr41 [data-ex67].lk67{opacity:.5}
+/* V67 · bảng PHI CÔNG */
+html body .pl67 .pl67-wrap{max-width:420px;max-height:92vh;overflow:auto}
+html body .pl67 .pl67-team{display:flex;gap:8px;justify-content:center;margin:8px 0}
+html body .pl67 .pl67-team button{display:flex;flex-direction:column;align-items:center;gap:2px;background:#0c1d2c;border:1px solid #2f5875;border-radius:12px;padding:6px 8px;color:#cfefff}
+html body .pl67 .pl67-team button.main{border-color:#ffd166;box-shadow:0 0 0 1px #ffd16655}
+html body .pl67 .pl67-team small{font:800 8px sans-serif;letter-spacing:1px}
+html body .pl67 .pl67-ph{display:inline-flex;align-items:center;justify-content:center;border-radius:50%;background:radial-gradient(#1a2a3a,#06111b);border:2px solid var(--c,#2f5875);color:var(--c,#cfefff);font:800 14px sans-serif}
+html body .pl67 .pl67-ph.empty{width:40px;height:40px;color:#5f86a5}
+html body .pl67 .pl67-img{border-radius:50%;object-fit:cover;border:2px solid #2f5875;background:#06111b}
+html body .pl67 .pl67-list{display:grid;grid-template-columns:repeat(4,1fr);gap:6px}
+html body .pl67 .pl67-list button{display:flex;flex-direction:column;align-items:center;gap:2px;background:#0a1622;border:1px solid #23435c;border-radius:10px;padding:6px 2px;color:#cfefff;opacity:.62}
+html body .pl67 .pl67-list button.own{opacity:1}
+html body .pl67 .pl67-list button[aria-pressed="true"]{border-color:var(--c);box-shadow:inset 0 0 0 1px var(--c)}
+html body .pl67 .pl67-list b{font:800 10px sans-serif}html body .pl67 .pl67-list small{font:700 8px sans-serif;color:#8fb6d8}
+html body .pl67 .pl67-card{display:flex;gap:10px;margin-top:10px;padding:10px;border:1px solid var(--c);border-radius:12px;background:#08131f}
+html body .pl67 .pl67-card h4{margin:0 0 4px;font:800 13px sans-serif;color:#fff}html body .pl67 .pl67-card h4 em{font-style:normal;color:var(--c)}
+html body .pl67 .pl67-card p{margin:2px 0;font-size:11px;line-height:1.45;color:#d8ecf7}
+html body .pl67 .pl67-st{color:#ffe08a!important}
+html body .pl67 .pl67-act,html body .pl67 .pl67-node button{margin-top:6px;min-height:34px;padding:0 10px;border-radius:9px;border:1px solid #ffe08a;background:linear-gradient(#3a2a08,#1a1206);color:#ffe08a;font:800 10px sans-serif}
+html body .pl67 .pl67-act:disabled,html body .pl67 .pl67-node button:disabled{opacity:.4}
+html body .pl67 .pl67-note,html body .pl67 .pl67-sum{font-size:10.5px;color:#9fc8e0;margin:4px 0;line-height:1.45}
+html body .pl67 .pl67-msg{font-size:11px;color:#ffb3c1;margin:4px 0}
+html body .pl67 .pl67-tree{display:flex;flex-direction:column;gap:6px}
+html body .pl67 .pl67-node{display:flex;flex-wrap:wrap;align-items:center;gap:4px 8px;padding:8px;border:1px solid #23435c;border-radius:10px;background:#0a1622}
+html body .pl67 .pl67-node b{font:800 11px sans-serif;color:#fff;flex:1 1 100%}html body .pl67 .pl67-node small{font-size:10px;color:#9fc8e0;flex:1}
+html body .pl67 .pl67-node.lk{opacity:.55}html body .pl67 .pl67-node i{font:800 10px sans-serif;color:#59e3a0;font-style:normal}
+/* V67 · TRẠM GIAO DỊCH */
+html body .tr67 .tr67-wrap{max-width:420px;max-height:92vh;overflow:auto}
+html body .tr67 .ex67-tabs{display:flex;gap:6px;margin:10px 0}
+html body .tr67 .ex67-tabs button{flex:1;min-height:36px;border-radius:9px;border:1px solid #5a4a1a;background:#1a1206;color:#ffe9b0;font:800 11px sans-serif;letter-spacing:1px}
+html body .tr67 .ex67-tabs button[aria-pressed="true"]{background:linear-gradient(#ffd166,#c8891a);color:#1a0f00;border-color:#ffe9b0}
+html body .tr67 .tr67-rare{font:800 11px sans-serif;color:#ffd166;text-align:center;border:1px solid #ffd166;border-radius:9px;padding:6px;background:#2a1d05}
+html body .tr67 .tr67-slots{display:flex;flex-direction:column;gap:6px}
+html body .tr67 .tr67-slot{display:flex;flex-wrap:wrap;align-items:center;gap:2px 8px;padding:8px;border:1px solid #3a2f12;border-radius:10px;background:#120d04}
+html body .tr67 .tr67-slot.skin{border-color:#c77dff;background:#140a1e}
+html body .tr67 .tr67-slot b{flex:1 1 100%;font:800 11px sans-serif;color:#fff}html body .tr67 .tr67-slot small{flex:1;font-size:10px;color:#e6d2a0}
+html body .tr67 .tr67-slot button,html body .tr67 .tr67-skin button{min-height:30px;padding:0 10px;border-radius:8px;border:1px solid #ffd166;background:#2a1d05;color:#ffd166;font:800 10px sans-serif}
+html body .tr67 button:disabled{opacity:.4}
+html body .tr67 .tr67-h{margin:10px 0 4px;font:800 10px sans-serif;letter-spacing:2px;color:#9fc8e0}
+html body .tr67 .tr67-skins{display:grid;grid-template-columns:repeat(3,1fr);gap:6px}
+html body .tr67 .tr67-skin{display:flex;flex-direction:column;align-items:center;gap:3px;padding:8px 4px;border:1px solid #23435c;border-radius:10px;background:#0a1622;text-align:center}
+html body .tr67 .tr67-skin i{width:26px;height:26px;border-radius:50%;background:radial-gradient(#fff 0 18%,var(--c) 40%,transparent 72%);box-shadow:0 0 10px var(--c)}
+html body .tr67 .tr67-skin b{font:800 9.5px sans-serif;color:#fff;line-height:1.2}html body .tr67 .tr67-skin small{font:700 8px sans-serif;color:#8fb6d8}
+html body .tr67 .tr67-skin button{font-size:8.5px;padding:0 4px;min-height:26px;width:100%}html body .tr67 .tr67-skin button.on{background:#ffd166;color:#1a0f00}
+/* hàng biểu tượng V67 trong khung chiến cơ (góc trái dưới, trên thanh chỉ số) */
+html body #hgr41 .h1-stage .dk67{position:absolute;left:8px;bottom:96px;display:flex;flex-direction:row;gap:6px;z-index:4}
+html body #hgr41 .h1-stage .nx66{bottom:150px!important}
+html body #hgr41 .dk67 .dk67b{display:flex;flex-direction:column;align-items:center;gap:1px;width:52px;padding:4px 0 3px;border-radius:12px;border:1px solid #4a7fa8;background:linear-gradient(#123150e8,#071526e8);color:#dff4ff;box-shadow:0 0 0 1px #00000066,inset 0 1px 0 #ffffff22}
+html body #hgr41 .dk67 .dk67b i{width:24px;height:24px;display:block}
+html body #hgr41 .dk67 .dk67b svg{width:24px;height:24px;fill:none;stroke:#9fe8ff;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+html body #hgr41 .dk67 [data-ex67] svg{stroke:#e0aaff}html body #hgr41 .dk67 [data-tr67] svg{stroke:#ffd166}
+html body #hgr41 .dk67 .dk67b small{font:800 7.5px/1.1 sans-serif;letter-spacing:.3px;white-space:nowrap}
+html body #hgr41 .dk67 .dk67b.lk67,html body #hgr41 .dk67 .dk67b.lk66{opacity:.45;filter:grayscale(.8)}
+html body #hgr41 .dk67 .dk67b .lk66b{top:-4px;right:-4px}
+.tr67 .tr67-skin .tr67-art{width:56px;height:56px;object-fit:contain;filter:drop-shadow(0 0 6px var(--c))}
+.tr67 .tr67-skin .tr67-art.bom{display:block;width:56px;height:56px;background-size:800% 100%;background-position:28.57% 50%;background-repeat:no-repeat}
+.tr67 .tr67-merchant{float:right;width:84px;height:84px;margin:-6px -4px 0 6px;filter:drop-shadow(0 0 10px #8a5cff88)}
+/* V75 · nấc phi công */
+html body .pl67 .pl75-t{display:inline-block;padding:1px 7px;margin-right:4px;border-radius:6px;border:1px solid var(--tc);color:var(--tc);font:800 10px sans-serif;background:color-mix(in srgb,var(--tc) 18%,#06111b)}
+html body .pl67 .pl75-pips{display:flex;gap:3px;margin:5px 0 2px}
+html body .pl67 .pl75-pips i{flex:1;height:5px;border-radius:2px;background:#1c2b3c;border:1px solid #2e4560}
+html body .pl67 .pl75-pips i.on{background:var(--tc);border-color:var(--tc);box-shadow:0 0 5px var(--tc)}
+html body .pl67 .pl75-up{border-color:#c79bff!important;color:#f0e0ff!important;background:linear-gradient(#3a1f5c,#1c0f30)!important}
+/* V75 · Chợ Đen: quầy kim cương + làm mới */
+html body .tr67 .tr67-slot.gem{border-color:#2e7fb8;background:linear-gradient(#0b2440,#061629)}
+html body .tr67 .tr67-slot.gem b{color:#9fe8ff}
+html body .tr67 .tr67-rf{font-size:11px;color:#cfe3f5;margin:4px 0 8px;display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+html body .tr67 .tr67-rf button{min-height:28px;padding:0 10px;border-radius:8px;border:1px solid #7df9ff;background:#0b2440;color:#bff6ff;font:800 10px sans-serif}

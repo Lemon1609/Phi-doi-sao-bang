@@ -1,0 +1,25 @@
+/* V69-B · Tủ skin */
+html body .sk69 .sk-card{width:min(430px,100%);max-height:92vh;overflow:auto}
+.sk69 h3 small{font-size:13px;color:#ffd56a;margin-left:6px}
+.sk69 .sk-ships{display:flex;gap:5px;flex-wrap:wrap;margin:6px 0 8px}
+.sk69 .sk-ships button{min-width:34px;min-height:30px;font:800 11px 'Neo',sans-serif;color:#cfe3f5;background:#0f2a48;border:1px solid #5fc8ff55;border-radius:6px;cursor:pointer}
+.sk69 .sk-ships button[aria-pressed=true]{color:#2a1400;background:linear-gradient(180deg,#ffe28a,#ffb22c);border-color:#ffe6a0}
+.sk69 .sk-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(118px,1fr));gap:8px}
+.sk69 .sk-it{--sc:#7fd0ff;display:flex;flex-direction:column;align-items:center;gap:3px;padding:6px;background:radial-gradient(circle at 50% 35%,color-mix(in srgb,var(--sc) 22%,#0b1a2c),#08121f 75%);border:1.5px solid color-mix(in srgb,var(--sc) 60%,#1d3550);border-radius:10px}
+.sk69 .sk-it.on{box-shadow:0 0 0 2px #ffd56a,0 0 14px #ffb43a55}
+.sk69 .sk-it.locked canvas{filter:grayscale(.6) brightness(.6)}
+.sk69 .sk-it canvas{width:96px;height:96px}
+.sk69 .sk-it b{font:800 11px 'Be Vietnam Pro',sans-serif;color:#eaf6ff;text-align:center}
+.sk69 .sk-it small{font:600 9.5px 'Be Vietnam Pro',sans-serif;color:#9fc0dc}
+.sk69 .sk-it button{min-width:80px;min-height:30px;font:800 10.5px 'Neo',sans-serif;color:#e6f6ff;background:linear-gradient(180deg,#1d4a78,#0f2a48);border:1px solid #5fc8ff88;border-radius:7px;cursor:pointer}
+.sk69 .sk-it button.hot,.sk69 .sk-spin button.hot{color:#2a1400;background:linear-gradient(180deg,#ffe28a,#ffb22c 55%,#e07a0a);border-color:#ffe6a0}
+.sk69 .sk-it em{font:800 10px 'Neo',sans-serif;font-style:normal;color:#7dff9a;min-height:30px;line-height:30px}
+.sk69 .sk-it em.lk{color:#9fc0dc}
+.sk69 .sk-note{font:500 10px/1.45 'Be Vietnam Pro',sans-serif;color:#9fc0dc;margin:8px 0}
+.sk69 .sk-spin{display:flex;align-items:center;gap:8px;padding:8px 10px;background:linear-gradient(90deg,#2a1a06,#3a2408);border:1px solid #ffb43a77;border-radius:10px}
+.sk69 .sk-spin>div{flex:1;display:flex;flex-direction:column}
+.sk69 .sk-spin b{font:900 12px 'Neo',sans-serif;color:#ffd56a;letter-spacing:1px}
+.sk69 .sk-spin small{font:600 10px 'Be Vietnam Pro',sans-serif;color:#e9d3a8}
+.sk69 .sk-res{font:700 11px 'Be Vietnam Pro',sans-serif;color:#7dff9a;min-height:14px}
+.sk69 .sk-spin button{min-width:86px;min-height:40px;font:900 13px 'Neo',sans-serif;border:0;border-radius:8px;cursor:pointer}
+html body .sk69 .adv-btns .m63-go{flex:1;min-height:42px;font:900 13px 'Neo',sans-serif;color:#2a1400;background:linear-gradient(180deg,#ffe28a,#ffb22c 55%,#e07a0a);border:1px solid #ffe6a0;border-radius:8px;cursor:pointer}

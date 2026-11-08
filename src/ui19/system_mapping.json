@@ -1,0 +1,47 @@
+{
+ "status": "MAPPED_FROM_GAME_SOURCE_V79C",
+ "note_vi": "Hệ ngọc thật trong code: Gems (kinds = GEAR_KINDS) chỉ có 3 hệ theo vị trí lắp, phẩm 5 bậc D·C·B·A·S. Đá khảm (Stone71) là hệ khác, giữ icon riêng.",
+ "evidence": "const Gems=(()=>{const KEY='saobang-gems-v1',grades=['D','C','B','A','S'],kinds=GEAR_KINDS; ... colors={D:'#9eacb8',C:'#79dba3',B:'#75baff',A:'#ce99ff',S:'#ffd577'}; GEAR_KINDS=['armor','missiles','sidearm']; names[k]='Ngọc '+Arsenal[k].name",
+ "rarities": {
+  "D": "white",
+  "C": "green",
+  "B": "blue",
+  "A": "purple",
+  "S": "orange"
+ },
+ "systems": [
+  {
+   "visual_family": "s04",
+   "game_system_id": "armor",
+   "display_name_vi": "Ngọc Hộ Giáp",
+   "effect": "+Giáp theo bậc (0,2 / 0,35 / 0,6 / 0,9 / 1,3)",
+   "slot": "Giáp"
+  },
+  {
+   "visual_family": "s01",
+   "game_system_id": "missiles",
+   "display_name_vi": "Ngọc Tên lửa",
+   "effect": "+% sát thương tên lửa theo bậc (0,25…2)",
+   "slot": "Tên lửa"
+  },
+  {
+   "visual_family": "s05",
+   "game_system_id": "sidearm",
+   "display_name_vi": "Ngọc Vũ khí phụ",
+   "effect": "+% sát thương vũ khí phụ theo bậc (0,25…2)",
+   "slot": "Vũ khí phụ"
+  },
+  {
+   "visual_family": "s02",
+   "game_system_id": null,
+   "display_name_vi": null,
+   "effect": "Chưa dùng — game không có hệ thứ 4"
+  },
+  {
+   "visual_family": "s03",
+   "game_system_id": null,
+   "display_name_vi": null,
+   "effect": "Chưa dùng — game không có hệ thứ 5"
+  }
+ ]
+}

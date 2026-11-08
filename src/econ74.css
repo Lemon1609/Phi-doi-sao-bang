@@ -1,0 +1,35 @@
+/* V74 · kinh tế: kim cương, vòng quay, phó bản giới hạn */
+.e74p{position:fixed;inset:0;z-index:2147483150;display:flex;align-items:center;justify-content:center;padding:14px;box-sizing:border-box;background:#020a1ce6}
+.e74p[hidden]{display:none!important}
+.e74p *{letter-spacing:0}
+.e74c{position:relative;width:min(420px,100%);max-height:92vh;overflow-y:auto;box-sizing:border-box;padding:14px 14px 16px;border:22px solid transparent;border-image:var(--u15-panel,none) 96 fill / 22px stretch;background:#0b2350f2;color:#fff;font-family:'Be Vietnam Pro',sans-serif}
+.e74h{text-align:center;position:relative}
+.e74h small{display:block;font:800 11px 'Neo',sans-serif;color:#7fdcff;letter-spacing:2px}
+.e74h b{display:block;font:900 21px 'Neo',sans-serif;color:#ffd166;text-shadow:0 0 12px #ffb02a88,0 2px 0 #5a2a00}
+html body .e74x{position:absolute!important;right:-6px;top:-2px;width:32px;height:32px;min-height:0!important;padding:0!important;border-radius:50%!important;background:#c8283a!important;border:2px solid #fff!important;color:#fff!important;font:900 14px sans-serif!important;box-shadow:none!important;clip-path:none!important}
+.e74gem{margin:8px 0 6px;text-align:center;font-size:12px;color:#cfe3f5}.e74gem b{color:#7df9ff}
+.e74note{font-size:11.5px;color:#9fc0dc;line-height:1.45;margin:8px 2px}
+.w74wrap{position:relative;width:280px;height:280px;margin:10px auto 6px}
+.w74ptr{position:absolute;left:50%;top:-14px;transform:translateX(-50%);z-index:3;font-size:26px;color:#ffd166;text-shadow:0 0 8px #ffb02a,0 2px 0 #5a2a00}
+.w74wheel{position:absolute;inset:0;border-radius:50%;border:6px solid #ffd166;box-shadow:0 0 0 3px #5a2a00,0 0 26px #ff9a2a88,inset 0 0 30px #0008}
+.w74wheel span{position:absolute;left:50%;top:50%;width:48px;margin:-22px 0 0 -24px;display:flex;flex-direction:column;align-items:center;pointer-events:none}
+.w74wheel span i{font-style:normal;font-size:20px;filter:drop-shadow(0 1px 2px #000)}
+.w74wheel span small{font:900 11px 'Neo',sans-serif;color:#fff;text-shadow:0 1px 2px #000}
+.w74hub{position:absolute;left:50%;top:50%;width:64px;height:64px;margin:-32px 0 0 -32px;border-radius:50%;display:grid;place-items:center;font:900 12px 'Neo',sans-serif;color:#5a2a00;background:radial-gradient(circle at 40% 35%,#fff3c4,#ffb703 60%,#a85a00);border:3px solid #fff2b0;box-shadow:0 0 12px #ffb02a}
+.w74pity{text-align:center;font-size:11px;color:#bcd6ee}.w74pity b{color:#ffd166}
+.w74res{min-height:0;display:flex;flex-wrap:wrap;gap:5px;justify-content:center;margin:8px 0}
+.w74res span{padding:4px 10px;border-radius:12px;background:#ffd16622;border:1px solid #ffd166;font:800 11.5px sans-serif;color:#fff;animation:c74pop .4s ease-out backwards}
+.w74btns{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:6px}
+html body .e74go{min-height:50px;background:none!important;border:12px solid transparent!important;border-image:var(--u15-gold) 40 52 40 52 fill / 12px 16px stretch!important;color:#2a1400!important;font:900 13px 'Neo',sans-serif!important;text-shadow:0 1px 0 #ffe9a8!important;box-shadow:none!important;clip-path:none!important;padding:0!important}
+html body .e74go.b{border-image-source:var(--u15-blue)!important;color:#fff!important;text-shadow:0 1px 2px #001a33!important}
+.w74btns:has(> :only-child){grid-template-columns:1fr}
+html body .l74t.weak{filter:saturate(.6) brightness(.8)}
+html body .l74t>i{font:900 22px 'Neo',sans-serif!important}
+#l74timer{position:fixed;left:50%;top:calc(env(safe-area-inset-top,0px) + 54px);transform:translateX(-50%);z-index:2147483000;padding:6px 16px;border-radius:16px;background:#0b2350e6;border:2px solid #ffd166;font:900 18px 'Neo',sans-serif;color:#ffd166;text-shadow:0 0 8px #ffb02a;pointer-events:none}
+#l74timer[hidden]{display:none}#l74timer.hot{color:#ff5d6d;border-color:#ff5d6d;animation:u72p .6s ease-in-out infinite}
+html body #hgr41 .h1-power .gem74{margin-top:2px;font:800 11px 'Neo',sans-serif;color:#cfefff}html body #hgr41 .h1-power .gem74 b{color:#7df9ff}
+html body #hgr41 .n74rib.lk{filter:grayscale(.8) brightness(.7)}
+html body #hgr41 .h1-power .gem74,html body #hgr41 .h1-power .gem74 b{font:800 11px/1.2 'Neo',sans-serif!important;letter-spacing:0!important;display:inline!important;-webkit-text-fill-color:currentColor!important;background:none!important}html body #hgr41 .h1-power .gem74{display:block!important;margin-top:3px}
+/* V75 QA: máy hẹp (≤380px) — vòng quay thu nhỏ để không lẹm chữ, nút ✕ không đè tiêu đề */
+.e74h b{padding:0 30px}
+@media (max-width:380px){.w74wrap{zoom:.86}.e74c{padding-left:10px!important;padding-right:10px!important}}

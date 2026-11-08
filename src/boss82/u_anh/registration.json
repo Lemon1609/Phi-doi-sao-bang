@@ -1,0 +1,77 @@
+[
+  {
+    "file": "phase1.png",
+    "source_axis": 626.5,
+    "source_hull_top": 22.0,
+    "source_hull_bottom": 1216.0,
+    "uniform_scale": 0.4815745393634841,
+    "pivot": [
+      383.5,
+      383.5
+    ],
+    "hull_rear": [
+      383.5,
+      96.0
+    ],
+    "hull_prow": [
+      383.5,
+      671.0
+    ],
+    "bbox": [
+      145,
+      96,
+      624,
+      672
+    ]
+  },
+  {
+    "file": "phase2.png",
+    "source_axis": 626.5,
+    "source_hull_top": 22.0,
+    "source_hull_bottom": 1216.0,
+    "uniform_scale": 0.4815745393634841,
+    "pivot": [
+      383.5,
+      383.5
+    ],
+    "hull_rear": [
+      383.5,
+      96.0
+    ],
+    "hull_prow": [
+      383.5,
+      671.0
+    ],
+    "bbox": [
+      143,
+      96,
+      625,
+      672
+    ]
+  },
+  {
+    "file": "phase3.png",
+    "source_axis": 626.5,
+    "source_hull_top": 14.0,
+    "source_hull_bottom": 1216.0,
+    "uniform_scale": 0.478369384359401,
+    "pivot": [
+      383.5,
+      383.5
+    ],
+    "hull_rear": [
+      383.5,
+      96.0
+    ],
+    "hull_prow": [
+      383.5,
+      671.0
+    ],
+    "bbox": [
+      145,
+      96,
+      623,
+      672
+    ]
+  }
+]

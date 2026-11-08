@@ -1,0 +1,40 @@
+/* V68-A · HUD trận đấu gọn */
+#fq68{position:absolute;left:0;right:0;bottom:31%;z-index:7;display:flex;flex-direction:column;align-items:center;gap:4px;pointer-events:none}
+#fq68 .fq68{font:800 12.5px/1.15 'Neo','Be Vietnam Pro',sans-serif;letter-spacing:.8px;color:#dffbff;padding:4px 12px;max-width:82%;text-align:center;
+ background:linear-gradient(90deg,rgba(4,16,34,0),rgba(4,16,34,.78) 18%,rgba(4,16,34,.78) 82%,rgba(4,16,34,0));text-shadow:0 0 8px rgba(63,230,255,.75),0 1px 2px #000;
+ animation:fq68 1.7s ease-out forwards}
+#fq68 .fq68.up{color:#ffe27a;text-shadow:0 0 9px rgba(255,190,60,.85),0 1px 2px #000}
+#fq68 .fq68.sh{color:#9fe8ff}
+#fq68 .fq68.wn{color:#ffb3bd;text-shadow:0 0 9px rgba(255,50,70,.85),0 1px 2px #000}
+@keyframes fq68{0%{opacity:0;transform:translateY(10px) scale(.92)}12%{opacity:1;transform:translateY(0) scale(1.04)}22%{transform:scale(1)}78%{opacity:1}100%{opacity:0;transform:translateY(-14px)}}
+@media(prefers-reduced-motion:reduce){#fq68 .fq68{animation-name:fq68r}@keyframes fq68r{0%,85%{opacity:1}100%{opacity:0}}}
+body.play-screen #toast{display:none!important}
+/* HUD trên: 1 dòng */
+#tele07{flex-direction:row!important;align-items:stretch!important;gap:5px!important;top:7px!important}
+#tele07 .t7-row:first-child{flex-direction:column;gap:3px;justify-content:center;padding:4px 7px;background:rgba(4,14,28,.62);border:1px solid rgba(86,206,255,.25);clip-path:polygon(4px 0,100% 0,100% calc(100% - 4px),calc(100% - 4px) 100%,0 100%,0 4px)}
+#tele07 .t7-row:first-child>span{background:none!important;border:0!important;padding:0!important;clip-path:none!important;gap:5px}
+#tele07 .t7-row:first-child b{font-size:9px;width:9px;text-align:center}
+#tele07 .t7-hp i,#tele07 .t7-sh i{width:104px!important;height:5px!important;border-radius:1px}
+#tele07 .t7-sh i{height:4px!important}
+#tele07 small{display:none!important}
+#tele07 .t7-hp.low small{display:inline!important;color:#ffb0b8;min-width:0}
+#tele07 .t7-sh small:not(:empty){}
+#tele07 .t7-row:last-child>span{padding:3px 6px}
+#tele07 .t7-sc{display:none!important}
+#tele07 .t7-cp{font-size:9px}
+/* màn thua */
+#rs .fx68{margin:10px 6px 2px;padding:10px 12px;border:1px solid #ff6b7a66;background:linear-gradient(180deg,rgba(50,8,18,.82),rgba(14,6,16,.86));clip-path:polygon(8px 0,100% 0,100% calc(100% - 8px),calc(100% - 8px) 100%,0 100%,0 8px);text-align:center}
+#rs .fx68-t{font:900 13px 'Neo','Be Vietnam Pro',sans-serif;letter-spacing:2px;color:#ff8f9c}
+#rs .fx68-bar{height:6px;margin:7px 10px 2px;background:#ffffff18;overflow:hidden}
+#rs .fx68-bar i{display:block;height:100%;background:linear-gradient(90deg,#ff3a4e,#ffcf5a)}
+#rs .fx68 p{margin:7px 0 9px;font:600 11.5px/1.45 'Be Vietnam Pro',sans-serif;color:#f3dfe4}
+#rs .fx68 p b{color:#ffd56a}
+#rs .fx68-b{display:flex;gap:6px;justify-content:center;flex-wrap:wrap}
+#rs .fx68-b button{flex:1 1 0;min-width:92px;min-height:40px;font:800 11.5px 'Neo','Be Vietnam Pro',sans-serif;letter-spacing:1px;color:#e6f6ff;background:linear-gradient(180deg,#1d4a78,#0f2a48);border:1px solid #5fc8ff88;cursor:pointer;clip-path:polygon(6px 0,100% 0,100% calc(100% - 6px),calc(100% - 6px) 100%,0 100%,0 6px)}
+#rs .fx68-b button.hot{color:#2a1400;background:linear-gradient(180deg,#ffe28a,#ffb22c 55%,#e07a0a);border-color:#ffe6a0}
+#tele07 .t7-row>span{white-space:nowrap}
+#tele07 .t7-gz i{width:28px!important}
+#tele07 .t7-row:last-child{flex-wrap:nowrap}
+#tele07{position:absolute}
+#tele07 .t7-row:last-child{position:relative}
+#tele07 .t7-cp{position:absolute;left:0;top:calc(100% + 4px)}

@@ -1,0 +1,356 @@
+{
+  "coordinates": "xywh pixel edges; transparent margins retained",
+  "frames": {
+    "sword_normal": {
+      "image": "proj_set6_8.webp",
+      "rect": [
+        0,
+        0,
+        64,
+        64
+      ]
+    },
+    "sword_super": {
+      "image": "proj_set6_8.webp",
+      "rect": [
+        0,
+        64,
+        64,
+        64
+      ]
+    },
+    "drill_normal": {
+      "image": "proj_set6_8.webp",
+      "rect": [
+        64,
+        0,
+        64,
+        64
+      ]
+    },
+    "drill_super": {
+      "image": "proj_set6_8.webp",
+      "rect": [
+        64,
+        64,
+        64,
+        64
+      ]
+    },
+    "torpedo_normal": {
+      "image": "proj_set6_8.webp",
+      "rect": [
+        128,
+        0,
+        64,
+        64
+      ]
+    },
+    "torpedo_super": {
+      "image": "proj_set6_8.webp",
+      "rect": [
+        128,
+        64,
+        64,
+        64
+      ]
+    },
+    "chakram_normal": {
+      "image": "proj_set6_8.webp",
+      "rect": [
+        192,
+        0,
+        64,
+        64
+      ]
+    },
+    "chakram_super": {
+      "image": "proj_set6_8.webp",
+      "rect": [
+        192,
+        64,
+        64,
+        64
+      ]
+    },
+    "ship11": {
+      "image": "ship11.webp",
+      "rect": [
+        0,
+        0,
+        192,
+        192
+      ],
+      "source": "craft81/11/q1.png",
+      "pivot": [
+        95.5,
+        95.5
+      ]
+    },
+    "ship11_super": {
+      "image": "ship11_super.webp",
+      "rect": [
+        0,
+        0,
+        192,
+        192
+      ],
+      "source": "craft81/11/q1_super.png",
+      "pivot": [
+        95.5,
+        95.5
+      ]
+    },
+    "ship12": {
+      "image": "ship12.webp",
+      "rect": [
+        0,
+        0,
+        192,
+        192
+      ],
+      "source": "craft81/12/q1.png",
+      "pivot": [
+        95.5,
+        95.5
+      ]
+    },
+    "ship12_super": {
+      "image": "ship12_super.webp",
+      "rect": [
+        0,
+        0,
+        192,
+        192
+      ],
+      "source": "craft81/12/q1_super.png",
+      "pivot": [
+        95.5,
+        95.5
+      ]
+    },
+    "ship13": {
+      "image": "ship13.webp",
+      "rect": [
+        0,
+        0,
+        192,
+        192
+      ],
+      "source": "craft81/13/q1.png",
+      "pivot": [
+        95.5,
+        95.5
+      ]
+    },
+    "ship13_super": {
+      "image": "ship13_super.webp",
+      "rect": [
+        0,
+        0,
+        192,
+        192
+      ],
+      "source": "craft81/13/q1_super.png",
+      "pivot": [
+        95.5,
+        95.5
+      ]
+    },
+    "ship11_L0": {
+      "image": "bullet_ship11_13.webp",
+      "rect": [
+        0,
+        0,
+        96,
+        128
+      ]
+    },
+    "ship11_L2": {
+      "image": "bullet_ship11_13.webp",
+      "rect": [
+        96,
+        0,
+        96,
+        128
+      ]
+    },
+    "ship11_L4": {
+      "image": "bullet_ship11_13.webp",
+      "rect": [
+        192,
+        0,
+        96,
+        128
+      ]
+    },
+    "ship12_L0": {
+      "image": "bullet_ship11_13.webp",
+      "rect": [
+        0,
+        128,
+        96,
+        128
+      ]
+    },
+    "ship12_L2": {
+      "image": "bullet_ship11_13.webp",
+      "rect": [
+        96,
+        128,
+        96,
+        128
+      ]
+    },
+    "ship12_L4": {
+      "image": "bullet_ship11_13.webp",
+      "rect": [
+        192,
+        128,
+        96,
+        128
+      ]
+    },
+    "ship13_L0": {
+      "image": "bullet_ship11_13.webp",
+      "rect": [
+        0,
+        256,
+        96,
+        128
+      ]
+    },
+    "ship13_L2": {
+      "image": "bullet_ship11_13.webp",
+      "rect": [
+        96,
+        256,
+        96,
+        128
+      ]
+    },
+    "ship13_L4": {
+      "image": "bullet_ship11_13.webp",
+      "rect": [
+        192,
+        256,
+        96,
+        128
+      ]
+    },
+    "devour10_m_shell_idle_evo1": {
+      "image": "gear_set10.webp",
+      "rect": [
+        0,
+        0,
+        96,
+        96
+      ]
+    },
+    "devour10_m_shell_idle_evo2": {
+      "image": "gear_set10.webp",
+      "rect": [
+        96,
+        0,
+        96,
+        96
+      ]
+    },
+    "devour10_s_shell_idle_evo1": {
+      "image": "gear_set10.webp",
+      "rect": [
+        192,
+        0,
+        96,
+        96
+      ]
+    },
+    "devour10_s_shell_idle_evo2": {
+      "image": "gear_set10.webp",
+      "rect": [
+        288,
+        0,
+        96,
+        96
+      ]
+    },
+    "chrono11_m_shell_idle_evo1": {
+      "image": "gear_set11.webp",
+      "rect": [
+        0,
+        0,
+        96,
+        96
+      ]
+    },
+    "chrono11_m_shell_idle_evo2": {
+      "image": "gear_set11.webp",
+      "rect": [
+        96,
+        0,
+        96,
+        96
+      ]
+    },
+    "chrono11_s_shell_idle_evo1": {
+      "image": "gear_set11.webp",
+      "rect": [
+        192,
+        0,
+        96,
+        96
+      ]
+    },
+    "chrono11_s_shell_idle_evo2": {
+      "image": "gear_set11.webp",
+      "rect": [
+        288,
+        0,
+        96,
+        96
+      ]
+    },
+    "monarch12_m_shell_idle_evo1": {
+      "image": "gear_set12.webp",
+      "rect": [
+        0,
+        0,
+        96,
+        96
+      ]
+    },
+    "monarch12_m_shell_idle_evo2": {
+      "image": "gear_set12.webp",
+      "rect": [
+        96,
+        0,
+        96,
+        96
+      ]
+    },
+    "monarch12_s_shell_idle_evo1": {
+      "image": "gear_set12.webp",
+      "rect": [
+        192,
+        0,
+        96,
+        96
+      ]
+    },
+    "monarch12_s_shell_idle_evo2": {
+      "image": "gear_set12.webp",
+      "rect": [
+        288,
+        0,
+        96,
+        96
+      ]
+    }
+  },
+  "notes": [
+    "ship*_super are separate static192x192files, not animation.",
+    "bullet rows:11/12/13; columns:L0/L2/L4.",
+    "gear_set: missile normal/super, sidearm normal/super.",
+    "proj_set: columns sword/drill/torpedo/chakram; rows normal/super."
+  ]
+}

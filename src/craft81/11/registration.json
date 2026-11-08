@@ -1,0 +1,152 @@
+[
+  {
+    "file": "q1.png",
+    "pivot": [
+      249.5,
+      249.5
+    ],
+    "hull_prow": [
+      249.5,
+      49.5
+    ],
+    "hull_rear": [
+      249.5,
+      449.5
+    ],
+    "bbox": [
+      107,
+      49,
+      393,
+      450
+    ],
+    "uniform_scale": 0.3415883859948762,
+    "source_axis": 626.5,
+    "source_hull_top": 35.0,
+    "source_hull_bottom": 1206.0
+  },
+  {
+    "file": "q1_super.png",
+    "pivot": [
+      249.5,
+      249.5
+    ],
+    "hull_prow": [
+      249.5,
+      49.5
+    ],
+    "hull_rear": [
+      249.5,
+      449.5
+    ],
+    "bbox": [
+      99,
+      49,
+      400,
+      450
+    ],
+    "uniform_scale": 0.3284072249589491,
+    "source_axis": 627.5,
+    "source_hull_top": 8.0,
+    "source_hull_bottom": 1226.0
+  },
+  {
+    "file": "q5.png",
+    "pivot": [
+      249.5,
+      249.5
+    ],
+    "hull_prow": [
+      249.5,
+      49.5
+    ],
+    "hull_rear": [
+      249.5,
+      449.5
+    ],
+    "bbox": [
+      107,
+      49,
+      393,
+      451
+    ],
+    "uniform_scale": 0.33755274261603374,
+    "source_axis": 626.5,
+    "source_hull_top": 30.0,
+    "source_hull_bottom": 1215.0
+  },
+  {
+    "file": "q5_super.png",
+    "pivot": [
+      249.5,
+      249.5
+    ],
+    "hull_prow": [
+      249.5,
+      49.5
+    ],
+    "hull_rear": [
+      249.5,
+      449.5
+    ],
+    "bbox": [
+      91,
+      50,
+      409,
+      451
+    ],
+    "uniform_scale": 0.33195020746887965,
+    "source_axis": 626.5,
+    "source_hull_top": 21.0,
+    "source_hull_bottom": 1226.0
+  },
+  {
+    "file": "evo1.png",
+    "pivot": [
+      249.5,
+      249.5
+    ],
+    "hull_prow": [
+      249.5,
+      49.5
+    ],
+    "hull_rear": [
+      249.5,
+      449.5
+    ],
+    "bbox": [
+      107,
+      50,
+      393,
+      450
+    ],
+    "uniform_scale": 0.3352891869237217,
+    "source_axis": 626.5,
+    "source_hull_top": 26.0,
+    "source_hull_bottom": 1219.0
+  },
+  {
+    "file": "evo2.png",
+    "pivot": [
+      249.5,
+      249.5
+    ],
+    "hull_prow": [
+      249.5,
+      49.5
+    ],
+    "hull_rear": [
+      249.5,
+      449.5
+    ],
+    "bbox": [
+      93,
+      50,
+      407,
+      450
+    ],
+    "uniform_scale": 0.3341687552213868,
+    "source_axis": 627.5,
+    "source_hull_top": 22.0,
+    "source_hull_bottom": 1219.0
+  }
+]

@@ -1,0 +1,1900 @@
+{
+  "version": "V85",
+  "date": "2026-10-25",
+  "status": "complete",
+  "requested_now": 76,
+  "completed_count": 76,
+  "counts": {
+    "armor": 14,
+    "missile": 14,
+    "aux": 14,
+    "boss": 9,
+    "portrait": 3,
+    "skin": 6,
+    "ebullet": 16
+  },
+  "completed": [
+    {
+      "file": "gear85/forge_armor/forge_armor_armor_shell_idle_evo1.png",
+      "kind": "armor",
+      "width": 384,
+      "height": 384,
+      "pivot": [
+        191.5,
+        191.5
+      ],
+      "bytes": 140552,
+      "sha256": "73d669056456cdb11d289809d67afa269f16bd526546d1f2a4d2e8804005c069",
+      "set": 6,
+      "evo": 1,
+      "alpha_bbox": [
+        16,
+        18,
+        368,
+        365
+      ],
+      "transparent_center_radius_px": 93.5,
+      "alpha_inside_radius_90_max": 0
+    },
+    {
+      "file": "gear85/forge_armor/forge_armor_armor_shell_idle_evo2.png",
+      "kind": "armor",
+      "width": 384,
+      "height": 384,
+      "pivot": [
+        191.5,
+        191.5
+      ],
+      "bytes": 193635,
+      "sha256": "95a34bab015572a349291b65336b5dbf19f567ac5a30b8906b7078c76bd9e3ba",
+      "set": 6,
+      "evo": 2,
+      "alpha_bbox": [
+        4,
+        6,
+        380,
+        378
+      ],
+      "transparent_center_radius_px": 94.5,
+      "alpha_inside_radius_90_max": 0
+    },
+    {
+      "file": "gear85/forge_missile/forge_missile_missile_pod_evo1.png",
+      "kind": "missile",
+      "width": 256,
+      "height": 256,
+      "pivot": [
+        127.5,
+        127.5
+      ],
+      "bytes": 37949,
+      "sha256": "c0100b82373b9f81e9ec6c3be2b805eca70cb7931331a4daffae7ba3db2468c3",
+      "set": 6,
+      "evo": 1,
+      "alpha_bbox": [
+        86,
+        20,
+        169,
+        236
+      ],
+      "transparent_center_radius_px": 0.71
+    },
+    {
+      "file": "gear85/forge_missile/forge_missile_missile_pod_evo2.png",
+      "kind": "missile",
+      "width": 256,
+      "height": 256,
+      "pivot": [
+        127.5,
+        127.5
+      ],
+      "bytes": 48056,
+      "sha256": "f6a2300efba8944c2db8664b62d7c2d7c25c40d60a255a8cf0e8914f080d123f",
+      "set": 6,
+      "evo": 2,
+      "alpha_bbox": [
+        79,
+        12,
+        176,
+        244
+      ],
+      "transparent_center_radius_px": 0.71
+    },
+    {
+      "file": "gear85/forge_aux/forge_aux_aux_pod_evo1.png",
+      "kind": "aux",
+      "width": 256,
+      "height": 256,
+      "pivot": [
+        127.5,
+        127.5
+      ],
+      "bytes": 53741,
+      "sha256": "19c18d23736c3cfa18bdcb3298d6802f4550ec19a9390405ae4bfffe6491f4dc",
+      "set": 6,
+      "evo": 1,
+      "alpha_bbox": [
+        20,
+        44,
+        236,
+        211
+      ],
+      "transparent_center_radius_px": 0.71
+    },
+    {
+      "file": "gear85/forge_aux/forge_aux_aux_pod_evo2.png",
+      "kind": "aux",
+      "width": 256,
+      "height": 256,
+      "pivot": [
+        127.5,
+        127.5
+      ],
+      "bytes": 70117,
+      "sha256": "7c686d5891cf7005882a8ec6957236d0bcdf2efb7d16c5f0d9b7bdc755fa81ef",
+      "set": 6,
+      "evo": 2,
+      "alpha_bbox": [
+        12,
+        36,
+        244,
+        220
+      ],
+      "transparent_center_radius_px": 0.71
+    },
+    {
+      "file": "gear85/void_armor/void_armor_armor_shell_idle_evo1.png",
+      "kind": "armor",
+      "width": 384,
+      "height": 384,
+      "pivot": [
+        191.5,
+        191.5
+      ],
+      "bytes": 109184,
+      "sha256": "708f9b7f0272dbaa29ab5b3a757c01ce6ebc7ae0d555ea61b004492db8ff3198",
+      "set": 7,
+      "evo": 1,
+      "alpha_bbox": [
+        16,
+        18,
+        368,
+        366
+      ],
+      "transparent_center_radius_px": 96.56,
+      "alpha_inside_radius_90_max": 0
+    },
+    {
+      "file": "gear85/void_armor/void_armor_armor_shell_idle_evo2.png",
+      "kind": "armor",
+      "width": 384,
+      "height": 384,
+      "pivot": [
+        191.5,
+        191.5
+      ],
+      "bytes": 157195,
+      "sha256": "e615b5d3ad500e07dfff275ba91fc72613fbdb49b73acdaa9ad645d972bdb45a",
+      "set": 7,
+      "evo": 2,
+      "alpha_bbox": [
+        4,
+        6,
+        380,
+        377
+      ],
+      "transparent_center_radius_px": 102.6,
+      "alpha_inside_radius_90_max": 0
+    },
+    {
+      "file": "gear85/void_missile/void_missile_missile_pod_evo1.png",
+      "kind": "missile",
+      "width": 256,
+      "height": 256,
+      "pivot": [
+        127.5,
+        127.5
+      ],
+      "bytes": 33624,
+      "sha256": "0802fd48084fbbf9fab666da6538d26985acca6d13f80b0ff54e93f2c2685da9",
+      "set": 7,
+      "evo": 1,
+      "alpha_bbox": [
+        90,
+        20,
+        166,
+        236
+      ],
+      "transparent_center_radius_px": 0.71
+    },
+    {
+      "file": "gear85/void_missile/void_missile_missile_pod_evo2.png",
+      "kind": "missile",
+      "width": 256,
+      "height": 256,
+      "pivot": [
+        127.5,
+        127.5
+      ],
+      "bytes": 45390,
+      "sha256": "2db368a8b201609dcdab5adca4571295d1b49279540dc8e0bec396649b51b980",
+      "set": 7,
+      "evo": 2,
+      "alpha_bbox": [
+        82,
+        12,
+        173,
+        244
+      ],
+      "transparent_center_radius_px": 0.71
+    },
+    {
+      "file": "gear85/void_aux/void_aux_aux_pod_evo1.png",
+      "kind": "aux",
+      "width": 256,
+      "height": 256,
+      "pivot": [
+        127.5,
+        127.5
+      ],
+      "bytes": 50175,
+      "sha256": "c8c97117be37fcd1446a1432faf1182e344691748f132ae2319d2aaaf9b528d4",
+      "set": 7,
+      "evo": 1,
+      "alpha_bbox": [
+        20,
+        29,
+        236,
+        226
+      ],
+      "transparent_center_radius_px": 0.71
+    },
+    {
+      "file": "gear85/void_aux/void_aux_aux_pod_evo2.png",
+      "kind": "aux",
+      "width": 256,
+      "height": 256,
+      "pivot": [
+        127.5,
+        127.5
+      ],
+      "bytes": 65107,
+      "sha256": "c952e9fa3fd0a4a6c26b865a7aae6ff835a83fe967d7beaa3e551ca7c1340a76",
+      "set": 7,
+      "evo": 2,
+      "alpha_bbox": [
+        12,
+        22,
+        244,
+        233
+      ],
+      "transparent_center_radius_px": 0.71
+    },
+    {
+      "file": "gear85/dawn_armor/dawn_armor_armor_shell_idle_evo1.png",
+      "kind": "armor",
+      "width": 384,
+      "height": 384,
+      "pivot": [
+        191.5,
+        191.5
+      ],
+      "bytes": 137380,
+      "sha256": "1ee71a3bf2ef4eae1d4b2092507ab9f2d28028851fd129de05a6af4a13f903bc",
+      "set": 8,
+      "evo": 1,
+      "alpha_bbox": [
+        16,
+        16,
+        368,
+        367
+      ],
+      "transparent_center_radius_px": 99.5,
+      "alpha_inside_radius_90_max": 0
+    },
+    {
+      "file": "gear85/dawn_armor/dawn_armor_armor_shell_idle_evo2.png",
+      "kind": "armor",
+      "width": 384,
+      "height": 384,
+      "pivot": [
+        191.5,
+        191.5
+      ],
+      "bytes": 188621,
+      "sha256": "97563139941de549eed7f2580686ea1c8b6a73fc006c5db8808da35c222fbb6e",
+      "set": 8,
+      "evo": 2,
+      "alpha_bbox": [
+        4,
+        7,
+        380,
+        377
+      ],
+      "transparent_center_radius_px": 101.5,
+      "alpha_inside_radius_90_max": 0
+    },
+    {
+      "file": "gear85/dawn_missile/dawn_missile_missile_pod_evo1.png",
+      "kind": "missile",
+      "width": 256,
+      "height": 256,
+      "pivot": [
+        127.5,
+        127.5
+      ],
+      "bytes": 38615,
+      "sha256": "c42be24afa8b6d10cef8cac9c85532f3ddd3b59010d729c620c2fa34e241021d",
+      "set": 8,
+      "evo": 1,
+      "alpha_bbox": [
+        80,
+        20,
+        176,
+        236
+      ],
+      "transparent_center_radius_px": 0.71
+    },
+    {
+      "file": "gear85/dawn_missile/dawn_missile_missile_pod_evo2.png",
+      "kind": "missile",
+      "width": 256,
+      "height": 256,
+      "pivot": [
+        127.5,
+        127.5
+      ],
+      "bytes": 48590,
+      "sha256": "ff8c61f7a35f9af085b5ad5dd9f8844ce43289c0e8f7e7252ce6dc2f221d8822",
+      "set": 8,
+      "evo": 2,
+      "alpha_bbox": [
+        69,
+        12,
+        186,
+        244
+      ],
+      "transparent_center_radius_px": 0.71
+    },
+    {
+      "file": "gear85/dawn_aux/dawn_aux_aux_pod_evo1.png",
+      "kind": "aux",
+      "width": 256,
+      "height": 256,
+      "pivot": [
+        127.5,
+        127.5
+      ],
+      "bytes": 63455,
+      "sha256": "00e9aff8b71a393d0831d3d3bf7617e060a8ced221fedb1893a8787dc504f937",
+      "set": 8,
+      "evo": 1,
+      "alpha_bbox": [
+        38,
+        20,
+        217,
+        236
+      ],
+      "transparent_center_radius_px": 0.71
+    },
+    {
+      "file": "gear85/dawn_aux/dawn_aux_aux_pod_evo2.png",
+      "kind": "aux",
+      "width": 256,
+      "height": 256,
+      "pivot": [
+        127.5,
+        127.5
+      ],
+      "bytes": 90117,
+      "sha256": "ab7ebb24852a2dfbc16ce5e5ed2486c3a9fadc68c787ba0dbaed87cc63ecbff1",
+      "set": 8,
+      "evo": 2,
+      "alpha_bbox": [
+        14,
+        12,
+        242,
+        244
+      ],
+      "transparent_center_radius_px": 0.71
+    },
+    {
+      "file": "gear85/fleet_armor/fleet_armor_armor_shell_idle_evo1.png",
+      "kind": "armor",
+      "width": 384,
+      "height": 384,
+      "pivot": [
+        191.5,
+        191.5
+      ],
+      "bytes": 118318,
+      "sha256": "8bd1af8cdd3d0e675e40bb90dcaa6a6419f9b3365ec8b515d9ae447292d1d7d1",
+      "set": 9,
+      "evo": 1,
+      "alpha_bbox": [
+        16,
+        16,
+        368,
+        367
+      ],
+      "transparent_center_radius_px": 111.5,
+      "alpha_inside_radius_90_max": 0
+    },
+    {
+      "file": "gear85/fleet_armor/fleet_armor_armor_shell_idle_evo2.png",
+      "kind": "armor",
+      "width": 384,
+      "height": 384,
+      "pivot": [
+        191.5,
+        191.5
+      ],
+      "bytes": 172241,
+      "sha256": "eaf07e592672b0848073854fc1a8699a42dfc26d87259fb86e9990263bd55a6e",
+      "set": 9,
+      "evo": 2,
+      "alpha_bbox": [
+        4,
+        6,
+        380,
+        377
+      ],
+      "transparent_center_radius_px": 104.5,
+      "alpha_inside_radius_90_max": 0
+    },
+    {
+      "file": "gear85/fleet_missile/fleet_missile_missile_pod_evo1.png",
+      "kind": "missile",
+      "width": 256,
+      "height": 256,
+      "pivot": [
+        127.5,
+        127.5
+      ],
+      "bytes": 38512,
+      "sha256": "7970fedf9dc5302f6c4146a5c34b2dcce208788216e81aacef421a10760000e2",
+      "set": 9,
+      "evo": 1,
+      "alpha_bbox": [
+        81,
+        20,
+        175,
+        236
+      ],
+      "transparent_center_radius_px": 0.71
+    },
+    {
+      "file": "gear85/fleet_missile/fleet_missile_missile_pod_evo2.png",
+      "kind": "missile",
+      "width": 256,
+      "height": 256,
+      "pivot": [
+        127.5,
+        127.5
+      ],
+      "bytes": 48205,
+      "sha256": "b6fdb1d787c20aab21d00c4aab1bd9e9c018e5af9cfdaf7a0dfeec69a5129c2f",
+      "set": 9,
+      "evo": 2,
+      "alpha_bbox": [
+        74,
+        12,
+        182,
+        244
+      ],
+      "transparent_center_radius_px": 0.71
+    },
+    {
+      "file": "gear85/fleet_aux/fleet_aux_aux_pod_evo1.png",
+      "kind": "aux",
+      "width": 256,
+      "height": 256,
+      "pivot": [
+        127.5,
+        127.5
+      ],
+      "bytes": 61262,
+      "sha256": "9786d6cb8debe782276155d18f9c013d95630531a2dbac3778d73cf395975f6b",
+      "set": 9,
+      "evo": 1,
+      "alpha_bbox": [
+        20,
+        26,
+        236,
+        230
+      ],
+      "transparent_center_radius_px": 0.71
+    },
+    {
+      "file": "gear85/fleet_aux/fleet_aux_aux_pod_evo2.png",
+      "kind": "aux",
+      "width": 256,
+      "height": 256,
+      "pivot": [
+        127.5,
+        127.5
+      ],
+      "bytes": 77052,
+      "sha256": "2f28fca01207217c9fa1ed56b9506471f74f4ab5ed50b3008437c658f36558db",
+      "set": 9,
+      "evo": 2,
+      "alpha_bbox": [
+        12,
+        17,
+        244,
+        238
+      ],
+      "transparent_center_radius_px": 0.71
+    },
+    {
+      "file": "gear85/devour10_a/devour10_a_armor_shell_idle_evo1.png",
+      "kind": "armor",
+      "width": 384,
+      "height": 384,
+      "pivot": [
+        191.5,
+        191.5
+      ],
+      "bytes": 134694,
+      "sha256": "6554327e571b12a23266b554eabfe6c0bc634106f128714160455acbc5c873fe",
+      "set": 10,
+      "evo": 1,
+      "alpha_bbox": [
+        16,
+        16,
+        367,
+        368
+      ],
+      "transparent_center_radius_px": 111.59,
+      "alpha_inside_radius_90_max": 0
+    },
+    {
+      "file": "gear85/devour10_a/devour10_a_armor_shell_idle_evo2.png",
+      "kind": "armor",
+      "width": 384,
+      "height": 384,
+      "pivot": [
+        191.5,
+        191.5
+      ],
+      "bytes": 186861,
+      "sha256": "c32473c84b1df237057d13746b4dca43b4636ecb977471faebf6d9e8c88b5a4c",
+      "set": 10,
+      "evo": 2,
+      "alpha_bbox": [
+        4,
+        6,
+        380,
+        377
+      ],
+      "transparent_center_radius_px": 105.64,
+      "alpha_inside_radius_90_max": 0
+    },
+    {
+      "file": "gear85/devour10_m/devour10_m_missile_pod_evo1.png",
+      "kind": "missile",
+      "width": 256,
+      "height": 256,
+      "pivot": [
+        127.5,
+        127.5
+      ],
+      "bytes": 39761,
+      "sha256": "414b1fbc7c30bec2e6c962b4fca6fec680529c72d584f9cd736f21acfb7d503a",
+      "set": 10,
+      "evo": 1,
+      "alpha_bbox": [
+        85,
+        20,
+        170,
+        236
+      ],
+      "transparent_center_radius_px": 0.71
+    },
+    {
+      "file": "gear85/devour10_m/devour10_m_missile_pod_evo2.png",
+      "kind": "missile",
+      "width": 256,
+      "height": 256,
+      "pivot": [
+        127.5,
+        127.5
+      ],
+      "bytes": 50362,
+      "sha256": "14e176a8821c8294ce4b348c687ba85c03e92acf2a1996db76718dcc05164a56",
+      "set": 10,
+      "evo": 2,
+      "alpha_bbox": [
+        79,
+        12,
+        177,
+        244
+      ],
+      "transparent_center_radius_px": 0.71
+    },
+    {
+      "file": "gear85/devour10_s/devour10_s_aux_pod_evo1.png",
+      "kind": "aux",
+      "width": 256,
+      "height": 256,
+      "pivot": [
+        127.5,
+        127.5
+      ],
+      "bytes": 72243,
+      "sha256": "a7cae22f2a4221927d86e0f8abe1d4d66564f2adf676cc3f2fc2d22319426c23",
+      "set": 10,
+      "evo": 1,
+      "alpha_bbox": [
+        23,
+        20,
+        232,
+        236
+      ],
+      "transparent_center_radius_px": 0.71
+    },
+    {
+      "file": "gear85/devour10_s/devour10_s_aux_pod_evo2.png",
+      "kind": "aux",
+      "width": 256,
+      "height": 256,
+      "pivot": [
+        127.5,
+        127.5
+      ],
+      "bytes": 86785,
+      "sha256": "8b8296f745af49b5dbff9952392584c4f1cb021ada8f03b840effce4387a8a02",
+      "set": 10,
+      "evo": 2,
+      "alpha_bbox": [
+        12,
+        16,
+        244,
+        239
+      ],
+      "transparent_center_radius_px": 0.71
+    },
+    {
+      "file": "gear85/chrono11_a/chrono11_a_armor_shell_idle_evo1.png",
+      "kind": "armor",
+      "width": 384,
+      "height": 384,
+      "pivot": [
+        191.5,
+        191.5
+      ],
+      "bytes": 131175,
+      "sha256": "89b0d231b4b9648d45cafb1061fe215f6a2ca1fca14192343ceb77cc07e43eba",
+      "set": 11,
+      "evo": 1,
+      "alpha_bbox": [
+        16,
+        19,
+        368,
+        365
+      ],
+      "transparent_center_radius_px": 90.5,
+      "alpha_inside_radius_90_max": 0
+    },
+    {
+      "file": "gear85/chrono11_a/chrono11_a_armor_shell_idle_evo2.png",
+      "kind": "armor",
+      "width": 384,
+      "height": 384,
+      "pivot": [
+        191.5,
+        191.5
+      ],
+      "bytes": 188702,
+      "sha256": "425061d812ae540cd99a095248ba123314610e90b90647818514cd2bea59a398",
+      "set": 11,
+      "evo": 2,
+      "alpha_bbox": [
+        4,
+        7,
+        380,
+        377
+      ],
+      "transparent_center_radius_px": 90.5,
+      "alpha_inside_radius_90_max": 0
+    },
+    {
+      "file": "gear85/chrono11_m/chrono11_m_missile_pod_evo1.png",
+      "kind": "missile",
+      "width": 256,
+      "height": 256,
+      "pivot": [
+        127.5,
+        127.5
+      ],
+      "bytes": 36655,
+      "sha256": "7bcb832118374419abfe2541bcd246bd579b4a4d2a1ceae524fd7ae189d4cb4e",
+      "set": 11,
+      "evo": 1,
+      "alpha_bbox": [
+        90,
+        20,
+        166,
+        236
+      ],
+      "transparent_center_radius_px": 0.71
+    },
+    {
+      "file": "gear85/chrono11_m/chrono11_m_missile_pod_evo2.png",
+      "kind": "missile",
+      "width": 256,
+      "height": 256,
+      "pivot": [
+        127.5,
+        127.5
+      ],
+      "bytes": 47347,
+      "sha256": "fa64493541a6fea59ed63dfde56cec499e843ee6fdbf08d0823e5c313e29812a",
+      "set": 11,
+      "evo": 2,
+      "alpha_bbox": [
+        83,
+        12,
+        172,
+        244
+      ],
+      "transparent_center_radius_px": 0.71
+    },
+    {
+      "file": "gear85/chrono11_s/chrono11_s_aux_pod_evo1.png",
+      "kind": "aux",
+      "width": 256,
+      "height": 256,
+      "pivot": [
+        127.5,
+        127.5
+      ],
+      "bytes": 54083,
+      "sha256": "79a61e4ccab5ece95b1bfba108b71ece2187f23a4dc73500077c732789592fcd",
+      "set": 11,
+      "evo": 1,
+      "alpha_bbox": [
+        20,
+        37,
+        236,
+        219
+      ],
+      "transparent_center_radius_px": 0.71
+    },
+    {
+      "file": "gear85/chrono11_s/chrono11_s_aux_pod_evo2.png",
+      "kind": "aux",
+      "width": 256,
+      "height": 256,
+      "pivot": [
+        127.5,
+        127.5
+      ],
+      "bytes": 76036,
+      "sha256": "72ef0cc8332c081f3852a7f9a759fc8d3e76d56d62fcff8d0874a1dd9b648b67",
+      "set": 11,
+      "evo": 2,
+      "alpha_bbox": [
+        12,
+        27,
+        244,
+        228
+      ],
+      "transparent_center_radius_px": 0.71
+    },
+    {
+      "file": "gear85/monarch12_a/monarch12_a_armor_shell_idle_evo1.png",
+      "kind": "armor",
+      "width": 384,
+      "height": 384,
+      "pivot": [
+        191.5,
+        191.5
+      ],
+      "bytes": 128876,
+      "sha256": "5b75f41d558a35b89c2c1267d59883ebc8a5a44ceb2e61babdb46aa89810a0c4",
+      "set": 12,
+      "evo": 1,
+      "alpha_bbox": [
+        16,
+        20,
+        368,
+        363
+      ],
+      "transparent_center_radius_px": 98.5,
+      "alpha_inside_radius_90_max": 0
+    },
+    {
+      "file": "gear85/monarch12_a/monarch12_a_armor_shell_idle_evo2.png",
+      "kind": "armor",
+      "width": 384,
+      "height": 384,
+      "pivot": [
+        191.5,
+        191.5
+      ],
+      "bytes": 175215,
+      "sha256": "e90f235db0c05bbc46c9be5bfbce6df5471115971481128c1d2b3606174a00eb",
+      "set": 12,
+      "evo": 2,
+      "alpha_bbox": [
+        4,
+        7,
+        380,
+        377
+      ],
+      "transparent_center_radius_px": 98.51,
+      "alpha_inside_radius_90_max": 0
+    },
+    {
+      "file": "gear85/monarch12_m/monarch12_m_missile_pod_evo1.png",
+      "kind": "missile",
+      "width": 256,
+      "height": 256,
+      "pivot": [
+        127.5,
+        127.5
+      ],
+      "bytes": 37526,
+      "sha256": "4fdb056f6e3d34e9425d773d2787aea079bbab82001bf8e600bd6774897c622d",
+      "set": 12,
+      "evo": 1,
+      "alpha_bbox": [
+        89,
+        20,
+        166,
+        236
+      ],
+      "transparent_center_radius_px": 0.71
+    },
+    {
+      "file": "gear85/monarch12_m/monarch12_m_missile_pod_evo2.png",
+      "kind": "missile",
+      "width": 256,
+      "height": 256,
+      "pivot": [
+        127.5,
+        127.5
+      ],
+      "bytes": 48321,
+      "sha256": "9543ff300d0d2540398e445925469471fd1d677c2f48020bef2981de869bdcae",
+      "set": 12,
+      "evo": 2,
+      "alpha_bbox": [
+        83,
+        12,
+        172,
+        244
+      ],
+      "transparent_center_radius_px": 0.71
+    },
+    {
+      "file": "gear85/monarch12_s/monarch12_s_aux_pod_evo1.png",
+      "kind": "aux",
+      "width": 256,
+      "height": 256,
+      "pivot": [
+        127.5,
+        127.5
+      ],
+      "bytes": 71284,
+      "sha256": "a023573bf372195a533e28c5020a927f0cff0b2952209c0727b71578bae14a58",
+      "set": 12,
+      "evo": 1,
+      "alpha_bbox": [
+        20,
+        24,
+        236,
+        232
+      ],
+      "transparent_center_radius_px": 0.71
+    },
+    {
+      "file": "gear85/monarch12_s/monarch12_s_aux_pod_evo2.png",
+      "kind": "aux",
+      "width": 256,
+      "height": 256,
+      "pivot": [
+        127.5,
+        127.5
+      ],
+      "bytes": 74159,
+      "sha256": "e84df8143b63cffd541733a3742c774b18cbabd387f891cea2e50323c484c7f2",
+      "set": 12,
+      "evo": 2,
+      "alpha_bbox": [
+        12,
+        30,
+        244,
+        226
+      ],
+      "transparent_center_radius_px": 0.71
+    },
+    {
+      "file": "boss85/120/p1.png",
+      "kind": "boss",
+      "width": 768,
+      "height": 768,
+      "pivot": [
+        383.5,
+        383.5
+      ],
+      "bytes": 692093,
+      "sha256": "e86992d72b7cd8678e03a13454275cdfd52c296e6551a51a42a564fa30f69451",
+      "core_center": [
+        383.5,
+        383.5
+      ],
+      "left_wing_center": [
+        135.27,
+        415.91
+      ],
+      "right_wing_center": [
+        631.33,
+        415.91
+      ],
+      "direction": "down",
+      "source_core_center": [
+        626.855,
+        545.402
+      ],
+      "alpha_bbox": [
+        44,
+        141,
+        723,
+        692
+      ]
+    },
+    {
+      "file": "boss85/120/p2.png",
+      "kind": "boss",
+      "width": 768,
+      "height": 768,
+      "pivot": [
+        383.5,
+        383.5
+      ],
+      "bytes": 709609,
+      "sha256": "076ba0b074337be56d1ce0ea7e32459fd357d08d2a59a3f5d8a9650cbb97186b",
+      "core_center": [
+        383.5,
+        383.5
+      ],
+      "left_wing_center": [
+        135.16,
+        415.75
+      ],
+      "right_wing_center": [
+        631.22,
+        415.75
+      ],
+      "direction": "down",
+      "source_core_center": [
+        627.055,
+        545.691
+      ],
+      "alpha_bbox": [
+        43,
+        140,
+        724,
+        693
+      ]
+    },
+    {
+      "file": "boss85/120/p3.png",
+      "kind": "boss",
+      "width": 768,
+      "height": 768,
+      "pivot": [
+        383.5,
+        383.5
+      ],
+      "bytes": 736184,
+      "sha256": "b115b3e9e9810d33811a40680598970ddb5e979115a92eef25af0e1cbbd040d2",
+      "core_center": [
+        383.5,
+        383.5
+      ],
+      "left_wing_center": [
+        135.3,
+        416.04
+      ],
+      "right_wing_center": [
+        631.36,
+        416.04
+      ],
+      "direction": "down",
+      "source_core_center": [
+        626.805,
+        545.167
+      ],
+      "alpha_bbox": [
+        42,
+        141,
+        725,
+        694
+      ]
+    },
+    {
+      "file": "boss85/120/portrait.png",
+      "kind": "portrait",
+      "width": 768,
+      "height": 768,
+      "pivot": [
+        383.5,
+        383.5
+      ],
+      "bytes": 712020,
+      "sha256": "c20859ae1f604551bd299417bc8c15a25aaeda6475280005473ce596109b38a1"
+    },
+    {
+      "file": "boss85/140/p1.png",
+      "kind": "boss",
+      "width": 768,
+      "height": 768,
+      "pivot": [
+        383.5,
+        383.5
+      ],
+      "bytes": 330655,
+      "sha256": "a264f10bfe74d8cfb4cc68a39bed6efa468bd5eb7a93cb491f39e68b4b67899a",
+      "core_center": [
+        383.5,
+        383.5
+      ],
+      "left_wing_center": [
+        239.4,
+        370.92
+      ],
+      "right_wing_center": [
+        527.13,
+        370.92
+      ],
+      "direction": "down",
+      "source_core_center": [
+        626.981,
+        715.659
+      ],
+      "alpha_bbox": [
+        89,
+        44,
+        678,
+        627
+      ]
+    },
+    {
+      "file": "boss85/140/p2.png",
+      "kind": "boss",
+      "width": 768,
+      "height": 768,
+      "pivot": [
+        383.5,
+        383.5
+      ],
+      "bytes": 346532,
+      "sha256": "bd5291bfb97ce27a6e871e34aad752bba757453020ca5bacf5a1de03bb53576f",
+      "core_center": [
+        383.5,
+        383.5
+      ],
+      "left_wing_center": [
+        239.76,
+        371.52
+      ],
+      "right_wing_center": [
+        527.49,
+        371.52
+      ],
+      "direction": "down",
+      "source_core_center": [
+        626.25,
+        714.431
+      ],
+      "alpha_bbox": [
+        88,
+        44,
+        680,
+        626
+      ]
+    },
+    {
+      "file": "boss85/140/p3.png",
+      "kind": "boss",
+      "width": 768,
+      "height": 768,
+      "pivot": [
+        383.5,
+        383.5
+      ],
+      "bytes": 369701,
+      "sha256": "7770f7d5da95788c433aa4dd20694f0049f64dd96dd70fac365757cab189aea5",
+      "core_center": [
+        383.5,
+        383.5
+      ],
+      "left_wing_center": [
+        239.7,
+        372.4
+      ],
+      "right_wing_center": [
+        527.43,
+        372.4
+      ],
+      "direction": "down",
+      "source_core_center": [
+        626.36,
+        712.641
+      ],
+      "alpha_bbox": [
+        88,
+        43,
+        680,
+        628
+      ]
+    },
+    {
+      "file": "boss85/140/portrait.png",
+      "kind": "portrait",
+      "width": 768,
+      "height": 768,
+      "pivot": [
+        383.5,
+        383.5
+      ],
+      "bytes": 442974,
+      "sha256": "0f838a73709d52f5d8443fd0b6230bdd6f190b49003ad3038da7b1287fcfc4a9"
+    },
+    {
+      "file": "boss85/160/p1.png",
+      "kind": "boss",
+      "width": 768,
+      "height": 768,
+      "pivot": [
+        383.5,
+        383.5
+      ],
+      "bytes": 606169,
+      "sha256": "2149e51d3e8fd7348d16a6011b22155a8a816f94dcc7f951a90bcb84cdcffc90",
+      "core_center": [
+        383.5,
+        383.5
+      ],
+      "left_wing_center": [
+        128.87,
+        374.42
+      ],
+      "right_wing_center": [
+        638.52,
+        374.42
+      ],
+      "direction": "down",
+      "source_core_center": [
+        626.652,
+        594.14
+      ],
+      "alpha_bbox": [
+        46,
+        85,
+        721,
+        718
+      ]
+    },
+    {
+      "file": "boss85/160/p2.png",
+      "kind": "boss",
+      "width": 768,
+      "height": 768,
+      "pivot": [
+        383.5,
+        383.5
+      ],
+      "bytes": 661414,
+      "sha256": "b5dc96c336de213c72e94dd4f499041959a4280c8a5a9cdd5762351bfb8ad9cb",
+      "core_center": [
+        383.5,
+        383.5
+      ],
+      "left_wing_center": [
+        128.91,
+        375.19
+      ],
+      "right_wing_center": [
+        638.56,
+        375.19
+      ],
+      "direction": "down",
+      "source_core_center": [
+        626.583,
+        592.78
+      ],
+      "alpha_bbox": [
+        45,
+        85,
+        723,
+        721
+      ]
+    },
+    {
+      "file": "boss85/160/p3.png",
+      "kind": "boss",
+      "width": 768,
+      "height": 768,
+      "pivot": [
+        383.5,
+        383.5
+      ],
+      "bytes": 713426,
+      "sha256": "59e4c43ae54660c85b51d8070e3ca22a863fb30f3e53e1b60687fa4aebe24f60",
+      "core_center": [
+        383.5,
+        383.5
+      ],
+      "left_wing_center": [
+        128.9,
+        374.36
+      ],
+      "right_wing_center": [
+        638.56,
+        374.36
+      ],
+      "direction": "down",
+      "source_core_center": [
+        626.593,
+        594.242
+      ],
+      "alpha_bbox": [
+        43,
+        82,
+        726,
+        722
+      ]
+    },
+    {
+      "file": "boss85/160/portrait.png",
+      "kind": "portrait",
+      "width": 768,
+      "height": 768,
+      "pivot": [
+        383.5,
+        383.5
+      ],
+      "bytes": 594910,
+      "sha256": "0857fcc4bbedaffbdc42fc898e4ee041e0fd9650f1164f4eae0f14d2e8892209"
+    },
+    {
+      "file": "skin85/skin_s10_huyetlong.png",
+      "kind": "skin",
+      "width": 500,
+      "height": 500,
+      "pivot": [
+        249.5,
+        249.5
+      ],
+      "bytes": 130335,
+      "sha256": "fb4d9256e702899f0696c4bb7d88043e2e2256aeffb0073d3f0f28d96ac45fc3",
+      "craft": 11,
+      "hull_prow": [
+        249.5,
+        49.5
+      ],
+      "hull_rear": [
+        249.5,
+        449.5
+      ],
+      "alpha_bbox": [
+        106,
+        50,
+        394,
+        450
+      ],
+      "reference_q1": "V83/src/craft81/11/q1.png",
+      "measured_hull_y": [
+        51,
+        449
+      ]
+    },
+    {
+      "file": "skin85/skin_s10_huyetlong_super.png",
+      "kind": "skin",
+      "width": 500,
+      "height": 500,
+      "pivot": [
+        249.5,
+        249.5
+      ],
+      "bytes": 146597,
+      "sha256": "23550da5d0effeccf2236bd4d25418ab62d7cb398fa18917e99601392ab4ea29",
+      "craft": 11,
+      "hull_prow": [
+        249.5,
+        49.5
+      ],
+      "hull_rear": [
+        249.5,
+        449.5
+      ],
+      "alpha_bbox": [
+        86,
+        50,
+        414,
+        451
+      ],
+      "reference_q1": "V83/src/craft81/11/q1.png",
+      "measured_hull_y": [
+        51,
+        448
+      ]
+    },
+    {
+      "file": "skin85/skin_s11_bachkim.png",
+      "kind": "skin",
+      "width": 500,
+      "height": 500,
+      "pivot": [
+        249.5,
+        249.5
+      ],
+      "bytes": 174015,
+      "sha256": "cb4124b81a468ab58eed17efa3947f6c0598f267230c46ef85ad07081c249683",
+      "craft": 12,
+      "hull_prow": [
+        249.5,
+        49.5
+      ],
+      "hull_rear": [
+        249.5,
+        449.5
+      ],
+      "alpha_bbox": [
+        84,
+        49,
+        416,
+        454
+      ],
+      "reference_q1": "V83/src/craft81/12/q1.png",
+      "measured_hull_y": [
+        50,
+        449
+      ]
+    },
+    {
+      "file": "skin85/skin_s11_bachkim_super.png",
+      "kind": "skin",
+      "width": 500,
+      "height": 500,
+      "pivot": [
+        249.5,
+        249.5
+      ],
+      "bytes": 194891,
+      "sha256": "154ae3a835e6f2c8dfc24aacb941993d6f6f61761d37ee8e64b3e701d4c3f5e9",
+      "craft": 12,
+      "hull_prow": [
+        249.5,
+        49.5
+      ],
+      "hull_rear": [
+        249.5,
+        449.5
+      ],
+      "alpha_bbox": [
+        78,
+        49,
+        422,
+        457
+      ],
+      "reference_q1": "V83/src/craft81/12/q1.png",
+      "measured_hull_y": [
+        50,
+        449
+      ]
+    },
+    {
+      "file": "skin85/skin_s12_thaico.png",
+      "kind": "skin",
+      "width": 500,
+      "height": 500,
+      "pivot": [
+        249.5,
+        249.5
+      ],
+      "bytes": 162670,
+      "sha256": "cfde2511e14042d889875a8a5c1f0e2569c2bdd362523fd2460b88c70e4e049f",
+      "craft": 13,
+      "hull_prow": [
+        249.5,
+        49.5
+      ],
+      "hull_rear": [
+        249.5,
+        449.5
+      ],
+      "alpha_bbox": [
+        95,
+        50,
+        405,
+        451
+      ],
+      "reference_q1": "V83/src/craft81/13/q1.png",
+      "measured_hull_y": [
+        50,
+        449
+      ]
+    },
+    {
+      "file": "skin85/skin_s12_thaico_super.png",
+      "kind": "skin",
+      "width": 500,
+      "height": 500,
+      "pivot": [
+        249.5,
+        249.5
+      ],
+      "bytes": 194805,
+      "sha256": "7ee2a128a8ddb8dc0936a6a162568545e0f5a9b6c8ea88bdf4261df9e726685f",
+      "craft": 13,
+      "hull_prow": [
+        249.5,
+        49.5
+      ],
+      "hull_rear": [
+        249.5,
+        449.5
+      ],
+      "alpha_bbox": [
+        59,
+        49,
+        441,
+        451
+      ],
+      "reference_q1": "V83/src/craft81/13/q1.png",
+      "measured_hull_y": [
+        50,
+        449
+      ]
+    },
+    {
+      "file": "ebullet85/ebullet_orb_lava.png",
+      "kind": "ebullet",
+      "width": 64,
+      "height": 64,
+      "pivot": [
+        31.5,
+        31.5
+      ],
+      "bytes": 3181,
+      "sha256": "40de269c70cc0719ed6842439096fd6b75091ee317db0568a2d5ceb70371904b",
+      "collision_core": [
+        31.5,
+        31.5
+      ],
+      "shape": "orb",
+      "palette": "lava",
+      "alpha_bbox": [
+        15,
+        15,
+        49,
+        49
+      ],
+      "center_alpha_max": 254,
+      "center_rgb_max_of_min": 252
+    },
+    {
+      "file": "ebullet85/ebullet_orb_big_lava.png",
+      "kind": "ebullet",
+      "width": 64,
+      "height": 64,
+      "pivot": [
+        31.5,
+        31.5
+      ],
+      "bytes": 7726,
+      "sha256": "bb575dbf5e6aa374c71485890375aa768a80e747d41fe94fc50e16e40a84c965",
+      "collision_core": [
+        31.5,
+        31.5
+      ],
+      "shape": "orb_big",
+      "palette": "lava",
+      "alpha_bbox": [
+        5,
+        5,
+        59,
+        59
+      ],
+      "center_alpha_max": 254,
+      "center_rgb_max_of_min": 252
+    },
+    {
+      "file": "ebullet85/ebullet_needle_lava.png",
+      "kind": "ebullet",
+      "width": 64,
+      "height": 64,
+      "pivot": [
+        31.5,
+        31.5
+      ],
+      "bytes": 1310,
+      "sha256": "09f97a02e12941d8e6c990c65a16c996eb010bfda726037145646c4e551727bf",
+      "collision_core": [
+        31.5,
+        31.5
+      ],
+      "shape": "needle",
+      "palette": "lava",
+      "alpha_bbox": [
+        27,
+        8,
+        36,
+        56
+      ],
+      "center_alpha_max": 255,
+      "center_rgb_max_of_min": 251
+    },
+    {
+      "file": "ebullet85/ebullet_shard_lava.png",
+      "kind": "ebullet",
+      "width": 64,
+      "height": 64,
+      "pivot": [
+        31.5,
+        31.5
+      ],
+      "bytes": 2820,
+      "sha256": "c6b46c280412a5dc15812ba2d2788f65f5782af849a492c06ec4fa4b0691df47",
+      "collision_core": [
+        31.5,
+        31.5
+      ],
+      "shape": "shard",
+      "palette": "lava",
+      "alpha_bbox": [
+        20,
+        9,
+        43,
+        55
+      ],
+      "center_alpha_max": 254,
+      "center_rgb_max_of_min": 252
+    },
+    {
+      "file": "ebullet85/ebullet_orb_hunter.png",
+      "kind": "ebullet",
+      "width": 64,
+      "height": 64,
+      "pivot": [
+        31.5,
+        31.5
+      ],
+      "bytes": 3338,
+      "sha256": "fe1144694f1843e93fcf8cff78b57d36cce7b6fa8f4f8d01f499a277cd8bf1c8",
+      "collision_core": [
+        31.5,
+        31.5
+      ],
+      "shape": "orb",
+      "palette": "hunter",
+      "alpha_bbox": [
+        15,
+        15,
+        49,
+        49
+      ],
+      "center_alpha_max": 254,
+      "center_rgb_max_of_min": 252
+    },
+    {
+      "file": "ebullet85/ebullet_orb_big_hunter.png",
+      "kind": "ebullet",
+      "width": 64,
+      "height": 64,
+      "pivot": [
+        31.5,
+        31.5
+      ],
+      "bytes": 7775,
+      "sha256": "2da1e4db56be61adfda027b5d2e84c49ffbbf2ce29bef3f8e1f9af5368e615db",
+      "collision_core": [
+        31.5,
+        31.5
+      ],
+      "shape": "orb_big",
+      "palette": "hunter",
+      "alpha_bbox": [
+        5,
+        5,
+        59,
+        58
+      ],
+      "center_alpha_max": 254,
+      "center_rgb_max_of_min": 252
+    },
+    {
+      "file": "ebullet85/ebullet_needle_hunter.png",
+      "kind": "ebullet",
+      "width": 64,
+      "height": 64,
+      "pivot": [
+        31.5,
+        31.5
+      ],
+      "bytes": 1658,
+      "sha256": "b6d6c86b3ddb09f4e4eaedc661a181cd0d323d684b19fd8c41b395f3dd12fdfd",
+      "collision_core": [
+        31.5,
+        31.5
+      ],
+      "shape": "needle",
+      "palette": "hunter",
+      "alpha_bbox": [
+        26,
+        8,
+        37,
+        56
+      ],
+      "center_alpha_max": 254,
+      "center_rgb_max_of_min": 253
+    },
+    {
+      "file": "ebullet85/ebullet_shard_hunter.png",
+      "kind": "ebullet",
+      "width": 64,
+      "height": 64,
+      "pivot": [
+        31.5,
+        31.5
+      ],
+      "bytes": 2623,
+      "sha256": "5e5db32e23eb966381e59d0cf616e3a1ca205fdd72136a68bc6461ae5a8da9fe",
+      "collision_core": [
+        31.5,
+        31.5
+      ],
+      "shape": "shard",
+      "palette": "hunter",
+      "alpha_bbox": [
+        21,
+        9,
+        42,
+        55
+      ],
+      "center_alpha_max": 254,
+      "center_rgb_max_of_min": 252
+    },
+    {
+      "file": "ebullet85/ebullet_orb_omega.png",
+      "kind": "ebullet",
+      "width": 64,
+      "height": 64,
+      "pivot": [
+        31.5,
+        31.5
+      ],
+      "bytes": 3468,
+      "sha256": "762325c34ed4605f4cac27833eee00983147706a1674526839863ad5e1c5f2bc",
+      "collision_core": [
+        31.5,
+        31.5
+      ],
+      "shape": "orb",
+      "palette": "omega",
+      "alpha_bbox": [
+        15,
+        15,
+        48,
+        49
+      ],
+      "center_alpha_max": 254,
+      "center_rgb_max_of_min": 252
+    },
+    {
+      "file": "ebullet85/ebullet_orb_big_omega.png",
+      "kind": "ebullet",
+      "width": 64,
+      "height": 64,
+      "pivot": [
+        31.5,
+        31.5
+      ],
+      "bytes": 7915,
+      "sha256": "b13f50ddeaca93cab70b9b7123c460d5fdfbf595d082c01ebe94da72c7af720c",
+      "collision_core": [
+        31.5,
+        31.5
+      ],
+      "shape": "orb_big",
+      "palette": "omega",
+      "alpha_bbox": [
+        5,
+        5,
+        59,
+        59
+      ],
+      "center_alpha_max": 254,
+      "center_rgb_max_of_min": 252
+    },
+    {
+      "file": "ebullet85/ebullet_needle_omega.png",
+      "kind": "ebullet",
+      "width": 64,
+      "height": 64,
+      "pivot": [
+        31.5,
+        31.5
+      ],
+      "bytes": 1250,
+      "sha256": "91921144911dc870e058fbcf792d50893bd20865f96fbeb1ffc10182e0887068",
+      "collision_core": [
+        31.5,
+        31.5
+      ],
+      "shape": "needle",
+      "palette": "omega",
+      "alpha_bbox": [
+        27,
+        8,
+        36,
+        56
+      ],
+      "center_alpha_max": 255,
+      "center_rgb_max_of_min": 252
+    },
+    {
+      "file": "ebullet85/ebullet_shard_omega.png",
+      "kind": "ebullet",
+      "width": 64,
+      "height": 64,
+      "pivot": [
+        31.5,
+        31.5
+      ],
+      "bytes": 2073,
+      "sha256": "b9c6f268454250ff5530e7f92370590d898df8586d042036dfc0f3a183e5ca0b",
+      "collision_core": [
+        31.5,
+        31.5
+      ],
+      "shape": "shard",
+      "palette": "omega",
+      "alpha_bbox": [
+        22,
+        9,
+        41,
+        55
+      ],
+      "center_alpha_max": 254,
+      "center_rgb_max_of_min": 252
+    },
+    {
+      "file": "ebullet85/ebullet_orb_void.png",
+      "kind": "ebullet",
+      "width": 64,
+      "height": 64,
+      "pivot": [
+        31.5,
+        31.5
+      ],
+      "bytes": 3702,
+      "sha256": "685f566577de890ea65d33195f2074d00a492d24d4185f41f5a22d1628206d53",
+      "collision_core": [
+        31.5,
+        31.5
+      ],
+      "shape": "orb",
+      "palette": "void",
+      "alpha_bbox": [
+        15,
+        15,
+        49,
+        49
+      ],
+      "center_alpha_max": 254,
+      "center_rgb_max_of_min": 252
+    },
+    {
+      "file": "ebullet85/ebullet_orb_big_void.png",
+      "kind": "ebullet",
+      "width": 64,
+      "height": 64,
+      "pivot": [
+        31.5,
+        31.5
+      ],
+      "bytes": 8295,
+      "sha256": "03b4a61c7b488a260bb2be80cf71af827296214e593032fe43619508f7607d8c",
+      "collision_core": [
+        31.5,
+        31.5
+      ],
+      "shape": "orb_big",
+      "palette": "void",
+      "alpha_bbox": [
+        5,
+        5,
+        59,
+        59
+      ],
+      "center_alpha_max": 254,
+      "center_rgb_max_of_min": 252
+    },
+    {
+      "file": "ebullet85/ebullet_needle_void.png",
+      "kind": "ebullet",
+      "width": 64,
+      "height": 64,
+      "pivot": [
+        31.5,
+        31.5
+      ],
+      "bytes": 1195,
+      "sha256": "a123aaf38a4375b8fd4991a5baccb28ef76e629d8c606571607ed0b855c4aea5",
+      "collision_core": [
+        31.5,
+        31.5
+      ],
+      "shape": "needle",
+      "palette": "void",
+      "alpha_bbox": [
+        28,
+        8,
+        36,
+        56
+      ],
+      "center_alpha_max": 253,
+      "center_rgb_max_of_min": 248
+    },
+    {
+      "file": "ebullet85/ebullet_shard_void.png",
+      "kind": "ebullet",
+      "width": 64,
+      "height": 64,
+      "pivot": [
+        31.5,
+        31.5
+      ],
+      "bytes": 2485,
+      "sha256": "eeda1025d2bd634ca2fc17386cfcc6e62e71ac7205be76af1b8937431885118b",
+      "collision_core": [
+        31.5,
+        31.5
+      ],
+      "shape": "shard",
+      "palette": "void",
+      "alpha_bbox": [
+        22,
+        9,
+        41,
+        55
+      ],
+      "center_alpha_max": 254,
+      "center_rgb_max_of_min": 252
+    }
+  ],
+  "pending_now": [],
+  "deferred": [
+    {
+      "name": "Huyết Tinh Thôn Phệ Giả",
+      "count": 2,
+      "files": null,
+      "status": "waiting_for_REVIEW85",
+      "reason": "Chờ Gemini mô tả hình ảnh trong REVIEW85.md; chưa vẽ."
+    },
+    {
+      "name": "Vĩnh Hằng Thời Không",
+      "count": 2,
+      "files": null,
+      "status": "waiting_for_REVIEW85",
+      "reason": "Chờ Gemini mô tả hình ảnh trong REVIEW85.md; chưa vẽ."
+    },
+    {
+      "name": "Chân Thần Hư Không",
+      "count": 2,
+      "files": null,
+      "status": "waiting_for_REVIEW85",
+      "reason": "Chờ Gemini mô tả hình ảnh trong REVIEW85.md; chưa vẽ."
+    }
+  ],
+  "coordinate_system": "Pixel centers; origin top-left. Normalized pivot = [0.5,0.5].",
+  "generation_method": "Built-in image generation; technical resizing and registration only. No game code changes.",
+  "validation_errors": []
+}

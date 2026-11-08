@@ -1,0 +1,9 @@
+/* V52 · Kho chiến cơ: ô trang bị sáng dần theo bậc cường hóa (Rank52) */
+html body #hgr41 .h1-slot[data-t52="1"] .pic{box-shadow:inset 0 0 0 2px #1a0a33,inset 0 0 16px #7fe8ff88,0 0 7px #7fe8ff66,0 0 0 1px #000!important}
+html body #hgr41 .h1-slot[data-t52="2"] .pic{box-shadow:inset 0 0 0 2px #1a0a33,inset 0 0 18px #bff6ffaa,0 0 10px #9feeffaa,0 0 0 1px #000!important}
+html body #hgr41 .h1-slot[data-t52="3"] .pic{border-color:#ffe08a!important;box-shadow:inset 0 0 0 2px #3a2a00,inset 0 0 20px #ffe08abb,0 0 12px #ffd76acc,0 0 0 1px #000!important}
+html body #hgr41 .h1-slot[data-t52="2"] .pic:after,html body #hgr41 .h1-slot[data-t52="3"] .pic:after{content:'';position:absolute;inset:-40%;pointer-events:none;z-index:3;
+ background:linear-gradient(115deg,transparent 40%,rgba(255,255,255,.38) 48%,rgba(255,255,255,0) 56%);animation:t52sheen 3.2s ease-in-out infinite}
+html body #hgr41 .h1-slot[data-t52="3"] .pic:after{background:linear-gradient(115deg,transparent 38%,rgba(255,236,170,.5) 47%,rgba(255,255,255,.65) 50%,rgba(255,236,170,0) 58%);animation-duration:2.6s}
+@keyframes t52sheen{0%,55%{transform:translateX(-60%)}85%,100%{transform:translateX(60%)}}
+@media (prefers-reduced-motion:reduce){html body #hgr41 .h1-slot .pic:after{animation:none!important;opacity:0}}

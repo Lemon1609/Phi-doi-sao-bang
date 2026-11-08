@@ -1,0 +1,51 @@
+{
+  "coordinate_system": "pixel-center indices, x right, y down, canvas768",
+  "status": "art anchors proposed for integration; not extracted from game code",
+  "emitters": {
+    "nose": [
+      383.5,
+      671
+    ],
+    "prism_left": [
+      197,
+      360
+    ],
+    "prism_right": [
+      570,
+      360
+    ],
+    "boundary_left": [
+      122,
+      372
+    ],
+    "boundary_right": [
+      646,
+      372
+    ],
+    "petal_1": [
+      252,
+      216
+    ],
+    "petal_2": [
+      516,
+      216
+    ],
+    "petal_3": [
+      508,
+      379
+    ],
+    "petal_4": [
+      517,
+      529
+    ],
+    "petal_5": [
+      251,
+      529
+    ],
+    "petal_6": [
+      259,
+      379
+    ]
+  },
+  "shared_across_phases": true
+}

@@ -1,0 +1,29 @@
+/* V66 · nút chưa mở ở Kho chiến cơ (người mới) + chấm nhắc sao lưu */
+html body #hgr41 .lk66{opacity:.45!important;filter:grayscale(.9)!important;position:relative}
+html body #hgr41 .lk66 .h1-dot{display:none!important}
+html body #hgr41 .lk66 .lk66b{position:absolute;right:1px;top:1px;font:700 8px/1 sans-serif;letter-spacing:.5px;color:#fff;background:#1b2a3a;border:1px solid #8fb6d8;border-radius:6px;padding:2px 4px;pointer-events:none;white-space:nowrap}
+html body #hgr41 [data-m63="save"]{position:relative}
+html body #hgr41 [data-m63="save"] .rm66{position:absolute;top:-5px;right:-5px;width:15px;height:15px;border-radius:50%;background:#ff3b4e;color:#fff;font:700 10px/15px sans-serif;text-align:center;font-style:normal;box-shadow:0 0 0 2px #2a0b10;pointer-events:none}
+/* chống vuốt "quay lại" và kéo trang khi đang chơi */
+html body.play-screen,html:has(body.play-screen){overscroll-behavior:none}
+body.play-screen .field{touch-action:none}
+html body .lk66{opacity:.45!important;filter:grayscale(.9)!important;position:relative}
+html body .lk66 .lk66b{position:absolute;right:1px;top:1px;font:700 8px/1 sans-serif;letter-spacing:.5px;color:#fff;background:#1b2a3a;border:1px solid #8fb6d8;border-radius:6px;padding:2px 4px;pointer-events:none;white-space:nowrap;z-index:2}
+html body .lk66 .h1-dot,html body .lk66 .hb-dot{display:none!important}
+body.lksss66 #fusion-lab{display:none!important}
+html body #hgr41 .h1-stage .nx66{position:absolute;left:50%;transform:translateX(-50%);bottom:98px;max-width:92%;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;font:700 10px/1.2 sans-serif;color:#ffe08a;background:#061321cc;border:1px solid #ffe08a66;border-radius:9px;padding:3px 9px;pointer-events:none;z-index:3}
+/* bảng CÀI ĐẶT */
+html body .st66 .st66-l{font:700 10px/1 sans-serif;letter-spacing:2px;color:#8fc8e8;margin:14px 0 6px}
+html body .st66 .st66-seg,html body .st66 .st66-row{display:flex;gap:6px}
+html body .st66 .st66-seg button,html body .st66 .st66-row button{flex:1;min-height:40px;border-radius:9px;border:1px solid #2f5875;background:#0c1d2c;color:#cfefff;font:700 11px/1.1 sans-serif;letter-spacing:.5px}
+html body .st66 .st66-seg button[aria-pressed="true"]{background:linear-gradient(#ffe08a,#e0a72a);color:#1a1200;border-color:#ffe08a}
+html body .st66 .st66-row button[aria-pressed="true"]{border-color:#59e3a0;color:#bfffe0}
+html body .st66 .st66-d{font-size:12px;line-height:1.5;color:#d8ecf7;margin:8px 0 2px;min-height:36px}
+html body .st66 .st66-now{font-size:11px;color:#ffe08a;margin:0}
+html body #overlay .pz66{margin-top:10px;min-height:38px;padding:0 16px;border-radius:9px;border:1px solid #2f5875;background:#0c1d2c;color:#cfefff;font:700 11px sans-serif;letter-spacing:1px}
+html body .st66 .st66-row input{flex:2;min-height:40px;border-radius:9px;border:1px solid #2f5875;background:#06121d;color:#fff;padding:0 10px;font:700 12px sans-serif;letter-spacing:1px;min-width:0}
+html body #hgr41 .h1-head{position:relative}html body #hgr41 .adm66{position:absolute;left:8px;top:50%;transform:translateY(-50%);font:800 9px/1 sans-serif;letter-spacing:1px;color:#1a0b00;background:linear-gradient(#ffe08a,#e0a72a);border-radius:6px;padding:3px 6px}
+/* V66.2: ảnh nền siêu chiến cơ cũ dưới khung Thử hỏa lực (canvas vẽ tranh SSS mới đè lên) */
+html body #ship-preview.mecha-art.fusion-body{background-image:none!important}
+/* V66.5: icon trang bị tiến hóa (GPT Đợt 4) nhỏ lại một chút và nhích lên để nhãn +N không đè */
+html body #hgr41 .h1-slot .pic>img.evo59{inset:6% 13% 20% 13%;width:74%;height:74%}

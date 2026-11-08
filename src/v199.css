@@ -1,0 +1,10 @@
+/* V199 · hộp thoại thoát app (chỉ hiện trong APK) */
+.apk199{position:fixed;inset:0;z-index:100001;display:grid;place-items:center;background:rgba(2,6,14,.72);padding:16px}
+.apk199-b{width:min(320px,100%);padding:18px 16px 14px;border-radius:16px;background:linear-gradient(180deg,#13243c,#0a1626);border:1px solid #2f5478;box-shadow:0 10px 40px #000a;text-align:center;color:#dbeafe}
+.apk199-b b{display:block;font-size:17px;color:#fff;margin-bottom:6px}
+.apk199-b p{margin:0 0 14px;font-size:13px;color:#9fc0da}
+.apk199-b div{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.apk199-b button{min-height:44px;border-radius:10px;border:1px solid #3a6a96;background:#12304e;color:#e5f2ff;font-weight:800;font-size:14px}
+.apk199-b button.ex{background:#5a1f2b;border-color:#a8435a}
+
+html body.play-screen>.apk199,html body>.apk199{display:grid!important}

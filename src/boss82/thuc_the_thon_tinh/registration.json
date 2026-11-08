@@ -1,0 +1,152 @@
+[
+  {
+    "file": "phase1.png",
+    "source_axis": 626.5,
+    "source_hull_top": 1.0,
+    "source_hull_bottom": 1109.0,
+    "uniform_scale": 0.45126353790613716,
+    "pivot": [
+      383.5,
+      383.5
+    ],
+    "hull_rear": [
+      383.5,
+      133.5
+    ],
+    "hull_prow": [
+      383.5,
+      633.5
+    ],
+    "bbox": [
+      106,
+      133,
+      662,
+      670
+    ],
+    "core_center": [
+      383.5,
+      357.5
+    ]
+  },
+  {
+    "file": "phase2.png",
+    "source_axis": 626.5,
+    "source_hull_top": 1.0,
+    "source_hull_bottom": 1111.0,
+    "uniform_scale": 0.45045045045045046,
+    "pivot": [
+      383.5,
+      383.5
+    ],
+    "hull_rear": [
+      383.5,
+      133.5
+    ],
+    "hull_prow": [
+      383.5,
+      633.5
+    ],
+    "bbox": [
+      103,
+      133,
+      666,
+      684
+    ],
+    "core_center": [
+      383.5,
+      357.5
+    ]
+  },
+  {
+    "file": "phase3.png",
+    "source_axis": 627.5,
+    "source_hull_top": 0.0,
+    "source_hull_bottom": 1217.0,
+    "uniform_scale": 0.4108463434675431,
+    "pivot": [
+      383.5,
+      383.5
+    ],
+    "hull_rear": [
+      383.5,
+      133.5
+    ],
+    "hull_prow": [
+      383.5,
+      633.5
+    ],
+    "bbox": [
+      128,
+      134,
+      641,
+      636
+    ],
+    "core_center": [
+      383.5,
+      357.5
+    ]
+  },
+  {
+    "file": "core_closed.png",
+    "role": "full_canvas_core_overlay",
+    "pivot": [
+      383.5,
+      383.5
+    ],
+    "hull_rear": null,
+    "hull_prow": null,
+    "bbox": [
+      332,
+      307,
+      436,
+      409
+    ],
+    "uniform_scale": 1,
+    "core_center": [
+      383.5,
+      357.5
+    ]
+  },
+  {
+    "file": "core_open.png",
+    "role": "full_canvas_core_overlay",
+    "pivot": [
+      383.5,
+      383.5
+    ],
+    "hull_rear": null,
+    "hull_prow": null,
+    "bbox": [
+      332,
+      306,
+      436,
+      410
+    ],
+    "uniform_scale": 1,
+    "core_center": [
+      383.5,
+      357.5
+    ]
+  },
+  {
+    "file": "core_stunned.png",
+    "role": "full_canvas_core_overlay",
+    "pivot": [
+      383.5,
+      383.5
+    ],
+    "hull_rear": null,
+    "hull_prow": null,
+    "bbox": [
+      332,
+      307,
+      436,
+      409
+    ],
+    "uniform_scale": 1,
+    "core_center": [
+      383.5,
+      357.5
+    ]
+  }
+]

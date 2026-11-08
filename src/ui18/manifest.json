@@ -1,0 +1,546 @@
+[
+  {
+    "name": "panel_common",
+    "width": 512,
+    "height": 512,
+    "slices": [
+      128,
+      128,
+      128,
+      128
+    ],
+    "css": "369×520",
+    "kind": "frame",
+    "desc": "Khung bảng thường",
+    "bytes": 45928,
+    "palette_colors": 192
+  },
+  {
+    "name": "panel_rare",
+    "width": 512,
+    "height": 512,
+    "desc": "PANEL square outer UI frame, RARE rarity. bright blue#5ab8ff corner inlays. Ivory brushed armor with navy bevel, dark flat opaque center. Corners diagonal chamfered with screws. All decoration confined to outer18% perimeter. Middle edges straight plain stretchable. No central edge emblems; center70% completely flat dark navy. No text, letters, symbols, icons.",
+    "slices": [
+      128,
+      128,
+      128,
+      128
+    ],
+    "css": "369×520; bảng Điểm danh369×570",
+    "kind": "frame",
+    "bytes": 27704,
+    "palette_colors": 192
+  },
+  {
+    "name": "panel_legendary",
+    "width": 512,
+    "height": 512,
+    "desc": "PANEL square outer UI frame, LEGENDARY rarity. metallic GOLD trim plus tiny amber corner lights. Ivory brushed armor with navy bevel, dark flat opaque center. Corners diagonal chamfered with screws. All decoration confined to outer18% perimeter. Middle edges straight plain stretchable. No central edge emblems; center70% completely flat dark navy. No text, letters, symbols, icons.",
+    "slices": [
+      128,
+      128,
+      128,
+      128
+    ],
+    "css": "369×520; bảng Điểm danh369×570",
+    "kind": "frame",
+    "bytes": 31964,
+    "palette_colors": 192
+  },
+  {
+    "name": "card_common",
+    "width": 256,
+    "height": 256,
+    "desc": "CARD square outer UI frame, COMMON rarity. muted steel blue. Ivory brushed armor with navy bevel, dark flat opaque center. Corners diagonal chamfered with screws. All decoration confined to outer18% perimeter. Middle edges straight plain stretchable. No central edge emblems; center70% completely flat dark navy. No text, letters, symbols, icons.",
+    "slices": [
+      64,
+      64,
+      64,
+      64
+    ],
+    "css": "108×136",
+    "kind": "frame",
+    "bytes": 10465,
+    "palette_colors": 192
+  },
+  {
+    "name": "card_rare",
+    "width": 256,
+    "height": 256,
+    "desc": "CARD square outer UI frame, RARE rarity. bright blue#5ab8ff corner inlays. Ivory brushed armor with navy bevel, dark flat opaque center. Corners diagonal chamfered with screws. All decoration confined to outer18% perimeter. Middle edges straight plain stretchable. No central edge emblems; center70% completely flat dark navy. No text, letters, symbols, icons.",
+    "slices": [
+      64,
+      64,
+      64,
+      64
+    ],
+    "css": "108×136",
+    "kind": "frame",
+    "bytes": 9530,
+    "palette_colors": 192
+  },
+  {
+    "name": "card_legendary",
+    "width": 256,
+    "height": 256,
+    "desc": "CARD square outer UI frame, LEGENDARY rarity. metallic GOLD trim plus tiny amber corner lights. Ivory brushed armor with navy bevel, dark flat opaque center. Corners diagonal chamfered with screws. All decoration confined to outer18% perimeter. Middle edges straight plain stretchable. No central edge emblems; center70% completely flat dark navy. No text, letters, symbols, icons.",
+    "slices": [
+      64,
+      64,
+      64,
+      64
+    ],
+    "css": "108×136",
+    "kind": "frame",
+    "bytes": 15992,
+    "palette_colors": 192
+  },
+  {
+    "name": "button_primary_normal",
+    "width": 384,
+    "height": 128,
+    "desc": "PRIMARY button NORMAL, ORANGE #ff9a3d action face. Raised bevel, crisp upper-left metal highlights and small energy insets at corners. Blank face, absolutely NO letters, NO cross/X even on close button. Ivory silver mechanical rim, chamfer corners, no central core that obstructs label. Stretchable flat center and middle edges. ",
+    "slices": [
+      32,
+      96,
+      32,
+      96
+    ],
+    "css": "176×56",
+    "kind": "frame",
+    "bytes": 11815,
+    "palette_colors": 192
+  },
+  {
+    "name": "button_primary_pressed",
+    "width": 384,
+    "height": 128,
+    "desc": "PRIMARY button PRESSED, ORANGE #ff9a3d action face. Visibly inset pressed face, thinner top highlight, darker face and restrained lights. Blank face, absolutely NO letters, NO cross/X even on close button. Ivory silver mechanical rim, chamfer corners, no central core that obstructs label. Stretchable flat center and middle edges. ",
+    "slices": [
+      32,
+      96,
+      32,
+      96
+    ],
+    "css": "176×56",
+    "kind": "frame",
+    "bytes": 10996,
+    "palette_colors": 192
+  },
+  {
+    "name": "button_primary_disabled",
+    "width": 384,
+    "height": 128,
+    "desc": "PRIMARY button DISABLED, ORANGE #ff9a3d action face. Clearly disabled desaturated gray steel, unlit energy insets, dark gray face. No orange or blue glow. Blank face, absolutely NO letters, NO cross/X even on close button. Ivory silver mechanical rim, chamfer corners, no central core that obstructs label. Stretchable flat center and middle edges. ",
+    "slices": [
+      32,
+      96,
+      32,
+      96
+    ],
+    "css": "176×56",
+    "kind": "frame",
+    "bytes": 10841,
+    "palette_colors": 192
+  },
+  {
+    "name": "button_secondary_normal",
+    "width": 384,
+    "height": 128,
+    "desc": "SECONDARY button NORMAL, deep BLUE information face. Raised bevel, crisp upper-left metal highlights and small energy insets at corners. Blank face, absolutely NO letters, NO cross/X even on close button. Ivory silver mechanical rim, chamfer corners, no central core that obstructs label. Stretchable flat center and middle edges. ",
+    "slices": [
+      32,
+      96,
+      32,
+      96
+    ],
+    "css": "132×48",
+    "kind": "frame",
+    "bytes": 10779,
+    "palette_colors": 192
+  },
+  {
+    "name": "button_secondary_pressed",
+    "width": 384,
+    "height": 128,
+    "desc": "SECONDARY button PRESSED, deep BLUE information face. Visibly inset pressed face, thinner top highlight, darker face and restrained lights. Blank face, absolutely NO letters, NO cross/X even on close button. Ivory silver mechanical rim, chamfer corners, no central core that obstructs label. Stretchable flat center and middle edges. ",
+    "slices": [
+      32,
+      96,
+      32,
+      96
+    ],
+    "css": "132×48",
+    "kind": "frame",
+    "bytes": 10454,
+    "palette_colors": 192
+  },
+  {
+    "name": "button_secondary_disabled",
+    "width": 384,
+    "height": 128,
+    "desc": "SECONDARY button DISABLED, deep BLUE information face. Clearly disabled desaturated gray steel, unlit energy insets, dark gray face. No orange or blue glow. Blank face, absolutely NO letters, NO cross/X even on close button. Ivory silver mechanical rim, chamfer corners, no central core that obstructs label. Stretchable flat center and middle edges. ",
+    "slices": [
+      32,
+      96,
+      32,
+      96
+    ],
+    "css": "132×48",
+    "kind": "frame",
+    "bytes": 10198,
+    "palette_colors": 192
+  },
+  {
+    "name": "button_close_normal",
+    "width": 128,
+    "height": 128,
+    "desc": "CLOSE button NORMAL, dark navy square mechanical compact close button face. Raised bevel, crisp upper-left metal highlights and small energy insets at corners. Blank face, absolutely NO letters, NO cross/X even on close button. Ivory silver mechanical rim, chamfer corners, no central core that obstructs label. Stretchable flat center and middle edges. ",
+    "slices": [
+      32,
+      32,
+      32,
+      32
+    ],
+    "css": "40×40",
+    "kind": "frame",
+    "bytes": 4575,
+    "palette_colors": 192
+  },
+  {
+    "name": "button_close_pressed",
+    "width": 128,
+    "height": 128,
+    "desc": "CLOSE button PRESSED, dark navy square mechanical compact close button face. Visibly inset pressed face, thinner top highlight, darker face and restrained lights. Blank face, absolutely NO letters, NO cross/X even on close button. Ivory silver mechanical rim, chamfer corners, no central core that obstructs label. Stretchable flat center and middle edges. ",
+    "slices": [
+      32,
+      32,
+      32,
+      32
+    ],
+    "css": "40×40",
+    "kind": "frame",
+    "bytes": 5226,
+    "palette_colors": 192
+  },
+  {
+    "name": "button_close_disabled",
+    "width": 128,
+    "height": 128,
+    "desc": "CLOSE button DISABLED, dark navy square mechanical compact close button face. Clearly disabled desaturated gray steel, unlit energy insets, dark gray face. No orange or blue glow. Blank face, absolutely NO letters, NO cross/X even on close button. Ivory silver mechanical rim, chamfer corners, no central core that obstructs label. Stretchable flat center and middle edges. ",
+    "slices": [
+      32,
+      32,
+      32,
+      32
+    ],
+    "css": "40×40",
+    "kind": "frame",
+    "bytes": 3673,
+    "palette_colors": 192
+  },
+  {
+    "name": "tabbar_bg",
+    "width": 768,
+    "height": 160,
+    "desc": "Bottom navigation bar background, low horizontal rectangle, ivory armored upper/lower rail with navy inset. No division into fixed slots, plain continuous middle stretchable. No tabs/icons/text.",
+    "slices": [
+      32,
+      128,
+      32,
+      128
+    ],
+    "css": "393×72",
+    "kind": "frame",
+    "bytes": 19705,
+    "palette_colors": 192
+  },
+  {
+    "name": "tab_selected",
+    "width": 160,
+    "height": 160,
+    "desc": "Single navigation tab tile selected; subtle blue inner energy light and ivory active corner brackets. Blank center for overlay icon, no text or icon.",
+    "slices": [
+      48,
+      48,
+      48,
+      48
+    ],
+    "css": "72×64",
+    "kind": "frame",
+    "bytes": 7811,
+    "palette_colors": 192
+  },
+  {
+    "name": "tab_normal",
+    "width": 160,
+    "height": 160,
+    "desc": "Single navigation tab tile normal; dark navy unlit glass face and subdued steel bevel. Blank center for overlay icon, no text or icon.",
+    "slices": [
+      48,
+      48,
+      48,
+      48
+    ],
+    "css": "72×64",
+    "kind": "frame",
+    "bytes": 5897,
+    "palette_colors": 192
+  },
+  {
+    "name": "icon_tab_home",
+    "width": 96,
+    "height": 96,
+    "desc": "mothership hangar gate with a tiny luminous docking platform, bold simple silhouette",
+    "slices": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "css": "30×30",
+    "kind": "icon",
+    "bytes": 4949,
+    "palette_colors": 192
+  },
+  {
+    "name": "icon_tab_battle",
+    "width": 96,
+    "height": 96,
+    "desc": "two crossed short energy cannons with small orange central reactor, no bullets",
+    "slices": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "css": "30×30",
+    "kind": "icon",
+    "bytes": 4466,
+    "palette_colors": 192
+  },
+  {
+    "name": "icon_tab_equipment",
+    "width": 96,
+    "height": 96,
+    "desc": "ivory armored chest module with round cyan core, no extra inventory frame",
+    "slices": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "css": "30×30",
+    "kind": "icon",
+    "bytes": 4618,
+    "palette_colors": 192
+  },
+  {
+    "name": "icon_tab_store",
+    "width": 96,
+    "height": 96,
+    "desc": "armored supply chest with metallic gold latch, no coins around it",
+    "slices": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "css": "30×30",
+    "kind": "icon",
+    "bytes": 4324,
+    "palette_colors": 192
+  },
+  {
+    "name": "icon_tab_fleet",
+    "width": 96,
+    "height": 96,
+    "desc": "three small ivory starfighters flying upward in triangular formation, compact clear silhouette",
+    "slices": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "css": "30×30",
+    "kind": "icon",
+    "bytes": 4082,
+    "palette_colors": 192
+  },
+  {
+    "name": "resource_cell",
+    "width": 384,
+    "height": 128,
+    "desc": "Top HUD resource counter capsule, dark navy flat center, slim ivory armor brackets at left/right ends with small cyan light. Wide quiet empty area for number and plus button added by code. No plus sign, icon or text.",
+    "slices": [
+      32,
+      96,
+      32,
+      96
+    ],
+    "css": "116×36",
+    "kind": "frame",
+    "bytes": 10546,
+    "palette_colors": 192
+  },
+  {
+    "name": "icon_resource_alloy",
+    "width": 96,
+    "height": 96,
+    "desc": "one faceted SILVER METALLIC diamond ingot, obvious brushed metal, navy edge, no text",
+    "slices": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "css": "20×20",
+    "kind": "icon",
+    "bytes": 3211,
+    "palette_colors": 192
+  },
+  {
+    "name": "icon_resource_diamond",
+    "width": 96,
+    "height": 96,
+    "desc": "one BLUE transparent faceted diamond gemstone, icy cyan internal glint, dark contour",
+    "slices": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "css": "20×20",
+    "kind": "icon",
+    "bytes": 3820,
+    "palette_colors": 192
+  },
+  {
+    "name": "icon_resource_stone",
+    "width": 96,
+    "height": 96,
+    "desc": "one warm amber rough HEXAGONAL mineral stone, clearly a rock, navy contour",
+    "slices": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "css": "20×20",
+    "kind": "icon",
+    "bytes": 4958,
+    "palette_colors": 192
+  },
+  {
+    "name": "icon_resource_stamina",
+    "width": 96,
+    "height": 96,
+    "desc": "one compact GREEN energy battery capsule with gold terminal and green luminous inner cell, no charge bars or text",
+    "slices": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "css": "20×20",
+    "kind": "icon",
+    "bytes": 4356,
+    "palette_colors": 192
+  },
+  {
+    "name": "icon_resource_sweep_ticket",
+    "width": 96,
+    "height": 96,
+    "desc": "one ivory and gold sci-fi admission ticket with clipped notches, small cyan wing-shaped pictogram in center, no words or numbers",
+    "slices": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "css": "20×20",
+    "kind": "icon",
+    "bytes": 3841,
+    "palette_colors": 192
+  },
+  {
+    "name": "badge_new",
+    "width": 192,
+    "height": 96,
+    "desc": "Small blank orange enamel notification badge, silver beveled rim, chamfer corners, blank dark-orange face. No words or lettering.",
+    "slices": [
+      24,
+      48,
+      24,
+      48
+    ],
+    "css": "38×20",
+    "kind": "frame",
+    "bytes": 6324,
+    "palette_colors": 192
+  },
+  {
+    "name": "notification_dot",
+    "width": 48,
+    "height": 48,
+    "desc": "One small red enamel circular notification dot with slim navy outline, tiny upper-left specular highlight. No ring, halo, number or exclamation mark.",
+    "slices": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "css": "8×8",
+    "kind": "icon",
+    "bytes": 1590,
+    "palette_colors": 192
+  },
+  {
+    "name": "badge_lock",
+    "width": 256,
+    "height": 96,
+    "desc": "Blank dark navy unlock-condition label with ivory metal chamfered rim, no lock icon and no lettering; reserve entire center for code-rendered text.",
+    "slices": [
+      24,
+      48,
+      24,
+      48
+    ],
+    "css": "76×24",
+    "kind": "frame",
+    "bytes": 6360,
+    "palette_colors": 192
+  },
+  {
+    "name": "bg_hangar",
+    "width": 1080,
+    "height": 2340,
+    "slices": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "css": "393×851,5; cover cho màn khác tỉ lệ",
+    "kind": "background",
+    "desc": "Nền hangar",
+    "bytes": 192561,
+    "palette_colors": 192
+  },
+  {
+    "name": "bg_panels",
+    "width": 1080,
+    "height": 2340,
+    "slices": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "css": "393×851,5; cover cho màn khác tỉ lệ",
+    "kind": "background",
+    "desc": "Nền hangar tối",
+    "bytes": 132438,
+    "palette_colors": 192
+  }
+]

@@ -1,0 +1,213 @@
+{
+  "image": "gear-r12.png",
+  "size": [
+    1536,
+    1536
+  ],
+  "grid": [
+    5,
+    6
+  ],
+  "cell_size": [
+    307,
+    256
+  ],
+  "right_gutter_px": 1,
+  "mode": "SUPPLEMENT_ONLY",
+  "ready_for_full_atlas_replace": false,
+  "reason": "Original gear-r12.png was not supplied/resolved. Merge these12icons into the actual game atlas; do not overwrite previous icons.",
+  "frames": {
+    "fleet_armor_icon": {
+      "row": 0,
+      "column": 0,
+      "cell": [
+        0,
+        0,
+        307,
+        256
+      ],
+      "frame": [
+        25,
+        0,
+        256,
+        256
+      ]
+    },
+    "fleet_missile_icon": {
+      "row": 0,
+      "column": 1,
+      "cell": [
+        307,
+        0,
+        307,
+        256
+      ],
+      "frame": [
+        332,
+        0,
+        256,
+        256
+      ]
+    },
+    "fleet_aux_icon": {
+      "row": 0,
+      "column": 2,
+      "cell": [
+        614,
+        0,
+        307,
+        256
+      ],
+      "frame": [
+        639,
+        0,
+        256,
+        256
+      ]
+    },
+    "forge_armor_icon": {
+      "row": 0,
+      "column": 3,
+      "cell": [
+        921,
+        0,
+        307,
+        256
+      ],
+      "frame": [
+        946,
+        0,
+        256,
+        256
+      ]
+    },
+    "forge_missile_icon": {
+      "row": 0,
+      "column": 4,
+      "cell": [
+        1228,
+        0,
+        307,
+        256
+      ],
+      "frame": [
+        1253,
+        0,
+        256,
+        256
+      ]
+    },
+    "forge_aux_icon": {
+      "row": 1,
+      "column": 0,
+      "cell": [
+        0,
+        256,
+        307,
+        256
+      ],
+      "frame": [
+        25,
+        256,
+        256,
+        256
+      ]
+    },
+    "void_armor_icon": {
+      "row": 1,
+      "column": 1,
+      "cell": [
+        307,
+        256,
+        307,
+        256
+      ],
+      "frame": [
+        332,
+        256,
+        256,
+        256
+      ]
+    },
+    "void_missile_icon": {
+      "row": 1,
+      "column": 2,
+      "cell": [
+        614,
+        256,
+        307,
+        256
+      ],
+      "frame": [
+        639,
+        256,
+        256,
+        256
+      ]
+    },
+    "void_aux_icon": {
+      "row": 1,
+      "column": 3,
+      "cell": [
+        921,
+        256,
+        307,
+        256
+      ],
+      "frame": [
+        946,
+        256,
+        256,
+        256
+      ]
+    },
+    "dawn_armor_icon": {
+      "row": 1,
+      "column": 4,
+      "cell": [
+        1228,
+        256,
+        307,
+        256
+      ],
+      "frame": [
+        1253,
+        256,
+        256,
+        256
+      ]
+    },
+    "dawn_missile_icon": {
+      "row": 2,
+      "column": 0,
+      "cell": [
+        0,
+        512,
+        307,
+        256
+      ],
+      "frame": [
+        25,
+        512,
+        256,
+        256
+      ]
+    },
+    "dawn_aux_icon": {
+      "row": 2,
+      "column": 1,
+      "cell": [
+        307,
+        512,
+        307,
+        256
+      ],
+      "frame": [
+        332,
+        512,
+        256,
+        256
+      ]
+    }
+  }
+}

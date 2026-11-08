@@ -1,0 +1,77 @@
+[
+ {
+  "file": "phase1.png",
+  "pivot": [
+   383.5,
+   383.5
+  ],
+  "bbox": [
+   89,
+   44,
+   678,
+   627
+  ],
+  "core_center": [
+   383.5,
+   383.5
+  ],
+  "left_wing_center": [
+   239.4,
+   370.92
+  ],
+  "right_wing_center": [
+   527.13,
+   370.92
+  ]
+ },
+ {
+  "file": "phase2.png",
+  "pivot": [
+   383.5,
+   383.5
+  ],
+  "bbox": [
+   88,
+   44,
+   680,
+   626
+  ],
+  "core_center": [
+   383.5,
+   383.5
+  ],
+  "left_wing_center": [
+   239.76,
+   371.52
+  ],
+  "right_wing_center": [
+   527.49,
+   371.52
+  ]
+ },
+ {
+  "file": "phase3.png",
+  "pivot": [
+   383.5,
+   383.5
+  ],
+  "bbox": [
+   88,
+   43,
+   680,
+   628
+  ],
+  "core_center": [
+   383.5,
+   383.5
+  ],
+  "left_wing_center": [
+   239.7,
+   372.4
+  ],
+  "right_wing_center": [
+   527.43,
+   372.4
+  ]
+ }
+]

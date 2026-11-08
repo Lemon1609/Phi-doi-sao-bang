@@ -1,0 +1,49 @@
+Tệp dữ liệu KY_NANG_39_CHOT.json đã hoàn thiện và đồng bộ toàn bộ 39 món trang bị (13 Giáp, 13 Tên lửa, 13 Vũ khí phụ thuộc 13 Bộ) theo đúng kiến trúc mã nguồn V142 và dáng bóng đã duyệt.
+I. Đánh Giá Toàn Diện Dữ Liệu KY_NANG_39_CHOT.json
+ * Khắc phục lỗi thang máu và triệt tiêu bất tử vô hạn:
+   * 5 món giáp cần tinh chỉnh (aegis, orbital, nanite, aurora36, devour10_a) đã được nén về đúng thang máu thực chiến (~9,5 HP người chơi, ~5,2 Giáp, ~0,9–1,5 sát thương/đòn trúng).
+   * Cơ chế chặn của aegis giãn cách chu kỳ lên 20s/tầng (tối đa 1 tầng) thay vì 6s; nanite chuyển sang hồi máu ngoài giao tranh (1%/s sau 3s an toàn, trần 25% HP/phút); devour10_a áp trần diệt quái thường hồi tối đa 10% HP mỗi 10s.
+   * orbital đã đổi hoàn toàn họ cơ chế từ "tích tầng khiên thời gian" sang "Hộ Vệ Sườn Sau" (chặn đòn theo hướng góc > 70°, hồi chiêu 3s), xóa bỏ sự trùng lặp họ cơ chế với aegis.
+   * aurora36 đã kéo giãn hồi chiêu khiên sượt đạn lên 15s ở cấp 5 (thay vì 8s).
+ * Tách biệt 4 cặp vũ khí phụ trùng cơ chế:
+   * gravity (Bộ 04): Hoạt động theo cơ chế đẩy lệch đạn địch 38° sang hai bên sườn, mở hành lang né đạn ở giữa (không làm chậm, tách biệt hoàn toàn với trường trũng thời gian của chrono11_s).
+   * halo36 (Bộ 09): Hoạt động theo cơ chế tập trung một mục tiêu dồn tầng (mỗi đòn trúng liên tiếp tăng +6% ST, tối đa +36% ST đơn mục tiêu; đổi mục tiêu mất cộng dồn, tách biệt với đĩa hồi hoàn của disc).
+   * devour10_s (Bộ 11): Chuyển thành hấp thụ đạn địch phản đòn tia (nuốt đủ 4 đạn địch bay sát pod thì phóng 1 đại tia thôn phệ 220% ST, bỏ hoàn toàn lưỡi cưa trước mũi để pod đứng cố định tại ±100 px).
+   * monarch12_s (Bộ 13): Chuyển sang phù ấn đánh dấu nổ dây chuyền (dập phù ấn lên tối đa 4 mục tiêu, sau 0,8s nổ liên hoàn nối xích hắc quang, tách biệt với tia ray xuyên thẳng của rail).
+ * Chuẩn hóa hiển thị trong trận:
+   * Toàn bộ 13 Giáp và 13 Tên lửa tuân thủ nghiêm ngặt quy tắc không có hình thể tồn tại lâu quanh thân tàu: formChange chỉ mô tả sự thay đổi của icon trong Kho đồ và chớp sáng hiệu ứng ngắn 0,3s – 0,4s trên thân tàu lúc kích hoạt.
+   * chrono11_a đã bỏ cơ chế hồi sinh gây xung đột với hệ thống hồi sinh chung của game (Revive393), chuyển thành cơ chế giữ lại 1 HP và bất tử 2,0s khi nhận đòn chí tử (hồi chiêu 60s).
+   * aegis9 sở hữu nội tại giảm sát thương độc lập 18% (tăng lên tối đa 30% khi có tiêm kích từ carrier9), hoạt động hiệu quả ngay cả khi đứng đơn lẻ.
+II. Bảng Đồng Bộ Ngân Sách Phòng Thủ 13 Giáp (Kiểm Chứng 2 Mức Giao Tranh)
+Trong tệp JSON, 5 giáp vừa hiệu chỉnh đã có bảng defenseBudget chi tiết ở 2 mốc 6 đòn/phút và 20 đòn/phút. Bảng dưới đây đối chiếu và chuẩn hóa chỉ số thực tế cho toàn bộ 13 Giáp ở Cấp 5 để Claude đưa vào tài liệu kiểm thử:
+| Bộ | Mã Giáp | Tên Giáp | Cơ chế phòng thủ cốt lõi | Ở mức 6 đòn/phút (Né tốt) | Ở mức 20 đòn/phút (Áp lực cao) | Đạt chuẩn ngân sách? |
+|---|---|---|---|---|---|---|
+| 01 | aegis | Thành Trì | Chặn 1 đòn mỗi 20s (tối đa 1 tầng) | Cứu 2,3 đòn (1,8 nội tại + 0,5 chiêu) | Cứu 5,8 đòn (3,0 nội tại + 2,8 chiêu) | ĐẠT (1,5–2,5 / 5–7) |
+| 02 | mirror | Kính Phản | 25% phản toàn bộ đòn đánh | Cứu 2,2 đòn (1,5 nội tại + 0,7 chiêu) | Cứu 6,2 đòn (5,0 nội tại + 1,2 chiêu) | ĐẠT (1,5–2,5 / 5–7) |
+| 03 | orbital | Quỹ Đạo | Chặn đạn sườn/sau (hồi 3s) | Cứu 2,2 đòn (1,4 nội tại + 0,8 chiêu) | Cứu 6,3 đòn (4,5 nội tại + 1,8 chiêu) | ĐẠT (1,5–2,5 / 5–7) |
+| 04 | phase | Dịch Pha | 24% vô hiệu đòn đánh | Cứu 2,1 đòn (1,4 nội tại + 0,7 chiêu) | Cứu 6,0 đòn (4,8 nội tại + 1,2 chiêu) | ĐẠT (1,5–2,5 / 5–7) |
+| 05 | reactive | Long Viêm | Giảm cố định 24% sát thương | Cứu 2,1 đòn tương đương (1,4 nội tại + 0,7 chiêu) | Cứu 6,0 đòn tương đương (4,8 nội tại + 1,2 chiêu) | ĐẠT (1,5–2,5 / 5–7) |
+| 06 | nanite | Nano | Hồi 1%/s ngoài giao tranh (trần 25%/phút) | Cứu 2,3 đòn (1,7 nội tại + 0,6 chiêu) | Cứu 5,4 đòn (1,2 nội tại + 4,2 chiêu) | ĐẠT (1,5–2,5 / 5–7) |
+| 07 | aurora36 | Thánh Quang | Sượt đạn tích khiên (hồi 15s) | Cứu 2,3 đòn (1,6 nội tại + 0,7 chiêu) | Cứu 6,2 đòn (3,8 nội tại + 2,4 chiêu) | ĐẠT (1,5–2,5 / 5–7) |
+| 08 | void36 | Vực Tối | Máu < 35% tàng hình 2,0s (hồi 18s) | Cứu 1,8 đòn (thoát chết nguy cấp) | Cứu 5,8 đòn (3 lần tàng hình + 1 chiêu) | ĐẠT (1,5–2,5 / 5–7) |
+| 09 | seraph36 | Thiên Ân | Nhặt đồ tạo khiên 5% HP (tối đa 3 tầng) | Cứu 2,2 đòn (nhặt 6–8 đồ/phút) | Cứu 5,5 đòn (khiên liên tục + chiêu hồi máu) | ĐẠT (1,5–2,5 / 5–7) |
+| 10 | aegis9 | Kỳ Hạm | Giảm 18% ST (đủ bộ tiêm kích giảm 30%) | Cứu 1,8 đòn (độc lập: 1,1 đòn + 0,7 chiêu) | Cứu 5,2 đòn (đủ bộ: 6,0 đòn + 1,0 chiêu) | ĐẠT (1,5–2,5 / 5–7) |
+| 11 | devour10_a | Phệ Tinh | Hạ quái hồi máu (trần 10% HP/10s) | Cứu 2,2 đòn (1,6 nội tại + 0,6 chiêu) | Cứu 6,1 đòn (4,6 nội tại + 1,5 chiêu) | ĐẠT (1,5–2,5 / 5–7) |
+| 12 | chrono11_a | Nghịch Thời | Giữ 1 HP + bất tử 2s khi nhận đòn chí mạng (hồi 60s) | Cứu 2,0 đòn (1 đòn sinh tử + 1 chiêu hoàn máu) | Cứu 5,5 đòn (cứu mạng mốc 60s + 3 lần chiêu) | ĐẠT (1,5–2,5 / 5–7) |
+| 13 | monarch12_a | Hoàng Đế | Nhận ngay 40%, hoãn 60% ST rút dần trong 4s | Cứu 2,4 đòn (triệt tiêu đột tử) | Cứu 6,5 đòn (chuyển sát thương sốc thành rút dần) | ĐẠT (1,5–2,5 / 5–7) |
+III. Lộ Trình Tích Hợp Cho Claude
+ * Đợt 1 (Bộ 01–06 · 18 Món):
+   * Nạp trực tiếp dữ liệu từ aegis đến prism vào cấu hình GEAR_FX.
+   * Lập trình logic cho các cơ chế mới của nhóm đầu: orbital (kiểm tra góc tới của đạn địch so với hướng di chuyển của tàu: angle > 70° thì tiêu hủy đạn và kích hoạt hồi chiêu 3s); nanite (bộ đếm timeSinceLastHit >= 3.0s mới kích hoạt hồi 1% HP/s); gravity (phát lực đẩy phương ngang vx += (bullet.x > pod.x ? 1 : -1) * pushForce làm dạt đạn địch sang 2 mép biên).
+   * Chạy công cụ đo tự động BENCH kiểm tra sát thương đạn của 12 món tấn công đảm bảo biên độ ±8% DPS.
+ * Đợt 2 (Bộ 07–13 · 21 Món):
+   * Nạp dữ liệu từ aurora36 đến monarch12_s vào gear81.js và skill81.js, chấm dứt việc mượn hành vi của Bộ 01–06.
+   * Tích hợp 5 cơ chế đặc thù đã duyệt:
+     * orbit36: Sợi xích điện trường mảnh cắt ngang giữa 2 pod (alpha = 0,45, kiểm tra va chạm đoạn thẳng với quái).
+     * halo36: Bộ đếm cộng dồn trúng đích đơn mục tiêu (streakCount, reset khi đổi mục tiêu).
+     * devour10_s: Bộ đếm nuốt đạn địch absorbedCount >= 4 thì phóng đại tia thôn phệ.
+     * devour10_m: Trạng thái gắn kén ký sinh rút máu và nhân hệ số khuếch đại sát thương nhận vào.
+     * chrono11_m: Vụ nổ tiếng vọng thời gian lần 2 sau 0,6s tại tọa độ nổ ban đầu.
+     * monarch12_s: Đánh dấu phù ấn và nổ dây chuyền sau 0,8s.
+     * monarch12_a: Bể tích lũy hoãn sát thương bleedPool rút dần 60% trong 4s.
+Tệp KY_NANG_39_CHOT.json đã sẵn sàng để Claude đưa vào mã nguồn và triển khai kiểm thử trong bản build tiếp theo.

@@ -1,0 +1,24 @@
+/* V70 · KHUNG PHẨM CHẤT (bổ sung adv69.css) */
+.fr70{--fc:#d6e0ea;display:inline-block;padding:2px 8px;margin-left:4px;font:900 11px 'Neo',sans-serif;letter-spacing:.5px;color:#06101c;background:linear-gradient(180deg,color-mix(in srgb,var(--fc) 60%,#fff),var(--fc));border-radius:6px;box-shadow:0 0 10px color-mix(in srgb,var(--fc) 55%,transparent);vertical-align:middle;white-space:nowrap}
+.adv70 .adv-c.fr{--fc:#d6e0ea;border:2px solid var(--fc);box-shadow:0 0 14px color-mix(in srgb,var(--fc) 35%,transparent) inset}
+.adv70 .adv-c.fr .fr70{margin:2px 0 0}
+.adv70 .adv-cards.one{grid-template-columns:1fr;justify-items:center}
+.adv70 .adv-cards.one .adv-c{min-width:150px}
+.adv70 .adv-m.ph{min-width:120px}
+.adv70 .ph70{--fc:#3aa8ff;display:grid;place-items:center;width:46px;height:46px;overflow:hidden;border-radius:8px;border:2px solid var(--fc);background:#0a1626}
+.adv70 .ph70 img,.adv70 .ph70 canvas,.adv70 .ph70 span{max-width:42px;max-height:42px}
+.adv70 .adv-ph{margin-top:12px;padding:8px;border:1px solid #5fc8ff33;border-radius:10px;background:#081322}
+.adv70 .adv-ph .adv-req-t{margin-top:0}
+.adv70 .ph-have{display:flex;gap:12px;font:600 11px 'Be Vietnam Pro',sans-serif;color:#cfe3f5;margin-bottom:6px;flex-wrap:wrap}
+.adv70 .ph-have b{font:900 13px 'Neo',sans-serif}
+.adv70 .ph-acts{display:grid;grid-template-columns:1fr 1fr;gap:6px}
+.adv70 .ph-acts button,.adv70 .adv-cm{display:flex;flex-direction:column;align-items:center;gap:1px;min-height:40px;padding:5px 4px;font:800 10px 'Neo',sans-serif;letter-spacing:.5px;color:#cfe3f5;background:linear-gradient(180deg,#1a3656,#0e2034);border:1px solid #5fc8ff55;border-radius:8px;cursor:pointer}
+.adv70 .ph-acts button small,.adv70 .adv-cm small{font:600 8.5px 'Be Vietnam Pro',sans-serif;color:#8fb8d8;letter-spacing:0}
+.adv70 .ph-acts button.hot,.adv70 .adv-cm.hot{color:#2a1400;background:linear-gradient(180deg,#ffe28a,#ffb22c 55%,#e07a0a);border-color:#ffd56a}
+.adv70 .ph-acts button.hot small,.adv70 .adv-cm.hot small{color:#4a2800}
+.adv70 .adv-cell{display:flex;flex-direction:column;gap:3px;align-items:stretch}
+.adv70 .adv-cm{min-height:30px;padding:2px}
+.adv70 .adv-mig{display:flex;flex-direction:column;gap:4px;max-height:40vh;overflow:auto;margin:6px 0}
+.adv70 .adv-mig>div{display:flex;justify-content:space-between;gap:8px;padding:5px 8px;background:#0a1626;border-radius:6px;font:600 11px 'Be Vietnam Pro',sans-serif;color:#eaf6ff}
+.adv70 .adv-mig small{color:#9fc0dc}.adv70 .adv-mig em{font-style:normal;color:#7dff9a;font-weight:800}
+#hub40 .hb-it .en.fr70{position:absolute;padding:1px 4px;font-size:8.5px;margin:0}

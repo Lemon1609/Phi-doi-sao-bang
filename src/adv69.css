@@ -1,0 +1,67 @@
+/* V69 · ĐỘT PHÁ */
+html body .adv69 .adv-card{width:min(420px,100%);max-height:92vh;overflow:auto}
+.adv69 h3{display:flex;align-items:center;gap:8px}
+.adv69 .adv-hi{width:34px;height:34px}
+.adv69 .adv-cards{display:grid;grid-template-columns:1fr 34px 1fr;align-items:center;gap:4px;margin:8px 0}
+.adv69 .adv-c{display:flex;flex-direction:column;align-items:center;gap:3px;padding:8px 4px;background:linear-gradient(180deg,#16365c,#0c1e36);border:1px solid #5fc8ff66;border-radius:10px}
+.adv69 .adv-c.nx{border-color:#ffd56a;box-shadow:0 0 14px #ffb43a44 inset}
+.adv69 .adv-art{width:72px;height:72px;display:grid;place-items:center;overflow:hidden}
+.adv69 .adv-art img,.adv69 .adv-art canvas{max-width:72px;max-height:72px}
+.adv69 .adv-c b{font:900 18px 'Neo',sans-serif;color:#fff}
+.adv69 .adv-c.nx b{color:#ffd56a}
+.adv69 .adv-c small{font:600 10px 'Be Vietnam Pro',sans-serif;color:#9fc0dc}
+.adv69 .adv-c small em{font-style:normal;color:#7dff9a;font-weight:800}
+.adv69 .adv-lock{text-align:center;font-size:22px;color:#ffd56a}
+.adv69 .adv-cmp{display:grid;grid-template-columns:1fr 1fr;gap:6px;font:600 10.5px/1.45 'Be Vietnam Pro',sans-serif;color:#d8e8f5}
+.adv69 .adv-cmp>div{padding:6px 8px;background:#0a1626;border:1px solid #ffffff14;border-radius:8px}
+.adv69 .adv-cmp i{display:block;font:800 9px 'Neo',sans-serif;letter-spacing:1px;color:#8fb8d8;font-style:normal;margin-bottom:2px}
+.adv69 .adv-cmp .up{color:#7dff9a}
+.adv69 .adv-req-t{display:flex;align-items:center;gap:6px;margin:10px 0 6px;font:800 11px 'Neo',sans-serif;letter-spacing:1px;color:#cfe3f5}
+.adv69 .adv-req-t button{margin-left:auto;font:700 9.5px 'Neo',sans-serif;color:#9fe8ff;background:none;border:1px solid #5fc8ff66;border-radius:6px;padding:4px 7px;cursor:pointer}
+.adv69 .adv-req{display:grid;grid-template-columns:repeat(auto-fill,minmax(68px,1fr));gap:6px}
+.adv69 .adv-m{--mc:#3ee08f;position:relative;display:flex;flex-direction:column;align-items:center;gap:2px;padding:6px 3px;background:radial-gradient(circle at 50% 35%,color-mix(in srgb,var(--mc) 35%,#0b1a2c),#08121f 75%);border:1.5px solid var(--mc);border-radius:10px;cursor:pointer;color:#fff}
+.adv69 .adv-m img{width:44px;height:44px}
+.adv69 .adv-m small{font:600 8.5px/1.15 'Be Vietnam Pro',sans-serif;color:#d8e8f5;text-align:center;min-height:20px}
+.adv69 .adv-m b{font:900 12px 'Neo',sans-serif}
+.adv69 .adv-m.ok b{color:#7dff9a}
+.adv69 .adv-m.no b{color:#ff6b7a}
+.adv69 .adv-m.no{animation:adv-no 1.6s ease-in-out infinite}
+@keyframes adv-no{50%{box-shadow:0 0 0 2px #ff3a4e55}}
+.adv69 .adv-m.sm{padding:4px 2px;min-width:56px}
+.adv69 .adv-m.sm img{width:36px;height:36px}
+.adv69 .adv-fr{font-size:30px;line-height:44px;color:#ffd56a}
+.adv69 .adv-cost{margin:8px 0 0;font:600 11px 'Be Vietnam Pro',sans-serif;color:#cfe3f5}
+.adv69 .adv-cost b{color:#ffd56a}
+.adv69 .no{color:#ff6b7a!important}
+.adv69 .adv-max{font:600 12px 'Be Vietnam Pro',sans-serif;color:#cfe3f5;margin:12px 0}
+.adv69 .adv-btns{display:flex;gap:8px;margin-top:12px}
+.adv69 .adv-btns .m63-go{flex:2}
+.adv69 .adv-btns .m63-go.off{filter:grayscale(.85) brightness(.75)}
+.adv69 .adv-x{flex:1;min-height:42px;font:800 11px 'Neo',sans-serif;letter-spacing:1px;color:#e6f6ff;background:linear-gradient(180deg,#1d4a78,#0f2a48);border:1px solid #5fc8ff88;border-radius:8px;cursor:pointer}
+.adv69 .adv-src{display:flex;flex-direction:column;gap:6px;margin-top:8px}
+.adv69 .adv-s{display:flex;align-items:center;gap:8px;padding:8px 10px;background:#0a1626;border:1px solid #5fc8ff33;border-radius:8px}
+.adv69 .adv-s>div{flex:1;display:flex;flex-direction:column}
+.adv69 .adv-s b{font:700 11.5px 'Be Vietnam Pro',sans-serif;color:#eaf6ff}
+.adv69 .adv-s small{font:500 10px 'Be Vietnam Pro',sans-serif;color:#8fb8d8}
+.adv69 .adv-s button{font:800 10.5px 'Neo',sans-serif;color:#2a1400;background:linear-gradient(180deg,#ffe28a,#ffb22c 55%,#e07a0a);border:0;border-radius:6px;padding:8px 12px;cursor:pointer}
+.adv69 .adv-inv{display:flex;flex-direction:column;gap:8px;margin-top:6px}
+.adv69 .adv-ir{display:flex;align-items:center;gap:6px}
+.adv69 .adv-ir>b{flex:1;font:700 11px 'Be Vietnam Pro',sans-serif;color:#d8e8f5}
+.adv69 .adv-sss{display:flex;flex-direction:column;gap:6px;margin-top:6px}
+.adv69 .adv-sr{display:flex;align-items:center;gap:8px;padding:8px 10px;background:#0a1626;border:1px solid #ffb43a44;border-radius:8px}
+.adv69 .adv-sr>div{flex:1;display:flex;flex-direction:column;min-width:0}
+.adv69 .adv-sr b{font:800 12px 'Be Vietnam Pro',sans-serif}
+.adv69 .adv-sr small{font:500 10px 'Be Vietnam Pro',sans-serif;color:#9fc0dc}
+.adv69 .adv-sr .st{color:#ffd56a;letter-spacing:-1px}
+.adv69 .adv-sr button{display:flex;flex-direction:column;align-items:center;font:900 13px 'Neo',sans-serif;color:#e6f6ff;background:linear-gradient(180deg,#1d4a78,#0f2a48);border:1px solid #5fc8ff88;border-radius:8px;padding:6px 10px;cursor:pointer}
+.adv69 .adv-sr button.hot{color:#2a1400;background:linear-gradient(180deg,#ffe28a,#ffb22c 55%,#e07a0a);border-color:#ffe6a0}
+.adv69 .adv-sr button small{font:700 8.5px 'Neo',sans-serif;color:inherit;opacity:.85}
+.adv69 .adv-sr em{font:800 10px 'Neo',sans-serif;color:#7dff9a;font-style:normal}
+.adv-band{position:fixed;left:0;right:0;top:42%;z-index:2147483600;text-align:center;padding:14px 0;font:900 18px 'Neo','Be Vietnam Pro',sans-serif;letter-spacing:3px;color:#2a1400;background:linear-gradient(90deg,#ffb22c00,#ffe28a 20%,#ffcf3a 50%,#ffe28a 80%,#ffb22c00);text-shadow:0 1px 0 #fff6c0;animation:advb 1.6s ease-out forwards;pointer-events:none}
+@keyframes advb{0%{opacity:0;transform:scaleY(.2)}12%{opacity:1;transform:scaleY(1.15)}22%{transform:scaleY(1)}80%{opacity:1}100%{opacity:0}}
+#hub40 .hb-btn.adv-rdy{animation:advr 1.2s ease-in-out infinite}
+@keyframes advr{50%{box-shadow:0 0 0 2px #ffe28a,0 0 16px #ffb22c}}
+html body #hgr41 .h1-fx{flex-wrap:wrap}
+html body #hgr41 .h1-fx .adv69b{flex:1 1 40%;min-height:26px;font:800 10px 'Neo',sans-serif;letter-spacing:1px;color:#2a1400;background:linear-gradient(180deg,#ffe28a,#ffb22c 55%,#e07a0a);border:1px solid #ffe6a0;cursor:pointer}
+html body .adv69 .adv-btns .m63-go{min-height:42px;font:900 13px 'Neo',sans-serif;letter-spacing:1.5px;color:#2a1400;background:linear-gradient(180deg,#ffe28a,#ffb22c 55%,#e07a0a);border:1px solid #ffe6a0;border-radius:8px;cursor:pointer}
+/* V190 · dòng mới kém hơn */.adv-cmp .dn190{color:#ff7a7a}

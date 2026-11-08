@@ -1,0 +1,11 @@
+{
+  "status": "PASS",
+  "PNG": 26,
+  "expected_PNG": 26,
+  "counts": {
+    "craft": 6,
+    "ebullet": 20
+  },
+  "max_hull_anchor_error_px": 1.5,
+  "errors": []
+}

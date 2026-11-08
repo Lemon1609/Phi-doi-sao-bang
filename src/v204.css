@@ -1,0 +1,12 @@
+/* V204 · tầng cuối game của Sự kiện tuần */
+.ev204tag{font-style:normal;font-size:10px;font-weight:800;letter-spacing:.04em;padding:1px 5px;border-radius:6px;background:#5b4210;color:#ffd56a;margin-right:4px;vertical-align:1px}
+.ev83t.ev204l{border-color:#7a5a1c}
+.ev204c b{color:#ffd56a}
+.ev204 .ev83n b{color:#fff}
+.ev204 .ev83n em.ok{font-style:normal;color:#6ff0a8;font-weight:800}
+.ev204w{display:grid;gap:6px;margin:4px 0 8px}
+.ev204w>div{padding:8px 10px;border-radius:10px;background:#0d1d31;border:1px solid #2b4a6c;opacity:.72}
+.ev204w>div.on{opacity:1;border-color:#ffc94a;background:#1d1a0e}
+.ev204w b{display:block;font-size:12.5px;color:#e5f2ff}
+.ev204w small{display:block;font-size:11.5px;color:#9fc0da;margin-top:2px}
+.ev204w em{display:inline-block;margin-top:4px;font-style:normal;font-size:11px;font-weight:800;color:#ffd56a}

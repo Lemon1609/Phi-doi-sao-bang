@@ -1,0 +1,39 @@
+{
+  "coordinate_system": "pixel-center indices, x right, y down, canvas768",
+  "status": "art anchors proposed for integration; not extracted from game code",
+  "emitters": {
+    "nose": [
+      383.5,
+      671
+    ],
+    "wing_left": [
+      125,
+      350
+    ],
+    "wing_right": [
+      642,
+      350
+    ],
+    "bomb_left": [
+      241,
+      297
+    ],
+    "bomb_right": [
+      526,
+      297
+    ],
+    "column_left": [
+      250,
+      572
+    ],
+    "column_center": [
+      383.5,
+      671
+    ],
+    "column_right": [
+      517,
+      572
+    ]
+  },
+  "shared_across_phases": true
+}

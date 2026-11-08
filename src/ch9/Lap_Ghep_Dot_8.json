@@ -1,0 +1,58 @@
+{
+  "canvas": [
+    1024,
+    640
+  ],
+  "body": {
+    "position": [
+      192,
+      64
+    ],
+    "size": [
+      640,
+      512
+    ],
+    "docking_left": [
+      70,
+      224
+    ],
+    "docking_right": [
+      570,
+      224
+    ]
+  },
+  "left": {
+    "position": [
+      26,
+      178
+    ],
+    "size": [
+      256,
+      256
+    ],
+    "anchor": [
+      236,
+      110
+    ]
+  },
+  "right": {
+    "position": [
+      742,
+      178
+    ],
+    "size": [
+      256,
+      256
+    ],
+    "anchor": [
+      20,
+      110
+    ]
+  },
+  "draw_order": [
+    "left",
+    "right",
+    "body"
+  ],
+  "note": "Coordinates are top-left pixel positions. Right wing is an exact horizontal mirror of left."
+}

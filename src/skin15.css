@@ -1,0 +1,54 @@
+/* V74-mẫu · Bộ giao diện GPT Đợt 15a (thử). Biến --u15-* do build gắn (ảnh webp). */
+html body .m63 .m63-card{background:none!important;border:28px solid transparent!important;border-image:var(--u15-panel) 96 fill / 28px stretch!important;box-shadow:none!important;border-radius:0!important}
+html body .m63 .m63-go,html body #lb68 .cta.c,html body #hgr41 .h1-launch,html body .u72 .hb-btn.gold,html body .st71-row button,html body .adv69 .adv-s button{background:none!important;border:12px solid transparent!important;border-image:var(--u15-gold) 40 52 40 52 fill / 12px 16px stretch!important;color:#2a1400!important;text-shadow:0 1px 0 #ffe9a8!important;box-shadow:none!important}
+html body .m63 .adv-x,html body #lb68 .lb68-row button,html body .u72 .hb-btn.cyan,html body .u72 .hb-btn:not(.gold):not(.cyan){background:none!important;border:12px solid transparent!important;border-image:var(--u15-blue) 40 52 40 52 fill / 12px 16px stretch!important;color:#eaf6ff!important;box-shadow:none!important}
+html body #lb68 .cta.e{background:none!important;border:12px solid transparent!important;border-image:var(--u15-gold) 40 52 40 52 fill / 12px 16px stretch!important;filter:hue-rotate(-22deg) saturate(1.3);box-shadow:none!important}
+html body #lb68 .cta.e b,html body #lb68 .cta.e small{filter:hue-rotate(22deg)}
+html body button#bomb#bomb#bomb,html body.play-screen button#bomb#bomb#bomb{background:var(--u15-bomb) center/contain no-repeat!important;border:0!important;box-shadow:none!important}
+html body button#missile-action#missile-action#missile-action,html body.play-screen button#missile-action#missile-action#missile-action{background:var(--u15-missile) center/contain no-repeat!important;border:0!important;box-shadow:none!important}
+html body #hgr41 [data-go="missions"] svg,html body #hgr41 [data-go="endless"] .inf,html body #hgr41 [data-go="chest"] svg{visibility:hidden}
+html body button#bomb#bomb#bomb::before,html body button#bomb#bomb#bomb::after,html body button#missile-action#missile-action#missile-action::before,html body button#missile-action#missile-action#missile-action::after{display:none!important}
+/* ===== Đợt 15a-1 ===== */
+/* nút nhấn / khóa / cảnh báo */
+html body .m63 .m63-go:active,html body #lb68 .cta.c:active,html body #hgr41 .h1-launch:active,html body .u72 .hb-btn.gold:active,html body .st71-row button:active,html body .adv69 .adv-s button:active,html body #hub40 .hb-btn.gold:active{border-image-source:var(--u15-gold-p)!important}
+html body .m63 .adv-x:active,html body #lb68 .lb68-row button:active,html body .u72 .hb-btn:not(.gold):active,html body #hub40 .hb-btn:not(.gold):active{border-image-source:var(--u15-blue-p)!important}
+html body .u72 .hb-btn:disabled,html body .st71-row button:disabled,html body .adv69 .adv-s button:disabled,html body #hub40 .hb-btn:disabled,html body .m63 .m63-go:disabled{border-image-source:var(--u15-gray)!important;filter:none!important;color:#c9d3dc!important;text-shadow:0 1px 2px #000!important}
+html body .adv-dis,html body button.danger,html body .st71-row button.red,html body #hub40 .hb-btn.red{background:none!important;border:12px solid transparent!important;border-image:var(--u15-red) 40 52 40 52 fill / 12px 16px stretch!important;color:#fff!important;text-shadow:0 1px 2px #5a0000!important;box-shadow:none!important}
+/* Kho: nút nhỏ thay clip-path cũ */
+html body #hub40 .hb-btn{clip-path:none!important;background:none!important;border:10px solid transparent!important;border-image:var(--u15-sblue) 32 fill / 10px stretch!important;box-shadow:none!important;color:#eaf6ff!important;text-shadow:0 1px 2px #001a33!important}
+html body #hub40 .hb-btn.gold{border-image:var(--u15-sgold) 32 fill / 10px stretch!important;color:#2a1400!important;text-shadow:0 1px 0 #ffe9a8!important}
+html body #hub40 .hb-btn.gold small{color:#4a2800!important}
+html body #hub40 .hb-btn:active{border-image-source:var(--u15-sblue)!important;transform:translateY(1px)}
+html body #hub40 .hb-btn.gold:active{border-image-source:var(--u15-sgold)!important}
+html body #hub40 .hb-btn:disabled{border-image-source:var(--u15-gray)!important;border-image-slice:40 52 40 52 fill!important}
+/* nền Kho / Bản đồ */
+html body #hub40{background:#02060d var(--u15-bgkho) center/cover no-repeat!important}
+html body #hub40 .hb-col{background:linear-gradient(#02060d55,#02060d22 30%,#02060d66)}
+html body #cmap{background:#030812 var(--u15-bgmap) center/cover no-repeat!important}
+html body #hub40 .hb-top{background:none!important;border:0!important;border-bottom:0!important;min-height:44px;position:relative}
+html body #hub40 .hb-top::before{content:'';position:absolute;inset:0;background:var(--u15-phead) center/100% 100% no-repeat;pointer-events:none;z-index:0}
+html body #hub40 .hb-top>*{position:relative;z-index:1}
+/* tab */
+html body #hub40 .hb-filter button,html body .st71-tabs button{background:var(--u15-tab-off) center/100% 100% no-repeat!important;border:0!important;box-shadow:none!important;clip-path:none!important;color:#9fc0dc!important;min-height:34px}
+html body #hub40 .hb-filter button[aria-pressed="true"],html body .st71-tabs button[aria-pressed="true"]{background:var(--u15-tab-on) center/100% 100% no-repeat!important;color:#fff!important;text-shadow:0 0 6px #3fe6ff,0 1px 2px #000!important}
+/* khung phẩm chất ô Kho */
+html body #hub40 .hb-it{border:0!important;background:radial-gradient(#10243c,#060f1c 75%)!important;--u15-fq:var(--u15-frame-white)}
+html body #hub40 .hb-it[data-q="1"]{--u15-fq:var(--u15-frame-green)}
+html body #hub40 .hb-it[data-q="2"]{--u15-fq:var(--u15-frame-blue)}
+html body #hub40 .hb-it[data-q="3"]{--u15-fq:var(--u15-frame-purple)}
+html body #hub40 .hb-it::after{content:'';position:absolute;inset:0;background:var(--u15-fq) center/100% 100% no-repeat;pointer-events:none;z-index:2}
+html body #hub40 .hb-it .lv,html body #hub40 .hb-it .eq,html body #hub40 .hb-it .en,html body #hub40 .hb-it .hb-dot{z-index:3}
+html body #hub40 .hb-it .lv{left:7px;bottom:5px}html body #hub40 .hb-it .eq{right:7px;top:5px}html body #hub40 .hb-it .en{right:7px!important;bottom:5px!important}
+html body .adv-c.fr{border:0!important;background:var(--u15-card) center/100% 100% no-repeat!important;box-shadow:none!important}
+/* sheet chi tiết dùng panel */
+html body #hub40 .hb-sheet{background:none!important;border:22px solid transparent!important;border-bottom:0!important;border-image:var(--u15-panel) 96 fill / 22px stretch!important;box-shadow:none!important}
+/* HUD trong trận */
+html body button#pause#pause#pause{background:var(--u15-pause) center/contain no-repeat!important;border:0!important;box-shadow:none!important;color:transparent!important;clip-path:none!important}
+html body button#fullscreen-toggle#fullscreen-toggle#fullscreen-toggle{background:var(--u15-expand) center/contain no-repeat!important;border:0!important;box-shadow:none!important;color:transparent!important;clip-path:none!important}
+html body #ult72-btn#ult72-btn{background:none!important;border:0!important;box-shadow:none!important}
+html body #ult72-btn#ult72-btn::after{content:'';position:absolute;inset:-6px;background:var(--u15-ring) center/contain no-repeat;pointer-events:none}
+html body #ult72-btn i{inset:9px!important}
+html body button#robot-skill#robot-skill#robot-skill{width:66px!important;height:66px!important;min-height:0!important;padding:0!important;background:var(--u15-skill) center/contain no-repeat!important;border:0!important;box-shadow:none!important;clip-path:none!important;color:transparent!important;font-size:0!important}
+html body button#robot-skill#robot-skill#robot-skill:disabled{filter:grayscale(.7) brightness(.7)!important}
+html body button#robot-skill#robot-skill#robot-skill{overflow:visible!important;position:relative}
+html body button#robot-skill#robot-skill#robot-skill small{position:absolute;left:50%;bottom:-13px;transform:translateX(-50%);white-space:nowrap;font:800 8px 'Neo',sans-serif!important;color:#e3d2ff!important;text-shadow:0 1px 2px #000;letter-spacing:.5px}

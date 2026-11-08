@@ -1,0 +1,77 @@
+[
+  {
+    "file": "boss_pha_khong_phase1.png",
+    "source_axis": 626.5,
+    "source_hull_top": 99.0,
+    "source_hull_bottom": 1223.0,
+    "uniform_scale": 0.5115658362989324,
+    "pivot": [
+      383.5,
+      383.5
+    ],
+    "hull_rear": [
+      383.5,
+      96.0
+    ],
+    "hull_prow": [
+      383.5,
+      671.0
+    ],
+    "bbox": [
+      80,
+      53,
+      688,
+      672
+    ]
+  },
+  {
+    "file": "boss_pha_khong_phase2.png",
+    "source_axis": 628.5,
+    "source_hull_top": 249.0,
+    "source_hull_bottom": 1073.0,
+    "uniform_scale": 0.6978155339805825,
+    "pivot": [
+      383.5,
+      383.5
+    ],
+    "hull_rear": [
+      383.5,
+      96.0
+    ],
+    "hull_prow": [
+      383.5,
+      671.0
+    ],
+    "bbox": [
+      67,
+      49,
+      701,
+      673
+    ]
+  },
+  {
+    "file": "boss_pha_khong_phase3.png",
+    "source_axis": 627.5,
+    "source_hull_top": 161.0,
+    "source_hull_bottom": 1144.0,
+    "uniform_scale": 0.5849440488301119,
+    "pivot": [
+      383.5,
+      383.5
+    ],
+    "hull_rear": [
+      383.5,
+      96.0
+    ],
+    "hull_prow": [
+      383.5,
+      671.0
+    ],
+    "bbox": [
+      68,
+      55,
+      700,
+      672
+    ]
+  }
+]

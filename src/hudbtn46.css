@@ -1,0 +1,164 @@
+html body #missile-action,html body #bomb,html body #pause,html body #fullscreen-toggle,html body #overlay #start{--hud-frame-round:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2072%2072%22%3E%3Cpath%20d%3D%22M36%202%2047%205%2058%2013%2066%2025%2069%2036%2066%2047%2058%2059%2047%2067%2036%2070%2025%2067%2013%2059%205%2047%202%2036%205%2025%2013%2013%2025%205Z%22%20fill%3D%22none%22%20stroke%3D%22%23b8cbd1%22%20stroke-width%3D%222.5%22%2F%3E%3Cpath%20d%3D%22M14%2014%2026%207%2021%2020ZM46%207l12%207-7%206ZM65%2026l3%2010-11-5ZM68%2046l-10%2012-7-7ZM46%2065l-10%203-5-11ZM26%2065%2014%2058l7-7ZM7%2046%204%2036l11-5ZM4%2026l10-12%207%207Z%22%20fill%3D%22%23aebdc4%22%20opacity%3D%22.65%22%2F%3E%3Cpath%20d%3D%22M36%204%2045%208%2036%2013%2027%208ZM64%2036l-5%208-5-8%205-8ZM36%2068l-9-4%209-5%209%205ZM8%2036l5-8%205%208-5%208Z%22%20fill%3D%22%23568ea2%22%20opacity%3D%22.9%22%2F%3E%3Ccircle%20cx%3D%2236%22%20cy%3D%228%22%20r%3D%222%22%20fill%3D%22%23abe5ee%22%2F%3E%3Ccircle%20cx%3D%2264%22%20cy%3D%2236%22%20r%3D%222%22%20fill%3D%22%23abe5ee%22%2F%3E%3Ccircle%20cx%3D%2236%22%20cy%3D%2264%22%20r%3D%222%22%20fill%3D%22%23abe5ee%22%2F%3E%3Ccircle%20cx%3D%228%22%20cy%3D%2236%22%20r%3D%222%22%20fill%3D%22%23abe5ee%22%2F%3E%3C%2Fsvg%3E");--hud-ico-missile:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2040%2040%22%3E%3Cpath%20d%3D%22m20%203%207%209%203%2013-10%2011-10-11%203-13Z%22%20fill%3D%22%2392aab8%22%20stroke%3D%22%23e2e8e7%22%20stroke-width%3D%221.5%22%2F%3E%3Cpath%20d%3D%22M20%204v29l-8-9%202-12Z%22%20fill%3D%22%23e0ebed%22%2F%3E%3Cpath%20d%3D%22M20%204v29l8-9-2-12Z%22%20fill%3D%22%235398b1%22%2F%3E%3Cpath%20d%3D%22m20%2011%205%208-5%207-5-7Z%22%20fill%3D%22%2327c2de%22%20stroke%3D%22%23bbf5ed%22%20stroke-width%3D%221%22%2F%3E%3Cpath%20d%3D%22M20%2011v15l-5-7Z%22%20fill%3D%22%2373e6f2%22%2F%3E%3Cpath%20d%3D%22m12%2020-6%207%206-2%203%203m13-8%206%207-6-2-3%203%22%20fill%3D%22%236b879c%22%20stroke%3D%22%23bacbd0%22%20stroke-width%3D%221%22%2F%3E%3Cpath%20d%3D%22m17%2034%203%204%203-4%22%20fill%3D%22%23e6b45e%22%2F%3E%3C%2Fsvg%3E");--hud-ico-bomb:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2040%2040%22%3E%3Cpath%20d%3D%22m20%202%205%208%209%201-3%209%205%207-9%203-7%208-7-8-9-3%205-7-3-9%209-1Z%22%20fill%3D%22%23ab7441%22%20stroke%3D%22%23e6c380%22%20stroke-width%3D%221.5%22%2F%3E%3Cpath%20d%3D%22M20%205%2031%2020%2020%2034%209%2020Z%22%20fill%3D%22%23f2b644%22%2F%3E%3Cpath%20d%3D%22M20%205v29L9%2020Z%22%20fill%3D%22%23d4892b%22%2F%3E%3Cpath%20d%3D%22M20%2010%2027%2020%2020%2030%2013%2020Z%22%20fill%3D%22%23f9d06b%22%2F%3E%3Cpath%20d%3D%22M20%2010v20l-7-10Z%22%20fill%3D%22%23ffd88b%22%2F%3E%3Ccircle%20cx%3D%2220%22%20cy%3D%2220%22%20r%3D%223.2%22%20fill%3D%22%23fff0af%22%2F%3E%3C%2Fsvg%3E");--hud-ico-pause:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2032%2032%22%3E%3Cpath%20d%3D%22M7%205%2014%203v26l-7-2Zm11-2%207%202v22l-7%202Z%22%20fill%3D%22%23b8cbd0%22%20stroke%3D%22%23d8e3e5%22%20stroke-width%3D%221%22%2F%3E%3Cpath%20d%3D%22M9%207%2012%206v20l-3-1Zm11-1%203%201v18l-3%201Z%22%20fill%3D%22%2380bdd0%22%2F%3E%3Cpath%20d%3D%22M9%207%2012%206v9H9Zm11-1%203%201v8h-3Z%22%20fill%3D%22%23e5eeee%22%20opacity%3D%22.8%22%2F%3E%3C%2Fsvg%3E");--hud-ico-play:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2032%2032%22%3E%3Cpath%20d%3D%22M7%204%2027%2016%207%2028Z%22%20fill%3D%22%23bed1d5%22%20stroke%3D%22%23e1e8e9%22%20stroke-width%3D%221.5%22%2F%3E%3Cpath%20d%3D%22M11%209v14l13-7Z%22%20fill%3D%22%2358a3b7%22%2F%3E%3Cpath%20d%3D%22M11%209v7h13Z%22%20fill%3D%22%23cef0f0%22%20opacity%3D%22.9%22%2F%3E%3C%2Fsvg%3E");--hud-ico-expand:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2032%2032%22%3E%3Cpath%20d%3D%22M4%2012V4h8m8%200h8v8m0%208v8h-8m-8%200H4v-8%22%20fill%3D%22none%22%20stroke%3D%22%23c5d6d9%22%20stroke-width%3D%223.5%22%20stroke-linecap%3D%22square%22%2F%3E%3Cpath%20d%3D%22M6%2010V6h4m12%200h4v4m0%2012v4h-4m-12%200H6v-4%22%20fill%3D%22none%22%20stroke%3D%22%2376bfd1%22%20stroke-width%3D%222%22%2F%3E%3C%2Fsvg%3E");--hud-ico-collapse:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2032%2032%22%3E%3Cpath%20d%3D%22M12%204v8H4m16-8v8h8m0%208h-8v8M4%2020h8v8%22%20fill%3D%22none%22%20stroke%3D%22%23c5d6d9%22%20stroke-width%3D%223.5%22%20stroke-linecap%3D%22square%22%2F%3E%3Cpath%20d%3D%22M10%206v4H6m16-4v4h4m0%2012h-4v4M6%2022h4v4%22%20fill%3D%22none%22%20stroke%3D%22%2376bfd1%22%20stroke-width%3D%222%22%2F%3E%3C%2Fsvg%3E");--hud-ico-arrow:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2030%2030%22%3E%3Cpath%20d%3D%22M5%2016h17l-6%206%203%203%2010-10L19%205l-3%203%206%206H5Z%22%20fill%3D%22%234a2a10%22%2F%3E%3Cpath%20d%3D%22M7%2014h15l-6-6%203-3%2010%2010H7Z%22%20fill%3D%22%23fff0bd%22%20opacity%3D%22.8%22%2F%3E%3C%2Fsvg%3E");}
+/* PHI ĐỘI SAO BĂNG · nút trận pha lê/bạc · thay thế hudbtn45.css · CSS-only */
+html body #missile-action,html body #bomb{
+ position:relative!important;isolation:isolate;box-sizing:border-box!important;width:66px!important;height:66px!important;min-width:66px!important;min-height:66px!important;
+ padding:0!important;border:5px solid transparent!important;border-radius:50%!important;clip-path:none!important;display:flex!important;align-items:center!important;justify-content:flex-end!important;flex-direction:column!important;
+ font-size:0!important;color:transparent!important;overflow:visible!important;backdrop-filter:none!important;
+ background:var(--hud-icon) center 35%/32px 32px no-repeat,
+ radial-gradient(circle at 50% 36%,var(--hud-core-a) 0 10%,var(--hud-core-b) 32%,#102738 69%,#0b1429 100%) padding-box,
+ conic-gradient(from -20deg,#899daa,#c1cdd0 8%,#506d80 20%,#87a1a9 35%,#d0d8d8 50%,#3f596c 68%,#93a7b3 83%,#899daa) border-box!important;
+ box-shadow:inset 0 2px 3px #dbeaf329,inset 0 -5px 7px #05091a99,0 2px 5px #000a,0 0 8px var(--hud-glow)!important;
+ filter:none!important;opacity:1!important;transform:none!important;animation:none!important;
+ touch-action:manipulation;-webkit-tap-highlight-color:transparent;
+}
+html body #missile-action{--hud-icon:var(--hud-ico-missile);--hud-core-a:#3192aa;--hud-core-b:#175773;--hud-glow:#3acfe36b}
+html body #bomb{--hud-icon:var(--hud-ico-bomb);--hud-core-a:#c4933a;--hud-core-b:#785020;--hud-glow:#f4a94663}
+html body #missile-action::before,html body #bomb::before{
+ content:''!important;position:absolute!important;inset:-5px!important;z-index:1!important;pointer-events:none!important;
+ background:var(--hud-frame-round) center/100% 100% no-repeat!important;
+ opacity:.84!important;box-shadow:none!important;transform:none!important;
+}
+html body #missile-action small,html body #bomb::after{
+ position:absolute!important;left:2px!important;right:2px!important;bottom:5px!important;z-index:4!important;
+ display:block!important;margin:0!important;padding:2px 0!important;border-radius:4px!important;
+ background:#09192bd9!important;color:#e8f5f4!important;
+ font:800 8px/11px 'Be Vietnam Pro',system-ui,sans-serif!important;letter-spacing:.15px!important;
+ text-align:center!important;text-shadow:0 1px 1px #061525!important;white-space:nowrap!important;
+}
+html body #bomb small{display:none!important}
+html body #bomb::after{content:'BOM'!important;pointer-events:none!important}
+@media (hover:hover) and (pointer:fine){html body #bomb::after{content:'BOM · SPACE'!important;font-size:7px!important}}
+html body #bombcount{
+ position:absolute!important;right:-8px!important;top:-8px!important;z-index:5!important;box-sizing:border-box!important;
+ display:flex!important;justify-content:center!important;align-items:center!important;min-width:23px!important;height:23px!important;padding:0 4px!important;
+ border:2px solid #d3c49b!important;border-radius:50%!important;background:#542e13!important;box-shadow:0 2px 4px #0009!important;
+ color:#fff1c6!important;font:800 13px/1 'Be Vietnam Pro',system-ui,sans-serif!important;text-shadow:none!important;
+}
+/* Sweep is a translucent cyan rim, leaving the illuminated center intact. */
+html body #missile-action::after{
+ content:''!important;position:absolute!important;inset:-2px!important;z-index:3!important;border-radius:50%!important;
+ background:conic-gradient(from -90deg,#89dbe6bb calc(var(--cd07,0)*360deg),#183d4b55 0)!important;
+ -webkit-mask:radial-gradient(farthest-side,transparent calc(100% - 9px),#000 calc(100% - 8px))!important;
+ mask:radial-gradient(farthest-side,transparent calc(100% - 9px),#000 calc(100% - 8px))!important;
+ opacity:0!important;pointer-events:none!important;transition:none!important;
+}
+html body #missile-action.cd07::after{opacity:1!important}
+html body #missile-action.cd07{--hud-core-a:#2a697e;--hud-core-b:#164258;opacity:1!important;filter:none!important}
+html body #missile-action.cd07 small{
+ inset:auto 12px 12px!important;left:12px!important;right:12px!important;bottom:12px!important;min-height:29px!important;
+ display:flex!important;align-items:center!important;justify-content:center!important;
+ background:#0a2638f2!important;border:1px solid #8ac9d1aa!important;
+ font:800 16px/1 'Be Vietnam Pro',system-ui,sans-serif!important;letter-spacing:0!important;
+ color:#f1fbfb!important;text-shadow:none!important;text-transform:none!important;
+}
+html body #missile-action:disabled{opacity:1!important;filter:saturate(.65)!important;--hud-core-a:#49677a;--hud-core-b:#273c52;--hud-glow:#59899f35}
+html body #missile-action:disabled:not(.cd07) small{color:#edf1f4!important;background:#1a2e3be8!important}
+html body #bomb.empty07{--hud-core-a:#665636;--hud-core-b:#3d362e;--hud-glow:#b99b4730;opacity:1!important;filter:saturate(.65)!important}
+html body #bomb.empty07 #bombcount{background:#463727!important;color:#f1e8cb!important}
+html body #missile-action.rdy07:not(.cd07):not(:disabled){animation:hudCrystalReady .55s ease-out 1!important}
+@keyframes hudCrystalReady{0%{box-shadow:inset 0 2px 3px #dbeaf329,inset 0 -5px 7px #05091a99,0 2px 5px #000a,0 0 8px #3acfe36b}35%{box-shadow:inset 0 2px 3px #dbeaf329,inset 0 -5px 7px #05091a99,0 2px 5px #000a,0 0 8px #3acfe3b3}100%{box-shadow:inset 0 2px 3px #dbeaf329,inset 0 -5px 7px #05091a99,0 2px 5px #000a,0 0 8px #3acfe36b}}
+html body #missile-action:is(:active,[data-demo-pressed]),html body #bomb:is(:active,[data-demo-pressed]){transform:translateY(2px) scale(.96)!important;filter:brightness(.86)!important}
+html body #missile-action:focus-visible,html body #bomb:focus-visible{outline:2px solid #ffdb84!important;outline-offset:2px!important}
+/* Neutral system controls: 44 px hit box, 42 px face. */
+html body #pause,html body #fullscreen-toggle{
+ position:relative!important;box-sizing:border-box!important;display:grid!important;place-items:center!important;
+ width:44px!important;height:44px!important;min-width:44px!important;min-height:44px!important;
+ padding:1px!important;border:1px solid transparent!important;border-radius:11px!important;clip-path:none!important;
+ color:transparent!important;font-size:0!important;overflow:hidden!important;
+ background:var(--hud-system-icon) center/24px 24px no-repeat,
+ linear-gradient(142deg,#445f75 0%,#263e54 28%,#102439 70%,#0b162b 100%) padding-box,
+ linear-gradient(140deg,#adbec5,#51697a 42%,#9bb6bd 73%,#364c64) border-box!important;
+ box-shadow:inset 0 2px 2px #e3ebea29,inset 0 -4px 6px #050b1d99,0 2px 4px #0009,0 0 6px #50b9d447!important;
+ opacity:1!important;filter:none!important;transform:none!important;animation:none!important;touch-action:manipulation;
+}
+html body #pause{--hud-system-icon:var(--hud-ico-pause)}
+html body #pause[data-ic="play"]{--hud-system-icon:var(--hud-ico-play)}
+html body #fullscreen-toggle{--hud-system-icon:var(--hud-ico-expand)}
+html body #fullscreen-toggle[aria-label^="Thu"]{--hud-system-icon:var(--hud-ico-collapse)}
+html body #pause::before,html body #fullscreen-toggle::before{
+ content:'';position:absolute;inset:1px;pointer-events:none;border:1px solid #b9cad23a;border-radius:9px;
+ background:linear-gradient(120deg,#bfd7e620,transparent 42%,#7dddeb12 85%);box-shadow:inset 0 0 0 1px #0b1b36;
+}
+html body #pause:is(:hover,[data-demo-hover]),html body #fullscreen-toggle:is(:hover,[data-demo-hover]){filter:brightness(1.12)!important}
+html body #pause:is(:active,[data-demo-pressed]),html body #fullscreen-toggle:is(:active,[data-demo-pressed]){transform:translateY(1px) scale(.97)!important;filter:brightness(.86)!important}
+html body #pause:disabled,html body #fullscreen-toggle:disabled{filter:saturate(.5)!important;opacity:.85!important}
+html body #pause:is(:focus-visible,[data-demo-focus]),html body #fullscreen-toggle:is(:focus-visible,[data-demo-focus]){outline:2px solid #ffe2a0!important;outline-offset:1px!important}
+/* Overlay buttons: dark rims keep the crystal legible over bright gameplay. */
+html body #overlay #start,html body #overlay #dock-return{
+ position:relative!important;isolation:isolate;box-sizing:border-box!important;min-height:48px!important;
+ display:flex!important;align-items:center!important;justify-content:center!important;gap:16px!important;
+ padding:9px 20px!important;border-radius:5px!important;clip-path:polygon(5% 0,95% 0,100% 20%,100% 80%,95% 100%,5% 100%,0 80%,0 20%)!important;
+ font-family:'Be Vietnam Pro',system-ui,sans-serif!important;font-weight:800!important;line-height:1.25!important;letter-spacing:.35px!important;
+ text-shadow:none!important;text-decoration:none!important;white-space:normal!important;
+ transition:filter .13s ease,transform .13s ease!important;
+}
+html body #overlay #start{
+ min-width:min(216px,100%)!important;width:min(240px,100%)!important;height:auto!important;
+ padding-right:44px!important;border:2px solid #865d27!important;
+ background:linear-gradient(150deg,#d7b87a 0 8%,#a96a24 18%,#c89036 36%,#b4782d 68%,#905226 100%)!important;
+ color:#1b1424!important;font-size:12px!important;
+ box-shadow:inset 0 2px 2px #fff0af35,inset 0 -5px 6px #492214aa,0 0 0 2px #10182de8,0 4px 8px #0009,0 0 8px #ef9f4059!important;
+}
+html body #overlay #start::before,html body #overlay #dock-return::before{
+ content:''!important;position:absolute!important;inset:2px!important;z-index:-1!important;pointer-events:none!important;
+ border:1px solid #dcc39878!important;clip-path:polygon(4% 0,96% 0,100% 26%,100% 74%,96% 100%,4% 100%,0 74%,0 26%)!important;
+ background:linear-gradient(115deg,#fff5d829 0 12%,transparent 12% 42%,#ffe9b21b 42% 50%,transparent 50% 82%,#fff0c919 82%);
+}
+html body #overlay #start span{display:none!important}
+html body #overlay #start::after{content:''!important;position:absolute;right:13px;top:50%;width:20px;height:20px;transform:translateY(-50%);background:var(--hud-ico-arrow) center/contain no-repeat!important;pointer-events:none}
+html body #overlay #dock-return{
+ min-width:min(216px,100%)!important;width:min(240px,100%)!important;margin-top:12px!important;
+ border:2px solid #708b9c!important;background:linear-gradient(140deg,#334a63,#20374d 38%,#14293d 72%,#102337)!important;
+ color:#edf6f3!important;font-size:9px!important;
+ box-shadow:inset 0 2px 2px #d9edf333,inset 0 -5px 7px #0008,0 0 0 2px #0b1829df,0 3px 6px #0009,0 0 5px #44b3cd3d!important;
+}
+html body #overlay #dock-return[hidden]{display:none!important}
+html body #overlay #start:is(:hover,[data-demo-hover]),html body #overlay #dock-return:is(:hover,[data-demo-hover]){filter:brightness(1.1)!important}
+html body #overlay #start:is(:active,[data-demo-pressed]),html body #overlay #dock-return:is(:active,[data-demo-pressed]){filter:brightness(.86)!important;transform:translateY(2px) scale(.99)!important}
+html body #overlay #start:is(:focus-visible,[data-demo-focus]),html body #overlay #dock-return:is(:focus-visible,[data-demo-focus]){outline:3px solid #fff0bf!important;outline-offset:3px!important}
+html body #overlay #start:disabled,html body #overlay #dock-return:disabled{filter:saturate(.42) brightness(.78)!important;opacity:1!important}
+html body #ovhint{color:#c6d5db!important;text-shadow:0 1px 2px #000!important}
+@media (hover:none),(pointer:coarse){html body #ovhint{display:none!important}}
+@media (prefers-reduced-motion:reduce){
+ html body #missile-action.rdy07,html body #missile-action,html body #bomb,html body #pause,html body #fullscreen-toggle,html body #overlay #start,html body #overlay #dock-return{animation:none!important;transition:none!important}
+ html body #missile-action:is(:active,[data-demo-pressed]),html body #bomb:is(:active,[data-demo-pressed]),html body #pause:is(:active,[data-demo-pressed]),html body #fullscreen-toggle:is(:active,[data-demo-pressed]),html body #overlay #start:is(:active,[data-demo-pressed]),html body #overlay #dock-return:is(:active,[data-demo-pressed]){transform:none!important}
+}
+html body #missile-action[hidden],html body #bomb[hidden],html body #pause[hidden],html body #fullscreen-toggle[hidden],html body #overlay #start[hidden],html body #overlay #dock-return[hidden]{display:none!important}
+/* V45's global body button:not(...) rule has accumulated ID specificity. */
+html body #overlay #dock-return#dock-return#dock-return#dock-return#dock-return#dock-return#dock-return#dock-return#dock-return#dock-return#dock-return#dock-return#dock-return#dock-return#dock-return{
+ min-height:48px!important;width:min(240px,100%)!important;padding:9px 20px!important;margin-top:12px!important;
+ font:800 9px/1.25 'Be Vietnam Pro',system-ui,sans-serif!important;letter-spacing:.35px!important;
+ color:#edf6f3!important;background:linear-gradient(140deg,#334a63,#20374d 38%,#14293d 72%,#102337)!important;
+ border:2px solid #708b9c!important;border-radius:5px!important;
+ clip-path:polygon(5% 0,95% 0,100% 20%,100% 80%,95% 100%,5% 100%,0 80%,0 20%)!important;
+ box-shadow:inset 0 2px 2px #d9edf333,inset 0 -5px 7px #0008,0 0 0 2px #0b1829df,0 3px 6px #0009,0 0 5px #44b3cd3d!important;
+}
+/* Match the higher-specificity state rules already present in hudbtn45.css. */
+html body #pause[data-ic="play"],html body #fullscreen-toggle[aria-label^="Thu"]{
+ background:var(--hud-system-icon) center/24px 24px no-repeat,
+ linear-gradient(142deg,#445f75 0%,#263e54 28%,#102439 70%,#0b162b 100%) padding-box,
+ linear-gradient(140deg,#adbec5,#51697a 42%,#9bb6bd 73%,#364c64) border-box!important;
+}
+html body #missile-action:not(.cd07):not(:disabled):not(.rdy07){animation:none!important}
+html body #overlay #dock-return#dock-return#dock-return#dock-return#dock-return#dock-return#dock-return#dock-return#dock-return#dock-return#dock-return#dock-return#dock-return#dock-return#dock-return:hover{filter:brightness(1.1)!important}
+html body #overlay #dock-return#dock-return#dock-return#dock-return#dock-return#dock-return#dock-return#dock-return#dock-return#dock-return#dock-return#dock-return#dock-return#dock-return#dock-return:active{filter:brightness(.86)!important;transform:translateY(2px) scale(.99)!important}
+html body #overlay #dock-return#dock-return#dock-return#dock-return#dock-return#dock-return#dock-return#dock-return#dock-return#dock-return#dock-return#dock-return#dock-return#dock-return#dock-return:disabled{filter:saturate(.42) brightness(.78)!important}
+@media (prefers-reduced-motion:reduce){html body #overlay #dock-return#dock-return#dock-return#dock-return#dock-return#dock-return#dock-return#dock-return#dock-return#dock-return#dock-return#dock-return#dock-return#dock-return#dock-return:active{transform:none!important}}
+@media (prefers-reduced-motion:reduce){html body #missile-action.rdy07:not(.cd07):not(:disabled){animation:none!important}}
+
+/* ===== V46 · Claude: sửa trạng thái trên nền bản GPT V1 ===== */
+html body #missile-action,html body #bomb,html body #pause,html body #fullscreen-toggle,html body #overlay #start{--hud-ico-pause:url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 32 32%22%3E%3Cdefs%3E%3ClinearGradient id=%22g%22 x1=%220%22 y1=%220%22 x2=%220%22 y2=%221%22%3E%3Cstop offset=%220%22 stop-color=%22%23f2fbff%22/%3E%3Cstop offset=%221%22 stop-color=%22%238fd8e8%22/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect x=%228%22 y=%226%22 width=%225.5%22 height=%2220%22 rx=%221.6%22 fill=%22url(%23g)%22 stroke=%22%230b2236%22 stroke-width=%22.8%22/%3E%3Crect x=%2218.5%22 y=%226%22 width=%225.5%22 height=%2220%22 rx=%221.6%22 fill=%22url(%23g)%22 stroke=%22%230b2236%22 stroke-width=%22.8%22/%3E%3C/svg%3E");--hud-ico-bomb:url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 40 40%22%3E%3Cdefs%3E%3CradialGradient id=%22b%22 cx=%22.38%22 cy=%22.34%22 r=%22.7%22%3E%3Cstop offset=%220%22 stop-color=%22%23fff4cf%22/%3E%3Cstop offset=%22.35%22 stop-color=%22%23f2b54a%22/%3E%3Cstop offset=%22.75%22 stop-color=%22%239a5a16%22/%3E%3Cstop offset=%221%22 stop-color=%22%234a2606%22/%3E%3C/radialGradient%3E%3C/defs%3E%3Ccircle cx=%2218%22 cy=%2223%22 r=%2211%22 fill=%22url(%23b)%22 stroke=%22%232a1604%22 stroke-width=%221.2%22/%3E%3Cpath d=%22M18 12l3 5-3 6-3-6z M7 23l5-3 6 3-6 3z M29 23l-5 3-6-3 6-3z%22 fill=%22%23fff%22 opacity=%22.28%22/%3E%3Cellipse cx=%2214.5%22 cy=%2218.5%22 rx=%223.2%22 ry=%222%22 fill=%22%23fff%22 opacity=%22.7%22/%3E%3Crect x=%2223%22 y=%229%22 width=%226%22 height=%225%22 rx=%221.2%22 transform=%22rotate(40 26 11.5)%22 fill=%22%23d9e2ea%22 stroke=%22%232a1604%22 stroke-width=%221%22/%3E%3Cpath d=%22M28 9c1.5-2.5 3-3 4.5-2%22 fill=%22none%22 stroke=%22%23f6e7c0%22 stroke-width=%221.6%22 stroke-linecap=%22round%22/%3E%3Cpath d=%22M34 5l1.1-2.6 1.1 2.6 2.6 1.1-2.6 1.1-1.1 2.6-1.1-2.6-2.6-1.1z%22 fill=%22%23fff6c8%22/%3E%3C/svg%3E")}
+/* 1) SẴN SÀNG sáng hơn HỒI CHIÊU: lõi ngọc xanh rõ, icon to hơn */
+html body #missile-action:not(.cd07):not(:disabled),html body #bomb:not(.empty07){background:var(--hud-icon) center 34%/34px 34px no-repeat,radial-gradient(circle at 50% 36%,color-mix(in srgb,var(--hud-core-a) 55%,#fff) 0 8%,var(--hud-core-a) 26%,var(--hud-core-b) 58%,#0c2034 86%,#091426 100%) padding-box,conic-gradient(from -20deg,#899daa,#c1cdd0 8%,#506d80 20%,#87a1a9 35%,#d0d8d8 50%,#3f596c 68%,#93a7b3 83%,#899daa) border-box!important;box-shadow:inset 0 2px 3px #dbeaf33a,inset 0 -5px 7px #05091a99,0 2px 5px #000a,0 0 8px var(--hud-glow)!important}
+html body #missile-action{--hud-core-a:#3fc4e4;--hud-core-b:#1b6f92;--hud-glow:#3acfe380}
+html body #bomb{--hud-core-a:#e2a443;--hud-core-b:#8d5a1e;--hud-glow:#f4a94670}
+/* HỒI CHIÊU: lõi tối, vệt tối quét theo thời gian còn lại (không phủ sáng), số giây to không khung */
+html body #missile-action.cd07,html body #missile-action:disabled{--hud-core-a:#2a4654;--hud-core-b:#16293a;--hud-glow:transparent;filter:saturate(.45) brightness(.82)!important}
+html body #missile-action::after{background:conic-gradient(from -90deg,rgba(3,8,16,.66) calc(var(--cd07,0)*360deg),rgba(0,0,0,0) 0)!important}
+html body #missile-action.cd07 small,html body #missile-action:disabled small{inset:0!important;left:0!important;right:0!important;bottom:0!important;min-height:0!important;background:none!important;border:0!important;font:900 20px/1 'Be Vietnam Pro',system-ui,sans-serif!important;color:#f2fbff!important;text-shadow:0 0 6px #000,0 1px 2px #000!important;text-transform:none!important}
+html body #missile-action:disabled:not(.cd07) small{inset:auto 2px 5px!important;font-size:8px!important;background:#09192bd9!important}
+/* 2) HẾT BOM: xám hẳn, huy hiệu xám; CÒN BOM: huy hiệu ngọc đỏ cam, số trắng */
+html body #bombcount{background:radial-gradient(circle at 35% 30%,#ff8a62,#d0331f 60%,#8c1a10)!important;color:#fff!important;border-color:#ffe2c4!important;font-size:13px!important;text-shadow:0 1px 1px #0008!important}
+html body #bomb.empty07{filter:grayscale(1) brightness(.72)!important}
+html body #bomb.empty07 #bombcount{background:#4a4f58!important;color:#e6e9ee!important;border-color:#9aa3ad!important}
+html body #missile-action.cd07{--hud-icon:none}

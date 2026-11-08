@@ -1,0 +1,1153 @@
+{
+  "version": "V86",
+  "date": "2026-10-25",
+  "status": "complete",
+  "requested_now": 26,
+  "completed_count": 26,
+  "counts": {
+    "craft": 6,
+    "ebullet": 20
+  },
+  "completed": [
+    {
+      "file": "craft86/sss11_huyettinh/sss11_huyettinh.png",
+      "kind": "craft",
+      "width": 500,
+      "height": 500,
+      "bytes": 156796,
+      "sha256": "faf48f79563aa36339cb9ce4bafe58ce2c031f4aa21660d81268dfd4cb528fcf",
+      "canvas": [
+        500,
+        500
+      ],
+      "alpha_bbox": [
+        91,
+        49,
+        409,
+        451
+      ],
+      "source_axis": 626.5,
+      "source_hull_top": 45.0,
+      "source_hull_bottom": 1168.0,
+      "uniform_scale": 0.3561887800534283,
+      "pivot": [
+        249.5,
+        249.5
+      ],
+      "hull_prow": [
+        249.5,
+        49.5
+      ],
+      "hull_rear": [
+        249.5,
+        449.5
+      ],
+      "direction": "up",
+      "anchor_method": "Split jaw tips in central 20% band for #11; axial prow for #12/#13. Axial hull stern excludes paired off-axis exhaust.",
+      "alpha_on_canvas_edge_max": 0,
+      "measured_hull_y": [
+        50,
+        449
+      ],
+      "craft": 11,
+      "name": "Huyết Tinh Thôn Phệ Giả",
+      "state": "normal"
+    },
+    {
+      "file": "craft86/sss11_huyettinh/sss11_huyettinh_super.png",
+      "kind": "craft",
+      "width": 500,
+      "height": 500,
+      "bytes": 305149,
+      "sha256": "50af1278959f5d6685cf991e42827863925c84a749c3d2cbaa53b6b2531f784f",
+      "canvas": [
+        500,
+        500
+      ],
+      "alpha_bbox": [
+        34,
+        49,
+        468,
+        474
+      ],
+      "source_axis": 626.5,
+      "source_hull_top": 23.0,
+      "source_hull_bottom": 1174.0,
+      "uniform_scale": 0.3475238922675934,
+      "pivot": [
+        249.5,
+        249.5
+      ],
+      "hull_prow": [
+        249.5,
+        49.5
+      ],
+      "hull_rear": [
+        249.5,
+        449.5
+      ],
+      "direction": "up",
+      "anchor_method": "Split jaw tips in central 20% band for #11; axial prow for #12/#13. Axial hull stern excludes paired off-axis exhaust.",
+      "alpha_on_canvas_edge_max": 0,
+      "measured_hull_y": [
+        50,
+        449
+      ],
+      "craft": 11,
+      "name": "Huyết Tinh Thôn Phệ Giả",
+      "state": "super"
+    },
+    {
+      "file": "craft86/sss12_vinhhang/sss12_vinhhang.png",
+      "kind": "craft",
+      "width": 500,
+      "height": 500,
+      "bytes": 161646,
+      "sha256": "86ee4424f063b474fbacc2df14952570215086ab7498b027ad78fc8bcce4dbd3",
+      "canvas": [
+        500,
+        500
+      ],
+      "alpha_bbox": [
+        90,
+        49,
+        410,
+        451
+      ],
+      "source_axis": 626.5,
+      "source_hull_top": 25.0,
+      "source_hull_bottom": 1229.0,
+      "uniform_scale": 0.33222591362126247,
+      "pivot": [
+        249.5,
+        249.5
+      ],
+      "hull_prow": [
+        249.5,
+        49.5
+      ],
+      "hull_rear": [
+        249.5,
+        449.5
+      ],
+      "direction": "up",
+      "anchor_method": "Split jaw tips in central 20% band for #11; axial prow for #12/#13. Axial hull stern excludes paired off-axis exhaust.",
+      "alpha_on_canvas_edge_max": 0,
+      "measured_hull_y": [
+        50,
+        449
+      ],
+      "craft": 12,
+      "name": "Vĩnh Hằng Thời Không",
+      "state": "normal"
+    },
+    {
+      "file": "craft86/sss12_vinhhang/sss12_vinhhang_super.png",
+      "kind": "craft",
+      "width": 500,
+      "height": 500,
+      "bytes": 239976,
+      "sha256": "913abbdaf83b0841c0db885b42854a1dd2ee801f43eecd9d5dca312863541677",
+      "canvas": [
+        500,
+        500
+      ],
+      "alpha_bbox": [
+        84,
+        45,
+        416,
+        451
+      ],
+      "source_axis": 626.5,
+      "source_hull_top": 16.0,
+      "source_hull_bottom": 1231.0,
+      "uniform_scale": 0.3292181069958848,
+      "pivot": [
+        249.5,
+        249.5
+      ],
+      "hull_prow": [
+        249.5,
+        49.5
+      ],
+      "hull_rear": [
+        249.5,
+        449.5
+      ],
+      "direction": "up",
+      "anchor_method": "Split jaw tips in central 20% band for #11; axial prow for #12/#13. Axial hull stern excludes paired off-axis exhaust.",
+      "alpha_on_canvas_edge_max": 0,
+      "measured_hull_y": [
+        50,
+        449
+      ],
+      "craft": 12,
+      "name": "Vĩnh Hằng Thời Không",
+      "state": "super"
+    },
+    {
+      "file": "craft86/sss13_chanthan/sss13_chanthan.png",
+      "kind": "craft",
+      "width": 500,
+      "height": 500,
+      "bytes": 183138,
+      "sha256": "7e744dc2f8953870d0409084c0dcdf69e80a6c781703a6bee94b218316545f79",
+      "canvas": [
+        500,
+        500
+      ],
+      "alpha_bbox": [
+        54,
+        48,
+        447,
+        451
+      ],
+      "source_axis": 626.5,
+      "source_hull_top": 46.0,
+      "source_hull_bottom": 1213.0,
+      "uniform_scale": 0.3427592116538132,
+      "pivot": [
+        249.5,
+        249.5
+      ],
+      "hull_prow": [
+        249.5,
+        49.5
+      ],
+      "hull_rear": [
+        249.5,
+        449.5
+      ],
+      "direction": "up",
+      "anchor_method": "Split jaw tips in central 20% band for #11; axial prow for #12/#13. Axial hull stern excludes paired off-axis exhaust.",
+      "alpha_on_canvas_edge_max": 0,
+      "measured_hull_y": [
+        48,
+        449
+      ],
+      "craft": 13,
+      "name": "Chân Thần Hư Không",
+      "state": "normal"
+    },
+    {
+      "file": "craft86/sss13_chanthan/sss13_chanthan_super.png",
+      "kind": "craft",
+      "width": 500,
+      "height": 500,
+      "bytes": 311089,
+      "sha256": "9cc8cad1278624d6775c0740bf90d1b0e5adc41ef6ec72fecf59e8ee4ef5a4e7",
+      "canvas": [
+        500,
+        500
+      ],
+      "alpha_bbox": [
+        37,
+        47,
+        463,
+        451
+      ],
+      "source_axis": 626.5,
+      "source_hull_top": 39.0,
+      "source_hull_bottom": 1218.0,
+      "uniform_scale": 0.33927056827820185,
+      "pivot": [
+        249.5,
+        249.5
+      ],
+      "hull_prow": [
+        249.5,
+        49.5
+      ],
+      "hull_rear": [
+        249.5,
+        449.5
+      ],
+      "direction": "up",
+      "anchor_method": "Split jaw tips in central 20% band for #11; axial prow for #12/#13. Axial hull stern excludes paired off-axis exhaust.",
+      "alpha_on_canvas_edge_max": 0,
+      "measured_hull_y": [
+        48,
+        449
+      ],
+      "craft": 13,
+      "name": "Chân Thần Hư Không",
+      "state": "super"
+    },
+    {
+      "file": "ebullet86/ebullet_orb_wraith.png",
+      "kind": "ebullet",
+      "width": 64,
+      "height": 64,
+      "bytes": 3071,
+      "sha256": "e748152ce227e57aacc2705cc2f7506e7c658f33efa5a4c1184e9d1bfacb2985",
+      "canvas": [
+        64,
+        64
+      ],
+      "alpha_bbox": [
+        15,
+        15,
+        49,
+        49
+      ],
+      "source_bbox": [
+        272,
+        273,
+        978,
+        974
+      ],
+      "uniform_scale": 0.04815864022662889,
+      "paste": [
+        15,
+        15
+      ],
+      "pivot": [
+        31.5,
+        31.5
+      ],
+      "collision_core": [
+        31.5,
+        31.5
+      ],
+      "alpha_on_canvas_edge_max": 0,
+      "center_alpha_max": 254,
+      "center_white_core": 252,
+      "shape": "orb",
+      "palette": "wraith"
+    },
+    {
+      "file": "ebullet86/ebullet_orb_big_wraith.png",
+      "kind": "ebullet",
+      "width": 64,
+      "height": 64,
+      "bytes": 6640,
+      "sha256": "9ed42ae2953a4712649d779497d81ddc652c78e506e85340f220bdc5ea261627",
+      "canvas": [
+        64,
+        64
+      ],
+      "alpha_bbox": [
+        5,
+        5,
+        59,
+        58
+      ],
+      "source_bbox": [
+        82,
+        85,
+        1166,
+        1157
+      ],
+      "uniform_scale": 0.04981549815498155,
+      "paste": [
+        5,
+        5
+      ],
+      "pivot": [
+        31.5,
+        31.5
+      ],
+      "collision_core": [
+        31.5,
+        31.5
+      ],
+      "alpha_on_canvas_edge_max": 0,
+      "center_alpha_max": 254,
+      "center_white_core": 252,
+      "shape": "orb_big",
+      "palette": "wraith"
+    },
+    {
+      "file": "ebullet86/ebullet_needle_wraith.png",
+      "kind": "ebullet",
+      "width": 64,
+      "height": 64,
+      "bytes": 1353,
+      "sha256": "af88627b35d5e0f74843ae527b149201bef7003e9415e48b866aa35391586494",
+      "canvas": [
+        64,
+        64
+      ],
+      "alpha_bbox": [
+        26,
+        8,
+        37,
+        56
+      ],
+      "source_bbox": [
+        503,
+        112,
+        748,
+        1140
+      ],
+      "uniform_scale": 0.04669260700389105,
+      "paste": [
+        26,
+        8
+      ],
+      "pivot": [
+        31.5,
+        31.5
+      ],
+      "collision_core": [
+        31.5,
+        31.5
+      ],
+      "alpha_on_canvas_edge_max": 0,
+      "center_alpha_max": 255,
+      "center_white_core": 252,
+      "shape": "needle",
+      "palette": "wraith"
+    },
+    {
+      "file": "ebullet86/ebullet_shard_wraith.png",
+      "kind": "ebullet",
+      "width": 64,
+      "height": 64,
+      "bytes": 2052,
+      "sha256": "4e5c432ec53e3af151c15768b60fa5400f99381e5466c9be4ef1f948a10ce452",
+      "canvas": [
+        64,
+        64
+      ],
+      "alpha_bbox": [
+        21,
+        9,
+        42,
+        55
+      ],
+      "source_bbox": [
+        415,
+        148,
+        839,
+        1089
+      ],
+      "uniform_scale": 0.048884165781083955,
+      "paste": [
+        21,
+        9
+      ],
+      "pivot": [
+        31.5,
+        31.5
+      ],
+      "collision_core": [
+        31.5,
+        31.5
+      ],
+      "alpha_on_canvas_edge_max": 0,
+      "center_alpha_max": 254,
+      "center_white_core": 252,
+      "shape": "shard",
+      "palette": "wraith"
+    },
+    {
+      "file": "ebullet86/ebullet_orb_titan.png",
+      "kind": "ebullet",
+      "width": 64,
+      "height": 64,
+      "bytes": 3534,
+      "sha256": "d4e5273d6f00be1d590ac5e8a5d88d77e9be8b404a61bcc877f9116f2e353375",
+      "canvas": [
+        64,
+        64
+      ],
+      "alpha_bbox": [
+        15,
+        15,
+        49,
+        48
+      ],
+      "source_bbox": [
+        325,
+        327,
+        929,
+        921
+      ],
+      "uniform_scale": 0.056291390728476824,
+      "paste": [
+        15,
+        15
+      ],
+      "pivot": [
+        31.5,
+        31.5
+      ],
+      "collision_core": [
+        31.5,
+        31.5
+      ],
+      "alpha_on_canvas_edge_max": 0,
+      "center_alpha_max": 254,
+      "center_white_core": 252,
+      "shape": "orb",
+      "palette": "titan"
+    },
+    {
+      "file": "ebullet86/ebullet_orb_big_titan.png",
+      "kind": "ebullet",
+      "width": 64,
+      "height": 64,
+      "bytes": 7683,
+      "sha256": "37450ddb03bca4ffeeac2aab8274a88a707489628f98e89f1601e5b89cff43e9",
+      "canvas": [
+        64,
+        64
+      ],
+      "alpha_bbox": [
+        5,
+        5,
+        59,
+        58
+      ],
+      "source_bbox": [
+        104,
+        93,
+        1149,
+        1126
+      ],
+      "uniform_scale": 0.05167464114832536,
+      "paste": [
+        5,
+        5
+      ],
+      "pivot": [
+        31.5,
+        31.5
+      ],
+      "collision_core": [
+        31.5,
+        31.5
+      ],
+      "alpha_on_canvas_edge_max": 0,
+      "center_alpha_max": 254,
+      "center_white_core": 252,
+      "shape": "orb_big",
+      "palette": "titan"
+    },
+    {
+      "file": "ebullet86/ebullet_needle_titan.png",
+      "kind": "ebullet",
+      "width": 64,
+      "height": 64,
+      "bytes": 1695,
+      "sha256": "b0bc5a7bf6bbc4964c309f5792e31dd4c4e166931a5c3ce5aac6a182930a4df2",
+      "canvas": [
+        64,
+        64
+      ],
+      "alpha_bbox": [
+        26,
+        8,
+        38,
+        56
+      ],
+      "source_bbox": [
+        500,
+        101,
+        754,
+        1150
+      ],
+      "uniform_scale": 0.04575786463298379,
+      "paste": [
+        26,
+        8
+      ],
+      "pivot": [
+        31.5,
+        31.5
+      ],
+      "collision_core": [
+        31.5,
+        31.5
+      ],
+      "alpha_on_canvas_edge_max": 0,
+      "center_alpha_max": 254,
+      "center_white_core": 252,
+      "shape": "needle",
+      "palette": "titan"
+    },
+    {
+      "file": "ebullet86/ebullet_shard_titan.png",
+      "kind": "ebullet",
+      "width": 64,
+      "height": 64,
+      "bytes": 2333,
+      "sha256": "e9c21447569cd6f7966adaac7a76a77232a02bfacdf2def978d594dd2dce1ea2",
+      "canvas": [
+        64,
+        64
+      ],
+      "alpha_bbox": [
+        21,
+        9,
+        42,
+        55
+      ],
+      "source_bbox": [
+        445,
+        224,
+        809,
+        1028
+      ],
+      "uniform_scale": 0.05721393034825871,
+      "paste": [
+        21,
+        9
+      ],
+      "pivot": [
+        31.5,
+        31.5
+      ],
+      "collision_core": [
+        31.5,
+        31.5
+      ],
+      "alpha_on_canvas_edge_max": 0,
+      "center_alpha_max": 254,
+      "center_white_core": 252,
+      "shape": "shard",
+      "palette": "titan"
+    },
+    {
+      "file": "ebullet86/ebullet_orb_ion.png",
+      "kind": "ebullet",
+      "width": 64,
+      "height": 64,
+      "bytes": 3063,
+      "sha256": "2a09b9b6d40ce130c9fdfb689a217fad0591669353c6a9893db748cc8663ea6d",
+      "canvas": [
+        64,
+        64
+      ],
+      "alpha_bbox": [
+        15,
+        15,
+        49,
+        49
+      ],
+      "source_bbox": [
+        287,
+        292,
+        964,
+        970
+      ],
+      "uniform_scale": 0.05014749262536873,
+      "paste": [
+        15,
+        15
+      ],
+      "pivot": [
+        31.5,
+        31.5
+      ],
+      "collision_core": [
+        31.5,
+        31.5
+      ],
+      "alpha_on_canvas_edge_max": 0,
+      "center_alpha_max": 254,
+      "center_white_core": 252,
+      "shape": "orb",
+      "palette": "ion"
+    },
+    {
+      "file": "ebullet86/ebullet_orb_big_ion.png",
+      "kind": "ebullet",
+      "width": 64,
+      "height": 64,
+      "bytes": 6349,
+      "sha256": "5d18f191ae01706c1246ee608c8038965bc328d036ad61f6a542fccbb21f3772",
+      "canvas": [
+        64,
+        64
+      ],
+      "alpha_bbox": [
+        5,
+        5,
+        59,
+        58
+      ],
+      "source_bbox": [
+        84,
+        84,
+        1171,
+        1159
+      ],
+      "uniform_scale": 0.04967801287948482,
+      "paste": [
+        5,
+        5
+      ],
+      "pivot": [
+        31.5,
+        31.5
+      ],
+      "collision_core": [
+        31.5,
+        31.5
+      ],
+      "alpha_on_canvas_edge_max": 0,
+      "center_alpha_max": 254,
+      "center_white_core": 252,
+      "shape": "orb_big",
+      "palette": "ion"
+    },
+    {
+      "file": "ebullet86/ebullet_needle_ion.png",
+      "kind": "ebullet",
+      "width": 64,
+      "height": 64,
+      "bytes": 1497,
+      "sha256": "f064916952bba07a8a51669f4b51c95cce663df212f9d6e0e98313bbbf06d2fc",
+      "canvas": [
+        64,
+        64
+      ],
+      "alpha_bbox": [
+        25,
+        8,
+        38,
+        56
+      ],
+      "source_bbox": [
+        503,
+        158,
+        752,
+        1096
+      ],
+      "uniform_scale": 0.0511727078891258,
+      "paste": [
+        25,
+        8
+      ],
+      "pivot": [
+        31.5,
+        31.5
+      ],
+      "collision_core": [
+        31.5,
+        31.5
+      ],
+      "alpha_on_canvas_edge_max": 0,
+      "center_alpha_max": 254,
+      "center_white_core": 252,
+      "shape": "needle",
+      "palette": "ion"
+    },
+    {
+      "file": "ebullet86/ebullet_shard_ion.png",
+      "kind": "ebullet",
+      "width": 64,
+      "height": 64,
+      "bytes": 1954,
+      "sha256": "cbc52e821289d7a4c7e1bb017d86de5abefe98ee9b2dfaabf7494b705765901b",
+      "canvas": [
+        64,
+        64
+      ],
+      "alpha_bbox": [
+        21,
+        9,
+        42,
+        55
+      ],
+      "source_bbox": [
+        404,
+        122,
+        851,
+        1118
+      ],
+      "uniform_scale": 0.04618473895582329,
+      "paste": [
+        21,
+        9
+      ],
+      "pivot": [
+        31.5,
+        31.5
+      ],
+      "collision_core": [
+        31.5,
+        31.5
+      ],
+      "alpha_on_canvas_edge_max": 0,
+      "center_alpha_max": 254,
+      "center_white_core": 252,
+      "shape": "shard",
+      "palette": "ion"
+    },
+    {
+      "file": "ebullet86/ebullet_orb_nebula.png",
+      "kind": "ebullet",
+      "width": 64,
+      "height": 64,
+      "bytes": 3160,
+      "sha256": "f266bedd72cbe9090a3b3ce7f1df8338b3e2d9609eff7a96c64883497e58d91f",
+      "canvas": [
+        64,
+        64
+      ],
+      "alpha_bbox": [
+        15,
+        15,
+        49,
+        49
+      ],
+      "source_bbox": [
+        320,
+        314,
+        936,
+        936
+      ],
+      "uniform_scale": 0.05466237942122187,
+      "paste": [
+        15,
+        15
+      ],
+      "pivot": [
+        31.5,
+        31.5
+      ],
+      "collision_core": [
+        31.5,
+        31.5
+      ],
+      "alpha_on_canvas_edge_max": 0,
+      "center_alpha_max": 254,
+      "center_white_core": 252,
+      "shape": "orb",
+      "palette": "nebula"
+    },
+    {
+      "file": "ebullet86/ebullet_orb_big_nebula.png",
+      "kind": "ebullet",
+      "width": 64,
+      "height": 64,
+      "bytes": 6828,
+      "sha256": "5892e140b43cdb07cb7c24045ddb18a0389da4b0635009aee3122b0bf314f0b9",
+      "canvas": [
+        64,
+        64
+      ],
+      "alpha_bbox": [
+        5,
+        5,
+        59,
+        58
+      ],
+      "source_bbox": [
+        132,
+        140,
+        1123,
+        1108
+      ],
+      "uniform_scale": 0.054490413723511606,
+      "paste": [
+        5,
+        5
+      ],
+      "pivot": [
+        31.5,
+        31.5
+      ],
+      "collision_core": [
+        31.5,
+        31.5
+      ],
+      "alpha_on_canvas_edge_max": 0,
+      "center_alpha_max": 254,
+      "center_white_core": 252,
+      "shape": "orb_big",
+      "palette": "nebula"
+    },
+    {
+      "file": "ebullet86/ebullet_needle_nebula.png",
+      "kind": "ebullet",
+      "width": 64,
+      "height": 64,
+      "bytes": 1446,
+      "sha256": "4b0baddb8ba2fbf27201ae0450afbf67057ca3314edaa6514388e6b840fc532a",
+      "canvas": [
+        64,
+        64
+      ],
+      "alpha_bbox": [
+        26,
+        8,
+        38,
+        56
+      ],
+      "source_bbox": [
+        511,
+        168,
+        743,
+        1086
+      ],
+      "uniform_scale": 0.05228758169934641,
+      "paste": [
+        26,
+        8
+      ],
+      "pivot": [
+        31.5,
+        31.5
+      ],
+      "collision_core": [
+        31.5,
+        31.5
+      ],
+      "alpha_on_canvas_edge_max": 0,
+      "center_alpha_max": 254,
+      "center_white_core": 252,
+      "shape": "needle",
+      "palette": "nebula"
+    },
+    {
+      "file": "ebullet86/ebullet_shard_nebula.png",
+      "kind": "ebullet",
+      "width": 64,
+      "height": 64,
+      "bytes": 2058,
+      "sha256": "ffbdefa90324c7724c80a9cc317fcabb3eed33147eaa3006cf1bc3c2a0a1e04c",
+      "canvas": [
+        64,
+        64
+      ],
+      "alpha_bbox": [
+        22,
+        9,
+        42,
+        55
+      ],
+      "source_bbox": [
+        453,
+        223,
+        803,
+        1026
+      ],
+      "uniform_scale": 0.057285180572851806,
+      "paste": [
+        22,
+        9
+      ],
+      "pivot": [
+        31.5,
+        31.5
+      ],
+      "collision_core": [
+        31.5,
+        31.5
+      ],
+      "alpha_on_canvas_edge_max": 0,
+      "center_alpha_max": 254,
+      "center_white_core": 252,
+      "shape": "shard",
+      "palette": "nebula"
+    },
+    {
+      "file": "ebullet86/ebullet_orb_frost.png",
+      "kind": "ebullet",
+      "width": 64,
+      "height": 64,
+      "bytes": 3070,
+      "sha256": "0218ba70a6c8e4519aed4928dad90d2e148c20cfaa3e71decd2025d39cd1c162",
+      "canvas": [
+        64,
+        64
+      ],
+      "alpha_bbox": [
+        15,
+        15,
+        49,
+        49
+      ],
+      "source_bbox": [
+        280,
+        293,
+        973,
+        980
+      ],
+      "uniform_scale": 0.049062049062049064,
+      "paste": [
+        15,
+        15
+      ],
+      "pivot": [
+        31.5,
+        31.5
+      ],
+      "collision_core": [
+        31.5,
+        31.5
+      ],
+      "alpha_on_canvas_edge_max": 0,
+      "center_alpha_max": 254,
+      "center_white_core": 252,
+      "shape": "orb",
+      "palette": "frost"
+    },
+    {
+      "file": "ebullet86/ebullet_orb_big_frost.png",
+      "kind": "ebullet",
+      "width": 64,
+      "height": 64,
+      "bytes": 6201,
+      "sha256": "7ce500eb2b9582b451b7e4c3191b9ddee8c5d47f1b2b20c4de316bf94ee395ad",
+      "canvas": [
+        64,
+        64
+      ],
+      "alpha_bbox": [
+        5,
+        6,
+        59,
+        58
+      ],
+      "source_bbox": [
+        101,
+        112,
+        1152,
+        1133
+      ],
+      "uniform_scale": 0.05137963843958135,
+      "paste": [
+        5,
+        6
+      ],
+      "pivot": [
+        31.5,
+        31.5
+      ],
+      "collision_core": [
+        31.5,
+        31.5
+      ],
+      "alpha_on_canvas_edge_max": 0,
+      "center_alpha_max": 254,
+      "center_white_core": 251,
+      "shape": "orb_big",
+      "palette": "frost"
+    },
+    {
+      "file": "ebullet86/ebullet_needle_frost.png",
+      "kind": "ebullet",
+      "width": 64,
+      "height": 64,
+      "bytes": 1276,
+      "sha256": "3cec56361079872d5c6fd8a3286f1fed9bcafc278ff9210596a2b84e090630fd",
+      "canvas": [
+        64,
+        64
+      ],
+      "alpha_bbox": [
+        27,
+        8,
+        37,
+        56
+      ],
+      "source_bbox": [
+        514,
+        106,
+        740,
+        1148
+      ],
+      "uniform_scale": 0.046065259117082535,
+      "paste": [
+        27,
+        8
+      ],
+      "pivot": [
+        31.5,
+        31.5
+      ],
+      "collision_core": [
+        31.5,
+        31.5
+      ],
+      "alpha_on_canvas_edge_max": 0,
+      "center_alpha_max": 254,
+      "center_white_core": 253,
+      "shape": "needle",
+      "palette": "frost"
+    },
+    {
+      "file": "ebullet86/ebullet_shard_frost.png",
+      "kind": "ebullet",
+      "width": 64,
+      "height": 64,
+      "bytes": 1914,
+      "sha256": "f896c492b6746650d26c54a14433eaa08e6ba1eb70c83a3e62a387f82a19f7f7",
+      "canvas": [
+        64,
+        64
+      ],
+      "alpha_bbox": [
+        21,
+        9,
+        42,
+        55
+      ],
+      "source_bbox": [
+        406,
+        149,
+        847,
+        1104
+      ],
+      "uniform_scale": 0.048167539267015703,
+      "paste": [
+        21,
+        9
+      ],
+      "pivot": [
+        31.5,
+        31.5
+      ],
+      "collision_core": [
+        31.5,
+        31.5
+      ],
+      "alpha_on_canvas_edge_max": 0,
+      "center_alpha_max": 254,
+      "center_white_core": 252,
+      "shape": "shard",
+      "palette": "frost"
+    }
+  ],
+  "pending": [],
+  "palettes": {
+    "wraith": {
+      "chapter": 1,
+      "theme": "xanh ma trắng"
+    },
+    "titan": {
+      "chapter": 2,
+      "theme": "thép cam"
+    },
+    "ion": {
+      "chapter": 3,
+      "theme": "vàng điện"
+    },
+    "nebula": {
+      "chapter": 4,
+      "theme": "tím hồng tinh vân"
+    },
+    "frost": {
+      "chapter": 5,
+      "theme": "băng xanh trắng"
+    }
+  },
+  "coordinate_system": "Pixel centers; origin top-left. Normalized pivot [0.5,0.5].",
+  "generation_method": "Built-in image generation; technical PNG resizing, alpha cleanup and registration.",
+  "validation": {
+    "status": "PASS",
+    "PNG": 26,
+    "expected_PNG": 26,
+    "counts": {
+      "craft": 6,
+      "ebullet": 20
+    },
+    "max_hull_anchor_error_px": 1.5,
+    "errors": []
+  }
+}

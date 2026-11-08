@@ -1,0 +1,25 @@
+#ccht-lobby-wrap{position:fixed;inset:0;z-index:80;display:flex;align-items:center;justify-content:center;background:radial-gradient(ellipse at 50% 30%,rgba(18,30,58,.96),rgba(2,4,10,.98));font-family:'Be Vietnam Pro',system-ui,sans-serif}
+#ccht-lobby-wrap[hidden]{display:none}
+#ccht-lobby-root{width:min(430px,100vw);height:min(780px,100vh);height:min(780px,100dvh);color:var(--text-white)}
+@media (max-width:440px),(max-height:790px){#ccht-lobby-root{border-width:0;border-radius:0}}
+#ccht-lobby-root .badge-dot[hidden]{display:none}
+#ccht-lobby-root .nav-icon-btn .lbl{white-space:nowrap;font-size:9px}
+#ccht-lobby-root .slot-canvas-icon{width:52px;height:52px;overflow:hidden}
+#ccht-lobby-root .slot-canvas-icon>*{width:100%!important;height:100%!important;max-width:none;object-fit:contain;display:block;border-radius:6px}
+#ccht-lobby-root .slot-canvas-icon .cc-empty{display:flex;align-items:center;justify-content:center;font-size:24px;color:#93c5fd}
+#ccht-lobby-root .equip-slot{background:radial-gradient(circle at 50% 40%,#1e3a5f 0%,#0f1b33 70%,#090d16 100%);box-shadow:0 0 8px rgba(56,189,248,.3),inset 0 0 10px rgba(147,197,253,.25)}
+#ccht-lobby-root .equip-slot.is-sss{background:radial-gradient(circle at 50% 40%,#4c1d95 0%,#1e1b4b 70%,#090d16 100%);box-shadow:0 0 12px rgba(168,85,247,.45),inset 0 0 10px rgba(216,180,254,.35)}
+#ccht-lobby-root .equip-slot.selected{border-color:#fde047}
+#ccht-lobby-root .upgrade-pill{max-width:96%;overflow:hidden;text-overflow:ellipsis}
+#ccht-lobby-root .v4-audit-holo{width:auto;max-width:62%;bottom:auto;top:36px;left:10px}
+#ccht-lobby-root .v4-audit-holo .holo-line{font-family:'Be Vietnam Pro',system-ui,sans-serif;font-size:9.5px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+#ccht-lobby-root .arrow-switch{user-select:none}
+#ccht-lobby-root .cc-x{position:absolute;top:56px;right:6px;z-index:31;width:26px;height:26px;border-radius:50%;border:1px solid #64748b;background:#0b1220cc;color:#cbd5e1;font-size:12px;cursor:pointer}
+#hgr41 .h1-side [data-cc-open]{background:linear-gradient(180deg,#a855f7,#6d28d9);border-color:#e9d5ff;color:#fff}
+@media(prefers-reduced-motion:reduce){#ccht-lobby-root *{transition:none!important}}
+#ccht-lobby-root .hangar-title-plate{width:auto;min-width:150px;max-width:78%;padding:0 26px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;font-size:12px}
+#ccht-lobby-root .score-box .score-line,#ccht-lobby-root .score-box .power-line{font-size:10px;white-space:nowrap}
+#ccht-lobby-root .v4-audit-holo{max-width:52%;top:34px;padding:4px 7px;background:rgba(6,40,61,.5)}
+#ccht-lobby-root .v4-audit-holo #holo-dps{display:none}
+#ccht-lobby-root .cc-x{top:118px;right:8px}
+#ccht-lobby-root .slot-canvas-icon>*{transform:scale(1.15)}

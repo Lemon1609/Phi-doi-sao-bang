@@ -1,0 +1,2946 @@
+[
+ {
+  "id": "aegis",
+  "bo": 1,
+  "kind": "armor",
+  "name": "Giáp Thành Trì",
+  "defenseBudget": {
+   "metric": "số đòn cứu được mỗi phút",
+   "targetStandard": "6 đòn/phút cứu 1,5–2,5 đòn; 20 đòn/phút cứu 5–7 đòn",
+   "at6HitsPerMin": {
+    "passiveSaves": 1.8,
+    "skillSaves": 0.5,
+    "totalSaves": 2.3,
+    "note": "Ở nhịp 6 đòn/phút (trúng đòn cách nhau ~10s), khiên 20s/tầng tích tối đa 1 tầng thường bị lãng phí thời gian chờ, cứu thực tế ~1,8 đòn; skill dùng phòng ngừa cứu 0,5 đòn."
+   },
+   "at20HitsPerMin": {
+    "passiveSaves": 3.0,
+    "skillSaves": 2.8,
+    "totalSaves": 5.8,
+    "note": "Ở nhịp 20 đòn/phút (trúng đòn liên tục), 60s/20s hồi đúng 3 tầng khiên và bị tiêu thụ ngay = cứu 3,0 đòn; skill hồi 18s dùng 3,3 lần/phút chặn đòn hiểm cứu 2,8 đòn."
+   }
+  },
+  "trait": {
+   "name": "Thành Trì Hộ Thuẫn",
+   "ho": "lượt chặn đòn theo thời gian",
+   "trigger": "tự động tích tầng theo chu kỳ thời gian",
+   "lv": [
+    {
+     "lv": 1,
+     "value": 1,
+     "cd": 32.0,
+     "desc": "Mỗi 32 giây tạo 1 tầng giáp titan, chặn hoàn toàn 1 đòn đánh kế tiếp (tối đa 1 tầng)."
+    },
+    {
+     "lv": 2,
+     "value": 1,
+     "cd": 28.0,
+     "desc": "Mỗi 28 giây tạo 1 tầng giáp titan, chặn hoàn toàn 1 đòn đánh kế tiếp (tối đa 1 tầng)."
+    },
+    {
+     "lv": 3,
+     "value": 1,
+     "cd": 25.0,
+     "desc": "Mỗi 25 giây tạo 1 tầng giáp titan, chặn hoàn toàn 1 đòn đánh kế tiếp (tối đa 1 tầng)."
+    },
+    {
+     "lv": 4,
+     "value": 1,
+     "cd": 22.0,
+     "desc": "Mỗi 22 giây tạo 1 tầng giáp titan, chặn hoàn toàn 1 đòn đánh kế tiếp (tối đa 1 tầng)."
+    },
+    {
+     "lv": 5,
+     "value": 1,
+     "cd": 20.0,
+     "desc": "Mỗi 20 giây tạo 1 tầng giáp titan (tối đa 1 tầng); chặn đứng hoàn toàn 1 đòn đánh kế tiếp."
+    }
+   ]
+  },
+  "normal": null,
+  "skill": {
+   "name": "Kết Giới Thành Trì",
+   "cooldown": 18,
+   "duration": 1.5,
+   "effect": "Dựng kết giới titan chặn tối đa 1 đòn đánh trong 1,5 giây; khi chặn thành công phát xung ánh sáng xóa đạn nhỏ quanh tàu.",
+   "new": false
+  },
+  "super": {
+   "name": "BẤT ĐỘNG THÀNH LŨY",
+   "effect": "Thời gian tạo tầng giáp rút ngắn còn 16 giây; khi khiên vỡ đẩy lùi quái nhỏ ra xa 60px.",
+   "formChange": "Icon trong kho viền titan sáng rực; thân tàu chớp sáng kim loại 0,3s khi kích hoạt."
+  },
+  "part": "tấm giáp mặt nguyệt",
+  "pair": {
+   "with": "mirror",
+   "note": "Thành Kính Thiên Vệ: khiên titan chặn đòn kết hợp phản kích kính quang phản đòn."
+  },
+  "profile": {
+   "role": "phòng thủ",
+   "best": "mưa đạn",
+   "dpsIndex": 0.0
+  }
+ },
+ {
+  "id": "inferno",
+  "bo": 1,
+  "kind": "missiles",
+  "name": "Tên Lửa Hỏa Ngục",
+  "trait": {
+   "name": "Liệt Hỏa Bộc Phá",
+   "ho": "nổ cháy lan",
+   "trigger": "khi đầu đạn va chạm mục tiêu",
+   "lv": [
+    {
+     "lv": 1,
+     "value": 15,
+     "cd": 0,
+     "desc": "Vụ nổ gây cháy 15% sát thương kéo dài 1,5 giây trong bán kính 35px."
+    },
+    {
+     "lv": 2,
+     "value": 20,
+     "cd": 0,
+     "desc": "Vụ nổ gây cháy 20% sát thương kéo dài 1,5 giây trong bán kính 38px."
+    },
+    {
+     "lv": 3,
+     "value": 25,
+     "cd": 0,
+     "desc": "Vụ nổ gây cháy 25% sát thương kéo dài 1,8 giây trong bán kính 40px."
+    },
+    {
+     "lv": 4,
+     "value": 30,
+     "cd": 0,
+     "desc": "Vụ nổ gây cháy 30% sát thương kéo dài 1,8 giây trong bán kính 42px."
+    },
+    {
+     "lv": 5,
+     "value": 38,
+     "cd": 0,
+     "desc": "Vụ nổ gây cháy 38% sát thương kéo dài 2,0 giây trong bán kính 45px."
+    }
+   ]
+  },
+  "normal": {
+   "pattern": "fan",
+   "count": 2,
+   "cadence": 0.7,
+   "speed": 620,
+   "pierce": false,
+   "homing": 0.6,
+   "projectile": "đầu đạn lửa 3 ống liên kết",
+   "notes": "Phóng từ thân tàu, lượn nhẹ khóa mục tiêu trước khi nổ bung tàn lửa."
+  },
+  "skill": {
+   "name": "Hỏa Ngục Liên Xạ",
+   "cooldown": 8,
+   "duration": 2.0,
+   "effect": "Phóng 6 tên lửa dồn vào mục tiêu nhiều máu nhất, tạo biển lửa thiêu đốt 2 giây.",
+   "new": false
+  },
+  "super": {
+   "name": "LIỆT HỎA THIÊU THIÊN",
+   "effect": "Tên lửa tách thành 2 mũi lửa lớn song hành, để lại vệt lửa dài thiêu đốt đường bay.",
+   "formChange": "Khoang tên lửa mở cánh tản nhiệt đỏ rực phóng liên thanh."
+  },
+  "part": "cụm 3 đầu đạn liên kết",
+  "pair": {
+   "with": "cryo",
+   "note": "Hợp thể Băng Hỏa Song Long: vừa đốt cháy vừa đóng băng làm nứt giáp đối thủ."
+  },
+  "profile": {
+   "role": "sát thương",
+   "best": "đông quái",
+   "dpsIndex": 1.0
+  }
+ },
+ {
+  "id": "rail",
+  "bo": 1,
+  "kind": "sidearm",
+  "name": "Pháo Điện Từ",
+  "trait": {
+   "name": "Điện Từ Xuyên Tâm",
+   "ho": "tia ray xuyên tâm",
+   "trigger": "mỗi phát bắn trúng trục thẳng",
+   "lv": [
+    {
+     "lv": 1,
+     "value": 10,
+     "cd": 0,
+     "desc": "Tia xuyên qua mọi mục tiêu, giảm 15% sát thương mỗi mục tiêu sau."
+    },
+    {
+     "lv": 2,
+     "value": 15,
+     "cd": 0,
+     "desc": "Tia xuyên mục tiêu, giảm 12% sát thương mỗi mục tiêu sau."
+    },
+    {
+     "lv": 3,
+     "value": 20,
+     "cd": 0,
+     "desc": "Tia xuyên mục tiêu, giảm 10% sát thương mỗi mục tiêu sau."
+    },
+    {
+     "lv": 4,
+     "value": 25,
+     "cd": 0,
+     "desc": "Tia xuyên mục tiêu, giảm 8% sát thương mỗi mục tiêu sau."
+    },
+    {
+     "lv": 5,
+     "value": 32,
+     "cd": 0,
+     "desc": "Tia xuyên toàn bộ mục tiêu với 100% sát thương không suy giảm."
+    }
+   ]
+  },
+  "normal": {
+   "pattern": "beam",
+   "count": 2,
+   "cadence": 0.45,
+   "speed": 1200,
+   "pierce": true,
+   "homing": 0.0,
+   "projectile": "tia ray điện từ xanh lơ",
+   "notes": "2 tàu con bắn 2 cột tia điện song song thẳng đứng suốt chiều dọc màn hình."
+  },
+  "skill": {
+   "name": "Xuyên Tâm Điện Pháo",
+   "cooldown": 8,
+   "duration": 1.8,
+   "effect": "Tụ năng lượng bắn 4 đợt xung điện từ cực đại xuyên thủng mọi lá chắn.",
+   "new": false
+  },
+  "super": {
+   "name": "LƯỠNG CỰC PHÁ THIÊN",
+   "effect": "Tàu con mở đại cánh tạo 4 tuyến ray điện từ, lõi tia chuyển sang màu trắng xanh cực sáng.",
+   "formChange": "Tàu con mở rộng 2 cánh trượt dài như khẩu súng trường railgun."
+  },
+  "part": "thân súng tiêm kích railgun",
+  "pair": {
+   "with": "disc",
+   "note": "Nguyệt Lôi Thiên Nhận: vừa bắn xuyên trục giữa vừa quét lưỡi đĩa vòng cung hai bên."
+  },
+  "profile": {
+   "role": "sát thương",
+   "best": "đánh boss",
+   "dpsIndex": 1.02
+  }
+ },
+ {
+  "id": "mirror",
+  "bo": 2,
+  "kind": "armor",
+  "name": "Giáp Kính Phản",
+  "defenseBudget": {
+   "metric": "số đòn cứu được mỗi phút",
+   "passiveSavesPerMin": 7.0,
+   "skillSavesPerUse": 1.0,
+   "totalSavesPerMin": 11.0,
+   "formula": "Trong 28 đòn nhận/phút, 25% cơ hội phản đòn = cứu 7.0 đòn/phút; skill dùng ~4 lần/phút cứu 4 đòn."
+  },
+  "trait": {
+   "name": "Kính Quang Phản",
+   "ho": "phản kích sát thương theo % cơ hội",
+   "trigger": "khi bị trúng đòn tấn công",
+   "lv": [
+    {
+     "lv": 1,
+     "value": 12,
+     "cd": 1.5,
+     "desc": "12% cơ hội miễn nhiễm đòn đánh và phản kích 1 tia kính quang về kẻ tấn công."
+    },
+    {
+     "lv": 2,
+     "value": 15,
+     "cd": 1.5,
+     "desc": "15% cơ hội miễn nhiễm đòn đánh và phản kích 1 tia kính quang về kẻ tấn công."
+    },
+    {
+     "lv": 3,
+     "value": 18,
+     "cd": 1.5,
+     "desc": "18% cơ hội miễn nhiễm đòn đánh và phản kích 1 tia kính quang mang 120% sát thương."
+    },
+    {
+     "lv": 4,
+     "value": 21,
+     "cd": 1.5,
+     "desc": "21% cơ hội miễn nhiễm đòn đánh và phản kích 1 tia kính quang mang 140% sát thương."
+    },
+    {
+     "lv": 5,
+     "value": 25,
+     "cd": 1.5,
+     "desc": "25% cơ hội miễn nhiễm đòn đánh và phản kích tia kính quang mang 180% sát thương."
+    }
+   ]
+  },
+  "normal": null,
+  "skill": {
+   "name": "Kính Quang Phản Chiếu",
+   "cooldown": 14,
+   "duration": 2.0,
+   "effect": "Trong 2 giây, 100% phản hồi đòn đánh kế tiếp (tối đa 1 đòn) thành chùm tia gương quét chéo.",
+   "new": false
+  },
+  "super": {
+   "name": "VẠN KÍNH PHẢN QUANG",
+   "effect": "Tỷ lệ phản đòn nội tại tăng lên 35%; tia phản nảy sang 2 mục tiêu lân cận.",
+   "formChange": "Icon rực sáng viền bạc lăng kính; chớp sáng lăng kính 0,3s trên thân tàu khi phản đòn."
+  },
+  "part": "3 phiến kính vát chéo",
+  "pair": {
+   "with": "orbital",
+   "note": "Kính Hoàn Tinh Chủ: tầng khiên quỹ đạo chặn đòn phối hợp phản kích kính quang."
+  },
+  "profile": {
+   "role": "phòng thủ",
+   "best": "đánh boss",
+   "dpsIndex": 0.0
+  }
+ },
+ {
+  "id": "cryo",
+  "bo": 2,
+  "kind": "missiles",
+  "name": "Tên Lửa Hàn Sương",
+  "trait": {
+   "name": "Hàn Sương Phá Giáp",
+   "ho": "xuyên thấu và làm chậm",
+   "trigger": "khi đạn khoan vào mục tiêu",
+   "lv": [
+    {
+     "lv": 1,
+     "value": 15,
+     "cd": 0,
+     "desc": "Đâm xuyên 1 mục tiêu, làm chậm 15% trong 1,5 giây."
+    },
+    {
+     "lv": 2,
+     "value": 20,
+     "cd": 0,
+     "desc": "Đâm xuyên 1 mục tiêu, làm chậm 20% trong 1,5 giây."
+    },
+    {
+     "lv": 3,
+     "value": 25,
+     "cd": 0,
+     "desc": "Đâm xuyên 2 mục tiêu, làm chậm 25% trong 1,8 giây."
+    },
+    {
+     "lv": 4,
+     "value": 30,
+     "cd": 0,
+     "desc": "Đâm xuyên 2 mục tiêu, làm chậm 30% trong 2,0 giây."
+    },
+    {
+     "lv": 5,
+     "value": 35,
+     "cd": 0,
+     "desc": "Đâm xuyên 2 mục tiêu, làm chậm 35% trong 2,5 giây và giảm 10% giáp."
+    }
+   ]
+  },
+  "normal": {
+   "pattern": "straight",
+   "count": 2,
+   "cadence": 0.7,
+   "speed": 750,
+   "pierce": true,
+   "homing": 0.4,
+   "projectile": "mũi khoan băng nhọn xoay",
+   "notes": "Bắn từ thân tàu, mũi khoan xoáy xuyên qua hàng trước rồi nổ vụn ở hàng sau."
+  },
+  "skill": {
+   "name": "Băng Phong Tề Xạ",
+   "cooldown": 9,
+   "duration": 2.2,
+   "effect": "Bắn 4 mũi đại khoan băng tạo vùng bão tuyết đóng băng quái và giảm tốc đạn địch 30%.",
+   "new": false
+  },
+  "super": {
+   "name": "TUYỆT ĐỐI BĂNG PHONG",
+   "effect": "Đầu khoan băng nở rộng bung gai tuyết, gây nổ mảnh băng làm chậm toàn bộ màn hình.",
+   "formChange": "Ống phóng tên lửa phủ lớp tinh thể tuyết xanh biếc sáng lóa."
+  },
+  "part": "đầu đạn rocket có cánh đuôi",
+  "pair": {
+   "with": "thunder",
+   "note": "Băng Lôi Thiên Kiếp: mục tiêu bị làm chậm sẽ nhận thêm sát thương sét giật chuyền."
+  },
+  "profile": {
+   "role": "khống chế",
+   "best": "cân bằng",
+   "dpsIndex": 0.98
+  }
+ },
+ {
+  "id": "disc",
+  "bo": 2,
+  "kind": "sidearm",
+  "name": "Đĩa Nguyệt Nhận",
+  "trait": {
+   "name": "Nguyệt Nhận Hồi Hoàn",
+   "ho": "vòng cung hồi về",
+   "trigger": "đĩa chém lượt đi và lượt về",
+   "lv": [
+    {
+     "lv": 1,
+     "value": 15,
+     "cd": 0,
+     "desc": "Lượt về gây 60% sát thương lượt đi, chém xuyên mục tiêu."
+    },
+    {
+     "lv": 2,
+     "value": 20,
+     "cd": 0,
+     "desc": "Lượt về gây 70% sát thương lượt đi, chém xuyên mục tiêu."
+    },
+    {
+     "lv": 3,
+     "value": 25,
+     "cd": 0,
+     "desc": "Lượt về gây 80% sát thương lượt đi, chém xuyên mục tiêu."
+    },
+    {
+     "lv": 4,
+     "value": 30,
+     "cd": 0,
+     "desc": "Lượt về gây 90% sát thương lượt đi, chém xuyên mục tiêu."
+    },
+    {
+     "lv": 5,
+     "value": 38,
+     "cd": 0,
+     "desc": "Lượt về gây 100% sát thương như lượt đi; quét sạch 2 bên sườn."
+    }
+   ]
+  },
+  "normal": {
+   "pattern": "orbit",
+   "count": 2,
+   "cadence": 0.45,
+   "speed": 680,
+   "pierce": true,
+   "homing": 0.65,
+   "projectile": "đĩa nguyệt nhận 3 cánh xoay",
+   "notes": "2 đĩa phóng hình elip ra hai biên rồi lượn vòng cung hội tụ về đuôi tàu."
+  },
+  "skill": {
+   "name": "Nguyệt Luân Hồi Toàn",
+   "cooldown": 9,
+   "duration": 2.5,
+   "effect": "Phóng 4 đại nguyệt nhận quay tròn quanh chiến cơ chém nát quái áp sát.",
+   "new": false
+  },
+  "super": {
+   "name": "TỬ NGUYỆT VẠN NHẬN",
+   "effect": "Nguyệt nhận nở to gấp rưỡi, viền tím sáng chói, chém đứt mọi đạn nhỏ trên đường bay.",
+   "formChange": "Tàu con tách 3 cánh đĩa xoay tít như con quay năng lượng."
+  },
+  "part": "3 cánh đĩa lưỡi liềm xoay",
+  "pair": {
+   "with": "solar",
+   "note": "Nhật Nguyệt Luân Hoàng: đĩa mặt trăng hồi về kết hợp cầu mặt trời nổ tung cực đại."
+  },
+  "profile": {
+   "role": "khống chế",
+   "best": "đông quái",
+   "dpsIndex": 1.0
+  }
+ },
+ {
+  "id": "orbital",
+  "bo": 3,
+  "kind": "armor",
+  "name": "Giáp Quỹ Đạo",
+  "defenseBudget": {
+   "metric": "số đòn cứu được mỗi phút",
+   "targetStandard": "6 đòn/phút cứu 1,5–2,5 đòn; 20 đòn/phút cứu 5–7 đòn",
+   "at6HitsPerMin": {
+    "passiveSaves": 1.4,
+    "skillSaves": 0.8,
+    "totalSaves": 2.2,
+    "note": "Ở 6 đòn/phút, khoảng 25-30% đòn trúng đến từ góc sườn/sau (~1,6 đòn), vệ tinh chặn được ~1,4 đòn; skill 360 độ dùng hỗ trợ cứu 0,8 đòn."
+   },
+   "at20HitsPerMin": {
+    "passiveSaves": 4.5,
+    "skillSaves": 1.8,
+    "totalSaves": 6.3,
+    "note": "Ở 20 đòn/phút, có ~5-6 đòn từ góc sườn/sau cách nhau >3s, vệ tinh chặn được 4,5 đòn; skill dùng 3,3 lần/phút cứu thêm 1,8 đòn."
+   }
+  },
+  "trait": {
+   "name": "Hộ Vệ Sườn Sau",
+   "ho": "chặn đòn theo hướng",
+   "trigger": "khi có đạn trúng từ góc sườn hoặc phía sau",
+   "lv": [
+    {
+     "lv": 1,
+     "value": 1,
+     "cd": 6.0,
+     "desc": "Vệ tinh chặn đạn từ phía sau và sườn (góc > 120°), hồi chiêu 6,0 giây."
+    },
+    {
+     "lv": 2,
+     "value": 1,
+     "cd": 5.0,
+     "desc": "Vệ tinh chặn đạn từ phía sau và sườn (góc > 105°), hồi chiêu 5,0 giây."
+    },
+    {
+     "lv": 3,
+     "value": 1,
+     "cd": 4.2,
+     "desc": "Vệ tinh chặn đạn từ phía sau và sườn (góc > 90°), hồi chiêu 4,2 giây."
+    },
+    {
+     "lv": 4,
+     "value": 1,
+     "cd": 3.5,
+     "desc": "Vệ tinh chặn đạn từ hai bên sườn và sau (góc > 80°), hồi chiêu 3,5 giây."
+    },
+    {
+     "lv": 5,
+     "value": 1,
+     "cd": 3.0,
+     "desc": "Vệ tinh chặn mọi đòn từ sườn và sau (góc > 70° so với hướng tiến); đạn trước mặt vẫn trúng; hồi chiêu 3,0s."
+    }
+   ]
+  },
+  "normal": null,
+  "skill": {
+   "name": "Hộ Vệ Quỹ Đạo",
+   "cooldown": 18,
+   "duration": 2.0,
+   "effect": "Vệ tinh mở rộng trường bảo vệ lên 360 độ trong 2 giây, chặn 1 đòn đánh kế tiếp từ bất kỳ hướng nào.",
+   "new": false
+  },
+  "super": {
+   "name": "THIÊN VỆ TAM HOÀN",
+   "effect": "Hồi chiêu chặn sườn sau giảm còn 2,2 giây; mỗi lần chặn thành công phát xung điện giật quái áp sát.",
+   "formChange": "Icon mở rộng 2 vòng quỹ đạo vàng kim; thân tàu chớp hạt điện tích 0,3s khi chặn đòn."
+  },
+  "part": "vòng cầu bán nguyệt 2 hạt ngọc",
+  "pair": {
+   "with": "phase",
+   "note": "Hư Không Tinh Vệ: vệ tinh bảo vệ điểm mù sườn sau, dịch pha vô hiệu đòn hiểm diện đối diện."
+  },
+  "profile": {
+   "role": "phòng thủ",
+   "best": "đánh boss",
+   "dpsIndex": 0.0
+  }
+ },
+ {
+  "id": "thunder",
+  "bo": 3,
+  "kind": "missiles",
+  "name": "Tên Lửa Lôi Kích",
+  "trait": {
+   "name": "Lôi Tỏa Liên Kích",
+   "ho": "lôi tỏa dây chuyền",
+   "trigger": "khi đầu đạn nổ chạm mục tiêu",
+   "lv": [
+    {
+     "lv": 1,
+     "value": 2,
+     "cd": 0,
+     "desc": "Phóng tia sét giật chuyền qua 2 mục tiêu, giảm 20% ST mỗi nhánh."
+    },
+    {
+     "lv": 2,
+     "value": 2,
+     "cd": 0,
+     "desc": "Phóng tia sét giật chuyền qua 2 mục tiêu, giảm 15% ST mỗi nhánh."
+    },
+    {
+     "lv": 3,
+     "value": 3,
+     "cd": 0,
+     "desc": "Phóng tia sét giật chuyền qua 3 mục tiêu, giảm 12% ST mỗi nhánh."
+    },
+    {
+     "lv": 4,
+     "value": 3,
+     "cd": 0,
+     "desc": "Phóng tia sét giật chuyền qua 3 mục tiêu, giảm 10% ST mỗi nhánh."
+    },
+    {
+     "lv": 5,
+     "value": 4,
+     "cd": 0,
+     "desc": "Phóng tia sét giật chuyền qua 4 mục tiêu với 100% sát thương đồng đều."
+    }
+   ]
+  },
+  "normal": {
+   "pattern": "chain",
+   "count": 2,
+   "cadence": 0.7,
+   "speed": 820,
+   "pierce": false,
+   "homing": 0.9,
+   "projectile": "đầu đạn lôi đình tesla",
+   "notes": "Phóng từ thân tàu, đầu đạn lao tới mục tiêu rồi giật nhánh hồ quang điện sang quái lân cận."
+  },
+  "skill": {
+   "name": "Lôi Đình Liên Tỏa",
+   "cooldown": 10,
+   "duration": 2.0,
+   "effect": "Bắn quả cầu sấm sét trung tâm, phóng chuỗi điện giật liên hoàn 8 nhánh quái.",
+   "new": false
+  },
+  "super": {
+   "name": "CỬU TIÊU LÔI KIẾP",
+   "effect": "Sét nối tối đa 6 mục tiêu, mỗi lần giật sét để lại tia tĩnh điện làm tê liệt 0,5 giây.",
+   "formChange": "Ống phóng lôi đài nhô cao, các cuộn cảm tesla phát tia điện tím rực rỡ."
+  },
+  "part": "tháp cuộn cảm tesla 3 tầng",
+  "pair": {
+   "with": "singularity",
+   "note": "Lôi Uyên Thiên Phạt: hố đen gom quái tụ lại một điểm để chuỗi sét giật hủy diệt."
+  },
+  "profile": {
+   "role": "sát thương",
+   "best": "đông quái",
+   "dpsIndex": 1.01
+  }
+ },
+ {
+  "id": "solar",
+  "bo": 3,
+  "kind": "sidearm",
+  "name": "Pháo Thái Dương",
+  "trait": {
+   "name": "Nhật Hạch Bạo Liệt",
+   "ho": "tụ nhiệt nổ lan",
+   "trigger": "khi nhật cầu chạm mục tiêu",
+   "lv": [
+    {
+     "lv": 1,
+     "value": 15,
+     "cd": 0,
+     "desc": "Cầu mặt trời nổ lan bán kính 30px, gây cháy nhẹ."
+    },
+    {
+     "lv": 2,
+     "value": 20,
+     "cd": 0,
+     "desc": "Cầu mặt trời nổ lan bán kính 35px, gây cháy nhẹ."
+    },
+    {
+     "lv": 3,
+     "value": 25,
+     "cd": 0,
+     "desc": "Cầu mặt trời nổ lan bán kính 40px, gây cháy 1,5 giây."
+    },
+    {
+     "lv": 4,
+     "value": 30,
+     "cd": 0,
+     "desc": "Cầu mặt trời nổ lan bán kính 45px, gây cháy 1,5 giây."
+    },
+    {
+     "lv": 5,
+     "value": 38,
+     "cd": 0,
+     "desc": "Cầu mặt trời nổ lan bán kính 55px, để lại vành nhiệt thiêu đốt 2 giây."
+    }
+   ]
+  },
+  "normal": {
+   "pattern": "straight",
+   "count": 2,
+   "cadence": 0.45,
+   "speed": 720,
+   "pierce": false,
+   "homing": 0.85,
+   "projectile": "cầu lửa mặt trời 8 gai",
+   "notes": "2 pod tụ quả cầu lửa xoay 1 vòng trước mũi tàu con rồi phóng thẳng."
+  },
+  "skill": {
+   "name": "Nhật Hạch Bạo Phát",
+   "cooldown": 10,
+   "duration": 2.5,
+   "effect": "2 nhật cầu khổng lồ xoay quanh tàu tiêu hủy đạn địch rồi lao thẳng vào Boss nổ tung.",
+   "new": false
+  },
+  "super": {
+   "name": "THÁI DƯƠNG LIỆT BIẾN",
+   "effect": "Nhật cầu có vành năng lượng tỏa nhiệt cực lớn, nổ lan gấp đôi diện tích.",
+   "formChange": "Tàu con mở 6 cánh vàng kim rực rỡ như hoa hướng dương cơ khí."
+  },
+  "part": "mặt trời 8 gai nhọn",
+  "pair": {
+   "with": "gravity",
+   "note": "Nhật Uyên Thần Pháo: lực hút trọng lực giữ chặt mục tiêu trong tâm nổ nhiệt hạch."
+  },
+  "profile": {
+   "role": "sát thương",
+   "best": "đánh boss",
+   "dpsIndex": 1.03
+  }
+ },
+ {
+  "id": "phase",
+  "bo": 4,
+  "kind": "armor",
+  "name": "Giáp Dịch Pha",
+  "defenseBudget": {
+   "metric": "số đòn cứu được mỗi phút",
+   "passiveSavesPerMin": 6.7,
+   "skillSavesPerUse": 1.0,
+   "totalSavesPerMin": 11.0,
+   "formula": "Trong 28 đòn trúng/phút, 24% cơ hội vô hiệu = cứu 6.7 đòn; skill dùng ~4 lần/phút cứu 4 đòn."
+  },
+  "trait": {
+   "name": "Dư Ảnh Dịch Pha",
+   "ho": "vô hiệu đòn đánh theo % cơ hội",
+   "trigger": "khi bị trúng đòn tấn công",
+   "lv": [
+    {
+     "lv": 1,
+     "value": 12,
+     "cd": 1.5,
+     "desc": "12% cơ hội vô hiệu hóa hoàn toàn đòn đánh và tạo dư ảnh trong 0,5s."
+    },
+    {
+     "lv": 2,
+     "value": 15,
+     "cd": 1.5,
+     "desc": "15% cơ hội vô hiệu hóa hoàn toàn đòn đánh và tạo dư ảnh trong 0,5s."
+    },
+    {
+     "lv": 3,
+     "value": 18,
+     "cd": 1.5,
+     "desc": "18% cơ hội vô hiệu hóa hoàn toàn đòn đánh và tạo dư ảnh trong 0,5s."
+    },
+    {
+     "lv": 4,
+     "value": 21,
+     "cd": 1.5,
+     "desc": "21% cơ hội vô hiệu hóa hoàn toàn đòn đánh và tạo dư ảnh trong 0,5s."
+    },
+    {
+     "lv": 5,
+     "value": 24,
+     "cd": 1.5,
+     "desc": "24% cơ hội vô hiệu hóa hoàn toàn đòn đánh và kích hoạt dư ảnh dịch pha né đạn."
+    }
+   ]
+  },
+  "normal": null,
+  "skill": {
+   "name": "Ảnh Bộ Dịch Pha",
+   "cooldown": 14,
+   "duration": 2.0,
+   "effect": "Miễn nhiễm 1 đòn đánh đầu tiên trong 2 giây; phát tán chùm mảnh vụn dịch pha đẩy lùi đạn nhỏ.",
+   "new": false
+  },
+  "super": {
+   "name": "HƯ KHÔNG VÔ ẢNH",
+   "effect": "Tỷ lệ vô hiệu hóa đòn đánh tăng lên 35%; mỗi lần né đòn thành công tăng 15% tốc độ bay 2s.",
+   "formChange": "Icon đổi sắc tím huỳnh quang; thân tàu nhấp nháy dư ảnh mờ 0,3s khi né đòn."
+  },
+  "part": "lục giác vát cạnh lõi dọc",
+  "pair": {
+   "with": "reactive",
+   "note": "Huyễn Long Viêm Đế: vừa giảm sát thương % vừa có cơ hội vô hiệu hoàn toàn đòn đánh."
+  },
+  "profile": {
+   "role": "phòng thủ",
+   "best": "đánh boss",
+   "dpsIndex": 0.0
+  }
+ },
+ {
+  "id": "singularity",
+  "bo": 4,
+  "kind": "missiles",
+  "name": "Ngư Lôi Hư Không",
+  "trait": {
+   "name": "Hư Uyên Thôn Phệ",
+   "ho": "hút gom mục tiêu nhỏ",
+   "trigger": "khi ngư lôi chạm mục tiêu phát nổ",
+   "lv": [
+    {
+     "lv": 1,
+     "value": 15,
+     "cd": 0,
+     "desc": "Tạo hố đen mini bán kính 40px trong 0,8s, hút quái nhỏ vào tâm."
+    },
+    {
+     "lv": 2,
+     "value": 20,
+     "cd": 0,
+     "desc": "Tạo hố đen mini bán kính 45px trong 0,9s, hút quái nhỏ vào tâm."
+    },
+    {
+     "lv": 3,
+     "value": 25,
+     "cd": 0,
+     "desc": "Tạo hố đen mini bán kính 50px trong 1,0s, hút quái nhỏ và nuốt 2 đạn địch."
+    },
+    {
+     "lv": 4,
+     "value": 30,
+     "cd": 0,
+     "desc": "Tạo hố đen mini bán kính 55px trong 1,1s, hút quái nhỏ và nuốt 3 đạn địch."
+    },
+    {
+     "lv": 5,
+     "value": 38,
+     "cd": 0,
+     "desc": "Tạo hố đen mini bán kính 65px trong 1,2s, hút mạnh quái nhỏ và nuốt đạn địch."
+    }
+   ]
+  },
+  "normal": {
+   "pattern": "vortex",
+   "count": 2,
+   "cadence": 0.7,
+   "speed": 550,
+   "pierce": false,
+   "homing": 0.9,
+   "projectile": "ngư lôi hư không vòng sóng",
+   "notes": "Phóng từ thân tàu, ngư lôi đen bay lượn uốn sóng rồi kích nổ xoáy hấp dẫn."
+  },
+  "skill": {
+   "name": "Hư Không Tụ Điểm",
+   "cooldown": 11,
+   "duration": 2.5,
+   "effect": "Đặt 2 hố đen mini trước tuyến bay, gom quái nhỏ thành cụm và nuốt đạn địch.",
+   "new": false
+  },
+  "super": {
+   "name": "VỰC SÂU THÔN PHỆ",
+   "effect": "Tâm xoáy mở rộng cực đại, đạn địch bị nuốt được chuyển đổi thành các mảnh xung phản kích.",
+   "formChange": "Đầu phóng ngư lôi mở 4 vành sóng năng lượng dao động liên tục."
+  },
+  "part": "đầu đạn ngư lôi 2 vành sóng",
+  "pair": {
+   "with": "spiral",
+   "note": "Uyên Long Hồi Không: hố đen hút quái lại làm mồi cho cặp rồng xoắn ốc truy kích."
+  },
+  "profile": {
+   "role": "khống chế",
+   "best": "đông quái",
+   "dpsIndex": 0.98
+  }
+ },
+ {
+  "id": "gravity",
+  "bo": 4,
+  "kind": "sidearm",
+  "name": "Cầu Trọng Lực",
+  "trait": {
+   "name": "Trọng Lực Phân Đạo",
+   "ho": "đẩy lệch đạn địch sang 2 bên",
+   "trigger": "khi cầu trọng lực bay qua làn đạn địch",
+   "lv": [
+    {
+     "lv": 1,
+     "value": 15,
+     "cd": 0,
+     "desc": "Cầu trọng lực phát từ trường đẩy đạn địch lệch góc 15 độ sang hai bên sườn."
+    },
+    {
+     "lv": 2,
+     "value": 20,
+     "cd": 0,
+     "desc": "Cầu trọng lực phát từ trường đẩy đạn địch lệch góc 20 độ sang hai bên sườn."
+    },
+    {
+     "lv": 3,
+     "value": 25,
+     "cd": 0,
+     "desc": "Cầu trọng lực phát từ trường đẩy đạn địch lệch góc 25 độ sang hai bên sườn."
+    },
+    {
+     "lv": 4,
+     "value": 30,
+     "cd": 0,
+     "desc": "Cầu trọng lực phát từ trường đẩy đạn địch lệch góc 30 độ sang hai bên sườn."
+    },
+    {
+     "lv": 5,
+     "value": 38,
+     "cd": 0,
+     "desc": "Đẩy đạn địch lệch góc 38 độ ra hai biên, mở hành lang né đạn an toàn giữa màn hình."
+    }
+   ]
+  },
+  "normal": {
+   "pattern": "vortex",
+   "count": 2,
+   "cadence": 0.45,
+   "speed": 620,
+   "pierce": false,
+   "homing": 0.9,
+   "projectile": "cầu trọng lực phân đạo tím",
+   "notes": "2 pod bắn 2 cầu từ trường bay thẳng, phát sóng đẩy đạn địch dạt sang hai bên sườn."
+  },
+  "skill": {
+   "name": "Hành Lang Trọng Lực",
+   "cooldown": 12,
+   "duration": 2.5,
+   "effect": "2 pod phóng sóng trọng lực cực đại đẩy dạt toàn bộ đạn địch trước mặt sang 2 mép màn hình.",
+   "new": false
+  },
+  "super": {
+   "name": "TỬ VỰC NGHỊCH CHUYỂN",
+   "effect": "Cầu trọng lực nở rộng gấp đôi, mở hành lang an toàn rộng 120px thẳng tắp phía trước tàu.",
+   "formChange": "Tàu con bung 3 mảng vỏ để lộ lõi phản vật chất tím đen xoay tròn."
+  },
+  "part": "khối cầu năng lượng 3 mảng giáp",
+  "pair": {
+   "with": "ricochet",
+   "note": "Đẩy dạt đạn địch sang hai mép tạo không gian cho đạn lục lăng nảy biên khóa mục tiêu."
+  },
+  "profile": {
+   "role": "tiện ích",
+   "best": "mưa đạn",
+   "dpsIndex": 0.99
+  }
+ },
+ {
+  "id": "reactive",
+  "bo": 5,
+  "kind": "armor",
+  "name": "Giáp Long Viêm",
+  "defenseBudget": {
+   "metric": "số đòn cứu được mỗi phút",
+   "passiveSavesPerMin": 7.2,
+   "skillSavesPerUse": 1.0,
+   "totalSavesPerMin": 11.5,
+   "formula": "Giảm 24% trên 30 đòn nhận = giảm tương đương 7.2 đòn; skill dùng 4 lần/phút cứu thêm ~4 đòn."
+  },
+  "trait": {
+   "name": "Long Viêm Phản Chấn",
+   "ho": "giảm sát thương % & phản hỏa cận mục tiêu",
+   "trigger": "khi nhận sát thương đòn đánh",
+   "lv": [
+    {
+     "lv": 1,
+     "value": 10,
+     "cd": 0,
+     "desc": "Giảm cố định 10% sát thương nhận vào; phản hỏa 1 tia lửa nhỏ vào kẻ vừa bắn."
+    },
+    {
+     "lv": 2,
+     "value": 13,
+     "cd": 0,
+     "desc": "Giảm cố định 13% sát thương nhận vào; phản hỏa 1 tia lửa nhỏ vào kẻ vừa bắn."
+    },
+    {
+     "lv": 3,
+     "value": 16,
+     "cd": 0,
+     "desc": "Giảm cố định 16% sát thương nhận vào; phản hỏa 2 tia lửa nhỏ vào kẻ vừa bắn."
+    },
+    {
+     "lv": 4,
+     "value": 20,
+     "cd": 0,
+     "desc": "Giảm cố định 20% sát thương nhận vào; phản hỏa 2 tia lửa nhỏ gây cháy 1s."
+    },
+    {
+     "lv": 5,
+     "value": 24,
+     "cd": 0,
+     "desc": "Giảm cố định 24% sát thương nhận vào; phản hỏa 3 tia hỏa tiễn vào quái gần nhất."
+    }
+   ]
+  },
+  "normal": null,
+  "skill": {
+   "name": "Long Viêm Phản Chấn",
+   "cooldown": 14,
+   "duration": 2.5,
+   "effect": "Trong 2,5 giây tăng mức giảm sát thương lên 45% và phóng chùm tia lửa thiêu đốt quái phía trước.",
+   "new": false
+  },
+  "super": {
+   "name": "NỘ LONG HỘ THỂ",
+   "effect": "Mức giảm sát thương cố định tăng lên 28%; đòn phản hỏa gây cháy kéo dài 2 giây.",
+   "formChange": "Icon dựng các phiến vảy rồng đỏ vàng; chớp hào quang lửa đỏ 0,3s trên thân tàu."
+  },
+  "part": "5 phiến vảy rồng xòe",
+  "pair": {
+   "with": "nanite",
+   "note": "Long Mạch Tái Sinh: giảm trực tiếp % sát thương kết hợp hồi phục máu liên tục."
+  },
+  "profile": {
+   "role": "phòng thủ",
+   "best": "đánh boss",
+   "dpsIndex": 0.0
+  }
+ },
+ {
+  "id": "spiral",
+  "bo": 5,
+  "kind": "missiles",
+  "name": "Tên Lửa Xoắn Ốc",
+  "trait": {
+   "name": "Song Long Truy Ảnh",
+   "ho": "song long truy kích đổi góc",
+   "trigger": "khi mục tiêu đầu tiên bị tiêu diệt",
+   "lv": [
+    {
+     "lv": 1,
+     "value": 15,
+     "cd": 0,
+     "desc": "Sau khi trúng mục tiêu, 20% cơ hội đổi góc 90 độ truy kích mục tiêu thứ 2."
+    },
+    {
+     "lv": 2,
+     "value": 20,
+     "cd": 0,
+     "desc": "Sau khi trúng mục tiêu, 30% cơ hội đổi góc truy kích mục tiêu thứ 2."
+    },
+    {
+     "lv": 3,
+     "value": 25,
+     "cd": 0,
+     "desc": "Sau khi trúng mục tiêu, 40% cơ hội đổi góc truy kích mục tiêu thứ 2."
+    },
+    {
+     "lv": 4,
+     "value": 30,
+     "cd": 0,
+     "desc": "Sau khi trúng mục tiêu, 50% cơ hội đổi góc truy kích mục tiêu thứ 2."
+    },
+    {
+     "lv": 5,
+     "value": 38,
+     "cd": 0,
+     "desc": "Chắc chắn bẻ góc truy kích mục tiêu thứ 2; tăng 20% tốc độ lượn xoắn."
+    }
+   ]
+  },
+  "normal": {
+   "pattern": "spiral",
+   "count": 2,
+   "cadence": 0.7,
+   "speed": 760,
+   "pierce": false,
+   "homing": 0.9,
+   "projectile": "cặp tên lửa xoắn ốc xanh ngọc",
+   "notes": "2 tên lửa bay đan chéo hình xoắn ốc kép, chuyển hướng cực kỳ linh hoạt."
+  },
+  "skill": {
+   "name": "Song Long Truy Ảnh",
+   "cooldown": 12,
+   "duration": 2.2,
+   "effect": "Phóng 2 đại thương xoắn ốc uốn lượn tốc độ cao, xuyên 2 mục tiêu liên tiếp.",
+   "new": false
+  },
+  "super": {
+   "name": "BÍCH LONG SONG VŨ",
+   "effect": "Hai thương xoắn biến thành 2 rồng năng lượng xanh, chia mục tiêu truy sát không trượt.",
+   "formChange": "Khối nòng xoay 6 lỗ mở rộng xoay tít đẩy luồng tên lửa xoắn."
+  },
+  "part": "ổ xoay 6 nòng đạn",
+  "pair": {
+   "with": "stellar",
+   "note": "Tinh Long Vạn Vũ: tên lửa xoắn ốc vừa truy kích vừa phân tách thành bão sao con."
+  },
+  "profile": {
+   "role": "sát thương",
+   "best": "đánh boss",
+   "dpsIndex": 1.0
+  }
+ },
+ {
+  "id": "ricochet",
+  "bo": 5,
+  "kind": "sidearm",
+  "name": "Pháo Lục Lăng",
+  "trait": {
+   "name": "Lục Lăng Chiết Xạ",
+   "ho": "đạn nảy mép màn hình",
+   "trigger": "khi đạn chạm viền màn hình trái hoặc phải",
+   "lv": [
+    {
+     "lv": 1,
+     "value": 15,
+     "cd": 0,
+     "desc": "Đạn nảy 1 lần từ mép màn hình về phía mục tiêu, tăng 10% sát thương."
+    },
+    {
+     "lv": 2,
+     "value": 20,
+     "cd": 0,
+     "desc": "Đạn nảy 1 lần từ mép màn hình, tăng 15% sát thương."
+    },
+    {
+     "lv": 3,
+     "value": 25,
+     "cd": 0,
+     "desc": "Đạn nảy 2 lần từ mép màn hình, tăng 20% sát thương."
+    },
+    {
+     "lv": 4,
+     "value": 30,
+     "cd": 0,
+     "desc": "Đạn nảy 2 lần từ mép màn hình, tăng 25% sát thương."
+    },
+    {
+     "lv": 5,
+     "value": 38,
+     "cd": 0,
+     "desc": "Đạn nảy 2 lần từ mép màn hình, tăng 35% sát thương và tự khóa quái yếu nhất."
+    }
+   ]
+  },
+  "normal": {
+   "pattern": "bounce",
+   "count": 2,
+   "cadence": 0.45,
+   "speed": 820,
+   "pierce": false,
+   "homing": 0.85,
+   "projectile": "phiến lục giác lõi tam giác",
+   "notes": "2 tàu con bắn 2 phiến lục giác chéo góc 45 độ nảy vào mép màn hình rồi bật vào giữa."
+  },
+  "skill": {
+   "name": "Lục Lăng Liên Phản",
+   "cooldown": 12,
+   "duration": 2.2,
+   "effect": "Bắn loạt 6 phiến lục giác nảy ziczac liên hoàn qua lại giữa 2 mép màn hình.",
+   "new": false
+  },
+  "super": {
+   "name": "VẠN CHIẾT LĂNG QUANG",
+   "effect": "Mỗi lần nảy mép màn hình đạn tách thêm 2 mảnh lăng kính con bay xiên.",
+   "formChange": "Tàu con lục giác bung nở lõi tam giác trắng sáng chói lọi."
+  },
+  "part": "lục giác đều lõi tam giác",
+  "pair": {
+   "with": "prism",
+   "note": "Lục Lăng Băng Đế: đạn lục giác nảy mép kết hợp chùm lăng kính băng tỏa quạt."
+  },
+  "profile": {
+   "role": "sát thương",
+   "best": "đông quái",
+   "dpsIndex": 1.02
+  }
+ },
+ {
+  "id": "nanite",
+  "bo": 6,
+  "kind": "armor",
+  "name": "Giáp Nano",
+  "defenseBudget": {
+   "metric": "số đòn cứu được mỗi phút",
+   "targetStandard": "6 đòn/phút cứu 1,5–2,5 đòn; 20 đòn/phút cứu 5–7 đòn",
+   "at6HitsPerMin": {
+    "passiveSaves": 1.7,
+    "skillSaves": 0.6,
+    "totalSaves": 2.3,
+    "note": "Ở 6 đòn/phút, người chơi né tốt nên kích hoạt regen 1%/s sau 3s an toàn, chạm trần 25% HP/phút (~2,38 HP ≈ 1,7 đòn); skill dùng khi cần hồi thêm ~0,6 đòn."
+   },
+   "at20HitsPerMin": {
+    "passiveSaves": 1.2,
+    "skillSaves": 4.2,
+    "totalSaves": 5.4,
+    "note": "Ở 20 đòn/phút, ít khi có khoảng nghỉ 3s nên passive chỉ hồi được ~1,2 đòn; bù lại skill hồi 14s dùng 4,2 lần/phút hồi cấp cứu 10% HP/lần + giảm 25% ST cứu 4,2 đòn."
+   }
+  },
+  "trait": {
+   "name": "Mạch Nano Tự Lành",
+   "ho": "hồi máu ngoài giao tranh có trần",
+   "trigger": "khi không nhận sát thương trong 3,0 giây liên tục",
+   "lv": [
+    {
+     "lv": 1,
+     "value": 0.6,
+     "cd": 1.0,
+     "desc": "Hồi 0,6% HP/giây khi không trúng đòn trong 3s; trần hồi tối đa 15% HP mỗi phút."
+    },
+    {
+     "lv": 2,
+     "value": 0.7,
+     "cd": 1.0,
+     "desc": "Hồi 0,7% HP/giây khi không trúng đòn trong 3s; trần hồi tối đa 18% HP mỗi phút."
+    },
+    {
+     "lv": 3,
+     "value": 0.8,
+     "cd": 1.0,
+     "desc": "Hồi 0,8% HP/giây khi không trúng đòn trong 3s; trần hồi tối đa 20% HP mỗi phút."
+    },
+    {
+     "lv": 4,
+     "value": 0.9,
+     "cd": 1.0,
+     "desc": "Hồi 0,9% HP/giây khi không trúng đòn trong 3s; trần hồi tối đa 22% HP mỗi phút."
+    },
+    {
+     "lv": 5,
+     "value": 1.0,
+     "cd": 1.0,
+     "desc": "Hồi 1,0% HP/giây khi không trúng đòn trong 3s; trần hồi tối đa 25% HP tối đa mỗi phút (~2,38 HP/phút)."
+    }
+   ]
+  },
+  "normal": null,
+  "skill": {
+   "name": "Mạch Sống Tái Tạo",
+   "cooldown": 14,
+   "duration": 2.0,
+   "effect": "Kích hoạt sửa chữa khẩn cấp, hồi ngay 10% HP tối đa và giảm 25% sát thương nhận vào trong 2 giây.",
+   "new": false
+  },
+  "super": {
+   "name": "VẠN MẠCH TÁI SINH",
+   "effect": "Thời gian chờ kích hoạt hồi máu giảm xuống 2,0 giây; trần hồi phục tăng lên 32% HP mỗi phút.",
+   "formChange": "Icon sáng rực lưới sợi nano xanh lục; thân tàu chớp ánh huỳnh quang sinh học 0,3s."
+  },
+  "part": "lưới sợi nano kim cương",
+  "pair": {
+   "with": "aegis",
+   "note": "Sinh Mạch Thiên Thành: giáp titan chặn đòn định kỳ che chắn cho nano hồi phục ngoài giao tranh."
+  },
+  "profile": {
+   "role": "hồi phục",
+   "best": "cân bằng",
+   "dpsIndex": 0.0
+  }
+ },
+ {
+  "id": "stellar",
+  "bo": 6,
+  "kind": "missiles",
+  "name": "Tên Lửa Thiên Tinh",
+  "trait": {
+   "name": "Thiên Tinh Phân Liệt",
+   "ho": "phân mảnh giữa không trung",
+   "trigger": "khi tên lửa bay được 220px",
+   "lv": [
+    {
+     "lv": 1,
+     "value": 3,
+     "cd": 0,
+     "desc": "Tách thành 3 sao con, mỗi sao con mang 35% sát thương đạn gốc."
+    },
+    {
+     "lv": 2,
+     "value": 3,
+     "cd": 0,
+     "desc": "Tách thành 3 sao con, mỗi sao con mang 40% sát thương đạn gốc."
+    },
+    {
+     "lv": 3,
+     "value": 4,
+     "cd": 0,
+     "desc": "Tách thành 4 sao con, mỗi sao con mang 35% sát thương đạn gốc."
+    },
+    {
+     "lv": 4,
+     "value": 4,
+     "cd": 0,
+     "desc": "Tách thành 4 sao con, mỗi sao con mang 40% sát thương đạn gốc."
+    },
+    {
+     "lv": 5,
+     "value": 5,
+     "cd": 0,
+     "desc": "Tách thành 5 sao con có tự dẫn nhẹ, mỗi sao con mang 40% sát thương đạn gốc."
+    }
+   ]
+  },
+  "normal": {
+   "pattern": "split",
+   "count": 2,
+   "cadence": 0.7,
+   "speed": 740,
+   "pierce": false,
+   "homing": 0.8,
+   "projectile": "đầu đạn thiên tinh hình thoi",
+   "notes": "Phóng thẳng từ thân, bay nửa chặng đường nổ tách thành chùm sao con tỏa rộng."
+  },
+  "skill": {
+   "name": "Thiên Tinh Phân Liệt",
+   "cooldown": 13,
+   "duration": 2.0,
+   "effect": "Bắn 4 tên lửa mẹ tách thành 16 sao con tự dẫn truy quét toàn bộ quái trên màn hình.",
+   "new": false
+  },
+  "super": {
+   "name": "VẠN TINH LƯU VŨ",
+   "effect": "Tên lửa mẹ tách thành 7 sao con rực rỡ, bao phủ 80% chiều ngang màn hình.",
+   "formChange": "Đầu phóng tên lửa mở 4 cánh hoa thị tỏa ánh sao chói lọi."
+  },
+  "part": "đầu đạn hình nón 4 cánh xếp",
+  "pair": {
+   "with": "inferno",
+   "note": "Tinh Viêm Nhật Vũ: chùm sao con phân tách mang theo hiệu ứng cháy lan bộc phá."
+  },
+  "profile": {
+   "role": "sát thương",
+   "best": "đông quái",
+   "dpsIndex": 1.01
+  }
+ },
+ {
+  "id": "prism",
+  "bo": 6,
+  "kind": "sidearm",
+  "name": "Quang Pháo Hàn Băng",
+  "trait": {
+   "name": "Hàn Tinh Quang Mạc",
+   "ho": "tán xạ quạt băng làm chậm",
+   "trigger": "khi phiến tinh thể chạm mục tiêu",
+   "lv": [
+    {
+     "lv": 1,
+     "value": 15,
+     "cd": 0,
+     "desc": "Chùm 3 phiến băng làm chậm 15% trong 1,2s; vỡ thành 2 mảnh vụn."
+    },
+    {
+     "lv": 2,
+     "value": 20,
+     "cd": 0,
+     "desc": "Chùm 3 phiến băng làm chậm 20% trong 1,2s; vỡ thành 2 mảnh vụn."
+    },
+    {
+     "lv": 3,
+     "value": 25,
+     "cd": 0,
+     "desc": "Chùm 3 phiến băng làm chậm 25% trong 1,5s; vỡ thành 3 mảnh vụn."
+    },
+    {
+     "lv": 4,
+     "value": 30,
+     "cd": 0,
+     "desc": "Chùm 3 phiến băng làm chậm 30% trong 1,5s; vỡ thành 3 mảnh vụn."
+    },
+    {
+     "lv": 5,
+     "value": 38,
+     "cd": 0,
+     "desc": "Chùm 3 phiến băng làm chậm 35% trong 2,0s; vỡ thành 4 mảnh băng sắc bén."
+    }
+   ]
+  },
+  "normal": {
+   "pattern": "fan",
+   "count": 3,
+   "cadence": 0.45,
+   "speed": 780,
+   "pierce": false,
+   "homing": 0.7,
+   "projectile": "phiến lăng kính tinh thể băng",
+   "notes": "2 pod bắn chùm 3 phiến băng tỏa góc 20 độ, va chạm vỡ mảnh găm thêm sát thương."
+  },
+  "skill": {
+   "name": "Hàn Tinh Quang Trận",
+   "cooldown": 13,
+   "duration": 2.5,
+   "effect": "Tạo trận địa lăng kính băng phía trước làm chậm 50% toàn bộ quái và đạn địch đi qua.",
+   "new": false
+  },
+  "super": {
+   "name": "CỰC QUANG BĂNG VŨ",
+   "effect": "Phiến băng vỡ để lại trường hàn tinh lạnh giá rút máu liên tục trong 1,5 giây.",
+   "formChange": "Tàu con hình tên nhọn mở 2 cánh pha lê băng phát ánh cực quang."
+  },
+  "part": "phiến lăng kính mũi tên nhọn",
+  "pair": {
+   "with": "rail",
+   "note": "Hàn Quang Điện Hoàng: trường băng làm chậm địch tạo điều kiện cho tia ray điện từ xuyên tâm."
+  },
+  "profile": {
+   "role": "khống chế",
+   "best": "đông quái",
+   "dpsIndex": 0.99
+  }
+ },
+ {
+  "id": "aurora36",
+  "bo": 7,
+  "kind": "armor",
+  "name": "Giáp Thánh Quang",
+  "defenseBudget": {
+   "metric": "số đòn cứu được mỗi phút",
+   "targetStandard": "6 đòn/phút cứu 1,5–2,5 đòn; 20 đòn/phút cứu 5–7 đòn",
+   "at6HitsPerMin": {
+    "passiveSaves": 1.6,
+    "skillSaves": 0.7,
+    "totalSaves": 2.3,
+    "note": "Ở 6 đòn/phút, người chơi né giỏi tích điểm nhanh nhưng hiếm khi trúng đòn để tiêu thụ khiên, cứu thực tế ~1,6 đòn; skill phá đạn cứu ~0,7 đòn."
+   },
+   "at20HitsPerMin": {
+    "passiveSaves": 3.8,
+    "skillSaves": 2.4,
+    "totalSaves": 6.2,
+    "note": "Ở 20 đòn/phút, sượt đạn liên tục chạm ngưỡng hồi chiêu 15s (4 khiên/phút) và bị phá ngay = cứu ~3,8 đòn; skill dùng ~3,7 lần xóa đạn cứu 2,4 đòn."
+   }
+  },
+  "trait": {
+   "name": "Thánh Quang Tích Năng",
+   "ho": "tích điểm sượt đạn tạo khiên chắn",
+   "trigger": "khi có đạn địch bay sát tâm tàu (Graze)",
+   "lv": [
+    {
+     "lv": 1,
+     "value": 1,
+     "cd": 0.3,
+     "desc": "Mỗi lần sượt đạn tích 1 điểm (hồi 0,3s); đủ 10 điểm nhận khiên chặn 1 đòn (hồi chiêu 25s)."
+    },
+    {
+     "lv": 2,
+     "value": 1,
+     "cd": 0.3,
+     "desc": "Mỗi lần sượt đạn tích 1 điểm (hồi 0,3s); đủ 9 điểm nhận khiên chặn 1 đòn (hồi chiêu 22s)."
+    },
+    {
+     "lv": 3,
+     "value": 1,
+     "cd": 0.25,
+     "desc": "Mỗi lần sượt đạn tích 1 điểm (hồi 0,25s); đủ 8 điểm nhận khiên chặn 1 đòn (hồi chiêu 19s)."
+    },
+    {
+     "lv": 4,
+     "value": 1,
+     "cd": 0.25,
+     "desc": "Mỗi lần sượt đạn tích 1 điểm (hồi 0,25s); đủ 7 điểm nhận khiên chặn 1 đòn (hồi chiêu 17s)."
+    },
+    {
+     "lv": 5,
+     "value": 1,
+     "cd": 0.2,
+     "desc": "Đủ 6 điểm sượt đạn: nhận khiên chặn hoàn toàn 1 đòn đánh kế tiếp (hồi chiêu 15s) và tăng 12% sát thương trong 2s."
+    }
+   ]
+  },
+  "normal": null,
+  "skill": {
+   "name": "Lò Phản Ứng Nhiệt Hạch",
+   "cooldown": 16,
+   "duration": 2.0,
+   "effect": "Xả năng lượng nhiệt quang hình quạt phá hủy đạn địch phía trước mũi tàu và triệt tiêu 1 đòn đánh trong 2 giây.",
+   "new": false
+  },
+  "super": {
+   "name": "THÁNH QUANG HOÀNG KIM",
+   "effect": "Khi kích hoạt khiên thánh quang, phóng 2 tia kim quang phản kích mục tiêu gần nhất gây sát thương.",
+   "formChange": "Icon bung tỏa 4 cánh vàng kim thánh khiết; chớp sáng hoàng kim 0,3s trên thân tàu."
+  },
+  "part": "khiên thánh huy tâm tròn",
+  "pair": {
+   "with": "void36",
+   "note": "Quang Ám Hợp Thể: sượt đạn tạo khiên thánh quang kết hợp tàng hình thoát hiểm nguy cấp."
+  },
+  "profile": {
+   "role": "tiện ích",
+   "best": "đánh boss",
+   "dpsIndex": 0.0
+  }
+ },
+ {
+  "id": "comet36",
+  "bo": 7,
+  "kind": "missiles",
+  "name": "Tên Lửa Thiên Kiếm",
+  "trait": {
+   "name": "Vạn Kiếm Quy Tông",
+   "ho": "phi kiếm rơi thẳng",
+   "trigger": "khi kiếm cắm trúng mục tiêu",
+   "lv": [
+    {
+     "lv": 1,
+     "value": 15,
+     "cd": 0,
+     "desc": "Kiếm cắm từ trên trời xuống, gây 115% sát thương lên mục tiêu đơn."
+    },
+    {
+     "lv": 2,
+     "value": 20,
+     "cd": 0,
+     "desc": "Kiếm cắm từ trên trời xuống, gây 120% sát thương lên mục tiêu đơn."
+    },
+    {
+     "lv": 3,
+     "value": 25,
+     "cd": 0,
+     "desc": "Kiếm cắm từ trên trời xuống, gây 130% sát thương và tăng 10% chí mạng."
+    },
+    {
+     "lv": 4,
+     "value": 30,
+     "cd": 0,
+     "desc": "Kiếm cắm từ trên trời xuống, gây 140% sát thương và tăng 15% chí mạng."
+    },
+    {
+     "lv": 5,
+     "value": 40,
+     "cd": 0,
+     "desc": "Kiếm cắm gây 160% sát thương; chắc chắn chí mạng nếu máu mục tiêu trên 70%."
+    }
+   ]
+  },
+  "normal": {
+   "pattern": "straight",
+   "count": 2,
+   "cadence": 0.65,
+   "speed": 1100,
+   "pierce": false,
+   "homing": 0.95,
+   "projectile": "thanh kiếm hiệp sĩ thẳng đứng",
+   "notes": "Phóng thẳng lên trời rồi lao xuống cắm thẳng vào đỉnh đầu Boss với tốc độ cực nhanh."
+  },
+  "skill": {
+   "name": "Kiếm Vũ Thiên Không",
+   "cooldown": 12,
+   "duration": 2.2,
+   "effect": "Gọi trận mưa 6 thanh cự kiếm hoàng kim cắm liên tiếp vào vị trí Boss.",
+   "new": false
+  },
+  "super": {
+   "name": "THIÊN KIẾM PHÁ THIÊN",
+   "effect": "Kiếm cắm xuống để lại vết rạch quang năng gây sát thương liên tục trong 1,5 giây.",
+   "formChange": "Bệ phóng kiếm mở rộng bung 3 chốt định vị năng lượng màu vàng rực."
+  },
+  "part": "3 mũi kiếm trên thanh ray",
+  "pair": {
+   "with": "nova36",
+   "note": "Thiên Kiếm nổ cắm đơn mục tiêu kết hợp sóng chấn động Diệt Tinh quét sạch màn hình."
+  },
+  "profile": {
+   "role": "sát thương",
+   "best": "đánh boss",
+   "dpsIndex": 1.05
+  }
+ },
+ {
+  "id": "lance36",
+  "bo": 7,
+  "kind": "sidearm",
+  "name": "Pháo Quang Thương",
+  "trait": {
+   "name": "Mũi Thương Xuyên Giáp",
+   "ho": "khoan cận chiến xuyên giáp",
+   "trigger": "mỗi đòn đâm trúng mục tiêu",
+   "lv": [
+    {
+     "lv": 1,
+     "value": 8,
+     "cd": 0,
+     "desc": "Đâm xuyên giáp tầm trung, bỏ qua 10% giáp của Boss và quái tinh anh."
+    },
+    {
+     "lv": 2,
+     "value": 10,
+     "cd": 0,
+     "desc": "Đâm xuyên giáp tầm trung, bỏ qua 15% giáp của Boss và quái tinh anh."
+    },
+    {
+     "lv": 3,
+     "value": 12,
+     "cd": 0,
+     "desc": "Đâm xuyên giáp tầm trung, bỏ qua 20% giáp của Boss và quái tinh anh."
+    },
+    {
+     "lv": 4,
+     "value": 15,
+     "cd": 0,
+     "desc": "Đâm xuyên giáp tầm trung, bỏ qua 25% giáp; tăng 12% sát thương nứt giáp."
+    },
+    {
+     "lv": 5,
+     "value": 20,
+     "cd": 0,
+     "desc": "Đâm bỏ qua 35% giáp Boss; tạo hiệu ứng Nứt Giáp (+18% ST từ mọi nguồn trong 2s)."
+    }
+   ]
+  },
+  "normal": {
+   "pattern": "straight",
+   "count": 2,
+   "cadence": 0.35,
+   "speed": 950,
+   "pierce": true,
+   "homing": 0.0,
+   "projectile": "mũi thương năng lượng 4 ngạnh",
+   "notes": "2 pod đâm thụt liên tục 2 mũi thương năng lượng dài 160px tầm trung-ngắn phía trước."
+  },
+  "skill": {
+   "name": "Quang Thương Đột Kích",
+   "cooldown": 10,
+   "duration": 2.0,
+   "effect": "2 mũi thương duỗi dài gấp đôi quét xuyên thấu toàn bộ hàng quái và cánh Boss.",
+   "new": false
+  },
+  "super": {
+   "name": "THẦN THƯƠNG PHÁ GIÁP",
+   "effect": "Mũi thương xoay tít tạo mũi khoan lốc xoáy năng lượng làm nổ giáp mục tiêu liên hoàn.",
+   "formChange": "Tàu con khép 4 ngạnh thành mũi khoan thon dài rực lửa vàng kim."
+  },
+  "part": "mũi thương 4 ngạnh nhọn",
+  "pair": {
+   "with": "orbit36",
+   "note": "Quang thương cận chiến đục thủng Boss kết hợp sợi xích điện trường quét dọn quái sườn."
+  },
+  "profile": {
+   "role": "sát thương",
+   "best": "đánh boss",
+   "dpsIndex": 1.04
+  }
+ },
+ {
+  "id": "void36",
+  "bo": 8,
+  "kind": "armor",
+  "name": "Giáp Vực Tối",
+  "defenseBudget": {
+   "metric": "số đòn cứu được mỗi phút",
+   "passiveSavesPerMin": 6.0,
+   "skillSavesPerUse": 1.5,
+   "totalSavesPerMin": 11.5,
+   "formula": "Kích hoạt tàng hình tự động mỗi 18s cứu ~2 đòn nguy tử (3 lần/phút = 6 đòn); skill dùng ~4 lần cứu 5-6 đòn."
+  },
+  "trait": {
+   "name": "Áo Choàng Bóng Tối",
+   "ho": "tàng hình né đòn nguy cấp khi máu thấp",
+   "trigger": "khi máu dưới 35% hoặc chịu đòn chí mạng",
+   "lv": [
+    {
+     "lv": 1,
+     "value": 1.2,
+     "cd": 26,
+     "desc": "Khi máu < 30% trúng đòn: tàng hình 1,2s miễn nhiễm sát thương (hồi chiêu 26s)."
+    },
+    {
+     "lv": 2,
+     "value": 1.4,
+     "cd": 24,
+     "desc": "Khi máu < 30% trúng đòn: tàng hình 1,4s miễn nhiễm sát thương (hồi chiêu 24s)."
+    },
+    {
+     "lv": 3,
+     "value": 1.6,
+     "cd": 22,
+     "desc": "Khi máu < 35% trúng đòn: tàng hình 1,6s miễn nhiễm sát thương (hồi chiêu 22s)."
+    },
+    {
+     "lv": 4,
+     "value": 1.8,
+     "cd": 20,
+     "desc": "Khi máu < 35% trúng đòn: tàng hình 1,8s miễn nhiễm sát thương (hồi chiêu 20s)."
+    },
+    {
+     "lv": 5,
+     "value": 2.0,
+     "cd": 18,
+     "desc": "Khi máu < 35% trúng đòn: lập tức tàng hình 2,0s (hồi chiêu 18s), lướt xuyên mọi đòn đánh."
+    }
+   ]
+  },
+  "normal": null,
+  "skill": {
+   "name": "Áo Choàng Bóng Tối",
+   "cooldown": 16,
+   "duration": 2.0,
+   "effect": "Chủ động tàng hình trong 2,0 giây, miễn nhiễm mọi va chạm và đạn đạo của địch.",
+   "new": false
+  },
+  "super": {
+   "name": "HƯ VÔ QUY KỶ",
+   "effect": "Khi thoát tàng hình, giải phóng chùm mảnh bóng tối làm chậm quái xung quanh 30% trong 1,5s.",
+   "formChange": "Icon phủ làn sương đen tím; thân tàu chớp bóng mờ đen tím 0,4s khi ẩn thân."
+  },
+  "part": "áo choàng bóng tối răng cưa",
+  "pair": {
+   "with": "seraph36",
+   "note": "Tàng hình thoát hiểm nguy kịch kết hợp khiên thánh dực hồi phục bền vững."
+  },
+  "profile": {
+   "role": "phòng thủ",
+   "best": "đánh boss",
+   "dpsIndex": 0.0
+  }
+ },
+ {
+  "id": "nova36",
+  "bo": 8,
+  "kind": "missiles",
+  "name": "Tên Lửa Diệt Tinh",
+  "trait": {
+   "name": "Chấn Động Hư Không",
+   "ho": "hạt chấn động phá hủy đạn",
+   "trigger": "khi ngư lôi nổ chạm mục tiêu",
+   "lv": [
+    {
+     "lv": 1,
+     "value": 15,
+     "cd": 0,
+     "desc": "Nổ bung chùm hạt chấn động bán kính 55px, xóa đạn địch trong vùng nổ."
+    },
+    {
+     "lv": 2,
+     "value": 20,
+     "cd": 0,
+     "desc": "Nổ bung chùm hạt chấn động bán kính 65px, xóa đạn địch trong vùng nổ."
+    },
+    {
+     "lv": 3,
+     "value": 25,
+     "cd": 0,
+     "desc": "Nổ bung chùm hạt chấn động bán kính 75px, xóa đạn địch trong vùng nổ."
+    },
+    {
+     "lv": 4,
+     "value": 30,
+     "cd": 0,
+     "desc": "Nổ bung chùm hạt chấn động bán kính 85px, xóa đạn và đẩy lùi quái nhỏ."
+    },
+    {
+     "lv": 5,
+     "value": 40,
+     "cd": 0,
+     "desc": "Nổ bung chùm hạt chấn động bán kính 100px (không vành tròn), xóa sạch đạn địch lân cận."
+    }
+   ]
+  },
+  "normal": {
+   "pattern": "straight",
+   "count": 2,
+   "cadence": 0.75,
+   "speed": 520,
+   "pierce": false,
+   "homing": 0.8,
+   "projectile": "ngư lôi không gian đầu tròn nặng",
+   "notes": "Phóng từ thân tàu, ngư lôi đen bay đầm chắc rồi nổ bung chùm hạt tím chấn động."
+  },
+  "skill": {
+   "name": "Ngư Lôi Không Gian",
+   "cooldown": 12,
+   "duration": 2.0,
+   "effect": "Bắn 4 đại ngư lôi tạo liên hoàn chùm hạt chấn động xóa đạn toàn bộ nửa màn hình.",
+   "new": false
+  },
+  "super": {
+   "name": "DIỆT TINH SIÊU TÂN TINH",
+   "effect": "Vụ nổ phóng ra các tia sóng xung kích đẩy lùi quái và quét sạch đạn đạo phía trước.",
+   "formChange": "Icon khoang phóng mở 2 phễu năng lượng đen kịt; thân tàu chớp sóng hạt tím 0,3s."
+  },
+  "part": "bệ phóng ngư lôi hình cúp",
+  "pair": {
+   "with": "judgement36",
+   "note": "Hạt chấn động dọn sạch đạn đạo phía trước tạo đường ngắm cho Cột Sáng Phán Quyết."
+  },
+  "profile": {
+   "role": "phòng thủ",
+   "best": "đông quái",
+   "dpsIndex": 0.97
+  }
+ },
+ {
+  "id": "orbit36",
+  "bo": 8,
+  "kind": "sidearm",
+  "name": "Pháo Chân Trời",
+  "trait": {
+   "name": "Dây Xích Sự Kiện",
+   "ho": "dây xích liên kết điện trường",
+   "trigger": "liên tục khi 2 tàu con đang hoạt động",
+   "lv": [
+    {
+     "lv": 1,
+     "value": 15,
+     "cd": 0,
+     "desc": "Giăng dây xích điện rộng 120px giữa 2 pod; quái chạm phải chịu 60% sát thương đạn."
+    },
+    {
+     "lv": 2,
+     "value": 20,
+     "cd": 0,
+     "desc": "Giăng dây xích điện rộng 135px giữa 2 pod; quái chạm phải chịu 70% sát thương đạn."
+    },
+    {
+     "lv": 3,
+     "value": 25,
+     "cd": 0,
+     "desc": "Giăng dây xích điện rộng 150px; làm chậm 20% quái chạm phải và chịu 80% ST."
+    },
+    {
+     "lv": 4,
+     "value": 30,
+     "cd": 0,
+     "desc": "Giăng dây xích điện rộng 170px; làm chậm 25% quái chạm phải và chịu 90% ST."
+    },
+    {
+     "lv": 5,
+     "value": 40,
+     "cd": 0,
+     "desc": "Dây xích điện rộng 200px; làm chậm 35% quái và gây 110% sát thương liên tục."
+    }
+   ]
+  },
+  "normal": {
+   "pattern": "beam",
+   "count": 1,
+   "cadence": 0.2,
+   "speed": 0,
+   "pierce": true,
+   "homing": 0.0,
+   "projectile": "sợi xích năng lượng mỏ neo [MỚI]",
+   "notes": "2 pod duy trì 1 sợi xích điện trường ngang nối liền 2 bên cánh cắt đôi hàng quái đi qua."
+  },
+  "skill": {
+   "name": "Dây Xích Sự Kiện",
+   "cooldown": 11,
+   "duration": 2.5,
+   "effect": "Sợi xích điện trường rung động cực đại, khóa cứng quái thường và làm chậm Boss 40%.",
+   "new": true
+  },
+  "super": {
+   "name": "HẮC ĐỘNG TỎA LIÊN",
+   "effect": "Sợi xích phát hỏa quang tím, cắt đứt đạn địch bay qua đường nối giữa 2 pod.",
+   "formChange": "Tàu con thả 2 mỏ neo xích năng lượng phát tia hồ quang tím nối nhau."
+  },
+  "part": "mỏ neo xích sắt năng lượng",
+  "pair": {
+   "with": "halo36",
+   "note": "Dây xích quét ngang mặt trước kết hợp vành thiên hoàn bảo vệ hai bên sườn."
+  },
+  "profile": {
+   "role": "khống chế",
+   "best": "đông quái",
+   "dpsIndex": 1.01
+  }
+ },
+ {
+  "id": "seraph36",
+  "bo": 9,
+  "kind": "armor",
+  "name": "Giáp Thiên Ân",
+  "defenseBudget": {
+   "metric": "số đòn cứu được mỗi phút",
+   "passiveSavesPerMin": 6.5,
+   "skillSavesPerUse": 1.0,
+   "totalSavesPerMin": 10.5,
+   "formula": "Nhặt 6-8 vật phẩm/phút x 5% HP khiên = tích lũy tương đương 6.5 đòn cứu; skill giảm 50% ST cứu ~4 đòn."
+  },
+  "trait": {
+   "name": "Đôi Cánh Thánh Dực",
+   "ho": "tạo khiên ánh sáng % HP khi nhặt đồ",
+   "trigger": "mỗi khi nhặt được 1 vật phẩm rơi",
+   "lv": [
+    {
+     "lv": 1,
+     "value": 2.5,
+     "cd": 0,
+     "desc": "Nhặt 1 vật phẩm nhận khiên ánh sáng chặn 2,5% HP tối đa trong 4s (tối đa 2 tầng)."
+    },
+    {
+     "lv": 2,
+     "value": 3.0,
+     "cd": 0,
+     "desc": "Nhặt 1 vật phẩm nhận khiên ánh sáng chặn 3,0% HP tối đa trong 4s (tối đa 2 tầng)."
+    },
+    {
+     "lv": 3,
+     "value": 3.5,
+     "cd": 0,
+     "desc": "Nhặt 1 vật phẩm nhận khiên ánh sáng chặn 3,5% HP tối đa trong 4s (tối đa 3 tầng)."
+    },
+    {
+     "lv": 4,
+     "value": 4.0,
+     "cd": 0,
+     "desc": "Nhặt 1 vật phẩm nhận khiên ánh sáng chặn 4,0% HP tối đa trong 4s (tối đa 3 tầng)."
+    },
+    {
+     "lv": 5,
+     "value": 5.0,
+     "cd": 0,
+     "desc": "Nhặt vật phẩm nhận khiên 5,0% HP (tối đa 3 tầng = 15% HP); khi khiên đầy hồi 1% HP."
+    }
+   ]
+  },
+  "normal": null,
+  "skill": {
+   "name": "Đôi Cánh Thánh Dực",
+   "cooldown": 15,
+   "duration": 2.5,
+   "effect": "Bung đôi cánh thiên thần ánh sáng, giảm 50% sát thương nhận vào trong 2,5 giây và hồi 8% máu.",
+   "new": false
+  },
+  "super": {
+   "name": "THIÊN ÂN PHỔ ĐỘ",
+   "effect": "Tự động hút toàn bộ vật phẩm rơi trên màn hình về tàu và kích hoạt ngay 2 tầng khiên.",
+   "formChange": "Icon bung tỏa đôi cánh thánh dực trắng ngà; chớp sáng lông vũ 0,4s trên thân tàu."
+  },
+  "part": "đôi cánh lông vũ thánh dực",
+  "pair": {
+   "with": "aegis9",
+   "note": "Khiên thiên ân nhặt đồ kết hợp giảm sát thương đội hình của Giáp Kỳ Hạm."
+  },
+  "profile": {
+   "role": "phòng thủ",
+   "best": "cân bằng",
+   "dpsIndex": 0.0
+  }
+ },
+ {
+  "id": "judgement36",
+  "bo": 9,
+  "kind": "missiles",
+  "name": "Tên Lửa Phán Quyết",
+  "trait": {
+   "name": "Cột Sáng Phán Quyết",
+   "ho": "cột sáng định vị thiên phạt",
+   "trigger": "khi đạn đánh dấu trúng mục tiêu",
+   "lv": [
+    {
+     "lv": 1,
+     "value": 15,
+     "cd": 0,
+     "desc": "Bắn viên định vị, sau 0,35s giáng cột sáng rộng 32px gây 120% sát thương."
+    },
+    {
+     "lv": 2,
+     "value": 20,
+     "cd": 0,
+     "desc": "Bắn viên định vị, sau 0,35s giáng cột sáng rộng 36px gây 130% sát thương."
+    },
+    {
+     "lv": 3,
+     "value": 25,
+     "cd": 0,
+     "desc": "Bắn viên định vị, sau 0,30s giáng cột sáng rộng 42px gây 140% sát thương."
+    },
+    {
+     "lv": 4,
+     "value": 30,
+     "cd": 0,
+     "desc": "Bắn viên định vị, sau 0,30s giáng cột sáng rộng 48px gây 150% sát thương."
+    },
+    {
+     "lv": 5,
+     "value": 42,
+     "cd": 0,
+     "desc": "Giáng cột sáng rộng 55px gây 175% sát thương; làm choáng quái thường 0,5 giây."
+    }
+   ]
+  },
+  "normal": {
+   "pattern": "straight",
+   "count": 2,
+   "cadence": 0.7,
+   "speed": 880,
+   "pierce": false,
+   "homing": 0.85,
+   "projectile": "mũi tên định vị thiên phạt",
+   "notes": "Phóng mũi tên định vị vào mục tiêu, gọi cột sáng từ trời giáng xuống nghiền nát địch."
+  },
+  "skill": {
+   "name": "Cột Sáng Phán Quyết",
+   "cooldown": 12,
+   "duration": 2.0,
+   "effect": "Giáng 3 cột đại thiên lôi liên tiếp xuống mục tiêu nhiều máu nhất, thiêu rụi giáp Boss.",
+   "new": false
+  },
+  "super": {
+   "name": "THÁNH ĐÌNH THIÊN PHẠT",
+   "effect": "Cột sáng mở rộng bề ngang gấp rưỡi, quét sạch cả quái đứng xung quanh điểm giáng.",
+   "formChange": "Đầu đạn hình thoi tỏa ánh hào quang thánh khiết chiếu rọi."
+  },
+  "part": "đầu đạn tên lửa hình thoi cánh nhọn",
+  "pair": {
+   "with": "swarm9",
+   "note": "Cột sáng phán quyết đục lõi Boss kết hợp mưa tên lửa vi mô bão hòa dọn sạch cánh."
+  },
+  "profile": {
+   "role": "sát thương",
+   "best": "đánh boss",
+   "dpsIndex": 1.04
+  }
+ },
+ {
+  "id": "halo36",
+  "bo": 9,
+  "kind": "sidearm",
+  "name": "Pháo Thiên Hoàn",
+  "trait": {
+   "name": "Vành Quang Tiêu Điểm",
+   "ho": "tập trung một mục tiêu dồn tầng",
+   "trigger": "khi bắn trúng liên tiếp cùng 1 mục tiêu",
+   "lv": [
+    {
+     "lv": 1,
+     "value": 2,
+     "cd": 0,
+     "desc": "Mỗi đòn trúng liên tiếp vào cùng mục tiêu tăng 2% sát thương (cộng dồn tối đa 12%)."
+    },
+    {
+     "lv": 2,
+     "value": 3,
+     "cd": 0,
+     "desc": "Mỗi đòn trúng liên tiếp vào cùng mục tiêu tăng 3% sát thương (cộng dồn tối đa 18%)."
+    },
+    {
+     "lv": 3,
+     "value": 4,
+     "cd": 0,
+     "desc": "Mỗi đòn trúng liên tiếp vào cùng mục tiêu tăng 4% sát thương (cộng dồn tối đa 24%)."
+    },
+    {
+     "lv": 4,
+     "value": 5,
+     "cd": 0,
+     "desc": "Mỗi đòn trúng liên tiếp vào cùng mục tiêu tăng 5% sát thương (cộng dồn tối đa 30%)."
+    },
+    {
+     "lv": 5,
+     "value": 6,
+     "cd": 0,
+     "desc": "Mỗi đòn trúng liên tiếp tăng 6% sát thương (tối đa 36%); đổi mục tiêu mất cộng dồn."
+    }
+   ]
+  },
+  "normal": {
+   "pattern": "straight",
+   "count": 2,
+   "cadence": 0.35,
+   "speed": 850,
+   "pierce": false,
+   "homing": 0.95,
+   "projectile": "vành nhật thực đĩa tròn xoay",
+   "notes": "2 pod cùng phóng vành nhật thực hội tụ dồn vào đúng 1 mục tiêu đơn (cánh hoặc lõi Boss)."
+  },
+  "skill": {
+   "name": "Nhật Thực Tỏa Điểm",
+   "cooldown": 11,
+   "duration": 2.5,
+   "effect": "Khóa cứng mục tiêu đơn, 2 pod xả đạn liên thanh tốc độ gấp đôi vào điểm đó.",
+   "new": false
+  },
+  "super": {
+   "name": "THIÊN QUANG QUẦNG NHẬT",
+   "effect": "Vành nhật thực sáng rực; đòn đánh thứ 5 liên tiếp kích nổ quang năng gây thêm 40% sát thương bộc phá.",
+   "formChange": "Tàu con mở 4 chấu định vị giữ vòng hào quang xoay tít rực lửa vàng."
+  },
+  "part": "vòng tròn nhật thực 4 chấu",
+  "pair": {
+   "with": "carrier9",
+   "note": "Tập trung hỏa lực đục điểm kết hợp bầy tiêm kích con áp sát xả đạn bão hòa."
+  },
+  "profile": {
+   "role": "sát thương",
+   "best": "đánh boss",
+   "dpsIndex": 1.05
+  }
+ },
+ {
+  "id": "aegis9",
+  "bo": 10,
+  "kind": "armor",
+  "name": "Giáp Kỳ Hạm",
+  "defenseBudget": {
+   "metric": "số đòn cứu được mỗi phút",
+   "passiveSavesPerMin": 5.5,
+   "skillSavesPerUse": 1.0,
+   "totalSavesPerMin": 9.5,
+   "formula": "Độc lập giảm 18% sát thương trên 30 đòn = cứu 5.5 đòn (khi đủ bộ tiêm kích giảm 30% = cứu 9.0 đòn)."
+  },
+  "trait": {
+   "name": "Lá Chắn Đội Hình",
+   "ho": "giảm sát thương độc lập + thưởng đội hình",
+   "trigger": "liên tục khi chiến đấu",
+   "lv": [
+    {
+     "lv": 1,
+     "value": 8,
+     "cd": 0,
+     "desc": "Bản thân giáp giảm cố định 8% sát thương nhận vào (tăng thêm 2% mỗi tiêm kích carrier9)."
+    },
+    {
+     "lv": 2,
+     "value": 10,
+     "cd": 0,
+     "desc": "Bản thân giáp giảm cố định 10% sát thương nhận vào (tăng thêm 2% mỗi tiêm kích carrier9)."
+    },
+    {
+     "lv": 3,
+     "value": 12,
+     "cd": 0,
+     "desc": "Bản thân giáp giảm cố định 12% sát thương nhận vào (tăng thêm 2,5% mỗi tiêm kích carrier9)."
+    },
+    {
+     "lv": 4,
+     "value": 15,
+     "cd": 0,
+     "desc": "Bản thân giáp giảm cố định 15% sát thương nhận vào (tăng thêm 2,5% mỗi tiêm kích carrier9)."
+    },
+    {
+     "lv": 5,
+     "value": 18,
+     "cd": 0,
+     "desc": "Giáp giảm cố định 18% sát thương; nếu có tiêm kích từ carrier9 giảm thêm tới 30% sát thương."
+    }
+   ]
+  },
+  "normal": null,
+  "skill": {
+   "name": "Lá Chắn Đội Hình",
+   "cooldown": 14,
+   "duration": 2.5,
+   "effect": "Phóng chùm mảnh năng lượng titan phá hủy đạn địch phía trước mũi tàu trong phạm vi 100px.",
+   "new": false
+  },
+  "super": {
+   "name": "KỲ HẠM BẤT HOẠI",
+   "effect": "Kích hoạt hộ thuẫn năng lượng hấp thụ 1 đòn đánh kế tiếp khi đội hình có đủ 2 tàu con.",
+   "formChange": "Icon pháo hạm bật đèn tín hiệu chỉ huy; thân tàu chớp viền hợp kim titan 0,3s."
+  },
+  "part": "pháo hạm chiến hạm mini",
+  "pair": {
+   "with": "devour10_a",
+   "note": "Phòng ngự đội hình vững vàng kết hợp hút máu chuyển hóa của Giáp Phệ Tinh."
+  },
+  "profile": {
+   "role": "phòng thủ",
+   "best": "đánh boss",
+   "dpsIndex": 0.0
+  }
+ },
+ {
+  "id": "swarm9",
+  "bo": 10,
+  "kind": "missiles",
+  "name": "Tên Lửa Bầy Đàn",
+  "trait": {
+   "name": "Phong Tỏa Tọa Độ",
+   "ho": "tên lửa vi mô bão hòa",
+   "trigger": "mỗi loạt bắn tên lửa",
+   "lv": [
+    {
+     "lv": 1,
+     "value": 6,
+     "cd": 0,
+     "desc": "Bắn loạt 6 tên lửa vi mô bão hòa, tự chia mục tiêu trên màn hình."
+    },
+    {
+     "lv": 2,
+     "value": 8,
+     "cd": 0,
+     "desc": "Bắn loạt 8 tên lửa vi mô bão hòa, tự chia mục tiêu trên màn hình."
+    },
+    {
+     "lv": 3,
+     "value": 10,
+     "cd": 0,
+     "desc": "Bắn loạt 10 tên lửa vi mô bão hòa, ưu tiên khóa các cánh Boss."
+    },
+    {
+     "lv": 4,
+     "value": 12,
+     "cd": 0,
+     "desc": "Bắn loạt 12 tên lửa vi mô bão hòa, ưu tiên khóa các cánh Boss."
+    },
+    {
+     "lv": 5,
+     "value": 14,
+     "cd": 0,
+     "desc": "Bắn loạt 14 tên lửa vi mô; khi trúng cùng 1 mục tiêu tăng 25% sát thương dồn."
+    }
+   ]
+  },
+  "normal": {
+   "pattern": "fan",
+   "count": 8,
+   "cadence": 0.65,
+   "speed": 850,
+   "pierce": false,
+   "homing": 0.95,
+   "projectile": "tên lửa vi mô bầy đàn",
+   "notes": "Phóng chùm tên lửa nhỏ li ti uốn lượn như bầy ong vò vẽ, phủ kín tọa độ mục tiêu."
+  },
+  "skill": {
+   "name": "Phong Tỏa Tọa Độ",
+   "cooldown": 12,
+   "duration": 2.0,
+   "effect": "Xả toàn bộ băng đạn 16 tên lửa vi mô dồn dập vào tọa độ chỉ định, làm tê liệt cánh Boss.",
+   "new": false
+  },
+  "super": {
+   "name": "BẦY ĐÀN DIỆT THẾ",
+   "effect": "Tên lửa vi mô tăng tốc độ bay gấp đôi, để lại đuôi khói lửa đan cài thiêu đốt mục tiêu.",
+   "formChange": "Bệ phóng 2 dàn tên lửa mở nắp khoang xả khói lửa cuồn cuộn."
+  },
+  "part": "2 dàn tên lửa vi mô song hành",
+  "pair": {
+   "with": "devour10_m",
+   "note": "Mưa tên lửa bầy đàn cắm dồn dập kích hoạt hàng loạt bào tử hút máu của Huyết Tinh."
+  },
+  "profile": {
+   "role": "sát thương",
+   "best": "cân bằng",
+   "dpsIndex": 1.02
+  }
+ },
+ {
+  "id": "carrier9",
+  "bo": 10,
+  "kind": "sidearm",
+  "name": "Tàu Mẹ Hộ Vệ",
+  "trait": {
+   "name": "Phi Đội Tác Chiến",
+   "ho": "xuất kích tiêm kích vi mô",
+   "trigger": "liên tục xuất xưởng tiêm kích con",
+   "lv": [
+    {
+     "lv": 1,
+     "value": 2,
+     "cd": 0,
+     "desc": "Duy trì 2 tiêm kích nhỏ bám bắn mục tiêu, gây 40% sát thương tàu con."
+    },
+    {
+     "lv": 2,
+     "value": 2,
+     "cd": 0,
+     "desc": "Duy trì 2 tiêm kích nhỏ bám bắn mục tiêu, gây 50% sát thương tàu con."
+    },
+    {
+     "lv": 3,
+     "value": 3,
+     "cd": 0,
+     "desc": "Duy trì 3 tiêm kích nhỏ bám bắn mục tiêu, gây 50% sát thương tàu con."
+    },
+    {
+     "lv": 4,
+     "value": 3,
+     "cd": 0,
+     "desc": "Duy trì 3 tiêm kích nhỏ bám bắn mục tiêu, gây 60% sát thương tàu con."
+    },
+    {
+     "lv": 5,
+     "value": 4,
+     "cd": 0,
+     "desc": "Duy trì 4 tiêm kích vi mô bay bám sát cánh/lõi Boss xả đạn liên thanh 75% ST."
+    }
+   ]
+  },
+  "normal": {
+   "pattern": "homing",
+   "count": 2,
+   "cadence": 0.25,
+   "speed": 600,
+   "pierce": false,
+   "homing": 1.0,
+   "projectile": "đạn máy mini của tiêm kích",
+   "notes": "2 pod là 2 bệ đường băng, liên tục phóng các tiêm kích con bay bám sát đầu mục tiêu."
+  },
+  "skill": {
+   "name": "Phi Đội Tác Chiến",
+   "cooldown": 13,
+   "duration": 3.0,
+   "effect": "Xuất kích tổng lực 4 tiêm kích trang bị đạn xuyên giáp, tập trung hỏa lực vào Boss.",
+   "new": false
+  },
+  "super": {
+   "name": "KHÔNG HẠM ĐẠI ĐỘI",
+   "effect": "Tiêm kích con được trang bị lá chắn nhỏ tự hủy đạn địch bay vào đường bay của chúng.",
+   "formChange": "Đường băng tàu con mở rộng, đèn tín hiệu cất cánh nhấp nháy xanh đỏ."
+  },
+  "part": "đường băng sân bay tàu con",
+  "pair": {
+   "with": "devour10_s",
+   "note": "Tiêm kích vi mô bắn phá tầm xa kết hợp lưỡi cưa Hạt Nhân Thôn Phệ nghiền nát cận chiến."
+  },
+  "profile": {
+   "role": "sát thương",
+   "best": "đánh boss",
+   "dpsIndex": 1.03
+  }
+ },
+ {
+  "id": "devour10_a",
+  "bo": 11,
+  "kind": "armor",
+  "name": "Giáp Phệ Tinh",
+  "defenseBudget": {
+   "metric": "số đòn cứu được mỗi phút",
+   "targetStandard": "6 đòn/phút cứu 1,5–2,5 đòn; 20 đòn/phút cứu 5–7 đòn",
+   "at6HitsPerMin": {
+    "passiveSaves": 1.6,
+    "skillSaves": 0.6,
+    "totalSaves": 2.2,
+    "note": "Ở 6 đòn/phút, lượng quái diệt được hồi vừa đủ bù đắp sát thương rải rác, đạt ~1,6 đòn cứu; skill hồi máu dùng phụ trợ cứu 0,6 đòn."
+   },
+   "at20HitsPerMin": {
+    "passiveSaves": 4.6,
+    "skillSaves": 1.5,
+    "totalSaves": 6.1,
+    "note": "Ở 20 đòn/phút trong ải đông quái, diệt quái thường chạm trần 10% HP/10s (tối đa 60% HP/phút ≈ 4,0 đòn) + diệt 1-2 quái tinh anh/cánh Boss hồi 5-10% HP (~0,6 đòn); skill hồi 16s cứu thêm 1,5 đòn."
+   }
+  },
+  "trait": {
+   "name": "Hấp Thụ Tinh Năng",
+   "ho": "hồi máu % HP khi tiêu diệt mục tiêu có trần",
+   "trigger": "khi tiêu diệt quái thường hoặc quái tinh anh / cánh Boss",
+   "lv": [
+    {
+     "lv": 1,
+     "value": 0.3,
+     "cd": 0,
+     "desc": "Diệt quái thường hồi 0,3% HP (trần 6% HP/10s); diệt quái tinh anh hoặc cánh Boss hồi 3,0% HP."
+    },
+    {
+     "lv": 2,
+     "value": 0.4,
+     "cd": 0,
+     "desc": "Diệt quái thường hồi 0,4% HP (trần 7% HP/10s); diệt quái tinh anh hoặc cánh Boss hồi 3,5% HP."
+    },
+    {
+     "lv": 3,
+     "value": 0.5,
+     "cd": 0,
+     "desc": "Diệt quái thường hồi 0,5% HP (trần 8% HP/10s); diệt quái tinh anh hoặc cánh Boss hồi 4,0% HP."
+    },
+    {
+     "lv": 4,
+     "value": 0.6,
+     "cd": 0,
+     "desc": "Diệt quái thường hồi 0,6% HP (trần 9% HP/10s); diệt quái tinh anh hoặc cánh Boss hồi 4,5% HP."
+    },
+    {
+     "lv": 5,
+     "value": 0.8,
+     "cd": 0,
+     "desc": "Diệt quái thường hồi 0,8% HP (trần tối đa 10% HP mỗi 10 giây); diệt quái tinh anh hoặc cánh Boss hồi riêng 5,0% HP tối đa."
+    }
+   ]
+  },
+  "normal": null,
+  "skill": {
+   "name": "Phệ Tinh Chuyển Hóa",
+   "cooldown": 16,
+   "duration": 2.5,
+   "effect": "Hút sạch mảnh vỡ trên màn hình, lập tức hồi 7% HP tối đa (~0,66 HP) và tăng 10% sát thương trong 2,5 giây.",
+   "new": false
+  },
+  "super": {
+   "name": "THÔN TINH HỘ THỂ",
+   "effect": "Trần hồi phục quái thường tăng lên 14% HP mỗi 10 giây; khi hạ quái tinh anh nhận thêm 10% tốc độ bay trong 2 giây.",
+   "formChange": "Icon ngàm quái thú khép chặt viền tím; thân tàu chớp tia năng lượng tím đỏ 0,3s."
+  },
+  "part": "ngàm quái thú sừng nhọn",
+  "pair": {
+   "with": "chrono11_a",
+   "note": "Hút máu bền bỉ từ diệt địch kết hợp khả năng giữ lại 1 máu khi trúng đòn tử vong của Giáp Nghịch Thời."
+  },
+  "profile": {
+   "role": "hồi phục",
+   "best": "đông quái",
+   "dpsIndex": 0.0
+  }
+ },
+ {
+  "id": "devour10_m",
+  "bo": 11,
+  "kind": "missiles",
+  "name": "Tên Lửa Huyết Tinh",
+  "trait": {
+   "name": "Truy Kích Huyết Tinh",
+   "ho": "đầu đạn ký sinh bào tử",
+   "trigger": "khi bào tử găm vào mục tiêu",
+   "lv": [
+    {
+     "lv": 1,
+     "value": 10,
+     "cd": 0,
+     "desc": "Bào tử cắm vào địch trong 2s, rút 15% ST mỗi giây và tăng 6% sát thương nhận vào."
+    },
+    {
+     "lv": 2,
+     "value": 12,
+     "cd": 0,
+     "desc": "Bào tử cắm vào địch trong 2s, rút 20% ST mỗi giây và tăng 8% sát thương nhận vào."
+    },
+    {
+     "lv": 3,
+     "value": 15,
+     "cd": 0,
+     "desc": "Bào tử cắm vào địch trong 2s, rút 25% ST mỗi giây và tăng 10% sát thương nhận vào."
+    },
+    {
+     "lv": 4,
+     "value": 18,
+     "cd": 0,
+     "desc": "Bào tử cắm vào địch trong 2s, rút 30% ST mỗi giây và tăng 12% sát thương nhận vào."
+    },
+    {
+     "lv": 5,
+     "value": 22,
+     "cd": 0,
+     "desc": "Bào tử rút 40% ST/giây và tăng 15% sát thương nhận vào; phát nổ lan sang mục tiêu cạnh."
+    }
+   ]
+  },
+  "normal": {
+   "pattern": "homing",
+   "count": 2,
+   "cadence": 0.7,
+   "speed": 680,
+   "pierce": false,
+   "homing": 0.95,
+   "projectile": "bào tử huyết tinh 3 mắt [MỚI]",
+   "notes": "Phóng từ thân tàu, 2 bào tử máu tự uốn lượn cắm sâu vào thân và cánh Boss."
+  },
+  "skill": {
+   "name": "Truy Kích Huyết Tinh",
+   "cooldown": 12,
+   "duration": 2.5,
+   "effect": "Bắn chùm 4 bào tử cắm vào tất cả các bộ phận của Boss, khuếch đại 20% sát thương nhận.",
+   "new": true
+  },
+  "super": {
+   "name": "HUYẾT UYÊN KÝ SINH",
+   "effect": "Bào tử nổ tung sau thời gian ký sinh, hồi phục 1 lượng máu nhỏ cho chiến cơ.",
+   "formChange": "Đầu phóng tên lửa nở 3 mụn bào tử phát sáng đỏ tươi nhấp nháy."
+  },
+  "part": "3 kén bào tử mắt đỏ",
+  "pair": {
+   "with": "chrono11_m",
+   "note": "Bào tử khuếch đại sát thương nhận vào làm tăng uy lực của vụ nổ tiếng vọng Thời Gian."
+  },
+  "profile": {
+   "role": "khống chế",
+   "best": "đánh boss",
+   "dpsIndex": 1.02
+  }
+ },
+ {
+  "id": "devour10_s",
+  "bo": 11,
+  "kind": "sidearm",
+  "name": "Hạt Nhân Thôn Phệ",
+  "trait": {
+   "name": "Phệ Đạn Phản Quang",
+   "ho": "hấp thụ đạn địch phản đòn tia",
+   "trigger": "khi đạn địch bay vào phạm vi 45px quanh pod",
+   "lv": [
+    {
+     "lv": 1,
+     "value": 8,
+     "cd": 0,
+     "desc": "Pod nuốt đạn địch bay sát cạnh; nuốt đủ 8 đạn phóng 1 tia thôn phệ (160% ST)."
+    },
+    {
+     "lv": 2,
+     "value": 7,
+     "cd": 0,
+     "desc": "Pod nuốt đạn địch bay sát cạnh; nuốt đủ 7 đạn phóng 1 tia thôn phệ (170% ST)."
+    },
+    {
+     "lv": 3,
+     "value": 6,
+     "cd": 0,
+     "desc": "Pod nuốt đạn địch bay sát cạnh; nuốt đủ 6 đạn phóng 1 tia thôn phệ (180% ST)."
+    },
+    {
+     "lv": 4,
+     "value": 5,
+     "cd": 0,
+     "desc": "Pod nuốt đạn địch bay sát cạnh; nuốt đủ 5 đạn phóng 1 tia thôn phệ (190% ST)."
+    },
+    {
+     "lv": 5,
+     "value": 4,
+     "cd": 0,
+     "desc": "Nuốt đủ 4 đạn địch phóng ngay 1 tia thôn phệ cực đại (220% ST) xuyên thẳng hàng dọc."
+    }
+   ]
+  },
+  "normal": {
+   "pattern": "beam",
+   "count": 2,
+   "cadence": 0.45,
+   "speed": 1100,
+   "pierce": true,
+   "homing": 0.0,
+   "projectile": "tia thôn phệ đen tím xuyên giáp",
+   "notes": "2 pod cố định ở ±100px nuốt đạn địch bay gần, tích đủ năng lượng bắn tia xuyên phá."
+  },
+  "skill": {
+   "name": "Thôn Phệ Cực Đại",
+   "cooldown": 12,
+   "duration": 2.5,
+   "effect": "2 pod mở rộng bán kính hút đạn, nuốt ngay lập tức tối đa 8 đạn địch và phóng 2 đại tia xuyên.",
+   "new": false
+  },
+  "super": {
+   "name": "HẮC ÁM MA QUANG",
+   "effect": "Số đạn cần nuốt giảm còn 3 viên; tia phản kích phát nổ sóng chấn động khi trúng mục tiêu.",
+   "formChange": "Tàu con mở ngàm hắc ám xoay tròn hút đạn với các tia sét tím bao quanh."
+  },
+  "part": "ngàm bánh răng xoay hút đạn",
+  "pair": {
+   "with": "chrono11_s",
+   "note": "Đồng hồ cát làm chậm đạn địch giúp pod thôn phệ dễ dàng nuốt đạn để phản tia liên tục."
+  },
+  "profile": {
+   "role": "tiện ích",
+   "best": "mưa đạn",
+   "dpsIndex": 1.02
+  }
+ },
+ {
+  "id": "chrono11_a",
+  "bo": 12,
+  "kind": "armor",
+  "name": "Giáp Nghịch Thời",
+  "defenseBudget": {
+   "metric": "số đòn cứu được mỗi phút",
+   "passiveSavesPerMin": 8.0,
+   "skillSavesPerUse": 1.5,
+   "totalSavesPerMin": 12.5,
+   "formula": "Cứu 1 mạng chí tử mỗi 60s (tương đương giữ lại ~8 đòn vừa mất); skill hoàn trả 50% máu mất cứu ~1.5 đòn."
+  },
+  "trait": {
+   "name": "Nghịch Thời Sinh Mệnh",
+   "ho": "giữ lại 1 máu khi nhận đòn chí tử",
+   "trigger": "khi nhận sát thương khiến máu về 0",
+   "lv": [
+    {
+     "lv": 1,
+     "value": 1.0,
+     "cd": 90,
+     "desc": "Chịu đòn chí tử: giữ lại 1 máu và bất tử trong 1,0s (hồi chiêu 90s)."
+    },
+    {
+     "lv": 2,
+     "value": 1.2,
+     "cd": 80,
+     "desc": "Chịu đòn chí tử: giữ lại 1 máu và bất tử trong 1,2s (hồi chiêu 80s)."
+    },
+    {
+     "lv": 3,
+     "value": 1.5,
+     "cd": 70,
+     "desc": "Chịu đòn chí tử: giữ lại 1 máu và bất tử trong 1,5s (hồi chiêu 70s)."
+    },
+    {
+     "lv": 4,
+     "value": 1.8,
+     "cd": 65,
+     "desc": "Chịu đòn chí tử: giữ lại 1 máu và bất tử trong 1,8s (hồi chiêu 65s)."
+    },
+    {
+     "lv": 5,
+     "value": 2.0,
+     "cd": 60,
+     "desc": "Chịu đòn chí tử: giữ lại 1 máu, bất tử 2,0s (hồi chiêu 60s) và đẩy lùi đạn địch lân cận."
+    }
+   ]
+  },
+  "normal": null,
+  "skill": {
+   "name": "Tua Ngược Thời Gian",
+   "cooldown": 20,
+   "duration": 2.0,
+   "effect": "Hoàn trả 50% lượng máu vừa bị mất trong 2 giây trước đó (tối đa hoàn trả 2,5 HP).",
+   "new": true
+  },
+  "super": {
+   "name": "THỜI KHÔNG BẤT DIỆT",
+   "effect": "Sau khi thoát hiểm chí tử, tăng 30% tốc độ bay và tăng 20% sát thương trong 3 giây.",
+   "formChange": "Icon bánh răng đồng hồ xoay ngược; thân tàu chớp hào quang vàng kim 0,4s."
+  },
+  "part": "bánh răng đồng hồ thời gian",
+  "pair": {
+   "with": "monarch12_a",
+   "note": "Bảo hiểm thoát chết chí tử kết hợp giáp chia nhỏ sát thương của Hoàng Đế."
+  },
+  "profile": {
+   "role": "phòng thủ",
+   "best": "đánh boss",
+   "dpsIndex": 0.0
+  }
+ },
+ {
+  "id": "chrono11_m",
+  "bo": 12,
+  "kind": "missiles",
+  "name": "Tên Lửa Quá Khứ",
+  "trait": {
+   "name": "Nổ Vọng Thời Gian",
+   "ho": "nổ tiếng vọng thời gian",
+   "trigger": "sau 0,6s kể từ vụ nổ đầu tiên",
+   "lv": [
+    {
+     "lv": 1,
+     "value": 45,
+     "cd": 0,
+     "desc": "Sau khi nổ 0,6s, tại điểm nổ xảy ra tiếng vọng nổ lần 2 gây 45% sát thương gốc."
+    },
+    {
+     "lv": 2,
+     "value": 55,
+     "cd": 0,
+     "desc": "Sau khi nổ 0,6s, tại điểm nổ xảy ra tiếng vọng nổ lần 2 gây 55% sát thương gốc."
+    },
+    {
+     "lv": 3,
+     "value": 65,
+     "cd": 0,
+     "desc": "Sau khi nổ 0,6s, tại điểm nổ xảy ra tiếng vọng nổ lần 2 gây 65% sát thương gốc."
+    },
+    {
+     "lv": 4,
+     "value": 75,
+     "cd": 0,
+     "desc": "Sau khi nổ 0,6s, tại điểm nổ xảy ra tiếng vọng nổ lần 2 gây 75% sát thương gốc."
+    },
+    {
+     "lv": 5,
+     "value": 90,
+     "cd": 0,
+     "desc": "Tiếng vọng nổ lần 2 gây 90% sát thương gốc và làm chậm 30% quái trúng phải."
+    }
+   ]
+  },
+  "normal": {
+   "pattern": "straight",
+   "count": 2,
+   "cadence": 0.7,
+   "speed": 720,
+   "pierce": false,
+   "homing": 0.9,
+   "projectile": "con lắc đồng hồ quả lắc [MỚI]",
+   "notes": "Phóng 2 con lắc năng lượng bay thẳng vào mục tiêu, kích nổ 2 nhịp thời gian chấn động."
+  },
+  "skill": {
+   "name": "Nổ Vọng Thời Gian",
+   "cooldown": 12,
+   "duration": 2.2,
+   "effect": "Kích nổ 3 đợt sóng thời gian liên tiếp tại vị trí Boss, mỗi đợt tăng 20% sát thương.",
+   "new": true
+  },
+  "super": {
+   "name": "LUÂN HỒI TIẾNG VỌNG",
+   "effect": "Vụ nổ tiếng vọng sao chép 100% sát thương và bán kính của vụ nổ chính.",
+   "formChange": "Đầu phóng con lắc mở 2 nhánh đòn bẩy nhịp nhàng qua lại."
+  },
+  "part": "con lắc dao động hình chữ A",
+  "pair": {
+   "with": "monarch12_m",
+   "note": "Tiếng vọng thời gian nổ bồi thêm vào vết rách không gian của Tên Lửa Trảm Không."
+  },
+  "profile": {
+   "role": "sát thương",
+   "best": "đánh boss",
+   "dpsIndex": 1.01
+  }
+ },
+ {
+  "id": "chrono11_s",
+  "bo": 12,
+  "kind": "sidearm",
+  "name": "Đồng Hồ Cát Tinh Hà",
+  "trait": {
+   "name": "Trường Lực Thời Gian",
+   "ho": "trường trũng thời gian làm chậm",
+   "trigger": "khi hạt cát thời gian tiếp xúc vùng bay",
+   "lv": [
+    {
+     "lv": 1,
+     "value": 20,
+     "cd": 0,
+     "desc": "Tạo vùng trũng bán kính 75px, giảm 20% tốc độ quái và đạn địch trong 1,5s."
+    },
+    {
+     "lv": 2,
+     "value": 25,
+     "cd": 0,
+     "desc": "Tạo vùng trũng bán kính 85px, giảm 25% tốc độ quái và đạn địch trong 1,5s."
+    },
+    {
+     "lv": 3,
+     "value": 30,
+     "cd": 0,
+     "desc": "Tạo vùng trũng bán kính 95px, giảm 30% tốc độ quái và đạn địch trong 1,8s."
+    },
+    {
+     "lv": 4,
+     "value": 35,
+     "cd": 0,
+     "desc": "Tạo vùng trũng bán kính 105px, giảm 35% tốc độ quái và đạn địch trong 1,8s."
+    },
+    {
+     "lv": 5,
+     "value": 45,
+     "cd": 0,
+     "desc": "Tạo vùng trũng bán kính 120px, giảm 45% tốc độ quái/đạn và tăng 15% ST tàu ta."
+    }
+   ]
+  },
+  "normal": {
+   "pattern": "fan",
+   "count": 2,
+   "cadence": 0.45,
+   "speed": 620,
+   "pierce": true,
+   "homing": 0.8,
+   "projectile": "đồng hồ bỏ túi kim chỉ giờ",
+   "notes": "2 pod bắn 2 đồng hồ bỏ túi xoay chậm, bung các hạt cát thời gian làm chậm diện rộng."
+  },
+  "skill": {
+   "name": "Trường Lực Thời Gian",
+   "cooldown": 13,
+   "duration": 3.0,
+   "effect": "Đóng băng 70% tốc độ của toàn bộ đạn địch trên màn hình trong 3 giây.",
+   "new": false
+  },
+  "super": {
+   "name": "VĨNH HẰNG CÁT LƯU",
+   "effect": "Vùng trũng thời gian giữ chân quái thường đứng yên bất động trong 1,5 giây đầu.",
+   "formChange": "Tàu con mở mặt đồng hồ kính sapphire với 2 kim chỉ giờ phút vàng rực."
+  },
+  "part": "đồng hồ bỏ túi tròn có móc treo",
+  "pair": {
+   "with": "monarch12_s",
+   "note": "Trường làm chậm giữ cố định mục tiêu để Ấn Triện Hư Không dập lôi quang hủy diệt."
+  },
+  "profile": {
+   "role": "khống chế",
+   "best": "đông quái",
+   "dpsIndex": 0.98
+  }
+ },
+ {
+  "id": "monarch12_a",
+  "bo": 13,
+  "kind": "armor",
+  "name": "Giáp Hoàng Đế",
+  "defenseBudget": {
+   "metric": "số đòn cứu được mỗi phút",
+   "passiveSavesPerMin": 7.5,
+   "skillSavesPerUse": 1.0,
+   "totalSavesPerMin": 11.5,
+   "formula": "Triệt tiêu sốc đòn bằng cách hoãn 60% sát thương rút dần, giúp i-frame và hồi phục cứu ~7.5 đòn/phút."
+  },
+  "trait": {
+   "name": "Hoàng Quyền Huyết Thuẫn",
+   "ho": "chuyển sát thương thành rút máu dần",
+   "trigger": "áp dụng cho mọi đòn đánh nhận vào",
+   "lv": [
+    {
+     "lv": 1,
+     "value": 30,
+     "cd": 0,
+     "desc": "Mọi đòn đánh: nhận ngay 70%, 30% sát thương còn lại chia đều rút dần trong 4s."
+    },
+    {
+     "lv": 2,
+     "value": 38,
+     "cd": 0,
+     "desc": "Mọi đòn đánh: nhận ngay 62%, 38% sát thương còn lại chia đều rút dần trong 4s."
+    },
+    {
+     "lv": 3,
+     "value": 45,
+     "cd": 0,
+     "desc": "Mọi đòn đánh: nhận ngay 55%, 45% sát thương còn lại chia đều rút dần trong 4s."
+    },
+    {
+     "lv": 4,
+     "value": 52,
+     "cd": 0,
+     "desc": "Mọi đòn đánh: nhận ngay 48%, 52% sát thương còn lại chia đều rút dần trong 4s."
+    },
+    {
+     "lv": 5,
+     "value": 60,
+     "cd": 0,
+     "desc": "Mọi đòn đánh: nhận ngay 40%, 60% còn lại chia đều rút dần trong 4s; triệt tiêu sốc đòn chết ngay."
+    }
+   ]
+  },
+  "normal": null,
+  "skill": {
+   "name": "Khiên Hoàng Quyền",
+   "cooldown": 18,
+   "duration": 2.5,
+   "effect": "Dựng vòm giáp hoàng gia chặn đứng hoàn toàn 1 đòn đánh kế tiếp và xóa đạn địch bằng chùm tia hoàng kim.",
+   "new": false
+  },
+  "super": {
+   "name": "ĐẾ VƯƠNG BẤT TỬ",
+   "effect": "Trong thời gian sát thương rút dần, nếu tiêu diệt được 1 quái sẽ xóa sạch 30% sát thương còn nợ.",
+   "formChange": "Icon vương miện hoàng đế rực sáng; thân tàu chớp ánh hào quang hoàng gia 0,4s."
+  },
+  "part": "vương miện hoàng đế có tua rua",
+  "pair": {
+   "with": "aegis",
+   "note": "Hợp thể tối thượng: chặn đòn định kỳ kết hợp chia nhỏ sát thương triệt tiêu đột tử."
+  },
+  "profile": {
+   "role": "phòng thủ",
+   "best": "đánh boss",
+   "dpsIndex": 0.0
+  }
+ },
+ {
+  "id": "monarch12_m",
+  "bo": 13,
+  "kind": "missiles",
+  "name": "Tên Lửa Trảm Không",
+  "trait": {
+   "name": "Trảm Không Gian",
+   "ho": "đại kích chém rách không gian",
+   "trigger": "khi lưỡi kích chém ngang màn hình",
+   "lv": [
+    {
+     "lv": 1,
+     "value": 15,
+     "cd": 0,
+     "desc": "Chém rách không gian rộng 65px, gây 120% sát thương lên toàn bộ đường bay."
+    },
+    {
+     "lv": 2,
+     "value": 20,
+     "cd": 0,
+     "desc": "Chém rách không gian rộng 72px, gây 130% sát thương lên toàn bộ đường bay."
+    },
+    {
+     "lv": 3,
+     "value": 25,
+     "cd": 0,
+     "desc": "Chém rách không gian rộng 80px, gây 140% sát thương lên toàn bộ đường bay."
+    },
+    {
+     "lv": 4,
+     "value": 30,
+     "cd": 0,
+     "desc": "Chém rách không gian rộng 88px, gây 150% sát thương lên toàn bộ đường bay."
+    },
+    {
+     "lv": 5,
+     "value": 42,
+     "cd": 0,
+     "desc": "Chém rộng 100px gây 175% ST; để lại vết rách chân không tồn tại 1,5s tiếp tục rút máu."
+    }
+   ]
+  },
+  "normal": {
+   "pattern": "straight",
+   "count": 2,
+   "cadence": 0.7,
+   "speed": 820,
+   "pierce": true,
+   "homing": 0.5,
+   "projectile": "lưỡi kích 2 đầu trảm mã [MỚI]",
+   "notes": "Phóng 2 đại kích xoay tròn theo hình parabol cắt ngang màn hình chém xuyên đội hình."
+  },
+  "skill": {
+   "name": "Trảm Không Gian",
+   "cooldown": 12,
+   "duration": 2.0,
+   "effect": "2 nhát kích khổng lồ chém chữ thập xé toạc màn hình, triệt tiêu mọi đạn địch trên đường chém.",
+   "new": false
+  },
+  "super": {
+   "name": "HOÀNG QUYỀN TRẢM KHÔNG",
+   "effect": "Vết rách không gian rực ánh hoàng kim, hút các mục tiêu nhỏ vào đường chém.",
+   "formChange": "Đầu phóng vươn dài thành 2 lưỡi kích bán nguyệt đối xứng sáng chói."
+  },
+  "part": "đại kích 2 lưỡi liềm đối xứng",
+  "pair": {
+   "with": "inferno",
+   "note": "Vết rách trảm không gian kết hợp bão lửa Hỏa Ngục thiêu rụi toàn bộ quái trên màn."
+  },
+  "profile": {
+   "role": "sát thương",
+   "best": "đông quái",
+   "dpsIndex": 1.03
+  }
+ },
+ {
+  "id": "monarch12_s",
+  "bo": 13,
+  "kind": "sidearm",
+  "name": "Ấn Triện Hư Không",
+  "trait": {
+   "name": "Hắc Quang Tỏa Ấn",
+   "ho": "phù ấn đánh dấu nổ dây chuyền",
+   "trigger": "sau 0,8s kể từ khi dập phù ấn lên mục tiêu",
+   "lv": [
+    {
+     "lv": 1,
+     "value": 2,
+     "cd": 0,
+     "desc": "Dập phù ấn đánh dấu tối đa 2 mục tiêu; sau 0,8s nổ liên hoàn nối xích hắc quang."
+    },
+    {
+     "lv": 2,
+     "value": 2,
+     "cd": 0,
+     "desc": "Dập phù ấn đánh dấu tối đa 2 mục tiêu; nổ dây chuyền gây 110% sát thương đạn."
+    },
+    {
+     "lv": 3,
+     "value": 3,
+     "cd": 0,
+     "desc": "Dập phù ấn đánh dấu tối đa 3 mục tiêu; nổ dây chuyền gây 120% sát thương đạn."
+    },
+    {
+     "lv": 4,
+     "value": 3,
+     "cd": 0,
+     "desc": "Dập phù ấn đánh dấu tối đa 3 mục tiêu; nổ dây chuyền gây 130% sát thương đạn."
+    },
+    {
+     "lv": 5,
+     "value": 4,
+     "cd": 0,
+     "desc": "Dập phù ấn lên 4 mục tiêu (hoặc cánh Boss); nổ đồng loạt nối xích hắc quang gây 150% ST."
+    }
+   ]
+  },
+  "normal": {
+   "pattern": "straight",
+   "count": 2,
+   "cadence": 0.5,
+   "speed": 820,
+   "pierce": false,
+   "homing": 0.85,
+   "projectile": "phiến phù ấn hắc quang hình thoi",
+   "notes": "2 pod phóng 2 phiến phù ấn găm vào mục tiêu, sau 0,8s nổ tung và nối xích điện giữa các ấn."
+  },
+  "skill": {
+   "name": "Hoàng Tộc Tỏa Hồn",
+   "cooldown": 12,
+   "duration": 2.2,
+   "effect": "Đánh dấu tức thì 5 mục tiêu trên màn hình rồi kích nổ lưới xích hắc quang giật chéo.",
+   "new": true
+  },
+  "super": {
+   "name": "ĐẾ HOÀNG PHÁP ẤN",
+   "effect": "Xích hắc quang chuyển sang sắc vàng kim đế vương, sát thương nổ dây chuyền tăng thêm 40%.",
+   "formChange": "Tàu con chuyển thành con dấu sư tử hoàng gia đạp trên đài sen năng lượng."
+  },
+  "part": "con dấu sư tử ngồi trên đài",
+  "pair": {
+   "with": "rail",
+   "note": "Đánh dấu nổ xích dây chuyền kết hợp tia ray điện từ xuyên tâm tiêu diệt toàn bộ cụm địch."
+  },
+  "profile": {
+   "role": "sát thương",
+   "best": "đông quái",
+   "dpsIndex": 1.04
+  }
+ }
+]

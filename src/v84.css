@@ -1,0 +1,11 @@
+/* V84 · thẻ danh hiệu + luật tuần */
+#tt84{position:absolute;left:50%;transform:translateX(-50%);top:0;z-index:6;white-space:nowrap;font:800 11px system-ui,sans-serif;letter-spacing:.03em;color:#fff;padding:3px 10px;border-radius:10px;background:#101d30e6;border:1px solid var(--tc,#b45cff);box-shadow:0 0 10px color-mix(in srgb,var(--tc,#b45cff) 50%,transparent);cursor:pointer;max-width:92vw;overflow:hidden;text-overflow:ellipsis}
+.ev84r{border:1px dashed color-mix(in srgb,var(--ec,#7fd8ff) 70%,transparent);border-radius:10px;padding:8px 10px;background:#0b1626cc}
+.ev84r b{color:var(--ec,#7fd8ff)}
+/* V86 · bảng chọn hào quang */
+.au86-row{display:flex;flex-wrap:wrap;gap:6px;margin:6px 0}
+.au86-row button{flex:1 1 30%;padding:8px 4px;border-radius:8px;border:1px solid #2c4a6b;background:#0d1a2b;color:#cfe3f5;font:700 12px system-ui,sans-serif}
+.au86-row button.on{border-color:#ffd166;color:#ffd166;box-shadow:0 0 8px #ffd16655}
+.au86-t{display:block;width:100%;text-align:left;margin:6px 0;padding:8px 10px;border-radius:10px;border:1px solid color-mix(in srgb,var(--tc) 50%,#1d3047);background:#0b1626;color:#e8eef6}
+.au86-t.on{box-shadow:0 0 10px color-mix(in srgb,var(--tc) 60%,transparent);border-color:var(--tc)}
+.au86-t b{color:var(--tc);display:block}.au86-t small{color:#9fb6cc}

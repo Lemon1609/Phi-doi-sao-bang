@@ -1,0 +1,77 @@
+[
+  {
+    "file": "phase1.png",
+    "source_axis": 626.5,
+    "source_hull_top": 41.0,
+    "source_hull_bottom": 1144.0,
+    "uniform_scale": 0.5213055303717135,
+    "pivot": [
+      383.5,
+      383.5
+    ],
+    "hull_rear": [
+      383.5,
+      96.0
+    ],
+    "hull_prow": [
+      383.5,
+      671.0
+    ],
+    "bbox": [
+      118,
+      95,
+      651,
+      673
+    ]
+  },
+  {
+    "file": "phase2.png",
+    "source_axis": 627.5,
+    "source_hull_top": 38.0,
+    "source_hull_bottom": 1146.0,
+    "uniform_scale": 0.5189530685920578,
+    "pivot": [
+      383.5,
+      383.5
+    ],
+    "hull_rear": [
+      383.5,
+      96.0
+    ],
+    "hull_prow": [
+      383.5,
+      671.0
+    ],
+    "bbox": [
+      117,
+      96,
+      650,
+      672
+    ]
+  },
+  {
+    "file": "phase3.png",
+    "source_axis": 626.5,
+    "source_hull_top": 38.0,
+    "source_hull_bottom": 1145.0,
+    "uniform_scale": 0.5194218608852755,
+    "pivot": [
+      383.5,
+      383.5
+    ],
+    "hull_rear": [
+      383.5,
+      96.0
+    ],
+    "hull_prow": [
+      383.5,
+      671.0
+    ],
+    "bbox": [
+      118,
+      96,
+      650,
+      673
+    ]
+  }
+]

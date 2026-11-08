@@ -1,0 +1,55 @@
+{
+  "coordinate_system": "pixel-center indices, x right, y down, canvas768",
+  "status": "art anchors proposed for integration; not extracted from game code",
+  "emitters": {
+    "nose": [
+      383.5,
+      671
+    ],
+    "wing_left": [
+      164,
+      568
+    ],
+    "wing_right": [
+      603,
+      568
+    ],
+    "coil_left": [
+      248,
+      297
+    ],
+    "coil_right": [
+      519,
+      297
+    ],
+    "rod_left": [
+      279,
+      151
+    ],
+    "rod_right": [
+      488,
+      151
+    ],
+    "mine_ul": [
+      345,
+      307
+    ],
+    "mine_ur": [
+      423,
+      307
+    ],
+    "mine_ll": [
+      345,
+      337
+    ],
+    "mine_lr": [
+      423,
+      337
+    ],
+    "reactor": [
+      383.5,
+      322
+    ]
+  },
+  "shared_across_phases": true
+}

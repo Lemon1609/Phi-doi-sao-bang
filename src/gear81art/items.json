@@ -1,0 +1,98 @@
+[
+  {
+    "id": "fleet_armor",
+    "set": 9,
+    "kind": "armor",
+    "name": "Giáp chỉ huy (tạm)",
+    "theme": "fleet command, escort drone formations, star admiral",
+    "color": "#ffd36a"
+  },
+  {
+    "id": "fleet_missile",
+    "set": 9,
+    "kind": "missile",
+    "name": "Tên lửa hạm đội (tạm)",
+    "theme": "fleet command, escort drone formations, star admiral",
+    "color": "#ffd36a"
+  },
+  {
+    "id": "fleet_aux",
+    "set": 9,
+    "kind": "aux",
+    "name": "Drone hộ tống (tạm)",
+    "theme": "fleet command, escort drone formations, star admiral",
+    "color": "#ffd36a"
+  },
+  {
+    "id": "forge_armor",
+    "set": 6,
+    "kind": "armor",
+    "name": "Thánh Quang",
+    "theme": "celestial forge, angular furnace vents, molten amber",
+    "color": "#ff9a3d"
+  },
+  {
+    "id": "forge_missile",
+    "set": 6,
+    "kind": "missile",
+    "name": "Thiên Kiếm",
+    "theme": "celestial forge, angular furnace vents, molten amber",
+    "color": "#ff9a3d"
+  },
+  {
+    "id": "forge_aux",
+    "set": 6,
+    "kind": "aux",
+    "name": "Quang Thương",
+    "theme": "celestial forge, angular furnace vents, molten amber",
+    "color": "#ff9a3d"
+  },
+  {
+    "id": "void_armor",
+    "set": 7,
+    "kind": "armor",
+    "name": "Vực Tối",
+    "theme": "void abyss, black violet armor, sharp crescent geometry",
+    "color": "#815dff"
+  },
+  {
+    "id": "void_missile",
+    "set": 7,
+    "kind": "missile",
+    "name": "Diệt Tinh",
+    "theme": "void abyss, black violet armor, sharp crescent geometry",
+    "color": "#815dff"
+  },
+  {
+    "id": "void_aux",
+    "set": 7,
+    "kind": "aux",
+    "name": "Chân Trời",
+    "theme": "void abyss, black violet armor, sharp crescent geometry",
+    "color": "#815dff"
+  },
+  {
+    "id": "dawn_armor",
+    "set": 8,
+    "kind": "armor",
+    "name": "Thiên Ân",
+    "theme": "final dawn, clean ivory wings, radiant white gold",
+    "color": "#fff0b0"
+  },
+  {
+    "id": "dawn_missile",
+    "set": 8,
+    "kind": "missile",
+    "name": "Phán Quyết",
+    "theme": "final dawn, clean ivory wings, radiant white gold",
+    "color": "#fff0b0"
+  },
+  {
+    "id": "dawn_aux",
+    "set": 8,
+    "kind": "aux",
+    "name": "Thiên Hoàn",
+    "theme": "final dawn, clean ivory wings, radiant white gold",
+    "color": "#fff0b0"
+  }
+]

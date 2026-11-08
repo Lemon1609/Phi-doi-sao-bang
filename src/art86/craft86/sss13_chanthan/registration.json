@@ -1,0 +1,85 @@
+{
+  "coordinate_system": "Pixel centers, origin top-left; normalized pivot [0.5,0.5]",
+  "canvas": [
+    500,
+    500
+  ],
+  "common_pivot": [
+    249.5,
+    249.5
+  ],
+  "main_hull_prow": [
+    249.5,
+    49.5
+  ],
+  "main_hull_rear": [
+    249.5,
+    449.5
+  ],
+  "files": [
+    {
+      "file": "craft86/sss13_chanthan/sss13_chanthan.png",
+      "kind": "craft",
+      "canvas": [
+        500,
+        500
+      ],
+      "alpha_bbox": [
+        54,
+        48,
+        447,
+        451
+      ],
+      "source_axis": 626.5,
+      "source_hull_top": 46.0,
+      "source_hull_bottom": 1213.0,
+      "uniform_scale": 0.3427592116538132,
+      "pivot": [
+        249.5,
+        249.5
+      ],
+      "hull_prow": [
+        249.5,
+        49.5
+      ],
+      "hull_rear": [
+        249.5,
+        449.5
+      ],
+      "direction": "up",
+      "anchor_method": "Split jaw tips in central 20% band for #11; axial prow for #12/#13. Axial hull stern excludes paired off-axis exhaust."
+    },
+    {
+      "file": "craft86/sss13_chanthan/sss13_chanthan_super.png",
+      "kind": "craft",
+      "canvas": [
+        500,
+        500
+      ],
+      "alpha_bbox": [
+        37,
+        47,
+        463,
+        451
+      ],
+      "source_axis": 626.5,
+      "source_hull_top": 39.0,
+      "source_hull_bottom": 1218.0,
+      "uniform_scale": 0.33927056827820185,
+      "pivot": [
+        249.5,
+        249.5
+      ],
+      "hull_prow": [
+        249.5,
+        49.5
+      ],
+      "hull_rear": [
+        249.5,
+        449.5
+      ],
+      "direction": "up",
+      "anchor_method": "Split jaw tips in central 20% band for #11; axial prow for #12/#13. Axial hull stern excludes paired off-axis exhaust."
+    }
+  ]
+}

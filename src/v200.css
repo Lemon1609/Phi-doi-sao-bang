@@ -1,0 +1,16 @@
+/* V200 · phòng tập bắn */
+.tb200-btn{display:block;width:100%;min-height:42px;margin:6px 0;border-radius:10px;border:1px solid #3a7ab0;background:linear-gradient(180deg,#123a5e,#0b2440);color:#bfe6ff;font-weight:900;font-size:13px;letter-spacing:.5px}
+.tb200-hud{position:fixed;top:calc(env(safe-area-inset-top,0px) + 46px);left:50%;transform:translateX(-50%);z-index:99990;display:flex;gap:10px;align-items:center;padding:5px 10px;border-radius:12px;background:rgba(6,16,31,.82);border:1px solid #2f5d86;color:#cfe8ff;font-size:12px;pointer-events:auto}
+.tb200-hud b{color:#7fdcff}.tb200-hud button{min-height:0;padding:3px 10px;border-radius:8px;border:1px solid #6a3a48;background:#3a1622;color:#ffc2cc;font-size:11px}
+.tb200{position:fixed;inset:0;z-index:100000;display:grid;place-items:center;background:rgba(2,6,14,.72);padding:16px}
+.tb200-b{width:min(360px,100%);padding:16px;border-radius:16px;background:linear-gradient(180deg,#13243c,#0a1626);border:1px solid #2f5478;color:#dbeafe;box-shadow:0 10px 40px #000a}
+.tb200-b h3{margin:0 0 4px;font-size:16px;color:#fff;text-align:center}.tb200-b p{margin:0 0 10px;font-size:12px;color:#9fc0da;text-align:center}
+.tb200-r{display:grid;gap:5px;margin-bottom:8px}.tb200-r div{display:flex;align-items:baseline;gap:8px;padding:7px 10px;border-radius:9px;background:rgba(255,255,255,.05)}
+.tb200-r span{flex:1;font-size:13px}.tb200-r b{font-size:15px;color:#fff}.tb200-r.big b{font-size:20px;color:#ffe49a}
+.tb200-r i{font-style:normal;font-size:12px;font-weight:800;min-width:58px;text-align:right}.tb200-r i.up{color:#46ffb2}.tb200-r i.dn{color:#ff7a8a}.tb200-r i.eq{color:#9fc0da}
+.tb200-b .nt{font-size:11px}
+.tb200-a{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px}.tb200-a button{min-height:42px;border-radius:10px;border:1px solid #3a6a96;background:#12304e;color:#e5f2ff;font-weight:800;font-size:13px}.tb200-a button.x{background:#25303e;border-color:#46566a}
+
+/* game ẩn mọi con trực tiếp của body khi đang ở màn chơi (body.play-screen > :not(main)) → cho phép riêng 3 lớp này */
+html body.play-screen>.tb200,html body>.tb200{display:grid!important}
+html body.play-screen>.tb200-hud,html body>.tb200-hud{display:flex!important}

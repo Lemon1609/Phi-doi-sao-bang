@@ -1,0 +1,23 @@
+{
+  "coordinate_system": "pixel-center indices, x right, y down, canvas768",
+  "status": "art anchors proposed for integration; not extracted from game code",
+  "emitters": {
+    "core_origin": [
+      383.5,
+      357.5
+    ],
+    "nose": [
+      383.5,
+      633.5
+    ],
+    "tentacle_left": [
+      150,
+      495
+    ],
+    "tentacle_right": [
+      617,
+      495
+    ]
+  },
+  "shared_across_phases": true
+}

@@ -1,0 +1,98 @@
+/* V78.5 · UI18 (GPT) — thanh tab, ô tài nguyên, khung bảng phụ. Nút vàng/lam/khóa và khung bảng chính đã đổi qua biến (build). Tắt: UI18=0 khi build */
+#nav74::before{background:none!important;border-image:var(--u18-tabbar) 32 128 32 128 fill / 10px 40px stretch!important;inset:-6px -2px -2px -2px!important}
+html body #nav74 button{background:none!important}
+html body #nav74 button::after{content:'';position:absolute;inset:3px 2px 2px;z-index:-1;border-image:var(--u18-tab-off) 48 fill / 12px stretch;pointer-events:none;opacity:.9}
+html body #nav74 button.on::after{border-image-source:var(--u18-tab-on);opacity:1}
+html body #nav74 button.on::before{display:none!important}
+html body #nav74 button[data-t] i{width:30px;height:30px;display:block;background:center/contain no-repeat;filter:none!important}
+html body #nav74 button[data-t] i > *{visibility:hidden}
+html body #nav74 button[data-t="home"] i{background-image:var(--u18-t-home)}
+html body #nav74 button[data-t="combat"] i{background-image:var(--u18-t-combat)}
+html body #nav74 button[data-t="fleet"] i{background-image:var(--u18-t-fleet)}
+html body #nav74 button[data-t="equip"] i{background-image:var(--u18-t-equip)}
+html body #nav74 button[data-t="shop"] i{background-image:var(--u18-t-shop)}
+html body #nav74 button:not(.on) i{opacity:.78}
+html body #nav74 button small{color:#e8e4d9!important;text-shadow:0 1px 2px #000!important;font-weight:700!important}
+html body #nav74 button.on small{color:#f3d48a!important}
+/* ô tài nguyên đầu sảnh */
+html body #hgr41 .h1-res .h1-chip{background:none!important;border:0!important;box-shadow:none!important;border-image:var(--u18-res) 32 96 32 96 fill / 10px 30px stretch!important;border-style:solid!important;border-width:0!important}
+html body #hgr41 .h1-res .h1-chip.stone > i img{content:var(--u18-r-stone)}
+html body #hgr41 .h1-res .h1-chip.coin > i img{content:var(--u18-r-alloy)}
+html body #hgr41 .gem74 img.ic74r{content:var(--u18-r-dia)}
+html body #hgr41 .h1-res .h1-chip b{color:#e8e4d9!important;text-shadow:0 1px 2px #000!important}
+/* khung bảng phụ cùng bộ */
+html body #lb78 .lb78c{background:none!important;border:24px solid transparent!important;border-image:var(--u18-panel) 128 fill / 24px stretch!important;box-shadow:none!important;border-radius:0!important;padding:0!important}
+html body .n74p .n74pc{background:none!important;border:24px solid transparent!important;border-image:var(--u18-panel) 128 fill / 24px stretch!important;box-shadow:none!important;border-radius:0!important}
+html body #tutorial392{background:none!important;border:20px solid transparent!important;border-image:var(--u18-panel) 128 fill / 20px stretch!important;box-shadow:0 10px 30px #000a!important;border-radius:0!important}
+html body #tutorial392 #tutorial-next392#tutorial-next392#tutorial-next392#tutorial-next392#tutorial-next392#tutorial-next392#tutorial-next392#tutorial-next392#tutorial-next392#tutorial-next392#tutorial-next392#tutorial-next392#tutorial-next392#tutorial-next392#tutorial-next392#tutorial-next392#tutorial-next392#tutorial-next392#tutorial-next392#tutorial-next392#tutorial-next392#tutorial-next392#tutorial-next392#tutorial-next392{background:none!important;border:12px solid transparent!important;border-image:var(--u18-pri) 32 96 32 96 fill / 12px 34px stretch!important;color:#ffe6b0!important;text-shadow:0 1px 2px #000,0 0 8px #ff9a3d66!important}
+html body #tutorial392 #tutorial-skip392#tutorial-skip392#tutorial-skip392#tutorial-skip392#tutorial-skip392#tutorial-skip392#tutorial-skip392#tutorial-skip392#tutorial-skip392#tutorial-skip392#tutorial-skip392#tutorial-skip392#tutorial-skip392#tutorial-skip392#tutorial-skip392#tutorial-skip392#tutorial-skip392#tutorial-skip392#tutorial-skip392#tutorial-skip392#tutorial-skip392#tutorial-skip392#tutorial-skip392#tutorial-skip392{background:none!important;border:12px solid transparent!important;border-image:var(--u18-sec) 32 96 32 96 fill / 12px 34px stretch!important;color:#eaf6ff!important}
+html body.res78 #lobby-back#lobby-back#lobby-back#lobby-back#lobby-back#lobby-back#lobby-back#lobby-back#lobby-back#lobby-back#lobby-back#lobby-back#lobby-back#lobby-back#lobby-back#lobby-back#lobby-back#lobby-back#lobby-back#lobby-back#lobby-back#lobby-back#lobby-back#lobby-back{background:none!important;border:12px solid transparent!important;border-image:var(--u18-pri) 32 96 32 96 fill / 14px 40px stretch!important;color:#ffe6b0!important;text-shadow:0 1px 2px #000,0 0 8px #ff9a3d66!important;box-shadow:none!important}
+html body #rs .rw78{background:none!important;border:10px solid transparent!important;border-image:var(--u18-card) 64 fill / 10px stretch!important;border-radius:0!important;box-shadow:none!important}
+html body .adv-req .adv-m{background:none!important;border:10px solid transparent!important;border-image:var(--u18-card) 64 fill / 10px stretch!important;border-radius:0!important}
+html body .adv-req .adv-m.no{filter:saturate(.7)}
+html body #rs .rw78 small{display:none!important}
+html body #rs .rs-loot.rw78g{row-gap:10px!important}
+html body .cta.c b,html body .cta.c small{color:#ffe6b0!important;-webkit-text-fill-color:#ffe6b0!important;background:none!important;text-shadow:0 1px 2px #000,0 0 10px #ff9a3d88!important}
+html body #hgr41 .h1-ribbon .h1-ic{background:none!important;border:10px solid transparent!important;border-image:var(--u18-sec) 32 96 32 96 fill / 10px 28px stretch!important;box-shadow:none!important;clip-path:none!important;border-radius:0!important}
+html body #hgr41 .h1-ribbon .h1-ic.lk{border-image-source:var(--u18-sec-d)!important}
+html body #hgr41 .h1-ribbon .h1-ic small{color:#e8e4d9!important;text-shadow:0 1px 2px #000!important}
+html body #lb68 .lb68-card{background:none!important;border:14px solid transparent!important;border-image:var(--u18-panel) 128 fill / 14px stretch!important;box-shadow:none!important;border-radius:0!important}
+/* V78.7 · bảng gợi ý càn quét nguyên liệu */
+#sw787{position:fixed;inset:0;z-index:2147483300;background:rgba(2,6,14,.7);display:flex;align-items:center;justify-content:center;padding:16px}
+#sw787 .sw787c{width:min(340px,100%);display:flex;flex-direction:column;align-items:center;gap:8px;padding:6px 4px;border:22px solid transparent;border-image:var(--u18-panel) 128 fill / 22px stretch;color:#e8e4d9;text-align:center;font:600 13px 'Be Vietnam Pro',system-ui,sans-serif}
+#sw787 img{width:64px;height:64px;object-fit:contain}
+#sw787 b{font-size:16px;color:#f3d48a}
+#sw787 p{margin:0;color:#c9d6e4;line-height:1.45}
+#sw787 .sw787b{display:flex;flex-direction:column;gap:8px;width:100%;margin-top:4px}
+#sw787 .sw787b button{min-height:48px;border:12px solid transparent;border-image:var(--u18-sec) 32 96 32 96 fill / 12px 34px stretch;background:none;color:#eaf6ff;font:800 14px 'Be Vietnam Pro',system-ui,sans-serif;cursor:pointer}
+#sw787 .sw787b button[data-sw="sweep"]{border-image-source:var(--u18-pri);color:#ffe6b0}
+#sw787 .sw787b button small{display:block;font-size:11px;font-weight:600;color:#c9d6e4}
+/* V78.8 · UI18b: nút X chung, chip, thanh tiêu đề trang con, khung thắng/thua */
+html body .v75-x,html body .cx-x,html body #lb78 [data-lbx],html body .n74x,html body .m63 .m63-x,html body .m63 [data-x="close"]:not(.m63-go){width:40px!important;height:40px!important;min-width:40px!important;padding:0!important;border:0!important;border-radius:0!important;background:var(--u18-x) center/contain no-repeat!important;color:transparent!important;font-size:0!important;box-shadow:none!important;clip-path:none!important;text-shadow:none!important}
+html body .v75-x:active,html body .cx-x:active,html body #lb78 [data-lbx]:active,html body .n74x:active{background-image:var(--u18-x-p)!important}
+html body #hub40 .hb-filter button,html body .st71-tabs button,html body #lb78 .lb78t button,html body .bk78p .bk78-tabs button,html body .bk78t button{background:none!important;border:8px solid transparent!important;border-image:var(--u18-chip) 24 64 24 64 fill / 8px 21px stretch!important;color:#c9d6e4!important;box-shadow:none!important;clip-path:none!important;border-radius:0!important;min-height:34px}
+html body #hub40 .hb-filter button[aria-pressed="true"],html body .st71-tabs button[aria-pressed="true"],html body #lb78 .lb78t button.on,html body .bk78p .bk78-tabs button.on,html body .bk78t button.on{border-image-source:var(--u18-chip-on)!important;color:#fff!important;text-shadow:0 0 6px #5ab8ff,0 1px 2px #000!important}
+html body #hub40 .hb-top::before{background:none!important;border:0 solid transparent;border-width:8px 53px;border-image:var(--u18-title) 24 160 24 160 fill / 8px 53px stretch;inset:2px 0!important}
+html body #hub40 #hb-title{background:none!important;color:#f3d48a!important;-webkit-text-fill-color:#f3d48a!important;text-shadow:0 1px 2px #000!important;padding-left:44px!important;letter-spacing:1.5px!important;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;min-width:0}
+html body #overlay #rs{background:none!important;border:0 solid transparent!important;border-width:112px 48px 64px 48px!important;border-image:var(--u18-win) 224 96 128 96 fill / 112px 48px 64px 48px stretch!important;box-shadow:none!important;border-radius:0!important;clip-path:none!important;padding:0 6px!important;margin-top:8px!important}
+html body #overlay #rs.lose{border-image-source:var(--u18-lose)!important}
+html body #overlay #rs .rs-rays{display:none!important}
+html body #overlay #rs{position:relative!important;overflow:visible!important}
+html body #overlay #rs .rs-rib{position:absolute!important;left:0;right:0;top:-84px;margin:0 auto!important;width:max-content;max-width:90%;white-space:nowrap!important;background:none!important;clip-path:none!important;color:#f3d48a!important;text-shadow:0 2px 4px #000!important;font-size:22px!important}
+html body #overlay #rs.lose .rs-rib{color:#ffb0b0!important}
+html body.res78 .ux75d{display:none!important}
+/* V79 · danh sách chiến cơ dạng hàng (list_row_*) */
+#hb-strip .r79b{flex:0 0 auto;min-width:54px!important;width:54px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;border:0!important;border-image:var(--u18-sec) 32 96 32 96 fill / 10px 14px stretch!important;background:none!important;color:#e8e4d9!important;padding:4px 2px!important;cursor:pointer}
+#hb-strip .r79b span{font-size:20px;line-height:1}#hb-strip .r79b small{font-size:8.5px;letter-spacing:.02em;font-weight:800;white-space:nowrap}
+#r79{position:fixed;inset:0;z-index:2147483300;background:#020812d9;display:flex;align-items:flex-end;justify-content:center;padding:0 0 calc(var(--n74h,64px) + 6px)}
+#r79 .r79c{width:min(100vw,420px);max-height:min(78vh,640px);display:flex;flex-direction:column;background:linear-gradient(#101d30f7,#0b1220fa);border-top:1px solid #5ab8ff55;border-radius:16px 16px 0 0;padding:10px 12px 12px}
+#r79 .r79h{display:flex;align-items:center;justify-content:space-between;margin:0 0 8px}
+#r79 .r79h b{font-size:17px;letter-spacing:.06em;color:#f3d48a}
+#r79 .r79x{position:static!important;width:36px!important;height:36px!important;min-width:0!important;flex:0 0 36px}
+#r79 .r79l{overflow:auto;display:flex;flex-direction:column;gap:6px;padding-right:2px}
+#r79 .r79r{position:relative;display:flex;align-items:center;gap:10px;height:84px;flex:0 0 84px;border-style:solid;border-width:0 28px 0 84px;border-image:var(--u18-row) 0 64 0 192 fill / 0 28px 0 84px stretch;padding:0;margin:0;cursor:pointer;color:#e8e4d9}
+#r79 .r79r.rare{border-image-source:var(--u18-row-r)}#r79 .r79r.leg{border-image-source:var(--u18-row-l)}
+#r79 .r79r.lk{filter:saturate(.35) brightness(.8)}
+#r79 .r79r.cur{outline:2px solid #f3d48a;outline-offset:-2px;border-radius:12px}
+#r79 .r79i{position:absolute;left:-70px;top:14px;width:56px;height:56px;display:flex;align-items:center;justify-content:center}
+#r79 .r79i img{max-width:100%;max-height:100%;object-fit:contain}
+#r79 .r79t{flex:1;min-width:0;padding-left:4px}
+#r79 .r79t b{display:block;font-size:14.5px;color:#f5f1e6;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+#r79 .r79t small{display:block;font-size:12px;line-height:17px;color:#a9bdd3;margin-top:2px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+#r79 .r79t em{font-style:normal;font-weight:800}
+#r79 .r79a{flex:0 0 auto;min-width:76px;text-align:center;font-size:11.5px;font-weight:800;padding:8px 6px;margin-right:-14px;border-style:solid;border-width:0;border-image:var(--u18-pri) 32 96 32 96 fill / 10px 22px stretch;color:#ffe6b0;text-shadow:0 1px 2px #000}
+#r79 .r79r.cur .r79a{border-image-source:var(--u18-sec);color:#e8e4d9}
+#r79 .r79r.lk .r79a{border-image-source:var(--u18-dis);color:#8aa0b8;font-size:16px}
+/* V79 · banner mục tiêu đầu trận (objective_banner) */
+#obj79{position:fixed;left:50%;top:18%;transform:translate(-50%,-14px);width:min(369px,92vw);min-height:64px;box-sizing:border-box;padding:2px 4px;border-style:solid;border-width:8px 42.67px;border-image:var(--u18-banner) 24 128 24 128 fill / 8px 42.67px stretch;text-align:center;z-index:2147483150;pointer-events:none;opacity:0;transition:opacity .35s,transform .35s}
+#obj79 b{display:block;font-size:14px;line-height:19px;color:#f3d48a;letter-spacing:.04em;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+#obj79 small{display:block;font-size:12.5px;line-height:18px;color:#e8e4d9}
+#obj79.open{opacity:1;transform:translate(-50%,0)}
+body:not(.play-screen) #obj79{display:none}
+/* V79 · chữ phụ trên nút UI18 (PHÂN GIẢI NHANH, NÂNG KHUNG…) đủ tương phản */
+html body #hub40 button small,html body #hub40 button .sub,html body #hub40 button em{color:#ffe2b0!important;-webkit-text-fill-color:#ffe2b0!important;text-shadow:0 1px 2px #000!important;opacity:1!important}
+html body.play-screen #obj79{display:block!important;visibility:visible!important}
+#obj79 small{letter-spacing:0!important}#obj79 b{letter-spacing:.03em!important}
+
+/* V79B · nút Ải tiếp theo (ải 1, 2, 4) */
+html body.res78 #next79#next79#next79#next79#next79#next79#next79#next79#next79#next79#next79#next79#next79#next79#next79#next79#next79#next79#next79#next79#next79#next79#next79#next79{display:block!important;width:min(340px,86vw)!important;margin:10px auto 0!important;min-height:52px!important;font-size:15px!important;font-weight:800!important;letter-spacing:.04em!important;background:none!important;border:12px solid transparent!important;border-image:var(--u18-sec) 32 96 32 96 fill / 14px 40px stretch!important;color:#e8f6ff!important;text-shadow:0 1px 2px #000,0 0 8px #5ab8ff66!important;box-shadow:none!important;position:relative;z-index:5}

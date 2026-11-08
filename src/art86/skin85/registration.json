@@ -1,0 +1,188 @@
+[
+  {
+    "file": "skin85/skin_s10_huyetlong.png",
+    "craft": 11,
+    "canvas": [
+      500,
+      500
+    ],
+    "pivot": [
+      249.5,
+      249.5
+    ],
+    "hull_prow": [
+      249.5,
+      49.5
+    ],
+    "hull_rear": [
+      249.5,
+      449.5
+    ],
+    "uniform_scale": 0.3410059676044331,
+    "source_axis": 626.5,
+    "source_hull_top": 24.0,
+    "source_hull_bottom": 1197.0,
+    "alpha_bbox": [
+      106,
+      50,
+      394,
+      450
+    ],
+    "reference_q1": "V83/src/craft81/11/q1.png"
+  },
+  {
+    "file": "skin85/skin_s10_huyetlong_super.png",
+    "craft": 11,
+    "canvas": [
+      500,
+      500
+    ],
+    "pivot": [
+      249.5,
+      249.5
+    ],
+    "hull_prow": [
+      249.5,
+      49.5
+    ],
+    "hull_rear": [
+      249.5,
+      449.5
+    ],
+    "uniform_scale": 0.32948929159802304,
+    "source_axis": 626.5,
+    "source_hull_top": 4.0,
+    "source_hull_bottom": 1218.0,
+    "alpha_bbox": [
+      86,
+      50,
+      414,
+      451
+    ],
+    "reference_q1": "V83/src/craft81/11/q1.png"
+  },
+  {
+    "file": "skin85/skin_s11_bachkim.png",
+    "craft": 12,
+    "canvas": [
+      500,
+      500
+    ],
+    "pivot": [
+      249.5,
+      249.5
+    ],
+    "hull_prow": [
+      249.5,
+      49.5
+    ],
+    "hull_rear": [
+      249.5,
+      449.5
+    ],
+    "uniform_scale": 0.34393809114359414,
+    "source_axis": 626.5,
+    "source_hull_top": 19.0,
+    "source_hull_bottom": 1182.0,
+    "alpha_bbox": [
+      84,
+      49,
+      416,
+      454
+    ],
+    "reference_q1": "V83/src/craft81/12/q1.png"
+  },
+  {
+    "file": "skin85/skin_s11_bachkim_super.png",
+    "craft": 12,
+    "canvas": [
+      500,
+      500
+    ],
+    "pivot": [
+      249.5,
+      249.5
+    ],
+    "hull_prow": [
+      249.5,
+      49.5
+    ],
+    "hull_rear": [
+      249.5,
+      449.5
+    ],
+    "uniform_scale": 0.3412969283276451,
+    "source_axis": 626.5,
+    "source_hull_top": 14.0,
+    "source_hull_bottom": 1186.0,
+    "alpha_bbox": [
+      78,
+      49,
+      422,
+      457
+    ],
+    "reference_q1": "V83/src/craft81/12/q1.png"
+  },
+  {
+    "file": "skin85/skin_s12_thaico.png",
+    "craft": 13,
+    "canvas": [
+      500,
+      500
+    ],
+    "pivot": [
+      249.5,
+      249.5
+    ],
+    "hull_prow": [
+      249.5,
+      49.5
+    ],
+    "hull_rear": [
+      249.5,
+      449.5
+    ],
+    "uniform_scale": 0.3463203463203463,
+    "source_axis": 626.5,
+    "source_hull_top": 23.0,
+    "source_hull_bottom": 1178.0,
+    "alpha_bbox": [
+      95,
+      50,
+      405,
+      451
+    ],
+    "reference_q1": "V83/src/craft81/13/q1.png"
+  },
+  {
+    "file": "skin85/skin_s12_thaico_super.png",
+    "craft": 13,
+    "canvas": [
+      500,
+      500
+    ],
+    "pivot": [
+      249.5,
+      249.5
+    ],
+    "hull_prow": [
+      249.5,
+      49.5
+    ],
+    "hull_rear": [
+      249.5,
+      449.5
+    ],
+    "uniform_scale": 0.3395585738539898,
+    "source_axis": 626.5,
+    "source_hull_top": 22.0,
+    "source_hull_bottom": 1200.0,
+    "alpha_bbox": [
+      59,
+      49,
+      441,
+      451
+    ],
+    "reference_q1": "V83/src/craft81/13/q1.png"
+  }
+]

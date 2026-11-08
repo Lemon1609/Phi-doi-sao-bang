@@ -1,0 +1,85 @@
+{
+  "coordinate_system": "Pixel centers, origin top-left; normalized pivot [0.5,0.5]",
+  "canvas": [
+    500,
+    500
+  ],
+  "common_pivot": [
+    249.5,
+    249.5
+  ],
+  "main_hull_prow": [
+    249.5,
+    49.5
+  ],
+  "main_hull_rear": [
+    249.5,
+    449.5
+  ],
+  "files": [
+    {
+      "file": "craft86/sss11_huyettinh/sss11_huyettinh.png",
+      "kind": "craft",
+      "canvas": [
+        500,
+        500
+      ],
+      "alpha_bbox": [
+        91,
+        49,
+        409,
+        451
+      ],
+      "source_axis": 626.5,
+      "source_hull_top": 45.0,
+      "source_hull_bottom": 1168.0,
+      "uniform_scale": 0.3561887800534283,
+      "pivot": [
+        249.5,
+        249.5
+      ],
+      "hull_prow": [
+        249.5,
+        49.5
+      ],
+      "hull_rear": [
+        249.5,
+        449.5
+      ],
+      "direction": "up",
+      "anchor_method": "Split jaw tips in central 20% band for #11; axial prow for #12/#13. Axial hull stern excludes paired off-axis exhaust."
+    },
+    {
+      "file": "craft86/sss11_huyettinh/sss11_huyettinh_super.png",
+      "kind": "craft",
+      "canvas": [
+        500,
+        500
+      ],
+      "alpha_bbox": [
+        34,
+        49,
+        468,
+        474
+      ],
+      "source_axis": 626.5,
+      "source_hull_top": 23.0,
+      "source_hull_bottom": 1174.0,
+      "uniform_scale": 0.3475238922675934,
+      "pivot": [
+        249.5,
+        249.5
+      ],
+      "hull_prow": [
+        249.5,
+        49.5
+      ],
+      "hull_rear": [
+        249.5,
+        449.5
+      ],
+      "direction": "up",
+      "anchor_method": "Split jaw tips in central 20% band for #11; axial prow for #12/#13. Axial hull stern excludes paired off-axis exhaust."
+    }
+  ]
+}

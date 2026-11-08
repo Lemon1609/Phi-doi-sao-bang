@@ -1,0 +1,14 @@
+{
+  "status": "PASS",
+  "PNG": 76,
+  "counts": {
+    "armor": 14,
+    "missile": 14,
+    "aux": 14,
+    "boss": 9,
+    "portrait": 3,
+    "skin": 6,
+    "ebullet": 16
+  },
+  "errors": []
+}

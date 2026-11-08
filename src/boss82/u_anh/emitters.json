@@ -1,0 +1,55 @@
+{
+  "coordinate_system": "pixel-center indices, x right, y down, canvas768",
+  "status": "art anchors proposed for integration; not extracted from game code",
+  "emitters": {
+    "nose": [
+      383.5,
+      671
+    ],
+    "wing_left": [
+      204,
+      554
+    ],
+    "wing_right": [
+      563,
+      554
+    ],
+    "fan_1": [
+      331,
+      463
+    ],
+    "fan_2": [
+      354,
+      477
+    ],
+    "fan_3": [
+      383.5,
+      486
+    ],
+    "fan_4": [
+      413,
+      477
+    ],
+    "fan_5": [
+      436,
+      463
+    ],
+    "laser_socket": [
+      383.5,
+      543
+    ],
+    "spiral_ring_origin": [
+      383.5,
+      315
+    ],
+    "drone_left": [
+      241,
+      443
+    ],
+    "drone_right": [
+      526,
+      443
+    ]
+  },
+  "shared_across_phases": true
+}

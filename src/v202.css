@@ -1,0 +1,14 @@
+/* V202 · so sánh khi gắn chip / thay trang bị */
+.c72-row em.d202{display:block;margin-top:3px;font-style:normal;font-size:11.5px;font-weight:800;color:#9fc0da}
+.c72-row em.d202.up{color:#46ffb2}.c72-row em.d202.dn{color:#ff7a8a}
+.g202{display:flex;align-items:center;justify-content:space-between;gap:8px;margin:6px 0 2px;padding:8px 10px;border-radius:10px;background:rgba(10,26,46,.75);border:1px solid #2a4a6a;font-size:13px}
+.g202 b{font-size:15px;color:#fff}.g202 i{font-style:normal;font-weight:900}.g202 i.up{color:#46ffb2}.g202 i.dn{color:#ff7a8a}.g202 i.eq{color:#9fc0da}
+/* V203 · nhắm dòng khi tẩy (chip72 ECON203) */
+.g203{margin:8px 0 2px;padding:9px 10px;border-radius:12px;background:#0d1d31;border:1px solid #2b4a6c}
+.g203>b{display:block;font-size:12px;letter-spacing:.06em;color:#ffd56a;margin-bottom:6px}
+.g203-r{display:flex;flex-wrap:wrap;gap:6px}
+.g203-r button{flex:1 1 auto;min-height:36px;padding:4px 8px;border-radius:9px;border:1px solid #35587c;background:#10263f;color:#cfe4f7;font-weight:700;font-size:12px}
+.g203-r button small{display:block;font-size:10px;color:#9fc0da;font-weight:600}
+.g203-r button[aria-pressed="true"]{background:#5b4210;border-color:#ffc94a;color:#fff}
+.g203 p{margin:7px 0 0;font-size:11.5px;line-height:1.4;color:#9fc0da}
+.g203 p b{color:#ffd56a}

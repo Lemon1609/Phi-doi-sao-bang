@@ -1,0 +1,6 @@
+.h1-stage{position:relative}
+.ho212{position:absolute;left:8px;right:8px;bottom:8px;display:flex;gap:6px;align-items:center;justify-content:space-between;z-index:5;pointer-events:auto}
+.ho212 button{font:800 9px/1 'Be Vietnam Pro',sans-serif;letter-spacing:.5px;color:#cfe4ff;background:rgba(6,23,58,.82);border:1px solid rgba(63,169,255,.55);padding:6px 7px;border-radius:3px}
+.ho212 span{display:flex;gap:4px}
+.ho212 [aria-pressed="true"]{background:#14448f;border-color:#bfe6ff;color:#fff}
+.ho212.off span{opacity:.35}

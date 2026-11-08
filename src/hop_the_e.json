@@ -1,0 +1,3306 @@
+{
+ "fusion_rules": {
+  "parentRequirement": "Cả 2 món mẹ đạt từ Khung Tím +1 trở lên (thay cho quy tắc cũ 'cả hai >= +1'). Món mẹ được giữ nguyên sau khi hợp thể.",
+  "enhanceFormula": "2 * min(parentA_plus, parentB_plus), tối đa +10. Mỗi cấp cộng +3% chỉ số trên nền x1.35 của SSS.",
+  "sharedParentSelection": {
+   "sharedSets": [
+    1,
+    12,
+    13
+   ],
+   "rule": "Người chơi chọn 1 SSS xuất chiến cho mỗi món mẹ ngay trong Xưởng SSS (lưu cờ activeSssByParent). Mặc định nếu chưa chọn: ưu tiên SSS đã mở có cấp Lv cao hơn, nếu bằng cấp ưu tiên Nhóm III > Nhóm II > Nhóm I."
+  },
+  "damageAmplifyScope": "Mọi hiệu ứng 'Nứt giáp' hoặc 'tăng sát thương nhận vào' của trang bị SSS chỉ nhân sát thương của trang bị (tên lửa, vũ khí phụ, phản kích giáp), không nhân đạn chính chiến cơ.",
+  "inBattleVisualConstraint": "Giáp và Tên lửa SSS không có hình thân cố định trong trận (chỉ chớp hiệu ứng 0,3-0,4s). Không vẽ bất kỳ vòng tròn hay vành kín nào quanh tàu và quái."
+ },
+ "items_fusion": {
+  "stone_merge_normal": {
+   "ratio": 3,
+   "successRate": 1.0,
+   "allowQuickMergeAll": true,
+   "tiers": [
+    {
+     "from": "white",
+     "to": "green",
+     "credits": 300
+    },
+    {
+     "from": "green",
+     "to": "blue",
+     "credits": 900
+    },
+    {
+     "from": "blue",
+     "to": "purple",
+     "credits": 2500
+    },
+    {
+     "from": "purple",
+     "to": "orange",
+     "credits": 6000
+    }
+   ]
+  },
+  "stone_forge_special": {
+   "types": [
+    "alpha",
+    "beta",
+    "omega",
+    "sigma"
+   ],
+   "craftBlue": {
+    "blueNormalStones": 2,
+    "greenNormalStones": 1,
+    "sss_core": 3,
+    "credits": 3000,
+    "output": "1 đá đặc biệt phẩm Lam tự chọn hệ"
+   },
+   "upgradeToPurple": {
+    "specialBlueStone": 1,
+    "anyBlueNormalStones": 2,
+    "sss_core": 6,
+    "credits": 5000,
+    "output": "1 đá đặc biệt phẩm Tím cùng hệ"
+   },
+   "upgradeToOrange": {
+    "specialPurpleStone": 1,
+    "anyPurpleNormalStones": 2,
+    "sss_core": 12,
+    "credits": 10000,
+    "output": "1 đá đặc biệt phẩm Cam cùng hệ"
+   }
+  },
+  "sss_core_exchange": {
+   "purpleMatsToCore": {
+    "anyPurpleMatLv3Count": 3,
+    "credits": 2000,
+    "outputSssCore": 1,
+    "weeklyLimit": 15
+   },
+   "coreToPurpleMat": {
+    "sssCoreCount": 1,
+    "credits": 500,
+    "outputSelectablePurpleMatLv3": 1,
+    "weeklyLimit": 0
+   }
+  }
+ },
+ "sss_equipment": [
+  {
+   "id": "sss_aegis_mirror",
+   "group": 1,
+   "kind": "armor",
+   "parents": [
+    "aegis",
+    "mirror"
+   ],
+   "name": "Thành Kính Thiên Vệ",
+   "cost": {
+    "sss_core": 0,
+    "mats": {
+     "alloy3": 2,
+     "plasma3": 2
+    },
+    "credits": 10000,
+    "totalToLv5": {
+     "sss_core": 0,
+     "matsTotal": 46,
+     "creditsTotal": 115000,
+     "estDaysUnlock": 1.0,
+     "estDaysMax": 7.0
+    },
+    "lvSteps": [
+     {
+      "lv": 1,
+      "sss_core": 0,
+      "mats": {
+       "alloy3": 2,
+       "plasma3": 2
+      },
+      "credits": 10000
+     },
+     {
+      "lv": 2,
+      "sss_core": 0,
+      "mats": {
+       "alloy3": 3,
+       "plasma3": 3
+      },
+      "credits": 15000
+     },
+     {
+      "lv": 3,
+      "sss_core": 0,
+      "mats": {
+       "alloy3": 4,
+       "plasma3": 4
+      },
+      "credits": 20000
+     },
+     {
+      "lv": 4,
+      "sss_core": 0,
+      "mats": {
+       "alloy3": 6,
+       "plasma3": 6
+      },
+      "credits": 30000
+     },
+     {
+      "lv": 5,
+      "sss_core": 0,
+      "mats": {
+       "alloy3": 8,
+       "plasma3": 8
+      },
+      "credits": 40000
+     }
+    ]
+   },
+   "trait": {
+    "name": "Thành Kính Phản Kích",
+    "ho": "chặn đòn định kỳ kết hợp phản tia",
+    "lv": [
+     {
+      "lv": 1,
+      "value": 15,
+      "desc": "Mỗi 24s tạo 1 tầng khiên gương chặn 1 đòn (kèm 15% phản đòn thường); khi chặn phóng 2 tia gương (140% ST trang bị)."
+     },
+     {
+      "lv": 2,
+      "value": 17,
+      "desc": "Mỗi 22s tạo 1 tầng khiên gương chặn 1 đòn (kèm 17% phản đòn thường); khi chặn phóng 2 tia gương (160% ST trang bị)."
+     },
+     {
+      "lv": 3,
+      "value": 20,
+      "desc": "Mỗi 20s tạo 1 tầng khiên gương chặn 1 đòn (kèm 20% phản đòn thường); khi chặn phóng 3 tia gương (180% ST trang bị)."
+     },
+     {
+      "lv": 4,
+      "value": 22,
+      "desc": "Mỗi 18s tạo 1 tầng khiên gương chặn 1 đòn (kèm 22% phản đòn thường); khi chặn phóng 3 tia gương (200% ST trang bị)."
+     },
+     {
+      "lv": 5,
+      "value": 25,
+      "desc": "Mỗi 16s tạo 1 tầng khiên gương chặn 1 đòn (kèm 25% phản đòn thường); khi chặn phóng 3 tia lăng kính (220% ST trang bị)."
+     }
+    ]
+   },
+   "skill": {
+    "name": "Kết Giới Phản Quang",
+    "cooldown": 15,
+    "effect": "Dựng mặt gương chữ V trong 2 giây chặn 1 đòn đánh kế tiếp, xóa đạn nhỏ trước mũi và phản 3 tia sáng.",
+    "new": false
+   },
+   "super": {
+    "name": "BẤT ĐỘNG KÍNH THÀNH",
+    "effect": "Thời gian hồi khiên gương giảm còn 13 giây; tỷ lệ phản đòn thường tăng lên 35%."
+   },
+   "ult": {
+    "name": "THIÊN THÀNH VẠN KÍNH",
+    "duration": 2.2,
+    "effect": "Mở trận địa gương chữ V trước mũi tàu, biến tối đa 8 viên đạn địch bay vào thành tia laser bắn trả Boss.",
+    "new": false
+   },
+   "budget": {
+    "singleDPSvsBase": 0.0,
+    "crowdMax": 0.0,
+    "savesAt6": 2.9,
+    "savesAt20": 7.8
+   },
+   "art": {
+    "partsFrom": [
+     "tấm giáp mặt nguyệt",
+     "3 phiến kính vát chéo"
+    ],
+    "color": "#7DD3FC",
+    "icon3": "Dạng 1: Giáp mặt nguyệt gắn 3 phiến gương bạc. Dạng 2: Tách 2 cánh gương chữ V lộ lõi lam. Dạng 3: 6 phiến gương nổi viền vàng kim phát tia khúc xạ.",
+    "note": "Vỏ giáp dạng cánh chữ V hở đỉnh và đáy; trong trận chỉ chớp mảnh gương 0,3s khi chặn đòn."
+   }
+  },
+  {
+   "id": "sss_orbital_phase",
+   "group": 1,
+   "kind": "armor",
+   "parents": [
+    "orbital",
+    "phase"
+   ],
+   "name": "Hư Không Tinh Vệ",
+   "cost": {
+    "sss_core": 0,
+    "mats": {
+     "alloy3": 2,
+     "plasma3": 2
+    },
+    "credits": 10000,
+    "totalToLv5": {
+     "sss_core": 0,
+     "matsTotal": 46,
+     "creditsTotal": 115000,
+     "estDaysUnlock": 1.0,
+     "estDaysMax": 7.0
+    },
+    "lvSteps": [
+     {
+      "lv": 1,
+      "sss_core": 0,
+      "mats": {
+       "alloy3": 2,
+       "plasma3": 2
+      },
+      "credits": 10000
+     },
+     {
+      "lv": 2,
+      "sss_core": 0,
+      "mats": {
+       "alloy3": 3,
+       "plasma3": 3
+      },
+      "credits": 15000
+     },
+     {
+      "lv": 3,
+      "sss_core": 0,
+      "mats": {
+       "alloy3": 4,
+       "plasma3": 4
+      },
+      "credits": 20000
+     },
+     {
+      "lv": 4,
+      "sss_core": 0,
+      "mats": {
+       "alloy3": 6,
+       "plasma3": 6
+      },
+      "credits": 30000
+     },
+     {
+      "lv": 5,
+      "sss_core": 0,
+      "mats": {
+       "alloy3": 8,
+       "plasma3": 8
+      },
+      "credits": 40000
+     }
+    ]
+   },
+   "trait": {
+    "name": "Tinh Vệ Dịch Pha",
+    "ho": "chặn sườn sau liên kết dịch pha chính diện",
+    "lv": [
+     {
+      "lv": 1,
+      "value": 14,
+      "desc": "Chặn đạn từ sườn/sau (hồi 4,5s) và 14% né đòn chính diện; chặn sườn giúp cộng thêm 12% né cho đòn chính diện kế tiếp."
+     },
+     {
+      "lv": 2,
+      "value": 16,
+      "desc": "Chặn đạn từ sườn/sau (hồi 4,0s) và 16% né đòn chính diện; chặn sườn giúp cộng thêm 14% né cho đòn chính diện kế tiếp."
+     },
+     {
+      "lv": 3,
+      "value": 19,
+      "desc": "Chặn đạn từ sườn/sau (hồi 3,5s) và 19% né đòn chính diện; chặn sườn giúp cộng thêm 16% né cho đòn chính diện kế tiếp."
+     },
+     {
+      "lv": 4,
+      "value": 21,
+      "desc": "Chặn đạn từ sườn/sau (hồi 3,0s) và 21% né đòn chính diện; chặn sườn giúp cộng thêm 18% né cho đòn chính diện kế tiếp."
+     },
+     {
+      "lv": 5,
+      "value": 24,
+      "desc": "Chặn đạn từ sườn/sau (hồi 2,5s) và 24% né đòn chính diện; mỗi lần chặn sườn cộng thêm 20% tỷ lệ dịch pha cho đòn kế tiếp."
+     }
+    ]
+   },
+   "skill": {
+    "name": "Ảnh Vệ Hư Không",
+    "cooldown": 15,
+    "effect": "Mở trường dịch pha bảo vệ mọi hướng trong 2 giây, vô hiệu hóa 1 đòn đánh bất kỳ và phát tán hạt điện tích.",
+    "new": false
+   },
+   "super": {
+    "name": "THIÊN VỆ VÔ ẢNH",
+    "effect": "Hồi chiêu chặn sườn giảm còn 2,0 giây; mỗi khi dịch pha thành công tăng 15% tốc độ bay trong 2 giây."
+   },
+   "ult": {
+    "name": "VÔ ẢNH TINH HOÀN",
+    "duration": 2.2,
+    "effect": "Phóng 2 bóng dư ảnh tinh vệ sang hai bên sườn hút lệch đường đạn địch và chặn đứng 1 đòn chí mạng.",
+    "new": false
+   },
+   "budget": {
+    "singleDPSvsBase": 0.0,
+    "crowdMax": 0.0,
+    "savesAt6": 2.8,
+    "savesAt20": 8.1
+   },
+   "art": {
+    "partsFrom": [
+     "vòng cầu bán nguyệt 2 hạt ngọc",
+     "lục giác vát cạnh lõi dọc"
+    ],
+    "color": "#C084FC",
+    "icon3": "Dạng 1: Lõi lục giác gắn 2 nhánh bán nguyệt. Dạng 2: 2 hạt ngọc tách nổi hai bên sườn lõi tím. Dạng 3: Cánh lục giác dịch pha mở rộng kèm 4 hạt tinh vệ vàng tím.",
+    "note": "Khung bán nguyệt hở đáy, không khép thành vòng tròn; trong trận chỉ nháy bóng dư ảnh 0,3s."
+   }
+  },
+  {
+   "id": "sss_reactive_nanite",
+   "group": 1,
+   "kind": "armor",
+   "parents": [
+    "reactive",
+    "nanite"
+   ],
+   "name": "Long Mạch Tái Sinh",
+   "cost": {
+    "sss_core": 0,
+    "mats": {
+     "alloy3": 2,
+     "plasma3": 2
+    },
+    "credits": 10000,
+    "totalToLv5": {
+     "sss_core": 0,
+     "matsTotal": 46,
+     "creditsTotal": 115000,
+     "estDaysUnlock": 1.0,
+     "estDaysMax": 7.0
+    },
+    "lvSteps": [
+     {
+      "lv": 1,
+      "sss_core": 0,
+      "mats": {
+       "alloy3": 2,
+       "plasma3": 2
+      },
+      "credits": 10000
+     },
+     {
+      "lv": 2,
+      "sss_core": 0,
+      "mats": {
+       "alloy3": 3,
+       "plasma3": 3
+      },
+      "credits": 15000
+     },
+     {
+      "lv": 3,
+      "sss_core": 0,
+      "mats": {
+       "alloy3": 4,
+       "plasma3": 4
+      },
+      "credits": 20000
+     },
+     {
+      "lv": 4,
+      "sss_core": 0,
+      "mats": {
+       "alloy3": 6,
+       "plasma3": 6
+      },
+      "credits": 30000
+     },
+     {
+      "lv": 5,
+      "sss_core": 0,
+      "mats": {
+       "alloy3": 8,
+       "plasma3": 8
+      },
+      "credits": 40000
+     }
+    ]
+   },
+   "trait": {
+    "name": "Long Huyết Tái Tạo",
+    "ho": "giảm sát thương % kích hoạt hồi máu",
+    "lv": [
+     {
+      "lv": 1,
+      "value": 14,
+      "desc": "Giảm 14% ST nhận vào, hồi 0,6% HP/s ngoài giao tranh; khi trúng đòn kích hoạt Long Huyết hồi ngay 1,5% HP (hồi 10s)."
+     },
+     {
+      "lv": 2,
+      "value": 16,
+      "desc": "Giảm 16% ST nhận vào, hồi 0,7% HP/s ngoài giao tranh; khi trúng đòn kích hoạt Long Huyết hồi ngay 1,8% HP (hồi 9,5s)."
+     },
+     {
+      "lv": 3,
+      "value": 19,
+      "desc": "Giảm 19% ST nhận vào, hồi 0,8% HP/s ngoài giao tranh; khi trúng đòn kích hoạt Long Huyết hồi ngay 2,2% HP (hồi 9s)."
+     },
+     {
+      "lv": 4,
+      "value": 21,
+      "desc": "Giảm 21% ST nhận vào, hồi 0,9% HP/s ngoài giao tranh; khi trúng đòn kích hoạt Long Huyết hồi ngay 2,6% HP (hồi 8,5s)."
+     },
+     {
+      "lv": 5,
+      "value": 24,
+      "desc": "Giảm 24% ST mọi đòn, hồi 1,0% HP/s sau 2,5s an toàn (trần 28%/phút); trúng đòn hồi ngay 3,0% HP (hồi 8s) và bắn 3 tia lửa."
+     }
+    ]
+   },
+   "skill": {
+    "name": "Mạch Lửa Phục Sinh",
+    "cooldown": 14,
+    "effect": "Hồi ngay 12% HP tối đa, tăng mức giảm sát thương lên 45% trong 2 giây và bắn 4 tia lửa nano vào quái gần nhất.",
+    "new": false
+   },
+   "super": {
+    "name": "CHÂN LONG VẠN MẠCH",
+    "effect": "Mức giảm sát thương cố định tăng lên 28%; trần hồi máu ngoài giao tranh nâng lên 35% HP mỗi phút."
+   },
+   "ult": {
+    "name": "LONG MẠCH BẤT DIỆT",
+    "duration": 2.5,
+    "effect": "Bung mạch máu rồng hồi cấp tốc 16% HP tối đa trong 2,5 giây và phóng 6 mũi hỏa tiễn nano thiêu đốt mục tiêu trước mặt.",
+    "new": false
+   },
+   "budget": {
+    "singleDPSvsBase": 0.0,
+    "crowdMax": 0.0,
+    "savesAt6": 3.0,
+    "savesAt20": 7.9
+   },
+   "art": {
+    "partsFrom": [
+     "5 phiến vảy rồng xòe",
+     "lưới sợi nano kim cương"
+    ],
+    "color": "#34D399",
+    "icon3": "Dạng 1: 5 vảy rồng đỏ bọc lõi lưới nano lục. Dạng 2: Vảy rồng xòe rộng lộ mạch phát sáng lục vàng. Dạng 3: Giáp vảy rồng hoàng kim đan tinh thể nano rực lửa.",
+    "note": "Dáng vảy rồng xòe cánh hở; trong trận chỉ chớp tia lửa xanh đỏ 0,3s trên thân tàu."
+   }
+  },
+  {
+   "id": "sss_aurora_void",
+   "group": 2,
+   "kind": "armor",
+   "parents": [
+    "aurora36",
+    "void36"
+   ],
+   "name": "Nhật Thực U Minh",
+   "cost": {
+    "sss_core": 5,
+    "mats": {
+     "alloy3": 3,
+     "plasma3": 3
+    },
+    "credits": 20000,
+    "totalToLv5": {
+     "sss_core": 50,
+     "matsTotal": 56,
+     "creditsTotal": 200000,
+     "estDaysUnlock": 0.3,
+     "estDaysMax": 3.3
+    },
+    "lvSteps": [
+     {
+      "lv": 1,
+      "sss_core": 5,
+      "mats": {
+       "alloy3": 3,
+       "plasma3": 3
+      },
+      "credits": 20000
+     },
+     {
+      "lv": 2,
+      "sss_core": 7,
+      "mats": {
+       "alloy3": 4,
+       "plasma3": 4
+      },
+      "credits": 25000
+     },
+     {
+      "lv": 3,
+      "sss_core": 10,
+      "mats": {
+       "alloy3": 5,
+       "plasma3": 5
+      },
+      "credits": 35000
+     },
+     {
+      "lv": 4,
+      "sss_core": 13,
+      "mats": {
+       "alloy3": 7,
+       "plasma3": 7
+      },
+      "credits": 50000
+     },
+     {
+      "lv": 5,
+      "sss_core": 15,
+      "mats": {
+       "alloy3": 9,
+       "plasma3": 9
+      },
+      "credits": 70000
+     }
+    ]
+   },
+   "trait": {
+    "name": "Quang Ám Giao Thoa",
+    "ho": "sượt đạn tạo khiên kết hợp tàng hình khi vỡ khiên",
+    "lv": [
+     {
+      "lv": 1,
+      "value": 1.2,
+      "desc": "Đủ 9 điểm sượt đạn tạo khiên chặn 1 đòn (hồi 22s); khi khiên vỡ hoặc máu < 35% sẽ tàng hình 1,2s (hồi 24s)."
+     },
+     {
+      "lv": 2,
+      "value": 1.3,
+      "desc": "Đủ 8 điểm sượt đạn tạo khiên chặn 1 đòn (hồi 20s); khi khiên vỡ hoặc máu < 35% sẽ tàng hình 1,3s (hồi 22s)."
+     },
+     {
+      "lv": 3,
+      "value": 1.5,
+      "desc": "Đủ 7 điểm sượt đạn tạo khiên chặn 1 đòn (hồi 18s); khi khiên vỡ hoặc máu < 35% sẽ tàng hình 1,5s (hồi 20s)."
+     },
+     {
+      "lv": 4,
+      "value": 1.6,
+      "desc": "Đủ 6 điểm sượt đạn tạo khiên chặn 1 đòn (hồi 16s); khi khiên vỡ hoặc máu < 35% sẽ tàng hình 1,6s (hồi 18s)."
+     },
+     {
+      "lv": 5,
+      "value": 1.8,
+      "desc": "Đủ 5 điểm sượt đạn tạo khiên chặn 1 đòn (hồi 14s); khi khiên vỡ hoặc máu < 35% lập tức tàng hình 1,8s (hồi 16s) và bắn 4 tia quang ám."
+     }
+    ]
+   },
+   "skill": {
+    "name": "Ẩn Ảnh Nhiệt Hạch",
+    "cooldown": 15,
+    "effect": "Đưa tàu vào trạng thái tàng hình 2,0 giây và phóng quạt tia nhiệt quang xóa đạn địch phía trước mũi tàu.",
+    "new": false
+   },
+   "super": {
+    "name": "NHẬT THỰC VĨNH HẰNG",
+    "effect": "Trong lúc tàng hình, bán kính tính điểm sượt đạn mở rộng gấp đôi và tăng 20% sát thương trang bị."
+   },
+   "ult": {
+    "name": "QUANG ÁM NHẬT THỰC",
+    "duration": 2.2,
+    "effect": "Tàu hóa bóng quang ám lướt xuyên mọi đạn địch trong 2,2 giây, nạp đầy khiên thánh quang và phóng 8 lưỡi mảnh tối.",
+    "new": false
+   },
+   "budget": {
+    "singleDPSvsBase": 0.0,
+    "crowdMax": 0.0,
+    "savesAt6": 2.9,
+    "savesAt20": 8.2
+   },
+   "art": {
+    "partsFrom": [
+     "khiên thánh huy tâm tròn",
+     "áo choàng bóng tối răng cưa"
+    ],
+    "color": "#F59E0B",
+    "icon3": "Dạng 1: Khiên thánh huy vàng khoác tà áo choàng đen tím. Dạng 2: Cánh áo choàng răng cưa mở rộng ôm lõi nhật thực. Dạng 3: Giáp vai quang ám 4 cánh nổi phát tia vàng tím.",
+    "note": "Thiết kế dạng giáp vai choàng chữ A hở đáy; trong trận chỉ chớp bóng mờ vàng tím 0,4s."
+   }
+  },
+  {
+   "id": "sss_seraph_aegis9",
+   "group": 2,
+   "kind": "armor",
+   "parents": [
+    "seraph36",
+    "aegis9"
+   ],
+   "name": "Thánh Hạm Thiên Dực",
+   "cost": {
+    "sss_core": 5,
+    "mats": {
+     "alloy3": 3,
+     "plasma3": 3
+    },
+    "credits": 20000,
+    "totalToLv5": {
+     "sss_core": 50,
+     "matsTotal": 56,
+     "creditsTotal": 200000,
+     "estDaysUnlock": 0.3,
+     "estDaysMax": 3.3
+    },
+    "lvSteps": [
+     {
+      "lv": 1,
+      "sss_core": 5,
+      "mats": {
+       "alloy3": 3,
+       "plasma3": 3
+      },
+      "credits": 20000
+     },
+     {
+      "lv": 2,
+      "sss_core": 7,
+      "mats": {
+       "alloy3": 4,
+       "plasma3": 4
+      },
+      "credits": 25000
+     },
+     {
+      "lv": 3,
+      "sss_core": 10,
+      "mats": {
+       "alloy3": 5,
+       "plasma3": 5
+      },
+      "credits": 35000
+     },
+     {
+      "lv": 4,
+      "sss_core": 13,
+      "mats": {
+       "alloy3": 7,
+       "plasma3": 7
+      },
+      "credits": 50000
+     },
+     {
+      "lv": 5,
+      "sss_core": 15,
+      "mats": {
+       "alloy3": 9,
+       "plasma3": 9
+      },
+      "credits": 70000
+     }
+    ]
+   },
+   "trait": {
+    "name": "Thánh Dực Hộ Hạm",
+    "ho": "giảm sát thương đội hình kết hợp khiên nhặt đồ",
+    "lv": [
+     {
+      "lv": 1,
+      "value": 10,
+      "desc": "Giảm 10% ST (tối đa 18% khi có tiêm kích); nhặt đồ nhận khiên 3% HP (tối đa 3 tầng), đủ 3 tầng phóng mảnh titan xóa đạn."
+     },
+     {
+      "lv": 2,
+      "value": 12,
+      "desc": "Giảm 12% ST (tối đa 21% khi có tiêm kích); nhặt đồ nhận khiên 3,5% HP (tối đa 3 tầng), đủ 3 tầng phóng mảnh titan xóa đạn."
+     },
+     {
+      "lv": 3,
+      "value": 15,
+      "desc": "Giảm 15% ST (tối đa 25% khi có tiêm kích); nhặt đồ nhận khiên 4% HP (tối đa 3 tầng), đủ 3 tầng phóng mảnh titan xóa đạn."
+     },
+     {
+      "lv": 4,
+      "value": 17,
+      "desc": "Giảm 17% ST (tối đa 28% khi có tiêm kích); nhặt đồ nhận khiên 5% HP (tối đa 3 tầng), đủ 3 tầng phóng mảnh titan xóa đạn."
+     },
+     {
+      "lv": 5,
+      "value": 20,
+      "desc": "Giảm 20% ST (lên 32% khi có tiêm kích); nhặt đồ nhận khiên 6% HP (tối đa 3 tầng = 18% HP), đủ 3 tầng hồi 1,5% HP và xóa đạn trước mặt."
+     }
+    ]
+   },
+   "skill": {
+    "name": "Cánh Thánh Kỳ Hạm",
+    "cooldown": 15,
+    "effect": "Giảm 50% sát thương nhận vào trong 2,5 giây, hồi ngay 8% HP và phóng loạt mảnh năng lượng xóa đạn trước mũi.",
+    "new": false
+   },
+   "super": {
+    "name": "THIÊN DỰC SOÁI HẠM",
+    "effect": "Tự động hút mọi vật phẩm trên màn hình về tàu và duy trì hiệu ứng giảm sát thương tối đa của biên đội."
+   },
+   "ult": {
+    "name": "THÁNH HẠM HỘ ĐỘI",
+    "duration": 2.4,
+    "effect": "Hút toàn bộ vật phẩm rơi, lập tức dựng 3 tầng khiên thánh dực (18% HP) và bắn loạt pháo ánh sáng dọn đạn phía trước.",
+    "new": false
+   },
+   "budget": {
+    "singleDPSvsBase": 0.0,
+    "crowdMax": 0.0,
+    "savesAt6": 2.8,
+    "savesAt20": 8.0
+   },
+   "art": {
+    "partsFrom": [
+     "đôi cánh lông vũ thánh dực",
+     "pháo hạm chiến hạm mini"
+    ],
+    "color": "#FDE047",
+    "icon3": "Dạng 1: Thân pháo hạm gắn đôi cánh lông vũ trắng vàng. Dạng 2: Mở 4 cánh thánh dực và tháp pháo sáng đèn. Dạng 3: Soái hạm 6 cánh thiên thần viền vàng kim rực rỡ.",
+    "note": "Dáng cánh thiên thần sải ngang hở đỉnh và đáy; trong trận chỉ chớp lông vũ vàng 0,4s."
+   }
+  },
+  {
+   "id": "sss_devour_chrono_a",
+   "group": 2,
+   "kind": "armor",
+   "parents": [
+    "devour10_a",
+    "chrono11_a"
+   ],
+   "name": "Phệ Thời Ma Giáp",
+   "cost": {
+    "sss_core": 5,
+    "mats": {
+     "alloy3": 3,
+     "plasma3": 3
+    },
+    "credits": 20000,
+    "totalToLv5": {
+     "sss_core": 50,
+     "matsTotal": 56,
+     "creditsTotal": 200000,
+     "estDaysUnlock": 0.3,
+     "estDaysMax": 3.3
+    },
+    "lvSteps": [
+     {
+      "lv": 1,
+      "sss_core": 5,
+      "mats": {
+       "alloy3": 3,
+       "plasma3": 3
+      },
+      "credits": 20000
+     },
+     {
+      "lv": 2,
+      "sss_core": 7,
+      "mats": {
+       "alloy3": 4,
+       "plasma3": 4
+      },
+      "credits": 25000
+     },
+     {
+      "lv": 3,
+      "sss_core": 10,
+      "mats": {
+       "alloy3": 5,
+       "plasma3": 5
+      },
+      "credits": 35000
+     },
+     {
+      "lv": 4,
+      "sss_core": 13,
+      "mats": {
+       "alloy3": 7,
+       "plasma3": 7
+      },
+      "credits": 50000
+     },
+     {
+      "lv": 5,
+      "sss_core": 15,
+      "mats": {
+       "alloy3": 9,
+       "plasma3": 9
+      },
+      "credits": 70000
+     }
+    ]
+   },
+   "trait": {
+    "name": "Huyết Thời Luân Hồi",
+    "ho": "hút máu diệt địch nạp nhanh bảo hiểm chí tử",
+    "lv": [
+     {
+      "lv": 1,
+      "value": 0.4,
+      "desc": "Hạ quái hồi 0,4% HP (trần 7%/10s), giữ 1 HP + bất tử 1,2s khi chí tử (hồi 80s); mỗi quái hạ khi đầy máu giảm 0,5s hồi chí tử."
+     },
+     {
+      "lv": 2,
+      "value": 0.5,
+      "desc": "Hạ quái hồi 0,5% HP (trần 8%/10s), giữ 1 HP + bất tử 1,4s khi chí tử (hồi 72s); mỗi quái hạ khi đầy máu giảm 0,6s hồi chí tử."
+     },
+     {
+      "lv": 3,
+      "value": 0.7,
+      "desc": "Hạ quái hồi 0,7% HP (trần 9%/10s), giữ 1 HP + bất tử 1,6s khi chí tử (hồi 65s); mỗi quái hạ khi đầy máu giảm 0,7s hồi chí tử."
+     },
+     {
+      "lv": 4,
+      "value": 0.8,
+      "desc": "Hạ quái hồi 0,8% HP (trần 10%/10s), giữ 1 HP + bất tử 1,8s khi chí tử (hồi 58s); mỗi quái hạ khi đầy máu giảm 0,8s hồi chí tử."
+     },
+     {
+      "lv": 5,
+      "value": 1.0,
+      "desc": "Hạ quái hồi 1,0% HP (trần 12%/10s, tinh anh/cánh Boss hồi 6%), giữ 1 HP + bất tử 2,0s khi chí tử (hồi 55s, giảm tối đa còn 42s khi hạ quái)."
+     }
+    ]
+   },
+   "skill": {
+    "name": "Tua Ngược Phệ Năng",
+    "cooldown": 16,
+    "effect": "Hút sạch mảnh vỡ trên màn, hồi ngay 8% HP tối đa cộng thêm 40% lượng máu vừa mất trong 2 giây trước.",
+    "new": true
+   },
+   "super": {
+    "name": "THÔN THỜI BẤT TỬ",
+    "effect": "Trần hồi máu quái thường tăng lên 16% HP mỗi 10 giây; sau khi kích hoạt giữ 1 HP được hồi ngay 15% máu."
+   },
+   "ult": {
+    "name": "NGHỊCH LƯU HUYẾT MẠCH",
+    "duration": 2.2,
+    "effect": "Làm chậm 65% đạn địch quanh tàu trong 1,5 giây, hoàn trả 60% máu vừa mất trong 3 giây trước và phóng 6 tia huyết tinh.",
+    "new": false
+   },
+   "budget": {
+    "singleDPSvsBase": 0.0,
+    "crowdMax": 0.0,
+    "savesAt6": 2.9,
+    "savesAt20": 8.3
+   },
+   "art": {
+    "partsFrom": [
+     "ngàm quái thú sừng nhọn",
+     "bánh răng đồng hồ thời gian"
+    ],
+    "color": "#EC4899",
+    "icon3": "Dạng 1: Ngàm sừng tím ngoạm nửa bánh răng đồng hồ bạc. Dạng 2: 2 sừng lớn tỏa gai đỏ ôm kim đồng hồ vàng. Dạng 3: Khung ma giáp sừng hoàng kim với bánh răng thời không tách nổi.",
+    "note": "Cấu trúc ngàm sừng chữ U ngược hở đáy; trong trận chỉ chớp tia đỏ vàng 0,4s."
+   }
+  },
+  {
+   "id": "sss_chrono_monarch_a",
+   "group": 2,
+   "kind": "armor",
+   "parents": [
+    "chrono11_a",
+    "monarch12_a"
+   ],
+   "name": "Vĩnh Hằng Đế Giáp",
+   "cost": {
+    "sss_core": 5,
+    "mats": {
+     "alloy3": 3,
+     "plasma3": 3
+    },
+    "credits": 20000,
+    "totalToLv5": {
+     "sss_core": 50,
+     "matsTotal": 56,
+     "creditsTotal": 200000,
+     "estDaysUnlock": 0.3,
+     "estDaysMax": 3.3
+    },
+    "lvSteps": [
+     {
+      "lv": 1,
+      "sss_core": 5,
+      "mats": {
+       "alloy3": 3,
+       "plasma3": 3
+      },
+      "credits": 20000
+     },
+     {
+      "lv": 2,
+      "sss_core": 7,
+      "mats": {
+       "alloy3": 4,
+       "plasma3": 4
+      },
+      "credits": 25000
+     },
+     {
+      "lv": 3,
+      "sss_core": 10,
+      "mats": {
+       "alloy3": 5,
+       "plasma3": 5
+      },
+      "credits": 35000
+     },
+     {
+      "lv": 4,
+      "sss_core": 13,
+      "mats": {
+       "alloy3": 7,
+       "plasma3": 7
+      },
+      "credits": 50000
+     },
+     {
+      "lv": 5,
+      "sss_core": 15,
+      "mats": {
+       "alloy3": 9,
+       "plasma3": 9
+      },
+      "credits": 70000
+     }
+    ]
+   },
+   "trait": {
+    "name": "Đế Quyền Xóa Nợ",
+    "ho": "hoãn sát thương rút dần kết hợp tua ngược xóa nợ",
+    "lv": [
+     {
+      "lv": 1,
+      "value": 35,
+      "desc": "Mọi đòn đánh nhận ngay 65%, hoãn 35% rút dần trong 4s; khi chạm ngưỡng chí tử giữ 1 HP + xóa 100% máu đang nợ (hồi 80s)."
+     },
+     {
+      "lv": 2,
+      "value": 42,
+      "desc": "Mọi đòn đánh nhận ngay 58%, hoãn 42% rút dần trong 4s; khi chạm ngưỡng chí tử giữ 1 HP + xóa 100% máu đang nợ (hồi 72s)."
+     },
+     {
+      "lv": 3,
+      "value": 50,
+      "desc": "Mọi đòn đánh nhận ngay 50%, hoãn 50% rút dần trong 4s; khi chạm ngưỡng chí tử giữ 1 HP + xóa 100% máu đang nợ (hồi 65s)."
+     },
+     {
+      "lv": 4,
+      "value": 58,
+      "desc": "Mọi đòn đánh nhận ngay 42%, hoãn 58% rút dần trong 4s; khi chạm ngưỡng chí tử giữ 1 HP + xóa 100% máu đang nợ (hồi 60s)."
+     },
+     {
+      "lv": 5,
+      "value": 65,
+      "desc": "Mọi đòn đánh chỉ nhận ngay 35% (65% rút dần trong 4s); khi chạm chí tử (hồi 55s) giữ 1 HP, bất tử 2,0s và xóa sạch 100% máu đang nợ."
+     }
+    ]
+   },
+   "skill": {
+    "name": "Hoàng Quyền Nghịch Thời",
+    "cooldown": 18,
+    "effect": "Xóa bỏ ngay lập tức 100% lượng sát thương rút dần đang nợ, đồng thời dựng khiên hoàng gia chặn 1 đòn kế tiếp.",
+    "new": false
+   },
+   "super": {
+    "name": "VĨNH HẰNG ĐẾ MỆNH",
+    "effect": "Mỗi khi tiêu diệt 1 quái sẽ xóa thêm 35% sát thương đang nợ trong bể rút máu."
+   },
+   "ult": {
+    "name": "THỜI KHÔNG ĐẾ QUYỀN",
+    "duration": 2.5,
+    "effect": "Xóa sạch toàn bộ sát thương đang nợ, hồi 10% HP tối đa và làm chậm 60% tốc độ đạn địch trên màn hình trong 2,5 giây.",
+    "new": false
+   },
+   "budget": {
+    "singleDPSvsBase": 0.0,
+    "crowdMax": 0.0,
+    "savesAt6": 3.1,
+    "savesAt20": 8.6
+   },
+   "art": {
+    "partsFrom": [
+     "bánh răng đồng hồ thời gian",
+     "vương miện hoàng đế có tua rua"
+    ],
+    "color": "#FBBF24",
+    "icon3": "Dạng 1: Vương miện vàng đặt trên nửa bánh răng đồng hồ. Dạng 2: 2 cánh bánh răng mở rộng kèm kim đồng hồ hoàng kim. Dạng 3: Đại vương miện đế vương tua rua tím gắn lõi thời không rực sáng.",
+    "note": "Dáng vương miện có cánh bánh răng hai bên (không phải vòng tròn kín); trong trận chớp vàng tím 0,4s."
+   }
+  },
+  {
+   "id": "sss_monarch_aegis",
+   "group": 3,
+   "kind": "armor",
+   "parents": [
+    "monarch12_a",
+    "aegis"
+   ],
+   "name": "Hoàng Thành Bất Hoại",
+   "cost": {
+    "sss_core": 5,
+    "mats": {
+     "alloy3": 3,
+     "plasma3": 3
+    },
+    "credits": 20000,
+    "totalToLv5": {
+     "sss_core": 50,
+     "matsTotal": 56,
+     "creditsTotal": 200000,
+     "estDaysUnlock": 0.3,
+     "estDaysMax": 3.3
+    },
+    "lvSteps": [
+     {
+      "lv": 1,
+      "sss_core": 5,
+      "mats": {
+       "alloy3": 3,
+       "plasma3": 3
+      },
+      "credits": 20000
+     },
+     {
+      "lv": 2,
+      "sss_core": 7,
+      "mats": {
+       "alloy3": 4,
+       "plasma3": 4
+      },
+      "credits": 25000
+     },
+     {
+      "lv": 3,
+      "sss_core": 10,
+      "mats": {
+       "alloy3": 5,
+       "plasma3": 5
+      },
+      "credits": 35000
+     },
+     {
+      "lv": 4,
+      "sss_core": 13,
+      "mats": {
+       "alloy3": 7,
+       "plasma3": 7
+      },
+      "credits": 50000
+     },
+     {
+      "lv": 5,
+      "sss_core": 15,
+      "mats": {
+       "alloy3": 9,
+       "plasma3": 9
+      },
+      "credits": 70000
+     }
+    ]
+   },
+   "trait": {
+    "name": "Hoàng Thành Huyết Thuẫn",
+    "ho": "khiên chặn định kỳ kết hợp hoãn sát thương",
+    "lv": [
+     {
+      "lv": 1,
+      "value": 35,
+      "desc": "Mỗi 28s tạo 1 tầng Khiên Hoàng Thành chặn 1 đòn; khi mất khiên, đòn trúng chỉ mất ngay 65% (35% rút dần 4s) và giảm 1s hồi khiên."
+     },
+     {
+      "lv": 2,
+      "value": 42,
+      "desc": "Mỗi 25s tạo 1 tầng Khiên Hoàng Thành chặn 1 đòn; khi mất khiên, đòn trúng chỉ mất ngay 58% (42% rút dần 4s) và giảm 1s hồi khiên."
+     },
+     {
+      "lv": 3,
+      "value": 48,
+      "desc": "Mỗi 22s tạo 1 tầng Khiên Hoàng Thành chặn 1 đòn; khi mất khiên, đòn trúng chỉ mất ngay 52% (48% rút dần 4s) và giảm 1,5s hồi khiên."
+     },
+     {
+      "lv": 4,
+      "value": 54,
+      "desc": "Mỗi 20s tạo 1 tầng Khiên Hoàng Thành chặn 1 đòn; khi mất khiên, đòn trúng chỉ mất ngay 46% (54% rút dần 4s) và giảm 1,5s hồi khiên."
+     },
+     {
+      "lv": 5,
+      "value": 60,
+      "desc": "Mỗi 18s tạo 1 tầng Khiên Hoàng Thành chặn 1 đòn; khi khiên đang hồi, đòn trúng chỉ mất ngay 40% (60% rút dần 4s) và giảm 2s hồi khiên."
+     }
+    ]
+   },
+   "skill": {
+    "name": "Thành Lũy Đế Vương",
+    "cooldown": 17,
+    "effect": "Dựng kết giới hoàng thành chặn đứng 1 đòn đánh trong 2 giây, xóa 50% máu đang nợ và phóng chùm tia phá đạn.",
+    "new": false
+   },
+   "super": {
+    "name": "VẠN CỔ HOÀNG THÀNH",
+    "effect": "Thời gian hồi Khiên Hoàng Thành giảm xuống 14 giây; khi khiên chặn đòn sẽ xóa sạch toàn bộ máu rút dần đang nợ."
+   },
+   "ult": {
+    "name": "ĐẾ THÀNH VẠN CỔ",
+    "duration": 2.4,
+    "effect": "Lập tức tạo 1 tầng Khiên Hoàng Thành, xóa sạch sát thương đang nợ và phóng 8 mũi giáo hoàng kim dọn sạch đạn phía trước.",
+    "new": false
+   },
+   "budget": {
+    "singleDPSvsBase": 0.0,
+    "crowdMax": 0.0,
+    "savesAt6": 3.0,
+    "savesAt20": 8.5
+   },
+   "art": {
+    "partsFrom": [
+     "vương miện hoàng đế có tua rua",
+     "tấm giáp mặt nguyệt"
+    ],
+    "color": "#F59E0B",
+    "icon3": "Dạng 1: 2 tấm giáp mặt nguyệt ghép đối xứng đỡ vương miện vàng. Dạng 2: Cánh mặt nguyệt mạ vàng mở rộng kèm tua rua tím. Dạng 3: Pháo đài vương miện hoàng kim 4 cánh nổi uy nghi.",
+    "note": "Khung giáp đôi cánh mặt nguyệt hở đỉnh và đáy; trong trận chớp sáng kim loại vàng 0,3s."
+   }
+  },
+  {
+   "id": "sss_inferno_cryo",
+   "group": 1,
+   "kind": "missiles",
+   "parents": [
+    "inferno",
+    "cryo"
+   ],
+   "name": "Băng Hỏa Song Long",
+   "cost": {
+    "sss_core": 0,
+    "mats": {
+     "crystal3": 2,
+     "alloy3": 2
+    },
+    "credits": 10000,
+    "totalToLv5": {
+     "sss_core": 0,
+     "matsTotal": 46,
+     "creditsTotal": 115000,
+     "estDaysUnlock": 1.0,
+     "estDaysMax": 7.0
+    },
+    "lvSteps": [
+     {
+      "lv": 1,
+      "sss_core": 0,
+      "mats": {
+       "crystal3": 2,
+       "alloy3": 2
+      },
+      "credits": 10000
+     },
+     {
+      "lv": 2,
+      "sss_core": 0,
+      "mats": {
+       "crystal3": 3,
+       "alloy3": 3
+      },
+      "credits": 15000
+     },
+     {
+      "lv": 3,
+      "sss_core": 0,
+      "mats": {
+       "crystal3": 4,
+       "alloy3": 4
+      },
+      "credits": 20000
+     },
+     {
+      "lv": 4,
+      "sss_core": 0,
+      "mats": {
+       "crystal3": 6,
+       "alloy3": 6
+      },
+      "credits": 30000
+     },
+     {
+      "lv": 5,
+      "sss_core": 0,
+      "mats": {
+       "crystal3": 8,
+       "alloy3": 8
+      },
+      "credits": 40000
+     }
+    ]
+   },
+   "trait": {
+    "name": "Sốc Nhiệt Phá Giáp",
+    "ho": "băng hỏa giao thoa nổ sốc nhiệt",
+    "lv": [
+     {
+      "lv": 1,
+      "value": 20,
+      "desc": "Bắn cặp tên lửa Băng và Hỏa; mục tiêu dính cả Cháy và Lạnh bị nổ Sốc Nhiệt gây thêm 20% ST và +8% ST trang bị."
+     },
+     {
+      "lv": 2,
+      "value": 26,
+      "desc": "Bắn cặp tên lửa Băng và Hỏa; mục tiêu dính cả Cháy và Lạnh bị nổ Sốc Nhiệt gây thêm 26% ST và +10% ST trang bị."
+     },
+     {
+      "lv": 3,
+      "value": 32,
+      "desc": "Bắn cặp tên lửa Băng và Hỏa; mục tiêu dính cả Cháy và Lạnh bị nổ Sốc Nhiệt gây thêm 32% ST và +12% ST trang bị."
+     },
+     {
+      "lv": 4,
+      "value": 38,
+      "desc": "Bắn cặp tên lửa Băng và Hỏa; mục tiêu dính cả Cháy và Lạnh bị nổ Sốc Nhiệt gây thêm 38% ST và +14% ST trang bị."
+     },
+     {
+      "lv": 5,
+      "value": 45,
+      "desc": "Mục tiêu vừa Cháy vừa Lạnh (chậm 30%) bị nổ Sốc Nhiệt gây thêm 45% ST và Nứt Giáp +16% ST (chỉ nhân sát thương trang bị)."
+     }
+    ]
+   },
+   "skill": {
+    "name": "Băng Hỏa Tề Xạ",
+    "cooldown": 9,
+    "effect": "Phóng 3 quả tên lửa lửa và 3 mũi khoan băng dồn vào mục tiêu, lập tức kích nổ Sốc Nhiệt diện rộng.",
+    "new": true
+   },
+   "super": {
+    "name": "SONG LONG HỘI TỤ",
+    "effect": "Đầu đạn Băng – Hỏa bay xoắn kép xuyên 2 mục tiêu và để lại vệt sương lửa dọc đường bay."
+   },
+   "ult": {
+    "name": "BĂNG HỎA PHÁ THIÊN",
+    "duration": 2.4,
+    "effect": "Triệu hồi 2 đại long Băng – Hỏa càn quét dọc màn hình, kích nổ sốc nhiệt liên hoàn và làm chậm 40% đạn địch.",
+    "new": false
+   },
+   "budget": {
+    "singleDPSvsBase": 1.35,
+    "crowdMax": 1.9,
+    "savesAt6": 0.0,
+    "savesAt20": 0.0
+   },
+   "art": {
+    "partsFrom": [
+     "cụm 3 đầu đạn liên kết",
+     "đầu đạn rocket có cánh đuôi"
+    ],
+    "color": "#FF5722",
+    "icon3": "Dạng 1: Rocket cánh đuôi băng gắn cụm 3 đầu đạn lửa ở mũi. Dạng 2: Tách 2 nòng đôi nửa đỏ rực nửa lam băng. Dạng 3: Bệ phóng Song Long 6 đầu đạn viền vàng kim tỏa hàn khí và lửa.",
+    "note": "Tên lửa phóng từ thân chiến cơ; chớp sương lửa 0,3s lúc kích hoạt."
+   }
+  },
+  {
+   "id": "sss_thunder_singularity",
+   "group": 1,
+   "kind": "missiles",
+   "parents": [
+    "thunder",
+    "singularity"
+   ],
+   "name": "Lôi Uyên Thiên Phạt",
+   "cost": {
+    "sss_core": 0,
+    "mats": {
+     "crystal3": 2,
+     "alloy3": 2
+    },
+    "credits": 10000,
+    "totalToLv5": {
+     "sss_core": 0,
+     "matsTotal": 46,
+     "creditsTotal": 115000,
+     "estDaysUnlock": 1.0,
+     "estDaysMax": 7.0
+    },
+    "lvSteps": [
+     {
+      "lv": 1,
+      "sss_core": 0,
+      "mats": {
+       "crystal3": 2,
+       "alloy3": 2
+      },
+      "credits": 10000
+     },
+     {
+      "lv": 2,
+      "sss_core": 0,
+      "mats": {
+       "crystal3": 3,
+       "alloy3": 3
+      },
+      "credits": 15000
+     },
+     {
+      "lv": 3,
+      "sss_core": 0,
+      "mats": {
+       "crystal3": 4,
+       "alloy3": 4
+      },
+      "credits": 20000
+     },
+     {
+      "lv": 4,
+      "sss_core": 0,
+      "mats": {
+       "crystal3": 6,
+       "alloy3": 6
+      },
+      "credits": 30000
+     },
+     {
+      "lv": 5,
+      "sss_core": 0,
+      "mats": {
+       "crystal3": 8,
+       "alloy3": 8
+      },
+      "credits": 40000
+     }
+    ]
+   },
+   "trait": {
+    "name": "Hố Đen Lôi Từ",
+    "ho": "xoáy hút quái kết hợp trụ phóng sét dây chuyền",
+    "lv": [
+     {
+      "lv": 1,
+      "value": 2,
+      "desc": "Ngư lôi nổ tạo xoáy hút quái nhỏ (45px); tâm xoáy phóng sét giật chuyền 2 mục tiêu (+15% ST)."
+     },
+     {
+      "lv": 2,
+      "value": 3,
+      "desc": "Ngư lôi nổ tạo xoáy hút quái nhỏ (50px); tâm xoáy phóng sét giật chuyền 3 mục tiêu (+20% ST)."
+     },
+     {
+      "lv": 3,
+      "value": 3,
+      "desc": "Ngư lôi nổ tạo xoáy hút quái nhỏ (55px) và nuốt 2 đạn; tâm xoáy giật sét 3 mục tiêu (+25% ST)."
+     },
+     {
+      "lv": 4,
+      "value": 4,
+      "desc": "Ngư lôi nổ tạo xoáy hút quái nhỏ (60px) và nuốt 3 đạn; tâm xoáy giật sét 4 mục tiêu (+30% ST)."
+     },
+     {
+      "lv": 5,
+      "value": 4,
+      "desc": "Tạo xoáy lôi từ 65px trong 1,2s hút quái nhỏ và nuốt 4 đạn địch; tâm xoáy giật sét 4 mục tiêu (+35% ST đồng đều)."
+     }
+    ]
+   },
+   "skill": {
+    "name": "Tụ Điểm Lôi Đình",
+    "cooldown": 10,
+    "effect": "Đặt 2 xoáy lôi từ trước mũi tàu gom quái nhỏ, nuốt đạn địch và giật 8 nhánh sét liên hoàn.",
+    "new": false
+   },
+   "super": {
+    "name": "CỬU U LÔI VỰC",
+    "effect": "Mỗi viên đạn địch bị xoáy hút vào sẽ chuyển hóa thành 1 tia sét phụ bắn thẳng vào Boss."
+   },
+   "ult": {
+    "name": "LÔI UYÊN DIỆT GIỚI",
+    "duration": 2.5,
+    "effect": "Dựng 2 tâm bão lôi uyên hút gom quái và đạn địch, đồng thời giật 12 tia sét tím hủy diệt giữa 2 tâm bão.",
+    "new": false
+   },
+   "budget": {
+    "singleDPSvsBase": 1.33,
+    "crowdMax": 2.0,
+    "savesAt6": 0.0,
+    "savesAt20": 0.0
+   },
+   "art": {
+    "partsFrom": [
+     "tháp cuộn cảm tesla 3 tầng",
+     "đầu đạn ngư lôi 2 vành sóng"
+    ],
+    "color": "#A855F7",
+    "icon3": "Dạng 1: Ngư lôi tím gắn cuộn cảm tesla 3 tầng ở đỉnh. Dạng 2: 2 vành sóng mở rộng phát tia sét vàng tím. Dạng 3: Đại ngư lôi lõi hố đen bao quanh bởi 4 cột thu lôi hoàng kim.",
+    "note": "Hiệu ứng xoáy dùng các nhánh tia sét xoắn ốc, không vẽ vòng tròn đặc."
+   }
+  },
+  {
+   "id": "sss_spiral_stellar",
+   "group": 1,
+   "kind": "missiles",
+   "parents": [
+    "spiral",
+    "stellar"
+   ],
+   "name": "Tinh Long Vạn Vũ",
+   "cost": {
+    "sss_core": 0,
+    "mats": {
+     "crystal3": 2,
+     "alloy3": 2
+    },
+    "credits": 10000,
+    "totalToLv5": {
+     "sss_core": 0,
+     "matsTotal": 46,
+     "creditsTotal": 115000,
+     "estDaysUnlock": 1.0,
+     "estDaysMax": 7.0
+    },
+    "lvSteps": [
+     {
+      "lv": 1,
+      "sss_core": 0,
+      "mats": {
+       "crystal3": 2,
+       "alloy3": 2
+      },
+      "credits": 10000
+     },
+     {
+      "lv": 2,
+      "sss_core": 0,
+      "mats": {
+       "crystal3": 3,
+       "alloy3": 3
+      },
+      "credits": 15000
+     },
+     {
+      "lv": 3,
+      "sss_core": 0,
+      "mats": {
+       "crystal3": 4,
+       "alloy3": 4
+      },
+      "credits": 20000
+     },
+     {
+      "lv": 4,
+      "sss_core": 0,
+      "mats": {
+       "crystal3": 6,
+       "alloy3": 6
+      },
+      "credits": 30000
+     },
+     {
+      "lv": 5,
+      "sss_core": 0,
+      "mats": {
+       "crystal3": 8,
+       "alloy3": 8
+      },
+      "credits": 40000
+     }
+    ]
+   },
+   "trait": {
+    "name": "Song Long Phân Tinh",
+    "ho": "xoắn ốc bẻ góc kết hợp tách sao tự dẫn",
+    "lv": [
+     {
+      "lv": 1,
+      "value": 3,
+      "desc": "2 tên lửa xoắn ốc khi trúng mục tiêu đầu sẽ bẻ góc truy kích tiếp và tách ra 3 sao con tự dẫn (30% ST)."
+     },
+     {
+      "lv": 2,
+      "value": 3,
+      "desc": "2 tên lửa xoắn ốc khi trúng mục tiêu đầu sẽ bẻ góc truy kích tiếp và tách ra 3 sao con tự dẫn (35% ST)."
+     },
+     {
+      "lv": 3,
+      "value": 4,
+      "desc": "2 tên lửa xoắn ốc khi trúng mục tiêu đầu sẽ bẻ góc truy kích tiếp và tách ra 4 sao con tự dẫn (35% ST)."
+     },
+     {
+      "lv": 4,
+      "value": 4,
+      "desc": "2 tên lửa xoắn ốc khi trúng mục tiêu đầu sẽ bẻ góc truy kích tiếp và tách ra 4 sao con tự dẫn (40% ST)."
+     },
+     {
+      "lv": 5,
+      "value": 5,
+      "desc": "Tên lửa xoắn ốc chắc chắn bẻ góc truy kích mục tiêu thứ 2, đồng thời tách ra 5 sao con tự dẫn (40% ST)."
+     }
+    ]
+   },
+   "skill": {
+    "name": "Long Tinh Truy Ảnh",
+    "cooldown": 11,
+    "effect": "Phóng 4 tên lửa xoắn ốc tốc độ cao, khi chạm mục tiêu bung ra 16 ngôi sao tự dẫn khóa chặt các cánh Boss.",
+    "new": false
+   },
+   "super": {
+    "name": "BÍCH LONG TINH VŨ",
+    "effect": "Tên lửa xoắn ốc xuyên qua mục tiêu đầu tiên và tách sao con ở cả 2 lần va chạm."
+   },
+   "ult": {
+    "name": "TINH LONG VẠN TIỄN",
+    "duration": 2.4,
+    "effect": "Phóng 4 đại thương rồng xoắn ốc phân tách thành cơn mưa 20 sao băng tự dẫn bao phủ toàn màn hình.",
+    "new": false
+   },
+   "budget": {
+    "singleDPSvsBase": 1.36,
+    "crowdMax": 1.95,
+    "savesAt6": 0.0,
+    "savesAt20": 0.0
+   },
+   "art": {
+    "partsFrom": [
+     "ổ xoay 6 nòng đạn",
+     "đầu đạn hình nón 4 cánh xếp"
+    ],
+    "color": "#2DD4BF",
+    "icon3": "Dạng 1: Ổ xoay 6 nòng đặt trong khung hộp 4 cánh mở. Dạng 2: 6 nòng nhô dài đính đầu đạn sao vàng. Dạng 3: Pháo đài 2 ổ xoay kép 12 nòng bung cánh hoa thị vàng ngọc.",
+    "note": "Tên lửa phóng từ thân tàu, uốn xoắn xanh ngọc và tách hạt sao vàng."
+   }
+  },
+  {
+   "id": "sss_comet_nova",
+   "group": 2,
+   "kind": "missiles",
+   "parents": [
+    "comet36",
+    "nova36"
+   ],
+   "name": "Thiên Kiếm Diệt Tinh",
+   "cost": {
+    "sss_core": 5,
+    "mats": {
+     "crystal3": 3,
+     "alloy3": 3
+    },
+    "credits": 20000,
+    "totalToLv5": {
+     "sss_core": 50,
+     "matsTotal": 56,
+     "creditsTotal": 200000,
+     "estDaysUnlock": 0.3,
+     "estDaysMax": 3.3
+    },
+    "lvSteps": [
+     {
+      "lv": 1,
+      "sss_core": 5,
+      "mats": {
+       "crystal3": 3,
+       "alloy3": 3
+      },
+      "credits": 20000
+     },
+     {
+      "lv": 2,
+      "sss_core": 7,
+      "mats": {
+       "crystal3": 4,
+       "alloy3": 4
+      },
+      "credits": 25000
+     },
+     {
+      "lv": 3,
+      "sss_core": 10,
+      "mats": {
+       "crystal3": 5,
+       "alloy3": 5
+      },
+      "credits": 35000
+     },
+     {
+      "lv": 4,
+      "sss_core": 13,
+      "mats": {
+       "crystal3": 7,
+       "alloy3": 7
+      },
+      "credits": 50000
+     },
+     {
+      "lv": 5,
+      "sss_core": 15,
+      "mats": {
+       "crystal3": 9,
+       "alloy3": 9
+      },
+      "credits": 70000
+     }
+    ]
+   },
+   "trait": {
+    "name": "Kiếm Chấn Hư Không",
+    "ho": "phi kiếm rơi thẳng nổ hạt chấn động xóa đạn",
+    "lv": [
+     {
+      "lv": 1,
+      "value": 55,
+      "desc": "Kiếm cắm từ đỉnh màn xuống mục tiêu (125% ST), phát nổ chùm hạt chấn động 55px xóa đạn địch quanh điểm cắm."
+     },
+     {
+      "lv": 2,
+      "value": 65,
+      "desc": "Kiếm cắm từ đỉnh màn xuống mục tiêu (135% ST), phát nổ chùm hạt chấn động 65px xóa đạn địch quanh điểm cắm."
+     },
+     {
+      "lv": 3,
+      "value": 75,
+      "desc": "Kiếm cắm từ đỉnh màn xuống mục tiêu (145% ST), phát nổ chùm hạt chấn động 75px xóa đạn địch quanh điểm cắm."
+     },
+     {
+      "lv": 4,
+      "value": 85,
+      "desc": "Kiếm cắm từ đỉnh màn xuống mục tiêu (155% ST), phát nổ chùm hạt chấn động 85px xóa đạn và đẩy lùi quái nhỏ."
+     },
+     {
+      "lv": 5,
+      "value": 95,
+      "desc": "Kiếm cắm gây 165% ST (chí mạng nếu địch > 70% máu) và nổ chùm hạt chấn động 95px xóa sạch đạn địch quanh mục tiêu."
+     }
+    ]
+   },
+   "skill": {
+    "name": "Thiên Kiếm Chấn Động",
+    "cooldown": 11,
+    "effect": "Gọi 4 thanh đại kiếm hắc kim cắm liên tiếp xuống Boss, mỗi thanh tạo 1 đợt hạt chấn động xóa đạn.",
+    "new": false
+   },
+   "super": {
+    "name": "PHÁ TINH KIẾM TRẬN",
+    "effect": "Kiếm cắm xuống để lại vết rạch chân không hút mảnh vỡ và phát nổ hạt chấn động lần thứ 2 sau 0,5 giây."
+   },
+   "ult": {
+    "name": "VẠN KIẾM HƯ KHÔNG",
+    "duration": 2.4,
+    "effect": "Giáng liên hoàn 6 thanh cự kiếm hoàng kim từ đỉnh màn hình, quét sạch đạn địch nửa trên màn hình và xuyên thủng giáp Boss.",
+    "new": false
+   },
+   "budget": {
+    "singleDPSvsBase": 1.38,
+    "crowdMax": 1.85,
+    "savesAt6": 0.0,
+    "savesAt20": 0.0
+   },
+   "art": {
+    "partsFrom": [
+     "3 mũi kiếm trên thanh ray",
+     "bệ phóng ngư lôi hình cúp"
+    ],
+    "color": "#C084FC",
+    "icon3": "Dạng 1: Bệ cúp tím giữ 3 thanh kiếm vàng dựng đứng. Dạng 2: Cúp mở 2 cánh phễu năng lượng nâng thanh đại kiếm trung tâm. Dạng 3: Đài kiếm 5 lưỡi hắc kim rực sáng trên cúp hư không.",
+    "note": "Vụ nổ dùng chùm hạt tím và mảnh kiếm văng, không vẽ vành tròn loang."
+   }
+  },
+  {
+   "id": "sss_judgement_swarm",
+   "group": 2,
+   "kind": "missiles",
+   "parents": [
+    "judgement36",
+    "swarm9"
+   ],
+   "name": "Thiên Phạt Bầy Đàn",
+   "cost": {
+    "sss_core": 5,
+    "mats": {
+     "crystal3": 3,
+     "alloy3": 3
+    },
+    "credits": 20000,
+    "totalToLv5": {
+     "sss_core": 50,
+     "matsTotal": 56,
+     "creditsTotal": 200000,
+     "estDaysUnlock": 0.3,
+     "estDaysMax": 3.3
+    },
+    "lvSteps": [
+     {
+      "lv": 1,
+      "sss_core": 5,
+      "mats": {
+       "crystal3": 3,
+       "alloy3": 3
+      },
+      "credits": 20000
+     },
+     {
+      "lv": 2,
+      "sss_core": 7,
+      "mats": {
+       "crystal3": 4,
+       "alloy3": 4
+      },
+      "credits": 25000
+     },
+     {
+      "lv": 3,
+      "sss_core": 10,
+      "mats": {
+       "crystal3": 5,
+       "alloy3": 5
+      },
+      "credits": 35000
+     },
+     {
+      "lv": 4,
+      "sss_core": 13,
+      "mats": {
+       "crystal3": 7,
+       "alloy3": 7
+      },
+      "credits": 50000
+     },
+     {
+      "lv": 5,
+      "sss_core": 15,
+      "mats": {
+       "crystal3": 9,
+       "alloy3": 9
+      },
+      "credits": 70000
+     }
+    ]
+   },
+   "trait": {
+    "name": "Tọa Độ Thiên Phạt",
+    "ho": "tên lửa vi mô tích dấu gọi cột sáng",
+    "lv": [
+     {
+      "lv": 1,
+      "value": 6,
+      "desc": "Bắn loạt 6 tên lửa vi mô; mỗi khi mục tiêu trúng đủ 4 tên lửa vi mô sẽ bị giáng 1 Cột Sáng Phán Quyết (125% ST)."
+     },
+     {
+      "lv": 2,
+      "value": 8,
+      "desc": "Bắn loạt 8 tên lửa vi mô; mỗi khi mục tiêu trúng đủ 4 tên lửa vi mô sẽ bị giáng 1 Cột Sáng Phán Quyết (135% ST)."
+     },
+     {
+      "lv": 3,
+      "value": 10,
+      "desc": "Bắn loạt 10 tên lửa vi mô; mỗi khi mục tiêu trúng đủ 4 tên lửa vi mô sẽ bị giáng 1 Cột Sáng Phán Quyết (145% ST)."
+     },
+     {
+      "lv": 4,
+      "value": 11,
+      "desc": "Bắn loạt 11 tên lửa vi mô; mỗi khi mục tiêu trúng đủ 4 tên lửa vi mô sẽ bị giáng 1 Cột Sáng Phán Quyết (155% ST)."
+     },
+     {
+      "lv": 5,
+      "value": 12,
+      "desc": "Bắn loạt 12 tên lửa vi mô; cứ 4 viên trúng cùng mục tiêu lập tức giáng 1 Cột Sáng Phán Quyết rộng 52px gây 170% ST."
+     }
+    ]
+   },
+   "skill": {
+    "name": "Bầy Đàn Phán Quyết",
+    "cooldown": 11,
+    "effect": "Phóng 16 tên lửa vi mô khóa các cánh Boss, lập tức kích hoạt 3 Cột Sáng Phán Quyết giáng xuống đồng thời.",
+    "new": false
+   },
+   "super": {
+    "name": "THIÊN ĐÌNH BÃO HÒA",
+    "effect": "Chỉ cần 3 tên lửa vi mô trúng đích đã gọi 1 Cột Sáng Phán Quyết; tốc độ bay của tên lửa tăng gấp rưỡi."
+   },
+   "ult": {
+    "name": "THÁNH ĐÌNH PHONG TỎA",
+    "duration": 2.4,
+    "effect": "Xả 18 tên lửa vi mô phủ kín màn hình rồi đồng loạt giáng 4 đại cột sáng thiên phạt thiêu rụi mọi bộ phận Boss.",
+    "new": false
+   },
+   "budget": {
+    "singleDPSvsBase": 1.37,
+    "crowdMax": 1.95,
+    "savesAt6": 0.0,
+    "savesAt20": 0.0
+   },
+   "art": {
+    "partsFrom": [
+     "đầu đạn tên lửa hình thoi cánh nhọn",
+     "2 dàn tên lửa vi mô song hành"
+    ],
+    "color": "#FACC15",
+    "icon3": "Dạng 1: Tháp tên lửa hình thoi kẹp 2 dàn ống phóng vi mô hai bên. Dạng 2: Mở nắp 2 dàn phóng lộ 12 đầu đạn sáng vàng. Dạng 3: Đại tháp phán quyết hoàng kim kèm 4 cánh dàn phóng vi mô.",
+    "note": "Tên lửa vi mô bay từ thân tàu, đủ 4 viên gọi cột sáng thẳng đứng."
+   }
+  },
+  {
+   "id": "sss_devour_chrono_m",
+   "group": 2,
+   "kind": "missiles",
+   "parents": [
+    "devour10_m",
+    "chrono11_m"
+   ],
+   "name": "Huyết Vọng Thời Gian",
+   "cost": {
+    "sss_core": 5,
+    "mats": {
+     "crystal3": 3,
+     "alloy3": 3
+    },
+    "credits": 20000,
+    "totalToLv5": {
+     "sss_core": 50,
+     "matsTotal": 56,
+     "creditsTotal": 200000,
+     "estDaysUnlock": 0.3,
+     "estDaysMax": 3.3
+    },
+    "lvSteps": [
+     {
+      "lv": 1,
+      "sss_core": 5,
+      "mats": {
+       "crystal3": 3,
+       "alloy3": 3
+      },
+      "credits": 20000
+     },
+     {
+      "lv": 2,
+      "sss_core": 7,
+      "mats": {
+       "crystal3": 4,
+       "alloy3": 4
+      },
+      "credits": 25000
+     },
+     {
+      "lv": 3,
+      "sss_core": 10,
+      "mats": {
+       "crystal3": 5,
+       "alloy3": 5
+      },
+      "credits": 35000
+     },
+     {
+      "lv": 4,
+      "sss_core": 13,
+      "mats": {
+       "crystal3": 7,
+       "alloy3": 7
+      },
+      "credits": 50000
+     },
+     {
+      "lv": 5,
+      "sss_core": 15,
+      "mats": {
+       "crystal3": 9,
+       "alloy3": 9
+      },
+      "credits": 70000
+     }
+    ]
+   },
+   "trait": {
+    "name": "Bào Tử Tiếng Vọng",
+    "ho": "ký sinh rút máu kích nổ tiếng vọng lần 2",
+    "lv": [
+     {
+      "lv": 1,
+      "value": 55,
+      "desc": "Bào tử rút máu 2s và tăng +8% ST trang bị; sau 0,6s nổ tiếng vọng gây 55% ST và lây bào tử sang 1 mục tiêu cạnh."
+     },
+     {
+      "lv": 2,
+      "value": 65,
+      "desc": "Bào tử rút máu 2s và tăng +10% ST trang bị; sau 0,6s nổ tiếng vọng gây 65% ST và lây bào tử sang 1 mục tiêu cạnh."
+     },
+     {
+      "lv": 3,
+      "value": 75,
+      "desc": "Bào tử rút máu 2s và tăng +12% ST trang bị; sau 0,6s nổ tiếng vọng gây 75% ST và lây bào tử sang 2 mục tiêu cạnh."
+     },
+     {
+      "lv": 4,
+      "value": 85,
+      "desc": "Bào tử rút máu 2s và tăng +14% ST trang bị; sau 0,6s nổ tiếng vọng gây 85% ST và lây bào tử sang 2 mục tiêu cạnh."
+     },
+     {
+      "lv": 5,
+      "value": 95,
+      "desc": "Bào tử rút 40% ST/s, tăng +16% ST nhận vào (chỉ nhân sát thương trang bị); sau 0,6s nổ tiếng vọng 95% ST phát tán bào tử."
+     }
+    ]
+   },
+   "skill": {
+    "name": "Huyết Tinh Vọng Kích",
+    "cooldown": 11,
+    "effect": "Phóng 4 con lắc bào tử cắm vào các cánh và lõi Boss, kích nổ 2 đợt tiếng vọng huyết độc liên tiếp.",
+    "new": false
+   },
+   "super": {
+    "name": "HUYẾT LỆNH THỜI KHÔNG",
+    "effect": "Vụ nổ tiếng vọng làm mới lại thời gian ký sinh của bào tử thêm 1,5 giây và làm chậm mục tiêu 30%."
+   },
+   "ult": {
+    "name": "LUÂN HỒI HUYẾT ĐỘC",
+    "duration": 2.4,
+    "effect": "Găm 4 đại bào tử lên Boss và dội 3 nhịp tiếng vọng thời gian liên hoàn, mỗi nhịp tăng 20% sát thương nổ.",
+    "new": false
+   },
+   "budget": {
+    "singleDPSvsBase": 1.36,
+    "crowdMax": 1.9,
+    "savesAt6": 0.0,
+    "savesAt20": 0.0
+   },
+   "art": {
+    "partsFrom": [
+     "3 kén bào tử mắt đỏ",
+     "con lắc dao động hình chữ A"
+    ],
+    "color": "#F43F5E",
+    "icon3": "Dạng 1: Khung chữ A treo quả lắc là kén bào tử mắt đỏ. Dạng 2: 2 kén bào tử phụ mọc hai bên trụ chữ A. Dạng 3: Đồng hồ quả lắc huyết tinh 3 mắt đỏ rực viền vàng kim.",
+    "note": "Đầu đạn con lắc mắt đỏ phóng từ thân tàu; nổ chùm tia máu 2 nhịp."
+   }
+  },
+  {
+   "id": "sss_chrono_monarch_m",
+   "group": 2,
+   "kind": "missiles",
+   "parents": [
+    "chrono11_m",
+    "monarch12_m"
+   ],
+   "name": "Thời Không Trảm Kích",
+   "cost": {
+    "sss_core": 5,
+    "mats": {
+     "crystal3": 3,
+     "alloy3": 3
+    },
+    "credits": 20000,
+    "totalToLv5": {
+     "sss_core": 50,
+     "matsTotal": 56,
+     "creditsTotal": 200000,
+     "estDaysUnlock": 0.3,
+     "estDaysMax": 3.3
+    },
+    "lvSteps": [
+     {
+      "lv": 1,
+      "sss_core": 5,
+      "mats": {
+       "crystal3": 3,
+       "alloy3": 3
+      },
+      "credits": 20000
+     },
+     {
+      "lv": 2,
+      "sss_core": 7,
+      "mats": {
+       "crystal3": 4,
+       "alloy3": 4
+      },
+      "credits": 25000
+     },
+     {
+      "lv": 3,
+      "sss_core": 10,
+      "mats": {
+       "crystal3": 5,
+       "alloy3": 5
+      },
+      "credits": 35000
+     },
+     {
+      "lv": 4,
+      "sss_core": 13,
+      "mats": {
+       "crystal3": 7,
+       "alloy3": 7
+      },
+      "credits": 50000
+     },
+     {
+      "lv": 5,
+      "sss_core": 15,
+      "mats": {
+       "crystal3": 9,
+       "alloy3": 9
+      },
+      "credits": 70000
+     }
+    ]
+   },
+   "trait": {
+    "name": "Vết Rách Tiếng Vọng",
+    "ho": "đại kích chém không gian nổ vọng lần 2",
+    "lv": [
+     {
+      "lv": 1,
+      "value": 55,
+      "desc": "Phóng 2 đại kích chém rộng 70px; sau 0,6s vết rách không gian tự phát nổ lần 2 gây 55% ST gốc."
+     },
+     {
+      "lv": 2,
+      "value": 65,
+      "desc": "Phóng 2 đại kích chém rộng 78px; sau 0,6s vết rách không gian tự phát nổ lần 2 gây 65% ST gốc."
+     },
+     {
+      "lv": 3,
+      "value": 75,
+      "desc": "Phóng 2 đại kích chém rộng 85px; sau 0,6s vết rách không gian tự phát nổ lần 2 gây 75% ST và chậm 20%."
+     },
+     {
+      "lv": 4,
+      "value": 85,
+      "desc": "Phóng 2 đại kích chém rộng 92px; sau 0,6s vết rách không gian tự phát nổ lần 2 gây 85% ST và chậm 25%."
+     },
+     {
+      "lv": 5,
+      "value": 95,
+      "desc": "Chém rộng 100px xuyên đội hình; sau 0,6s toàn bộ đường chém phát nổ Tiếng Vọng lần 2 gây 95% ST và làm chậm 35%."
+     }
+    ]
+   },
+   "skill": {
+    "name": "Lưỡng Cực Trảm Không",
+    "cooldown": 11,
+    "effect": "2 nhát đại kích chém chữ thập xé toạc màn hình, sau 0,6 giây vết chữ thập phát nổ lần thứ 2 với 100% sát thương.",
+    "new": false
+   },
+   "super": {
+    "name": "THỜI KHÔNG ĐOẠN KÍCH",
+    "effect": "Vết rách không gian tồn tại 1,8 giây và kích hoạt tới 2 lần nổ tiếng vọng liên tiếp."
+   },
+   "ult": {
+    "name": "VĨNH HẰNG THẬP TỰ TRẢM",
+    "duration": 2.2,
+    "effect": "Chém chữ thập hoàng kim xóa sạch đạn địch trên đường chém, tiếp nối bằng 2 đợt nổ tiếng vọng thời gian chấn động.",
+    "new": false
+   },
+   "budget": {
+    "singleDPSvsBase": 1.36,
+    "crowdMax": 2.0,
+    "savesAt6": 0.0,
+    "savesAt20": 0.0
+   },
+   "art": {
+    "partsFrom": [
+     "con lắc dao động hình chữ A",
+     "đại kích 2 lưỡi liềm đối xứng"
+    ],
+    "color": "#38BDF8",
+    "icon3": "Dạng 1: Khung chữ A gắn lưỡi đại kích 2 đầu làm quả lắc. Dạng 2: 2 lưỡi kích bán nguyệt mở rộng mạ vàng lam. Dạng 3: Đại kích đồng hồ thời không 4 lưỡi chéo rực sáng.",
+    "note": "Đầu đạn là lưỡi kích đồng hồ xoay tròn chém ngang và nổ lặp lại."
+   }
+  },
+  {
+   "id": "sss_monarch_inferno",
+   "group": 3,
+   "kind": "missiles",
+   "parents": [
+    "monarch12_m",
+    "inferno"
+   ],
+   "name": "Viêm Đế Trảm Không",
+   "cost": {
+    "sss_core": 5,
+    "mats": {
+     "crystal3": 3,
+     "alloy3": 3
+    },
+    "credits": 20000,
+    "totalToLv5": {
+     "sss_core": 50,
+     "matsTotal": 56,
+     "creditsTotal": 200000,
+     "estDaysUnlock": 0.3,
+     "estDaysMax": 3.3
+    },
+    "lvSteps": [
+     {
+      "lv": 1,
+      "sss_core": 5,
+      "mats": {
+       "crystal3": 3,
+       "alloy3": 3
+      },
+      "credits": 20000
+     },
+     {
+      "lv": 2,
+      "sss_core": 7,
+      "mats": {
+       "crystal3": 4,
+       "alloy3": 4
+      },
+      "credits": 25000
+     },
+     {
+      "lv": 3,
+      "sss_core": 10,
+      "mats": {
+       "crystal3": 5,
+       "alloy3": 5
+      },
+      "credits": 35000
+     },
+     {
+      "lv": 4,
+      "sss_core": 13,
+      "mats": {
+       "crystal3": 7,
+       "alloy3": 7
+      },
+      "credits": 50000
+     },
+     {
+      "lv": 5,
+      "sss_core": 15,
+      "mats": {
+       "crystal3": 9,
+       "alloy3": 9
+      },
+      "credits": 70000
+     }
+    ]
+   },
+   "trait": {
+    "name": "Liệt Hỏa Trảm Không",
+    "ho": "đại kích chém rách không gian rải thảm lửa",
+    "lv": [
+     {
+      "lv": 1,
+      "value": 20,
+      "desc": "Phóng 2 đại kích lửa chém rộng 70px; vết rách bốc cháy gây thêm 20% ST hỏa ngục trong 1,5 giây."
+     },
+     {
+      "lv": 2,
+      "value": 26,
+      "desc": "Phóng 2 đại kích lửa chém rộng 78px; vết rách bốc cháy gây thêm 26% ST hỏa ngục trong 1,6 giây."
+     },
+     {
+      "lv": 3,
+      "value": 32,
+      "desc": "Phóng 2 đại kích lửa chém rộng 85px; vết rách bốc cháy gây thêm 32% ST hỏa ngục trong 1,8 giây."
+     },
+     {
+      "lv": 4,
+      "value": 38,
+      "desc": "Phóng 2 đại kích lửa chém rộng 92px; vết rách bốc cháy gây thêm 38% ST hỏa ngục trong 2,0 giây."
+     },
+     {
+      "lv": 5,
+      "value": 45,
+      "desc": "Phóng 2 đại kích lửa chém rộng 100px; biến toàn bộ vết rách chân không thành tường lửa gây thêm 45% ST trong 2,0s."
+     }
+    ]
+   },
+   "skill": {
+    "name": "Viêm Đế Phá Không",
+    "cooldown": 10,
+    "effect": "Chém chữ thập lửa vào vị trí Boss và phóng 6 đầu đạn hỏa ngục nổ dồn vào giao điểm vết chém.",
+    "new": false
+   },
+   "super": {
+    "name": "PHẦN THIÊN ĐẠI KÍCH",
+    "effect": "Lưỡi kích lửa nở rộng gấp rưỡi, khi chạm Boss phát nổ tàn lửa thiêu đốt cả 2 cánh cùng lúc."
+   },
+   "ult": {
+    "name": "HOÀNG VIÊM LIỆT KHÔNG",
+    "duration": 2.4,
+    "effect": "Chém 3 lưỡi đại kích lửa khổng lồ ngang màn hình, xóa đạn địch trên đường chém và dựng biển lửa thiêu đốt 2,5 giây.",
+    "new": false
+   },
+   "budget": {
+    "singleDPSvsBase": 1.37,
+    "crowdMax": 2.0,
+    "savesAt6": 0.0,
+    "savesAt20": 0.0
+   },
+   "art": {
+    "partsFrom": [
+     "đại kích 2 lưỡi liềm đối xứng",
+     "cụm 3 đầu đạn liên kết"
+    ],
+    "color": "#FB923C",
+    "icon3": "Dạng 1: Đại kích 2 lưỡi liềm gắn cụm 3 ống tên lửa lửa ở trục giữa. Dạng 2: Lưỡi kích bốc lửa vàng đỏ kèm 4 đầu đạn phản lực. Dạng 3: Thần kích Viêm Đế hoàng kim 6 ống phóng nhiệt hạch.",
+    "note": "Lưỡi kích xoay parabol để lại vệt lửa rực sáng."
+   }
+  },
+  {
+   "id": "sss_rail_disc",
+   "group": 1,
+   "kind": "sidearm",
+   "parents": [
+    "rail",
+    "disc"
+   ],
+   "name": "Nguyệt Lôi Thiên Nhận",
+   "cost": {
+    "sss_core": 0,
+    "mats": {
+     "circuit3": 2,
+     "plasma3": 2
+    },
+    "credits": 10000,
+    "totalToLv5": {
+     "sss_core": 0,
+     "matsTotal": 46,
+     "creditsTotal": 115000,
+     "estDaysUnlock": 1.0,
+     "estDaysMax": 7.0
+    },
+    "lvSteps": [
+     {
+      "lv": 1,
+      "sss_core": 0,
+      "mats": {
+       "circuit3": 2,
+       "plasma3": 2
+      },
+      "credits": 10000
+     },
+     {
+      "lv": 2,
+      "sss_core": 0,
+      "mats": {
+       "circuit3": 3,
+       "plasma3": 3
+      },
+      "credits": 15000
+     },
+     {
+      "lv": 3,
+      "sss_core": 0,
+      "mats": {
+       "circuit3": 4,
+       "plasma3": 4
+      },
+      "credits": 20000
+     },
+     {
+      "lv": 4,
+      "sss_core": 0,
+      "mats": {
+       "circuit3": 6,
+       "plasma3": 6
+      },
+      "credits": 30000
+     },
+     {
+      "lv": 5,
+      "sss_core": 0,
+      "mats": {
+       "circuit3": 8,
+       "plasma3": 8
+      },
+      "credits": 40000
+     }
+    ]
+   },
+   "trait": {
+    "name": "Điện Từ Nguyệt Luân",
+    "ho": "tia ray nạp điện cho đĩa boomerang",
+    "lv": [
+     {
+      "lv": 1,
+      "value": 20,
+      "desc": "2 pod bắn tia ray và phóng đĩa hồi hoàn; khi tia ray cắt qua đĩa đang bay sẽ nạp điện làm đĩa tăng 20% ST."
+     },
+     {
+      "lv": 2,
+      "value": 26,
+      "desc": "2 pod bắn tia ray và phóng đĩa hồi hoàn; khi tia ray cắt qua đĩa đang bay sẽ nạp điện làm đĩa tăng 26% ST."
+     },
+     {
+      "lv": 3,
+      "value": 32,
+      "desc": "2 pod bắn tia ray và phóng đĩa hồi hoàn; khi tia ray cắt qua đĩa sẽ phóng hồ quang điện tăng 32% ST."
+     },
+     {
+      "lv": 4,
+      "value": 38,
+      "desc": "2 pod bắn tia ray và phóng đĩa hồi hoàn; khi tia ray cắt qua đĩa sẽ phóng hồ quang điện tăng 38% ST."
+     },
+     {
+      "lv": 5,
+      "value": 45,
+      "desc": "Tia ray xuyên 100% mục tiêu; khi tia ray chạm đĩa nguyệt nhận sẽ nạp điện làm đĩa nở rộng gấp rưỡi và tăng 45% ST."
+     }
+    ]
+   },
+   "skill": {
+    "name": "Lôi Nhận Xuyên Tâm",
+    "cooldown": 9,
+    "effect": "Phóng 4 đại nguyệt nhận hội tụ vào tâm Boss và bắn 2 tia railgun cực đại kích nổ hồ quang điện.",
+    "new": true
+   },
+   "super": {
+    "name": "LƯỠNG CỰC NGUYỆT LÔI",
+    "effect": "Tàu con mở 4 cánh lưỡi liềm, bắn đồng thời 4 tuyến ray điện từ nối liền với đĩa xoay."
+   },
+   "ult": {
+    "name": "NGUYỆT LÔI VẠN TRẢM",
+    "duration": 2.4,
+    "effect": "4 đại nguyệt nhận tích điện khóa chặt mục tiêu trong khi 4 cột railgun giật xuyên qua tâm đĩa cắt nát cánh Boss.",
+    "new": false
+   },
+   "budget": {
+    "singleDPSvsBase": 1.35,
+    "crowdMax": 1.9,
+    "savesAt6": 0.0,
+    "savesAt20": 0.0
+   },
+   "art": {
+    "partsFrom": [
+     "thân súng tiêm kích railgun",
+     "3 cánh đĩa lưỡi liềm xoay"
+    ],
+    "color": "#38BDF8",
+    "icon3": "Dạng 1: Súng railgun gắn đĩa 3 cánh ở nòng. Dạng 2: Cánh railgun trượt mở ôm đĩa nguyệt nhận tím lam. Dạng 3: Pod tiêm kích lôi nhận viền vàng kim với 3 lưỡi đao điện từ nổi.",
+    "note": "2 tàu con bay ở ±100px, đổi hình thái mở cánh khi Bạo Tẩu."
+   }
+  },
+  {
+   "id": "sss_solar_gravity",
+   "group": 1,
+   "kind": "sidearm",
+   "parents": [
+    "solar",
+    "gravity"
+   ],
+   "name": "Nhật Uyên Thần Pháo",
+   "cost": {
+    "sss_core": 0,
+    "mats": {
+     "circuit3": 2,
+     "plasma3": 2
+    },
+    "credits": 10000,
+    "totalToLv5": {
+     "sss_core": 0,
+     "matsTotal": 46,
+     "creditsTotal": 115000,
+     "estDaysUnlock": 1.0,
+     "estDaysMax": 7.0
+    },
+    "lvSteps": [
+     {
+      "lv": 1,
+      "sss_core": 0,
+      "mats": {
+       "circuit3": 2,
+       "plasma3": 2
+      },
+      "credits": 10000
+     },
+     {
+      "lv": 2,
+      "sss_core": 0,
+      "mats": {
+       "circuit3": 3,
+       "plasma3": 3
+      },
+      "credits": 15000
+     },
+     {
+      "lv": 3,
+      "sss_core": 0,
+      "mats": {
+       "circuit3": 4,
+       "plasma3": 4
+      },
+      "credits": 20000
+     },
+     {
+      "lv": 4,
+      "sss_core": 0,
+      "mats": {
+       "circuit3": 6,
+       "plasma3": 6
+      },
+      "credits": 30000
+     },
+     {
+      "lv": 5,
+      "sss_core": 0,
+      "mats": {
+       "circuit3": 8,
+       "plasma3": 8
+      },
+      "credits": 40000
+     }
+    ]
+   },
+   "trait": {
+    "name": "Nhật Hạch Phân Đạo",
+    "ho": "đẩy lệch đạn địch kết hợp nổ nhiệt hạch",
+    "lv": [
+     {
+      "lv": 1,
+      "value": 20,
+      "desc": "Bắn cầu mặt trời trọng lực đẩy đạn địch lệch 20° sang hai bên, khi chạm đích nổ nhiệt hạch bán kính 35px."
+     },
+     {
+      "lv": 2,
+      "value": 25,
+      "desc": "Bắn cầu mặt trời trọng lực đẩy đạn địch lệch 25° sang hai bên, khi chạm đích nổ nhiệt hạch bán kính 40px."
+     },
+     {
+      "lv": 3,
+      "value": 30,
+      "desc": "Bắn cầu mặt trời trọng lực đẩy đạn địch lệch 30° sang hai bên, khi chạm đích nổ nhiệt hạch bán kính 45px."
+     },
+     {
+      "lv": 4,
+      "value": 34,
+      "desc": "Bắn cầu mặt trời trọng lực đẩy đạn địch lệch 34° sang hai bên, khi chạm đích nổ nhiệt hạch bán kính 52px."
+     },
+     {
+      "lv": 5,
+      "value": 38,
+      "desc": "Đẩy đạn địch lệch 38° mở hành lang an toàn; khi chạm mục tiêu nổ nhiệt hạch 60px và thiêu đốt thêm 35% ST trong 2s."
+     }
+    ]
+   },
+   "skill": {
+    "name": "Hành Lang Thái Dương",
+    "cooldown": 11,
+    "effect": "Phóng 2 đại nhật cầu đẩy dạt toàn bộ đạn địch trước mặt ra 2 mép màn hình rồi lao thẳng vào Boss phát nổ.",
+    "new": false
+   },
+   "super": {
+    "name": "THÁI DƯƠNG NGHỊCH CHUYỂN",
+    "effect": "Hành lang đẩy đạn mở rộng 120px; vụ nổ nhật cầu phóng ra 8 tia lửa mặt trời thiêu đốt diện rộng."
+   },
+   "ult": {
+    "name": "NHẬT UYÊN THÔN THIÊN",
+    "duration": 2.5,
+    "effect": "Tụ 2 quả cầu mặt trời đen trước mũi tàu quét sạch đạn địch sang hai bên rồi kích nổ siêu tân tinh trên thân Boss.",
+    "new": false
+   },
+   "budget": {
+    "singleDPSvsBase": 1.36,
+    "crowdMax": 1.85,
+    "savesAt6": 0.0,
+    "savesAt20": 0.0
+   },
+   "art": {
+    "partsFrom": [
+     "mặt trời 8 gai nhọn",
+     "khối cầu năng lượng 3 mảng giáp"
+    ],
+    "color": "#F59E0B",
+    "icon3": "Dạng 1: Khối cầu 3 mảng giáp tím viền 8 gai mặt trời vàng. Dạng 2: 3 mảng giáp bung mở lộ lõi nhật hạch cam tím. Dạng 3: Thần pháo mặt trời đen 8 cánh gai hoàng kim rực lửa.",
+    "note": "Vụ nổ dùng các tia gai mặt trời bung tỏa, không vẽ vòng tròn."
+   }
+  },
+  {
+   "id": "sss_ricochet_prism",
+   "group": 1,
+   "kind": "sidearm",
+   "parents": [
+    "ricochet",
+    "prism"
+   ],
+   "name": "Lục Lăng Băng Đế",
+   "cost": {
+    "sss_core": 0,
+    "mats": {
+     "circuit3": 2,
+     "plasma3": 2
+    },
+    "credits": 10000,
+    "totalToLv5": {
+     "sss_core": 0,
+     "matsTotal": 46,
+     "creditsTotal": 115000,
+     "estDaysUnlock": 1.0,
+     "estDaysMax": 7.0
+    },
+    "lvSteps": [
+     {
+      "lv": 1,
+      "sss_core": 0,
+      "mats": {
+       "circuit3": 2,
+       "plasma3": 2
+      },
+      "credits": 10000
+     },
+     {
+      "lv": 2,
+      "sss_core": 0,
+      "mats": {
+       "circuit3": 3,
+       "plasma3": 3
+      },
+      "credits": 15000
+     },
+     {
+      "lv": 3,
+      "sss_core": 0,
+      "mats": {
+       "circuit3": 4,
+       "plasma3": 4
+      },
+      "credits": 20000
+     },
+     {
+      "lv": 4,
+      "sss_core": 0,
+      "mats": {
+       "circuit3": 6,
+       "plasma3": 6
+      },
+      "credits": 30000
+     },
+     {
+      "lv": 5,
+      "sss_core": 0,
+      "mats": {
+       "circuit3": 8,
+       "plasma3": 8
+      },
+      "credits": 40000
+     }
+    ]
+   },
+   "trait": {
+    "name": "Lăng Kính Nảy Băng",
+    "ho": "đạn lục giác nảy biên tách mảnh băng",
+    "lv": [
+     {
+      "lv": 1,
+      "value": 15,
+      "desc": "Bắn phiến lục giác nảy mép màn hình (+15% ST); mỗi lần nảy tách ra 2 mảnh băng làm chậm 15%."
+     },
+     {
+      "lv": 2,
+      "value": 20,
+      "desc": "Bắn phiến lục giác nảy mép màn hình (+20% ST); mỗi lần nảy tách ra 2 mảnh băng làm chậm 20%."
+     },
+     {
+      "lv": 3,
+      "value": 25,
+      "desc": "Bắn phiến lục giác nảy 2 lần ở mép màn hình (+25% ST); mỗi lần nảy tách ra 2 mảnh băng làm chậm 25%."
+     },
+     {
+      "lv": 4,
+      "value": 30,
+      "desc": "Bắn phiến lục giác nảy 2 lần ở mép màn hình (+30% ST); mỗi lần nảy tách ra 3 mảnh băng làm chậm 30%."
+     },
+     {
+      "lv": 5,
+      "value": 35,
+      "desc": "Phiến lục giác nảy 2 lần ở mép màn hình (+35% ST); mỗi lần nảy hoặc trúng đích vỡ ra 3 mũi băng làm chậm 35%."
+     }
+    ]
+   },
+   "skill": {
+    "name": "Hàn Lăng Liên Phản",
+    "cooldown": 12,
+    "effect": "Bắn 6 phiến lục lăng băng nảy ziczac qua lại giữa 2 mép màn hình, rải mảnh băng làm chậm 50% toàn trận địa.",
+    "new": false
+   },
+   "super": {
+    "name": "VẠN CHIẾT CỰC QUANG",
+    "effect": "Tàu con bung cánh pha lê lục giác, mỗi lần đạn nảy biên sẽ tự khóa thẳng vào bộ phận Boss gần nhất."
+   },
+   "ult": {
+    "name": "BĂNG LĂNG VẠN QUANG",
+    "duration": 2.4,
+    "effect": "Phóng 8 đại phiến lục lăng nảy tốc độ cao khắp màn hình, xả cơn mưa gai băng đóng băng quái và đạn nhỏ.",
+    "new": false
+   },
+   "budget": {
+    "singleDPSvsBase": 1.34,
+    "crowdMax": 2.0,
+    "savesAt6": 0.0,
+    "savesAt20": 0.0
+   },
+   "art": {
+    "partsFrom": [
+     "lục giác đều lõi tam giác",
+     "phiến lăng kính mũi tên nhọn"
+    ],
+    "color": "#06B6D4",
+    "icon3": "Dạng 1: Khối lục giác lõi tam giác gắn mũi nhọn băng phía trước. Dạng 2: Mở 2 cánh lăng kính băng hai bên khối lục giác lục lam. Dạng 3: Pháo đài lục giác kim cương 6 mũi băng viền vàng.",
+    "note": "2 tàu con hình lục giác có cánh nhọn pha lê băng."
+   }
+  },
+  {
+   "id": "sss_lance_orbit",
+   "group": 2,
+   "kind": "sidearm",
+   "parents": [
+    "lance36",
+    "orbit36"
+   ],
+   "name": "Chân Trời Quang Thương",
+   "cost": {
+    "sss_core": 5,
+    "mats": {
+     "circuit3": 3,
+     "plasma3": 3
+    },
+    "credits": 20000,
+    "totalToLv5": {
+     "sss_core": 50,
+     "matsTotal": 56,
+     "creditsTotal": 200000,
+     "estDaysUnlock": 0.3,
+     "estDaysMax": 3.3
+    },
+    "lvSteps": [
+     {
+      "lv": 1,
+      "sss_core": 5,
+      "mats": {
+       "circuit3": 3,
+       "plasma3": 3
+      },
+      "credits": 20000
+     },
+     {
+      "lv": 2,
+      "sss_core": 7,
+      "mats": {
+       "circuit3": 4,
+       "plasma3": 4
+      },
+      "credits": 25000
+     },
+     {
+      "lv": 3,
+      "sss_core": 10,
+      "mats": {
+       "circuit3": 5,
+       "plasma3": 5
+      },
+      "credits": 35000
+     },
+     {
+      "lv": 4,
+      "sss_core": 13,
+      "mats": {
+       "circuit3": 7,
+       "plasma3": 7
+      },
+      "credits": 50000
+     },
+     {
+      "lv": 5,
+      "sss_core": 15,
+      "mats": {
+       "circuit3": 9,
+       "plasma3": 9
+      },
+      "credits": 70000
+     }
+    ]
+   },
+   "trait": {
+    "name": "Xích Thương Phá Giáp",
+    "ho": "mũi thương đâm kéo theo dây xích điện trường",
+    "lv": [
+     {
+      "lv": 1,
+      "value": 10,
+      "desc": "2 pod đâm mũi thương kéo căng dây xích điện mảnh (alpha 0,45) quét lên trước 160px; gây Nứt Giáp +10% ST trang bị."
+     },
+     {
+      "lv": 2,
+      "value": 12,
+      "desc": "2 pod đâm mũi thương kéo căng dây xích điện mảnh quét lên trước 160px; làm chậm 20% và Nứt Giáp +12% ST trang bị."
+     },
+     {
+      "lv": 3,
+      "value": 14,
+      "desc": "2 pod đâm mũi thương kéo căng dây xích điện mảnh quét lên trước 160px; làm chậm 25% và Nứt Giáp +14% ST trang bị."
+     },
+     {
+      "lv": 4,
+      "value": 16,
+      "desc": "2 pod đâm mũi thương kéo căng dây xích điện mảnh quét lên trước 160px; làm chậm 30% và Nứt Giáp +16% ST trang bị."
+     },
+     {
+      "lv": 5,
+      "value": 18,
+      "desc": "Mũi thương kéo dây xích điện quét dọc 160px làm chậm 35% quái và gây Nứt Giáp +18% ST (chỉ nhân sát thương trang bị)."
+     }
+    ]
+   },
+   "skill": {
+    "name": "Tỏa Liên Đột Kích",
+    "cooldown": 10,
+    "effect": "2 mũi thương duỗi dài gấp đôi đẩy sợi xích điện trường quét sâu lên nửa trên màn hình, khóa cứng mục tiêu.",
+    "new": true
+   },
+   "super": {
+    "name": "THẦN THƯƠNG TỎA HỒN",
+    "effect": "Mũi thương xoay tít nạp điện cho sợi xích, cắt đứt đạn địch bay qua đường nối giữa 2 mũi thương."
+   },
+   "ult": {
+    "name": "HẮC ĐỘNG PHÁ GIÁP THƯƠNG",
+    "duration": 2.2,
+    "effect": "Phóng 2 đại quang thương gắn xích neo găm thẳng vào 2 cánh Boss, kéo căng sợi xích hắc quang cắt nát mục tiêu.",
+    "new": false
+   },
+   "budget": {
+    "singleDPSvsBase": 1.38,
+    "crowdMax": 1.95,
+    "savesAt6": 0.0,
+    "savesAt20": 0.0
+   },
+   "art": {
+    "partsFrom": [
+     "mũi thương 4 ngạnh nhọn",
+     "mỏ neo xích sắt năng lượng"
+    ],
+    "color": "#60A5FA",
+    "icon3": "Dạng 1: Mỏ neo xích sắt gắn mũi thương 4 ngạnh ở đỉnh. Dạng 2: Cánh mỏ neo bung rộng nối tia xích tím lên ngạnh thương. Dạng 3: Đại quang thương mỏ neo hoàng kim rực tia hồ quang.",
+    "note": "Dây xích nối giữa 2 đầu thương vẽ mảnh 2px, alpha 0,45 để không che tàu chính."
+   }
+  },
+  {
+   "id": "sss_halo_carrier",
+   "group": 2,
+   "kind": "sidearm",
+   "parents": [
+    "halo36",
+    "carrier9"
+   ],
+   "name": "Thiên Hoàn Mẫu Hạm",
+   "cost": {
+    "sss_core": 5,
+    "mats": {
+     "circuit3": 3,
+     "plasma3": 3
+    },
+    "credits": 20000,
+    "totalToLv5": {
+     "sss_core": 50,
+     "matsTotal": 56,
+     "creditsTotal": 200000,
+     "estDaysUnlock": 0.3,
+     "estDaysMax": 3.3
+    },
+    "lvSteps": [
+     {
+      "lv": 1,
+      "sss_core": 5,
+      "mats": {
+       "circuit3": 3,
+       "plasma3": 3
+      },
+      "credits": 20000
+     },
+     {
+      "lv": 2,
+      "sss_core": 7,
+      "mats": {
+       "circuit3": 4,
+       "plasma3": 4
+      },
+      "credits": 25000
+     },
+     {
+      "lv": 3,
+      "sss_core": 10,
+      "mats": {
+       "circuit3": 5,
+       "plasma3": 5
+      },
+      "credits": 35000
+     },
+     {
+      "lv": 4,
+      "sss_core": 13,
+      "mats": {
+       "circuit3": 7,
+       "plasma3": 7
+      },
+      "credits": 50000
+     },
+     {
+      "lv": 5,
+      "sss_core": 15,
+      "mats": {
+       "circuit3": 9,
+       "plasma3": 9
+      },
+      "credits": 70000
+     }
+    ]
+   },
+   "trait": {
+    "name": "Tiêu Điểm Hạm Đội",
+    "ho": "khóa đơn mục tiêu dồn tầng cho bầy tiêm kích",
+    "lv": [
+     {
+      "lv": 1,
+      "value": 16,
+      "desc": "Duy trì 2 tiêm kích con; pod và tiêm kích cùng bắn dồn 1 mục tiêu, cộng dồn tối đa +16% ST (chỉ nhân ST trang bị)."
+     },
+     {
+      "lv": 2,
+      "value": 21,
+      "desc": "Duy trì 2 tiêm kích con; pod và tiêm kích cùng bắn dồn 1 mục tiêu, cộng dồn tối đa +21% ST (chỉ nhân ST trang bị)."
+     },
+     {
+      "lv": 3,
+      "value": 26,
+      "desc": "Duy trì 3 tiêm kích con; pod và tiêm kích cùng bắn dồn 1 mục tiêu, cộng dồn tối đa +26% ST (chỉ nhân ST trang bị)."
+     },
+     {
+      "lv": 4,
+      "value": 31,
+      "desc": "Duy trì 3 tiêm kích con; pod và tiêm kích cùng bắn dồn 1 mục tiêu, cộng dồn tối đa +31% ST (chỉ nhân ST trang bị)."
+     },
+     {
+      "lv": 5,
+      "value": 36,
+      "desc": "Duy trì 4 tiêm kích con cùng khóa 1 mục tiêu đơn; cộng dồn tối đa +36% ST (chỉ nhân sát thương trang bị); đổi mục tiêu mất cộng dồn."
+     }
+    ]
+   },
+   "skill": {
+    "name": "Phi Đội Tỏa Điểm",
+    "cooldown": 11,
+    "effect": "4 tiêm kích con và 2 tàu mẹ đồng loạt xả tia quang năng tốc độ gấp đôi vào mục tiêu đang khóa.",
+    "new": false
+   },
+   "super": {
+    "name": "QUANG HẠM TẬP KÍCH",
+    "effect": "Mỗi đòn bắn thứ 5 của tiêm kích con lên mục tiêu khóa sẽ kích nổ chớp sáng chữ thập gây thêm 40% sát thương."
+   },
+   "ult": {
+    "name": "THIÊN HẠM TỔNG CÔNG KÍCH",
+    "duration": 2.6,
+    "effect": "Xuất kích 6 tiêm kích hoàng kim vây quanh mục tiêu đơn, bắn chùm tia xuyên giáp hội tụ dồn sát thương cực đại.",
+    "new": false
+   },
+   "budget": {
+    "singleDPSvsBase": 1.4,
+    "crowdMax": 1.65,
+    "savesAt6": 0.0,
+    "savesAt20": 0.0
+   },
+   "art": {
+    "partsFrom": [
+     "vòng tròn nhật thực 4 chấu",
+     "đường băng sân bay tàu con"
+    ],
+    "color": "#22D3EE",
+    "icon3": "Dạng 1: Đường băng tàu mẹ gắn khung 4 chấu thiên hoàn ở thân (chỉ trên icon Kho). Dạng 2: Mở 2 đường băng kép kèm 4 cánh chấu vàng. Dạng 3: Mẫu hạm hoàng kim phóng tiêm kích ánh sáng.",
+    "note": "Icon trong Kho có khung 4 chấu, nhưng trong trận đạn bắn ra là mũi giáo ánh sáng và dấu thập, tuyệt đối KHÔNG vẽ vành tròn quanh tàu hay quái."
+   }
+  },
+  {
+   "id": "sss_devour_chrono_s",
+   "group": 2,
+   "kind": "sidearm",
+   "parents": [
+    "devour10_s",
+    "chrono11_s"
+   ],
+   "name": "Thời Không Thôn Phệ",
+   "cost": {
+    "sss_core": 5,
+    "mats": {
+     "circuit3": 3,
+     "plasma3": 3
+    },
+    "credits": 20000,
+    "totalToLv5": {
+     "sss_core": 50,
+     "matsTotal": 56,
+     "creditsTotal": 200000,
+     "estDaysUnlock": 0.3,
+     "estDaysMax": 3.3
+    },
+    "lvSteps": [
+     {
+      "lv": 1,
+      "sss_core": 5,
+      "mats": {
+       "circuit3": 3,
+       "plasma3": 3
+      },
+      "credits": 20000
+     },
+     {
+      "lv": 2,
+      "sss_core": 7,
+      "mats": {
+       "circuit3": 4,
+       "plasma3": 4
+      },
+      "credits": 25000
+     },
+     {
+      "lv": 3,
+      "sss_core": 10,
+      "mats": {
+       "circuit3": 5,
+       "plasma3": 5
+      },
+      "credits": 35000
+     },
+     {
+      "lv": 4,
+      "sss_core": 13,
+      "mats": {
+       "circuit3": 7,
+       "plasma3": 7
+      },
+      "credits": 50000
+     },
+     {
+      "lv": 5,
+      "sss_core": 15,
+      "mats": {
+       "circuit3": 9,
+       "plasma3": 9
+      },
+      "credits": 70000
+     }
+    ]
+   },
+   "trait": {
+    "name": "Cát Lưu Phệ Đạn",
+    "ho": "làm chậm đạn địch để nuốt và phản tia",
+    "lv": [
+     {
+      "lv": 1,
+      "value": 6,
+      "desc": "Bắn hạt cát làm chậm 25% đạn địch phía trước và hút đạn vào pod; nuốt đủ 6 đạn phóng 1 đại tia Thời Không (180% ST)."
+     },
+     {
+      "lv": 2,
+      "value": 5,
+      "desc": "Bắn hạt cát làm chậm 30% đạn địch phía trước và hút đạn vào pod; nuốt đủ 5 đạn phóng 1 đại tia Thời Không (195% ST)."
+     },
+     {
+      "lv": 3,
+      "value": 5,
+      "desc": "Bắn hạt cát làm chậm 35% đạn địch phía trước và hút đạn vào pod; nuốt đủ 5 đạn phóng 1 đại tia Thời Không (210% ST)."
+     },
+     {
+      "lv": 4,
+      "value": 4,
+      "desc": "Bắn hạt cát làm chậm 40% đạn địch phía trước và hút đạn vào pod; nuốt đủ 4 đạn phóng 1 đại tia Thời Không (225% ST)."
+     },
+     {
+      "lv": 5,
+      "value": 3,
+      "desc": "Hạt cát làm chậm 45% quái và đạn địch (110px); pod tự hút đạn bị chậm, cứ nuốt đủ 3 viên bắn ngay 1 đại tia Thời Không (240% ST)."
+     }
+    ]
+   },
+   "skill": {
+    "name": "Ngưng Đọng Thôn Phệ",
+    "cooldown": 12,
+    "effect": "Làm chậm 70% đạn địch quanh tàu, lập tức nuốt tối đa 8 viên đạn và phóng 2 đại tia xuyên thấu.",
+    "new": false
+   },
+   "super": {
+    "name": "VĨNH HẰNG MA QUANG",
+    "effect": "Chỉ cần nuốt 2 viên đạn đã phóng đại tia phản kích; tia bắn ra để lại hạt cát giữ chân quái thường 1,2 giây."
+   },
+   "ult": {
+    "name": "VĨNH HẰNG THÔN PHỆ",
+    "duration": 2.5,
+    "effect": "Đóng băng 75% tốc độ đạn địch phía trước, hút sạch tối đa 12 viên đạn vào 2 pod rồi bắn 2 cột pháo thời không hủy diệt.",
+    "new": false
+   },
+   "budget": {
+    "singleDPSvsBase": 1.34,
+    "crowdMax": 1.9,
+    "savesAt6": 0.0,
+    "savesAt20": 0.0
+   },
+   "art": {
+    "partsFrom": [
+     "ngàm bánh răng xoay hút đạn",
+     "đồng hồ bỏ túi tròn có móc treo"
+    ],
+    "color": "#84CC16",
+    "icon3": "Dạng 1: Đồng hồ bỏ túi bọc ngàm răng cưa xanh lục. Dạng 2: Ngàm bánh răng tách mở lộ kim đồng hồ và lõi hút đạn. Dạng 3: Hạt nhân đồng hồ thôn phệ viền vàng kim tỏa tia lục tím.",
+    "note": "Hiệu ứng vùng làm chậm dùng các hạt cát lấp lánh rơi nhẹ, không vẽ vòng tròn."
+   }
+  },
+  {
+   "id": "sss_chrono_monarch_s",
+   "group": 2,
+   "kind": "sidearm",
+   "parents": [
+    "chrono11_s",
+    "monarch12_s"
+   ],
+   "name": "Pháp Ấn Thời Gian",
+   "cost": {
+    "sss_core": 5,
+    "mats": {
+     "circuit3": 3,
+     "plasma3": 3
+    },
+    "credits": 20000,
+    "totalToLv5": {
+     "sss_core": 50,
+     "matsTotal": 56,
+     "creditsTotal": 200000,
+     "estDaysUnlock": 0.3,
+     "estDaysMax": 3.3
+    },
+    "lvSteps": [
+     {
+      "lv": 1,
+      "sss_core": 5,
+      "mats": {
+       "circuit3": 3,
+       "plasma3": 3
+      },
+      "credits": 20000
+     },
+     {
+      "lv": 2,
+      "sss_core": 7,
+      "mats": {
+       "circuit3": 4,
+       "plasma3": 4
+      },
+      "credits": 25000
+     },
+     {
+      "lv": 3,
+      "sss_core": 10,
+      "mats": {
+       "circuit3": 5,
+       "plasma3": 5
+      },
+      "credits": 35000
+     },
+     {
+      "lv": 4,
+      "sss_core": 13,
+      "mats": {
+       "circuit3": 7,
+       "plasma3": 7
+      },
+      "credits": 50000
+     },
+     {
+      "lv": 5,
+      "sss_core": 15,
+      "mats": {
+       "circuit3": 9,
+       "plasma3": 9
+      },
+      "credits": 70000
+     }
+    ]
+   },
+   "trait": {
+    "name": "Ấn Ký Thời Không",
+    "ho": "dập ấn làm chậm tích sát thương nổ dây chuyền",
+    "lv": [
+     {
+      "lv": 1,
+      "value": 2,
+      "desc": "Dập ấn lên 2 mục tiêu làm chậm 25%; sau 0,8s nổ xích hắc quang gây 125% ST + 15% ST trang bị gây ra trong lúc chờ."
+     },
+     {
+      "lv": 2,
+      "value": 3,
+      "desc": "Dập ấn lên 3 mục tiêu làm chậm 30%; sau 0,8s nổ xích hắc quang gây 132% ST + 18% ST trang bị gây ra trong lúc chờ."
+     },
+     {
+      "lv": 3,
+      "value": 3,
+      "desc": "Dập ấn lên 3 mục tiêu làm chậm 35%; sau 0,8s nổ xích hắc quang gây 140% ST + 20% ST trang bị gây ra trong lúc chờ."
+     },
+     {
+      "lv": 4,
+      "value": 4,
+      "desc": "Dập ấn lên 4 mục tiêu làm chậm 40%; sau 0,8s nổ xích hắc quang gây 148% ST + 22% ST trang bị gây ra trong lúc chờ."
+     },
+     {
+      "lv": 5,
+      "value": 4,
+      "desc": "Dập ấn lên 4 mục tiêu làm chậm 45%; sau 0,8s nổ xích hắc quang gây 155% ST cộng thêm 25% ST trang bị tích lũy trong 0,8s đó."
+     }
+    ]
+   },
+   "skill": {
+    "name": "Thời Gian Tỏa Ấn",
+    "cooldown": 12,
+    "effect": "Đánh dấu tức thì 5 mục tiêu làm chậm 60% tốc độ của chúng rồi kích nổ lưới xích hắc quang giật chéo.",
+    "new": false
+   },
+   "super": {
+    "name": "ĐẾ ẤN VĨNH HẰNG",
+    "effect": "Phù ấn khi nổ sẽ để lại bụi cát thời gian làm chậm đạn địch sinh ra từ mục tiêu đó đi 45% trong 2 giây."
+   },
+   "ult": {
+    "name": "ĐẾ ẤN NGƯNG ĐỌNG",
+    "duration": 2.4,
+    "effect": "Dập đại ấn hoàng kim giữ chân quái thường đứng yên 1,5 giây và kích nổ lưới xích thời không giật toàn bộ bộ phận Boss.",
+    "new": false
+   },
+   "budget": {
+    "singleDPSvsBase": 1.36,
+    "crowdMax": 1.95,
+    "savesAt6": 0.0,
+    "savesAt20": 0.0
+   },
+   "art": {
+    "partsFrom": [
+     "đồng hồ bỏ túi tròn có móc treo",
+     "con dấu sư tử ngồi trên đài"
+    ],
+    "color": "#EAB308",
+    "icon3": "Dạng 1: Đài ấn sư tử tím khắc mặt đồng hồ ở bệ. Dạng 2: Sư tử vàng bung cánh kim đồng hồ hai bên. Dạng 3:玉 ấn Hoàng Đế Thời Không tỏa kim đồng hồ nổi và tia hắc quang.",
+    "note": "2 pod phóng phù ấn hình thoi kim đồng hồ nối tia xích giật chéo."
+   }
+  },
+  {
+   "id": "sss_monarch_rail",
+   "group": 3,
+   "kind": "sidearm",
+   "parents": [
+    "monarch12_s",
+    "rail"
+   ],
+   "name": "Đế Quang Điện Pháo",
+   "cost": {
+    "sss_core": 5,
+    "mats": {
+     "circuit3": 3,
+     "plasma3": 3
+    },
+    "credits": 20000,
+    "totalToLv5": {
+     "sss_core": 50,
+     "matsTotal": 56,
+     "creditsTotal": 200000,
+     "estDaysUnlock": 0.3,
+     "estDaysMax": 3.3
+    },
+    "lvSteps": [
+     {
+      "lv": 1,
+      "sss_core": 5,
+      "mats": {
+       "circuit3": 3,
+       "plasma3": 3
+      },
+      "credits": 20000
+     },
+     {
+      "lv": 2,
+      "sss_core": 7,
+      "mats": {
+       "circuit3": 4,
+       "plasma3": 4
+      },
+      "credits": 25000
+     },
+     {
+      "lv": 3,
+      "sss_core": 10,
+      "mats": {
+       "circuit3": 5,
+       "plasma3": 5
+      },
+      "credits": 35000
+     },
+     {
+      "lv": 4,
+      "sss_core": 13,
+      "mats": {
+       "circuit3": 7,
+       "plasma3": 7
+      },
+      "credits": 50000
+     },
+     {
+      "lv": 5,
+      "sss_core": 15,
+      "mats": {
+       "circuit3": 9,
+       "plasma3": 9
+      },
+      "credits": 70000
+     }
+    ]
+   },
+   "trait": {
+    "name": "Lôi Ấn Phá Thiên",
+    "ho": "tia railgun kích nổ tức thì phù ấn dây chuyền",
+    "lv": [
+     {
+      "lv": 1,
+      "value": 15,
+      "desc": "Dập ấn lên 2 mục tiêu và bắn tia railgun xuyên tâm; tia railgun chạm mục tiêu có ấn sẽ kích nổ xích ngay lập tức (+15% ST)."
+     },
+     {
+      "lv": 2,
+      "value": 20,
+      "desc": "Dập ấn lên 3 mục tiêu và bắn tia railgun xuyên tâm; tia railgun chạm mục tiêu có ấn sẽ kích nổ xích ngay lập tức (+20% ST)."
+     },
+     {
+      "lv": 3,
+      "value": 25,
+      "desc": "Dập ấn lên 3 mục tiêu và bắn tia railgun xuyên tâm; tia railgun chạm mục tiêu có ấn sẽ kích nổ xích ngay lập tức (+25% ST)."
+     },
+     {
+      "lv": 4,
+      "value": 30,
+      "desc": "Dập ấn lên 4 mục tiêu và bắn tia railgun xuyên tâm; tia railgun chạm mục tiêu có ấn sẽ kích nổ xích ngay lập tức (+30% ST)."
+     },
+     {
+      "lv": 5,
+      "value": 35,
+      "desc": "Dập ấn 4 mục tiêu và bắn tia railgun xuyên 100%; tia railgun trúng ấn kích nổ xích hắc quang tức thì với +35% ST (không cần chờ 0,8s)."
+     }
+    ]
+   },
+   "skill": {
+    "name": "Hoàng Lôi Xuyên Tâm",
+    "cooldown": 10,
+    "effect": "Dập ấn lên 5 mục tiêu rồi bắn 4 đợt xung điện từ cực đại kích nổ toàn bộ chuỗi xích cùng lúc.",
+    "new": false
+   },
+   "super": {
+    "name": "ĐẾ HOÀNG LƯỠNG CỰC",
+    "effect": "Tàu con mở đại cánh hoàng kim bắn 4 tuyến ray vàng tím, mỗi nhịp bắn tự động gắn lại phù ấn mới."
+   },
+   "ult": {
+    "name": "HOÀNG LÔI PHÁ THIÊN",
+    "duration": 2.4,
+    "effect": "Khóa ấn toàn bộ bộ phận Boss và khai hỏa 4 cột đại pháo railgun hoàng kim, kích nổ dây chuyền 4 nhịp liên hoàn.",
+    "new": false
+   },
+   "budget": {
+    "singleDPSvsBase": 1.39,
+    "crowdMax": 1.95,
+    "savesAt6": 0.0,
+    "savesAt20": 0.0
+   },
+   "art": {
+    "partsFrom": [
+     "con dấu sư tử ngồi trên đài",
+     "thân súng tiêm kích railgun"
+    ],
+    "color": "#A855F7",
+    "icon3": "Dạng 1: Thân súng railgun gắn ấn sư tử tím trên lưng súng. Dạng 2: 2 cánh railgun mạ vàng trượt mở ôm tượng sư tử phát sáng. Dạng 3: Đại pháo railgun Đế Vương 4 nòng viền vàng tím.",
+    "note": "Kết hợp tia ray thẳng đứng với tia xích giật ngang giữa các phù ấn."
+   }
+  }
+ ]
+}

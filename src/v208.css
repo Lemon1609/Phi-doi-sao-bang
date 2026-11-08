@@ -1,0 +1,5 @@
+/* V208 · G2: thoại cốt truyện lên mép trên khi đang xem thẻ kết quả */
+html body.rs208 #st80{bottom:auto!important;top:calc(10px + env(safe-area-inset-top,0px))!important}
+/* V208 · D4: nhãn cơ chế trang bị */
+.kw208{display:flex;flex-wrap:wrap;gap:4px;margin:4px 0 6px}
+.kw208 span{font-size:10.5px;font-weight:700;line-height:1;padding:4px 7px;border-radius:999px;background:#0d2238;border:1px solid #3a6a96;color:#cfe8ff}
