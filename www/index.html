@@ -18650,9 +18650,14 @@ const V206=(()=>{
  try{const o=Report392.hit;Report392.hit=function(a,s){if(on()&&typeof s==='string'&&s!=='gear'&&C.gearSrc.includes(s))return o.call(this,a,'gear');return o.apply(this,arguments);};}catch{}
  try{const o=Battle28.armorHit;Battle28.armorHit=function(){if(R)R.blk++;return o.apply(this,arguments);};}catch{}
  const isMain=s=>s&&s.art28!=null&&!s.gearKind&&!s.ally&&s.type!=='drone'&&!s.escort40;
- function scan(){if(!R||mode!=='play')return;try{R.el+=Math.max(0,Math.min(.1,+frameDtC||0));}catch{}try{for(const s of shots){if(!isMain(s))continue;const k=s.p120?s.p120.i+'@'+s.p120.born:(s.__k206||(s.__k206=Math.random()));R.sv.add(k);if(s.hit&&s.hit.size)R.svH.add(k);}}catch{}
+ function scan(){if(!R||mode!=='play')return;try{R.el+=Math.max(0,Math.min(.1,+frameDtC||0));}catch{}try{for(const s of shots){if(!isMain(s))continue;const k=svKey(s);R.sv.add(k);if(s.hit&&s.hit.size)R.svH.add(k);}}catch{}
   try{if(boss&&boss.bossHealthReady&&R.bS==null)R.bS=R.el;}catch{}}
  try{const o=runGameFrameC;runGameFrameC=function(){const r=o.apply(this,arguments);try{if(on())scan();}catch{}return r;};}catch{}
+ // đạn không xuyên biến mất ngay khung trúng → ghi 'trúng' tại lúc va chạm (boss qua damageBoss, quái thường qua Arsenal30.hit)
+ const svKey=s=>s.p120?s.p120.i+'@'+s.p120.born:(s.__k206||(s.__k206=Math.random()));
+ const markHit=s=>{try{if(R&&isMain(s)){const k=svKey(s);R.sv.add(k);R.svH.add(k);}}catch{}};
+ try{const od=window.damageBoss||damageBoss;const nb=function(a,src){markHit(src);return od.apply(this,arguments);};window.damageBoss=nb;try{damageBoss=nb;}catch{}}catch{}
+ try{const o=Arsenal30.hit;Arsenal30.hit=function(s){markHit(s);return o.apply(this,arguments);};}catch{}
  function snap(){if(!R)return null;const st=Report392.state(),d=st.dealt,sec=Math.max(1,R.el);let gz=0;try{gz=(Combat26.state().grazes|0)-R.gz0;}catch{}
   const src={chinh:d.main||0,tb:d.gear||0,kn:(d.skill||0)+(d.bomb||0)},tot=src.chinh+src.tb+src.kn;
   let cfg='';try{cfg=[launchCraft,...Object.values(Progress.v70.equipped()).sort()].join(',');}catch{}
