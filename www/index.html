@@ -14984,7 +14984,7 @@ body.play-screen #missile-action,body.play-screen #bomb{font-size:11px!important
   function hookHit(){try{const A=Arsenal30;if(A.__h120)return;const o=A.hit;A.hit=function(s,e){const r=o.apply(this,arguments);try{if(s&&s.p120&&e)onHit(s,e);}catch{}return r;};A.__h120=1;}catch{}}
   // ---------- mỗi khung: chuyển động riêng + hàng chờ ----------
   let last=-1;
-  function step(){let t=now();const dt=last<0?0:Math.max(0,Math.min(.05,t-last));last=t;if(typeof mode==='undefined'||mode!=='play')return;
+  function step(){clockGuard();let t=now();const dt=last<0?0:Math.max(0,Math.min(.05,t-last));last=t;if(typeof mode==='undefined'||mode!=='play')return;
     // loạt trễ (tàu ảo, lớp đao 2, thương hộ vệ)
     for(let k=st.delay.length-1;k>=0;k--){const q=st.delay[k];if(t>=q.at){st.delay.splice(k,1);q.s.x=player.x+q.dx;q.s.y=player.y-27-(q.s.p120.fromDrone?6:0);q.s.p120.born=t;if(q.s.p120.k==='sine')q.s.p120.bx=q.s.x;pushCapped([q.s]);}}
     if(st.delay.length>40)st.delay.splice(0,st.delay.length-40);
@@ -15006,15 +15006,18 @@ body.play-screen #missile-action,body.play-screen #bomb{font-size:11px!important
     for(let k=st.vort.length-1;k>=0;k--){const v=st.vort[k];if(t>=v.end){st.vort.splice(k,1);continue;}
       for(const e of targets()){if(e===boss||e.bossPart)continue;const d=dist2(e,v);if(d<v.R&&d>2){const m=Math.min(d,95*dt);e.x+=(v.x-e.x)/d*m;e.y+=(v.y-e.y)/d*m;}}
       if(t>=v.next){v.next+=.2;for(const e of targets())if(!(e===boss||e.bossPart)&&dist2(e,v)<v.R)hurt(e,v.d,v.src);}}
-    st.fx=st.fx.filter(f=>t-f.t<f.life);if(st.fx.length>40)st.fx.splice(0,st.fx.length-40);}
+    st.fx=st.fx.filter(f=>t-f.t<f.life&&t>=f.t);if(st.fx.length>40)st.fx.splice(0,st.fx.length-40);}
   function hookUpd(){try{const ou=update;if(ou.__p120)return;const nu=function(){const r=ou.apply(this,arguments);try{step();}catch(e){}return r;};nu.__p120=1;window.update=nu;try{update=nu;}catch{}}catch{}}
   // ---------- vẽ: hiệu ứng trúng (V125: tranh GPT hit_*.png; code dự phòng) + tàu ảo + xoáy + cột sáng ----------
   const ART=()=>typeof HIT120_ART!=='undefined'?HIT120_ART:null;const IMG={};
   function art(k){const A=ART();if(!A||!A[k])return null;let im=IMG[k];if(!im){im=new Image();im.src=A[k];IMG[k]=im;}return im.complete&&im.naturalWidth?im:null;}
   function star(x,y,r,n,col,rot,al){ctx.save();ctx.translate(x,y);ctx.rotate(rot||0);ctx.globalAlpha=al;ctx.fillStyle=col;ctx.beginPath();for(let k=0;k<n*2;k++){const a=k*Math.PI/n,rr=k%2?r*.28:r;k?ctx.lineTo(Math.cos(a)*rr,Math.sin(a)*rr):ctx.moveTo(rr,0);}ctx.closePath();ctx.fill();ctx.restore();}
   function zig(x,y,tx,ty,col,al){ctx.save();ctx.globalAlpha=al;ctx.strokeStyle=col;ctx.lineWidth=2;ctx.beginPath();ctx.moveTo(x,y);for(let k=1;k<=6;k++){const u=k/6,w=k===6?0:(Math.random()-.5)*14;ctx.lineTo(x+(tx-x)*u+w,y+(ty-y)*u+w);}ctx.stroke();ctx.strokeStyle='#fff';ctx.lineWidth=.8;ctx.stroke();ctx.restore();}
-  function drawFx(){const t=now();let GS=1,GA=1;try{const g=Rank36.grade();GS=g==='SS'?1.3:g==='S'?1.15:1;GA=g==='SS'?1:g==='S'?.9:.8;}catch{}/* V121: hiệu ứng trúng theo bậc */ctx.save();ctx.globalCompositeOperation='lighter';
-    for(const f of st.fx){const u=(t-f.t)/f.life,al=Math.max(0,1-u)*GA;const im=art('hit_'+f.k);
+  // V208 (G1): đồng hồ trận 'time' về 0 khi sang ải mới → hiệu ứng cũ có tuổi ÂM: alpha >1 và kích thước âm khổng lồ (vệt sáng vỡ điểm ảnh che màn).
+  //  Khi phát hiện đồng hồ lùi, xóa toàn bộ hiệu ứng / hiệu ứng kéo dài còn treo; bỏ qua mọi mục có tuổi âm.
+  let lastT207=0;function clockGuard(){const t=now();if(t<lastT207-.25){st.fx.length=0;st.dots.length=0;st.vort.length=0;st.delay.length=0;st.pend.length=0;}lastT207=t;return t;}
+  function drawFx(){const t=clockGuard();let GS=1,GA=1;try{const g=Rank36.grade();GS=g==='SS'?1.3:g==='S'?1.15:1;GA=g==='SS'?1:g==='S'?.9:.8;}catch{}/* V121: hiệu ứng trúng theo bậc */ctx.save();ctx.globalCompositeOperation='lighter';
+    for(const f of st.fx){const u=(t-f.t)/f.life;if(!(u>=0&&u<1))continue;const al=Math.max(0,1-u)*GA;const im=art('hit_'+f.k);
       if(f.k==='chain'){zig(f.x,f.y,f.tx,f.ty,f.col,al);continue;}
       if(f.k==='pillar'){const cot=art('hit_pillar_cot');if(cot){const w=34,th=w*8;ctx.globalAlpha=al*.8;for(let yy=f.y;yy>-th;yy-=th)ctx.drawImage(cot,f.x-w/2,yy-th,w,th);const z=60*GS*(1+.2*u);ctx.globalAlpha=al;const ip=art('hit_pillar');if(ip)ctx.drawImage(ip,f.x-z/2,f.y-z/2,z,z);continue;}const w=38;ctx.globalAlpha=al*.85;const g=ctx.createLinearGradient(f.x-w/2,0,f.x+w/2,0);g.addColorStop(0,'#aa00ff00');g.addColorStop(.5,'#ffe9a0');g.addColorStop(1,'#aa00ff00');ctx.fillStyle=g;ctx.fillRect(f.x-w/2,0,w,f.y+10);star(f.x,f.y,30,4,'#ffd740',Math.PI/4,al);continue;}
       if(im){const z=(f.k==='blast'?96:f.k==='vortex'?96:56)*(1+.25*u)*GS;ctx.globalAlpha=al;ctx.drawImage(im,f.x-z/2,f.y-z/2,z,z);continue;}
@@ -18854,6 +18857,14 @@ const V207=(()=>{
  return {C,today,rushStages,start,end,openDaily,openRush,active:()=>X&&{kind:X.kind,idx:X.idx,stages:X.stages,times:X.times,mod:X.mod&&X.mod.id},state:()=>({...S}),_set:o=>{Object.assign(S,o);save();}};
 })();
 window.V207X=V207;
+</script><style id="v208-css">/* V208 · G2: thoại cốt truyện lên mép trên khi đang xem thẻ kết quả */
+html body.rs208 #st80{bottom:auto!important;top:calc(10px + env(safe-area-inset-top,0px))!important}
+</style><script id="v208">'use strict';
+// V208 · G2 (rà soát đồ họa, chủ dự án duyệt 08/11): khung thoại cốt truyện (#st80) không đè lên bảng tổng kết kết quả.
+//  Khi thẻ kết quả (#rs) đang hiện → khung thoại chuyển lên mép trên màn hình. Tắt: window.V208=false
+(()=>{const on=()=>window.V208!==false;
+ setInterval(()=>{try{const rs=document.getElementById('rs'),ov=document.getElementById('overlay');const vis=on()&&rs&&ov&&!ov.hidden&&rs.offsetParent!==null;document.body.classList.toggle('rs208',!!vis);}catch{}},250);
+})();
 </script><script id="v201-js">'use strict';
 // V201 · SURVIVE_BAL_V200 (Gemini chốt 07/11 từ số đo DO_SONG_SOT_V200): nhân sát thương MỖI ĐÒN địch gây cho người chơi
 //  theo mốc ải chiến dịch, nội suy tuyến tính. Chỉ chế độ Chiến dịch (không Nguyệt Thực / Vô tận / Tháp). Tắt: window.SURV200=false
