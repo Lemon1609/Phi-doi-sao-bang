@@ -16,5 +16,8 @@
   "devDependencies": {
     "@capacitor/cli": "6.1.2",
     "@capacitor/assets": "3.0.5"
+  },
+  "overrides": {
+    "sharp": "0.33.5"
   }
 }
