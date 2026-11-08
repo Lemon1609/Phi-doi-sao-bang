@@ -15614,7 +15614,16 @@ const Event83=(()=>{
  const eqPick=()=>{const L=[];try{const eq=Progress.v70.equipped();for(const id of Object.values(eq)){const it=Progress.v70.get(id);if(it)L.push(['gear',it.variant]);}}catch{}try{L.push(['craft',selected|0]);}catch{}return L.length?L[Math.floor(Math.random()*L.length)]:['craft',0];};
  function copyOf(tier,label){const [k,m]=eqPick();try{if(window.Evo82&&Evo82.on())Evo82.addCopy(k,m,tier,1,true);else V70.phAdd(k,m,tier>=6?3:tier,1);}catch{}let nm='';try{nm=k==='craft'?Fighters28.profiles[m].name:GearCatalog[m].name;}catch{}return label+' · '+nm;}
  function pilot(n){try{const own=Object.keys(Pilot67.state().own||{});const ids=own.length?own.map(Number):PILOTS67.map(p=>p.id);const id=ids[Math.floor(Math.random()*ids.length)];Pilot67._piece(id,n);return n+' mảnh '+(PILOTS67.find(p=>p.id==id)||{}).name;}catch{return '';}}
+ // V204 · EVENT_ENDGAME_V204 (Gemini 08/11): tiệm cuối game từ ải 160 + chip thưởng hoàn thành tuần. Tắt: window.EV204=false
+ const E204={unl:160,shop:[{id:'ev_coder_pack',n:'2 Bộ mã hóa',cost:120,lim:1,it:{coder:2},late:1},{id:'ev_core_pack',n:'4 Lõi chip',cost:80,lim:1,it:{core:4},late:1},{id:'ev_hach_pack',n:'5 Tinh Hạch Siêu Việt',cost:100,lim:1,it:{sssCore:5},late:1}],chipWk:4,chip4:6,chipUnl:110};
+ const on204=()=>window.EV204!==false;
+ const maxCl204=()=>{try{const c=Progress.getState().cleared||[];return c.length?Math.max(...c):0;}catch{return 0;}};
+ const shopL=e=>on204()&&maxCl204()>=E204.unl?e.shop.concat(E204.shop):e.shop;
+ const QN204=q=>{try{return CHIP72.q[q].n;}catch{return ['Chế thức','Cải lương','Nguyên mẫu','Giao ước Nguyên mẫu','Chiến lược','Giao ước Chiến lược','Tuyệt mật'][q];}};
  function grant(it){const out=[];
+  try{if(it.coder||it.core){const m=Chip72.state().mat;Chip72._set({mat:{coder:(m.coder|0)+(it.coder|0),core:(m.core|0)+(it.core|0)}});if(it.coder)out.push(it.coder+' Bộ mã hóa');if(it.core)out.push(it.core+' Lõi chip');}}catch{}
+  try{if(it.sssCore){V70.add('sss_core',it.sssCore);out.push(it.sssCore+' Tinh Hạch');}}catch{}
+  try{if(it.chipQ!=null){const c=Chip72.gen({q:it.chipQ});Chip72._give(c);out.push('1 chip '+QN204(it.chipQ));}}catch{}
   try{if(it.alloy){Progress.grantCredits(it.alloy);out.push(fmt(it.alloy)+' ◈');}}catch{}
   try{if(it.stone){Workshop.exp70(it.stone);out.push(it.stone+' ⬢');}}catch{}
   try{if(it.gem){Econ74.add(it.gem,'SỰ KIỆN');out.push(it.gem+' 💎');}}catch{}
@@ -15654,9 +15663,9 @@ const Event83=(()=>{
   try{if(!H83.k&&window.kill){H83.k=1;const o=window.kill;const f=function(e){const was=e&&!e.dead;const r=o.apply(this,arguments);try{if(on()&&was&&e.dead&&e.elite&&gameMode==='endless')inc('eElite');}catch{}return r;};f.__e83=1;window.kill=f;try{kill=f;}catch{}}}catch{}}
  const prog=t=>Math.min(t.target,S.p[t.k]|0);
  function claimTask(id){roll();const t=ev().tasks.find(x=>x.id===id);if(!t||S.cl[id]||prog(t)<t.target)return;S.cl[id]=1;const got=grant({curr:t.curr,alloy:t.alloy,stone:t.stone,gem:t.gem,perk:t.perk});
-  if(ev().tasks.every(x=>S.cl[x.id])&&S.doneWk!==S.wk){S.done=(S.done|0)+1;S.doneWk=S.wk;try{Ship83._set({ev:S.done});}catch{}got.push('HOÀN THÀNH SỰ KIỆN TUẦN ('+S.done+')');}
+  if(ev().tasks.every(x=>S.cl[x.id])&&S.doneWk!==S.wk){S.done=(S.done|0)+1;S.doneWk=S.wk;try{Ship83._set({ev:S.done});}catch{}got.push('HOÀN THÀNH SỰ KIỆN TUẦN ('+S.done+')');if(on204()&&maxCl204()>=E204.chipUnl){S.c204=(S.c204|0)+1;got.push(...grant({chipQ:E204.chipWk}));if(S.c204%4===0)got.push('MỐC 4 TUẦN: '+grant({chipQ:E204.chip4}).join(''));}}
   save();T('🎁 '+got.join(' · '));}
- function buy(id){roll();const it=ev().shop.find(x=>x.id===id);if(!it)return;const n=S.shop[id]|0;if(n>=it.lim){T('HẾT LƯỢT ĐỔI TUẦN NÀY');return;}if(S.cur<it.cost){T('THIẾU '+ev().cur.toUpperCase());return;}S.cur-=it.cost;S.shop[id]=n+1;save();T('ĐÃ ĐỔI · '+grant(it.it).join(' · '));}
+ function buy(id){roll();const it=shopL(ev()).find(x=>x.id===id);if(!it)return;const n=S.shop[id]|0;if(n>=it.lim){T('HẾT LƯỢT ĐỔI TUẦN NÀY');return;}if(S.cur<it.cost){T('THIẾU '+ev().cur.toUpperCase());return;}S.cur-=it.cost;S.shop[id]=n+1;save();T('ĐÃ ĐỔI · '+grant(it.it).join(' · '));}
  // ================= BOSS CUỐI TUẦN =================
  const A=typeof RAID83_ART!=='undefined'?RAID83_ART:{};const IM={};const img=k=>{if(!(k in IM))IM[k]=A[k]?Object.assign(new Image(),{src:A[k]}):null;const m=IM[k];return m&&m.complete&&m.naturalWidth?m:null;};for(const k in A)if(k!=='meta')img(k);
  const M=A.meta||{w:563,core:[383.5,357.5]};
@@ -15724,14 +15733,14 @@ const Event83=(()=>{
  function left(){const now=VN(),next=(wkNo()+1)*604800000+Date.UTC(1970,0,5);const h=Math.max(0,(next-now)/3600000);return h>=24?Math.floor(h/24)+' ngày '+Math.floor(h%24)+' giờ':Math.floor(h)+' giờ';}
  function render(){if(!el)build();roll();const e=ev();
   const tasks=e.tasks.map(t=>{const p=prog(t),ok=p>=t.target,cl=S.cl[t.id];return `<div class="ev83t ${cl?'done':''}"><div><b>${esc(t.desc)}</b><small>${p}/${t.target} · +${t.curr} ${esc(e.cur)}${t.alloy?' · '+fmt(t.alloy)+' ◈':''}${t.stone?' · '+t.stone+' ⬢':''}${t.gem?' · '+t.gem+' 💎':''}${t.perk?' · '+t.perk+' mảnh Ấn Chú':''}</small></div>${cl?'<em>✓</em>':`<button data-e83="claim" data-v="${t.id}" ${ok?'class="hot"':'disabled'}>${ok?'NHẬN':'CHƯA ĐẠT'}</button>`}</div>`;}).join('');
-  const shop=e.shop.map(it=>{const n=S.shop[it.id]|0;return `<div class="ev83t"><div><b>${esc(it.n)}</b><small>${it.cost} ${esc(e.cur)} · còn ${it.lim-n}/${it.lim}</small></div><button data-e83="buy" data-v="${it.id}" ${n>=it.lim||S.cur<it.cost?'disabled':''}>ĐỔI</button></div>`;}).join('');
+  const shop=shopL(e).map(it=>{const n=S.shop[it.id]|0;return `<div class="ev83t${it.late?' ev204l':''}"><div><b>${it.late?'<i class="ev204tag">CUỐI GAME</i> ':''}${esc(it.n)}</b><small>${it.cost} ${esc(e.cur)} · còn ${it.lim-n}/${it.lim}</small></div><button data-e83="buy" data-v="${it.id}" ${n>=it.lim||S.cur<it.cost?'disabled':''}>ĐỔI</button></div>`;}).join('');
   const ro=raidOpen(),al=attLeft(),pk=S.raid.att.paid|0;
   const raid=`<div class="ev83r">${A.banner?`<img class="rd83b" src="${A.banner}" alt="">`:''}<div class="ev83rt"><b>BOSS CUỐI TUẦN · THỰC THỂ THÔN TINH</b><small>${ro?'ĐANG MỞ · còn '+al+'/'+R.free+' lượt miễn phí hôm nay':'Mở Thứ Bảy & Chủ Nhật'} · tổng tuần ${fmt(S.raid.total)} điểm</small></div>
    <p class="ev83n">Trận 90 giây, boss không chết. Điểm = sát thương × hệ số theo ải cao nhất bạn đã qua (hiện: ải ${bestStage()} · ×${(kOf(bestStage())/R.K).toFixed(1)}). Cứ 25 giây Lõi Hấp Thụ ở ngực mở 6 giây — bắn trúng liên tục để vỡ lõi: boss choáng 5 giây, nhận ×2 sát thương, rơi 3 Đá Năng Lượng (+${R.shard} ${esc(e.cur)} mỗi viên).</p>${msHtml()}
    <div class="adv-btns">${ro?(al>0?'<button class="m63-go" data-e83="raid">⚔ ĐÁNH BOSS</button>':(pk<R.paid.length?`<button class="m63-go" data-e83="raidp">MUA LƯỢT · ${R.paid[pk]} 💎</button>`:'<button class="m63-go off" disabled>HẾT LƯỢT HÔM NAY</button>')):'<button class="m63-go off" disabled>CHƯA MỞ</button>'}</div></div>`;
   el.innerHTML=`<div class="m63-card ev83k" style="--ec:${e.col}"><div class="m63-eye">SỰ KIỆN TUẦN ${evIdx()+1}/4 · còn ${left()}</div><h3>${e.ic} ${esc(e.name)}</h3>${(()=>{try{const r=window.Rule84&&Rule84.info();return r?`<p class="ev83n ev84r"><b>LUẬT TUẦN · ${esc(r.title)}</b><br>${esc(r.desc)}<br><small>Áp dụng: ${esc(r.where)}</small></p>`:'';}catch{return '';}})()}
    <p class="ev83c">${esc(e.cur)}: <b>${S.cur}</b> <small>(đã nhận ${S.earn}/${C.cap} tuần này)</small>${S.ps?` · mảnh bản sao Tím ${S.ps}/3`:''}</p>
-   <div class="adv-req-t">NHIỆM VỤ TUẦN</div>${tasks}<div class="adv-req-t">TIỆM ĐỔI</div>${shop}${raid}
+   ${on204()&&window.EV204X?EV204X.panel():''}<div class="adv-req-t">NHIỆM VỤ TUẦN</div>${tasks}${on204()&&maxCl204()>=E204.chipUnl?`<p class="ev83n ev204c">Hoàn thành đủ 3 nhiệm vụ: <b>1 chip ${QN204(E204.chipWk)}</b> · cứ đủ 4 tuần hoàn thành: <b>1 chip ${QN204(E204.chip4)}</b> (đã ${(S.c204|0)%4}/4)</p>`:''}<div class="adv-req-t">TIỆM ĐỔI</div>${shop}${raid}
    <div class="adv-btns"><button class="adv-x" data-e83="x">ĐÓNG</button></div></div>`;el.hidden=false;}
  function open(){if(!on())return;render();}
  function dot(){try{roll();const e=ev();const t=e.tasks.some(x=>!S.cl[x.id]&&prog(x)>=x.target);return t||(raidOpen()&&attLeft()>0);}catch{return false;}}
@@ -18490,7 +18499,65 @@ const Ruong194=(()=>{
 .g203-r button[aria-pressed="true"]{background:#5b4210;border-color:#ffc94a;color:#fff}
 .g203 p{margin:7px 0 0;font-size:11.5px;line-height:1.4;color:#9fc0da}
 .g203 p b{color:#ffd56a}
-</style><script id="v201-js">'use strict';
+</style><style id="v204-css">/* V204 · tầng cuối game của Sự kiện tuần */
+.ev204tag{font-style:normal;font-size:10px;font-weight:800;letter-spacing:.04em;padding:1px 5px;border-radius:6px;background:#5b4210;color:#ffd56a;margin-right:4px;vertical-align:1px}
+.ev83t.ev204l{border-color:#7a5a1c}
+.ev204c b{color:#ffd56a}
+.ev204 .ev83n b{color:#fff}
+.ev204 .ev83n em.ok{font-style:normal;color:#6ff0a8;font-weight:800}
+.ev204w{display:grid;gap:6px;margin:4px 0 8px}
+.ev204w>div{padding:8px 10px;border-radius:10px;background:#0d1d31;border:1px solid #2b4a6c;opacity:.72}
+.ev204w>div.on{opacity:1;border-color:#ffc94a;background:#1d1a0e}
+.ev204w b{display:block;font-size:12.5px;color:#e5f2ff}
+.ev204w small{display:block;font-size:11.5px;color:#9fc0da;margin-top:2px}
+.ev204w em{display:inline-block;margin-top:4px;font-style:normal;font-size:11px;font-weight:800;color:#ffd56a}
+</style><script id="v204">'use strict';
+// V204 · EVENT_ENDGAME_V204 (Gemini 08/11) · phần cuối tuần + Chiến cơ của tuần. Tắt: window.EV204=false
+//  • Thứ Bảy · Ngày Tiếp Tế Chip: quà nhiệm vụ ngày VKTT (tinh thể / mã hóa / lõi chip) ×1,5, làm tròn lên.
+//  • Chủ Nhật · Ngày Siêu Hợp Thể: 3 trận thắng (kể cả càn quét) đầu ngày ở ải 161–200 hoặc Nguyệt Thực: +1 Tinh Hạch mỗi trận.
+//  • Chiến cơ của tuần: 2 tàu xoay theo tuần sự kiện (1 tàu Thường/S + 1 tàu SS), +10% sát thương đạn chính CHỈ trong Boss cuối tuần.
+//  Tiệm cuối game + chip thưởng tuần nằm trong src/event83.js (cùng cờ). Khóa mới: saobang-ev204-v1 (đếm Chủ Nhật).
+const EV204X=(()=>{
+ const C={sat:1.5,sun:{n:1,max:3},ship:{k:.10,rot:[[0,7],[5,9],[6,10],[2,12]]}};
+ const KEY='saobang-ev204-v1';
+ const on=()=>window.EV204!==false;
+ const VN=()=>new Date(Date.now()+7*3600000);
+ const day=()=>VN().toISOString().slice(0,10);
+ const dow=()=>VN().getUTCDay();
+ const isSat=()=>window.__ev204dow!=null?window.__ev204dow===6:dow()===6;
+ const isSun=()=>window.__ev204dow!=null?window.__ev204dow===0:dow()===0;
+ let S={d:'',n:0,t:''};try{Object.assign(S,JSON.parse(localStorage.getItem(KEY)||'{}'));}catch{}
+ const save=()=>{try{localStorage.setItem(KEY,JSON.stringify(S));}catch{}};
+ const roll=()=>{if(S.d!==day()){S.d=day();S.n=0;save();}};
+ const name=i=>{try{return crafts[i].name;}catch{return 'Chiến cơ '+(i+1);}};
+ const idx=()=>{try{return Event83.state().idx|0;}catch{return 0;}};
+ const ships=()=>C.ship.rot[idx()%4];
+ const T=m=>{try{toast(m);}catch{}};
+ // ---- Chiến cơ của tuần (chỉ Boss cuối tuần) ----
+ function featOn(){if(!on())return false;try{return Event83.inRaid()&&ships().includes(launchCraft|0);}catch{return false;}}
+ try{if(typeof Chip72!=='undefined'&&Chip72.shipM&&!Chip72.shipM.__v204){const o=Chip72.shipM;const f=function(){const r=o.apply(this,arguments);return featOn()?r*(1+C.ship.k):r;};f.__v204=1;Chip72.shipM=f;}}catch{}
+ // ---- Thứ Bảy: quà nhiệm vụ ngày VKTT ×1,5 ----
+ try{const X=Ult72.X;if(X&&X.onClaim&&!X.onClaim.__v204){const o=X.onClaim;const f=function(kind,k){let m0=null;try{m0={...Chip72.state().mat};}catch{}const r=o.apply(this,arguments);
+   try{if(on()&&isSat()&&m0){const m1=Chip72.state().mat,add={};let txt=[];for(const x of ['cry','coder','core']){const g=(m1[x]|0)-(m0[x]|0);if(g>0){const e=Math.ceil(g*C.sat)-g;if(e>0){add[x]=(m1[x]|0)+e;txt.push('+'+e+' '+({cry:'tinh thể',coder:'mã hóa',core:'lõi chip'})[x]);}}}
+    if(Object.keys(add).length){Chip72._set({mat:add});T('📦 NGÀY TIẾP TẾ CHIP · '+txt.join(' · '));}}}catch{}return r;};f.__v204=1;X.onClaim=f;}}catch{}
+ // ---- Chủ Nhật: +1 Tinh Hạch cho 3 trận thắng đầu ----
+ function sunGive(){if(!on()||!isSun())return '';roll();if(S.n>=C.sun.max)return '';S.n++;save();try{V70.add('sss_core',C.sun.n);}catch{return '';}return '+'+C.sun.n+' Tinh Hạch · Ngày Siêu Hợp Thể ('+S.n+'/'+C.sun.max+')';}
+ try{const ors=Workshop.rollStage;if(ors&&!ors.__v204){const f=function(stage){const r=ors.apply(this,arguments);try{if(typeof gameMode!=='undefined'&&gameMode==='endless')return r;let ecl=false;try{ecl=Eclipse67.active();}catch{}let dg=false;try{dg=typeof Dungeons!=='undefined'&&Dungeons.active();}catch{}
+   if(!dg&&((stage|0)>160||ecl)){const t=sunGive();if(t&&Array.isArray(r))r.push(t);}}catch{}return r;};f.__v204=1;Workshop.rollStage=f;}}catch{}
+ try{const osw=Eclipse67.sweep;if(osw&&!osw.__v204){const f=function(){const r=osw.apply(this,arguments);try{if(r){const t=sunGive();if(t)T('💠 '+t);}}catch{}return r;};f.__v204=1;Eclipse67.sweep=f;}}catch{}
+ // ---- bảng trong Sự kiện tuần ----
+ function panel(){roll();const sh=ships(),sat=isSat(),sun=isSun();
+  return `<div class="ev204"><div class="adv-req-t">CHIẾN CƠ CỦA TUẦN</div><p class="ev83n">${sh.map(i=>`<b>${esc204(name(i))}</b>`).join(' · ')} · +${Math.round(C.ship.k*100)}% sát thương đạn chính trong Boss cuối tuần${sh.includes(launchCraft204())?' · <em class="ok">đang dùng</em>':''}</p>
+   <div class="adv-req-t">TIẾP TẾ CUỐI TUẦN</div><div class="ev204w"><div class="${sat?'on':''}"><b>Thứ Bảy · Ngày Tiếp Tế Chip</b><small>Quà nhiệm vụ ngày VKTT ×1,5 (tinh thể, mã hóa, lõi chip)</small>${sat?'<em>ĐANG BẬT</em>':''}</div>
+   <div class="${sun?'on':''}"><b>Chủ Nhật · Ngày Siêu Hợp Thể</b><small>3 trận thắng đầu ngày ở ải 161–200 hoặc Nguyệt Thực: +1 Tinh Hạch mỗi trận</small>${sun?`<em>ĐANG BẬT · ${S.n}/${C.sun.max}</em>`:''}</div></div></div>`;}
+ const esc204=t=>String(t).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'})[c]);
+ const launchCraft204=()=>{try{return launchCraft|0;}catch{return -1;}};
+ // ---- nhắc 1 lần/ngày ở sảnh khi hiệu ứng cuối tuần bật ----
+ setInterval(()=>{try{if(!on()||(!isSat()&&!isSun()))return;if(S.t===day())return;if(typeof mode==='undefined'||mode!=='menu')return;if(document.body.classList.contains('play-screen'))return;S.t=day();save();T(isSat()?'📦 HÔM NAY: NGÀY TIẾP TẾ CHIP · quà nhiệm vụ ngày VKTT ×1,5':'💠 HÔM NAY: NGÀY SIÊU HỢP THỂ · +1 Tinh Hạch cho 3 trận thắng đầu ở ải 161+ / Nguyệt Thực');}catch{}},4000);
+ return {panel,ships,featOn,state:()=>({...S}),C};
+})();
+window.EV204X=EV204X;
+</script><script id="v201-js">'use strict';
 // V201 · SURVIVE_BAL_V200 (Gemini chốt 07/11 từ số đo DO_SONG_SOT_V200): nhân sát thương MỖI ĐÒN địch gây cho người chơi
 //  theo mốc ải chiến dịch, nội suy tuyến tính. Chỉ chế độ Chiến dịch (không Nguyệt Thực / Vô tận / Tháp). Tắt: window.SURV200=false
 //  Áp ngay tại 2 chỗ trừ khiên/máu trong damage() gốc (rep trong build) → mọi lớp hoãn/chặn đòn phía ngoài giữ nguyên.
