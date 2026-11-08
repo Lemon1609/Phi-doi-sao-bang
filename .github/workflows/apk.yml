@@ -26,7 +26,8 @@ jobs:
           node-version: "20"
 
       - name: Cài Capacitor
-        run: npm install --no-audit --no-fund
+        run: |
+          for i in 1 2 3 4; do npm install --no-audit --no-fund && exit 0; echo "thu lai $i"; rm -rf node_modules/sharp; sleep 45; done; exit 1
 
       - name: Tạo dự án Android
         run: npx cap add android
