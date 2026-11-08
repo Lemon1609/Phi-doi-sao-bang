@@ -19239,9 +19239,7 @@ window.V209EV=V209EV;
 .ho212{position:absolute;left:8px;right:8px;bottom:8px;display:flex;gap:6px;align-items:center;justify-content:space-between;z-index:5;pointer-events:auto}
 .ho212 button{font:800 9px/1 'Be Vietnam Pro',sans-serif;letter-spacing:.5px;color:#cfe4ff;background:rgba(6,23,58,.82);border:1px solid rgba(63,169,255,.55);padding:6px 7px;border-radius:3px}
 .ho212 span{display:flex;gap:4px}
-.ho212 [data-t="2"][aria-pressed="true"]{background:#5a2a9c;border-color:#d39bff;color:#fff}
-.ho212 [data-t="3"][aria-pressed="true"]{background:#8a6512;border-color:#ffd56a;color:#fff}
-.ho212 [data-t="1"][aria-pressed="true"]{background:#14448f;border-color:#7fd0ff;color:#fff}
+.ho212 [aria-pressed="true"]{background:#14448f;border-color:#bfe6ff;color:#fff}
 .ho212.off span{opacity:.35}
 </style><script id="holo212">'use strict';
 // V212 · PHÒNG TRƯNG BÀY HOLOGRAM (bản thử định hướng mỹ thuật mới, chủ dự án chọn "đổi toàn bộ phong cách")
@@ -19249,10 +19247,16 @@ window.V209EV=V209EV;
 //  3 nấc trưng bày: Thường (lam) · Siêu cấp (tím – hồng, tia cánh năng lượng) · Tối thượng (vàng kim). Chỉ ngoài trận.
 //  Nút chuyển HOLOGRAM ⇄ XƯỞNG để so sánh. Lưu lựa chọn trong localStorage 'saobang-holo212'. Tắt hẳn: window.HOLO212=false
 const HOLO212=(()=>{
+ let LP=null;
  const KEY='saobang-holo212';let S={on:true,tier:1};try{Object.assign(S,JSON.parse(localStorage.getItem(KEY)||'{}'));}catch{}
  const save=()=>{try{localStorage.setItem(KEY,JSON.stringify(S));}catch{}};
  const on=()=>window.HOLO212!==false&&S.on;
- const TIER={1:{a:'#3FA9FF',b:'#7fd0ff',name:'THƯỜNG'},2:{a:'#B26BFF',b:'#ff7ad9',name:'SIÊU CẤP'},3:{a:'#FFB000',b:'#FFD54A',name:'TỐI THƯỢNG'}};
+ const TIER={1:{name:'THƯỜNG'},2:{name:'SIÊU CẤP'},3:{name:'TỐI THƯỢNG'}};
+ // V212C (chủ dự án): tiến hóa KHÔNG tô vàng — màu mỗi nấc lấy theo đặc trưng (màu riêng) của chính chiến cơ / SSS
+ const hx=(c)=>{c=String(c||'#3FA9FF').trim();if(/^#[0-9a-f]{3}$/i.test(c))c='#'+c[1]+c[1]+c[2]+c[2]+c[3]+c[3];return /^#[0-9a-f]{6}$/i.test(c)?c:'#3FA9FF';};
+ const mix=(a,b,t)=>{a=hx(a);b=hx(b);const p=k=>Math.round(parseInt(a.slice(k,k+2),16)*(1-t)+parseInt(b.slice(k,k+2),16)*t).toString(16).padStart(2,'0');return '#'+p(1)+p(3)+p(5);};
+ function shipCol(P){try{if(P&&P.t==='s')return hx(SSS_MODELS[P.i].color);return hx(Fighters28.profiles[P.i].color);}catch{return '#3FA9FF';}}
+ function tierCol(P,t){const c=shipCol(P);return t===1?{a:mix(c,'#3FA9FF',.55),b:mix(c,'#ffffff',.35)}:t===2?{a:c,b:mix(c,'#ffffff',.45)}:{a:mix(c,'#ffffff',.25),b:'#ffffff'};}
  // ---- hình nét phát sáng từ tranh chiến cơ (dò mép theo kênh alpha)
  const WF={};
  function cell(i){try{const im=(typeof Evo53!=='undefined'&&Evo53.hull)?Evo53.hull(i):fighterAtlasV22;if(!im||!(im.naturalWidth||im.width))return null;const w=(im.naturalWidth||im.width)/5,h=(im.naturalHeight||im.height)/4;return {im,sx:i%5*w,sy:Math.floor(i/5)*h,w,h};}catch{return null;}}
@@ -19265,7 +19269,7 @@ const HOLO212=(()=>{
    const e=Math.min(255,Math.hypot(gx,gy)*1.4+(li>70?110:0));if(e>60){O[p]=r;O[p+1]=g;O[p+2]=b;O[p+3]=e;}}
   x.clearRect(0,0,N,N);x.putImageData(o,0,0);return WF[k]=a;}
  // ---- vẽ nền (gọi từ sân khấu sảnh thay cho ảnh xưởng). Trả true nếu đã vẽ.
- function draw(g,SW,SH,py,k,clock,P){if(!on())return false;const T=TIER[S.tier]||TIER[1];
+ function draw(g,SW,SH,py,k,clock,P){if(!on())return false;const T=tierCol(P,S.tier||1);LP=P;
   const bgG=g.createLinearGradient(0,0,0,SH);bgG.addColorStop(0,'#0B2A66');bgG.addColorStop(.55,'#071d4a');bgG.addColorStop(1,'#04122f');g.fillStyle=bgG;g.fillRect(0,0,SW,SH);
   // lưới kỹ thuật
   g.save();g.strokeStyle='rgba(60,120,230,.22)';g.lineWidth=1;const step=Math.max(18,SW/16);g.beginPath();for(let x=(SW/2)%step;x<SW;x+=step){g.moveTo(x+.5,0);g.lineTo(x+.5,SH);}for(let y=(py)%step;y<SH;y+=step){g.moveTo(0,y+.5);g.lineTo(SW,y+.5);}g.stroke();
@@ -19278,7 +19282,7 @@ const HOLO212=(()=>{
   const i=P&&P.t==='c'?P.i:(P&&P.t==='s'?((typeof SSS_MODELS!=='undefined'&&SSS_MODELS[P.i]&&SSS_MODELS[P.i].base)|0):0);
   const wf=wire(i,'#3FA9FF');if(wf){const sz=Math.min(SW*.86,SH*.62);g.save();g.globalAlpha=.42+.06*Math.sin(clock*1.6);g.globalCompositeOperation='lighter';g.drawImage(wf,SW/2-sz/2,py-sz*.95,sz,sz);g.restore();}
   // tia năng lượng / hào quang theo nấc (phía sau tàu)
-  if(S.tier>=2){g.save();g.globalCompositeOperation='lighter';const cx=SW/2,cy=py-80*k;for(let j=0;j<14;j++){const side=j%2?1:-1,ang=-Math.PI/2+side*(.35+Math.floor(j/2)*.16)+Math.sin(clock*1.4+j)*.03,len=(150+((j*53)%60))*k;
+  if(S.tier>=2){g.save();g.globalCompositeOperation='lighter';const cx=SW/2,cy=py-80*k;for(let j=0;j<(S.tier===3?22:14);j++){const side=j%2?1:-1,ang=-Math.PI/2+side*(.35+Math.floor(j/2)*.16)+Math.sin(clock*1.4+j)*.03,len=(150+((j*53)%60))*k;
     const gr=g.createLinearGradient(cx,cy,cx+Math.cos(ang)*len,cy+Math.sin(ang)*len);gr.addColorStop(0,T.b+'cc');gr.addColorStop(1,T.a+'00');g.strokeStyle=gr;g.lineWidth=(10-Math.floor(j/2))*k*.55;g.lineCap='round';g.beginPath();g.moveTo(cx,cy);g.lineTo(cx+Math.cos(ang)*len,cy+Math.sin(ang)*len);g.stroke();}
    const ha=g.createRadialGradient(cx,cy,0,cx,cy,170*k);ha.addColorStop(0,T.a+'88');ha.addColorStop(1,T.a+'00');g.fillStyle=ha;g.fillRect(0,0,SW,SH);g.restore();}
   // bệ hologram nét đứt
@@ -19286,7 +19290,7 @@ const HOLO212=(()=>{
   g.setLineDash([]);const pg=g.createRadialGradient(cx,py+6*k,0,cx,py+6*k,150*k);pg.addColorStop(0,'rgba(63,169,255,.30)');pg.addColorStop(1,'rgba(63,169,255,0)');g.globalAlpha=1;g.fillStyle=pg;g.beginPath();g.ellipse(cx,py+6*k,150*k,34*k,0,0,Math.PI*2);g.fill();g.restore();
   return true;}
  // ---- lớp màu theo nấc phủ lên chiến cơ (Tối thượng: ánh vàng kim nhẹ). Gọi sau khi chép khung trận.
- function tint(g,SW,SH,py,k){if(!on()||S.tier!==3)return;g.save();g.globalCompositeOperation='overlay';const cx=SW/2,cy=py-60*k;const gr=g.createRadialGradient(cx,cy,0,cx,cy,120*k);gr.addColorStop(0,'rgba(255,205,80,.55)');gr.addColorStop(1,'rgba(255,205,80,0)');g.fillStyle=gr;g.fillRect(0,0,SW,SH);g.restore();}
+ function tint(g,SW,SH,py,k){if(!on()||S.tier!==3)return;const T=tierCol(LP,3);g.save();g.globalCompositeOperation='screen';const cx=SW/2,cy=py-60*k;const gr=g.createRadialGradient(cx,cy,0,cx,cy,120*k);gr.addColorStop(0,T.a+'55');gr.addColorStop(1,T.a+'00');g.fillStyle=gr;g.fillRect(0,0,SW,SH);g.restore();}
  // ---- nút điều khiển trên sân khấu
  function ui(){const st=document.querySelector('.h1-stage');if(!st||st.querySelector('.ho212'))return;const d=document.createElement('div');d.className='ho212';
   d.innerHTML=`<button data-h="bg"></button><span>${[1,2,3].map(t=>`<button data-t="${t}">${TIER[t].name}</button>`).join('')}</span>`;st.appendChild(d);
