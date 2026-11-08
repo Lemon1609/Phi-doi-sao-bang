@@ -75,7 +75,9 @@ jobs:
         working-directory: android
         run: |
           chmod +x gradlew
-          ./gradlew assembleDebug --no-daemon
+          W=gradle/wrapper/gradle-wrapper.properties
+          sed -i 's/^networkTimeout=.*/networkTimeout=120000/' "$W"; grep -q networkTimeout "$W" || echo networkTimeout=120000 >> "$W"
+          for i in 1 2 3 4; do ./gradlew assembleDebug --no-daemon && exit 0; echo "thu lai $i"; sleep 45; done; exit 1
 
       - name: Đổi tên APK
         run: |
