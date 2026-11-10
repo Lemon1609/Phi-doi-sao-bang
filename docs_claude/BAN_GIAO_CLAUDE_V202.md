@@ -1,5 +1,14 @@
 # BÀN GIAO DỰ ÁN PHI ĐỘI SAO BĂNG · V202 (2026-11-08)
 
+### V218 · 10/11 (22:xx) · PHÁT HÀNH: tàu 8, 6 dáng mới · tàu 4 thuong / lam · đạn tàu 8, 10 · Bạo Tẩu mảnh rời cho tàu 9, 10
+- Gói GPT "V218_DOT_2_BAN_THU" (25 tranh thân + 16 mảnh hiệu ứng) đã chép đè lên tranh đợt 1 trong src/ship118 và src/btfx218. Số đo: work/tranh219/do.py; nhận xét + việc đợt 3: docs_claude/GUI_GPT_V219_KET_QUA_DOT_2.md.
+- Đạt: tàu 8 rộng/cao 1,01–1,17; tàu 6 0,86–1,04; tàu 4 _bt bung +26 / +21 %; bộ hiệu ứng tàu 9 (lam biển 215°) và tàu 10 (lục 90°) khác nhau rõ, sét dao động 120 px. Còn tồn: tàu 8 _bt bung +7–14 % ở 5 bậc, ss_bt pháo chồng; tàu 6 tim_bt +10 %.
+- btfx218.js: (1) lửa giữ tỉ lệ thật giữa 3 dáng (dáng cao nhất làm chuẩn `ref`), lật gương cho bên trái; (2) NÂNG SÀN bậc thấp so với bảng Gemini (bậc thường: cỡ sáng 0,86, alpha 0,40, 1 tia sét) vì bảng gốc làm bậc thường gần như không thấy gì — phát hiện khi tàu 9 trong bộ lưu test đang ở bậc 'thuong'.
+- Bản tách web nay có 35 tệp (thêm a/s34.js = BTFX218_ART + btfx218.js). Đăng artifact 9gvh… bản 6.
+- Lưu ý test: KHÔNG chạy bot khác song song với t209 (mục "phá chướng ngại khi Bạo Tẩu +0,7 s" trượt khi máy tải nặng); không dựng lại khi test đang đọc tệp HTML.
+- Test (chạy lần lượt): t156 14/14; t209 20/20; t204 8/8; t207 8/8; t206 7/7.
+- Việc kế: GPT đợt 3 = sửa tồn tàu 8 / tàu 6 + bộ hiệu ứng 11 tàu còn lại. Bảng 13 bộ trang bị của Gemini chưa dùng. Tàu 11–13 chưa nối BtFx218.
+
 ### V218b (CHỜ DUYỆT, chưa phát hành) · 10/11 · Gói GPT "V217_DOT_1_BAN_THU" + bảng số Gemini
 - Đã chép vào nguồn: src/ship118 tàu 8 (12), tàu 6 (12), tàu 4 thuong + lam (4) — cũ ở src/ship118_cu_v217/; src/btfx218 = 16 mảnh hiệu ứng tàu 9, tàu 10 của GPT. → BẢN DỰNG TỪ NGUỒN HIỆN KHÁC BẢN PHÁT HÀNH V217 (web v4, APK V217.30). Chủ dự án chưa duyệt.
 - Đo thân (bỏ lửa động cơ, work/tranh218): tàu 4 đạt 1,20 / 1,22; tàu 8 chuyển từ dẹt sang THON 0,72–0,88 (mục tiêu 1,05–1,25); tàu 6 0,66–0,78 ở 5 bậc, SS 0,91. Bạo Tẩu bung chưa đủ ở nhiều bậc (tàu 6 tim −2 %, ss −1 %; tàu 4 +1–2 %). Chi tiết + yêu cầu sửa: docs_claude/GUI_GPT_V218_KET_QUA_DOT_1.md.

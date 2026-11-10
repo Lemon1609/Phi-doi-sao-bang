@@ -20,7 +20,9 @@
   const back_=x=>{x=Math.max(0,Math.min(1,x));const c=1.70158;return 1+(c+1)*Math.pow(x-1,3)+c*Math.pow(x-1,2);};
   // Bảng tăng theo 6 bậc (Gemini, 10/11): [số dải lửa, dài lửa, số tia sét, nhịp sét (giây), cỡ ánh sáng, alpha ánh sáng, số hạt]
   //  Trần: bề ngang ánh sáng ≤ 1,35 × sải cánh; alpha ≤ 0,58; ánh sáng và lửa luôn vẽ DƯỚI thân tàu.
-  const LV=[[2,.60,0,9,.70,.25,3],[2,.75,1,1.2,.80,.32,4],[4,.85,2,.9,.90,.38,5],[4,.95,3,.6,1,.45,6],[6,1.05,4,.4,1.10,.52,7],[6,1.15,5,.25,1.20,.58,8]];
+  //  V219: nâng sàn các bậc thấp (bảng gốc Gemini làm bậc thường gần như không thấy gì: ánh sáng 70 % nấp sau thân, 0 tia sét).
+  //  Gốc Gemini: dài lửa .60/.75/.85/.95/1.05/1.15 · sét 0/1/2/3/4/5 · cỡ sáng .70/.80/.90/1/1.10/1.20 · alpha .25/.32/.38/.45/.52/.58
+  const LV=[[2,.72,1,1.4,.86,.40,3],[2,.80,1,1.1,.93,.44,4],[4,.88,2,.9,1,.48,5],[4,.96,3,.6,1.07,.52,6],[6,1.05,4,.4,1.14,.56,7],[6,1.15,5,.25,1.20,.60,8]];
   // 18:32 chủ dự án: NỚI trần cho rực hơn → bề ngang ánh sáng tối đa 1,9 × sải cánh (Gemini: 1,35), alpha × 1,45 và trần 0,85 (Gemini: 0,58)
   const SPAN_MAX=1.9,SPAN_K=1.5,A_K=1.45,A_MAX=.85,FLASH=.2;
   // ---- mỏ neo: dò từ ô Bạo Tẩu của atlas, tọa độ chuẩn hóa theo khung tàu (−0,5 … 0,5) ----
@@ -47,10 +49,10 @@
         cwid=Math.min(SPAN_MAX,SPAN_K*L[4])*span*size,sc=cwid/q.w,pr=back_((ta-.03)/.42),W=sg.naturalWidth*sc*(.5+.5*pr),H=sg.naturalHeight*sc*(.92+.08*pr);
       ctx.globalAlpha=Math.min(A_MAX,k*L[5]*A_K*(1+.14*Math.sin(now*3.1)));ctx.drawImage(sg,-W/2,-H/2+size*.03,W,H);}
     const F=[img(id,'lua_1'),img(id,'lua_2'),img(id,'lua_3')].filter(Boolean);
-    if(F.length&&m){const flame=(x,y,w,h,seed,ang)=>{const ph=now*11+seed*1.37,f=Math.floor(ph)%F.length,u=ph-Math.floor(ph),hh=h*(.86+.14*Math.sin(now*23+seed*2.1));
-        ctx.save();ctx.translate(x,y);ctx.rotate(Math.PI+ang+Math.sin(now*7+seed)*.04);const put=(im,al)=>{const b=bb(im),ww=Math.max(w,hh*b.w/b.h*1.5);ctx.globalAlpha=al;ctx.drawImage(im,b.x,b.y,b.w,b.h,-ww/2,-hh,ww,hh);};put(F[f],k*(1-u*.55));put(F[(f+1)%F.length],k*u*.85);ctx.restore();};
+    if(F.length&&m){const ref=Math.max(...F.map(im=>bb(im).h))/* V219: lấy dáng lửa cao nhất làm chuẩn, các dáng khác giữ đúng tỉ lệ GPT vẽ */;const flame=(x,y,w,h,seed,ang)=>{const ph=now*11+seed*1.37,f=Math.floor(ph)%F.length,u=ph-Math.floor(ph),hh=h*(.86+.14*Math.sin(now*23+seed*2.1));
+        ctx.save();ctx.translate(x,y);ctx.rotate(Math.PI+ang+Math.sin(now*7+seed)*.04);const put=(im,al)=>{const sc=hh/ref,ww=im.naturalWidth*sc*Math.max(1,w/(size*.10)),h2=im.naturalHeight*sc;ctx.globalAlpha=al;ctx.drawImage(im,-ww/2,-h2,ww,h2);};if(x<m.c[0]*size-1)ctx.scale(-1,1);put(F[f],k*(1-u*.55));put(F[(f+1)%F.length],k*u*.85);ctx.restore();};
       m.eng.forEach((e,i)=>flame(e[0]*size,e[1]*size,size*.10,size*.60*L[1],i*3+1,0));
-      const nt=lite?0:Math.max(0,L[0]-m.eng.length);if(nt){const low=m.tip.filter(p=>p[1]>m.c[1]-.02&&Math.abs(p[0]-m.c[0])>.14).sort((p,q)=>q[1]-p[1]).slice(0,nt);low.forEach((p,i)=>flame(p[0]*size,p[1]*size,size*.06,size*.32*L[1],i*5+9,(p[0]<m.c[0]?1:-1)*.22));}}
+      const nt=lite?0:Math.max(0,L[0]-m.eng.length);if(nt){const low=m.tip.filter(p=>p[1]>m.c[1]-.02&&Math.abs(p[0]-m.c[0])>.14).sort((p,q)=>q[1]-p[1]).slice(0,nt);low.forEach((p,i)=>flame(p[0]*size,p[1]*size,size*.10,size*.34*L[1],i*5+9,(p[0]<m.c[0]?1:-1)*.22));}}
     ctx.restore();}
   // ---- lớp TRƯỚC thân: sét giữa các mũi cánh + hạt lấp lánh ----
   function front(ctx,a,cell,cw,ch,size,on,now,ta,id,lite){
