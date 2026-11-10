@@ -43,7 +43,7 @@ Chủ dự án nhận xét: tranh hiện **chưa đồng bộ**, có tàu **quá
    - **Không dày**: thà ít mà sắc. Game sẽ nhân số lượng lên khi cần.
    - Trang bị cũng theo cách này ở đợt sau (đạn, tia, chớp nòng, nổ: mỗi món một bộ mảnh rời, cùng quy ước).
 
-## B. Đợt vẽ 1 (28 tranh thân + 16 tranh hiệu ứng)
+## B. Đợt vẽ 1 (28 tranh thân + 16 tranh hiệu ứng + 10 tranh đạn)
 
 | Việc | Tệp | Yêu cầu |
 |---|---|---|
@@ -52,6 +52,8 @@ Chủ dự án nhận xét: tranh hiện **chưa đồng bộ**, có tàu **quá
 | **Tàu 4 nới dáng 2 bậc** | `tau4_thuong.png`, `tau4_lam.png` + 2 bản `_bt` | Hiện 0,48 và 0,62. Mục tiêu ≥ 0,85, cùng họ dáng với 4 bậc còn lại. |
 
 | **Bộ hiệu ứng Bạo Tẩu làm mẫu** | 8 tệp `tau9_fx_*` + 8 tệp `tau10_fx_*` (mục A.8) | Tàu 9: lam băng, sắc, lạnh, mảnh như lưỡi dao. Tàu 10: lục quân với đèn lam, khối, kiểu khí tài (tia khóa mục tiêu, tấm khiên năng lượng). Hai bộ này làm mẫu: game ghép và cho chạy thử để chủ dự án duyệt, rồi mới làm 11 tàu còn lại. |
+
+| **Đạn chính tàu 8 và tàu 10 vẽ lại** | `fx16_pb_7_{t1,t2,t3,ss}.png`, `fx16_pb_9_{t1,t2,t3,ss}.png` (96×128) + `fx16_pb_7_muzzle.png`, `fx16_pb_9_muzzle.png` (128×128) | Bản thử vừa rồi màu đạt nhưng **cỡ không tăng theo bậc**. Phần vẽ của viên đạn phải cao dần: t1 ≈ 92 px, t2 ≈ 98, t3 ≈ 104, ss ≈ 110, rộng 22–34 px, căn giữa khung, mũi hướng lên. Chớp nòng: phần vẽ ≈ 85 px, căn giữa. Tàu 8: lõi plasma lam, vỏ cam thép. Tàu 10: lục quân, lõi cam tín hiệu. Vẽ theo cách ở A.8 (sáng ở lõi, mờ dần ra mép, không viền đen). |
 
 Bản Bạo Tẩu của tàu 8, 6, 4 theo mục A.7 (thân bung, không hiệu ứng dính vào tranh).
 
