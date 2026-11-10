@@ -336,8 +336,13 @@ for _p in sorted(_g.glob('src/tier/*.png'))+sorted(_g.glob('src/tier/*.webp')):
     except Exception as _e:print('loi tranh bac',_p,_e)
 print('tranh than tau theo bac:',len(TIER69))
 SHIP118={}
-for _p in sorted(_g.glob('src/ship118/tau*.png')):
-    _n=os.path.splitext(os.path.basename(_p))[0];_num,_f=_n[3:].split('_',1);_im=_I.open(_p).convert('RGBA');_bf=_io.BytesIO();_im.save(_bf,'WEBP',quality=88)
+# V217 · cân đối cỡ / tỉ lệ thân tàu lúc dựng (claude_tools/candoi217.py); tệp gốc trong src/ship118 giữ nguyên. Tắt: CANDOI217=0
+if os.environ.get('CANDOI217','1')!='0':
+    import sys as _sys;_sys.path.insert(0,'claude_tools');import candoi217 as _cd;_S118=_cd.can_doi('src/ship118')
+else:
+    _S118={os.path.splitext(os.path.basename(_p))[0]:_I.open(_p).convert('RGBA') for _p in sorted(_g.glob('src/ship118/tau*.png'))}
+for _n in sorted(_S118):
+    _num,_f=_n[3:].split('_',1);_im=_S118[_n];_bf=_io.BytesIO();_im.save(_bf,'WEBP',quality=88)
     SHIP118.setdefault(str(int(_num)-1),{})[_f]='data:image/webp;base64,'+_b64.b64encode(_bf.getvalue()).decode()
 print('V118 chien co thiet ke lai:',{k:len(v) for k,v in SHIP118.items()})
 BOSS78A={}

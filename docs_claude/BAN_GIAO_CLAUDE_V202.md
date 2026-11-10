@@ -1,5 +1,13 @@
 # BÀN GIAO DỰ ÁN PHI ĐỘI SAO BĂNG · V202 (2026-11-08)
 
+### V217 · 10/11 · Cân đối cỡ 13 chiến cơ + chốt hướng mỹ thuật mới
+- Chủ dự án: hiệu ứng siêu cấp của GPT "lòe loẹt, chưa ngầu"; chiến cơ "cái quá dẹt, cái quá to"; toàn bộ đồ họa "chưa đồng bộ" → sửa theo phong cách hiện đại – tương lai (tham khảo CẢM GIÁC tựa game gốc, không chép).
+- ĐÃ LÀM: claude_tools/candoi217.py + build74_mau.py — cân đối lúc dựng (tệp gốc src/ship118 giữ nguyên): cỡ chuẩn theo bậc G = căn(rộng×cao) 345 → 405; nắn tỉ lệ tối đa 12 % nếu rộng/cao > 1,30 hoặc < 0,75; bản _bt dùng cùng hệ số với bản thường. Tắt: CANDOI217=0 khi dựng. Số đo gốc: tàu 8 dẹt 1,47–1,85; tàu 6 gầy 0,44–0,75; tàu 4 thuong/lam 0,48/0,62; tàu 1, 3, 7, 11–13 chiếm 85–97 % khung.
+- CHỐT Bạo Tẩu (chủ dự án): vẫn có lửa, sét, cánh và thân bung ra, nhưng lửa / sét / lấp lánh là HIỆU ỨNG ĐỘNG vẽ bằng mã, không dày; GPT chỉ vẽ thân bung, không vẽ hiệu ứng. Bản mẫu (chưa vào game): claude_tools/demo217/demo3.html — cánh năng lượng trong suốt xòe sau lưng (blade), vệt lửa mũi cánh (tail), sét giữa các mũi cánh (bolt), sao lấp lánh (glint), vệt bóng quét thân, lửa đẩy có kim cương sốc. Chủ dự án yêu cầu "thiết kế lại cho đẹp hơn" → còn phải duyệt bản mẫu 3 rồi mới đưa vào v118.js.
+- CHỐT vẽ lại: tàu 8 và tàu 6 (dáng), tàu 4 bậc thuong + lam. Bộ chuẩn + yêu cầu gửi GPT: docs_claude/GUI_GPT_V217_CHUAN_PHONG_CACH.md.
+- CHƯA GHÉP: 28 tranh đợt "TAU_8_9_10_BAN_THU" (18 bản _bt có lửa vẽ sẵn → trái hướng mới; 10 tranh đạn tàu 8 / tàu 10 màu ổn nhưng cỡ không tăng theo bậc, chủ dự án chưa trả lời).
+- Test: t156 14/14; t209 20/20; t204 8/8; t207 8/8; t206 7/7 (chạy lần lượt).
+
 ### V216 · 10/11 · Tranh mới tàu 4 (Bạo Tẩu), 8, 9, 10
 - src/ship118: tau4_*_bt (6) + tau8/9/10_* (36) = tranh GPT (cũ: src/ship118_cu_v215/). Không căn bằng mã.
 - Đo (tranh216/do.py, chuẩn kiểm duyệt): tàu 4 _bt ĐẠT (diện tích ×1,48–2,52; số đo thân +9% là nhiễu do mũi khoan trắng). Tàu 8/9/10 bản thường ĐẠT (thân 6 bậc lệch ≤1–2%; tàu 8 ss +10%, tàu 10 ss +24% vì có vòng pháo đài — xem bằng mắt thì thân giữa cùng cỡ).
