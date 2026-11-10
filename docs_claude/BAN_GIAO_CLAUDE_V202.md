@@ -1,5 +1,13 @@
 # BÀN GIAO DỰ ÁN PHI ĐỘI SAO BĂNG · V202 (2026-11-08)
 
+### V218b (CHỜ DUYỆT, chưa phát hành) · 10/11 · Gói GPT "V217_DOT_1_BAN_THU" + bảng số Gemini
+- Đã chép vào nguồn: src/ship118 tàu 8 (12), tàu 6 (12), tàu 4 thuong + lam (4) — cũ ở src/ship118_cu_v217/; src/btfx218 = 16 mảnh hiệu ứng tàu 9, tàu 10 của GPT. → BẢN DỰNG TỪ NGUỒN HIỆN KHÁC BẢN PHÁT HÀNH V217 (web v4, APK V217.30). Chủ dự án chưa duyệt.
+- Đo thân (bỏ lửa động cơ, work/tranh218): tàu 4 đạt 1,20 / 1,22; tàu 8 chuyển từ dẹt sang THON 0,72–0,88 (mục tiêu 1,05–1,25); tàu 6 0,66–0,78 ở 5 bậc, SS 0,91. Bạo Tẩu bung chưa đủ ở nhiều bậc (tàu 6 tim −2 %, ss −1 %; tàu 4 +1–2 %). Chi tiết + yêu cầu sửa: docs_claude/GUI_GPT_V218_KET_QUA_DOT_1.md.
+- Mảnh hiệu ứng: đúng khổ, đúng điểm neo (gốc lửa lệch ≤ 1 px, hai đầu sét y = 64). Nhược: hai tàu cùng tông 200° và cùng kiểu sao tỏa; sét quá thẳng.
+- btfx218.js: bb() cắt lề trong suốt của từng mảnh; bảng LV theo Gemini [số dải lửa 2/2/4/4/6/6, dài 0,60 → 1,15, số tia sét 0 → 5, nhịp 1,2 → 0,25 s, cỡ ánh sáng 0,70 → 1,20, alpha 0,25 → 0,58]; trần bề ngang ánh sáng 1,35 × sải cánh, alpha 0,58.
+- Gemini (tệp chủ dự án gửi 18:06): bảng đặc trưng 13 tàu (đã chép vào GUI_GPT_V218 mục 3), bảng 6 bậc (đã vào mã), 13 bộ trang bị (chưa dùng). Lưu ý của Claude: theo bảng Gemini có 6 tàu đèn lam / lơ (3, 5, 8, 9, 10, 12) — chờ chủ dự án quyết có giữ tàu 10 đèn lục không.
+- t156 14/14 (bản dựng có tranh mới). Chưa chạy t209 / t204 / t206 / t207 cho bản này.
+
 ### V218 (chưa phát hành, không đổi gì khi chưa có tranh) · 10/11 · Máy chuyển động Bạo Tẩu cho mảnh rời GPT
 - src/btfx218.js (BtFx218.back / front) + v118.js gọi trước và sau khi vẽ thân + skin69.js ghi bậc a.__f lên atlas + build74_mau.py nạp src/btfx218/tauN_fx_*.png thành BTFX218_ART. Thư mục src/btfx218 đang RỖNG → game y như V217. Tắt: window.BTFX218=false.
 - Mỏ neo tự dò từ ô Bạo Tẩu của atlas (96×96): họng động cơ = điểm thấp nhất nửa trái / phải quanh trục giữa; mũi cánh = điểm mép xa tâm nhất trong 10 cung; mép thân cho hạt lấp lánh. Bảng tăng theo bậc LV trong btfx218.js (số lửa mũi cánh, dài lửa, số tia sét, số hạt, cỡ ánh sáng) — chờ Gemini góp số.
