@@ -21,15 +21,29 @@ Chủ dự án nhận xét: tranh hiện **chưa đồng bộ**, có tàu **quá
    - Tuyệt đối không dùng đỏ #FF334F và hồng #F50057 (màu đạn địch).
 5. **Phát sáng**
    - Chỉ phát sáng ở: lõi, buồng lái, khe năng lượng, họng động cơ. Lửa động cơ ngắn (≤ 40 px), màu lam – trắng.
-   - **Không vẽ** lửa, sét, quầng sáng, hạt bụi, vòng tròn quanh tàu. Toàn bộ hiệu ứng do game vẽ bằng mã, có chuyển động.
+   - **Không vẽ** lửa, sét, quầng sáng, hạt bụi dính vào tranh thân tàu. Hiệu ứng vẽ thành **mảnh rời** theo mục A.8 để game làm chuyển động.
 6. **Tiến hóa 6 bậc** (`thuong / luc / lam / tim / tim5 / ss`)
    - Cùng một thân lõi. Bậc sau thêm tấm giáp, cánh phụ, họng pháo; lớn dần đúng cỡ ở mục 1. Không đổi màu chủ đạo.
 7. **Bản Bạo Tẩu** (`_bt`, mỗi bậc một bản)
    - **Chỉ là thân và cánh bung ra**: cánh mở rộng, tấm giáp tách lớp, họng pháo lộ ra, khe năng lượng sáng hơn.
    - Thân lõi **cùng cỡ, cùng vị trí** với bản thường cùng bậc. Phần bung rộng hơn bản thường 15–35 %. Lề ≥ 12 px.
-   - Không lửa, không sét, không quầng (mục 5).
+   - Không lửa, không sét, không quầng trong tranh thân (chúng nằm ở bộ hiệu ứng, mục 8).
+8. **Bộ hiệu ứng Bạo Tẩu theo từng tàu** (GPT thiết kế, game làm chuyển động)
+   - Bạo Tẩu vẫn có **lửa, sét, ánh sáng**. GPT thiết kế chúng **riêng cho từng chiến cơ**, hợp với chất và màu của tàu đó (plasma, băng, lửa thép, axit, hư không…). Game ghép các mảnh vào tàu và cho chúng chuyển động: luân phiên dáng, lắc, co giãn, chớp tắt, bật xòe.
+   - Mỗi tàu **một bộ 8 tệp**, dùng chung cho cả 6 bậc (game tự tăng cỡ và số lượng theo bậc):
 
-## B. Đợt vẽ 1 (28 tranh)
+     | Tệp | Khổ | Quy ước |
+     |---|---|---|
+     | `tauN_fx_lua_1.png`, `_2`, `_3` | 192×384 | Một ngọn lửa, **gốc ở giữa cạnh đáy**, ngọn hướng lên. 3 dáng khác nhau của cùng một ngọn để game luân phiên. Mảnh: phần vẽ chiếm không quá 35 % khung. |
+     | `tauN_fx_set_1.png`, `_2`, `_3` | 384×128 | Một tia sét chạy ngang **từ giữa cạnh trái đến giữa cạnh phải**. 3 dáng khác nhau. Lõi trắng mảnh, viền màu của tàu, 1–2 nhánh phụ ngắn. |
+     | `tauN_fx_sang.png` | 512×512 | Hình ánh sáng đặc trưng nằm **sau lưng** tàu (cánh năng lượng, tia tản, quầng lõi…), tâm ảnh trùng tâm tàu, đối xứng, trong mờ. Không phải vòng tròn kín bao quanh tàu. |
+     | `tauN_fx_hat.png` | 256×64 | 4 ô 64×64 xếp ngang: 4 hạt / tia lấp lánh nhỏ khác nhau. |
+
+   - Cách vẽ để ghép được: nền trong suốt; **sáng ở lõi, mờ dần ra mép** cho đến trong suốt hẳn; không viền đen, không nền tối, không bóng đổ (game dùng chế độ cộng sáng). Chỉ dùng màu đèn của tàu và trắng; không đỏ #FF334F, hồng #F50057, vàng kim, cầu vồng.
+   - **Không dày**: thà ít mà sắc. Game sẽ nhân số lượng lên khi cần.
+   - Trang bị cũng theo cách này ở đợt sau (đạn, tia, chớp nòng, nổ: mỗi món một bộ mảnh rời, cùng quy ước).
+
+## B. Đợt vẽ 1 (28 tranh thân + 16 tranh hiệu ứng)
 
 | Việc | Tệp | Yêu cầu |
 |---|---|---|
@@ -37,16 +51,18 @@ Chủ dự án nhận xét: tranh hiện **chưa đồng bộ**, có tàu **quá
 | **Tàu 6 vẽ lại dáng** | `tau6_{thuong,luc,lam,tim,tim5,ss}.png` + 6 bản `_bt` | Hiện rộng / cao = 0,44–0,75 (quá gầy). Mục tiêu **0,85–1,00**: thêm vai và cánh rộng hơn, giữ màu tím oải hương và nét thanh thoát. |
 | **Tàu 4 nới dáng 2 bậc** | `tau4_thuong.png`, `tau4_lam.png` + 2 bản `_bt` | Hiện 0,48 và 0,62. Mục tiêu ≥ 0,85, cùng họ dáng với 4 bậc còn lại. |
 
-Bản Bạo Tẩu của cả ba tàu theo mục A.7 (thân bung, không hiệu ứng).
+| **Bộ hiệu ứng Bạo Tẩu làm mẫu** | 8 tệp `tau9_fx_*` + 8 tệp `tau10_fx_*` (mục A.8) | Tàu 9: lam băng, sắc, lạnh, mảnh như lưỡi dao. Tàu 10: lục quân với đèn lam, khối, kiểu khí tài (tia khóa mục tiêu, tấm khiên năng lượng). Hai bộ này làm mẫu: game ghép và cho chạy thử để chủ dự án duyệt, rồi mới làm 11 tàu còn lại. |
+
+Bản Bạo Tẩu của tàu 8, 6, 4 theo mục A.7 (thân bung, không hiệu ứng dính vào tranh).
 
 ## C. Các đợt sau (chưa vẽ, để biết trước)
 
 1. Tàu 11, 12, 13 theo bộ chuẩn.
-2. Bản Bạo Tẩu "sạch" (A.7) cho tàu 1, 2, 3, 4, 5, 7.
-3. Icon trang bị: cùng chất liệu kim loại, cùng nguồn sáng, khung 256×256, màu theo bộ trang bị.
+2. Bản Bạo Tẩu "sạch" (A.7) cho tàu 1, 2, 3, 4, 5, 7 và bộ hiệu ứng (A.8) cho 11 tàu còn lại.
+3. Trang bị: icon cùng chất liệu kim loại, cùng nguồn sáng, khung 256×256, màu theo bộ trang bị; hiệu ứng của từng món (đạn, tia, chớp nòng, nổ) vẽ thành mảnh rời như A.8.
 4. Hợp thể: ghép đặc trưng của hai tàu thành phần sau khi cả hai có tranh chuẩn.
 5. Quái, boss, nền, khung giao diện.
 
 ## D. Cách nộp
 
-Một tệp zip, đúng tên tệp ở trên, PNG RGBA 512×512. Kèm một ảnh ghép 6 bậc × 2 hàng (thường / Bạo Tẩu) cho mỗi tàu để duyệt nhanh.
+Một tệp zip, đúng tên tệp ở trên, PNG RGBA; tranh thân 512×512, tranh hiệu ứng đúng khổ ở mục A.8. Kèm một ảnh ghép 6 bậc × 2 hàng (thường / Bạo Tẩu) cho mỗi tàu để duyệt nhanh.
