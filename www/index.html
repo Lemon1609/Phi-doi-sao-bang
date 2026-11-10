@@ -1622,7 +1622,7 @@ const VisualFX=(()=>{
  function track(p,dt){p.fxTimer=(p.fxTimer||0)+dt;if(p.fxTimer<.035)return;p.fxTimer=0;if(!p.trail)p.trail=[];p.trail.unshift({x:p.x,y:p.y});p.trail.length=Math.min(p.trail.length,quality==='high'?8:4);}
  function trail(p,color,width=2){if(!p.trail?.length)return;ctx.save();ctx.globalCompositeOperation='lighter';ctx.lineCap='round';for(let i=1;i<p.trail.length;i++){ctx.globalAlpha*=(1-i/p.trail.length)*.48;ctx.strokeStyle=color;ctx.lineWidth=width*(1-i/p.trail.length)+.7;ctx.beginPath();ctx.moveTo(p.trail[i-1].x,p.trail[i-1].y);ctx.lineTo(p.trail[i].x,p.trail[i].y);ctx.stroke();}ctx.restore();}
  function colorFor(s){return s.color||{rapid:'#7dffd9',spread:'#ffca66',laser:'#6bcfff',missile:'#d18dff',plasma:'#ff7a57',drone:'#adfff4',divine:'#ffd46e',wingbeam:'#89edff',ice:'#8deeff',gravity:'#b18aff',crescent:'#cc91ff'}[s.type]||'#89eaff';}
- function drawShot(s){if(Fighters28.draw(ctx,s))return;if(drawWeapon22(s))return;const color=s.superShot?['#fff0b0','#ff9454','#ff84b0'][Math.floor(clock*8)%3]:s.ascended?['#b3f5ff','#e4b9ff','#ffe5a3','#afffdd'][Math.floor(clock*5+s.age*3)%4]:colorFor(s),pierce=s.piercing||['laser','divine','wingbeam'].includes(s.type),size=s.r||4;if(s.superShot){trail(s,'#ff7844',size*2.5);halo(s.x,s.y,size*5,'#ffb15c',.4);}trail(s,color,s.type==='missile'?5:pierce?4:3);if(s.ascended||s.superShot||s.buffLevel>=2){halo(s.x,s.y,size*4,color,.3);ctx.save();ctx.strokeStyle='#fff8de';ctx.lineWidth=1;for(let k=0;k<(quality==='high'?3:1);k++){const a=s.age*5+k*TAU/3,xx=s.x+Math.cos(a)*(size+5),yy=s.y+Math.sin(a)*(size+5);ctx.beginPath();ctx.moveTo(xx-3,yy);ctx.lineTo(xx+3,yy);ctx.moveTo(xx,yy-3);ctx.lineTo(xx,yy+3);ctx.stroke();}ctx.restore();}halo(s.x,s.y,size*(s.type==='plasma'?3.2:2.6),color,.45);ctx.save();ctx.translate(s.x,s.y);ctx.globalCompositeOperation='lighter';
+ function drawShot(s){if(Fighters28.draw(ctx,s))return;if(drawWeapon22(s))return;const color=s.superShot?['#fff0b0','#ff9454',(window.Fx215&&window.FX215!==false?Fx215.ship():'#ff84b0')][Math.floor(clock*8)%3]:s.ascended?['#b3f5ff','#e4b9ff','#ffe5a3','#afffdd'][Math.floor(clock*5+s.age*3)%4]:colorFor(s),pierce=s.piercing||['laser','divine','wingbeam'].includes(s.type),size=s.r||4;if(s.superShot){trail(s,'#ff7844',size*2.5);halo(s.x,s.y,size*5,'#ffb15c',.4);}trail(s,color,s.type==='missile'?5:pierce?4:3);if(s.ascended||s.superShot||s.buffLevel>=2){halo(s.x,s.y,size*4,color,.3);ctx.save();ctx.strokeStyle='#fff8de';ctx.lineWidth=1;for(let k=0;k<(quality==='high'?3:1);k++){const a=s.age*5+k*TAU/3,xx=s.x+Math.cos(a)*(size+5),yy=s.y+Math.sin(a)*(size+5);ctx.beginPath();ctx.moveTo(xx-3,yy);ctx.lineTo(xx+3,yy);ctx.moveTo(xx,yy-3);ctx.lineTo(xx,yy+3);ctx.stroke();}ctx.restore();}halo(s.x,s.y,size*(s.type==='plasma'?3.2:2.6),color,.45);ctx.save();ctx.translate(s.x,s.y);ctx.globalCompositeOperation='lighter';
  if(['plasma','gravity'].includes(s.type)||(s.type==='hybrid'&&s.hybrid.blast)){const r=size*(1+Math.sin(s.age*18)*.08);halo(0,0,r*1.8,color,.7);ctx.fillStyle=s.type==='gravity'?'#100620':'#fff8df';ctx.beginPath();safeArc(ctx,0,0,r*.55,0,TAU);ctx.fill();ctx.strokeStyle=s.secondColor||color;ctx.lineWidth=2;for(let i=0;i<2;i++){ctx.beginPath();safeEllipse(ctx,0,0,r+4,r*.6+4,s.age*3+i*Math.PI/2,0,TAU);ctx.stroke();}}
  else if(s.type==='crescent'){ctx.rotate(s.age*13);ctx.strokeStyle=color;ctx.lineWidth=4;for(let i=0;i<3;i++){ctx.beginPath();safeArc(ctx,0,0,size+5,i*TAU/3,i*TAU/3+1.4);ctx.stroke();}ctx.strokeStyle='#fff7dc';ctx.lineWidth=1.5;ctx.beginPath();safeArc(ctx,0,0,size+3,.2,4.8);ctx.stroke();}
  else{ctx.rotate(Math.atan2(s.vy,s.vx)+Math.PI/2);const length=pierce?42:s.type==='missile'?17:s.type==='ice'?14:20;ctx.fillStyle=color;ctx.beginPath();ctx.moveTo(0,-length);ctx.lineTo(size+2,2);ctx.lineTo(0,10);ctx.lineTo(-size-2,2);ctx.closePath();ctx.fill();ctx.fillStyle='#ffffff';ctx.beginPath();ctx.moveTo(0,-length+4);ctx.lineTo(size*.38,0);ctx.lineTo(0,6);ctx.lineTo(-size*.38,0);ctx.closePath();ctx.fill();if(s.type==='hybrid'){if(s.pathStyle===2||s.pathStyle===3){ctx.strokeStyle=s.secondColor;ctx.lineWidth=1;ctx.beginPath();safeArc(ctx,0,-10,size+8,s.age*5,s.age*5+Math.PI*1.4);ctx.stroke();}if(s.pathStyle===5){ctx.strokeStyle=s.color;ctx.lineWidth=2;ctx.beginPath();safeArc(ctx,0,-8,size+6+Math.sin(s.age*12)*2,0,TAU);ctx.stroke();}ctx.strokeStyle=s.secondColor;ctx.lineWidth=2;ctx.beginPath();safeEllipse(ctx,0,-8,size+4,20,0,0,TAU);ctx.stroke();}if(s.type==='missile'){const g=ctx.createLinearGradient(0,7,0,35);g.addColorStop(0,'#fff2b0');g.addColorStop(.35,'#ff9a52');g.addColorStop(1,'#ff562000');ctx.fillStyle=g;ctx.beginPath();ctx.moveTo(-3,7);ctx.lineTo(0,28+Math.sin(s.age*40)*5);ctx.lineTo(3,7);ctx.fill();}}
@@ -7173,7 +7173,8 @@ const Evo53=(()=>{
  const light=()=>{try{return VisualFX.counts().quality==='light';}catch{return false;}},quiet=()=>{try{return VisualFX.reduced();}catch{return false;}};
  const ART=typeof EVO53_ART!=='undefined'?EVO53_ART:{};const ARTIMG={};for(const k in ART){const im=new Image();im.src=ART[k];ARTIMG[k]=im;}
  const okIm=im=>im&&(im instanceof HTMLCanvasElement||(im.complete&&im.naturalWidth>0));
- const hue=(t,o=0)=>`hsl(${((t*90+o)%360+360)%360},100%,68%)`;
+ const rb215=()=>window.EVO213!==false&&window.FX215!==false&&typeof Fx215!=='undefined';/* V215: mức 4 không cầu vồng (sinh hồng trùng đạn địch) → màu tàu đang bay */
+ const hue=(t,o=0)=>rb215()?Fx215.ship():`hsl(${((t*90+o)%360+360)%360},100%,68%)`;
  const colOf=(t,o=0)=>t>=4?hue(time,o):COL[t]||'#9feeff';
  function mk(w,h){const c=document.createElement('canvas');c.width=Math.max(1,w|0);c.height=Math.max(1,h|0);return c;}
  // ---------- tô lại 1 vùng ----------
@@ -7275,7 +7276,7 @@ const Evo53=(()=>{
   // đuôi sáng đạn chính
   {const c=T.craft.t;if(c>=2){for(const s of shots){if(s.dead||s.ray28)continue;const vx=s.vx||0,vy=s.vy||-600,v=Math.hypot(vx,vy)||1,len=c>=3?24:16;ctx.globalAlpha=c>=3?.55:.4;ctx.strokeStyle=colOf(c,s.x);ctx.lineWidth=c>=3?3:2;ctx.beginPath();ctx.moveTo(s.x,s.y);ctx.lineTo(s.x-vx/v*len,s.y-vy/v*len);ctx.stroke();}}}
   // tia sét
-  for(const b of B){const u=b.t/b.life,col=b.tier>=4?`hsl(${(b.o+time*200)%360},100%,70%)`:'#ffd54a';
+  for(const b of B){const u=b.t/b.life,col=rb215()?Fx215.ship():b.tier>=4?`hsl(${(b.o+time*200)%360},100%,70%)`:'#ffd54a';/* V215: tia sét mọi mức theo màu tàu (trước: vàng mức 1–3, cầu vồng mức 4) */
    for(const [w,a,cc] of [[5,.28,col],[2.2,.9,col],[1,1,'#ffffff']]){ctx.globalAlpha=a*(1-u*.6);ctx.strokeStyle=cc;ctx.lineWidth=w;ctx.beginPath();b.pts.forEach(([x,y],i)=>i?ctx.lineTo(x,y):ctx.moveTo(x,y));ctx.stroke();}}
   // hạt sao
   for(const p of P){const u=p.t/p.life;ctx.globalAlpha=(1-u)*.9;const sz=p.sz*(1-u*.5);ctx.save();ctx.translate(p.x,p.y);ctx.rotate(p.rot+u*2);ctx.drawImage(star(p.col.startsWith('hsl')?'#ffffff':p.col),-sz/2,-sz/2,sz,sz);ctx.restore();}
@@ -15023,7 +15024,7 @@ body.play-screen #missile-action,body.play-screen #bomb{font-size:11px!important
   function hookUpd(){try{const ou=update;if(ou.__p120)return;const nu=function(){const r=ou.apply(this,arguments);try{step();}catch(e){}return r;};nu.__p120=1;window.update=nu;try{update=nu;}catch{}}catch{}}
   // ---------- vẽ: hiệu ứng trúng (V125: tranh GPT hit_*.png; code dự phòng) + tàu ảo + xoáy + cột sáng ----------
   const ART=()=>typeof HIT120_ART!=='undefined'?HIT120_ART:null;const IMG={};
-  function art(k){const A=ART();if(!A||!A[k])return null;let im=IMG[k];if(!im){im=new Image();im.src=A[k];IMG[k]=im;}return im.complete&&im.naturalWidth?im:null;}
+  function art(k){const A=ART();if(!A||!A[k])return null;let im=IMG[k];if(!im){im=new Image();im.src=A[k];IMG[k]=im;}return im.complete&&im.naturalWidth?(window.Fx215?Fx215.hit(k,im):im):null;}/* V215: tranh trúng đích đỏ / hồng → màu tàu */
   function star(x,y,r,n,col,rot,al){ctx.save();ctx.translate(x,y);ctx.rotate(rot||0);ctx.globalAlpha=al;ctx.fillStyle=col;ctx.beginPath();for(let k=0;k<n*2;k++){const a=k*Math.PI/n,rr=k%2?r*.28:r;k?ctx.lineTo(Math.cos(a)*rr,Math.sin(a)*rr):ctx.moveTo(rr,0);}ctx.closePath();ctx.fill();ctx.restore();}
   function zig(x,y,tx,ty,col,al){ctx.save();ctx.globalAlpha=al;ctx.strokeStyle=col;ctx.lineWidth=2;ctx.beginPath();ctx.moveTo(x,y);for(let k=1;k<=6;k++){const u=k/6,w=k===6?0:(Math.random()-.5)*14;ctx.lineTo(x+(tx-x)*u+w,y+(ty-y)*u+w);}ctx.stroke();ctx.strokeStyle='#fff';ctx.lineWidth=.8;ctx.stroke();ctx.restore();}
   // V208 (G1): đồng hồ trận 'time' về 0 khi sang ải mới → hiệu ứng cũ có tuổi ÂM: alpha >1 và kích thước âm khổng lồ (vệt sáng vỡ điểm ảnh che màn).
@@ -18159,7 +18160,7 @@ const PB16=(()=>{
  function spr(id,l){if(l>=4){try{if(Rank36.grade()==='SS'){const i=IM['pb_'+id+'_ss'];if(ok(i))return [i,3];}}catch{}}/* V122: đạn SS */for(let t=tierOf(l);t>=1;t--){const i=IM['pb_'+id+'_t'+t];if(ok(i))return [i,t];}return [null,0];}
  const HT={1:46,2:54,3:62};
  const SW={};function swapRB(im,key){let c=SW[key];if(c)return c;try{c=document.createElement('canvas');c.width=im.naturalWidth;c.height=im.naturalHeight;const x=c.getContext('2d');x.drawImage(im,0,0);const d=x.getImageData(0,0,c.width,c.height),q=d.data;for(let j=0;j<q.length;j+=4){const r=q[j];q[j]=q[j+2];q[j+2]=r;}x.putImageData(d,0,0);}catch{c=im;}SW[key]=c;return c;}/* V125: tàu 12 dòng thứ hai vàng → lam */
- function bullet(g,s){const id=((s.art28??0)>=10&&(s.art28??0)<=12)?s.art28:(s.art28??0)%10;let [im,t]=spr(id,s.level30||0);if(!im)return false;if(s.p120&&s.p120.c==='#3de6ff'&&window.TINT125!==false)im=swapRB(im,id+'_'+t+'_'+im.src.length);const k=k0(),sc=s.scale30||1,v=vivid()?(VIVID68.size||1):1;
+ function bullet(g,s){const id=((s.art28??0)>=10&&(s.art28??0)<=12)?s.art28:(s.art28??0)%10;let [im,t]=spr(id,s.level30||0);if(!im)return false;if(id===3&&window.Fx215)im=Fx215.lime(im,'pb3_'+t+'_'+(im.src||'').length);/* V215: đạn tàu 4 hồng → lục acid */if(s.p120&&s.p120.c==='#3de6ff'&&window.TINT125!==false)im=swapRB(im,id+'_'+t+'_'+im.src.length);const k=k0(),sc=s.scale30||1,v=vivid()?(VIVID68.size||1):1;
   const l=s.level30||0,many=[0,2,4,7,8,9,10,11,12].includes(id),dn=many?(l>=4?.6:l>=3?.74:l>=2?.88:1):(id===3&&l>=4?.8:1);let H=HT[t]*k*(.92+.08*Math.min(2,sc))*v*dn,Wd=H*.75;const Q7=window.SHOT117&&SHOT117.on?SHOT117:null,K7=Q7?['plume','beam','shard','needle','shard','beam','crescent','plume','petal','orb'][id%10]:null;if(l>=3&&window.SIZE122!==false){H*=1.15;Wd*=1.15;}/* V122 B6 */if(Q7&&l>=4){const nw=typeof SHIP118!=='undefined'&&SHIP118[id];/* V118: đạn tranh mới đã thon sẵn → không bóp ngang nữa */const f=Q7.l4(sc),q=nw?[1,1]:(Q7.ws(K7)||[1,1]);Wd*=f*q[0];H*=f*q[1];}const sp=Math.hypot(s.vx||0,s.vy||0),st=1+Math.min(Q7?Q7.st(K7)-1:.25,.25,sp/4000),a=Math.atan2(s.vy||-1,s.vx||0)+Math.PI/2;
   g.save();g.translate(s.x,s.y);g.rotate(a);g.globalCompositeOperation=vivid()?'source-over':'lighter';g.globalAlpha*=(window.PB76A??1)*(window.HANGAR_DEMO?.5:1);if(Q7&&Q7.boss())g.globalAlpha*=Q7.al(s,K7);else if(t===3)g.globalAlpha*=vivid()?.8:.6;
   g.drawImage(im,-Wd/2,-H*.44*st,Wd,H*st);g.restore();return true;}
@@ -18179,7 +18180,7 @@ const PB16=(()=>{
   const od=Arsenal30.draw;Arsenal30.draw=function(g,s){try{if(on()&&s&&s.level30!==undefined){if(s.ray28)return beam(g,s,()=>od.apply(this,[g,s]));{let n=0;try{n=shots.length;}catch{}const sc=window.PB79SC===false?1:n>44?.76:n>28?.86:1;if(sc<1){g.save();g.translate(s.x,s.y);g.scale(sc,sc);g.translate(-s.x,-s.y);try{if(bullet(g,s))return true;}finally{g.restore();}}else if(bullet(g,s))return true;}}/* V79 (GPT P0): đạn chính dày (vd. Bán Nguyệt SS) thu nhỏ hình vẽ 14–24% khi >28 viên — hitbox, sát thương giữ nguyên */}catch(e){}return od.apply(this,arguments);};
   try{const ol=PlayerFXB.laser;PlayerFXB.laser=function(s){try{if(on()&&s&&s.level30!==undefined)return beam(ctx,s,()=>ol.apply(this,[s]));}catch{}return ol.apply(this,arguments);};}catch{}
   const of=Arsenal30.fire;Arsenal30.fire=function(fusion=false){const r=of.apply(this,arguments);try{mz={t:typeof time==='number'?time:0,id:(fusion&&activeRobot?activeRobot.artIndex%9:(selected>=10&&selected<=12?selected:selected%10)),l:Arsenal30.p()};}catch{}return r;};
-  try{const dm=ShotV2.drawMuzzle;ShotV2.drawMuzzle=function(){try{const im=IM['pb_'+mz.id+'_muzzle'];if(on()&&ok(im)&&!quiet()&&typeof time==='number'){const age=time-mz.t;if(age<0||age>.07||mode!=='play')return;const r=(13+mz.l*3.5)*k0()*(1-age/.07*.35);ctx.save();ctx.globalCompositeOperation='lighter';ctx.globalAlpha=.9*(1-age/.07);ctx.translate(player.x,player.y-30);ctx.rotate((mz.t*37)%TAU*.15);ctx.drawImage(im,-r,-r,r*2,r*2);ctx.restore();return;}}catch{}return dm.apply(this,arguments);};}catch{}}
+  try{const dm=ShotV2.drawMuzzle;ShotV2.drawMuzzle=function(){try{const im=IM['pb_'+mz.id+'_muzzle'];if(on()&&ok(im)&&!quiet()&&typeof time==='number'){const age=time-mz.t;if(age<0||age>.07||mode!=='play')return;const r=(13+mz.l*3.5)*k0()*(1-age/.07*.35);ctx.save();ctx.globalCompositeOperation='lighter';ctx.globalAlpha=.9*(1-age/.07);ctx.translate(player.x,player.y-30);ctx.rotate((mz.t*37)%TAU*.15);ctx.drawImage(mz.id===3&&window.Fx215?Fx215.lime(im,'mz3'):im,-r,-r,r*2,r*2);ctx.restore();return;}}catch{}return dm.apply(this,arguments);};}catch{}}
  return {install,state:()=>({imgs:Object.keys(IM).length,ready:Object.values(IM).filter(ok).length,mz})};
 })();
 setTimeout(()=>{try{FX16Run.install();PB16.install();}catch(e){console.warn('FX16',e);}},0);
@@ -19317,6 +19318,38 @@ const HOLO212=(()=>{
  return {draw,tint,S,set:(o)=>{Object.assign(S,o);save();sync();},wire};
 })();
 window.HOLO212Draw=(...a)=>HOLO212.draw(...a);window.HOLO212Tint=(...a)=>HOLO212.tint(...a);
+</script><script id="fx215-js">// V215 · Mục B (bàn giao V214): hiệu ứng phe ta không dùng đỏ #FF334F / hồng #F50057 của đạn địch.
+//  1) Màu hồ sơ tàu 1–9 (vệt tàu con hộ tống, quầng Bạo Tẩu v118, cánh wing87, đạn Bạo Tẩu dự phòng) theo tranh mới.
+//  2) Quay tông tranh: đạn chính + chớp nòng tàu 4 (hồng cánh sen → lục acid);
+//     tranh trúng đích hit_slash (tàu 7), hit_cross (tàu 10), hit_impale (tàu 4), hit_pillar (tàu 13), hit_vortex, hit_phoenix, hit_blast.
+//     Chỉ quay các điểm có tông đỏ / hồng (280°–20°); điểm trắng, xám và các tông khác giữ nguyên.
+//  3) Fx215.ship(): màu tàu đang xuất kích cho đạn Bạo Tẩu dự phòng (VisualFX, thay #ff84b0) và cho mức tiến hóa 4 của Evo53
+//     (đuôi đạn, hạt sao, quầng đạn trang bị, vòng khiên — trước là cầu vồng) và tia sét mọi mức (trước vàng #ffd54a ở mức 1–3).
+//  Tắt toàn bộ: window.FX215=false (tải lại trận).
+(()=>{
+  const on=()=>window.FX215!==false;
+  // màu theo tranh mới (giống NEW213 của holo212 / D2P của v120); tàu 8 tạm cam thép (cũ #ff8167 sát đỏ đạn địch), tàu 9 tạm lam biển (cũ #ef8bff tím hồng) cho đến khi có tranh mới
+  const NEWC={0:'#ff9a3d',1:'#3de0a0',2:'#67d7ff',3:'#9be83a',4:'#7fd6ff',5:'#b9a6ff',6:'#9c7bff',7:'#ff9f45',8:'#76aaff'};
+  function prof(){try{const P=Fighters28.profiles;for(const k in NEWC){const p=P[k];if(!p||p.__c215)continue;p.__c215=1;let c0=p.color;
+      Object.defineProperty(p,'color',{get:()=>on()?NEWC[k]:c0,set:v=>{c0=v;},configurable:true,enumerable:true});}}catch{}}
+  prof();window.addEventListener('load',prof);
+  function ship(){try{const i=(typeof launchCraft==='number'?launchCraft:(typeof selected==='number'?selected:0));return Fighters28.profiles[i].color||'#ffb35c';}catch{return '#ffb35c';}}
+  // quay tông: điểm có tông trong vùng đỏ / hồng → tông đích, giữ độ bão hòa và độ sáng
+  const C=new Map();
+  function tint(im,key,hue){if(!on()||!im)return im;let c=C.get(key);if(c)return c;
+    const w=im.naturalWidth||im.width,h=im.naturalHeight||im.height;if(!w||!h)return im;
+    try{c=document.createElement('canvas');c.width=w;c.height=h;const x=c.getContext('2d');x.drawImage(im,0,0);const d=x.getImageData(0,0,w,h),q=d.data;
+      for(let j=0;j<q.length;j+=4){if(q[j+3]<4)continue;const r=q[j]/255,g=q[j+1]/255,b=q[j+2]/255,mx=Math.max(r,g,b),mn=Math.min(r,g,b),dd=mx-mn;
+        if(mx<=0||dd/mx<.12)continue;let H=mx===r?((g-b)/dd)%6:mx===g?(b-r)/dd+2:(r-g)/dd+4;H=(H*60+360)%360;if(!(H>=280||H<=20))continue;
+        const S=dd/mx,V=mx,f=k=>{const kk=(k+hue/60)%6;return V-V*S*Math.max(0,Math.min(kk,4-kk,1));};q[j]=f(5)*255;q[j+1]=f(3)*255;q[j+2]=f(1)*255;}
+      x.putImageData(d,0,0);}catch{c=im;}
+    C.set(key,c);return c;}
+  const HIT={slash:250,cross:255,impale:85,pillar:255,pillar_cot:255,vortex:258,phoenix:26,blast:26};
+  window.Fx215={ship,tint,
+    lime:(im,key)=>tint(im,'lime:'+key,85),
+    hit:(k,im)=>{const n=k.replace(/^hit_/,'');return HIT[n]!=null?tint(im,'hit:'+n,HIT[n]):im;},
+    NEWC};
+})();
 </script><script id="v201-js">'use strict';
 // V201 · SURVIVE_BAL_V200 (Gemini chốt 07/11 từ số đo DO_SONG_SOT_V200): nhân sát thương MỖI ĐÒN địch gây cho người chơi
 //  theo mốc ải chiến dịch, nội suy tuyến tính. Chỉ chế độ Chiến dịch (không Nguyệt Thực / Vô tận / Tháp). Tắt: window.SURV200=false
@@ -19608,4 +19641,3 @@ function BOSSNM183(){try{if(typeof BOSSNAME80!=='undefined'&&BOSSNAME80[level])r
 // ---- V185 · icon mảnh chiến cơ (GPT) cho ô Ngày 4 / Ngày 7 điểm danh (ký tự ✈ trước đây dùng tạm icon "phụ trợ"). Tắt: window.MANH185=false
 setInterval(()=>{try{if(window.MANH185===false||typeof MANH185==='undefined')return;for(const d of document.querySelectorAll('#m40 .day')){const i=d.querySelector('i');if(!i||i.dataset.m185)continue;const b=(d.querySelector('b')||{}).textContent||'';if(!/NGÀY 4/i.test(b))continue;i.dataset.m185=1;i.innerHTML='<img alt="" src="'+MANH185+'" style="width:44px;height:44px;object-fit:contain">';}}catch{}},400);
 </script>
-</body></html>
