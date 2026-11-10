@@ -7,6 +7,7 @@
 - btfx218.js: bb() cắt lề trong suốt của từng mảnh; bảng LV theo Gemini [số dải lửa 2/2/4/4/6/6, dài 0,60 → 1,15, số tia sét 0 → 5, nhịp 1,2 → 0,25 s, cỡ ánh sáng 0,70 → 1,20, alpha 0,25 → 0,58]; trần bề ngang ánh sáng 1,35 × sải cánh, alpha 0,58.
 - Gemini (tệp chủ dự án gửi 18:06): bảng đặc trưng 13 tàu (đã chép vào GUI_GPT_V218 mục 3), bảng 6 bậc (đã vào mã), 13 bộ trang bị (chưa dùng). Lưu ý của Claude: theo bảng Gemini có 6 tàu đèn lam / lơ (3, 5, 8, 9, 10, 12) — chờ chủ dự án quyết có giữ tàu 10 đèn lục không.
 - Đạn chính tàu 8 và tàu 10 (gói V217_DAN_TAU_8_10, 10 tệp): ĐẠT quy cách (phần vẽ cao 91 / 96 / 104 / 107 px, căn giữa, không đỏ hồng) → đã chép vào src/fx16art (cũ: src/fx16art_cu_v217/). Claude lật dọc fx16_pb_9_muzzle.png vì GPT vẽ lửa chớp nòng chĩa xuống. Tia trúng đích tàu 10 (D2P #45D2FF, hit_cross 192°) nay lệch màu với đạn cam — chờ chốt màu đèn tàu 10.
+- CHỦ DỰ ÁN CHỐT 18:32: (1) KHÔNG phát hành V218 bây giờ, chờ GPT sửa đợt 2; (2) tàu 10 GIỮ ĐÈN LỤC #8FD94A (D2P 9 và hit_cross 95° đã đổi; bảng gửi GPT đã sửa); (3) Bạo Tẩu NỚI rực hơn mức trần Gemini: SPAN_MAX 1,9, SPAN_K 1,5, A_K 1,45, A_MAX 0,85 trong btfx218.js.
 - t156 14/14 (bản dựng có tranh mới). Chưa chạy t209 / t204 / t206 / t207 cho bản này.
 
 ### V218 (chưa phát hành, không đổi gì khi chưa có tranh) · 10/11 · Máy chuyển động Bạo Tẩu cho mảnh rời GPT

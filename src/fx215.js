@@ -24,7 +24,7 @@
         const S=dd/mx,V=mx,f=k=>{const kk=(k+hue/60)%6;return V-V*S*Math.max(0,Math.min(kk,4-kk,1));};q[j]=f(5)*255;q[j+1]=f(3)*255;q[j+2]=f(1)*255;}
       x.putImageData(d,0,0);}catch{c=im;}
     C.set(key,c);return c;}
-  const HIT={slash:250,cross:192,impale:85,pillar:255,pillar_cot:255,vortex:258,phoenix:26,blast:26};
+  const HIT={slash:250,cross:95,impale:85,pillar:255,pillar_cot:255,vortex:258,phoenix:26,blast:26};
   window.Fx215={ship,tint,
     lime:(im,key)=>tint(im,'lime:'+key,85),
     hit:(k,im)=>{const n=k.replace(/^hit_/,'');return HIT[n]!=null?tint(im,'hit:'+n,HIT[n]):im;},

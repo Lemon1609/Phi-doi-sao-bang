@@ -21,7 +21,8 @@
   // Bảng tăng theo 6 bậc (Gemini, 10/11): [số dải lửa, dài lửa, số tia sét, nhịp sét (giây), cỡ ánh sáng, alpha ánh sáng, số hạt]
   //  Trần: bề ngang ánh sáng ≤ 1,35 × sải cánh; alpha ≤ 0,58; ánh sáng và lửa luôn vẽ DƯỚI thân tàu.
   const LV=[[2,.60,0,9,.70,.25,3],[2,.75,1,1.2,.80,.32,4],[4,.85,2,.9,.90,.38,5],[4,.95,3,.6,1,.45,6],[6,1.05,4,.4,1.10,.52,7],[6,1.15,5,.25,1.20,.58,8]];
-  const SPAN_MAX=1.35,A_MAX=.58,FLASH=.2;
+  // 18:32 chủ dự án: NỚI trần cho rực hơn → bề ngang ánh sáng tối đa 1,9 × sải cánh (Gemini: 1,35), alpha × 1,45 và trần 0,85 (Gemini: 0,58)
+  const SPAN_MAX=1.9,SPAN_K=1.5,A_K=1.45,A_MAX=.85,FLASH=.2;
   // ---- mỏ neo: dò từ ô Bạo Tẩu của atlas, tọa độ chuẩn hóa theo khung tàu (−0,5 … 0,5) ----
   const AN=new WeakMap(),N=96;
   function anchors(a,cell,cw,ch){let m=AN.get(a);if(m&&m.cell===cell)return m.ok?m:null;m={cell,ok:false};AN.set(a,m);
@@ -43,8 +44,8 @@
     if(!has(id))return;const k=env(id,on,now);if(k<.02)return;const m=anchors(a,cell,cw,ch),L=lvOf(a);
     ctx.save();ctx.globalCompositeOperation='lighter';
     const sg=img(id,'sang');if(sg){const q=bb(sg),span=m?Math.max(.5,Math.max(...m.tip.map(p=>p[0]))-Math.min(...m.tip.map(p=>p[0]))):.9,
-        cwid=Math.min(SPAN_MAX,1.15*L[4])*span*size,sc=cwid/q.w,pr=back_((ta-.03)/.42),W=sg.naturalWidth*sc*(.5+.5*pr),H=sg.naturalHeight*sc*(.92+.08*pr);
-      ctx.globalAlpha=Math.min(A_MAX,k*L[5]*(1+.14*Math.sin(now*3.1)));ctx.drawImage(sg,-W/2,-H/2+size*.03,W,H);}
+        cwid=Math.min(SPAN_MAX,SPAN_K*L[4])*span*size,sc=cwid/q.w,pr=back_((ta-.03)/.42),W=sg.naturalWidth*sc*(.5+.5*pr),H=sg.naturalHeight*sc*(.92+.08*pr);
+      ctx.globalAlpha=Math.min(A_MAX,k*L[5]*A_K*(1+.14*Math.sin(now*3.1)));ctx.drawImage(sg,-W/2,-H/2+size*.03,W,H);}
     const F=[img(id,'lua_1'),img(id,'lua_2'),img(id,'lua_3')].filter(Boolean);
     if(F.length&&m){const flame=(x,y,w,h,seed,ang)=>{const ph=now*11+seed*1.37,f=Math.floor(ph)%F.length,u=ph-Math.floor(ph),hh=h*(.86+.14*Math.sin(now*23+seed*2.1));
         ctx.save();ctx.translate(x,y);ctx.rotate(Math.PI+ang+Math.sin(now*7+seed)*.04);const put=(im,al)=>{const b=bb(im),ww=Math.max(w,hh*b.w/b.h*1.5);ctx.globalAlpha=al;ctx.drawImage(im,b.x,b.y,b.w,b.h,-ww/2,-hh,ww,hh);};put(F[f],k*(1-u*.55));put(F[(f+1)%F.length],k*u*.85);ctx.restore();};

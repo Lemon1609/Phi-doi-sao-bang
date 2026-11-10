@@ -21,7 +21,7 @@
 **Đúng quy ước, ghép được ngay**: đúng khổ; gốc lửa nằm giữa cạnh đáy (lệch ≤ 1 px); hai đầu tia sét đúng giữa hai cạnh; nền trong suốt sạch.
 
 Cần sửa về thiết kế:
-1. **Hai tàu giống nhau quá**: cùng tông lam 200°, ánh sáng sau lưng cùng là hình sao tỏa tròn. Mỗi tàu phải khác hẳn (bảng mục 3).
+1. **Hai tàu giống nhau quá**: cùng tông lam 200°, ánh sáng sau lưng cùng là hình sao tỏa tròn. Mỗi tàu phải khác hẳn (bảng mục 3). **Tàu 10 phải là màu lục #8FD94A**, không phải lam.
 2. **Sét quá thẳng**, trông như tia laser: dao động dọc chỉ 20–37 px trên khung cao 128. Cần gãy khúc rõ, dao động ≥ 60 px, có nhánh phụ.
 3. **Lửa** hơi giống nhau giữa 3 dáng. Ba dáng cần khác nhau rõ về độ cao và độ nghiêng ngọn để khi luân phiên thấy được chuyển động.
 
@@ -38,7 +38,7 @@ Cần sửa về thiết kế:
 | 7 · Trảm Kích | Vệt lửa cong hình lưỡi liềm | Tia chớp xé chéo qua hai cánh | 2 lưỡi đao ánh sáng vắt chéo | Chàm #7C4DFF |
 | 8 · Thiêu Đốt | Lửa thép cam lõi lam plasma | Hồ quang đôi nối 2 pháo hông | Khung phản lực chữ V ngược | Lam #29B6F6 |
 | 9 · Song Vũ | Dải lụa khí động mềm, mảnh | Sét xoắn kép dọc sống lưng | Đôi cánh nhạn vuốt dài về sau | Biển #2979FF |
-| 10 · Quân Đoàn | 4 vòi phản lực cơ khí vuông vức | Mạch điện tử bẻ góc 90° | Khung chiến thuật chữ H | Thép #00B0FF |
+| 10 · Quân Đoàn | 4 vòi phản lực cơ khí vuông vức | Mạch điện tử bẻ góc 90° | Khung chiến thuật chữ H | **Lục #8FD94A** (chủ dự án chốt giữ lục cho hợp thân, không dùng lam) |
 | 11 · Thôn Tinh | Lửa chân không hút vào tâm | Sét bẻ cong hướng vào giữa | 2 cánh cung khuyết hướng nội | Ngọc thẫm #00BFA5 |
 | 12 · Thời Không | Lửa phân mảnh lưu ảnh đứt đoạn | Sét nhịp xung như kim đồng hồ | 4 mũi kim quang học lệch góc | Cực quang #18FFFF |
 | 13 · Hư Không | Vết rách tối viền sáng lạnh | Sét song hành tím lam và lục nhạt | 6 gai vương miện hở xòe lên | Tím #B388FF |
