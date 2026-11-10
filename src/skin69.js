@@ -59,7 +59,7 @@ const Skin69=(()=>{
  function atlas118(id,f,base){const S=SHIP118[id];let ff=f;if(!S[ff])ff=S.luc?'luc':null;if(!ff)return null;const n=img118(id+'|'+ff),b=img118(id+'|'+ff+'_bt')||n;if(!n)return null;
   const k=id+'|'+ff;let a=AT118.get(k);if(a&&a.__b===base)return a;const W0=base.naturalWidth||base.width,H0=base.naturalHeight||base.height,cw=W0/5,ch=H0/4;
   a=mk(W0,H0);const g=a.getContext('2d');g.drawImage(base,0,0);for(const [i,im] of [[id,n],[id+10,b]]){const dx=i%5*cw,dy=Math.floor(i/5)*ch;g.clearRect(dx,dy,cw,ch);g.imageSmoothingQuality='high';g.drawImage(im,dx,dy,cw,ch);}
-  a.naturalWidth=W0;a.naturalHeight=H0;a.complete=true;a.__b=base;AT118.set(k,a);return a;}
+  a.naturalWidth=W0;a.naturalHeight=H0;a.complete=true;a.__b=base;a.__f=ff;/* V218: bậc tranh */AT118.set(k,a);return a;}
  window.ART118S={form:form118};
  let oh=null;
  function hookHull(){if(typeof Evo53==='undefined'||!Evo53.hull||oh)return;oh=Evo53.hull;Evo53.hull=function(id){const h=oh.apply(this,arguments);try{if(!Number.isInteger(id)||id<0||id>9)return h;if(evoE(id))return h;const e=realE(id);/* V118: tranh thiết kế lại (GPT) — 5 dạng × thường/Bạo Tẩu */if(window.ART118!==false&&typeof SHIP118!=='undefined'&&SHIP118[id]&&h&&(h.naturalWidth||h.width)){const a=atlas118(id,form118(id,e),h);if(a)return a;}if(!e)return h;if(!h||!(h.naturalWidth||h.width))return h;return enhancedAtlas(id,Math.min(5,e),h);}catch{return h;}};}

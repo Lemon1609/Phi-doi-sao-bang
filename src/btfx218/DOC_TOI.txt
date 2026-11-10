@@ -1,0 +1,2 @@
+Bộ mảnh rời hiệu ứng Bạo Tẩu theo từng tàu (GPT vẽ). Tên tệp: tauN_fx_lua_1..3.png, tauN_fx_set_1..3.png, tauN_fx_sang.png, tauN_fx_hat.png.
+Quy ước: docs_claude/GUI_GPT_V217_CHUAN_PHONG_CACH.md mục A.8. Thư mục rỗng thì game giữ Bạo Tẩu kiểu V118.

@@ -1,5 +1,13 @@
 # BÀN GIAO DỰ ÁN PHI ĐỘI SAO BĂNG · V202 (2026-11-08)
 
+### V218 (chưa phát hành, không đổi gì khi chưa có tranh) · 10/11 · Máy chuyển động Bạo Tẩu cho mảnh rời GPT
+- src/btfx218.js (BtFx218.back / front) + v118.js gọi trước và sau khi vẽ thân + skin69.js ghi bậc a.__f lên atlas + build74_mau.py nạp src/btfx218/tauN_fx_*.png thành BTFX218_ART. Thư mục src/btfx218 đang RỖNG → game y như V217. Tắt: window.BTFX218=false.
+- Mỏ neo tự dò từ ô Bạo Tẩu của atlas (96×96): họng động cơ = điểm thấp nhất nửa trái / phải quanh trục giữa; mũi cánh = điểm mép xa tâm nhất trong 10 cung; mép thân cho hạt lấp lánh. Bảng tăng theo bậc LV trong btfx218.js (số lửa mũi cánh, dài lửa, số tia sét, số hạt, cỡ ánh sáng) — chờ Gemini góp số.
+- Chỉ áp cho tàu 1–10 (đường vẽ v118, id ≤ 9). Tàu 11–13 vẽ theo đường khác, chưa nối.
+- Thử bằng bộ mảnh TẠM vẽ bằng mã: python3 claude_tools/demo217/kit_tam.py <thư mục> rồi BTFX218_DIR=<thư mục> python3 build74_mau.py; quay trong game: claude_tools/demo217/quay218.py. Bộ tạm KHÔNG nằm trong repo phát hành.
+- Chủ dự án (17:40): nhịp chuyển động như bản mẫu 3 là vừa; đạn tàu 8 / tàu 10 làm lại theo chuẩn mới (đã thêm vào GUI_GPT_V217); cho phép hỏi ý Gemini và GPT về thiết kế → docs_claude/GUI_GEMINI_V217_DAC_TRUNG_HIEU_UNG.md.
+- t156 14/14 (bản dựng mặc định).
+
 ### V217 · 10/11 · Cân đối cỡ 13 chiến cơ + chốt hướng mỹ thuật mới
 - Chủ dự án: hiệu ứng siêu cấp của GPT "lòe loẹt, chưa ngầu"; chiến cơ "cái quá dẹt, cái quá to"; toàn bộ đồ họa "chưa đồng bộ" → sửa theo phong cách hiện đại – tương lai (tham khảo CẢM GIÁC tựa game gốc, không chép).
 - ĐÃ LÀM: claude_tools/candoi217.py + build74_mau.py — cân đối lúc dựng (tệp gốc src/ship118 giữ nguyên): cỡ chuẩn theo bậc G = căn(rộng×cao) 345 → 405; nắn tỉ lệ tối đa 12 % nếu rộng/cao > 1,30 hoặc < 0,75; bản _bt dùng cùng hệ số với bản thường. Tắt: CANDOI217=0 khi dựng. Số đo gốc: tàu 8 dẹt 1,47–1,85; tàu 6 gầy 0,44–0,75; tàu 4 thuong/lam 0,48/0,62; tàu 1, 3, 7, 11–13 chiếm 85–97 % khung.

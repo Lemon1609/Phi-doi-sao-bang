@@ -26,12 +26,14 @@
     // quầng màu mềm sau lưng khi Bạo Tẩu
     if(on&&!q){const al=.32*st.b*(lite?.8:1)*(.85+.15*Math.sin(now*3.1)),R=size*.62;ctx.globalCompositeOperation='lighter';ctx.globalAlpha=al;ctx.drawImage(glow(colorOf(id)),-R,-R-4,R*2,R*2);ctx.globalAlpha=1;ctx.globalCompositeOperation='source-over';}
     ctx.rotate((rot||0)*.6+st.bank);
-    const cellN=id,cellB=id+10,u=st.b;
+    const cellN=id,cellB=id+10,u=st.b,B218=(!q&&window.BtFx218)||null;
+    if(B218)try{B218.back(ctx,a,cellB,cw,ch,size,on,now,now-st.tOn,id,lite);}catch{}/* V218: ánh sáng + lửa (mảnh rời GPT) sau thân */
     const put=(cell,al)=>{if(al<=.01)return;ctx.globalAlpha=al;ctx.drawImage(a,cell%5*cw,Math.floor(cell/5)*ch,cw,ch,-size/2,-size/2,size,size);};
     if(u<.02)put(cellN,1);else if(u>.98)put(cellB,1);else{put(cellN,1-u);put(cellB,u);}
     ctx.globalAlpha=1;
     // chớp biến hình 0,3 s khi vừa vào Bạo Tẩu
     const ft=now-st.tOn;if(ft>=0&&ft<.3&&!q){ctx.globalCompositeOperation='lighter';ctx.globalAlpha=(1-ft/.3)*.65;const s=sil(a,cellB,cw,ch),k=1+.1*(ft/.3);ctx.drawImage(s,-size*k/2,-size*k/2,size*k,size*k);ctx.globalAlpha=1;ctx.globalCompositeOperation='source-over';}
+    if(B218)try{B218.front(ctx,a,cellB,cw,ch,size,on,now,now-st.tOn,id,lite);}catch{}/* V218: sét + lấp lánh trước thân */
     ctx.restore();return true;}
   function install(){try{if(SuperGame.__c118)return;const o=SuperGame.drawShip;SuperGame.drawShip=function(id,rot){window.__clean118=false;try{if(has(id)){window.__clean118=true;if(id<=9&&draw(id,rot))return true;}}catch{}return o.apply(this,arguments);};SuperGame.__c118=1;}catch{}}
   setTimeout(install,0);

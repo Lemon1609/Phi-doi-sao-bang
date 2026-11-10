@@ -866,6 +866,13 @@ rep("</body>","<style id=\"holo212-css\">"+open('src/holo212.css',encoding='utf-
 # V215 · mục B: phe ta không dùng đỏ / hồng của đạn địch (đạn + chớp nòng tàu 4 → lục acid, tranh trúng đích, đạn Bạo Tẩu dự phòng, cầu vồng mức 4 Evo53, màu hồ sơ tàu 1–9). Tắt: window.FX215=false
 rep("['#fff0b0','#ff9454','#ff84b0']","['#fff0b0','#ff9454',(window.Fx215&&window.FX215!==false?Fx215.ship():'#ff84b0')]")
 rep("</body>","<script id=\"fx215-js\">"+open('src/fx215.js',encoding='utf-8').read()+"</script></body>")
+# V218 · Bạo Tẩu: mảnh rời lửa / sét / ánh sáng theo từng tàu (GPT thiết kế) + máy chuyển động. Thư mục rỗng = không đổi gì. Tắt: window.BTFX218=false
+_BT218={}
+for _p in sorted(_g.glob(os.path.join(os.environ.get('BTFX218_DIR','src/btfx218'),'tau*_fx_*.png'))):
+    _n=os.path.splitext(os.path.basename(_p))[0];_num,_k=_n[3:].split('_fx_',1);_im=_I.open(_p).convert('RGBA');_bf=_io.BytesIO();_im.save(_bf,'WEBP',quality=90)
+    _BT218.setdefault(str(int(_num)-1),{})[_k]='data:image/webp;base64,'+_b64.b64encode(_bf.getvalue()).decode()
+print('V218 bo manh Bao Tau:',{k:len(v) for k,v in _BT218.items()})
+rep("</body>","<script id=\"btfx218-art\">const BTFX218_ART="+json.dumps(_BT218,separators=(',',':'))+";</script><script id=\"btfx218-js\">"+open('src/btfx218.js',encoding='utf-8').read()+"</script></body>")
 rep("if(bg){const BGA=typeof SKIN15_BG","if(window.HOLO212Draw&&HOLO212Draw(g,SW,SH,shipY+40*k,k,clock,current())){}else if(bg){const BGA=typeof SKIN15_BG")
 rep("cut*k,ww*k,hh*k);}catch{}}\n  // nhãn pha","cut*k,ww*k,hh*k);}catch{}}\n  try{window.HOLO212Tint&&HOLO212Tint(g,SW,SH,shipY+40*k,k);}catch{}\n  // nhãn pha")
 rep("shield=Math.max(0,shield-enemyScale())","shield=Math.max(0,shield-enemyScale()*(typeof SURV200!=='undefined'?SURV200.m():1))")  # V202 SURVIVE_BAL_V200
