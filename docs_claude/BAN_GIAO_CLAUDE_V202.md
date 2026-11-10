@@ -1,5 +1,12 @@
 # BÀN GIAO DỰ ÁN PHI ĐỘI SAO BĂNG · V202 (2026-11-08)
 
+### V214 · 10/11 · Tranh mới tàu 4, 5, 6 + bỏ nhuộm màu tiến hóa
+- src/ship118/tau{4,5,6}_* + tau2_thuong_bt = tranh GPT (cũ: work/sao_luu_tau456_cu). Claude căn bằng mã: tau4_luc_bt ×1,12; tau4_ss_bt ×1,13 (đáng ra ×1,21 nhưng tràn khung → thân vẫn nhỏ ~6%); tau6_thuong_bt dịch −18 px; tau6_luc_bt ×1,06; tau6_ss_bt ×1,15. Tàu 4: 6 bản _bt yếu → đã yêu cầu GPT vẽ lại (out/GUI_GPT_TAU_8_9_10.md mục A).
+- evo53.js paint(): t 1..4 → nhánh t>=11 (giữ màu gốc, chỉ sáng/óng theo mức) cho MỌI tranh (trang bị, thân tàu atlas cũ, đạn chính ShotV2); Fighters28.draw không đổi s.color nữa. Chủ dự án duyệt bỏ nhuộm trang bị; Claude mở rộng sang đạn chính/thân theo luật "tiến hóa theo đặc trưng". Cờ EVO213=false.
+- D2P + NEW213: tàu 4 #9BE83A, tàu 5 #7FD6FF, tàu 6 #B9A6FF.
+- CÒN LỆCH: đạn chính tàu 4 vẫn là mũi tên HỒNG CÁNH SEN (tranh fx16_pb cũ) trong khi tàu mới màu lục → cần tranh đạn mới hoặc đổi màu bằng mã. Tàu con hộ tống vẫn tranh cũ.
+- t156 14/14. Web v155. Tiếp: tàu 8, 9, 10.
+
 ### V213b · 10/11 · Tia / đạn trang bị giữ màu riêng ở +4, +5
 - Phát hiện: "tia tím hồng" là tia vũ khí phụ rail (gốc lam ngọc) bị Evo53 (script evo-v55, src/evo53.js) NHUỘM LẠI theo mức cường hóa: +1 cyan · +3 bạc · +4 VÀNG (#e0a72a) · +5 CẦU VỒNG (tierN; SSS: +3/+6/+8/+10). gearAssets() là Proxy bọc mọi tranh trang bị (pod, shell, tia, đạn).
 - Sửa (chủ dự án đồng ý tách tia khỏi màu đạn địch): khóa có _(beam|projectile|impact|muzzle|trail) ở t>=3 → t+10 → paint() nhánh t>=13 chỉ làm sáng + óng, GIỮ MÀU GỐC. Cờ EVO213=false trả về cũ.
