@@ -1,5 +1,12 @@
 # BÀN GIAO DỰ ÁN PHI ĐỘI SAO BĂNG · V202 (2026-11-08)
 
+### V213b · 10/11 · Tia / đạn trang bị giữ màu riêng ở +4, +5
+- Phát hiện: "tia tím hồng" là tia vũ khí phụ rail (gốc lam ngọc) bị Evo53 (script evo-v55, src/evo53.js) NHUỘM LẠI theo mức cường hóa: +1 cyan · +3 bạc · +4 VÀNG (#e0a72a) · +5 CẦU VỒNG (tierN; SSS: +3/+6/+8/+10). gearAssets() là Proxy bọc mọi tranh trang bị (pod, shell, tia, đạn).
+- Sửa (chủ dự án đồng ý tách tia khỏi màu đạn địch): khóa có _(beam|projectile|impact|muzzle|trail) ở t>=3 → t+10 → paint() nhánh t>=13 chỉ làm sáng + óng, GIỮ MÀU GỐC. Cờ EVO213=false trả về cũ.
+- CHƯA đổi: pod / shell (tàu con, bệ, giáp) vẫn bị nhuộm vàng ở +4 và cầu vồng ở +5 → trái luật "tiến hóa không tô vàng"; chờ chủ dự án quyết.
+- Còn thấy trong trận: đạn kim đỏ-hồng nhỏ và vạch đỏ dọc mảnh của phe ta (chưa xác định mô-đun) → cần dò tiếp.
+- Web v153.
+
 ### V213 · 10/11 · Tranh mới tàu 1, 2, 3, 7 (phong cách V212E) đã phát hành
 - src/ship118/tau{1,2,3,7}_* = tranh GPT V212E (bản cũ: work/sao_luu_tau7_cu, work/sao_luu_tau123_cu). Tàu 1: 6 tranh GPT vẽ lại (thuong, luc, tim5 + _bt) thân nhỏ 12% → Claude phóng ×1,136 (tim5_bt còn lề 7 px). Còn lỗi: tau2_thuong_bt gần như không có hiệu ứng (chờ GPT).
 - v120.js D2P tàu 1/2 = #FF9A3D / #3DE0A0; holo212.js NEW213 màu hào quang tàu 1,2,3,7; holo212_art.js rỗng (bỏ mẫu hoạt hình đợt 3).
