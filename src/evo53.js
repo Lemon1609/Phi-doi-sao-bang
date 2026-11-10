@@ -30,7 +30,8 @@ const Evo53=(()=>{
   const fill=(op,a,style)=>{x.globalCompositeOperation=op;x.globalAlpha=a;x.fillStyle=style;x.fillRect(0,0,w,h);};
   const lin=(x0,y0,x1,y1,stops)=>{const g=x.createLinearGradient(x0,y0,x1,y1);for(const [o,cc] of stops)g.addColorStop(o,cc);return g;};
   const sheen=(a,col,pos=.5)=>fill('screen',a,lin(0,0,w,h*.6,[[Math.max(0,pos-.09),'rgba(0,0,0,0)'],[pos,col],[Math.min(1,pos+.09),'rgba(0,0,0,0)']]));
-  if(t===1){fill('color',.55,'#2fc6ff');fill('overlay',.35,'#bff4ff');}
+  if(t>=13){/* V213: tia / đạn / nổ của trang bị ở mức +4, +5 GIỮ MÀU RIÊNG của món (không nhuộm vàng, không cầu vồng) — chỉ sáng và óng hơn */fill('overlay',t>=14?.42:.28,'#ffffff');sheen(t>=14?.6:.4,'#ffffff',.2+((phase*.6)%1)*.6);}
+  else if(t===1){fill('color',.55,'#2fc6ff');fill('overlay',.35,'#bff4ff');}
   else if(t===2){fill('saturation',.85,'#808080');fill('color',.22,'#b9a8ff');fill('overlay',.7,lin(0,0,0,h,[[0,'#ffffff'],[.55,'#c9d8ff'],[1,'#6b78a8']]));sheen(.55,'#ffffff');}
   else if(t===3){fill('color',.85,'#e0a72a');fill('overlay',.55,lin(0,0,0,h,[[0,'#fff3c4'],[.5,'#d99a1e'],[1,'#7a4a08']]));sheen(.35,'#fff6d0');}
   else if(t>=4){fill('saturation',.6,'#808080');const k=phase%1,st=[];for(let i=0;i<=6;i++){const o=i/6;st.push([o,`hsl(${(o*360+k*360)%360},100%,60%)`]);}
@@ -70,7 +71,7 @@ const Evo53=(()=>{
  //  Hình dáng tiến hóa trang bị (GPT): EVO53_ART['g:<khóa tranh>_evo1|2'] (vd 'g:inferno_pod_normal_evo2'); chặng I từ +3 (SSS +6), chặng II ở +5 (SSS +10).
  //  Tranh mới có thể lớn hơn (2×) — GEAR_FX vẽ theo kích thước đích nên càng nét.
  const gearStage=g=>{const e=(g&&g.e)||0;return g&&g.sss?(e>=10?2:e>=6?1:0):(e>=5?2:e>=3?1:0);};
- function gearAssets(kind,base){return new Proxy({},{get:(_,k)=>{const im=base[k];if(!im||typeof k!=='string')return im;const g=T[kind]||{},t=g.t||0,st=gearStage(g);
+ function gearAssets(kind,base){return new Proxy({},{get:(_,k)=>{const im=base[k];if(!im||typeof k!=='string')return im;const g=T[kind]||{},st=gearStage(g);let t=g.t||0;if(t>=3&&window.EVO213!==false&&/_(beam|projectile|impact|muzzle|trail)/.test(k))t+=10; // V213: xem paint() nhánh t>=13
    let src=im,sk='';if(st){for(let s=st;s>=1;s--){const a=ARTIMG['g:'+k+'_evo'+s];if(okIm(a)){src=a;sk='e'+s;break;}}}
    if(!t&&!sk)return im;
    // tranh tiến hóa khác tỉ lệ tranh gốc (vd bệ tên lửa gốc 80×112, tranh mới vuông) → đặt vừa (giữ tỉ lệ) vào khung cùng tỉ lệ gốc, KHÔNG để game ép méo
