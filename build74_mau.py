@@ -856,6 +856,7 @@ rep("</body>","<script id=\"haz208\">const HAZ208_ART="+json.dumps(HAZ208A)+";\n
 # V209 · D7 nội tại giáp theo sự kiện + G3 thanh máu boss (play47.js) + nền xa ch8–10. Tắt: window.ARMOR_EV209=false
 rep("</body>","<style id=\"v209-css\">"+open('src/v209.css',encoding='utf-8').read()+"</style><script id=\"v209\">"+open('src/v209.js',encoding='utf-8').read()+"</script></body>")
 # V212 · phòng trưng bày hologram (định hướng mỹ thuật mới). Tắt: window.HOLO212=false
+rep("</body>","<script id=\"holo212-art\">"+open('src/holo212_art.js',encoding='utf-8').read()+"</script></body>")
 rep("</body>","<style id=\"holo212-css\">"+open('src/holo212.css',encoding='utf-8').read()+"</style><script id=\"holo212\">"+open('src/holo212.js',encoding='utf-8').read()+"</script></body>")
 rep("if(bg){const BGA=typeof SKIN15_BG","if(window.HOLO212Draw&&HOLO212Draw(g,SW,SH,shipY+40*k,k,clock,current())){}else if(bg){const BGA=typeof SKIN15_BG")
 rep("cut*k,ww*k,hh*k);}catch{}}\n  // nhãn pha","cut*k,ww*k,hh*k);}catch{}}\n  try{window.HOLO212Tint&&HOLO212Tint(g,SW,SH,shipY+40*k,k);}catch{}\n  // nhãn pha")

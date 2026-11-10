@@ -1,5 +1,18 @@
 # BÀN GIAO DỰ ÁN PHI ĐỘI SAO BĂNG · V202 (2026-11-08)
 
+### V213 · 10/11 · Tranh mới tàu 1, 2, 3, 7 (phong cách V212E) đã phát hành
+- src/ship118/tau{1,2,3,7}_* = tranh GPT V212E (bản cũ: work/sao_luu_tau7_cu, work/sao_luu_tau123_cu). Tàu 1: 6 tranh GPT vẽ lại (thuong, luc, tim5 + _bt) thân nhỏ 12% → Claude phóng ×1,136 (tim5_bt còn lề 7 px). Còn lỗi: tau2_thuong_bt gần như không có hiệu ứng (chờ GPT).
+- v120.js D2P tàu 1/2 = #FF9A3D / #3DE0A0; holo212.js NEW213 màu hào quang tàu 1,2,3,7; holo212_art.js rỗng (bỏ mẫu hoạt hình đợt 3).
+- Rà soát toàn bộ: out/RA_SOAT_MY_THUAT_V213.md (9 tàu cũ + 7 hợp thể + 3 SSS riêng cần vẽ lại; icon trang bị phần lớn giữ; tàu con hộ tống cần vẽ lại). Cặp hợp thể (0-index): [5,8] [7,5] [9,7] [2,9] [6,2] [0,3] [1,4]. Kỹ năng 13 tàu: Thiêu Đốt, Laser, Đóng Băng, Xuyên Thấu, Tán Xạ, Laser, Trảm Kích, Thiêu Đốt, Song Vũ, Quân Đoàn, Trọng Lực Thôn Phệ, Lưỡng Cực Thời Gian, Phán Quyết Thứ Nguyên.
+- Tin nhắn GPT kế tiếp: out/GUI_GPT_TAU_4_5_6.md. Test chụp tàu trong trận: selectCraft(i);launchCraft=i sau pg.reload() (xem /tmp/claude-0/s203/t212f.py → đã chép vào tests/v203_v212/).
+- t156 14/14. Web v151. APK V213.26.
+
+### V212C–E · 08/11 · Phong cách mới: chủ dự án DUYỆT tàu #7 (V212E)
+- Luật chủ dự án: tiến hóa KHÔNG tô vàng (theo đặc trưng); đồ họa nâng cấp THEO HỆ BẬC CŨ (chiến cơ 6 bậc thuong/luc/lam/tim/tim5/ss × _bt; trang bị icon1-3/tran1-3/tranbt; SSS hop*_tau/chandung/bay/canh); hợp thể = 2 thành phần, kết hợp đồ họa + kỹ năng; phong cách chân thật (hard-surface) nhưng TƯƠI SÁNG, phối màu 60/30/10 (bảng 13 tàu trong DINH_HUONG_MY_THUAT_V212E.md mục 6).
+- src/ship118/tau7_* đã thay bằng bộ V212E-SỬA (00:01 09/11: thân _bt khớp, lề ≥32 px, Bạo Tẩu quầng plasma lam; ĐẠT) (bản cũ sao lưu ở work/sao_luu_tau7_cu/). Chưa đăng web/APK (chờ thêm tàu để đồng bộ).
+- holo212: HOLO212_ART (src/holo212_art.js) còn mẫu đợt 3 cho tàu 0 và 10 (+ mecha 10); đã bỏ mẫu tàu 6. Lớp mẫu vẽ trong HOLO212Tint, có nhãn "MẪU TRANH V212C".
+- Chờ GPT: sửa 3 lỗi tàu 7 (thân _bt co nhỏ, tim5/ss chạm mép, Bạo Tẩu rực hơn) + vẽ tàu 1, 2, 3 theo V212E.
+
 ### V212 · 08/11 · ĐỔI ĐỊNH HƯỚNG MỸ THUẬT (chủ dự án chọn "đổi toàn bộ phong cách")
 - Luật cũ "giữ phong cách V196 / không vẽ lại 13 tàu" ĐÃ BỎ theo chủ dự án. Học phong cách chung dòng game bắn máy bay cũ (nền bản vẽ navy, 3 nấc thường/siêu cấp/tối thượng, mecha) — KHÔNG chép tranh/logo/tên game gốc.
 - out/DINH_HUONG_MY_THUAT_V212.md = brief cho GPT (đợt thử 3 tàu #1/#7/#13 × 3 nấc + nền trưng bày).

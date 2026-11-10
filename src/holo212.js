@@ -12,12 +12,19 @@ const HOLO212=(()=>{
  // V212C (chủ dự án): tiến hóa KHÔNG tô vàng — màu mỗi nấc lấy theo đặc trưng (màu riêng) của chính chiến cơ / SSS
  const hx=(c)=>{c=String(c||'#3FA9FF').trim();if(/^#[0-9a-f]{3}$/i.test(c))c='#'+c[1]+c[1]+c[2]+c[2]+c[3]+c[3];return /^#[0-9a-f]{6}$/i.test(c)?c:'#3FA9FF';};
  const mix=(a,b,t)=>{a=hx(a);b=hx(b);const p=k=>Math.round(parseInt(a.slice(k,k+2),16)*(1-t)+parseInt(b.slice(k,k+2),16)*t).toString(16).padStart(2,'0');return '#'+p(1)+p(3)+p(5);};
- function shipCol(P){try{if(P&&P.t==='s')return hx(SSS_MODELS[P.i].color);return hx(Fighters28.profiles[P.i].color);}catch{return '#3FA9FF';}}
+ const NEW213={0:'#FF9A3D',1:'#3DE0A0',2:'#67D7FF',6:'#9C7BFF'}; // V213: màu theo tranh mới của tàu 1, 2, 3, 7
+ function shipCol(P){try{if(P&&P.t==='s')return hx(SSS_MODELS[P.i].color);if(NEW213[P.i])return NEW213[P.i];return hx(Fighters28.profiles[P.i].color);}catch{return '#3FA9FF';}}
  function tierCol(P,t){const c=shipCol(P);return t===1?{a:mix(c,'#3FA9FF',.55),b:mix(c,'#ffffff',.35)}:t===2?{a:c,b:mix(c,'#ffffff',.45)}:{a:mix(c,'#ffffff',.25),b:'#ffffff'};}
+ // ---- V212C: tranh mẫu GPT (HOLO212_ART) cho một số tàu; tự nạp
+ const ART={};try{if(typeof HOLO212_ART!=='undefined')for(const k in HOLO212_ART){const im=new Image();im.src=HOLO212_ART[k];ART[k]=im;}}catch{}
+ const artOk=k=>{const im=ART[k];return im&&im.complete&&im.naturalWidth>0?im:null;};
+ const shipIdx=P=>P&&P.t==='c'?(P.i|0):-1;
+ function artFor(P){const i=shipIdx(P);if(i<0)return null;const t=S.tier||1;if(S.mecha&&t>=2){const m=artOk('m'+i+'_'+t);if(m)return {im:m,mecha:1};}const a=artOk(i+'_'+t);return a?{im:a}:null;}
+ const hasMecha=P=>{const i=shipIdx(P);return i>=0&&!!ART['m'+i+'_2'];};
  // ---- hình nét phát sáng từ tranh chiến cơ (dò mép theo kênh alpha)
  const WF={};
  function cell(i){try{const im=(typeof Evo53!=='undefined'&&Evo53.hull)?Evo53.hull(i):fighterAtlasV22;if(!im||!(im.naturalWidth||im.width))return null;const w=(im.naturalWidth||im.width)/5,h=(im.naturalHeight||im.height)/4;return {im,sx:i%5*w,sy:Math.floor(i/5)*h,w,h};}catch{return null;}}
- function wire(i,col){const k=i+'|'+col;if(WF[k])return WF[k];const c=cell(i);if(!c)return null;const N=220;const a=document.createElement('canvas');a.width=a.height=N;const x=a.getContext('2d');x.drawImage(c.im,c.sx,c.sy,c.w,c.h,0,0,N,N);
+ function wire(i,col){const nA=artOk(i+'_1');const k=i+'|'+col+(nA?'|n':'');if(WF[k])return WF[k];const c=nA?{im:nA,sx:0,sy:0,w:nA.naturalWidth,h:nA.naturalHeight}:cell(i);if(!c)return null;const N=220;const a=document.createElement('canvas');a.width=a.height=N;const x=a.getContext('2d');x.drawImage(c.im,c.sx,c.sy,c.w,c.h,0,0,N,N);
   let d;try{d=x.getImageData(0,0,N,N);}catch{return null;}const A=d.data,o=x.createImageData(N,N),O=o.data;const r=parseInt(col.slice(1,3),16),g=parseInt(col.slice(3,5),16),b=parseInt(col.slice(5,7),16);
   const al=(X,Y)=>A[(Y*N+X)*4+3];
   for(let Y=1;Y<N-1;Y++)for(let X=1;X<N-1;X++){const c0=al(X,Y);const gx=al(X+1,Y)-al(X-1,Y),gy=al(X,Y+1)-al(X,Y-1);
@@ -47,12 +54,18 @@ const HOLO212=(()=>{
   g.setLineDash([]);const pg=g.createRadialGradient(cx,py+6*k,0,cx,py+6*k,150*k);pg.addColorStop(0,'rgba(63,169,255,.30)');pg.addColorStop(1,'rgba(63,169,255,0)');g.globalAlpha=1;g.fillStyle=pg;g.beginPath();g.ellipse(cx,py+6*k,150*k,34*k,0,0,Math.PI*2);g.fill();g.restore();
   return true;}
  // ---- lớp màu theo nấc phủ lên chiến cơ (Tối thượng: ánh vàng kim nhẹ). Gọi sau khi chép khung trận.
- function tint(g,SW,SH,py,k){if(!on()||S.tier!==3)return;const T=tierCol(LP,3);g.save();g.globalCompositeOperation='screen';const cx=SW/2,cy=py-60*k;const gr=g.createRadialGradient(cx,cy,0,cx,cy,120*k);gr.addColorStop(0,T.a+'55');gr.addColorStop(1,T.a+'00');g.fillStyle=gr;g.fillRect(0,0,SW,SH);g.restore();}
+ function tint(g,SW,SH,py,k){if(!on())return;const A=artFor(LP);if(A){const cy=py-40*k,w=(A.mecha?150:140)*k,h=w*A.im.naturalHeight/A.im.naturalWidth;
+   // che chiến cơ cũ: quầng nền tối mờ dưới tranh mới
+   g.save();const sh=g.createRadialGradient(SW/2,cy,0,SW/2,cy,w*.55);sh.addColorStop(0,'rgba(6,23,58,.92)');sh.addColorStop(.7,'rgba(6,23,58,.6)');sh.addColorStop(1,'rgba(6,23,58,0)');g.fillStyle=sh;g.fillRect(SW/2-w,cy-h,w*2,h*2);
+   g.shadowColor=tierCol(LP,S.tier||1).a;g.shadowBlur=18;g.drawImage(A.im,SW/2-w/2,cy-h*(A.mecha?.62:.55),w,h);g.restore();
+   g.save();g.font="800 9px 'Be Vietnam Pro',sans-serif";g.fillStyle='rgba(191,230,255,.8)';g.textAlign='center';g.fillText('MẪU TRANH V212C',SW/2,cy+h*.5+14);g.restore();}
+  if(S.tier!==3)return;const T=tierCol(LP,3);g.save();g.globalCompositeOperation='screen';const cx=SW/2,cy=py-60*k;const gr=g.createRadialGradient(cx,cy,0,cx,cy,120*k);gr.addColorStop(0,T.a+'55');gr.addColorStop(1,T.a+'00');g.fillStyle=gr;g.fillRect(0,0,SW,SH);g.restore();}
  // ---- nút điều khiển trên sân khấu
  function ui(){const st=document.querySelector('.h1-stage');if(!st||st.querySelector('.ho212'))return;const d=document.createElement('div');d.className='ho212';
-  d.innerHTML=`<button data-h="bg"></button><span>${[1,2,3].map(t=>`<button data-t="${t}">${TIER[t].name}</button>`).join('')}</span>`;st.appendChild(d);
-  d.addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;e.stopPropagation();if(b.dataset.h==='bg')S.on=!S.on;if(b.dataset.t)S.tier=+b.dataset.t;save();sync();});sync();}
- function sync(){const d=document.querySelector('.ho212');if(!d)return;d.querySelector('[data-h="bg"]').textContent=S.on?'NỀN: HOLOGRAM ⇄':'NỀN: XƯỞNG ⇄';d.querySelectorAll('[data-t]').forEach(b=>{b.setAttribute('aria-pressed',String(+b.dataset.t===S.tier));b.disabled=!S.on;});d.classList.toggle('off',!S.on);}
+  d.innerHTML=`<button data-h="bg"></button><span>${[1,2,3].map(t=>`<button data-t="${t}">${TIER[t].name}</button>`).join('')}<button data-m="1" hidden>MECHA</button></span>`;st.appendChild(d);
+  d.addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;e.stopPropagation();if(b.dataset.h==='bg')S.on=!S.on;if(b.dataset.t)S.tier=+b.dataset.t;if(b.dataset.m){S.mecha=!S.mecha;if(S.mecha&&S.tier<2)S.tier=2;}save();sync();});sync();}
+ function sync(){const d=document.querySelector('.ho212');if(!d)return;d.querySelector('[data-h="bg"]').textContent=S.on?'NỀN: HOLOGRAM ⇄':'NỀN: XƯỞNG ⇄';d.querySelectorAll('[data-t]').forEach(b=>{b.setAttribute('aria-pressed',String(+b.dataset.t===S.tier));b.disabled=!S.on;});d.classList.toggle('off',!S.on);const mb=d.querySelector('[data-m]');if(mb){mb.hidden=!hasMecha(LP);mb.setAttribute('aria-pressed',String(!!S.mecha));}}
+ setInterval(()=>{try{sync();}catch{}},800);
  try{new MutationObserver(()=>ui()).observe(document.body,{childList:true,subtree:true});}catch{}setTimeout(ui,500);
  return {draw,tint,S,set:(o)=>{Object.assign(S,o);save();sync();},wire};
 })();
