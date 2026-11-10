@@ -30,7 +30,8 @@ const Evo53=(()=>{
   const fill=(op,a,style)=>{x.globalCompositeOperation=op;x.globalAlpha=a;x.fillStyle=style;x.fillRect(0,0,w,h);};
   const lin=(x0,y0,x1,y1,stops)=>{const g=x.createLinearGradient(x0,y0,x1,y1);for(const [o,cc] of stops)g.addColorStop(o,cc);return g;};
   const sheen=(a,col,pos=.5)=>fill('screen',a,lin(0,0,w,h*.6,[[Math.max(0,pos-.09),'rgba(0,0,0,0)'],[pos,col],[Math.min(1,pos+.09),'rgba(0,0,0,0)']]));
-  if(t>=13){/* V213: tia / đạn / nổ của trang bị ở mức +4, +5 GIỮ MÀU RIÊNG của món (không nhuộm vàng, không cầu vồng) — chỉ sáng và óng hơn */fill('overlay',t>=14?.42:.28,'#ffffff');sheen(t>=14?.6:.4,'#ffffff',.2+((phase*.6)%1)*.6);}
+  if(t>=1&&t<=4&&window.EVO213!==false)t+=10;
+  if(t>=11){/* V213 (chủ dự án duyệt): mọi mức tiến hóa GIỮ MÀU RIÊNG của món / chiến cơ — bỏ nhuộm lam (+1), bạc (+3), vàng (+4), cầu vồng (+5); mức càng cao chỉ càng sáng và óng. Tắt: window.EVO213=false */const L=Math.min(4,t-10);fill('overlay',[.10,.18,.28,.42][L-1],'#ffffff');if(L>=2)sheen([0,.25,.4,.6][L-1],'#ffffff',.2+((phase*.6)%1)*.6);}
   else if(t===1){fill('color',.55,'#2fc6ff');fill('overlay',.35,'#bff4ff');}
   else if(t===2){fill('saturation',.85,'#808080');fill('color',.22,'#b9a8ff');fill('overlay',.7,lin(0,0,0,h,[[0,'#ffffff'],[.55,'#c9d8ff'],[1,'#6b78a8']]));sheen(.55,'#ffffff');}
   else if(t===3){fill('color',.85,'#e0a72a');fill('overlay',.55,lin(0,0,0,h,[[0,'#fff3c4'],[.5,'#d99a1e'],[1,'#7a4a08']]));sheen(.35,'#fff6d0');}
@@ -82,7 +83,7 @@ const Evo53=(()=>{
    const key=kind+'|'+k+'|'+t+'|'+sk;let c=GA.get(key);if(!c){const w=src.naturalWidth||src.width,h=src.naturalHeight||src.height;if(!w||!h)return im;c=mk(w,h);if(t)paint(c.getContext('2d'),src,0,0,w,h,0,0,t,.15);else c.getContext('2d').drawImage(src,0,0);c.naturalWidth=w;c.naturalHeight=h;c.complete=true;GA.set(key,c);if(GA.size>240){const k0=GA.keys().next().value;GA.delete(k0);}}
    return c;}});}
  // ---------- đạn chính: đổi màu ----------
- try{const of=Fighters28.draw;Fighters28.draw=function(g,s){const t=T.craft.t;if(!t||!s)return of.apply(this,arguments);const c0=s.color;s.color=t>=4?`hsl(${((time*120+(s.x||0)*.8)%360+360)%360},100%,66%)`:COL[t];try{return of.apply(this,arguments);}finally{s.color=c0;}};}catch{}
+ try{const of=Fighters28.draw;Fighters28.draw=function(g,s){const t=T.craft.t;if(!t||!s||window.EVO213!==false)return of.apply(this,arguments);const c0=s.color;s.color=t>=4?`hsl(${((time*120+(s.x||0)*.8)%360+360)%360},100%,66%)`:COL[t];try{return of.apply(this,arguments);}finally{s.color=c0;}};}catch{}
  // ---------- đạn chính dạng tranh (ShotV2): tô lại sprite đạn theo mức (tạm hoán đổi sprite khi vẽ) ----------
  const SH=new Map();
  function tintFrames(list,t,ph){return list?list.map(f=>{const w=f.img.width,h=f.img.height,c=mk(w,h);paint(c.getContext('2d'),f.img,0,0,w,h,0,0,t,ph);return {...f,img:c};}):list;}

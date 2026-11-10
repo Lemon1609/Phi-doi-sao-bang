@@ -12,7 +12,7 @@ const HOLO212=(()=>{
  // V212C (chủ dự án): tiến hóa KHÔNG tô vàng — màu mỗi nấc lấy theo đặc trưng (màu riêng) của chính chiến cơ / SSS
  const hx=(c)=>{c=String(c||'#3FA9FF').trim();if(/^#[0-9a-f]{3}$/i.test(c))c='#'+c[1]+c[1]+c[2]+c[2]+c[3]+c[3];return /^#[0-9a-f]{6}$/i.test(c)?c:'#3FA9FF';};
  const mix=(a,b,t)=>{a=hx(a);b=hx(b);const p=k=>Math.round(parseInt(a.slice(k,k+2),16)*(1-t)+parseInt(b.slice(k,k+2),16)*t).toString(16).padStart(2,'0');return '#'+p(1)+p(3)+p(5);};
- const NEW213={0:'#FF9A3D',1:'#3DE0A0',2:'#67D7FF',6:'#9C7BFF'}; // V213: màu theo tranh mới của tàu 1, 2, 3, 7
+ const NEW213={0:'#FF9A3D',1:'#3DE0A0',2:'#67D7FF',3:'#9BE83A',4:'#7FD6FF',5:'#B9A6FF',6:'#9C7BFF'}; // V213: màu theo tranh mới của tàu 1, 2, 3, 7
  function shipCol(P){try{if(P&&P.t==='s')return hx(SSS_MODELS[P.i].color);if(NEW213[P.i])return NEW213[P.i];return hx(Fighters28.profiles[P.i].color);}catch{return '#3FA9FF';}}
  function tierCol(P,t){const c=shipCol(P);return t===1?{a:mix(c,'#3FA9FF',.55),b:mix(c,'#ffffff',.35)}:t===2?{a:c,b:mix(c,'#ffffff',.45)}:{a:mix(c,'#ffffff',.25),b:'#ffffff'};}
  // ---- V212C: tranh mẫu GPT (HOLO212_ART) cho một số tàu; tự nạp
