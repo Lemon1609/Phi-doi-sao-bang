@@ -54,7 +54,7 @@
       b:L=>fan({1:[-3,3],2:[-5,0,5],3:[-8,-3,3,8],4:[-9,-4.5,0,4.5,9]}[L]),pil:{1:[7,1.5],2:[6,2],3:[5,2.6],4:[5,3.5]}}
   };
   // V211 · D2 (GPT): màu tia trúng đích theo màu lõi/động cơ từng tàu; bỏ đỏ #ff3b5c (tàu 7) và hồng #ff5aa8 (tàu 10) dễ lẫn đạn địch. Tắt: window.D2_211=false
-  const D2P={0:'#FF9A3D',1:'#3DE0A0',/* V213: tàu 1 cam lửa, tàu 2 ngọc lục theo tranh mới */2:'#67D7FF',3:'#9BE83A',4:'#7FD6FF',5:'#B9A6FF',/* V213: tàu 4 lục acid, tàu 5 lam trời, tàu 6 tím oải hương theo tranh mới */6:'#8568E8',7:'#B0A0FF',8:'#76AAFF',9:'#9678ED',10:'#7865DB',11:'#45C4DF',12:'#C2B1FF'};
+  const D2P={0:'#FF9A3D',1:'#3DE0A0',/* V213: tàu 1 cam lửa, tàu 2 ngọc lục theo tranh mới */2:'#67D7FF',3:'#9BE83A',4:'#7FD6FF',5:'#B9A6FF',/* V213: tàu 4 lục acid, tàu 5 lam trời, tàu 6 tím oải hương theo tranh mới */6:'#8568E8',7:'#4FC8FF',8:'#5FD0FF',9:'#45D2FF',/* V216: tàu 8 plasma lam, 9 lam biển, 10 lam động cơ theo tranh mới */10:'#7865DB',11:'#45C4DF',12:'#C2B1FF'};
   for(const k in C){const o=C[k],c0=o.col;Object.defineProperty(o,'col',{get:()=>(window.D2_211!==false&&D2P[k])?D2P[k]:c0,configurable:true});}
   // hiệu chỉnh sau đo bot (DPS boss ±5%)
   const FUDGE=window.FUDGE120||{"0": 1.513, "1": 0.943, "2": 1.326, "3": 0.844, "4": 0.782, "5": 0.859, "6": 0.818, "7": 1.12, "8": 0.927, "9": 0.96, "10": 1.937, "11": 1.205, "12": 0.77};/* đo đứng yên dưới boss 160, 2 vòng (V120) */
@@ -145,7 +145,7 @@
   function hookUpd(){try{const ou=update;if(ou.__p120)return;const nu=function(){const r=ou.apply(this,arguments);try{step();}catch(e){}return r;};nu.__p120=1;window.update=nu;try{update=nu;}catch{}}catch{}}
   // ---------- vẽ: hiệu ứng trúng (V125: tranh GPT hit_*.png; code dự phòng) + tàu ảo + xoáy + cột sáng ----------
   const ART=()=>typeof HIT120_ART!=='undefined'?HIT120_ART:null;const IMG={};
-  function art(k){const A=ART();if(!A||!A[k])return null;let im=IMG[k];if(!im){im=new Image();im.src=A[k];IMG[k]=im;}return im.complete&&im.naturalWidth?im:null;}
+  function art(k){const A=ART();if(!A||!A[k])return null;let im=IMG[k];if(!im){im=new Image();im.src=A[k];IMG[k]=im;}return im.complete&&im.naturalWidth?(window.Fx215?Fx215.hit(k,im):im):null;}/* V215: tranh trúng đích đỏ / hồng → màu tàu */
   function star(x,y,r,n,col,rot,al){ctx.save();ctx.translate(x,y);ctx.rotate(rot||0);ctx.globalAlpha=al;ctx.fillStyle=col;ctx.beginPath();for(let k=0;k<n*2;k++){const a=k*Math.PI/n,rr=k%2?r*.28:r;k?ctx.lineTo(Math.cos(a)*rr,Math.sin(a)*rr):ctx.moveTo(rr,0);}ctx.closePath();ctx.fill();ctx.restore();}
   function zig(x,y,tx,ty,col,al){ctx.save();ctx.globalAlpha=al;ctx.strokeStyle=col;ctx.lineWidth=2;ctx.beginPath();ctx.moveTo(x,y);for(let k=1;k<=6;k++){const u=k/6,w=k===6?0:(Math.random()-.5)*14;ctx.lineTo(x+(tx-x)*u+w,y+(ty-y)*u+w);}ctx.stroke();ctx.strokeStyle='#fff';ctx.lineWidth=.8;ctx.stroke();ctx.restore();}
   // V208 (G1): đồng hồ trận 'time' về 0 khi sang ải mới → hiệu ứng cũ có tuổi ÂM: alpha >1 và kích thước âm khổng lồ (vệt sáng vỡ điểm ảnh che màn).

@@ -17,7 +17,8 @@ const Evo53=(()=>{
  const light=()=>{try{return VisualFX.counts().quality==='light';}catch{return false;}},quiet=()=>{try{return VisualFX.reduced();}catch{return false;}};
  const ART=typeof EVO53_ART!=='undefined'?EVO53_ART:{};const ARTIMG={};for(const k in ART){const im=new Image();im.src=ART[k];ARTIMG[k]=im;}
  const okIm=im=>im&&(im instanceof HTMLCanvasElement||(im.complete&&im.naturalWidth>0));
- const hue=(t,o=0)=>`hsl(${((t*90+o)%360+360)%360},100%,68%)`;
+ const rb215=()=>window.EVO213!==false&&window.FX215!==false&&typeof Fx215!=='undefined';/* V215: mức 4 không cầu vồng (sinh hồng trùng đạn địch) → màu tàu đang bay */
+ const hue=(t,o=0)=>rb215()?Fx215.ship():`hsl(${((t*90+o)%360+360)%360},100%,68%)`;
  const colOf=(t,o=0)=>t>=4?hue(time,o):COL[t]||'#9feeff';
  function mk(w,h){const c=document.createElement('canvas');c.width=Math.max(1,w|0);c.height=Math.max(1,h|0);return c;}
  // ---------- tô lại 1 vùng ----------
@@ -119,7 +120,7 @@ const Evo53=(()=>{
   // đuôi sáng đạn chính
   {const c=T.craft.t;if(c>=2){for(const s of shots){if(s.dead||s.ray28)continue;const vx=s.vx||0,vy=s.vy||-600,v=Math.hypot(vx,vy)||1,len=c>=3?24:16;ctx.globalAlpha=c>=3?.55:.4;ctx.strokeStyle=colOf(c,s.x);ctx.lineWidth=c>=3?3:2;ctx.beginPath();ctx.moveTo(s.x,s.y);ctx.lineTo(s.x-vx/v*len,s.y-vy/v*len);ctx.stroke();}}}
   // tia sét
-  for(const b of B){const u=b.t/b.life,col=b.tier>=4?`hsl(${(b.o+time*200)%360},100%,70%)`:'#ffd54a';
+  for(const b of B){const u=b.t/b.life,col=rb215()?Fx215.ship():b.tier>=4?`hsl(${(b.o+time*200)%360},100%,70%)`:'#ffd54a';/* V215: tia sét mọi mức theo màu tàu (trước: vàng mức 1–3, cầu vồng mức 4) */
    for(const [w,a,cc] of [[5,.28,col],[2.2,.9,col],[1,1,'#ffffff']]){ctx.globalAlpha=a*(1-u*.6);ctx.strokeStyle=cc;ctx.lineWidth=w;ctx.beginPath();b.pts.forEach(([x,y],i)=>i?ctx.lineTo(x,y):ctx.moveTo(x,y));ctx.stroke();}}
   // hạt sao
   for(const p of P){const u=p.t/p.life;ctx.globalAlpha=(1-u)*.9;const sz=p.sz*(1-u*.5);ctx.save();ctx.translate(p.x,p.y);ctx.rotate(p.rot+u*2);ctx.drawImage(star(p.col.startsWith('hsl')?'#ffffff':p.col),-sz/2,-sz/2,sz,sz);ctx.restore();}

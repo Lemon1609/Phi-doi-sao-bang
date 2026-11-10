@@ -1,5 +1,20 @@
 # BÀN GIAO DỰ ÁN PHI ĐỘI SAO BĂNG · V202 (2026-11-08)
 
+### V216 · 10/11 · Tranh mới tàu 4 (Bạo Tẩu), 8, 9, 10
+- src/ship118: tau4_*_bt (6) + tau8/9/10_* (36) = tranh GPT (cũ: src/ship118_cu_v215/). Không căn bằng mã.
+- Đo (tranh216/do.py, chuẩn kiểm duyệt): tàu 4 _bt ĐẠT (diện tích ×1,48–2,52; số đo thân +9% là nhiễu do mũi khoan trắng). Tàu 8/9/10 bản thường ĐẠT (thân 6 bậc lệch ≤1–2%; tàu 8 ss +10%, tàu 10 ss +24% vì có vòng pháo đài — xem bằng mắt thì thân giữa cùng cỡ).
+- CÒN YẾU, đã nhờ GPT vẽ lại: Bạo Tẩu 8/9/10 diện tích chỉ ×0,55–1,37 (chuẩn ≥1,5), thiếu quầng năng lượng; tàu 9 phân cánh mảnh hơn cánh thường; tàu 10 ss_bt mất vòng pháo đài.
+- Màu: NEW213 7/8/9 = #FF8A2A / #5CC8FF / #8FD94A; D2P 7/8/9 = #4FC8FF / #5FD0FF / #45D2FF; fx215 NEWC 8/9 = #6cc8ff / #8fd94a; hit_cross quay về 192°.
+
+### V215 · 10/11 · Mục B: phe ta không còn đỏ / hồng của đạn địch
+- Dò bằng bọc hàm vẽ canvas (work/probe/probe_red.py; hook phải gắn bằng add_init_script trước khi game nạp, và imgRed phải gọi drawImage gốc để khỏi đệ quy).
+- Nguồn tìm ra: (1) "đạn kim hồng" = VisualFX.drawShot (base V42) đạn Bạo Tẩu dự phòng đổi vòng ['#fff0b0','#ff9454','#ff84b0'] — tàu 6, 7, 10; (2) "vạch đỏ dọc" = tia cảnh báo chướng ngại PHE ĐỊCH (hazardBeam → __beam122) — giữ; (3) đạn + chớp nòng tàu 4 tranh fx16_pb_3_* tông 305°; (4) Evo53 mức 4 vẫn cầu vồng (đuôi đạn, hạt sao, quầng trang bị, tia sét, vòng khiên); (5) tranh trúng đích hit_slash/hit_cross/hit_impale/hit_pillar(_cot)/hit_vortex/hit_phoenix/hit_blast có đỏ/hồng; (6) Fighters28.profiles[].color cũ (vệt tàu con, quầng Bạo Tẩu v118, wing87): tàu 8 #ff8167, tàu 9 #ef8bff.
+- Sửa: src/fx215.js mới (Fx215.ship/tint/lime/hit; màu hồ sơ tàu theo tranh mới); fx16.js đạn + chớp nòng tàu 4 quay tông → lục acid 85°; v120.js art() quay tông tranh trúng đích; evo53.js hue() → màu tàu, tia sét MỌI mức theo màu tàu (bỏ vàng #ffd54a ở mức 1–3 — chủ dự án giao Claude cân đối); build74_mau.py rep đạn Bạo Tẩu dự phòng. Tắt toàn bộ: window.FX215=false.
+- Đạn tàu 4: chủ dự án giao Claude chọn → hướng 1 (đổi bằng mã); tranh đạn mới gộp vào đợt GPT vẽ tàu con hộ tống.
+- base/Phi_Doi_Sao_Bang_V42.html + src/boot66.html nay có trong repo (ngoại lệ .gitignore) — trước đây thiếu nên phiên mới không dựng được.
+- Artifact cũ U5HfBzLWPfPvtUECHaALbq KHÔNG đọc được từ tài khoản phiên này → đăng artifact MỚI https://claude.ai/artifact/9gvhFjgUcET4MsYQNncNmC, khai báo quyền db (lb/{self}, tele/{self}) + user + downloads cho cloud78/dl78.
+- Test: t156 14/14; t209 20/20 (chạy riêng; chạy song song từng trượt mục "phá chướng ngại khi Bạo Tẩu +0,7 s"); t204 8/8; t206 7/7; t207 8/8. Quét màu 13 tàu: phe ta 0 điểm đỏ/hồng.
+
 ### V214 · 10/11 · Tranh mới tàu 4, 5, 6 + bỏ nhuộm màu tiến hóa
 - src/ship118/tau{4,5,6}_* + tau2_thuong_bt = tranh GPT (cũ: work/sao_luu_tau456_cu). Claude căn bằng mã: tau4_luc_bt ×1,12; tau4_ss_bt ×1,13 (đáng ra ×1,21 nhưng tràn khung → thân vẫn nhỏ ~6%); tau6_thuong_bt dịch −18 px; tau6_luc_bt ×1,06; tau6_ss_bt ×1,15. Tàu 4: 6 bản _bt yếu → đã yêu cầu GPT vẽ lại (out/GUI_GPT_TAU_8_9_10.md mục A).
 - evo53.js paint(): t 1..4 → nhánh t>=11 (giữ màu gốc, chỉ sáng/óng theo mức) cho MỌI tranh (trang bị, thân tàu atlas cũ, đạn chính ShotV2); Fighters28.draw không đổi s.color nữa. Chủ dự án duyệt bỏ nhuộm trang bị; Claude mở rộng sang đạn chính/thân theo luật "tiến hóa theo đặc trưng". Cờ EVO213=false.

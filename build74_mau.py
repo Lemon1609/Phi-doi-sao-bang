@@ -858,6 +858,9 @@ rep("</body>","<style id=\"v209-css\">"+open('src/v209.css',encoding='utf-8').re
 # V212 · phòng trưng bày hologram (định hướng mỹ thuật mới). Tắt: window.HOLO212=false
 rep("</body>","<script id=\"holo212-art\">"+open('src/holo212_art.js',encoding='utf-8').read()+"</script></body>")
 rep("</body>","<style id=\"holo212-css\">"+open('src/holo212.css',encoding='utf-8').read()+"</style><script id=\"holo212\">"+open('src/holo212.js',encoding='utf-8').read()+"</script></body>")
+# V215 · mục B: phe ta không dùng đỏ / hồng của đạn địch (đạn + chớp nòng tàu 4 → lục acid, tranh trúng đích, đạn Bạo Tẩu dự phòng, cầu vồng mức 4 Evo53, màu hồ sơ tàu 1–9). Tắt: window.FX215=false
+rep("['#fff0b0','#ff9454','#ff84b0']","['#fff0b0','#ff9454',(window.Fx215&&window.FX215!==false?Fx215.ship():'#ff84b0')]")
+rep("</body>","<script id=\"fx215-js\">"+open('src/fx215.js',encoding='utf-8').read()+"</script></body>")
 rep("if(bg){const BGA=typeof SKIN15_BG","if(window.HOLO212Draw&&HOLO212Draw(g,SW,SH,shipY+40*k,k,clock,current())){}else if(bg){const BGA=typeof SKIN15_BG")
 rep("cut*k,ww*k,hh*k);}catch{}}\n  // nhãn pha","cut*k,ww*k,hh*k);}catch{}}\n  try{window.HOLO212Tint&&HOLO212Tint(g,SW,SH,shipY+40*k,k);}catch{}\n  // nhãn pha")
 rep("shield=Math.max(0,shield-enemyScale())","shield=Math.max(0,shield-enemyScale()*(typeof SURV200!=='undefined'?SURV200.m():1))")  # V202 SURVIVE_BAL_V200
