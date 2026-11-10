@@ -49,4 +49,4 @@ Lưu ý chung: ánh sáng sau lưng **không phải vòng tròn kín**; không �
 
 1. Sửa tàu 8 (12 tranh) và tàu 6 (5 bậc đầu × 2 = 10 tranh) theo mục 1; sửa 2 bản `_bt` của tàu 4.
 2. Vẽ lại bộ hiệu ứng tàu 9 và tàu 10 (16 tệp) theo mục 2 và dòng tương ứng ở mục 3.
-3. Đạn chính tàu 8 và tàu 10 (10 tệp, quy cách ở tài liệu V217) — đợt 1 chưa có.
+3. Đạn chính tàu 8 và tàu 10 (10 tệp): **đã nhận, đạt quy cách**, đã ghép vào game. Lưu ý cho lần sau: chớp nòng (`_muzzle`) phải có lửa **chĩa lên** như viên đạn; bản tàu 10 vẽ chĩa xuống nên game đã phải lật lại.
