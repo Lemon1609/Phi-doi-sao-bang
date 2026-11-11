@@ -92,6 +92,19 @@ Bộ ảnh gồm năm chiến cơ ở màn kho và một cảnh đánh boss. Đ�
 
 Phép thử nhanh cho mỗi ảnh chủ: thu ảnh về 100 px, che phần đèn đi. Nếu vẫn thấy rõ mũi, buồng lái, cánh, động cơ và ít nhất hai cụm vũ khí thì đạt chất cơ khí.
 
+## 3C. Hiện đại – công nghệ cao (chủ dự án 17:58, áp cho chiến cơ, trang bị, hợp thể; ưu tiên hơn 3A khi hai mục vênh nhau)
+
+Giữ **cấu trúc** cơ khí của 3A (khung, khớp, vũ khí lộ, động cơ thấy được), nhưng **hoàn thiện** như chiến hạm tương lai đời mới, không phải máy móc công nghiệp cũ.
+
+1. **Bề mặt**: giáp composite liền khối, cạnh vát sắc kiểu dựng 3D bề mặt cứng; gốm trắng bóng, crôm, kim loại sơn bóng hai lớp. Đường chia tấm mảnh, thẳng, chính xác.
+2. **Bỏ chất "xưởng cũ"** ở phe ta: không đinh tán to, không ống dầu và dây cáp lộ lộn xộn, không vết trầy, rỉ, dầu loang (để dành cho phe địch).
+3. **Cơ cấu hiện đại thay cơ cấu thô**: piston và ống dẫn thay bằng bộ truyền động bọc vỏ nhẵn, khớp từ tính, ray trượt; turbin đặt trong vỏ có lưới mảnh; vòi phụt vector nhiều cánh điều hướng.
+4. **Chi tiết công nghệ cao** (mỗi tàu chọn 4–5 cái hợp dáng): dải LED mảnh chạy theo đường chia tấm; vân lục giác năng lượng dưới lớp kính; ống kính cảm biến quang học; vây tản nhiệt dạng lá mỏng xếp đều; ô ký hiệu phát sáng nhỏ (không chữ); bộ phận tách rời nối bằng trường năng lượng mảnh.
+5. **Tỉ lệ màu thay mục 3A**: khung tối 15–25 % · crôm / gốm sáng 15–25 % · giáp màu 30–40 % · phát sáng 15–25 %.
+6. **Tương phản hai phe**: phe ta sạch, bóng, chính xác, thanh; phe địch thô, trầy, nặng, gồ ghề.
+
+Phép thử: đặt cạnh ảnh mẫu tàu 7 V225, bản mới phải trông **đời sau** hơn (sạch hơn, bóng hơn, ít ống và đinh hơn) mà vẫn đọc rõ khung, khớp và vũ khí.
+
 ## 4. Tiến hóa 6 bậc: mỗi tàu lớn lên theo cách riêng
 
 `thuong → luc → lam → tim → tim5 → ss`. Cùng một thân lõi, cùng màu. Mỗi tàu có **một cách lớn dần riêng** (bảng mục 7): tàu mũi khoan thì mũi dài và nhọn dần, tàu lông vũ thì thêm lớp lông, pháo hạm thì thêm pháo. Không dùng chung một công thức. Bậc sau phải nhìn ra là mạnh hơn bậc trước nhưng **không phình to** (cỡ theo mục 2.4).
