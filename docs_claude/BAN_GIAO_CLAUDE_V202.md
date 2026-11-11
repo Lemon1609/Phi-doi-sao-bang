@@ -1,5 +1,11 @@
 # BÀN GIAO DỰ ÁN PHI ĐỘI SAO BĂNG · V202 (2026-11-08)
 
+### V221 · 11/11 · PHÁT HÀNH: tàu 7 vẽ lại cả bộ (12 tranh, prompt V223) · ánh sáng sau lưng tàu 7 mới · tàu 10 đèn lục radar
+- Gói GPT "V223_TAU7_12_PNG_BAN_THU": cỡ 6 bậc đúng chuẩn (345/355/368/380/393/405), rộng/cao 0,99–1,14, crôm 10–19 %, phát sáng 23–35 %, _bt ×1,29–1,31, thân lõi _bt trùng bản thường (lệch 0,5/255), lề _bt 39–54 px. Quầng alpha thấp 7–24 % → làm sạch bằng mã (giữ alpha > 110 nở 2 px) còn 5–9 % rồi mới chép vào src/ship118. Phép đo: work/tranh227/do.py.
+- Đây là bộ ĐẦU TIÊN đạt trọn chuẩn → tàu 7 lại là TÀU MẪU (cỡ, đồng bộ 6 bậc, cách dựng _bt). Nhận xét gửi GPT: docs_claude/GUI_GPT_V224_KET_QUA_TAU7.md.
+- Gộp các thay đổi chưa phát hành trước đó: tau7_fx_sang mới (nền đen, tự tách nền); tàu 10 lục radar #5BE35B (quay tông bộ mảnh lúc dựng).
+- Test (chạy lần lượt): t156 14/14; t209 20/20; t204 8/8; t207 8/8; t206 7/7.
+
 ### 11/11 09:51 · Ảnh chủ tàu 7 lần 2 (theo V223): ĐẠT số đo, CHỜ chủ dự án duyệt
 - Đo: kim loại 10 %, phát sáng 34,1 %, tông lam lơ 24 / chàm 46 / tím 30; rộng/cao 1,05; cỡ 380 (chuẩn tím 380); lề 60; quầng mờ 20 % → Claude làm sạch còn 6 %. Bản sạch: src/ship118_cho/tau7_tim_anh_chu_V223.png (CHƯA vào game; đã dựng thử tạm rồi trả lại tranh cũ bằng git checkout).
 - Nhận xét gửi GPT: docs_claude/GUI_GPT_V223_DUYET_ANH_CHU_TAU7.md (xuất mép sắc không quầng; giữ 20–30 % crôm; giữ bộ màu).
