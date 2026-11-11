@@ -34,27 +34,27 @@ Tên bậc gợi ý sẵn một thang màu độ hiếm: thường, lục, lam, 
 | 12 Thời Không | trắng titan #DCE4EC | #18FFFF + #C7B8FF |
 | 13 Hư Không | xám tím than #3A3650 | #B388FF + #69F0AE |
 
-## Hướng chủ dự án đã chốt: ĐỔI MÀU GIÁP THEO BẬC, MỖI TÀU MỘT DẢI MÀU RIÊNG
+## Hướng chủ dự án đã chốt: ĐỔI CẢ MÀU GIÁP LẪN MÀU ĐÈN THEO BẬC, MỖI TÀU MỘT DẢI RIÊNG
 
-- Khi lên bậc, **màu giáp đổi** (diện tích lớn, nhìn là thấy ngay tàu đã mạnh lên).
+- Khi lên bậc, **màu giáp và màu đèn cùng đổi**: mỗi bậc là một cặp (giáp, đèn) mới, nhìn là thấy ngay tàu đã mạnh lên.
 - **Mỗi chiến cơ, mỗi bộ trang bị, mỗi hợp thể có một dải màu 6 bậc riêng**, không dùng chung một thang cho mọi tàu, để không trùng màu với chiến cơ, trang bị, hợp thể khác.
-- **Màu đèn chính của tàu giữ nguyên qua 6 bậc** (cùng với dáng) làm dấu hiệu nhận diện; neon Bạo Tẩu theo màu đèn này.
+- Nhận diện từng tàu dựa chủ yếu vào **dáng**. Được đề xuất thêm một dấu hiệu nhỏ cố định qua 6 bậc (ví dụ màu lõi, phù hiệu, viền buồng lái) nếu thấy cần. Neon Bạo Tẩu theo màu đèn của bậc đang dùng (game đổi bằng mã).
 
 ### Điều kiện để không trùng (Claude sẽ đo bằng máy)
 
-1. **Cùng một bậc**, hai chiến cơ bất kỳ khác nhau rõ ở màu giáp: lệch sắc ≥ 25°, hoặc cùng sắc nhưng lệch hẳn độ sáng / độ bão hòa (ví dụ trắng titan với thép than).
+1. **Cùng một bậc**, hai chiến cơ bất kỳ không trùng cặp (giáp, đèn); màu giáp khác nhau rõ: lệch sắc ≥ 25°, hoặc cùng sắc nhưng lệch hẳn độ sáng / độ bão hòa (ví dụ trắng titan với thép than).
 2. **Cùng một tàu**, hai bậc liền nhau phải nhìn ra khác màu ngay ở cỡ 100 px.
-3. Màu giáp không được trùng màu đèn của chính tàu đó (đèn phải nổi trên giáp).
+3. Trong mỗi cặp, đèn phải nổi trên giáp (tương phản rõ về sắc hoặc độ sáng). Đèn cũng tuân thủ luật màu: không đỏ – hồng, không vàng kim.
 4. Dải màu dùng được: cam 20–40°, từ vàng chanh đến tím 55–285°, cộng các màu trung tính có chất (trắng titan, bạc, thép than, đồng tối, đen bóng). **Cấm** vùng đỏ – hồng (285°–20°) và vàng kim (40–55° bão hòa cao).
 5. Trang bị và hợp thể: cùng nguyên tắc, nhưng không trùng dải của 13 chiến cơ. Hợp thể nên pha từ dải của hai tàu thành phần.
 
 ## Xin trả lời
 
-1. **Bảng dải màu 6 bậc cho 13 chiến cơ**: mỗi ô một mã hex màu giáp chính (kèm màu giáp phụ nếu cần). Dạng bảng 13 hàng × 6 cột `thuong / luc / lam / tim / tim5 / ss`. Màu đèn chính giữ như bảng trên.
+1. **Bảng dải màu 6 bậc cho 13 chiến cơ**: mỗi ô một cặp mã hex **giáp / đèn** (kèm màu phụ nếu cần). Dạng bảng 13 hàng × 6 cột `thuong / luc / lam / tim / tim5 / ss`. Bảng màu hiện tại ở trên chỉ để tham khảo, được thay.
 2. Nguyên tắc lên màu của từng tàu, 1 dòng mỗi tàu (ví dụ "tàu 7: thép xám → chàm → tím sẫm → tím điện → … đậm và sáng dần").
 3. **Bậc SS**: màu "đỉnh" của mỗi tàu thật nổi bật mà không vàng kim, không đỏ – hồng, không cầu vồng (gợi ý: kim loại phản quang, ánh ngọc trai, crôm màu, ánh đổi sắc nhẹ trong cùng một dải…).
 4. Tự soát: liệt kê những cặp tàu có màu gần nhau ở cùng bậc và cách tách chúng.
 5. Gợi ý cách làm dải màu cho **13 bộ trang bị** và cho **hợp thể** (nguyên tắc, chưa cần đủ bảng).
-6. (Riêng GPT) Nếu được, vẽ 1 ảnh ghép tàu 7 cả 6 bậc theo dải màu đề xuất (giữ nguyên dáng 6 bậc trong ảnh ghép gửi kèm, chỉ đổi màu giáp) để chủ dự án xem.
+6. (Riêng GPT) Nếu được, vẽ 1 ảnh ghép tàu 7 cả 6 bậc theo dải màu đề xuất (giữ nguyên dáng 6 bậc trong ảnh ghép gửi kèm, chỉ đổi màu giáp và đèn) để chủ dự án xem.
 
 Trả lời bằng tiếng Việt, gọn, dạng bảng và danh sách.
