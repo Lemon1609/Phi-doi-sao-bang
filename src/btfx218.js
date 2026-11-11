@@ -24,7 +24,8 @@
   //  Gốc Gemini: dài lửa .60/.75/.85/.95/1.05/1.15 · sét 0/1/2/3/4/5 · cỡ sáng .70/.80/.90/1/1.10/1.20 · alpha .25/.32/.38/.45/.52/.58
   const LV=[[2,.72,1,1.4,.86,.40,3],[2,.80,1,1.1,.93,.44,4],[4,.88,2,.9,1,.48,5],[4,.96,3,.6,1.07,.52,6],[6,1.05,4,.4,1.14,.56,7],[6,1.15,5,.25,1.20,.60,8]];
   // 18:32 chủ dự án: NỚI trần cho rực hơn → bề ngang ánh sáng tối đa 1,9 × sải cánh (Gemini: 1,35), alpha × 1,45 và trần 0,85 (Gemini: 0,58)
-  const SPAN_MAX=1.9,SPAN_K=1.5,A_K=1.45,A_MAX=.85,FLASH=.2;
+  // 11/11 08:09 chủ dự án: ánh sáng sau lưng "đang quá to, thu bé hơn" → bề ngang tối đa 1,35 × sải cánh ở bậc SS (bậc thường ≈ 0,96); độ đậm giữ như lần nới
+  const SPAN_MAX=1.35,SPAN_K=1.12,A_K=1.45,A_MAX=.85,FLASH=.2;
   // ---- mỏ neo: dò từ ô Bạo Tẩu của atlas, tọa độ chuẩn hóa theo khung tàu (−0,5 … 0,5) ----
   const AN=new WeakMap(),N=96;
   function anchors(a,cell,cw,ch){let m=AN.get(a);if(m&&m.cell===cell)return m.ok?m:null;m={cell,ok:false};AN.set(a,m);
@@ -47,12 +48,13 @@
   //   (3) các chi tiết phát sáng sẵn có trên thân (đèn, khe năng lượng) bừng sáng theo nhịp.
   //  Không phải vòng tròn quanh tàu: viền bám đúng mép thân. Tắt riêng: window.NEON220=false
   const NE=new WeakMap(),NS=192,PAD=12;
-  const lamp=id=>{try{return Fighters28.profiles[id].color||'#7fd6ff';}catch{return '#7fd6ff';}};
+  const LAMP3={10:'#00BFA5',11:'#18FFFF',12:'#B388FF'};/* tàu 11–13: màu đèn theo bảng Gemini (tranh mới chưa có) */
+  const lamp=id=>{try{return LAMP3[id]||Fighters28.profiles[id].color||'#7fd6ff';}catch{return '#7fd6ff';}};
   function neon(a,cell,cw,ch,col){let m=NE.get(a);if(m&&m.cell===cell&&m.col===col)return m.ok?m:null;m={cell,col,ok:false};NE.set(a,m);
     try{const mk=()=>{const c=document.createElement('canvas');c.width=c.height=NS;return c;},IN=NS-PAD*2;
       const s=mk(),sg=s.getContext('2d',{willReadFrequently:true});sg.drawImage(a,cell%5*cw,Math.floor(cell/5)*ch,cw,ch,PAD,PAD,IN,IN);
       const q=sg.getImageData(0,0,NS,NS).data,e=mk(),eg=e.getContext('2d'),ed=eg.createImageData(NS,NS),o=ed.data;
-      let no=0,ne=0;for(let i=0;i<q.length;i+=4){const r=q[i],g=q[i+1],b=q[i+2],mx=Math.max(r,g,b),mn=Math.min(r,g,b);if(q[i+3]>120){no++;if(mx>200&&(mx-mn)/mx>.38){ne++;o[i]=r;o[i+1]=g;o[i+2]=b;o[i+3]=255;}}}
+      let no=0,ne=0;for(let i=0;i<q.length;i+=4){const r=q[i],g=q[i+1],b=q[i+2],mx=Math.max(r,g,b),mn=Math.min(r,g,b);if(q[i+3]>120){no++;if(mx>200&&(mx-mn)/mx>.38){const dd=mx-mn,hh=((mx===r?((g-b)/dd)%6:mx===g?(b-r)/dd+2:(r-g)/dd+4)*60+360)%360;if(hh>=285||hh<=20)continue;/* không làm bừng các điểm đỏ / hồng (màu phe địch) còn sót trong tranh cũ, vd. tàu 11, 13 */ne++;o[i]=r;o[i+1]=g;o[i+2]=b;o[i+3]=255;}}}
       m.bk=Math.max(.22,Math.min(1,.10/Math.max(.01,ne/Math.max(1,no))));/* tranh Bạo Tẩu cũ có lửa vẽ sẵn → phần phát sáng chiếm nhiều → giảm độ bừng để khỏi lóa */
       eg.putImageData(ed,0,0);const bl=mk(),bg=bl.getContext('2d');bg.filter='blur(3px)';bg.drawImage(e,0,0);bg.filter='none';bg.globalAlpha=.6;bg.drawImage(e,0,0);
       const sil=mk(),xg=sil.getContext('2d');xg.drawImage(s,0,0);xg.globalCompositeOperation='source-in';xg.fillStyle=col;xg.fillRect(0,0,NS,NS);
@@ -96,5 +98,10 @@
       for(let q=0;q<nq;q++){const tt=now+q*.13,slot=Math.floor(tt/.5),u=(tt%.5)/.5,e=m.edge[Math.floor(rnd(slot*9.7+q*3)*m.edge.length)],s=size*(.10+.08*rnd(slot+q))*Math.sin(u*Math.PI);if(s<1)continue;
         ctx.globalAlpha=k*Math.sin(u*Math.PI)*.95;ctx.drawImage(H,((slot+q)%4)*hw,0,hw,hh,e[0]*size-s/2,e[1]*size-s/2,s,s);}}
     ctx.restore();}
-  window.BtFx218={back,front,has,state:()=>({...st,ships:Object.keys(ART()||{})}),anchors};
+  // V220: tàu 11–13 vẽ qua craftSprite (ship83.js) bằng ảnh rời, không qua atlas của v118 → gọi neonAt ngay sau khi vẽ thân Bạo Tẩu
+  const s2={id:-1,t0:0,last:-9};
+  function neonAt(ctx,im,x,y,size,rot,id){if(window.BTFX218===false||!im||!im.naturalWidth)return;const now=(typeof time==='number'?time:performance.now()/1000);
+    if(s2.id!==id||now-s2.last>.25||now<s2.last){s2.id=id;s2.t0=now;}s2.last=now;const k=Math.min(1,(now-s2.t0)/.25),sc=size/Math.max(im.naturalWidth,im.naturalHeight);
+    ctx.save();ctx.translate(x,y);ctx.rotate(rot||0);neonDraw(ctx,im,0,im.naturalWidth,im.naturalHeight,Math.max(im.naturalWidth,im.naturalHeight)*sc,now,id,false,k);ctx.restore();}
+  window.BtFx218={back,front,has,neonAt,state:()=>({...st,ships:Object.keys(ART()||{})}),anchors};
 })();

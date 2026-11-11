@@ -34,10 +34,20 @@ Lỗi do lời dặn lần trước ("bung theo chiều dọc và chéo") quá c
 - **Hiệu ứng siêu cấp kiểu NEON LED**: ống sáng mảnh, nét đều, lõi rực, quầng mờ quanh nét; chạy theo cạnh thân, cạnh cánh, khe năng lượng như dải đèn LED. Bộ mảnh rời (lửa, sét, ánh sáng sau lưng, hạt) vẽ theo chất này: nét mảnh phát sáng, không phải mảng màu đặc. Hai bộ mẫu tàu 9 và tàu 10 đã gần đúng chất này; tàu 10 (khung chữ H nét ống) là mẫu tốt nhất.
 - **Tàu địch: hầm hố, đồ sộ, ác mộng.** To, nặng, giáp dày sẫm, gai, càng, hàm, sinh – cơ ghép; đèn đỏ #FF334F / hồng #F50057.
 
+## Ánh sáng sau lưng (`tauN_fx_sang.png`): chọn theo từng loại, không mặc định chữ X
+
+Chủ dự án duyệt bộ mảnh tàu 7 trong game và góp ý: ánh sáng hai lưỡi đao bắt chéo **quá to và lại là chữ X**; "cánh sẽ lựa theo tùy loại chiến cơ, trang bị, hợp thể. Không phải cánh nào cũng chữ X".
+
+- Hình ánh sáng sau lưng phải **nối dài chính dáng cánh của tàu đó**: tàu có cánh lưỡi liềm thì ánh sáng là hai lưỡi liềm; tàu lông vũ thì là lớp lông sáng; tàu pháo hạm thì là khung phản lực; tàu mẹ thì là khung chiến thuật.
+- **Không dùng chữ X** trừ khi thân tàu vốn có dáng đó.
+- Gọn: game vẽ ánh sáng rộng tối đa 1,35 lần sải cánh. Nét chính nên nằm ở **hai bên và phía sau** thân, đừng dồn vào giữa (phần giữa bị thân tàu che).
+- Bộ mảnh tàu 7: lửa, sét, hạt **đạt và đã dùng**. Riêng `tau7_fx_sang.png` vẽ lại: hai lưỡi liềm sáng ôm hai bên thân, cong cùng chiều với cánh lưỡi liềm của tàu 7.
+
 ## Việc cần làm
 
 1. **Tàu 8**: vẽ lại 5 bản `_bt` (lục, lam, tím, tím+, SS) theo kiểu pháo hạm ở bảng trên, cùng kiểu với bản `thuong_bt`, **bung vừa phải (1,25–1,5 lần)**. Giữ ý tách rõ 4 pháo ở bậc cao.
 2. **Tàu 6**: vẽ lại `tau6_tim_bt.png` theo kiểu lông vũ như năm bậc còn lại.
 3. **Bộ 88 mảnh hiệu ứng** cho 11 tàu còn lại: làm theo chất neon LED ở trên, đặc trưng từng tàu theo bảng đã gửi (tài liệu V218 mục 3).
 4. **Ảnh ý tưởng tàu địch** (chỉ để duyệt phong cách, chưa cần đúng khổ tệp game): một tấm gồm 1 quái thường, 1 quái tinh anh, 1 boss, vẽ cạnh một chiến cơ phe ta để thấy tương quan cỡ và tính cách.
-5. Áp các quy tắc này cho mọi tàu, trang bị, hợp thể về sau.
+5. **Tàu 7**: vẽ lại `tau7_fx_sang.png` (xem mục ánh sáng sau lưng), và vẽ 6 bản thân Bạo Tẩu sạch (`tau7_*_bt.png`): hiện là khối cầu plasma che mất thân.
+6. Áp các quy tắc này cho mọi tàu, trang bị, hợp thể về sau.
