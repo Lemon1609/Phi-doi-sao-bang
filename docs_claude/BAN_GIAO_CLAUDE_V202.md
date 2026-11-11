@@ -1342,3 +1342,5 @@ Cú pháp chung: `python3 <script> <html> <ải> <bậc '' | S | SS> <phần>`.
 - 16:59: Gemini trả lời góp ý V225. Đã lọc và gộp vào PROMPT_GPT_V225 phụ lục D (D.1 sáu điểm sửa ảnh chủ tàu 7, D.2 sáu bậc, D.3 Bạo Tẩu + fx_sang không khép vòng, D.4 cơ khí 12 tàu, D.5 ba họ địch, không lặp dáng boss tham chiếu). Bỏ ý "khử 2,3% đỏ – hồng" vì đo ra chỉ là bóng tối (giữ thành lưu ý tông lạnh). Soạn GUI_GPT_V225_SUA_TAU7.md.
 
 - 17:03: chủ dự án chọn dùng đúng ý Gemini cho 3 điểm: khử 2,3% đỏ – hồng ở gờ giáp; quạt lưỡi sáng tàu 7 ôm vòng sườn tàu; họ địch 1 theo kết cấu càng boss tham chiếu. Đã sửa phụ lục D và GUI_GPT_V225_SUA_TAU7.
+
+- 17:05: Gemini đề xuất 5 tàu cơ khí mới (Lôi Luân, Quang Tiễn, Thiết Dực, Pháo Chéo, Xích Chấn) + 5 boss cơ giới lõi + 2 cánh, kèm 4 câu hỏi kỹ thuật. Chủ dự án: LƯU LẠI LÀM SAU. Lưu ở docs_claude/de_xuat_cho/ (bản gốc + ghi chú Claude).
