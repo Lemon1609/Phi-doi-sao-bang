@@ -1334,3 +1334,5 @@ Cú pháp chung: `python3 <script> <html> <ải> <bậc '' | S | SS> <phần>`.
 | `hop_the/` | đề H, H2, H3, H4, cánh, bảng tham chiếu |
 | `trang_bi/` | đề J, K, ảnh kiểm kê J1 / J2 / K, ảnh trong trận |
 | `Phi_Doi_Sao_Bang_V1xx*.html` | các bản offline đã giao (mới nhất V141) |
+
+- 15:20: chủ dự án gửi thêm 6 ảnh tựa game gốc (5 chiến cơ màn kho + cảnh boss). Thêm mục 3B vào PROMPT_GPT_V225: dáng chiến đấu cơ thật, vũ khí treo ngoài, đĩa động cơ tròn, sáng tối nhiều lớp, đèn ít mà đắt, Bạo Tẩu kiểu quạt lưỡi năng lượng (fx_sang), tỉ lệ ta nhỏ / boss to; không lấy đỏ, vàng cho phe ta. Tìm trên mạng không ra ảnh đúng game gốc.

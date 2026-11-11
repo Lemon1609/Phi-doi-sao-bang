@@ -76,6 +76,22 @@ Tỉ lệ màu thay mục 2.5: **khung thép tối 20–30 % · crôm sáng 10�
 
 Ảnh tựa game gốc chủ dự án đưa chỉ để tham khảo cảm giác "cỗ máy chiến đấu" (cụm động cơ tròn lộ turbin, giáp nhiều lớp, nòng pháo vươn dài). Không chép dáng, màu hay chi tiết của nó.
 
+## 3B. Rút ra từ bộ ảnh tham chiếu thứ hai (chủ dự án gửi 15:20)
+
+Bộ ảnh gồm năm chiến cơ ở màn kho và một cảnh đánh boss. Đây là những **cách làm** cần học; không lấy dáng, màu, tên hay chi tiết riêng của tàu nào.
+
+1. **Dáng chiến đấu cơ thật, nâng lên khoa học viễn tưởng.** Thân có mũi, buồng lái kính, cánh, cánh đuôi, ống hút gió và cụm động cơ đúng vị trí như máy bay phản lực, rồi mới thêm giáp và đèn. Người xem nhận ra ngay "đây là máy bay chiến đấu", không phải đồ trang sức hay sinh vật.
+2. **Vũ khí treo ngoài nhiều và rõ.** Nòng pháo đôi hoặc bốn vươn dài về phía trước (dài tới 30–45 % chiều cao thân ở bậc cao), ổ tên lửa treo dưới cánh, đầu đạn có khoang và vạch sơn. Bậc cao tăng số nòng, số tên lửa.
+3. **Đĩa động cơ / lò phản ứng hình tròn** là điểm nhấn: vành kim loại, lá turbin bên trong, đèn vòng phát sáng. Dùng cho tàu nào hợp dáng, không bắt buộc mọi tàu.
+4. **Khối nhiều lớp, sáng tối rõ.** Mặt trên tấm giáp sáng bóng có vệt phản chiếu trắng; mặt bên và khe dưới tối sâu. Đường chia tấm, đinh tán, nắp bảo dưỡng, vạch cảnh báo nhỏ làm thân "đặc" và nặng như máy thật.
+5. **Đèn ít mà đắt.** Đèn chỉ ở rãnh mảnh, mắt cảm biến, lõi tròn và họng động cơ; phần lớn thân là kim loại có màu. Đèn càng ít thì chỗ có đèn càng nổi.
+6. **Lửa động cơ hai luồng gọn, sáng lõi trắng** (thuộc phần hiệu ứng của game, không vẽ dính vào thân).
+7. **Bạo Tẩu kiểu "quạt lưỡi năng lượng"**: sau lưng tàu xòe ra các lưỡi / cánh sáng xếp đều quanh thân, như nan quạt hoặc lưỡi dao ánh sáng; thân chỉ mở vừa phải theo mục 5, phần xòe lớn nằm ở các lưỡi sáng. Cách này hợp với tệp `tauN_fx_sang.png` (mục 6): mỗi tàu một dáng lưỡi riêng, theo màu đèn của tàu, nét mảnh kiểu neon. Không dùng vàng.
+8. **Tỉ lệ trong trận**: chiến cơ phe ta nhỏ và gọn (khoảng 1/8 bề ngang màn hình), boss chiếm gần nửa màn hình. Boss là cỗ máy nặng: càng kẹp lớn, giáp đồng thau / thép cũ trầy xước, ống xả, piston, mắt đèn đỏ. Áp vào Phụ lục B khi vẽ địch.
+9. **Màu**: các ảnh tham chiếu dùng đỏ và vàng cho phe ta; game mình **không** dùng hai màu đó cho phe ta (đỏ, hồng là màu đạn địch; không vàng kim). Giữ bảng màu mục 7.
+
+Phép thử nhanh cho mỗi ảnh chủ: thu ảnh về 100 px, che phần đèn đi. Nếu vẫn thấy rõ mũi, buồng lái, cánh, động cơ và ít nhất hai cụm vũ khí thì đạt chất cơ khí.
+
 ## 4. Tiến hóa 6 bậc: mỗi tàu lớn lên theo cách riêng
 
 `thuong → luc → lam → tim → tim5 → ss`. Cùng một thân lõi, cùng màu. Mỗi tàu có **một cách lớn dần riêng** (bảng mục 7): tàu mũi khoan thì mũi dài và nhọn dần, tàu lông vũ thì thêm lớp lông, pháo hạm thì thêm pháo. Không dùng chung một công thức. Bậc sau phải nhìn ra là mạnh hơn bậc trước nhưng **không phình to** (cỡ theo mục 2.4).
