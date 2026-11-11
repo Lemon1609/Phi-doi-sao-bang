@@ -143,7 +143,7 @@ Game ghép các mảnh này vào tàu và làm chúng chuyển động. Mỗi t�
 
 Được đề xuất khác nếu hợp dáng tàu hơn, miễn giữ ba nguyên tắc: riêng từng tàu, gọn, neon.
 
-**Mẫu phong cách:** chưa có (sẽ là ảnh chủ đầu tiên đạt V225). **Giữ nguyên:** 8 mảnh hiệu ứng tàu 7, bộ mảnh tàu 9 và tàu 10 (xem lại sau khi thân tàu vẽ lại). Mọi tranh thân đều vẽ lại.
+**Mẫu phong cách:** `tau7_tim_MAU_PHONG_CACH_V225.png` (ảnh chủ tàu 7 V225 bản sửa, chủ dự án duyệt 17:25 ngày 11/11). Mọi tàu sau phải cùng chất: khung thép tối, giáp tấm rời có khe, nòng pháo lộ, đĩa động cơ, LED mảnh. **Giữ nguyên:** 8 mảnh hiệu ứng tàu 7, bộ mảnh tàu 9 và tàu 10 (xem lại sau khi thân tàu vẽ lại). Mọi tranh thân đều vẽ lại.
 
 ## 8. Trang bị và hợp thể
 

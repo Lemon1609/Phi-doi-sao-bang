@@ -1346,3 +1346,5 @@ Cú pháp chung: `python3 <script> <html> <ải> <bậc '' | S | SS> <phần>`.
 - 17:05: Gemini đề xuất 5 tàu cơ khí mới (Lôi Luân, Quang Tiễn, Thiết Dực, Pháo Chéo, Xích Chấn) + 5 boss cơ giới lõi + 2 cánh, kèm 4 câu hỏi kỹ thuật. Chủ dự án: LƯU LẠI LÀM SAU. Lưu ở docs_claude/de_xuat_cho/ (bản gốc + ghi chú Claude).
 
 - 17:16: bản sửa ảnh chủ tàu 7 V225b về. Đo: khung tối 32,4 % (hơi quá 30), crôm 13,1 %, phát sáng 17,5 %, 390×371 (1,05), cỡ 380; giáp kéo lạnh 268°→253°; đỏ – hồng chỉ là bóng tối. Đạt: nòng pháo dài + vành crôm, viền lưỡi liềm mảnh (hết dáng vòng cung), tông lạnh, khe sáng mũi. Một phần: LED tay đòn. Chưa đổi: elip họng động cơ. Ghép thử ổn. Lưu src/ship118_cho/tau7_tim_anh_chu_V225b.png. Chờ chủ dự án duyệt làm mẫu.
+
+- 17:25: CHỦ DỰ ÁN DUYỆT ảnh chủ tàu 7 V225b làm MẪU PHONG CÁCH V225 (work/tau7_tim_MAU_PHONG_CACH_V225.png, đã làm sạch quầng). Soạn GUI_GPT_V225_TAU7_BUOC2.md (5 bậc + 6 _bt).
