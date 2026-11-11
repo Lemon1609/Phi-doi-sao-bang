@@ -6,7 +6,7 @@ Gửi cùng nội dung cho cả hai. Kèm: ảnh ghép 6 bậc tàu 7 V225 (`so_
 
 Game bắn máy bay dọc màn hình "Phi Đội Sao Băng", 13 chiến cơ, mỗi chiến cơ 6 bậc: `thuong → luc → lam → tim → tim5 → ss`. Hiện mỗi tàu giữ **một màu chủ đạo qua cả 6 bậc**, bậc cao chỉ thêm bộ phận và lớn dần.
 
-Chủ dự án muốn: **khi nâng bậc, chiến cơ đổi màu**, để người chơi thấy ngay tàu mạnh lên. Màu phải đẹp, bắt mắt, hợp chất cơ khí neon của V225.
+Chủ dự án muốn: **khi nâng bậc, chiến cơ đổi màu giáp**, để người chơi thấy ngay tàu mạnh lên. Màu phải đẹp, bắt mắt, hợp chất cơ khí neon của V225.
 
 Tên bậc gợi ý sẵn một thang màu độ hiếm: thường, lục, lam, tím, tím+, SS.
 
@@ -34,19 +34,27 @@ Tên bậc gợi ý sẵn một thang màu độ hiếm: thường, lục, lam, 
 | 12 Thời Không | trắng titan #DCE4EC | #18FFFF + #C7B8FF |
 | 13 Hư Không | xám tím than #3A3650 | #B388FF + #69F0AE |
 
-## Ba hướng Claude thấy có thể làm (đánh giá, chọn, hoặc đề xuất hướng khác)
+## Hướng chủ dự án đã chốt: ĐỔI MÀU GIÁP THEO BẬC, MỖI TÀU MỘT DẢI MÀU RIÊNG
 
-- **Hướng A · Đổi màu đèn theo bậc, giữ màu giáp riêng của tàu.** Giáp giữ màu nhận diện; đèn LED, khe năng lượng, lõi và neon Bạo Tẩu đổi theo thang bậc. Dễ nhận ra tàu, đổi màu rõ ở chỗ sáng nhất. Game đổi được đèn bằng mã, không cần vẽ lại.
-- **Hướng B · Đổi màu giáp theo bậc, giữ màu đèn riêng của tàu.** Đổi mạnh hơn về diện tích, nhưng 13 tàu cùng bậc sẽ cùng màu giáp, khó phân biệt; phải vẽ lại mỗi bậc.
-- **Hướng C · Thêm viền / sọc sơn theo bậc.** Giáp và đèn giữ nguyên, thêm sọc sơn, viền crôm, phù hiệu màu bậc ở cánh. Tinh tế nhưng ở cỡ trong trận khó thấy.
+- Khi lên bậc, **màu giáp đổi** (diện tích lớn, nhìn là thấy ngay tàu đã mạnh lên).
+- **Mỗi chiến cơ, mỗi bộ trang bị, mỗi hợp thể có một dải màu 6 bậc riêng**, không dùng chung một thang cho mọi tàu, để không trùng màu với chiến cơ, trang bị, hợp thể khác.
+- **Màu đèn chính của tàu giữ nguyên qua 6 bậc** (cùng với dáng) làm dấu hiệu nhận diện; neon Bạo Tẩu theo màu đèn này.
+
+### Điều kiện để không trùng (Claude sẽ đo bằng máy)
+
+1. **Cùng một bậc**, hai chiến cơ bất kỳ khác nhau rõ ở màu giáp: lệch sắc ≥ 25°, hoặc cùng sắc nhưng lệch hẳn độ sáng / độ bão hòa (ví dụ trắng titan với thép than).
+2. **Cùng một tàu**, hai bậc liền nhau phải nhìn ra khác màu ngay ở cỡ 100 px.
+3. Màu giáp không được trùng màu đèn của chính tàu đó (đèn phải nổi trên giáp).
+4. Dải màu dùng được: cam 20–40°, từ vàng chanh đến tím 55–285°, cộng các màu trung tính có chất (trắng titan, bạc, thép than, đồng tối, đen bóng). **Cấm** vùng đỏ – hồng (285°–20°) và vàng kim (40–55° bão hòa cao).
+5. Trang bị và hợp thể: cùng nguyên tắc, nhưng không trùng dải của 13 chiến cơ. Hợp thể nên pha từ dải của hai tàu thành phần.
 
 ## Xin trả lời
 
-1. Chọn hướng (A, B, C, kết hợp, hoặc khác) và lý do, tối đa 5 dòng.
-2. **Thang màu 6 bậc** cụ thể bằng mã hex, cho mỗi bậc: màu chính, màu phụ, và cảm giác muốn tạo (ví dụ "thép nguội", "plasma lam"...). Riêng **SS**: đề xuất một màu "đỉnh" thật nổi bật mà không vàng kim, không đỏ – hồng, không cầu vồng.
-3. Cách giữ **nhận diện từng tàu** khi màu đổi theo bậc (ví dụ tàu 10 vẫn giữ một điểm lục radar ở mọi bậc).
-4. Xử lý trùng màu: tàu vốn đã tím (6, 7, 13) ở bậc tím, tàu vốn lục (2, 4, 10) ở bậc lục, tàu vốn lam (3, 5, 9) ở bậc lam thì làm sao vẫn thấy "đổi màu"?
-5. Áp dụng thử cho **tàu 7** cả 6 bậc: mô tả màu từng bậc trong 1 dòng.
-6. (Riêng GPT) Nếu được, vẽ 1 ảnh ghép tàu 7 cả 6 bậc theo thang màu đề xuất để chủ dự án xem.
+1. **Bảng dải màu 6 bậc cho 13 chiến cơ**: mỗi ô một mã hex màu giáp chính (kèm màu giáp phụ nếu cần). Dạng bảng 13 hàng × 6 cột `thuong / luc / lam / tim / tim5 / ss`. Màu đèn chính giữ như bảng trên.
+2. Nguyên tắc lên màu của từng tàu, 1 dòng mỗi tàu (ví dụ "tàu 7: thép xám → chàm → tím sẫm → tím điện → … đậm và sáng dần").
+3. **Bậc SS**: màu "đỉnh" của mỗi tàu thật nổi bật mà không vàng kim, không đỏ – hồng, không cầu vồng (gợi ý: kim loại phản quang, ánh ngọc trai, crôm màu, ánh đổi sắc nhẹ trong cùng một dải…).
+4. Tự soát: liệt kê những cặp tàu có màu gần nhau ở cùng bậc và cách tách chúng.
+5. Gợi ý cách làm dải màu cho **13 bộ trang bị** và cho **hợp thể** (nguyên tắc, chưa cần đủ bảng).
+6. (Riêng GPT) Nếu được, vẽ 1 ảnh ghép tàu 7 cả 6 bậc theo dải màu đề xuất (giữ nguyên dáng 6 bậc trong ảnh ghép gửi kèm, chỉ đổi màu giáp) để chủ dự án xem.
 
-Trả lời bằng tiếng Việt, gọn, dạng danh sách.
+Trả lời bằng tiếng Việt, gọn, dạng bảng và danh sách.
