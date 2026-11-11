@@ -21,7 +21,7 @@ Giữ nguyên dáng, màu, bố cục, cỡ. Chỉ sửa 6 điểm ở **phụ l
 3. Mũi tàu xẻ 2 lớp lưỡi dao kim loại kẹp một khe sáng lam ở giữa.
 4. Hai họng động cơ đuôi: thu hẹp elip cho đúng góc nhìn thẳng từ trên xuống.
 5. Viền lam ở mép ngoài lưỡi liềm mảnh lại khoảng một nửa (trong trận đang trông như vòng cung bao quanh tàu).
-6. Gờ bắt sáng trên giáp tím giữ tông chàm lạnh, không ngả tím hồng.
+6. Khử 2,3 % sắc đỏ – hồng ở gờ bắt sáng trên giáp tím (cạnh khe tản nhiệt và đuôi cánh): kéo lạnh về chàm #7C4DFF hoặc lam #3FD8FF.
 
 ## Việc 2 (sau khi chủ dự án duyệt bản sửa): 5 bậc còn lại và 6 bản Bạo Tẩu
 

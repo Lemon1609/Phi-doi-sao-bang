@@ -272,7 +272,7 @@ Tương quan cỡ trong trận so với chiến cơ phe ta: quái thường 1,15
 3. **Mũi tàu**: đang trơn như mũi tên đúc liền. Xẻ thành 2 lớp lưỡi dao kim loại kẹp một khe sáng lam điện ở giữa sống mũi.
 4. **Hai họng động cơ đuôi**: đang lộ cả lòng ống như nhìn nghiêng 45°. Thu hẹp elip cho đúng góc nhìn thẳng từ trên xuống.
 5. **Viền lam ở mép ngoài hai lưỡi liềm**: làm mảnh hơn khoảng một nửa, chỉ sáng ở lưỡi cắt; trong trận viền dày trông giống một vòng cung bao quanh tàu.
-6. **Gờ bắt sáng trên giáp tím** cạnh khe tản nhiệt và đuôi cánh: giữ tông lạnh chàm #7C4DFF, không ngả tím hồng.
+6. **Khử 2,3 % sắc đỏ – hồng ở gờ giáp tím**: vùng bắt sáng trên mặt giáp tím cạnh khe tản nhiệt và đuôi cánh đang ngả tím hồng (magenta); kéo lạnh về chàm #7C4DFF hoặc lam #3FD8FF.
 
 ### D.2 Tiến hóa 6 bậc tàu 7 (cùng thân lõi, lớn dần theo cỡ mục 2.4)
 
@@ -288,7 +288,7 @@ Tương quan cỡ trong trận so với chiến cơ phe ta: quái thường 1,15
 ### D.3 Bạo Tẩu tàu 7
 
 - **Thân (`_bt`, diện tích 1,25–1,35 lần bản thường)**: khớp tròn trên tay đòn xoay khoảng 15°, đẩy hai lưỡi liềm vươn rộng sang hai bên và nhô mũi đao lên trước; mỗi lưỡi liềm trượt tách thành 2 lớp trong – ngoài, giữa là khe sáng lam điện #3FD8FF. Hai tấm giáp tím ốp lõi ngực trượt xuống khoảng 8 px để lộ buồng lõi, đẩy 2 nòng pháo nhô hẳn lên trước.
-- **Ánh sáng sau lưng (`tau7_fx_sang.png`, làm lại khi tới lượt bộ hiệu ứng)**: 3 cặp lưỡi sáng mảnh hình lưỡi liềm (viền chàm #7C4DFF, lõi lam điện #3FD8FF pha trắng) xòe ra từ sau hai tay đòn, mũi các lưỡi cong hướng lên, song song cánh đao kim loại. **Không khép thành vòng**: để hở phía trước mũi và phía sau đuôi.
+- **Ánh sáng sau lưng (`tau7_fx_sang.png`, làm lại khi tới lượt bộ hiệu ứng)**: 3 cặp lưỡi sáng mảnh hình lưỡi liềm (viền chàm #7C4DFF, lõi lam điện #3FD8FF pha trắng) xòe ra từ phía sau hai tay đòn theo thế cánh quạt ôm vòng lấy sườn tàu, mũi các lưỡi sáng đều uốn cong hướng lên trên, song song với cánh đao kim loại.
 
 ### D.4 Ý tưởng cơ khí cho 12 tàu còn lại (dùng khi tới lượt từng tàu; bổ sung cho bảng mục 7 và mục 12.A)
 
@@ -307,11 +307,11 @@ Tương quan cỡ trong trận so với chiến cơ phe ta: quái thường 1,15
 | 12 Thời Không | Trục kim đồng hồ + 4 mô-đun cánh rời · 4 khối cánh hình thoi tách qua khe hở · đầu cực từ trường giữ cánh · lõi cầu bánh răng | 4 mũi kim phóng tia ở 4 khối cánh · "lơ lửng" thành khớp khóa từ tính crôm, giữa có hồ quang #18FFFF mảnh |
 | 13 Hư Không | Khung pháo đài nhiều tầng · 6 trụ gai cơ khí xếp vương miện · lồng ngực tách đôi có gông giữ lõi · rãnh nứt lộ mạch lục #69F0AE | Đầu 6 gai là đầu phát tia + pháo chính ở ngực · vết nứt thành khe trượt giữa các tấm giáp nối cáp thép |
 
-Mỗi tàu vẫn giữ màu ở mục 7 và các luật mục 2. Đèn, hồ quang, khe sáng đều mảnh; không có vòng sáng khép kín quanh tàu.
+Mỗi tàu vẫn giữ màu ở mục 7 và các luật mục 2. Đèn, hồ quang, khe sáng đều mảnh.
 
 ### D.5 Ba họ tàu địch kiểu cỗ máy nặng (cho phụ lục B; đèn đỏ #FF334F, hồng #F50057)
 
-1. **Máy khai khoáng – nghiền phế liệu**: khối hộp chữ V ngược đồ sộ, giáp gang sẫm trầy xước; phía trước là càng kẹp thủy lực hoặc trục lăn răng cưa đẩy bằng piston crôm lộ thiên; mắt cảm biến tròn đỏ nằm sâu trong hốc thép, khe lò đốt sáng hồng. Không lặp lại dáng càng của boss trong ảnh tham chiếu.
+1. **Máy khai khoáng – nghiền phế liệu**: khối hộp chữ V ngược đồ sộ, giáp gang sẫm trầy xước; phía trước là càng kẹp thủy lực hoặc trục lăn răng cưa đẩy bằng piston crôm lộ thiên; (tương tự kết cấu càng cơ khí của boss trong ảnh tham chiếu); mắt cảm biến tròn đỏ #FF334F nằm sâu trong hốc thép giữa trán và dọc hai vai, khe lò đốt sáng hồng #F50057.
 2. **Pháo đài thủy lực – khiên chắn**: bè ngang như bức tường thép di động; hai tấm khiên khổng lồ hai mạn đóng mở bằng tay đòn chữ X và ống dầu áp lực; khi khiên mở lộ ổ pháo xoay nhiều nòng và lõi lò đỏ – hồng ở bụng.
 3. **Giáp trùng cơ giới nhiều chân**: bọ cạp hoặc nhện máy công nghiệp; lồng xương thép đen quanh khoang lõi; 4–6 chân gấp khúc gắn lưỡi cưa hoặc nòng pháo; đầu có 6–8 mắt kính quang học đỏ, cáp năng lượng hồng chạy dọc khớp chân.
 
