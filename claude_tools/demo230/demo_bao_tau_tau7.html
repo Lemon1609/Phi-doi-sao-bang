@@ -1,0 +1,20 @@
+<!doctype html><html><body style="margin:0;background:#06102a"><canvas id=c width=520 height=640></canvas><script>
+const c=document.getElementById('c'),x=c.getContext('2d'),im=new Image();im.src='ship.png';
+const L='#66dbff',W='#c79bff';
+function wing(t,s){ // cánh năng lượng trong mờ kiểu lưỡi liềm lớn, vân sáng
+ const k=Math.min(1,t/0.25),p=1+0.04*Math.sin(t*9);x.save();x.translate(260,330);x.scale(k*p,k*p);x.globalCompositeOperation='lighter';
+ for(const sd of[-1,1]){x.save();x.scale(sd,1);
+  for(let i=0;i<4;i++){const a=-0.9+i*0.42,R=150+i*12;
+   const g=x.createLinearGradient(30,0,R+40,0);g.addColorStop(0,'rgba(200,150,255,0)');g.addColorStop(.6,'rgba(200,150,255,.28)');g.addColorStop(1,'rgba(240,220,255,.55)');
+   x.fillStyle=g;x.beginPath();x.moveTo(20,10);x.quadraticCurveTo(R*Math.cos(a)+30,R*Math.sin(a)-40,R*Math.cos(a)*1.1+40,R*Math.sin(a)*1.25-60);x.quadraticCurveTo(R*.7,R*Math.sin(a)*.6+10,30,60);x.fill();
+   x.strokeStyle='rgba(255,240,255,.7)';x.lineWidth=2;x.stroke();}
+  x.restore();}
+ x.restore();}
+function slash(t){ // vệt chém cung lơ quét từ hai bên lên trên, lặp mỗi 0,35 s
+ x.save();x.globalCompositeOperation='lighter';const ph=(t%0.35)/0.35;
+ for(const sd of[-1,1]){const r=170+ph*60,a0=-Math.PI/2+sd*(1.2-ph*0.9),a1=a0+sd*0.9;
+  for(let w=14;w>0;w-=4){x.strokeStyle=`rgba(${w>8?120:220},${w>8?220:250},255,${(1-ph)*(w>8?.35:.9)})`;x.lineWidth=w;x.beginPath();x.arc(260,360,r,Math.min(a0,a1),Math.max(a0,a1));x.stroke();}}
+ x.restore();}
+function beam(t){x.save();x.globalCompositeOperation='lighter';const g=x.createLinearGradient(250,0,270,0);g.addColorStop(0,'rgba(150,100,255,0)');g.addColorStop(.5,'rgba(230,210,255,.95)');g.addColorStop(1,'rgba(150,100,255,0)');x.fillStyle=g;x.fillRect(244,0,32,200);x.restore();}
+window.draw=t=>{x.fillStyle='#06102a';x.fillRect(0,0,520,640);beam(t);if(t>0.3){wing(t-0.3);}x.drawImage(im,260-180,330-180,360,360);if(t>0.3)slash(t-0.3);};
+</script></body></html>
