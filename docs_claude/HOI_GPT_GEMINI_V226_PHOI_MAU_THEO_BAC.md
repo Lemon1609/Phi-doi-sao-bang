@@ -12,7 +12,7 @@ Tên bậc gợi ý sẵn một thang màu độ hiếm: thường, lục, lam, 
 
 ## Luật cố định (không đề xuất ngược lại)
 
-1. **Chủ dự án mở luật màu (17:53)**: thân chiến cơ (giáp, đèn) **được dùng** đỏ, hồng, vàng kim và hiệu ứng đổi sắc / cầu vồng nếu đẹp hơn, kể cả bậc SS. Chỉ tránh **đúng hai mã** đạn địch #FF334F và #F50057 cho màu đèn, để tàu ta không lẫn với đạn địch.
+1. **Chủ dự án mở luật màu (17:53)**: thân chiến cơ (giáp, đèn) **được dùng** đỏ, hồng, vàng kim và hiệu ứng đổi sắc / cầu vồng nếu đẹp hơn, kể cả bậc SS. Chỉ tránh **đúng hai mã** đạn địch #FF334F và #F50057 cho màu đèn, để tàu ta không lẫn với đạn địch. Đạn, tia và hiệu ứng trúng đích phe ta cũng được mở hoàn toàn (chủ dự án chọn 17:55).
 2. Mỗi tàu vẫn phải **nhận ra là tàu nào** ở mọi bậc (dáng + một dấu hiệu màu riêng).
 3. Chất cơ khí V225: khung thép tối 20–30 %, crôm 10–20 %, giáp màu 30–40 %, phát sáng 15–25 %.
 4. Bạo Tẩu dùng lớp neon LED theo màu đèn của tàu (game tô bằng mã).
