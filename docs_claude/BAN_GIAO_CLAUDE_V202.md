@@ -1,5 +1,10 @@
 # BÀN GIAO DỰ ÁN PHI ĐỘI SAO BĂNG · V202 (2026-11-08)
 
+### 11/11 12:18 · Ảnh chủ tàu 6 (bậc tím, theo V224): ĐẠT số đo, CHỜ chủ dự án duyệt
+- Đo: xám 18 %, phát sáng 20,9 % (cũ 1,2 %), tông lam lơ 13 / chàm 26 / tím 61, rộng/cao 1,03, cỡ 379, lề 63, quầng 13 % → sạch còn 5 %. Bản sạch: src/ship118_cho/tau6_tim_anh_chu_V224.png (CHƯA vào game; dựng thử rồi trả lại bằng git checkout). Chụp thử: claude_tools/demo217/chup_anh_chu_tau6.py.
+- Nhận xét gửi GPT: docs_claude/GUI_GPT_V224_DUYET_ANH_CHU_TAU6.md (mép lông sáng hơn một nấc; mép sắc; lớn dần bằng lớp lông; _bt xòe đuôi công).
+- Chủ dự án gửi ảnh này tức là ngầm chấp nhận việc Claude thêm tàu 6 vào danh sách vẽ lại.
+
 ### 11/11 10:44 · Chủ dự án CHỐT: vẽ lại các tàu còn lại theo cách của tàu 7 ("thiết kế như tàu 7 khá đẹp") → PROMPT_GPT_V224_THIET_KE.md (THAY V223; bản chuẩn hiện hành)
 - Đo bậc tím 13 tàu (xám không màu % / phát sáng %): 1: 32/31,6 · 2: 33/10,4 · 3: 28/22,2 · 4: 46/12,0 · 5: 58/15,9 · 6: 37/1,4 · 7: 10/34,1 · 8: 44/23,1 · 9: 41/26,3 · 10: 42/15,0 · 11: 32/8,8 · 12: 30/13,4 · 13: 22/12,2. Rộng/cao lệch chuẩn: tàu 5 = 1,42, tàu 9 = 1,30, tàu 4 = 0,80.
 - Thứ tự vẽ lại trong prompt: 6, 2, 4, 10, 5, 3, 9, 1 (mỗi tàu: ảnh chủ tím → duyệt → 5 bậc → 6 _bt → 8 mảnh). Tàu 6 do Claude THÊM vào danh sách (nhạt nhất, 1,4 %) — chờ chủ dự án xác nhận. Tàu 8 giữ thân, chỉ làm _bt + mảnh. Sau đó tàu 11–13, tàu địch.
