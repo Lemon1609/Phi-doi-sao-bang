@@ -869,7 +869,13 @@ rep("</body>","<script id=\"fx215-js\">"+open('src/fx215.js',encoding='utf-8').r
 # V218 · Bạo Tẩu: mảnh rời lửa / sét / ánh sáng theo từng tàu (GPT thiết kế) + máy chuyển động. Thư mục rỗng = không đổi gì. Tắt: window.BTFX218=false
 _BT218={}
 for _p in sorted(_g.glob(os.path.join(os.environ.get('BTFX218_DIR','src/btfx218'),'tau*_fx_*.png'))):
-    _n=os.path.splitext(os.path.basename(_p))[0];_num,_k=_n[3:].split('_fx_',1);_im=_I.open(_p).convert('RGBA');_bf=_io.BytesIO();_im.save(_bf,'WEBP',quality=90)
+    _n=os.path.splitext(os.path.basename(_p))[0];_num,_k=_n[3:].split('_fx_',1);_im=_I.open(_p).convert('RGBA')
+    # V221: mảnh hiệu ứng vẽ trên NỀN ĐEN (không có vùng trong suốt) → tự tách nền: alpha = kênh sáng nhất, màu chia lại cho alpha để giữ đúng độ rực khi cộng sáng
+    import numpy as _np;_a=_np.asarray(_im).astype('float32')
+    if _a[...,3].min()>250:
+        _m=_a[...,:3].max(-1);_al=_np.clip((_m-6)/249*255,0,255);_rgb=_np.where(_m[...,None]>0,_a[...,:3]/_np.maximum(_m[...,None],1)*255,0)
+        _im=_I.fromarray(_np.dstack([_rgb,_al]).clip(0,255).astype('uint8'),'RGBA');print('  tach nen den:',_n)
+    _bf=_io.BytesIO();_im.save(_bf,'WEBP',quality=90)
     _BT218.setdefault(str(int(_num)-1),{})[_k]='data:image/webp;base64,'+_b64.b64encode(_bf.getvalue()).decode()
 print('V218 bo manh Bao Tau:',{k:len(v) for k,v in _BT218.items()})
 rep("</body>","<script id=\"btfx218-art\">const BTFX218_ART="+json.dumps(_BT218,separators=(',',':'))+";</script><script id=\"btfx218-js\">"+open('src/btfx218.js',encoding='utf-8').read()+"</script></body>")
