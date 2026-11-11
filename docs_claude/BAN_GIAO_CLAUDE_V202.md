@@ -1336,3 +1336,5 @@ Cú pháp chung: `python3 <script> <html> <ải> <bậc '' | S | SS> <phần>`.
 | `Phi_Doi_Sao_Bang_V1xx*.html` | các bản offline đã giao (mới nhất V141) |
 
 - 15:20: chủ dự án gửi thêm 6 ảnh tựa game gốc (5 chiến cơ màn kho + cảnh boss). Thêm mục 3B vào PROMPT_GPT_V225: dáng chiến đấu cơ thật, vũ khí treo ngoài, đĩa động cơ tròn, sáng tối nhiều lớp, đèn ít mà đắt, Bạo Tẩu kiểu quạt lưỡi năng lượng (fx_sang), tỉ lệ ta nhỏ / boss to; không lấy đỏ, vàng cho phe ta. Tìm trên mạng không ra ảnh đúng game gốc.
+
+- 15:32: ảnh chủ tàu 7 V225 về. Đo: khung tối 28,8 %, crôm 11,8 %, phát sáng 19,3 %, 395×365 (1,08), cỡ 380 đúng bậc tím, đỏ – hồng chỉ là bóng tối. Ghép thử sảnh + trận ổn. Lưu src/ship118_cho/tau7_tim_anh_chu_V225.png. Soạn PROMPT_GEMINI_V225_GOP_Y.md. Chờ chủ dự án duyệt làm mẫu phong cách.
