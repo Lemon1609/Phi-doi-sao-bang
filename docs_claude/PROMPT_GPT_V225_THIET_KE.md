@@ -104,23 +104,12 @@ Phép thử nhanh cho mỗi ảnh chủ: thu ảnh về 100 px, che phần đèn
 6. **Hai phe**: phe ta sạch, chính xác, rực đèn; phe địch thô, trầy, nặng.
 7. **Màu theo bậc**: màu giáp phải **trong, rực, sang** (bão hòa và sáng vừa đủ, như sơn kim loại bóng), không đục kiểu nâu bùn, rêu, đỏ đô xỉn. Màu đèn LED đổi theo bậc, tương phản rõ với giáp.
 
-## 3D. Cánh ánh sáng + thân công nghệ cao (chủ dự án 18:24, bổ sung 3C)
+## 3D. Cánh năng lượng + thân cơ khí công nghệ cao (chủ dự án 18:35, thay bản 3D trước)
 
-Cảm hứng **cảm giác** từ chiếc "Lôi Thần" của tựa game gốc: cánh quạt bằng ánh sáng xòe sau thân, thân tối bóng có mạch neon và vòng phản ứng tròn sáng. Không chép dáng, màu, chi tiết của nó; mỗi tàu một dáng cánh riêng theo dáng tàu.
-
-**Hai lớp tách rời:**
-
-1. **Thân tàu (tranh thường `tauN_<bậc>.png`)** – cỗ máy công nghệ cao:
-   - Giáp tối bóng (thép súng / đen bóng / màu sơn theo bậc phủ bóng) với **mạch neon mảnh** chạy theo cạnh tấm như bo mạch phát sáng.
-   - **Vòng phản ứng tròn** sáng ở khớp vai, gốc cánh, động cơ (vành kim loại + lá turbin + vòng neon).
-   - Bộ phát cánh (pylon / bệ chiếu) bằng kim loại có khe sáng: đây là nơi cánh ánh sáng mọc ra.
-   - Giữ chất cơ khí: khớp, trục, nòng pháo, đĩa động cơ lộ rõ.
-2. **Cánh ánh sáng (tệp hiệu ứng riêng, game vẽ và làm chuyển động)**:
-   - **Bung tỏa theo đúng thiết kế của tàu** (chủ dự án 18:27): cánh sáng là phần **nối dài, nhân lớp hoặc vọng lại chính đường nét cánh / thân của tàu đó**, mọc từ đúng bộ phận cánh của nó; không dùng chung một quạt lưỡi cho mọi tàu. Ví dụ: tàu 7 lưỡi liềm → các lớp lưỡi liềm ánh sáng vọng ra ngoài theo đúng đường cong lưỡi đao; tàu 6 lông vũ → phiến lông sáng nối dài; tàu 5 rẻ quạt → nan sáng kéo dài từng nan; tàu 2 hai ray → hai thanh sáng vươn trước; tàu 10 khung chữ H → khung chiến thuật sáng vuông vức. Tham khảo cột "Ánh sáng sau lưng" và "Kiểu mở khi Bạo Tẩu" ở bảng mục 7.
-   - Trong mờ, sáng rực ở gốc và sống nét, mờ dần ra mép đến trong suốt.
-   - Vẽ **trên cùng khung 512×512 và cùng vị trí với tranh thân** của bậc đó để game đặt chồng khít.
-   - Vẽ **trắng / xám sáng** (không màu): game tô màu theo màu đèn của bậc, tự lật đối xứng sang trái, và cho xòe – thu, nhấp nháy, gợn sáng. Bậc thường quạt nhỏ, ít lưỡi; Bạo Tẩu xòe rộng nhất.
-   - Không viền đen, không nền; không khép thành vòng tròn quanh tàu.
+- **Cánh chiến cơ là cánh năng lượng / tinh thể phát sáng** theo kiểu bộ tàu 7 V223 (lưỡi sáng chuyển màu từ lưỡi cắt gần trắng sang sống cánh đậm, vân sáng chạy dọc, mép sắc, bậc cao nhân lớp). **Dáng cánh theo thiết kế từng tàu** (lưỡi liềm, lông vũ, nan quạt, ray, khung chữ H…, xem bảng mục 7); Bạo Tẩu tách / xòe cánh theo đúng dáng đó.
+- **Thân giữa và tay đòn là cỗ máy công nghệ cao**: giáp tối bóng + mạch neon mảnh, vòng phản ứng tròn sáng ở khớp và động cơ, khớp – trục – nòng pháo lộ ra; gốc cánh có bộ phát cánh kim loại có khe sáng.
+- **Màu theo bậc** (bảng V227): thân theo màu giáp của bậc, cánh năng lượng theo màu đèn của bậc.
+- Cánh nằm ngay trong tranh thân; game thêm lấp lánh, neon chạy viền bằng mã. Không khép thành vòng tròn kín quanh tàu.
 
 ## 4. Tiến hóa 6 bậc: mỗi tàu lớn lên theo cách riêng
 
