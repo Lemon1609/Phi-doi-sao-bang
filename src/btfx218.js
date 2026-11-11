@@ -61,7 +61,7 @@
       const ol=mk(),og=ol.getContext('2d');for(let j=0;j<8;j++){const an=j/8*TAU;og.drawImage(sil,Math.cos(an)*1.7,Math.sin(an)*1.7);}og.globalCompositeOperation='destination-out';og.drawImage(s,0,0);og.drawImage(s,0,0);og.drawImage(s,0,0);
       const gl=mk(),gg=gl.getContext('2d');gg.filter='blur(4px)';gg.drawImage(ol,0,0);gg.drawImage(ol,0,0);
       m.ol=ol;m.gl=gl;m.bl=bl;m.tmp=mk();m.z=NS/IN;m.ok=true;return m;}catch{return null;}}
-  function neonDraw(ctx,a,cell,cw,ch,size,now,id,lite,k){if(window.NEON220===false)return;const m=neon(a,cell,cw,ch,lamp(id));if(!m)return;
+  function neonDraw(ctx,a,cell,cw,ch,size,now,id,lite,k){if(window.NEON220===false)return;const m=neon(a,cell,cw,ch,tcol(id,a));if(!m)return;
     const z=size*m.z,ti=Math.max(0,T.indexOf(a&&a.__f)),lv=.78+.044*(ti<0?3:ti);ctx.save();ctx.globalCompositeOperation='lighter';
     ctx.globalAlpha=Math.min(1,k*lv*(.5+.16*Math.sin(now*5.2))*(.55+.45*m.bk));ctx.drawImage(m.gl,-z/2,-z/2,z,z);          // quầng neon
     ctx.globalAlpha=Math.min(1,k*lv*.9);ctx.drawImage(m.ol,-z/2,-z/2,z,z);                                   // ống neon mảnh
@@ -70,11 +70,28 @@
       const g=t.createLinearGradient(0,0,0,NS);for(let j=0;j<2;j++){const u=((now*.8+j*.5)%1),c=1-u;g.addColorStop(Math.max(0,c-.09),'rgba(255,255,255,0)');g.addColorStop(Math.max(.001,Math.min(.999,c)),'rgba(255,255,255,1)');g.addColorStop(Math.min(1,c+.09),'rgba(255,255,255,0)');}
       t.fillStyle=g;t.fillRect(0,0,NS,NS);ctx.globalAlpha=Math.min(1,k*lv);ctx.drawImage(m.tmp,-z/2,-z/2,z,z);}                                              // vệt LED chạy dọc viền
     ctx.restore();}
+  // ---- V230 · BUNG: hình năng lượng lớn bật ra khi Bạo Tẩu (tranh trắng `tauN_fx_bung.png`, game tô màu theo BẬC) + vệt chém cung (vẽ bằng mã) ----
+  //  Theo phân tích video game gốc (00:00, 12/11): bung 0,2 s · giữ: đập nhẹ, nhấp nháy · hiệu ứng phụ lặp lại. Tắt: window.BUNG230=false
+  const TC={6:['#4f8bff','#7dff4f','#ff5050','#b07cff','#3fd0ff','#ffb030']};/* tàu 7: màu đèn từng bậc theo bộ V230 */
+  const SLASH={6:1};
+  const tcol=(id,a)=>{const i=T.indexOf(a&&a.__f);return (TC[id]&&TC[id][i<0?3:i])||lamp(id);};
+  const TW=new Map();
+  function tinted(im,col){const key=im.src.length+'|'+col;let c=TW.get(key);if(c)return c;c=document.createElement('canvas');c.width=im.naturalWidth;c.height=im.naturalHeight;const g=c.getContext('2d');
+    g.drawImage(im,0,0);g.globalCompositeOperation='source-atop';g.globalAlpha=.62;g.fillStyle=col;g.fillRect(0,0,c.width,c.height);TW.set(key,c);return c;}
+  function bung(ctx,a,size,now,ta,id,k){if(window.BUNG230===false)return false;const im=img(id,'bung');if(!im)return false;
+    const tw=tinted(im,tcol(id,a)),pr=back_((ta-.05)/.3),z=size*1.12*(.55+.45*pr)*(1+.03*Math.sin(now*8.5));
+    ctx.save();ctx.globalCompositeOperation='lighter';ctx.globalAlpha=Math.min(1,k*(.75+.15*Math.sin(now*13)));ctx.drawImage(tw,-z/2,-z/2+size*.04,z,z);ctx.restore();return true;}
+  function slash(ctx,a,size,now,id,k,lite){if(window.BUNG230===false||!SLASH[id])return;const col=tcol(id,a),P=.35,ph=(now%P)/P;
+    ctx.save();ctx.globalCompositeOperation='lighter';
+    for(const sd of[-1,1]){const r=size*(.40+.12*ph),a0=-Math.PI/2+sd*(1.25-ph*.95),a1=a0+sd*.9,lo=Math.min(a0,a1),hi=Math.max(a0,a1);
+      for(const [w,al,c] of (lite?[[.03,.9,'#fff']]:[[.06,.35,col],[.035,.6,col],[.014,.95,'#ffffff']])){ctx.globalAlpha=k*al*(1-ph);ctx.strokeStyle=c;ctx.lineWidth=size*w;ctx.lineCap='round';ctx.beginPath();ctx.arc(0,size*.06,r,lo,hi);ctx.stroke();}}
+    ctx.restore();}
   // ---- lớp SAU thân: ánh sáng bật xòe + lửa ----
   function back(ctx,a,cell,cw,ch,size,on,now,ta,id,lite){
     if(window.BTFX218===false)return;const k=env(id,on,now);if(k<.02||!has(id))return;const m=anchors(a,cell,cw,ch),L=lvOf(a);
+    const hasB=bung(ctx,a,size,now,ta,id,k);
     ctx.save();ctx.globalCompositeOperation='lighter';
-    const sg=img(id,'sang');if(sg){const q=bb(sg),span=m?Math.max(.5,Math.max(...m.tip.map(p=>p[0]))-Math.min(...m.tip.map(p=>p[0]))):.9,
+    const sg=hasB?null:img(id,'sang');if(sg){const q=bb(sg),span=m?Math.max(.5,Math.max(...m.tip.map(p=>p[0]))-Math.min(...m.tip.map(p=>p[0]))):.9,
         cwid=Math.min(SPAN_MAX,SPAN_K*L[4])*span*size,sc=cwid/q.w,pr=back_((ta-.03)/.42),W=sg.naturalWidth*sc*(.5+.5*pr),H=sg.naturalHeight*sc*(.92+.08*pr);
       ctx.globalAlpha=Math.min(A_MAX,k*L[5]*A_K*(1+.14*Math.sin(now*3.1)));ctx.drawImage(sg,-W/2,-H/2+size*.03,W,H);}
     const F=[img(id,'lua_1'),img(id,'lua_2'),img(id,'lua_3')].filter(Boolean);
@@ -86,6 +103,7 @@
   // ---- lớp TRƯỚC thân: sét giữa các mũi cánh + hạt lấp lánh ----
   function front(ctx,a,cell,cw,ch,size,on,now,ta,id,lite){
     if(window.BTFX218===false)return;const k=st.id===id?st.k:0;if(k<.05)return;
+    slash(ctx,a,size,now,id,k,lite);/* V230 */
     neonDraw(ctx,a,cell,cw,ch,size,now,id,lite,k);/* V220: viền neon + đèn LED cho MỌI tàu, kể cả tàu chưa có bộ mảnh rời */
     if(!has(id))return;const m=anchors(a,cell,cw,ch);if(!m)return;const L=lvOf(a);
     ctx.save();ctx.globalCompositeOperation='lighter';

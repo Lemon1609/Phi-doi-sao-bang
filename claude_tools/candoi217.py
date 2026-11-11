@@ -15,6 +15,8 @@ from PIL import Image
 T = ['thuong', 'luc', 'lam', 'tim', 'tim5', 'ss']
 G = {'thuong': 345, 'luc': 355, 'lam': 368, 'tim': 380, 'tim5': 392, 'ss': 405}
 MAXD, MAXBT, KMAX = 456, 500, 1.12
+# V230: tàu có dáng cao hẹp đã chốt (chủ dự án 23:24) → KHÔNG nắn tỉ lệ, chỉ đổi cỡ
+NO_ASP = {7}
 
 
 def _bbox(im, th):
@@ -25,13 +27,15 @@ def _bbox(im, th):
     return int(xs.min()), int(xs.max()), int(ys.min()), int(ys.max())
 
 
-def he_so(nm, bt=None):
+def he_so(nm, bt=None, giu_ti_le=False):
     """Trả về (sx, sy) cho một cặp tranh thường / Bạo Tẩu."""
     x0, x1, y0, y1 = _bbox(nm, 128)
     w, h = x1 - x0 + 1, y1 - y0 + 1
     asp = w / h
     sx = sy = 1.0
-    if asp > 1.30:
+    if giu_ti_le:
+        pass
+    elif asp > 1.30:
         k = min(KMAX, (asp / 1.30) ** .5); sx, sy = 1 / k, k
     elif asp < 0.75:
         k = min(KMAX, (0.75 / asp) ** .5); sx, sy = k, 1 / k
@@ -59,8 +63,8 @@ def can_doi(thu_muc='src/ship118', log=None):
             nm = Image.open(p).convert('RGBA')
             pb = os.path.join(thu_muc, f'tau{n}_{t}_bt.png')
             bt = Image.open(pb).convert('RGBA') if os.path.exists(pb) else None
-            sx, sy, g, w, h = he_so(nm)
-            s = min(G[t] / g, 1.13 * G[t] / max(w * sx, h * sy), MAXD / (w * sx), MAXD / (h * sy))
+            sx, sy, g, w, h = he_so(nm, giu_ti_le=n in NO_ASP)
+            s = min(G[t] / g, (9 if n in NO_ASP else 1.13) * G[t] / max(w * sx, h * sy), MAXD / (w * sx), MAXD / (h * sy))
             if bt is not None:
                 bx0, bx1, by0, by1 = _bbox(bt, 24)
                 bw, bh = bx1 - bx0 + 1, by1 - by0 + 1
