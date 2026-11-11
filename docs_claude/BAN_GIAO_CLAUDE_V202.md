@@ -1,5 +1,12 @@
 # BÀN GIAO DỰ ÁN PHI ĐỘI SAO BĂNG · V202 (2026-11-08)
 
+### 11/11 10:44 · Chủ dự án CHỐT: vẽ lại các tàu còn lại theo cách của tàu 7 ("thiết kế như tàu 7 khá đẹp") → PROMPT_GPT_V224_THIET_KE.md (THAY V223; bản chuẩn hiện hành)
+- Đo bậc tím 13 tàu (xám không màu % / phát sáng %): 1: 32/31,6 · 2: 33/10,4 · 3: 28/22,2 · 4: 46/12,0 · 5: 58/15,9 · 6: 37/1,4 · 7: 10/34,1 · 8: 44/23,1 · 9: 41/26,3 · 10: 42/15,0 · 11: 32/8,8 · 12: 30/13,4 · 13: 22/12,2. Rộng/cao lệch chuẩn: tàu 5 = 1,42, tàu 9 = 1,30, tàu 4 = 0,80.
+- Thứ tự vẽ lại trong prompt: 6, 2, 4, 10, 5, 3, 9, 1 (mỗi tàu: ảnh chủ tím → duyệt → 5 bậc → 6 _bt → 8 mảnh). Tàu 6 do Claude THÊM vào danh sách (nhạt nhất, 1,4 %) — chờ chủ dự án xác nhận. Tàu 8 giữ thân, chỉ làm _bt + mảnh. Sau đó tàu 11–13, tàu địch.
+- Quy tắc mới: lời tả phụ lục A khác ảnh tham chiếu thì ƯU TIÊN dáng ảnh tham chiếu (vd. tàu 2: Gemini tả "hai ray", tranh thật là cánh bướm – tua ngọc).
+- Gói tham chiếu gửi GPT: THAM_CHIEU_DANG_BAC_TIM.zip (tàu 7 mẫu phong cách + 9 tàu tham chiếu dáng, đã sạch quầng và về cỡ 380; xuất bằng candoi217 + lọc alpha > 110 nở 2 px).
+- Quy trình kiểm mỗi ảnh chủ: đo xám %, phát sáng %, phân bố tông, rộng/cao, cỡ, quầng (work/tranh227/do.py) → dựng thử (claude_tools/demo217/chup_anh_chu.py) → gửi chủ dự án duyệt → mới cho GPT nhân ra.
+
 ### V221 · 11/11 · PHÁT HÀNH: tàu 7 vẽ lại cả bộ (12 tranh, prompt V223) · ánh sáng sau lưng tàu 7 mới · tàu 10 đèn lục radar
 - Gói GPT "V223_TAU7_12_PNG_BAN_THU": cỡ 6 bậc đúng chuẩn (345/355/368/380/393/405), rộng/cao 0,99–1,14, crôm 10–19 %, phát sáng 23–35 %, _bt ×1,29–1,31, thân lõi _bt trùng bản thường (lệch 0,5/255), lề _bt 39–54 px. Quầng alpha thấp 7–24 % → làm sạch bằng mã (giữ alpha > 110 nở 2 px) còn 5–9 % rồi mới chép vào src/ship118. Phép đo: work/tranh227/do.py.
 - Đây là bộ ĐẦU TIÊN đạt trọn chuẩn → tàu 7 lại là TÀU MẪU (cỡ, đồng bộ 6 bậc, cách dựng _bt). Nhận xét gửi GPT: docs_claude/GUI_GPT_V224_KET_QUA_TAU7.md.

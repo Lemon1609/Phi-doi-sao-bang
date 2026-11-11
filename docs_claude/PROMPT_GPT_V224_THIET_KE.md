@@ -1,8 +1,8 @@
-# PROMPT THIẾT KẾ CHO GPT · PHI ĐỘI SAO BĂNG · V223
+# PROMPT THIẾT KẾ CHO GPT · PHI ĐỘI SAO BĂNG · V224
 
-Dán nguyên văn tài liệu này cho GPT. Nó thay thế mọi tài liệu chuẩn trước (kể cả V222). Bản này đã gộp góp ý của Gemini (giám đốc mỹ thuật) và các quyết định của chủ dự án.
+Dán nguyên văn tài liệu này cho GPT. Nó thay thế mọi tài liệu chuẩn trước (kể cả V223). Bản này đã gộp góp ý của Gemini (giám đốc mỹ thuật) và các quyết định của chủ dự án.
 
-> **Thay đổi lớn so với V222 (đọc trước):** ảnh chủ tàu 7 vẽ theo V222 bị chủ dự án chê **"đơn sắc quá, không đẹp"**. Đo lại thì đúng: 68 % diện tích là kim loại xám, chỉ 5,7 % phát sáng, gần như một tông tím. Trong khi tranh tàu 7 cũ (được ưa hơn về màu) có 26 % kim loại, 20,6 % phát sáng và ba dải màu tím – chàm – lam lơ. Lỗi do V222 dặn "60 % kim loại, một màu, ít chi tiết". **V223 bỏ quy tắc đó.** Mục tiêu mới: **dáng sạch và gọn như ảnh chủ mới + màu rực, sâu, nhiều lớp như tranh cũ.**
+> **Tình hình (đọc trước):** bộ 12 tranh **tàu 7** vẽ theo V223 đã đạt và được chủ dự án khen đẹp. Chủ dự án chốt: **vẽ lại lần lượt các chiến cơ còn lại theo đúng cách của tàu 7.** Tàu 7 là **mẫu phong cách**: dáng sạch và gọn, màu rực nhiều lớp, mép cánh là dải năng lượng, kính phát sáng, sáu bậc cùng một họ, bản Bạo Tẩu dựng trên bản thường. Bài học trước đó vẫn giữ: bản vẽ "60 % kim loại, một màu" bị chê đơn sắc.
 
 ---
 
@@ -35,7 +35,7 @@ Tựa game gốc mà chủ dự án đưa ảnh chỉ là tham khảo về **c�
 3. **Tỉ lệ thân** (không tính lửa động cơ): rộng / cao từ **0,85 đến 1,25**.
 4. **Cỡ thân theo bậc**, tính bằng căn(rộng × cao): thường 345 · lục 355 · lam 368 · tím 380 · tím+ 392 · SS 405 px. Không chiều nào vượt 456 px, để lề trống mỗi phía ≥ 28 px.
 5. **Màu: rực và nhiều lớp, không đơn sắc.** Tính trên diện tích thân:
-   - **Kim loại crôm sáng: không quá 40 %.** Crôm phải **phản chiếu màu năng lượng của tàu** (vệt ánh tím, lam trên mặt kim loại), chuyển sắc từ trắng ở cạnh bắt sáng xuống lam than ở khe tối. Cấm xám bệt một màu.
+   - **Kim loại crôm sáng: 15–40 %** (tàu 7 đạt 10–19 %, hơi ít; tàu thiên về kim loại như tàu 8, tàu 10 nên ở 25–40 %). Crôm phải **phản chiếu màu năng lượng của tàu** (vệt ánh tím, lam trên mặt kim loại), chuyển sắc từ trắng ở cạnh bắt sáng xuống lam than ở khe tối. Cấm xám bệt một màu.
    - **Giáp sơn màu chủ đạo: khoảng 35 %**, tô **chuyển sắc hai tông** (đậm ở gốc, sáng ở mép), không tô phẳng.
    - **Phần phát sáng: ít nhất 20 %**, gồm mép năng lượng của cánh, rãnh LED, buồng lái kính, lõi, họng động cơ.
    - Mỗi tàu có **một cặp màu năng lượng** (bảng mục 7): màu đèn chính và màu đèn phụ. Phần phát sáng chuyển sắc giữa hai màu này. Không dùng màu thứ ba.
@@ -54,7 +54,7 @@ Tựa game gốc mà chủ dự án đưa ảnh chỉ là tham khảo về **c�
 - **Hai họng động cơ** phun lửa lam – trắng ngắn, sáng.
 - **Rãnh đèn LED là linh hồn của tàu.** Vẽ 3–6 rãnh LED rộng 3–5 px, **liền nét**: chính giữa là lõi trắng #FFFFFF rộng 1 px, hai bên là viền màu đèn bão hòa tối đa, cả rãnh nằm lọt trong một khe giáp tối để nổi bật. Đặt dọc mép cánh, sống lưng và quanh lõi. Game sẽ tự làm các rãnh này bừng sáng và thêm viền neon khi Bạo Tẩu, nên chúng phải rõ và sạch.
 - Tương phản cao: mặt crôm sáng cạnh khe tối, vùng phát sáng cạnh giáp đậm màu. Thêm một viền sáng mảnh màu đèn ở phía khuất sáng của thân.
-- **Phép thử**: đặt cạnh tranh tàu 7 bậc tím cũ (tệp `tau7_tim.png` trong gói đã gửi), ảnh mới phải **rực và sâu màu ngang hoặc hơn**, đồng thời sạch và gọn hơn.
+- **Phép thử**: đặt cạnh `tau7_tim_MAU_PHONG_CACH.png`, ảnh mới phải cùng một chất: rực, sâu màu, sạch, gọn.
 
 ## 4. Tiến hóa 6 bậc: mỗi tàu lớn lên theo cách riêng
 
@@ -107,7 +107,7 @@ Game ghép các mảnh này vào tàu và làm chúng chuyển động. Mỗi t�
 
 Được đề xuất khác nếu hợp dáng tàu hơn, miễn giữ ba nguyên tắc: riêng từng tàu, gọn, neon.
 
-**Đã đạt, giữ nguyên, lấy làm mẫu:** thân tàu 8 và tàu 6 (bản thường), thân tàu 4 bậc thường và lam, bộ mảnh tàu 9, tàu 10 và toàn bộ 8 mảnh của tàu 7.
+**Mẫu phong cách: tàu 7** (12 tranh thân + 8 mảnh hiệu ứng). **Đã đạt, giữ nguyên:** thân tàu 8 bản thường; bộ mảnh hiệu ứng tàu 9 và tàu 10 (sẽ xem lại sau khi thân hai tàu này vẽ lại).
 
 ## 8. Trang bị và hợp thể
 
@@ -125,6 +125,13 @@ Hầm hố, đồ sộ, ác mộng. Kim loại sẫm, gai, càng, hàm răng, m�
 
 ## 10. Cách làm việc để tranh đồng bộ
 
+**Mỗi lần chỉ làm một tàu, theo đúng dây chuyền đã thành công với tàu 7:** ảnh chủ bậc tím → duyệt → 5 bậc còn lại → 6 bản Bạo Tẩu → 8 mảnh hiệu ứng. Xong một tàu mới sang tàu kế.
+
+**Hai loại tham chiếu trong gói `THAM_CHIEU_DANG_BAC_TIM.zip`:**
+- `tau7_tim_MAU_PHONG_CACH.png`: mẫu về **phong cách** cho mọi tàu.
+- `tauN_tim_tham_chieu_dang.png`: **chỉ tham chiếu dáng** và đặc trưng nhận diện của tàu N (đã sạch quầng, đúng cỡ chuẩn bậc tím). Không giữ màu, chất liệu, mức chi tiết của ảnh này.
+- **Khi lời tả ở phụ lục A khác với dáng trong ảnh tham chiếu, ưu tiên dáng trong ảnh tham chiếu**: người chơi đã quen các tàu này, chỉ làm sạch và làm gọn dáng, không đổi thành tàu khác. (Cách này đã làm với tàu 7.)
+
 1. **Mỗi tàu vẽ một ảnh chủ trước**: bản thường bậc tím, theo lời tả ở phụ lục A. Gửi duyệt.
 2. Khi ảnh chủ được duyệt, **sửa trên chính ảnh chủ** để ra 5 bậc còn lại (bớt chi tiết cho bậc thấp, thêm cho bậc cao). Không vẽ mới từ đầu từng bậc.
 3. Bản `_bt` của bậc nào thì **sửa trên bản thường của bậc đó**.
@@ -137,26 +144,35 @@ Hầm hố, đồ sộ, ác mộng. Kim loại sẫm, gai, càng, hàm răng, m�
 - [ ] Rộng / cao trong 0,85–1,25; đúng cỡ theo bậc; không chiều nào quá 456 px.
 - [ ] **Không đơn sắc**: crôm ≤ 40 %, phần phát sáng ≥ 20 %, thấy rõ cả hai màu năng lượng; crôm có ánh phản chiếu màu, giáp tô chuyển sắc.
 - [ ] Mép cánh có dải năng lượng 6–12 px; có 3–6 rãnh LED liền nét lõi trắng; buồng lái và lõi là kính phát sáng.
-- [ ] Đặt cạnh tranh tàu 7 bậc tím cũ: rực và sâu màu ngang hoặc hơn.
+- [ ] Đặt cạnh `tau7_tim_MAU_PHONG_CACH.png`: rực và sâu màu ngang nhau, cùng một chất.
+- [ ] Mép thân sắc: không quầng mờ, không bóng đổ ra ngoài thân.
 - [ ] Không đỏ, hồng, vàng kim, cầu vồng; không lửa sét dính vào thân.
 - [ ] Bản `_bt` trùng thân lõi với bản thường, mở 1,2–1,4 lần, cùng kiểu mở với các bậc khác của tàu đó, không phải chữ X.
 - [ ] Mảnh hiệu ứng: đúng khổ, nền đen đặc, gốc lửa và hai đầu sét đúng tọa độ, tâm ánh sáng sau lưng để trống, dải hạt không có vạch chia ô.
 - [ ] Đặt cạnh tàu khác thì không na ná nhau.
 
-## 12. Việc đợt này (theo thứ tự)
+## 12. Việc cần làm (theo thứ tự, mỗi lần một tàu)
 
-1. **Tàu 7 Đao Phong: vẽ lại cả bộ** (chủ dự án chốt 11/11). Sáu bậc hiện tại chưa cùng một họ: bậc lục lẫn viền xanh lá, bậc lam thêm hai cụm động cơ lạ, bậc tím+ khép thành vòng tròn kín.
-   - Bước 1: **vẽ lại ảnh chủ `tau7_tim.png`.** Bản vừa gửi có dáng tốt (sạch, gọn, hai lưỡi liềm rõ) nhưng đơn sắc. Giữ dáng đó, tô lại theo mục 2.5 và mục 3: lưỡi cắt của hai lưỡi liềm là dải năng lượng chàm #7C4DFF chuyển sang lam điện #3FD8FF; buồng lái kính lam; crôm có ánh tím – lam; giáp tím chuyển sắc; hai họng lửa lam. Lấy `tau7_tim.png` trong gói `TAU7_BAN_THUONG_SACH_6_PNG.zip` làm **chuẩn về độ rực và chiều sâu màu**. Gửi duyệt trước khi làm tiếp.
-   - Bước 2: sửa trên ảnh chủ ra 5 bậc còn lại. Cách lớn dần: lưỡi liềm dài dần và thêm lưỡi phụ; chỉ dùng tím, chàm và lam điện, **không xanh lá**; hai lưỡi liềm **không bao giờ khép thành vòng kín**.
-   - Bước 3: 6 bản `_bt` dựng trên bản thường cùng bậc, kiểu mở: hai lưỡi liềm bật rộng ra hai bên, mở 1,2–1,4 lần.
-   - `tau7_fx_sang.png` (hai lưỡi liềm hở, nền đen) **đã nhận và đạt**.
-2. **Tàu 8**: 5 bản `_bt` (lục, lam, tím, tím+, SS) theo kiểu pháo hạm, mở vừa phải, bậc cao rõ 4 pháo.
-3. **Tàu 6**: `tau6_tim_bt.png` theo kiểu lông vũ như năm bậc kia.
-4. **Bộ mảnh hiệu ứng** cho tàu 1, 2, 3, 4, 5, 6, 8 (7 bộ × 8 tệp), nền đen.
-5. **Ảnh ý tưởng tàu địch**: một tấm gồm 1 quái thường, 1 tinh anh, 1 boss đặt cạnh một chiến cơ phe ta, để duyệt phong cách trước khi vẽ hàng loạt.
-6. Sau khi các mục trên được duyệt: ảnh chủ tàu 11, 12, 13; rồi thân Bạo Tẩu sạch cho tàu 1, 2, 3, 5.
+**A. Vẽ lại theo cách của tàu 7** (mỗi tàu: ảnh chủ bậc tím → duyệt → 5 bậc → 6 `_bt` → 8 mảnh hiệu ứng nền đen). Thứ tự xếp theo mức cần sửa, tàu nhạt màu nhất làm trước; số trong ngoặc là phần phát sáng hiện tại của bậc tím (tàu 7 mới: 34 %):
 
-Nếu chạm hạn mức tạo ảnh, gửi từng phần theo đúng thứ tự trên; không cần chờ đủ.
+| Thứ tự | Tàu | Ghi chú riêng |
+|---|---|---|
+| 1 | **6 U Linh** (1,4 %) | Dáng lông vũ hiện tại đã đạt, **giữ dáng, tô lại**: mép lông là dải năng lượng tím phấn → lam nhạt, lăng kính giữa ngực phát sáng. Bản `_bt` xòe lông như đuôi công, cả sáu bậc cùng kiểu |
+| 2 | **2 Cực Quang** (10 %) | Giữ dáng cánh bướm – tua ngọc của ảnh tham chiếu; làm gọn các tua; ngọc → xanh lơ |
+| 3 | **4 Thần Ma** (12 %) | Sáu bậc hiện không cùng họ (hai bậc dáng mũi tên rộng, bốn bậc dáng kén). Chọn **một** dáng mũi khoan cho cả sáu; rộng / cao ≥ 0,85 |
+| 4 | **10 Tinh Hà** (15 %) | Đèn chính lục radar #5BE35B; crôm 25–40 % |
+| 5 | **5 Thự Quang** (16 %) | Hiện hơi dẹt (1,42): đưa về ≤ 1,25; bỏ vòng tròn mảnh trên mũi |
+| 6 | **3 X-Dực Băng** (22 %) | Giữ dáng bốn cánh tinh thể; bớt chi tiết vụn trên cánh |
+| 7 | **9 Thiên Khung** (26 %) | Hiện hơi rộng (1,30): đưa về ≤ 1,25 |
+| 8 | **1 Phượng Hoàng** (32 %) | Màu đã rực; chủ yếu làm sạch quầng, gọn lông, sáu bậc cùng họ |
+
+**B. Tàu 8 Phần Thiên:** thân bản thường giữ nguyên. Chỉ cần 5 bản `_bt` (lục, lam, tím, tím+, SS) kiểu pháo hạm, dựng trên bản thường như đã làm với tàu 7; sau đó 8 mảnh hiệu ứng.
+
+**C. Tàu mới:** ảnh chủ tàu 11, 12, 13 theo phụ lục A.
+
+**D. Ảnh ý tưởng tàu địch:** một tấm gồm 1 quái thường, 1 tinh anh, 1 boss đặt cạnh tàu 7 mới, để duyệt phong cách.
+
+Làm A trước. Nếu chạm hạn mức tạo ảnh, gửi từng phần (ví dụ chỉ ảnh chủ của một tàu); không cần chờ đủ.
 
 ---
 
