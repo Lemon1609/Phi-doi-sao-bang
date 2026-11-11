@@ -1,5 +1,14 @@
 # BÀN GIAO DỰ ÁN PHI ĐỘI SAO BĂNG · V202 (2026-11-08)
 
+### V220 (CHỜ DUYỆT, chưa phát hành) · 11/11 · Viền NEON LED cho mọi tàu + bộ hiệu ứng tàu 7
+- Chủ dự án 07:39 (CHỐT): (1) tau6_tim_bt vẽ lại; (2) tàu 8 _bt vẽ lại, "đừng nới to quá"; (3) phe ta (chiến cơ, trang bị, hợp thể) KÍCH THƯỚC VỪA PHẢI, không quá to; hiệu ứng siêu cấp kiểu NEON LED (ảnh minh họa tựa game gốc: viền sáng lam, tia có sét quấn), được đề xuất thêm; (4) TÀU ĐỊCH: hầm hố, đồ sộ, ác mộng.
+- Tài liệu: GUI_GPT_V217 thêm mục A2 "Hai phe, hai tính cách", mức bung _bt đổi thành diện tích 1,25–1,5 lần, lề ≥ 28 px; GUI_GPT_V220 thêm 3 tiêu chí + việc 4 (ảnh ý tưởng tàu địch để duyệt phong cách).
+- Mã: btfx218.js thêm lớp NEON (neon / neonDraw, gọi trong front() cho MỌI tàu id ≤ 9, kể cả tàu chưa có bộ mảnh): viền neon ôm mép thân màu đèn tàu (Fighters28.profiles[id].color) + quầng mờ + vệt trắng chạy dọc viền + các điểm phát sáng sẵn có trên thân bừng theo nhịp. Hệ số m.bk giảm độ bừng với tranh _bt cũ có lửa vẽ sẵn (tàu 1, 7… vẫn hơi lóa vì tranh nền đã là khối lửa). Tắt: window.NEON220=false. env() nay chạy cho mọi tàu.
+- Gói GPT "V219_FX_TAU7" (8 mảnh, tím 255–264°, lửa lưỡi liềm, sét phân nhánh, ánh sáng hai lưỡi đao chéo): đúng khổ, đúng neo → src/btfx218. Tranh thân _bt của tàu 7 vẫn là khối cầu plasma cũ, cần GPT vẽ thân bung sạch.
+- GPT báo: còn 80 mảnh cho 10 tàu, đang chạm hạn mức tạo ảnh; dải hạt tàu 1 còn bẩn nền nên chưa gửi.
+- Lưu ý công cụ: lệnh `rm -rf` trên thư mục làm việc bị chặn → quay / chụp vào thư mục MỚI thay vì xóa thư mục cũ.
+- t156 14/14. Chưa chạy t209 / t204 / t207 / t206; chưa phát hành (web và APK vẫn V219).
+
 ### 11/11 07:35 · Chủ dự án góp ý (CHỐT HƯỚNG): bung và tiến hóa theo dáng riêng
 - "Tùy theo hình dạng của từng chiến cơ, trang bị, hợp thể mà bậc tiến hóa sẽ khác. Không cần thiết lên siêu cấp là bung thành chữ X."
 - Nguyên nhân chữ X ở V219: lời dặn GPT của Claude ("bung theo chiều dọc và chéo") quá chung. Đã sửa bộ chuẩn GUI_GPT_V217 (A.6, A.7): kiểu bung theo dáng + kỹ năng từng tàu; 6 bậc một tàu cùng một kiểu; mức bung đo bằng DIỆN TÍCH 1,3–1,8 lần (bỏ tiêu chí bề ngang 15–35 %).

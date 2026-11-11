@@ -4,11 +4,11 @@ Sáu bản Bạo Tẩu đợt vừa rồi (tàu 8 × 5, tàu 6 bậc tím) đã 
 
 > Tùy theo hình dạng của từng chiến cơ, trang bị, hợp thể mà bậc tiến hóa sẽ khác. Không cần thiết lên siêu cấp là bung thành chữ X.
 
-Lỗi do lời dặn lần trước ("bung theo chiều dọc và chéo") quá chung, dẫn tới mọi bản đều thành chữ X. Từ nay áp ba quy tắc:
+Lỗi do lời dặn lần trước ("bung theo chiều dọc và chéo") quá chung, dẫn tới mọi bản đều thành chữ X và phình to. Từ nay áp ba quy tắc:
 
 1. **Kiểu bung hợp với dáng và kỹ năng của chính tàu đó.** Không dùng chung một kiểu cho nhiều tàu.
 2. **Sáu bậc của một tàu dùng cùng một kiểu bung**, bậc cao bung mạnh hơn. (Hiện tàu 6 bậc tím bung chữ X trong khi năm bậc kia xòe lông vũ; tàu 8 bậc thường nới ngang trong khi năm bậc kia chữ X.)
-3. **Mức bung đo bằng diện tích: 1,3–1,8 lần bản thường**, hướng nào cũng được. Vẫn dựng trên chính tranh bản thường để thân lõi trùng khít.
+3. **Bung vừa phải, không phình to**: diện tích **1,25–1,5 lần bản thường** (sáu bản chữ X vừa rồi là 1,6–1,8 lần, quá to), hướng nào cũng được, lề ≥ 28 px. Vẫn dựng trên chính tranh bản thường để thân lõi trùng khít.
 
 ## Gợi ý kiểu bung cho 13 tàu (được đề xuất khác nếu hợp dáng hơn)
 
@@ -28,8 +28,16 @@ Lỗi do lời dặn lần trước ("bung theo chiều dọc và chéo") quá c
 | 12 · Thời Không | Mảnh ghép | Các mảnh thân tách rời, lơ lửng lệch nhau quanh lõi | Thêm mảnh |
 | 13 · Hư Không | Vương miện | Gai vương miện mở lên phía trước, thân nứt hở lõi | Thêm gai, khe nứt rộng dần |
 
+## Thêm ba tiêu chí của chủ dự án (11/11)
+
+- **Phe ta gọn, kích thước vừa phải, không quá to** (chiến cơ, trang bị, hợp thể đồng minh).
+- **Hiệu ứng siêu cấp kiểu NEON LED**: ống sáng mảnh, nét đều, lõi rực, quầng mờ quanh nét; chạy theo cạnh thân, cạnh cánh, khe năng lượng như dải đèn LED. Bộ mảnh rời (lửa, sét, ánh sáng sau lưng, hạt) vẽ theo chất này: nét mảnh phát sáng, không phải mảng màu đặc. Hai bộ mẫu tàu 9 và tàu 10 đã gần đúng chất này; tàu 10 (khung chữ H nét ống) là mẫu tốt nhất.
+- **Tàu địch: hầm hố, đồ sộ, ác mộng.** To, nặng, giáp dày sẫm, gai, càng, hàm, sinh – cơ ghép; đèn đỏ #FF334F / hồng #F50057.
+
 ## Việc cần làm
 
-1. **Tàu 8**: vẽ lại 5 bản `_bt` (lục, lam, tím, tím+, SS) theo kiểu pháo hạm ở bảng trên, cùng kiểu với bản `thuong_bt`. Giữ ý tách rõ 4 pháo ở bậc cao.
+1. **Tàu 8**: vẽ lại 5 bản `_bt` (lục, lam, tím, tím+, SS) theo kiểu pháo hạm ở bảng trên, cùng kiểu với bản `thuong_bt`, **bung vừa phải (1,25–1,5 lần)**. Giữ ý tách rõ 4 pháo ở bậc cao.
 2. **Tàu 6**: vẽ lại `tau6_tim_bt.png` theo kiểu lông vũ như năm bậc còn lại.
-3. Áp ba quy tắc này cho mọi tàu, trang bị, hợp thể về sau. Bộ 88 mảnh hiệu ứng vẫn làm như đã dặn.
+3. **Bộ 88 mảnh hiệu ứng** cho 11 tàu còn lại: làm theo chất neon LED ở trên, đặc trưng từng tàu theo bảng đã gửi (tài liệu V218 mục 3).
+4. **Ảnh ý tưởng tàu địch** (chỉ để duyệt phong cách, chưa cần đúng khổ tệp game): một tấm gồm 1 quái thường, 1 quái tinh anh, 1 boss, vẽ cạnh một chiến cơ phe ta để thấy tương quan cỡ và tính cách.
+5. Áp các quy tắc này cho mọi tàu, trang bị, hợp thể về sau.

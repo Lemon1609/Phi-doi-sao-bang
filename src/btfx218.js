@@ -41,9 +41,36 @@
   const st={id:-1,k:0,last:-1};
   function env(id,on,now){if(st.id!==id){st.id=id;st.k=0;st.last=-1;}const dt=st.last<0?0:Math.max(0,Math.min(.1,now-st.last));st.last=now;st.k+=((on?1:0)-st.k)*Math.min(1,dt*7);return st.k;}
   const lvOf=a=>{const i=T.indexOf(a&&a.__f);return LV[i<0?3:i];};
+  // ---- V220 · NEON LED (chủ dự án 11/11: "hiệu ứng siêu cấp kiểu neon led") ----
+  //  Tự dựng từ tranh Bạo Tẩu của chính tàu, không cần tranh thêm:
+  //   (1) viền neon mảnh ôm sát dáng tàu, màu đèn của tàu, có quầng mờ;  (2) vệt sáng trắng chạy dọc viền như dải LED;
+  //   (3) các chi tiết phát sáng sẵn có trên thân (đèn, khe năng lượng) bừng sáng theo nhịp.
+  //  Không phải vòng tròn quanh tàu: viền bám đúng mép thân. Tắt riêng: window.NEON220=false
+  const NE=new WeakMap(),NS=192,PAD=12;
+  const lamp=id=>{try{return Fighters28.profiles[id].color||'#7fd6ff';}catch{return '#7fd6ff';}};
+  function neon(a,cell,cw,ch,col){let m=NE.get(a);if(m&&m.cell===cell&&m.col===col)return m.ok?m:null;m={cell,col,ok:false};NE.set(a,m);
+    try{const mk=()=>{const c=document.createElement('canvas');c.width=c.height=NS;return c;},IN=NS-PAD*2;
+      const s=mk(),sg=s.getContext('2d',{willReadFrequently:true});sg.drawImage(a,cell%5*cw,Math.floor(cell/5)*ch,cw,ch,PAD,PAD,IN,IN);
+      const q=sg.getImageData(0,0,NS,NS).data,e=mk(),eg=e.getContext('2d'),ed=eg.createImageData(NS,NS),o=ed.data;
+      let no=0,ne=0;for(let i=0;i<q.length;i+=4){const r=q[i],g=q[i+1],b=q[i+2],mx=Math.max(r,g,b),mn=Math.min(r,g,b);if(q[i+3]>120){no++;if(mx>200&&(mx-mn)/mx>.38){ne++;o[i]=r;o[i+1]=g;o[i+2]=b;o[i+3]=255;}}}
+      m.bk=Math.max(.22,Math.min(1,.10/Math.max(.01,ne/Math.max(1,no))));/* tranh Bạo Tẩu cũ có lửa vẽ sẵn → phần phát sáng chiếm nhiều → giảm độ bừng để khỏi lóa */
+      eg.putImageData(ed,0,0);const bl=mk(),bg=bl.getContext('2d');bg.filter='blur(3px)';bg.drawImage(e,0,0);bg.filter='none';bg.globalAlpha=.6;bg.drawImage(e,0,0);
+      const sil=mk(),xg=sil.getContext('2d');xg.drawImage(s,0,0);xg.globalCompositeOperation='source-in';xg.fillStyle=col;xg.fillRect(0,0,NS,NS);
+      const ol=mk(),og=ol.getContext('2d');for(let j=0;j<8;j++){const an=j/8*TAU;og.drawImage(sil,Math.cos(an)*1.7,Math.sin(an)*1.7);}og.globalCompositeOperation='destination-out';og.drawImage(s,0,0);og.drawImage(s,0,0);og.drawImage(s,0,0);
+      const gl=mk(),gg=gl.getContext('2d');gg.filter='blur(4px)';gg.drawImage(ol,0,0);gg.drawImage(ol,0,0);
+      m.ol=ol;m.gl=gl;m.bl=bl;m.tmp=mk();m.z=NS/IN;m.ok=true;return m;}catch{return null;}}
+  function neonDraw(ctx,a,cell,cw,ch,size,now,id,lite,k){if(window.NEON220===false)return;const m=neon(a,cell,cw,ch,lamp(id));if(!m)return;
+    const z=size*m.z,ti=Math.max(0,T.indexOf(a&&a.__f)),lv=.78+.044*(ti<0?3:ti);ctx.save();ctx.globalCompositeOperation='lighter';
+    ctx.globalAlpha=Math.min(1,k*lv*(.5+.16*Math.sin(now*5.2))*(.55+.45*m.bk));ctx.drawImage(m.gl,-z/2,-z/2,z,z);          // quầng neon
+    ctx.globalAlpha=Math.min(1,k*lv*.9);ctx.drawImage(m.ol,-z/2,-z/2,z,z);                                   // ống neon mảnh
+    ctx.globalAlpha=Math.min(1,k*lv*(.4+.38*(.5+.5*Math.sin(now*6.4)))*m.bk);ctx.drawImage(m.bl,-z/2,-z/2,z,z);   // đèn trên thân bừng sáng
+    if(!lite){const t=m.tmp.getContext('2d');t.globalCompositeOperation='source-over';t.clearRect(0,0,NS,NS);t.drawImage(m.ol,0,0);t.globalCompositeOperation='source-in';
+      const g=t.createLinearGradient(0,0,0,NS);for(let j=0;j<2;j++){const u=((now*.8+j*.5)%1),c=1-u;g.addColorStop(Math.max(0,c-.09),'rgba(255,255,255,0)');g.addColorStop(Math.max(.001,Math.min(.999,c)),'rgba(255,255,255,1)');g.addColorStop(Math.min(1,c+.09),'rgba(255,255,255,0)');}
+      t.fillStyle=g;t.fillRect(0,0,NS,NS);ctx.globalAlpha=Math.min(1,k*lv);ctx.drawImage(m.tmp,-z/2,-z/2,z,z);}                                              // vệt LED chạy dọc viền
+    ctx.restore();}
   // ---- lớp SAU thân: ánh sáng bật xòe + lửa ----
   function back(ctx,a,cell,cw,ch,size,on,now,ta,id,lite){
-    if(!has(id))return;const k=env(id,on,now);if(k<.02)return;const m=anchors(a,cell,cw,ch),L=lvOf(a);
+    if(window.BTFX218===false)return;const k=env(id,on,now);if(k<.02||!has(id))return;const m=anchors(a,cell,cw,ch),L=lvOf(a);
     ctx.save();ctx.globalCompositeOperation='lighter';
     const sg=img(id,'sang');if(sg){const q=bb(sg),span=m?Math.max(.5,Math.max(...m.tip.map(p=>p[0]))-Math.min(...m.tip.map(p=>p[0]))):.9,
         cwid=Math.min(SPAN_MAX,SPAN_K*L[4])*span*size,sc=cwid/q.w,pr=back_((ta-.03)/.42),W=sg.naturalWidth*sc*(.5+.5*pr),H=sg.naturalHeight*sc*(.92+.08*pr);
@@ -56,7 +83,9 @@
     ctx.restore();}
   // ---- lớp TRƯỚC thân: sét giữa các mũi cánh + hạt lấp lánh ----
   function front(ctx,a,cell,cw,ch,size,on,now,ta,id,lite){
-    if(!has(id))return;const k=st.id===id?st.k:0;if(k<.05)return;const m=anchors(a,cell,cw,ch);if(!m)return;const L=lvOf(a);
+    if(window.BTFX218===false)return;const k=st.id===id?st.k:0;if(k<.05)return;
+    neonDraw(ctx,a,cell,cw,ch,size,now,id,lite,k);/* V220: viền neon + đèn LED cho MỌI tàu, kể cả tàu chưa có bộ mảnh rời */
+    if(!has(id))return;const m=anchors(a,cell,cw,ch);if(!m)return;const L=lvOf(a);
     ctx.save();ctx.globalCompositeOperation='lighter';
     const B=[img(id,'set_1'),img(id,'set_2'),img(id,'set_3')].filter(Boolean),n=m.tip.length;
     if(B.length&&n>=2&&L[2]){const nb=lite?Math.min(2,L[2]):L[2],per=L[3],fr=Math.floor(now/.07);
