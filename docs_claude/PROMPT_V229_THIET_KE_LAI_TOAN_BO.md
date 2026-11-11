@@ -15,6 +15,10 @@ Chủ dự án (23:00, 11/11): **thiết kế lại toàn bộ tàu**, tham kh�
 
 **Không lấy**: tên, dáng tổng thể, tổ hợp màu và dấu hiệu riêng của từng tàu trong video (đuôi hai gai chẻ, lưỡi dựng đứng gắn bệ vuông, thân tím cánh sọc vàng chữ V, buồng lái hổ phách + mũi bạc…). Dáng gốc của 13 tàu vẫn là của game mình (cột "Dáng" ở mục 3).
 
+## 1B. Đã xem đủ 11 video (23:04)
+
+Chi tiết từng dòng, cơ chế nâng bậc, đạn, kỹ năng và bảng đối chiếu với 13 tàu: `docs_claude/tham_chieu/PHAN_TICH_11_VIDEO_GAME_GOC.md`. Tóm tắt: mọi dòng có 4 hình thái (cấp 25 / 30 / 45+3 / 75+5, khung xám → lục → lam → tím), mỗi hình thái đổi tên, dáng, màu; kỹ năng là một hình năng lượng lớn riêng của dòng bung 1–3 giây. 6 bậc của game mình đã khớp cấu trúc này.
+
 ## 2. Chuẩn vẽ chung (mọi tàu)
 
 1. PNG RGBA 512×512, nền trong suốt, nhìn thẳng từ trên xuống, mũi hướng lên, đối xứng. Cỡ căn(rộng × cao): thường 345 · lục 355 · lam 368 · tím 380 · tím+ 392 · SS 405 px; cạnh dài ≤ 456 px; lề ≥ 28 px. Rộng / cao 0,8–1,2.
