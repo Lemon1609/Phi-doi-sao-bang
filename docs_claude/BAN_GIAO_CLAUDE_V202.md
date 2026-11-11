@@ -1,5 +1,13 @@
 # BÀN GIAO DỰ ÁN PHI ĐỘI SAO BĂNG · V202 (2026-11-08)
 
+### 11/11 09:21 · GPT gửi ánh sáng sau lưng mới của tàu 7 + xin tranh gốc sạch
+- tau7_fx_sang.png mới (512×512, NỀN ĐEN, hai lưỡi liềm hở trái – phải, bán kính 202–231, tâm trống) → src/btfx218; bản dựng tự tách nền đen ("tach nen den: tau7_fx_sang" trong log dựng) — lần đầu dùng đường này, chạy đúng. Trong trận trông như hai dấu ngoặc ôm thân, gọn. Chưa phát hành.
+- GPT báo: 6 thân _bt tàu 7 CHƯA đạt vì tranh thường gốc có quầng / nhiễu và không còn chỗ để mở 1,2 lần. Đo lại: tranh tàu 7 trong game có 15–30 % điểm mờ (bậc lam tới 103 %) và thân rộng 408–448 px.
+- Claude xuất src/ship118_goc_sach/tau7_{6 bậc}.png = tranh đang dùng, ĐÃ đưa về cỡ chuẩn theo bậc (345 → 405) và xóa quầng (chỉ giữ thân alpha > 110 nở 2 px). Gửi GPT dạng zip TAU7_BAN_THUONG_SACH_6_PNG.zip.
+- QUAN TRỌNG khi bộ _bt tàu 7 về: chép CẢ 6 bản thường trong src/ship118_goc_sach/ đè vào src/ship118/ cùng lúc với 6 bản _bt mới (vì _bt mới dựng trên thân đã thu về cỡ chuẩn; nếu giữ bản thường cũ, candoi217 sẽ thu nhỏ _bt thêm lần nữa và thân lệch nhau).
+- Nên làm tương tự cho các tàu khác trước khi GPT vẽ _bt sạch (tàu 1, 2, 3, 5): xuất bản thường sạch + đúng cỡ chuẩn rồi mới giao.
+- t156 14/14.
+
 ### 11/11 08:55 · Gemini soát prompt → PROMPT_GPT_V222_THIET_KE.md (THAY V221; đây là bản chuẩn hiện hành để gửi GPT)
 - NHẬN từ Gemini: tách rõ hai loại nền (thân trong suốt / mảnh hiệu ứng nền đen); _bt mở 1,2–1,4 lần và không chiều nào quá 456 px; rãnh LED 3–5 px có lõi trắng 1 px nằm trong khe tối; tọa độ gốc lửa (96,383), hai đầu sét (0,64)–(383,64); tâm fx_sang để trống bán kính 100 px; dải hạt không vạch chia ô; tàu địch vẽ sẵn mũi xuống, sáng từ trên – trái; hợp thể tối đa 435 px + công thức "thân A, cánh B, LED hai màu, lõi chuyển sắc"; ghép tấm duyệt bằng Python; màu chủ đạo tàu 11–13; lời tả ảnh chủ 13 tàu (phụ lục A); 4 họ quái (B); 13 bộ trang bị (C).
 - KHÔNG NHẬN (lý do): (1) đổi đèn tàu 10 sang lam #00B0FF — chủ dự án đã chốt GIỮ LỤC; (2) bỏ lửa động cơ trong tranh thân — lúc bay thường game không vẽ lửa bằng mã nên tàu sẽ như tắt máy; (3) bảng kim loại trung tính tối (#1E242B / #3A4452 / #7A889B) — phe ta phải SÁNG, đổi thành #2B3440 / #8D9BAD / #E3EAF2; (4) tàu 13 hai màu đèn → chỉ giữ tím; thân tàu 11, 13 làm sáng hơn đề xuất để không lẫn với địch; (5) "ấn triện vàng" của bộ Hoàng Đế → trắng (cấm vàng kim).
