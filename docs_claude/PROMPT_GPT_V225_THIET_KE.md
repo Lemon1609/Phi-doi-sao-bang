@@ -92,18 +92,17 @@ Bộ ảnh gồm năm chiến cơ ở màn kho và một cảnh đánh boss. Đ�
 
 Phép thử nhanh cho mỗi ảnh chủ: thu ảnh về 100 px, che phần đèn đi. Nếu vẫn thấy rõ mũi, buồng lái, cánh, động cơ và ít nhất hai cụm vũ khí thì đạt chất cơ khí.
 
-## 3C. Hiện đại – công nghệ cao (chủ dự án 17:58, áp cho chiến cơ, trang bị, hợp thể; ưu tiên hơn 3A khi hai mục vênh nhau)
+## 3C. Cơ khí công nghệ cao + cánh neon LED (chủ dự án 18:13, thay bản 3C lúc 17:58; ưu tiên hơn 3A khi vênh nhau)
 
-Giữ **cấu trúc** cơ khí của 3A (khung, khớp, vũ khí lộ, động cơ thấy được), nhưng **hoàn thiện** như chiến hạm tương lai đời mới, không phải máy móc công nghiệp cũ.
+Đích: **nửa đường giữa** ảnh mẫu tàu 7 V225 (cơ khí, khung tối, nhiều khớp) và ảnh thử V226 (gốm trắng sạch). Bản V226 bị **quá sạch, mất chất máy móc, gần như không có đèn** (khung tối 10,6 %, phát sáng 2,8 %); bản V225 hơi nặng chất xưởng.
 
-1. **Bề mặt**: giáp composite liền khối, cạnh vát sắc kiểu dựng 3D bề mặt cứng; gốm trắng bóng, crôm, kim loại sơn bóng hai lớp. Đường chia tấm mảnh, thẳng, chính xác.
-2. **Bỏ chất "xưởng cũ"** ở phe ta: không đinh tán to, không ống dầu và dây cáp lộ lộn xộn, không vết trầy, rỉ, dầu loang (để dành cho phe địch).
-3. **Cơ cấu hiện đại thay cơ cấu thô**: piston và ống dẫn thay bằng bộ truyền động bọc vỏ nhẵn, khớp từ tính, ray trượt; turbin đặt trong vỏ có lưới mảnh; vòi phụt vector nhiều cánh điều hướng.
-4. **Chi tiết công nghệ cao** (mỗi tàu chọn 4–5 cái hợp dáng): dải LED mảnh chạy theo đường chia tấm; vân lục giác năng lượng dưới lớp kính; ống kính cảm biến quang học; vây tản nhiệt dạng lá mỏng xếp đều; ô ký hiệu phát sáng nhỏ (không chữ); bộ phận tách rời nối bằng trường năng lượng mảnh.
-5. **Tỉ lệ màu thay mục 3A**: khung tối 15–25 % · crôm / gốm sáng 15–25 % · giáp màu 30–40 % · phát sáng 15–25 %.
-6. **Tương phản hai phe**: phe ta sạch, bóng, chính xác, thanh; phe địch thô, trầy, nặng, gồ ghề.
-
-Phép thử: đặt cạnh ảnh mẫu tàu 7 V225, bản mới phải trông **đời sau** hơn (sạch hơn, bóng hơn, ít ống và đinh hơn) mà vẫn đọc rõ khung, khớp và vũ khí.
+1. **Vẫn là cỗ máy**: giữ khung thép tối, khớp xoay, tay đòn, bệ pháo, đĩa động cơ có turbin, khe tản nhiệt, ít nhất 5 bộ phận cơ khí nhìn thấy. Truyền động đặt trong vỏ nhưng **để lộ khớp, trục, rãnh trượt**.
+2. **Hoàn thiện hiện đại**: giáp tấm composite / gốm bóng cạnh vát sắc, đường chia tấm mảnh chính xác; giảm đinh tán to, ống dầu và dây cáp lộn xộn, vết trầy (để cho phe địch). Được giữ bu lông nhỏ, chốt khóa gọn.
+3. **Cánh kiểu neon LED** (chủ dự án yêu cầu): cánh / lưỡi / phiến cánh là **khung kim loại mảnh + ống đèn LED phát sáng** chạy theo mép và sống cánh, có thể có màng năng lượng trong mờ giữa các thanh khung. Nét đèn mảnh, đều, sáng rực ở lõi, quầng mờ quanh nét, giống dải LED. Không phải mảng màu đặc. Mỗi tàu chọn cách làm cánh LED hợp dáng của nó.
+4. **Đèn và năng lượng nhiều hơn**: rãnh LED theo đường chia tấm, lõi, cảm biến quang học, họng động cơ, khớp xoay có vòng sáng.
+5. **Tỉ lệ màu (Claude đo)**: khung tối 18–25 % · crôm / gốm sáng 12–20 % · giáp màu 25–35 % · phát sáng 20–30 %.
+6. **Hai phe**: phe ta sạch, chính xác, rực đèn; phe địch thô, trầy, nặng.
+7. **Màu theo bậc**: màu giáp phải **trong, rực, sang** (bão hòa và sáng vừa đủ, như sơn kim loại bóng), không đục kiểu nâu bùn, rêu, đỏ đô xỉn. Màu đèn LED đổi theo bậc, tương phản rõ với giáp.
 
 ## 4. Tiến hóa 6 bậc: mỗi tàu lớn lên theo cách riêng
 
