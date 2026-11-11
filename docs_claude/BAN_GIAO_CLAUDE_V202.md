@@ -1,5 +1,10 @@
 # BÀN GIAO DỰ ÁN PHI ĐỘI SAO BĂNG · V202 (2026-11-08)
 
+### 11/11 15:07 · Chủ dự án: tranh "chưa đem lại cảm giác máy móc, cơ khí" (kèm ảnh tựa game gốc) → PROMPT_GPT_V225_THIET_KE.md (THAY V224)
+- Đo (khung tối = sáng < 0,42 và bão hòa < 0,45 / kim loại sáng / giáp màu / phát sáng / mật độ nét): tàu 7 mới 6/10/50/34/27; tàu 6 ảnh chủ 3/17/59/21/24; tàu 8 21/29/28/23/29; tàu 10 9/36/40/15/28; tàu 4 24/37/27/12/24; tàu 1 4/31/33/32/31. Kết luận: thiếu khung thép tối và bộ phận máy lộ ra; tàu 8 gần chất cơ khí nhất.
+- V225 thêm mục 3A "Chất cơ khí": khung thép tối 20–30 %, giáp tấm rời có khe, ≥ 5 loại bộ phận cơ khí, vũ khí lộ thiên, năng lượng nằm trong máy, lông vũ/tua → phiến kim loại có khớp; tỉ lệ màu mới tối 20–30 / crôm 10–20 / giáp 30–40 / phát sáng 15–25.
+- CHỜ QUYẾT: ảnh chủ tàu 6 (12:18) và bộ tàu 7 đã phát hành V221 đều thiếu chất cơ khí → vẽ lại theo V225 hay giữ.
+
 ### 11/11 12:18 · Ảnh chủ tàu 6 (bậc tím, theo V224): ĐẠT số đo, CHỜ chủ dự án duyệt
 - Đo: xám 18 %, phát sáng 20,9 % (cũ 1,2 %), tông lam lơ 13 / chàm 26 / tím 61, rộng/cao 1,03, cỡ 379, lề 63, quầng 13 % → sạch còn 5 %. Bản sạch: src/ship118_cho/tau6_tim_anh_chu_V224.png (CHƯA vào game; dựng thử rồi trả lại bằng git checkout). Chụp thử: claude_tools/demo217/chup_anh_chu_tau6.py.
 - Nhận xét gửi GPT: docs_claude/GUI_GPT_V224_DUYET_ANH_CHU_TAU6.md (mép lông sáng hơn một nấc; mép sắc; lớn dần bằng lớp lông; _bt xòe đuôi công).

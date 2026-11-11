@@ -1,8 +1,10 @@
-# PROMPT THIẾT KẾ CHO GPT · PHI ĐỘI SAO BĂNG · V224
+# PROMPT THIẾT KẾ CHO GPT · PHI ĐỘI SAO BĂNG · V225
 
-Dán nguyên văn tài liệu này cho GPT. Nó thay thế mọi tài liệu chuẩn trước (kể cả V223). Bản này đã gộp góp ý của Gemini (giám đốc mỹ thuật) và các quyết định của chủ dự án.
+Dán nguyên văn tài liệu này cho GPT. Nó thay thế mọi tài liệu chuẩn trước (kể cả V224). Bản này đã gộp góp ý của Gemini (giám đốc mỹ thuật) và các quyết định của chủ dự án.
 
 > **Tình hình (đọc trước):** bộ 12 tranh **tàu 7** vẽ theo V223 đã đạt và được chủ dự án khen đẹp. Chủ dự án chốt: **vẽ lại lần lượt các chiến cơ còn lại theo đúng cách của tàu 7.** Tàu 7 là **mẫu phong cách**: dáng sạch và gọn, màu rực nhiều lớp, mép cánh là dải năng lượng, kính phát sáng, sáu bậc cùng một họ, bản Bạo Tẩu dựng trên bản thường. Bài học trước đó vẫn giữ: bản vẽ "60 % kim loại, một màu" bị chê đơn sắc.
+
+> **Bổ sung V225 · CHẤT CƠ KHÍ (chủ dự án, 11/11):** các tranh mới đẹp màu nhưng **"chưa đem lại cảm giác máy móc, cơ khí"**. Đo lại: khung kim loại tối chỉ 3–6 % (tàu 6, tàu 7), giáp sơn màu chiếm 50–59 %, nên trông như kính và năng lượng. Tranh tàu 8 (khung tối 21 %, ống dẫn, nòng pháo lộ) là tàu gần chất cơ khí nhất. **Từ nay mỗi chiến cơ phải nhìn ra là một cỗ máy lắp ráp**, xem mục 3A. Màu rực và dải năng lượng vẫn giữ.
 
 ---
 
@@ -55,6 +57,22 @@ Tựa game gốc mà chủ dự án đưa ảnh chỉ là tham khảo về **c�
 - **Rãnh đèn LED là linh hồn của tàu.** Vẽ 3–6 rãnh LED rộng 3–5 px, **liền nét**: chính giữa là lõi trắng #FFFFFF rộng 1 px, hai bên là viền màu đèn bão hòa tối đa, cả rãnh nằm lọt trong một khe giáp tối để nổi bật. Đặt dọc mép cánh, sống lưng và quanh lõi. Game sẽ tự làm các rãnh này bừng sáng và thêm viền neon khi Bạo Tẩu, nên chúng phải rõ và sạch.
 - Tương phản cao: mặt crôm sáng cạnh khe tối, vùng phát sáng cạnh giáp đậm màu. Thêm một viền sáng mảnh màu đèn ở phía khuất sáng của thân.
 - **Phép thử**: đặt cạnh `tau7_tim_MAU_PHONG_CACH.png`, ảnh mới phải cùng một chất: rực, sâu màu, sạch, gọn.
+
+## 3A. Chất cơ khí (bắt buộc từ V225)
+
+Mỗi chiến cơ là **một cỗ máy lắp ráp từ nhiều bộ phận**, không phải một khối đúc trơn hay một sinh vật.
+
+1. **Khung thép tối 20–30 % diện tích**: thép súng xanh than (#1C2430 → #3A4656), lộ ra ở khung xương thân, khớp nối cánh, cụm động cơ, chân pháo. Đây là "bộ xương" mà giáp màu được gắn lên.
+2. **Giáp màu là các tấm rời bắt lên khung**: có khe hở tối giữa các tấm, mép tấm dày (thấy được bề dày 2–4 px), không liền một mảng. Giáp màu còn khoảng 30–40 %.
+3. **Bộ phận cơ khí nhìn thấy được**, mỗi tàu chọn ít nhất 5 loại hợp với dáng: cửa hút gió có lá chắn, turbin / quạt động cơ, ống xả nhiều tầng, nòng pháo có ống làm mát, ống dẫn và dây cáp, piston và khớp thủy lực ở gốc cánh, lỗ thông gió có nan, bu lông và đinh tán ở góc tấm, ray trượt, bánh răng hoặc vòng xoay ở khớp.
+4. **Vũ khí lộ thiên**: thấy rõ họng pháo, bệ pháo, ổ tên lửa. Chiến cơ phải trông như có thể bắn.
+5. **Năng lượng nằm TRONG máy**: lõi, buồng lái, rãnh LED, khe tản nhiệt phát sáng sau lớp lưới hoặc giữa các tấm giáp; không để cả mảng cánh tự phát sáng như kính.
+6. **Hạn chế dáng hữu cơ mềm** (lông vũ mềm, tua, lụa). Tàu có dáng lông vũ hay cánh bướm thì vẽ thành **phiến kim loại xếp lớp có khớp xoay**, không phải lông thật.
+7. Mép sắc, góc vát cứng, đối xứng cơ khí; chi tiết dày quanh lõi, khớp và động cơ, mặt giáp lớn để thoáng để vẫn đọc được ở 100 px.
+
+Tỉ lệ màu thay mục 2.5: **khung thép tối 20–30 % · crôm sáng 10–20 % · giáp màu 30–40 % · phát sáng 15–25 %.**
+
+Ảnh tựa game gốc chủ dự án đưa chỉ để tham khảo cảm giác "cỗ máy chiến đấu" (cụm động cơ tròn lộ turbin, giáp nhiều lớp, nòng pháo vươn dài). Không chép dáng, màu hay chi tiết của nó.
 
 ## 4. Tiến hóa 6 bậc: mỗi tàu lớn lên theo cách riêng
 
@@ -144,7 +162,8 @@ Hầm hố, đồ sộ, ác mộng. Kim loại sẫm, gai, càng, hàm răng, m�
 - [ ] Rộng / cao trong 0,85–1,25; đúng cỡ theo bậc; không chiều nào quá 456 px.
 - [ ] **Không đơn sắc**: crôm ≤ 40 %, phần phát sáng ≥ 20 %, thấy rõ cả hai màu năng lượng; crôm có ánh phản chiếu màu, giáp tô chuyển sắc.
 - [ ] Mép cánh có dải năng lượng 6–12 px; có 3–6 rãnh LED liền nét lõi trắng; buồng lái và lõi là kính phát sáng.
-- [ ] Đặt cạnh `tau7_tim_MAU_PHONG_CACH.png`: rực và sâu màu ngang nhau, cùng một chất.
+- [ ] **Chất cơ khí**: khung thép tối 20–30 %; giáp là tấm rời có khe; thấy ít nhất 5 loại bộ phận cơ khí; vũ khí lộ thiên; năng lượng nằm trong máy.
+- [ ] Đặt cạnh `tau7_tim_MAU_PHONG_CACH.png`: rực màu ngang nhau, nhưng **cơ khí hơn**.
 - [ ] Mép thân sắc: không quầng mờ, không bóng đổ ra ngoài thân.
 - [ ] Không đỏ, hồng, vàng kim, cầu vồng; không lửa sét dính vào thân.
 - [ ] Bản `_bt` trùng thân lõi với bản thường, mở 1,2–1,4 lần, cùng kiểu mở với các bậc khác của tàu đó, không phải chữ X.
