@@ -116,7 +116,9 @@ Cảm hứng **cảm giác** từ chiếc "Lôi Thần" của tựa game gốc: 
    - Bộ phát cánh (pylon / bệ chiếu) bằng kim loại có khe sáng: đây là nơi cánh ánh sáng mọc ra.
    - Giữ chất cơ khí: khớp, trục, nòng pháo, đĩa động cơ lộ rõ.
 2. **Cánh ánh sáng (tệp hiệu ứng riêng, game vẽ và làm chuyển động)**:
-   - Một quạt lưỡi ánh sáng mọc từ bộ phát cánh, trong mờ, sáng rực ở gốc và sống lưỡi, mờ dần ra mép và đầu lưỡi đến trong suốt.
+   - **Bung tỏa theo đúng thiết kế của tàu** (chủ dự án 18:27): cánh sáng là phần **nối dài, nhân lớp hoặc vọng lại chính đường nét cánh / thân của tàu đó**, mọc từ đúng bộ phận cánh của nó; không dùng chung một quạt lưỡi cho mọi tàu. Ví dụ: tàu 7 lưỡi liềm → các lớp lưỡi liềm ánh sáng vọng ra ngoài theo đúng đường cong lưỡi đao; tàu 6 lông vũ → phiến lông sáng nối dài; tàu 5 rẻ quạt → nan sáng kéo dài từng nan; tàu 2 hai ray → hai thanh sáng vươn trước; tàu 10 khung chữ H → khung chiến thuật sáng vuông vức. Tham khảo cột "Ánh sáng sau lưng" và "Kiểu mở khi Bạo Tẩu" ở bảng mục 7.
+   - Trong mờ, sáng rực ở gốc và sống nét, mờ dần ra mép đến trong suốt.
+   - Vẽ **trên cùng khung 512×512 và cùng vị trí với tranh thân** của bậc đó để game đặt chồng khít.
    - Vẽ **trắng / xám sáng** (không màu): game tô màu theo màu đèn của bậc, tự lật đối xứng sang trái, và cho xòe – thu, nhấp nháy, gợn sáng. Bậc thường quạt nhỏ, ít lưỡi; Bạo Tẩu xòe rộng nhất.
    - Không viền đen, không nền; không khép thành vòng tròn quanh tàu.
 
