@@ -1,5 +1,9 @@
 # BÀN GIAO DỰ ÁN PHI ĐỘI SAO BĂNG · V202 (2026-11-08)
 
+### 11/11 09:35 · Chủ dự án CHỐT: vẽ lại cả bộ tàu 7 theo prompt V222
+- Lý do: 6 bậc tàu 7 chưa cùng họ (lục lẫn xanh lá, lam thêm cụm động cơ, tím+ khép vòng kín). Tàu 7 KHÔNG còn là "tàu mẫu chuẩn" như ghi ở bàn giao V214; mẫu hiện nay là thân tàu 8, tàu 6 (bản thường) và bộ mảnh tàu 9, 10, 7.
+- PROMPT_GPT_V222 mục 12.1 đã đổi: ảnh chủ tau7_tim → 5 bậc → 6 _bt. Khi tranh về: thay cả 12 tệp tau7_* trong src/ship118 (KHÔNG dùng src/ship118_goc_sach nữa, thư mục đó chỉ còn là tham chiếu đã gửi GPT).
+
 ### 11/11 09:21 · GPT gửi ánh sáng sau lưng mới của tàu 7 + xin tranh gốc sạch
 - tau7_fx_sang.png mới (512×512, NỀN ĐEN, hai lưỡi liềm hở trái – phải, bán kính 202–231, tâm trống) → src/btfx218; bản dựng tự tách nền đen ("tach nen den: tau7_fx_sang" trong log dựng) — lần đầu dùng đường này, chạy đúng. Trong trận trông như hai dấu ngoặc ôm thân, gọn. Chưa phát hành.
 - GPT báo: 6 thân _bt tàu 7 CHƯA đạt vì tranh thường gốc có quầng / nhiễu và không còn chỗ để mở 1,2 lần. Đo lại: tranh tàu 7 trong game có 15–30 % điểm mờ (bậc lam tới 103 %) và thân rộng 408–448 px.

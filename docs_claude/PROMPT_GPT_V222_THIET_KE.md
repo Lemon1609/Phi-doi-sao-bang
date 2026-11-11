@@ -98,7 +98,7 @@ Game ghép các mảnh này vào tàu và làm chúng chuyển động. Mỗi t�
 
 Được đề xuất khác nếu hợp dáng tàu hơn, miễn giữ ba nguyên tắc: riêng từng tàu, gọn, neon.
 
-**Đã đạt, giữ nguyên, lấy làm mẫu:** thân tàu 8 và tàu 6 (bản thường), thân tàu 4 bậc thường và lam, bộ mảnh tàu 9, tàu 10 và lửa – sét – hạt của tàu 7.
+**Đã đạt, giữ nguyên, lấy làm mẫu:** thân tàu 8 và tàu 6 (bản thường), thân tàu 4 bậc thường và lam, bộ mảnh tàu 9, tàu 10 và toàn bộ 8 mảnh của tàu 7.
 
 ## 8. Trang bị và hợp thể
 
@@ -134,7 +134,11 @@ Hầm hố, đồ sộ, ác mộng. Kim loại sẫm, gai, càng, hàm răng, m�
 
 ## 12. Việc đợt này (theo thứ tự)
 
-1. **Tàu 7**: 6 bản `_bt` thân mở sạch (hiện là khối cầu plasma che mất thân) và `tau7_fx_sang.png` mới (hai lưỡi liềm).
+1. **Tàu 7 Đao Phong: vẽ lại cả bộ** (chủ dự án chốt 11/11). Sáu bậc hiện tại chưa cùng một họ: bậc lục lẫn viền xanh lá, bậc lam thêm hai cụm động cơ lạ, bậc tím+ khép thành vòng tròn kín.
+   - Bước 1: **ảnh chủ `tau7_tim.png`** theo lời tả ở phụ lục A. Dùng tệp `tau7_tim.png` trong gói `TAU7_BAN_THUONG_SACH_6_PNG.zip` làm tham chiếu dáng và cỡ (đã sạch quầng, đúng cỡ chuẩn). Gửi duyệt trước khi làm tiếp.
+   - Bước 2: sửa trên ảnh chủ ra 5 bậc còn lại. Cách lớn dần: lưỡi liềm dài dần và thêm lưỡi phụ; **chỉ dùng tím và chàm**, không xanh lá; hai lưỡi liềm **không bao giờ khép thành vòng kín**.
+   - Bước 3: 6 bản `_bt` dựng trên bản thường cùng bậc, kiểu mở: hai lưỡi liềm bật rộng ra hai bên, mở 1,2–1,4 lần.
+   - `tau7_fx_sang.png` (hai lưỡi liềm hở, nền đen) **đã nhận và đạt**.
 2. **Tàu 8**: 5 bản `_bt` (lục, lam, tím, tím+, SS) theo kiểu pháo hạm, mở vừa phải, bậc cao rõ 4 pháo.
 3. **Tàu 6**: `tau6_tim_bt.png` theo kiểu lông vũ như năm bậc kia.
 4. **Bộ mảnh hiệu ứng** cho tàu 1, 2, 3, 4, 5, 6, 8 (7 bộ × 8 tệp), nền đen.
