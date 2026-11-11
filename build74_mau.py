@@ -875,6 +875,11 @@ for _p in sorted(_g.glob(os.path.join(os.environ.get('BTFX218_DIR','src/btfx218'
     if _a[...,3].min()>250:
         _m=_a[...,:3].max(-1);_al=_np.clip((_m-6)/249*255,0,255);_rgb=_np.where(_m[...,None]>0,_a[...,:3]/_np.maximum(_m[...,None],1)*255,0)
         _im=_I.fromarray(_np.dstack([_rgb,_al]).clip(0,255).astype('uint8'),'RGBA');print('  tach nen den:',_n)
+    # V221: quay tông bộ mảnh theo tàu (độ) khi màu đèn đổi sau lúc GPT đã vẽ. Tàu 10: lục vàng ~90° → lục radar ~120°
+    _dh={'10':30}.get(str(int(_num)),0)
+    if _dh:
+        _h=_np.asarray(_im.convert('RGB').convert('HSV')).copy();_h[...,0]=((_h[...,0].astype('int32')+round(_dh/360*255))%256).astype('uint8')
+        _rgb2=_I.fromarray(_h,'HSV').convert('RGB');_im=_I.merge('RGBA',(*_rgb2.split(),_im.split()[3]))
     _bf=_io.BytesIO();_im.save(_bf,'WEBP',quality=90)
     _BT218.setdefault(str(int(_num)-1),{})[_k]='data:image/webp;base64,'+_b64.b64encode(_bf.getvalue()).decode()
 print('V218 bo manh Bao Tau:',{k:len(v) for k,v in _BT218.items()})

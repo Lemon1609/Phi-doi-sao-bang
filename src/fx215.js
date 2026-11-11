@@ -9,7 +9,7 @@
 (()=>{
   const on=()=>window.FX215!==false;
   // màu theo tranh mới (giống NEW213 của holo212 / D2P của v120); tàu 8–10 theo tranh mới V216 (cũ: tàu 8 #ff8167 sát đỏ đạn địch, tàu 9 #ef8bff tím hồng)
-  const NEWC={0:'#ff9a3d',1:'#3de0a0',2:'#67d7ff',3:'#9be83a',4:'#7fd6ff',5:'#b9a6ff',6:'#9c7bff',7:'#ff9f45',8:'#6cc8ff',9:'#8fd94a'};/* V216: tàu 8–10 theo tranh mới */
+  const NEWC={0:'#ff9a3d',1:'#3de0a0',2:'#67d7ff',3:'#9be83a',4:'#7fd6ff',5:'#b9a6ff',6:'#9c7bff',7:'#ff9f45',8:'#6cc8ff',9:'#5be35b'};/* V221: tàu 10 lục radar (tách khỏi lục axit của tàu 4) *//* V216: tàu 8–10 theo tranh mới */
   function prof(){try{const P=Fighters28.profiles;for(const k in NEWC){const p=P[k];if(!p||p.__c215)continue;p.__c215=1;let c0=p.color;
       Object.defineProperty(p,'color',{get:()=>on()?NEWC[k]:c0,set:v=>{c0=v;},configurable:true,enumerable:true});}}catch{}}
   prof();window.addEventListener('load',prof);
@@ -24,7 +24,7 @@
         const S=dd/mx,V=mx,f=k=>{const kk=(k+hue/60)%6;return V-V*S*Math.max(0,Math.min(kk,4-kk,1));};q[j]=f(5)*255;q[j+1]=f(3)*255;q[j+2]=f(1)*255;}
       x.putImageData(d,0,0);}catch{c=im;}
     C.set(key,c);return c;}
-  const HIT={slash:250,cross:95,impale:85,pillar:255,pillar_cot:255,vortex:258,phoenix:26,blast:26};
+  const HIT={slash:250,cross:120,impale:85,pillar:255,pillar_cot:255,vortex:258,phoenix:26,blast:26};
   window.Fx215={ship,tint,
     lime:(im,key)=>tint(im,'lime:'+key,85),
     hit:(k,im)=>{const n=k.replace(/^hit_/,'');return HIT[n]!=null?tint(im,'hit:'+n,HIT[n]):im;},
