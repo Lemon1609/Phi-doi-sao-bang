@@ -1355,3 +1355,4 @@ Cú pháp chung: `python3 <script> <html> <ải> <bậc '' | S | SS> <phần>`.
 
 - 17:50: CHỐT hướng B biến thể: đổi MÀU GIÁP theo bậc, mỗi chiến cơ / trang bị / hợp thể một dải 6 màu riêng không trùng; màu đèn chính giữ nguyên làm nhận diện. Đã sửa HOI_GPT_GEMINI_V226 (điều kiện không trùng: cùng bậc lệch sắc ≥ 25° hoặc lệch hẳn độ sáng; cấm 285°–20° và vàng kim). Ý Claude: tranh tàu 7 đã vẽ có thể đổi màu giáp bằng mã (quay sắc vùng giáp) để thử nhanh trước khi bắt GPT vẽ lại.
 - 17:51: SỬA CHỐT: đổi CẢ màu giáp LẪN màu đèn theo bậc (mỗi bậc một cặp giáp/đèn, mỗi tàu một dải riêng). Nhận diện chủ yếu bằng dáng. Việc mã sau này: bảng đèn theo (tàu, bậc) cho neon BtFx218, fx215 NEWC, Fighters28 color.
+- 17:53: CHỦ DỰ ÁN MỞ LUẬT MÀU cho thân chiến cơ: được dùng đỏ, hồng, vàng kim, đổi sắc / cầu vồng (kể cả SS). Claude giữ: màu đèn tránh đúng 2 mã đạn địch #FF334F / #F50057. Đạn và hiệu ứng trúng phe ta: chưa đổi luật, chờ chủ dự án quyết.
