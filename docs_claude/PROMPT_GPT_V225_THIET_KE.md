@@ -194,7 +194,7 @@ Hầm hố, đồ sộ, ác mộng. Kim loại sẫm, gai, càng, hàm răng, m�
 
 | Thứ tự | Tàu | Ghi chú riêng |
 |---|---|---|
-| 1 | **7 Đao Phong** | Làm đầu tiên để có mẫu phong cách mới. Giữ dáng và độ rực của tàu 7 V223; thêm khung thép tối ở thân giữa và gốc lưỡi liềm, khớp xoay có piston nối lưỡi liềm vào thân, cụm động cơ đôi lộ turbin, bệ pháo nhỏ trên vai. Lưỡi liềm là phiến thép có lưỡi năng lượng ở mép, không phải khối kính |
+| 1 | **7 Đao Phong** | **Ảnh chủ V225 đã đạt chỉ số** (khung tối 28,8 %, crôm 11,8 %, phát sáng 19,3 %, cỡ 380). Vẽ bản sửa theo 6 điểm ở phụ lục D.1 rồi mới làm 5 bậc, 6 `_bt` theo D.2–D.3 |
 | 2 | **8 Phần Thiên** | Gần chất cơ khí nhất; giữ dáng, chỉnh tỉ lệ màu theo 3A, làm rõ 4 pháo và ống dẫn |
 | 3 | **6 U Linh** | Lông vũ thành phiến thép xếp lớp có khớp xoay; lăng kính ở ngực đặt trong vỏ máy |
 | 4 | **2 Cực Quang** | Tua ngọc thành cần cơ khí có khớp; giữ dáng cánh bướm |
@@ -261,3 +261,58 @@ Tương quan cỡ trong trận so với chiến cơ phe ta: quái thường 1,15
 | 11 Phệ Tinh | Hàm bọ cánh cứng | Lục #66BB6A | Gân phân nhánh như mạch sinh học | Cặp ngàm mở về trước, lộ họng phóng |
 | 12 Nghịch Thời | Đồng hồ cát, kim góc cạnh | Lam cực #00E5FF | Vạch chia độ quanh tâm | Hai nửa khung tách dọc, bốn mũi kim nhô ra |
 | 13 Hoàng Đế | Ấn vuông, kiếm bản rộng | Tím đế #AB47BC | Mạch vuông vức | Vỏ bao kiếm tách hai bên, lưỡi kiếm tím và ấn trắng trồi lên |
+
+
+## Phụ lục D. Góp ý Gemini V225 đã lọc (Claude và chủ dự án dùng làm chuẩn)
+
+### D.1 Sửa ảnh chủ tàu 7 V225 (giữ nguyên dáng, màu, bố cục; chỉ sửa 6 điểm)
+
+1. **Tay đòn nối cánh**: đang cùng tông xám tối với nền trận nên ở cỡ nhỏ lưỡi liềm trông như bay rời. Thêm một gờ crôm sáng và một rãnh LED lam điện #3FD8FF mảnh chạy dọc mỗi thanh giằng.
+2. **Hai nòng pháo cạnh lõi ngực**: kéo nhô mũi nòng lên ngang khớp mũi tàu, mạ vành crôm sáng ở miệng nòng.
+3. **Mũi tàu**: đang trơn như mũi tên đúc liền. Xẻ thành 2 lớp lưỡi dao kim loại kẹp một khe sáng lam điện ở giữa sống mũi.
+4. **Hai họng động cơ đuôi**: đang lộ cả lòng ống như nhìn nghiêng 45°. Thu hẹp elip cho đúng góc nhìn thẳng từ trên xuống.
+5. **Viền lam ở mép ngoài hai lưỡi liềm**: làm mảnh hơn khoảng một nửa, chỉ sáng ở lưỡi cắt; trong trận viền dày trông giống một vòng cung bao quanh tàu.
+6. **Gờ bắt sáng trên giáp tím** cạnh khe tản nhiệt và đuôi cánh: giữ tông lạnh chàm #7C4DFF, không ngả tím hồng.
+
+### D.2 Tiến hóa 6 bậc tàu 7 (cùng thân lõi, lớn dần theo cỡ mục 2.4)
+
+| Bậc | Thêm gì |
+|---|---|
+| thuong | Thân ngắn; mỗi bên 1 lưỡi liềm đơn bản hẹp gắn qua 1 thanh giằng thẳng; 1 họng xả; chưa có ống dẫn crôm ở bụng |
+| luc | Lưỡi liềm dày hơn, có gờ crôm ở sống đao; đuôi tách 2 họng xả tròn nhỏ; 2 khe tản nhiệt ngang ở ngực |
+| lam | Tay đòn thành khung chữ Y có chốt xoay tròn đèn lam #3FD8FF; 2 nòng pháo lộ thiên hai bên lõi |
+| tim | Như ảnh chủ đã sửa: lưỡi liềm lớn có lưỡi cắt plasma lam, ống thủy lực crôm dưới bụng, lõi ngực hình thoi |
+| tim5 | Trên lưng mỗi lưỡi liềm thêm 1 lưỡi đao phụ ngắn xếp lớp (đao kép 2 tầng); 2 chốt tụ điện ở đầu mũi đao |
+| ss | Đao kép tách khe sáng xuyên giữa 2 lớp lưỡi; đầu tay đòn có cặp bánh răng hãm crôm; mũi tàu vươn dài thành đầu đao 3 ngạnh |
+
+### D.3 Bạo Tẩu tàu 7
+
+- **Thân (`_bt`, diện tích 1,25–1,35 lần bản thường)**: khớp tròn trên tay đòn xoay khoảng 15°, đẩy hai lưỡi liềm vươn rộng sang hai bên và nhô mũi đao lên trước; mỗi lưỡi liềm trượt tách thành 2 lớp trong – ngoài, giữa là khe sáng lam điện #3FD8FF. Hai tấm giáp tím ốp lõi ngực trượt xuống khoảng 8 px để lộ buồng lõi, đẩy 2 nòng pháo nhô hẳn lên trước.
+- **Ánh sáng sau lưng (`tau7_fx_sang.png`, làm lại khi tới lượt bộ hiệu ứng)**: 3 cặp lưỡi sáng mảnh hình lưỡi liềm (viền chàm #7C4DFF, lõi lam điện #3FD8FF pha trắng) xòe ra từ sau hai tay đòn, mũi các lưỡi cong hướng lên, song song cánh đao kim loại. **Không khép thành vòng**: để hở phía trước mũi và phía sau đuôi.
+
+### D.4 Ý tưởng cơ khí cho 12 tàu còn lại (dùng khi tới lượt từng tàu; bổ sung cho bảng mục 7 và mục 12.A)
+
+| Tàu | Khung · 3 bộ phận nhận diện | Vũ khí lộ thiên · cơ khí hóa chi tiết mềm |
+|---|---|---|
+| 1 Phượng Hoàng | Khung xương cánh gập chữ Z · 3 tầng phiến cánh xếp ngói · buồng đốt giữa lộ lưới tản nhiệt cam · 2 ống xả đa giác có cánh chỉnh hướng | 2 súng máy nòng đôi dưới nách cánh · lông vũ thành lá thép vát nhọn gắn trục bản lề crôm dọc xương cánh |
+| 2 Cực Quang | Khung chữ H hẹp dọc · cặp thanh ray từ trường dài kẹp khe mũi · 4 cuộn cảm crôm dọc hai ray · lõi tụ quang hình trụ | Lòng máng giữa hai ray là nòng laser · dải sáng mềm thành các đốt khóa ray chữ U bằng thép xếp đều |
+| 3 X-Dực Băng | Khung lục giác 4 nhánh chéo · 4 cụm cánh tản nhiệt vát mặt kim cương · bình nén nitơ crôm hai hông · buồng lạnh lục giác ở tâm | 2 bệ phóng đạn băng ở khớp gập cánh trước · gai băng thành phiến giáp đa diện cắt góc 60° ghép chốt thép |
+| 4 Thần Ma | Khung tam giác ngược dồn về mũi · mũi khoan xoắn 3 rãnh · 2 xi-lanh thủy lực đẩy mũi khoan · cặp cánh hộ vệ vát xuôi ôm sườn | Mũi khoan + 2 pháo axit sát gốc mũi · axit thành ống lõi kính sáng lục #9BE83A trong khung thép |
+| 5 Thự Quang | Khung vòm ngang · đĩa xoay chia độ giữa lưng · 5 cụm nòng dẹt xếp nan quạt · 3 họng phản lực dàn ngang | Đầu mỗi nan là miệng pháo tán xạ · nan quạt thành thanh giá pháo có rãnh trượt nối mâm xoay bánh răng ở tâm |
+| 6 U Linh | Khung thoi mảnh · 6 thanh lăng kính kim loại vuốt về đuôi · vòng gá bán nguyệt giữ các thanh · lõi hội tụ giọt nước vát cạnh | 2 đầu phát laser mảnh hai bên mũi · đuôi lông công thành thanh kiếm quang học bọc crôm nối khớp xoay |
+| 8 Phần Thiên | Khung chữ nhật hạng nặng · vai giáp hộp dày · 4 nòng plasma dài trên vai · 4 cửa xả nhiệt vuông ở đuôi | 4 trọng pháo có rãnh nạp đạn lam #29B6F6 · giáp phẳng bắt ốc, khớp giảm giật lò xo, thanh tản nhiệt thép |
+| 9 Thiên Khung | Khung hai lớp cánh · cánh trong gắn thân, cánh ngoài tách qua thanh chống · 2 đuôi gió dài · buồng lái dọc sống lưng | 2 cụm tên lửa ở khe giữa hai lớp cánh · cánh mềm thành cánh cụp – xòe có bản lề crôm ở gốc |
+| 10 Tinh Hà | Khung tàu sân bay chữ H · 2 boong phóng hình hộp song song · cửa hầm tên lửa nắp gập · đĩa radar lục giác đèn #5BE35B | Đầu tên lửa nhô khỏi giàn phóng ở vai, 2 máy bay con trên ray trượt · vạch đường băng LED #5BE35B, cần cẩu khóa trên boong |
+| 11 Thôn Tinh | Khung bệ ngang hạng nặng · đôi càng kẹp vươn qua mũi · 2 piston thủy lực lớn đẩy càng · lõi hút viền ngọc #00BFA5 | Mép trong càng có răng cưa plasma, họng phóng ở giữa hàm · càng thành kìm công nghiệp ghép tấm thép than có chốt xoay |
+| 12 Thời Không | Trục kim đồng hồ + 4 mô-đun cánh rời · 4 khối cánh hình thoi tách qua khe hở · đầu cực từ trường giữ cánh · lõi cầu bánh răng | 4 mũi kim phóng tia ở 4 khối cánh · "lơ lửng" thành khớp khóa từ tính crôm, giữa có hồ quang #18FFFF mảnh |
+| 13 Hư Không | Khung pháo đài nhiều tầng · 6 trụ gai cơ khí xếp vương miện · lồng ngực tách đôi có gông giữ lõi · rãnh nứt lộ mạch lục #69F0AE | Đầu 6 gai là đầu phát tia + pháo chính ở ngực · vết nứt thành khe trượt giữa các tấm giáp nối cáp thép |
+
+Mỗi tàu vẫn giữ màu ở mục 7 và các luật mục 2. Đèn, hồ quang, khe sáng đều mảnh; không có vòng sáng khép kín quanh tàu.
+
+### D.5 Ba họ tàu địch kiểu cỗ máy nặng (cho phụ lục B; đèn đỏ #FF334F, hồng #F50057)
+
+1. **Máy khai khoáng – nghiền phế liệu**: khối hộp chữ V ngược đồ sộ, giáp gang sẫm trầy xước; phía trước là càng kẹp thủy lực hoặc trục lăn răng cưa đẩy bằng piston crôm lộ thiên; mắt cảm biến tròn đỏ nằm sâu trong hốc thép, khe lò đốt sáng hồng. Không lặp lại dáng càng của boss trong ảnh tham chiếu.
+2. **Pháo đài thủy lực – khiên chắn**: bè ngang như bức tường thép di động; hai tấm khiên khổng lồ hai mạn đóng mở bằng tay đòn chữ X và ống dầu áp lực; khi khiên mở lộ ổ pháo xoay nhiều nòng và lõi lò đỏ – hồng ở bụng.
+3. **Giáp trùng cơ giới nhiều chân**: bọ cạp hoặc nhện máy công nghiệp; lồng xương thép đen quanh khoang lõi; 4–6 chân gấp khúc gắn lưỡi cưa hoặc nòng pháo; đầu có 6–8 mắt kính quang học đỏ, cáp năng lượng hồng chạy dọc khớp chân.
+
+Boss không đặt tên riêng trong tranh.
