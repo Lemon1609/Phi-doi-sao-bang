@@ -1,5 +1,10 @@
 # BÀN GIAO DỰ ÁN PHI ĐỘI SAO BĂNG · V202 (2026-11-08)
 
+### 11/11 09:51 · Ảnh chủ tàu 7 lần 2 (theo V223): ĐẠT số đo, CHỜ chủ dự án duyệt
+- Đo: kim loại 10 %, phát sáng 34,1 %, tông lam lơ 24 / chàm 46 / tím 30; rộng/cao 1,05; cỡ 380 (chuẩn tím 380); lề 60; quầng mờ 20 % → Claude làm sạch còn 6 %. Bản sạch: src/ship118_cho/tau7_tim_anh_chu_V223.png (CHƯA vào game; đã dựng thử tạm rồi trả lại tranh cũ bằng git checkout).
+- Nhận xét gửi GPT: docs_claude/GUI_GPT_V223_DUYET_ANH_CHU_TAU7.md (xuất mép sắc không quầng; giữ 20–30 % crôm; giữ bộ màu).
+- Cách dựng thử một ảnh chủ: chép tạm vào src/ship118/tauN_tim.png và tauN_ss.png, dựng, chụp bằng work/probe/chup226.py (ép bậc SS bằng Workshop.craftGrade), rồi `git checkout -- src/ship118/tauN_*.png`.
+
 ### 11/11 09:41 · Ảnh chủ tàu 7 theo V222 bị chê "đơn sắc quá, không đẹp" → PROMPT_GPT_V223_THIET_KE.md (THAY V222)
 - Đo (alpha > 128; kim loại = bão hòa < 0,18; phát sáng = bão hòa > 0,45 và sáng > 0,85): tranh cũ tau7_tim = kim loại 26 %, phát sáng 20,6 %, ba dải tông (tím 45 / chàm 26 / lam lơ 28); ảnh chủ mới = kim loại 68 %, phát sáng 5,7 %, tím 88 %.
 - NGUYÊN NHÂN: prompt V222 của Claude dặn "60 / 30 / 10, một màu, ít chi tiết". BÀI HỌC: gọn dáng ≠ nghèo màu. Chủ dự án thích màu rực nhiều lớp kiểu tranh cũ.
