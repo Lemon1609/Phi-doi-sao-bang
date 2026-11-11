@@ -1,5 +1,11 @@
 # BÀN GIAO DỰ ÁN PHI ĐỘI SAO BĂNG · V202 (2026-11-08)
 
+### 11/11 07:35 · Chủ dự án góp ý (CHỐT HƯỚNG): bung và tiến hóa theo dáng riêng
+- "Tùy theo hình dạng của từng chiến cơ, trang bị, hợp thể mà bậc tiến hóa sẽ khác. Không cần thiết lên siêu cấp là bung thành chữ X."
+- Nguyên nhân chữ X ở V219: lời dặn GPT của Claude ("bung theo chiều dọc và chéo") quá chung. Đã sửa bộ chuẩn GUI_GPT_V217 (A.6, A.7): kiểu bung theo dáng + kỹ năng từng tàu; 6 bậc một tàu cùng một kiểu; mức bung đo bằng DIỆN TÍCH 1,3–1,8 lần (bỏ tiêu chí bề ngang 15–35 %).
+- Tin gửi GPT: docs_claude/GUI_GPT_V220_BUNG_THEO_DANG_RIENG.md (bảng gợi ý kiểu bung 13 tàu; vẽ lại 5 bản _bt tàu 8 và tau6_tim_bt). Game vẫn là V219 cho đến khi có tranh thay.
+- Khi kiểm tranh _bt về sau: đo diện tích, và so kiểu bung giữa 6 bậc của cùng một tàu.
+
 ### V219 · 11/11 · PHÁT HÀNH: thân Bạo Tẩu bung chéo cho tàu 8 (lục, lam, tím, tím+, SS) và tàu 6 bậc tím
 - Gói GPT "V219_SUA_TAU_6_8" (6 tranh _bt) chép vào src/ship118. Đo (alpha > 128, so với bản thường): ngang +7–14 % như cũ nhưng DỌC +10–22 % và diện tích ×1,60–1,81 (trước ×1,17–1,31) → đạt; lề 12 px. Dáng chữ X, tàu 8 ss_bt đã tách rõ 4 pháo.
 - Mẹo test: muốn chụp một tàu ở bậc SS thì `Workshop.craftGrade=()=>'SS'` trước khi vào trận (form118 trong skin69.js là hàm cục bộ, đè ART118S.form không có tác dụng). Bậc khác phụ thuộc mức tiến hóa e truyền vào Evo53.hull.

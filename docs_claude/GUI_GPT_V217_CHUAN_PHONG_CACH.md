@@ -24,9 +24,11 @@ Chủ dự án nhận xét: tranh hiện **chưa đồng bộ**, có tàu **quá
    - **Không vẽ** lửa, sét, quầng sáng, hạt bụi dính vào tranh thân tàu. Hiệu ứng vẽ thành **mảnh rời** theo mục A.8 để game làm chuyển động.
 6. **Tiến hóa 6 bậc** (`thuong / luc / lam / tim / tim5 / ss`)
    - Cùng một thân lõi. Bậc sau thêm tấm giáp, cánh phụ, họng pháo; lớn dần đúng cỡ ở mục 1. Không đổi màu chủ đạo.
+   - **Mỗi tàu tiến hóa theo dáng riêng của nó** (chủ dự án, 11/11): tàu mũi khoan thì dài và nhọn dần, tàu lông vũ thì thêm lớp lông, tàu pháo hạm thì thêm pháo và giáp vai… Không dùng chung một công thức cho mọi tàu. Trang bị và hợp thể cũng vậy.
 7. **Bản Bạo Tẩu** (`_bt`, mỗi bậc một bản)
    - **Chỉ là thân và cánh bung ra**: cánh mở rộng, tấm giáp tách lớp, họng pháo lộ ra, khe năng lượng sáng hơn.
-   - Thân lõi **cùng cỡ, cùng vị trí** với bản thường cùng bậc. Phần bung rộng hơn bản thường 15–35 %. Lề ≥ 12 px.
+   - **Kiểu bung phải hợp với dáng và kỹ năng của chính tàu đó**; không bắt buộc bung thành chữ X, không dùng chung một kiểu cho nhiều tàu. Sáu bậc của cùng một tàu dùng **cùng một kiểu bung**, bậc cao bung mạnh hơn.
+   - Thân lõi **cùng cỡ, cùng vị trí** với bản thường cùng bậc (dựng trên chính tranh bản thường). Mức bung đo bằng **diện tích: 1,3–1,8 lần bản thường**, theo hướng nào cũng được miễn hợp dáng tàu. Lề ≥ 12 px.
    - Không lửa, không sét, không quầng trong tranh thân (chúng nằm ở bộ hiệu ứng, mục 8).
 8. **Bộ hiệu ứng Bạo Tẩu theo từng tàu** (GPT thiết kế, game làm chuyển động)
    - Bạo Tẩu vẫn có **lửa, sét, ánh sáng**. GPT thiết kế chúng **riêng cho từng chiến cơ**, hợp với chất và màu của tàu đó (plasma, băng, lửa thép, axit, hư không…). Game ghép các mảnh vào tàu và cho chúng chuyển động: luân phiên dáng, lắc, co giãn, chớp tắt, bật xòe.
