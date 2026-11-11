@@ -104,6 +104,22 @@ Phép thử nhanh cho mỗi ảnh chủ: thu ảnh về 100 px, che phần đèn
 6. **Hai phe**: phe ta sạch, chính xác, rực đèn; phe địch thô, trầy, nặng.
 7. **Màu theo bậc**: màu giáp phải **trong, rực, sang** (bão hòa và sáng vừa đủ, như sơn kim loại bóng), không đục kiểu nâu bùn, rêu, đỏ đô xỉn. Màu đèn LED đổi theo bậc, tương phản rõ với giáp.
 
+## 3D. Cánh ánh sáng + thân công nghệ cao (chủ dự án 18:24, bổ sung 3C)
+
+Cảm hứng **cảm giác** từ chiếc "Lôi Thần" của tựa game gốc: cánh quạt bằng ánh sáng xòe sau thân, thân tối bóng có mạch neon và vòng phản ứng tròn sáng. Không chép dáng, màu, chi tiết của nó; mỗi tàu một dáng cánh riêng theo dáng tàu.
+
+**Hai lớp tách rời:**
+
+1. **Thân tàu (tranh thường `tauN_<bậc>.png`)** – cỗ máy công nghệ cao:
+   - Giáp tối bóng (thép súng / đen bóng / màu sơn theo bậc phủ bóng) với **mạch neon mảnh** chạy theo cạnh tấm như bo mạch phát sáng.
+   - **Vòng phản ứng tròn** sáng ở khớp vai, gốc cánh, động cơ (vành kim loại + lá turbin + vòng neon).
+   - Bộ phát cánh (pylon / bệ chiếu) bằng kim loại có khe sáng: đây là nơi cánh ánh sáng mọc ra.
+   - Giữ chất cơ khí: khớp, trục, nòng pháo, đĩa động cơ lộ rõ.
+2. **Cánh ánh sáng (tệp hiệu ứng riêng, game vẽ và làm chuyển động)**:
+   - Một quạt lưỡi ánh sáng mọc từ bộ phát cánh, trong mờ, sáng rực ở gốc và sống lưỡi, mờ dần ra mép và đầu lưỡi đến trong suốt.
+   - Vẽ **trắng / xám sáng** (không màu): game tô màu theo màu đèn của bậc, tự lật đối xứng sang trái, và cho xòe – thu, nhấp nháy, gợn sáng. Bậc thường quạt nhỏ, ít lưỡi; Bạo Tẩu xòe rộng nhất.
+   - Không viền đen, không nền; không khép thành vòng tròn quanh tàu.
+
 ## 4. Tiến hóa 6 bậc: mỗi tàu lớn lên theo cách riêng
 
 `thuong → luc → lam → tim → tim5 → ss`. Cùng một thân lõi, cùng màu. Mỗi tàu có **một cách lớn dần riêng** (bảng mục 7): tàu mũi khoan thì mũi dài và nhọn dần, tàu lông vũ thì thêm lớp lông, pháo hạm thì thêm pháo. Không dùng chung một công thức. Bậc sau phải nhìn ra là mạnh hơn bậc trước nhưng **không phình to** (cỡ theo mục 2.4).
