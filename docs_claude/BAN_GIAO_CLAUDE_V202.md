@@ -1,5 +1,12 @@
 # BÀN GIAO DỰ ÁN PHI ĐỘI SAO BĂNG · V202 (2026-11-08)
 
+### 11/11 09:41 · Ảnh chủ tàu 7 theo V222 bị chê "đơn sắc quá, không đẹp" → PROMPT_GPT_V223_THIET_KE.md (THAY V222)
+- Đo (alpha > 128; kim loại = bão hòa < 0,18; phát sáng = bão hòa > 0,45 và sáng > 0,85): tranh cũ tau7_tim = kim loại 26 %, phát sáng 20,6 %, ba dải tông (tím 45 / chàm 26 / lam lơ 28); ảnh chủ mới = kim loại 68 %, phát sáng 5,7 %, tím 88 %.
+- NGUYÊN NHÂN: prompt V222 của Claude dặn "60 / 30 / 10, một màu, ít chi tiết". BÀI HỌC: gọn dáng ≠ nghèo màu. Chủ dự án thích màu rực nhiều lớp kiểu tranh cũ.
+- V223 đổi: crôm ≤ 40 % và phải phản chiếu màu; giáp chuyển sắc hai tông ~35 %; phát sáng ≥ 20 %; mỗi tàu một CẶP màu năng lượng (chính + phụ, bảng mục 7); mép cánh là dải năng lượng 6–12 px; buồng lái / lõi là kính phát sáng; phép thử "rực ngang tranh tàu 7 tím cũ". Dáng sạch của ảnh chủ mới được giữ.
+- Thử tô lại bằng mã (ramp crôm lam + tím → lam lơ + quầng LED): chỉ ra một tông lam, không cứu được → không gửi; phải để GPT vẽ lại. Tệp thử: work/tau7_moi/.
+- Khi kiểm ảnh chủ về sau: chạy đúng phép đo trên (kim loại %, phát sáng %, phân bố tông) trước khi cho GPT nhân ra 5 bậc.
+
 ### 11/11 09:35 · Chủ dự án CHỐT: vẽ lại cả bộ tàu 7 theo prompt V222
 - Lý do: 6 bậc tàu 7 chưa cùng họ (lục lẫn xanh lá, lam thêm cụm động cơ, tím+ khép vòng kín). Tàu 7 KHÔNG còn là "tàu mẫu chuẩn" như ghi ở bàn giao V214; mẫu hiện nay là thân tàu 8, tàu 6 (bản thường) và bộ mảnh tàu 9, 10, 7.
 - PROMPT_GPT_V222 mục 12.1 đã đổi: ảnh chủ tau7_tim → 5 bậc → 6 _bt. Khi tranh về: thay cả 12 tệp tau7_* trong src/ship118 (KHÔNG dùng src/ship118_goc_sach nữa, thư mục đó chỉ còn là tham chiếu đã gửi GPT).

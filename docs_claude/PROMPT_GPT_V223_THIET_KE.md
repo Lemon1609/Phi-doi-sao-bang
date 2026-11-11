@@ -1,6 +1,8 @@
-# PROMPT THIẾT KẾ CHO GPT · PHI ĐỘI SAO BĂNG · V222
+# PROMPT THIẾT KẾ CHO GPT · PHI ĐỘI SAO BĂNG · V223
 
-Dán nguyên văn tài liệu này cho GPT. Nó thay thế mọi tài liệu chuẩn trước (kể cả V221). Bản này đã gộp góp ý của Gemini (giám đốc mỹ thuật) và các quyết định của chủ dự án.
+Dán nguyên văn tài liệu này cho GPT. Nó thay thế mọi tài liệu chuẩn trước (kể cả V222). Bản này đã gộp góp ý của Gemini (giám đốc mỹ thuật) và các quyết định của chủ dự án.
+
+> **Thay đổi lớn so với V222 (đọc trước):** ảnh chủ tàu 7 vẽ theo V222 bị chủ dự án chê **"đơn sắc quá, không đẹp"**. Đo lại thì đúng: 68 % diện tích là kim loại xám, chỉ 5,7 % phát sáng, gần như một tông tím. Trong khi tranh tàu 7 cũ (được ưa hơn về màu) có 26 % kim loại, 20,6 % phát sáng và ba dải màu tím – chàm – lam lơ. Lỗi do V222 dặn "60 % kim loại, một màu, ít chi tiết". **V223 bỏ quy tắc đó.** Mục tiêu mới: **dáng sạch và gọn như ảnh chủ mới + màu rực, sâu, nhiều lớp như tranh cũ.**
 
 ---
 
@@ -10,15 +12,15 @@ Bạn là họa sĩ chính của game bắn máy bay dọc màn hình **Phi Đ�
 
 ## 1. Hướng mỹ thuật: "neon khoa học viễn tưởng"
 
-Một chiến cơ tương lai nhìn từ trên xuống, bay trong vũ trụ tối: thân kim loại cứng, sắc cạnh, sạch; trên thân có những **rãnh đèn LED phát sáng** như ống neon. Khi vào trạng thái mạnh nhất (Bạo Tẩu), các rãnh đèn bừng sáng, thân mở ra; lửa và sét cũng là **nét neon mảnh**, không phải mảng màu đặc.
+Một chiến cơ tương lai nhìn từ trên xuống, bay trong vũ trụ tối: thân crôm sắc cạnh, giáp màu rực, **mép cánh và rãnh đèn phát sáng** như ống neon. Khi vào trạng thái mạnh nhất (Bạo Tẩu), các rãnh đèn bừng sáng, thân mở ra; lửa và sét cũng là **nét neon mảnh**, không phải mảng màu đặc.
 
 | | Phe ta (chiến cơ, trang bị, hợp thể) | Phe địch (quái, tinh anh, boss) |
 |---|---|---|
 | Ba chữ | **Gọn · sắc · phát sáng** | **Hầm hố · đồ sộ · ác mộng** |
 | Cỡ | Vừa phải, không quá to, kể cả lúc Bạo Tẩu | To và nặng hơn hẳn phe ta |
 | Hình khối | Thanh, nhọn, khí động, đối xứng, ít chi tiết | Khối lớn gồ ghề: giáp dày, gai, càng, hàm, sinh – cơ ghép |
-| Kim loại | **Sáng**: bạc, titan, thép lạnh | **Sẫm**: than, thép gỉ, tím đen, xù xì |
-| Đèn | Một màu đèn riêng cho mỗi tàu | Đỏ #FF334F và hồng #F50057 (chỉ phe địch được dùng) |
+| Kim loại | **Crôm sáng**, phản chiếu màu năng lượng | **Sẫm**: than, thép gỉ, tím đen, xù xì |
+| Màu | Rực, nhiều lớp; mỗi tàu một cặp màu năng lượng riêng | Đỏ #FF334F và hồng #F50057 (chỉ phe địch được dùng) |
 
 Tô đen toàn bộ vẫn phải phân biệt được hai phe, và phân biệt được từng tàu phe ta với nhau.
 
@@ -32,20 +34,27 @@ Tựa game gốc mà chủ dự án đưa ảnh chỉ là tham khảo về **c�
 2. Tranh thân: nhìn thẳng từ trên xuống, mũi hướng lên, đối xứng trái – phải, tâm thân trùng tâm ảnh.
 3. **Tỉ lệ thân** (không tính lửa động cơ): rộng / cao từ **0,85 đến 1,25**.
 4. **Cỡ thân theo bậc**, tính bằng căn(rộng × cao): thường 345 · lục 355 · lam 368 · tím 380 · tím+ 392 · SS 405 px. Không chiều nào vượt 456 px, để lề trống mỗi phía ≥ 28 px.
-5. **Màu 60 / 30 / 10**:
-   - 60 % **kim loại sáng** ba sắc độ: khe tối #2B3440 · mặt phẳng chính #8D9BAD · cạnh vát bắt sáng #E3EAF2. Không xám bệt, không bóng loáng như gương. (Tàu 11 và 13 có thân sẫm hơn theo bảng mục 7, nhưng cạnh vát vẫn phải bắt sáng và không tối bằng tàu địch.)
-   - 30 % màu chủ đạo của tàu · 10 % đèn. Mỗi tàu một màu chủ đạo, một màu đèn.
+5. **Màu: rực và nhiều lớp, không đơn sắc.** Tính trên diện tích thân:
+   - **Kim loại crôm sáng: không quá 40 %.** Crôm phải **phản chiếu màu năng lượng của tàu** (vệt ánh tím, lam trên mặt kim loại), chuyển sắc từ trắng ở cạnh bắt sáng xuống lam than ở khe tối. Cấm xám bệt một màu.
+   - **Giáp sơn màu chủ đạo: khoảng 35 %**, tô **chuyển sắc hai tông** (đậm ở gốc, sáng ở mép), không tô phẳng.
+   - **Phần phát sáng: ít nhất 20 %**, gồm mép năng lượng của cánh, rãnh LED, buồng lái kính, lõi, họng động cơ.
+   - Mỗi tàu có **một cặp màu năng lượng** (bảng mục 7): màu đèn chính và màu đèn phụ. Phần phát sáng chuyển sắc giữa hai màu này. Không dùng màu thứ ba.
+   - (Tàu 11 và 13 có giáp sẫm hơn theo bảng, nhưng vẫn phải đạt tỉ lệ phát sáng và không tối bằng tàu địch.)
 6. **Cấm với phe ta**: đỏ #FF334F, hồng #F50057, vàng kim, cầu vồng, chữ, logo, số.
 7. **Không vẽ dính vào tranh thân**: lửa bao quanh, sét, quầng sáng, hạt bụi, vòng tròn. Chỉ được có lửa động cơ ngắn (≤ 40 px) màu lam – trắng ở họng đốt.
 8. Một nguồn sáng từ góc trên – trái của khung ảnh cho mọi tranh, cả hai phe. Không viền đen dày kiểu hoạt hình.
 
 ## 3. Cách vẽ thân phe ta cho đẹp
 
-- **Ba khối, đọc được ở cỡ 100 px**: thân giữa, cánh, cụm động cơ. Bỏ mọi chi tiết không nhìn thấy khi thu nhỏ còn 100 px.
-- **Tấm giáp lớn, ít mà rõ**: mỗi cánh 2–3 tấm, cạnh vát bắt sáng. Không rải đường kẻ vụn.
+- **Ba khối, đọc được ở cỡ 100 px**: thân giữa, cánh, cụm động cơ.
+- **Ba chất liệu rõ ràng trên mỗi tàu**: crôm phản chiếu · giáp sơn chuyển sắc · kính / năng lượng phát sáng. Chính sự đối lập ba chất liệu làm tàu đẹp.
+- **Mép cánh là dải năng lượng**: dọc mép trước (hoặc lưỡi cắt) của mỗi cánh có một dải sáng rộng 6–12 px, chuyển sắc từ màu đèn chính sang màu đèn phụ, lõi gần trắng. Không chỉ là một sợi chỉ mảnh.
+- **Buồng lái và lõi là kính phát sáng**, có chuyển sắc và một điểm phản quang trắng.
+- **Tấm giáp nhiều lớp, có chiều sâu**: mỗi cánh 2–3 lớp tấm chồng nhau, bóng đổ giữa các lớp, khớp nối và khe thông gió ở các điểm giao. Chi tiết dồn vào quanh lõi và khớp; mặt lớn để thoáng.
+- **Hai họng động cơ** phun lửa lam – trắng ngắn, sáng.
 - **Rãnh đèn LED là linh hồn của tàu.** Vẽ 3–6 rãnh LED rộng 3–5 px, **liền nét**: chính giữa là lõi trắng #FFFFFF rộng 1 px, hai bên là viền màu đèn bão hòa tối đa, cả rãnh nằm lọt trong một khe giáp tối để nổi bật. Đặt dọc mép cánh, sống lưng và quanh lõi. Game sẽ tự làm các rãnh này bừng sáng và thêm viền neon khi Bạo Tẩu, nên chúng phải rõ và sạch.
-- **Một điểm nhấn duy nhất**: lõi năng lượng hoặc buồng lái phát sáng ở giữa.
-- Bóng đổ nhẹ giữa các lớp tấm để tạo chiều sâu. Tương phản cao: mặt kim loại sáng cạnh khe tối.
+- Tương phản cao: mặt crôm sáng cạnh khe tối, vùng phát sáng cạnh giáp đậm màu. Thêm một viền sáng mảnh màu đèn ở phía khuất sáng của thân.
+- **Phép thử**: đặt cạnh tranh tàu 7 bậc tím cũ (tệp `tau7_tim.png` trong gói đã gửi), ảnh mới phải **rực và sâu màu ngang hoặc hơn**, đồng thời sạch và gọn hơn.
 
 ## 4. Tiến hóa 6 bậc: mỗi tàu lớn lên theo cách riêng
 
@@ -80,21 +89,21 @@ Game ghép các mảnh này vào tàu và làm chúng chuyển động. Mỗi t�
 
 ## 7. Bảng 13 chiến cơ
 
-| Tàu · kỹ năng | Dáng | Màu chủ đạo → màu đèn | Lớn dần qua 6 bậc | Kiểu mở khi Bạo Tẩu | Lửa · sét | Ánh sáng sau lưng |
+| Tàu · kỹ năng | Dáng | Màu giáp → cặp màu năng lượng (chính + phụ) | Lớn dần qua 6 bậc | Kiểu mở khi Bạo Tẩu | Lửa · sét | Ánh sáng sau lưng |
 |---|---|---|---|---|---|---|
-| 1 Phượng Hoàng · Thiêu Đốt | Chim ưng | Cam lửa #E65100 → cam #FF9A3D | Thêm tầng lông cánh | Cánh ưng xòe ngang, lông đuôi tỏa về sau | Lửa vát nhọn · tia lửa điện ngắn | Đôi cánh ưng ba tầng |
-| 2 Cực Quang · Laser | Thon, hai ray | Ngọc lục → #3DE0A0 | Ray dài, nhiều đoạn hơn | Hai thanh ray trượt ra trước, song song | Plasma thẳng như kim · sét thẳng dọc nòng | Hai thanh quang học song song |
-| 3 X-Dực Băng · Đóng Băng | Tinh thể (tàu duy nhất vốn có dáng cánh chéo) | Lam băng #0288D1 → #67D7FF | Thêm cụm gai băng | Gai băng mọc dài thêm ở đầu cánh | Sương băng đa diện · sét gãy vuông như vết nứt | Cụm gai băng chĩa chéo xuống |
-| 4 Thần Ma · Xuyên Thấu | Mũi khoan | Lục axit #689F38 → #9BE83A | Mũi dài, nhọn dần | Mũi khoan vươn về trước, lưỡi phụ dựng sát thân | Lửa axit răng cưa · hồ quang ngắn ôm mũi | Mũi giáo tam giác ngược |
-| 5 Thự Quang · Tán Xạ | Rẻ quạt | Lam nhạt #4FC3F7 → xanh lơ #00E5FF | 2 → 3 → 5 nan | Nan quạt xòe ngang | Xung hạt ngắt quãng · chùm tia mảnh tản ngang | Rẻ quạt năm nan |
-| 6 U Linh · Laser | Lông vũ | Tím oải hương #7E57C2 → #B9A6FF | Thêm lớp lông, lông dài dần | Lông xòe xuống và ra sau như đuôi công | Lửa lăng kính phẳng · lưới điện đối xứng | Lớp lông vũ sáng |
-| 7 Đao Phong · Trảm Kích | Lưỡi liềm | Tím sẫm #512DA8 → chàm #7C4DFF | Lưỡi dài, thêm lưỡi phụ | Hai lưỡi liềm bật rộng ra hai bên | Lửa lưỡi liềm · chớp phân nhánh | Hai lưỡi liềm sáng ôm hai bên thân |
-| 8 Phần Thiên · Thiêu Đốt | Pháo hạm | Cam thép #D84315 → lam plasma #29B6F6 | 2 → 4 pháo, giáp vai dày dần | Pháo trượt lên trước, giáp vai mở ngang, tản nhiệt bật ra sau | Lửa thép lõi lam · hồ quang đôi nối hai pháo | Khung phản lực chữ V ngược |
-| 9 Thiên Khung · Song Vũ | Cánh đôi | Bạc #CFD8DC – lam → lam biển #2979FF | Phân cánh lớn, xa dần | Tách hai phân cánh sang hai bên | Dải lụa mềm · sét xoắn kép | Đôi cánh nhạn vuốt về sau |
-| 10 Tinh Hà · Quân Đoàn | Tàu mẹ khung chữ H | Thép lục quân #3B4D3B → **lục radar #5BE35B** (chủ dự án chốt: giữ lục, không dùng lam; xanh lá thuần để khác lục axit của tàu 4 và ngọc lục của tàu 2) | Thêm khoang, thêm đội hình | Mở khoang, tên lửa và máy bay con tách quanh thân | Vòi phản lực vuông vức · sét mạch điện bẻ góc 90° | Khung chiến thuật chữ H |
-| 11 Thôn Tinh | Càng cua | Thép than #2C3A40 → ngọc thẫm #00BFA5 | Càng dày, dài dần | Hai càng cong khép vào trong | Lửa hút vào tâm · sét cong hướng nội | Hai cánh cung khuyết |
-| 12 Thời Không | Mảnh ghép rời | Trắng titan #DCE4EC → cực quang #18FFFF | Thêm mảnh | Các mảnh thân tách rời, lệch nhau quanh lõi | Lửa đứt đoạn như lưu ảnh · sét nhịp xung | Bốn mũi kim lệch góc |
-| 13 Hư Không | Vương miện | Xám tím than #3A3650 → tím #B388FF | Thêm gai, khe nứt rộng dần | Gai vương miện mở lên trước, thân nứt hở lõi | Vết rách tối viền sáng lạnh · sét song hành | Sáu gai vương miện hở xòe lên |
+| 1 Phượng Hoàng · Thiêu Đốt | Chim ưng | Cam lửa #E65100 → cam #FF9A3D + lam lửa #5CC8FF | Thêm tầng lông cánh | Cánh ưng xòe ngang, lông đuôi tỏa về sau | Lửa vát nhọn · tia lửa điện ngắn | Đôi cánh ưng ba tầng |
+| 2 Cực Quang · Laser | Thon, hai ray | Ngọc lục #00897B → ngọc #3DE0A0 + xanh lơ #5FE8FF | Ray dài, nhiều đoạn hơn | Hai thanh ray trượt ra trước, song song | Plasma thẳng như kim · sét thẳng dọc nòng | Hai thanh quang học song song |
+| 3 X-Dực Băng · Đóng Băng | Tinh thể (tàu duy nhất vốn có dáng cánh chéo) | Lam băng #0288D1 → lam băng #67D7FF + trắng tím #C9D6FF | Thêm cụm gai băng | Gai băng mọc dài thêm ở đầu cánh | Sương băng đa diện · sét gãy vuông như vết nứt | Cụm gai băng chĩa chéo xuống |
+| 4 Thần Ma · Xuyên Thấu | Mũi khoan | Lục axit #689F38 → lục axit #9BE83A + vàng chanh #E6FF6B | Mũi dài, nhọn dần | Mũi khoan vươn về trước, lưỡi phụ dựng sát thân | Lửa axit răng cưa · hồ quang ngắn ôm mũi | Mũi giáo tam giác ngược |
+| 5 Thự Quang · Tán Xạ | Rẻ quạt | Lam nhạt #4FC3F7 → xanh lơ #00E5FF + lam #4F8BFF | 2 → 3 → 5 nan | Nan quạt xòe ngang | Xung hạt ngắt quãng · chùm tia mảnh tản ngang | Rẻ quạt năm nan |
+| 6 U Linh · Laser | Lông vũ | Tím oải hương #7E57C2 → tím phấn #B9A6FF + lam nhạt #9FD8FF | Thêm lớp lông, lông dài dần | Lông xòe xuống và ra sau như đuôi công | Lửa lăng kính phẳng · lưới điện đối xứng | Lớp lông vũ sáng |
+| 7 Đao Phong · Trảm Kích | Lưỡi liềm | Tím sẫm #512DA8 → chàm #7C4DFF + lam điện #3FD8FF | Lưỡi dài, thêm lưỡi phụ | Hai lưỡi liềm bật rộng ra hai bên | Lửa lưỡi liềm · chớp phân nhánh | Hai lưỡi liềm sáng ôm hai bên thân |
+| 8 Phần Thiên · Thiêu Đốt | Pháo hạm | Cam thép #D84315 → lam plasma #29B6F6 + cam nhiệt #FF9A3D | 2 → 4 pháo, giáp vai dày dần | Pháo trượt lên trước, giáp vai mở ngang, tản nhiệt bật ra sau | Lửa thép lõi lam · hồ quang đôi nối hai pháo | Khung phản lực chữ V ngược |
+| 9 Thiên Khung · Song Vũ | Cánh đôi | Bạc #CFD8DC – lam → lam biển #2979FF + xanh lơ #6FE3FF | Phân cánh lớn, xa dần | Tách hai phân cánh sang hai bên | Dải lụa mềm · sét xoắn kép | Đôi cánh nhạn vuốt về sau |
+| 10 Tinh Hà · Quân Đoàn | Tàu mẹ khung chữ H | Thép lục quân #3B4D3B → **lục radar #5BE35B** + lam radar #45D2FF (chủ dự án chốt: đèn chính là lục, không phải lam) | Thêm khoang, thêm đội hình | Mở khoang, tên lửa và máy bay con tách quanh thân | Vòi phản lực vuông vức · sét mạch điện bẻ góc 90° | Khung chiến thuật chữ H |
+| 11 Thôn Tinh | Càng cua | Thép than #2C3A40 → ngọc thẫm #00BFA5 + tím #9C7BFF | Càng dày, dài dần | Hai càng cong khép vào trong | Lửa hút vào tâm · sét cong hướng nội | Hai cánh cung khuyết |
+| 12 Thời Không | Mảnh ghép rời | Trắng titan #DCE4EC → cực quang #18FFFF + tím nhạt #C7B8FF | Thêm mảnh | Các mảnh thân tách rời, lệch nhau quanh lõi | Lửa đứt đoạn như lưu ảnh · sét nhịp xung | Bốn mũi kim lệch góc |
+| 13 Hư Không | Vương miện | Xám tím than #3A3650 → tím #B388FF + lục nhạt #69F0AE | Thêm gai, khe nứt rộng dần | Gai vương miện mở lên trước, thân nứt hở lõi | Vết rách tối viền sáng lạnh · sét song hành | Sáu gai vương miện hở xòe lên |
 
 Được đề xuất khác nếu hợp dáng tàu hơn, miễn giữ ba nguyên tắc: riêng từng tàu, gọn, neon.
 
@@ -126,7 +135,9 @@ Hầm hố, đồ sộ, ác mộng. Kim loại sẫm, gai, càng, hàm răng, m�
 
 - [ ] Thu ảnh còn 100 px vẫn đọc được ba khối và nhận ra là tàu nào.
 - [ ] Rộng / cao trong 0,85–1,25; đúng cỡ theo bậc; không chiều nào quá 456 px.
-- [ ] Kim loại sáng ba sắc độ; có 3–6 rãnh LED liền nét, lõi trắng, đúng màu đèn.
+- [ ] **Không đơn sắc**: crôm ≤ 40 %, phần phát sáng ≥ 20 %, thấy rõ cả hai màu năng lượng; crôm có ánh phản chiếu màu, giáp tô chuyển sắc.
+- [ ] Mép cánh có dải năng lượng 6–12 px; có 3–6 rãnh LED liền nét lõi trắng; buồng lái và lõi là kính phát sáng.
+- [ ] Đặt cạnh tranh tàu 7 bậc tím cũ: rực và sâu màu ngang hoặc hơn.
 - [ ] Không đỏ, hồng, vàng kim, cầu vồng; không lửa sét dính vào thân.
 - [ ] Bản `_bt` trùng thân lõi với bản thường, mở 1,2–1,4 lần, cùng kiểu mở với các bậc khác của tàu đó, không phải chữ X.
 - [ ] Mảnh hiệu ứng: đúng khổ, nền đen đặc, gốc lửa và hai đầu sét đúng tọa độ, tâm ánh sáng sau lưng để trống, dải hạt không có vạch chia ô.
@@ -135,8 +146,8 @@ Hầm hố, đồ sộ, ác mộng. Kim loại sẫm, gai, càng, hàm răng, m�
 ## 12. Việc đợt này (theo thứ tự)
 
 1. **Tàu 7 Đao Phong: vẽ lại cả bộ** (chủ dự án chốt 11/11). Sáu bậc hiện tại chưa cùng một họ: bậc lục lẫn viền xanh lá, bậc lam thêm hai cụm động cơ lạ, bậc tím+ khép thành vòng tròn kín.
-   - Bước 1: **ảnh chủ `tau7_tim.png`** theo lời tả ở phụ lục A. Dùng tệp `tau7_tim.png` trong gói `TAU7_BAN_THUONG_SACH_6_PNG.zip` làm tham chiếu dáng và cỡ (đã sạch quầng, đúng cỡ chuẩn). Gửi duyệt trước khi làm tiếp.
-   - Bước 2: sửa trên ảnh chủ ra 5 bậc còn lại. Cách lớn dần: lưỡi liềm dài dần và thêm lưỡi phụ; **chỉ dùng tím và chàm**, không xanh lá; hai lưỡi liềm **không bao giờ khép thành vòng kín**.
+   - Bước 1: **vẽ lại ảnh chủ `tau7_tim.png`.** Bản vừa gửi có dáng tốt (sạch, gọn, hai lưỡi liềm rõ) nhưng đơn sắc. Giữ dáng đó, tô lại theo mục 2.5 và mục 3: lưỡi cắt của hai lưỡi liềm là dải năng lượng chàm #7C4DFF chuyển sang lam điện #3FD8FF; buồng lái kính lam; crôm có ánh tím – lam; giáp tím chuyển sắc; hai họng lửa lam. Lấy `tau7_tim.png` trong gói `TAU7_BAN_THUONG_SACH_6_PNG.zip` làm **chuẩn về độ rực và chiều sâu màu**. Gửi duyệt trước khi làm tiếp.
+   - Bước 2: sửa trên ảnh chủ ra 5 bậc còn lại. Cách lớn dần: lưỡi liềm dài dần và thêm lưỡi phụ; chỉ dùng tím, chàm và lam điện, **không xanh lá**; hai lưỡi liềm **không bao giờ khép thành vòng kín**.
    - Bước 3: 6 bản `_bt` dựng trên bản thường cùng bậc, kiểu mở: hai lưỡi liềm bật rộng ra hai bên, mở 1,2–1,4 lần.
    - `tau7_fx_sang.png` (hai lưỡi liềm hở, nền đen) **đã nhận và đạt**.
 2. **Tàu 8**: 5 bản `_bt` (lục, lam, tím, tím+, SS) theo kiểu pháo hạm, mở vừa phải, bậc cao rõ 4 pháo.
@@ -151,7 +162,7 @@ Nếu chạm hạn mức tạo ảnh, gửi từng phần theo đúng thứ tự
 
 ## Phụ lục A. Lời tả ảnh chủ (bản thường, bậc tím) của 13 chiến cơ
 
-Mỗi đoạn dùng làm lời tả cho một ảnh. Nền kim loại là bộ ba sắc độ sáng ở mục 2.5.
+Mỗi đoạn dùng làm lời tả cho một ảnh. Mọi tàu đều áp mục 2.5 và mục 3: crôm phản chiếu màu, giáp chuyển sắc, mép cánh là dải năng lượng chuyển giữa hai màu của cặp màu năng lượng (bảng mục 7), buồng lái và lõi là kính phát sáng. Các rãnh LED nêu dưới đây là phần thêm vào, không phải toàn bộ phần phát sáng.
 
 1. **Phượng Hoàng.** Chim ưng săn mồi góc cạnh, sải cánh vát xuôi thành hình mũi tên. Thân giữa thuôn nhọn như mỏ ưng; mỗi cánh ba lớp tấm giáp cam lửa #E65100 xếp bậc thang; hai ống xả đa giác sát đuôi. Bốn rãnh LED cam #FF9A3D chạy dọc mép trước của ba tầng lông cánh rồi hội tụ về sống lưng. Lõi hình thoi phát sáng cam giữa ngực. Khác biệt: ba tầng cánh như lông vũ kim loại vát nhọn.
 2. **Cực Quang.** Chiến cơ bắn tỉa như một khẩu pháo điện từ bay, thon nhưng vẫn giữ rộng / cao ≥ 0,85 nhờ hai cánh phụ. Thân trung tâm lùi về sau; cặp thanh ray từ trường dài vươn thẳng lên trước, kẹp một khe hở dọc ở mũi; hai cánh phụ gọn. Hai rãnh LED ngọc lục #3DE0A0 chạy song song suốt lòng máng hai thanh ray. Buồng tụ quang hình trụ pha lê ở giữa thân. Khác biệt: khe hở dọc ở mũi giữa hai ray.
