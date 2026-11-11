@@ -1,5 +1,11 @@
 # BÀN GIAO DỰ ÁN PHI ĐỘI SAO BĂNG · V202 (2026-11-08)
 
+### V219 · 11/11 · PHÁT HÀNH: thân Bạo Tẩu bung chéo cho tàu 8 (lục, lam, tím, tím+, SS) và tàu 6 bậc tím
+- Gói GPT "V219_SUA_TAU_6_8" (6 tranh _bt) chép vào src/ship118. Đo (alpha > 128, so với bản thường): ngang +7–14 % như cũ nhưng DỌC +10–22 % và diện tích ×1,60–1,81 (trước ×1,17–1,31) → đạt; lề 12 px. Dáng chữ X, tàu 8 ss_bt đã tách rõ 4 pháo.
+- Mẹo test: muốn chụp một tàu ở bậc SS thì `Workshop.craftGrade=()=>'SS'` trước khi vào trận (form118 trong skin69.js là hàm cục bộ, đè ART118S.form không có tác dụng). Bậc khác phụ thuộc mức tiến hóa e truyền vào Evo53.hull.
+- Test (chạy lần lượt): t156 14/14; t209 20/20; t204 8/8; t207 8/8; t206 7/7. Web: artifact 9gvh… bản 8.
+- Còn chờ GPT: 88 mảnh hiệu ứng cho 11 tàu còn lại (yêu cầu ở GUI_GPT_V219_KET_QUA_DOT_2.md mục 3).
+
 ### V218 · 10/11 (22:xx) · PHÁT HÀNH: tàu 8, 6 dáng mới · tàu 4 thuong / lam · đạn tàu 8, 10 · Bạo Tẩu mảnh rời cho tàu 9, 10
 - Gói GPT "V218_DOT_2_BAN_THU" (25 tranh thân + 16 mảnh hiệu ứng) đã chép đè lên tranh đợt 1 trong src/ship118 và src/btfx218. Số đo: work/tranh219/do.py; nhận xét + việc đợt 3: docs_claude/GUI_GPT_V219_KET_QUA_DOT_2.md.
 - Đạt: tàu 8 rộng/cao 1,01–1,17; tàu 6 0,86–1,04; tàu 4 _bt bung +26 / +21 %; bộ hiệu ứng tàu 9 (lam biển 215°) và tàu 10 (lục 90°) khác nhau rõ, sét dao động 120 px. Còn tồn: tàu 8 _bt bung +7–14 % ở 5 bậc, ss_bt pháo chồng; tàu 6 tim_bt +10 %.
