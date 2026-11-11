@@ -5,6 +5,8 @@ Dán nguyên văn tài liệu này cho GPT. Nó thay thế mọi tài liệu chu
 > **Tình hình (đọc trước):** bộ 12 tranh **tàu 7** vẽ theo V223 đã đạt và được chủ dự án khen đẹp. Chủ dự án chốt: **vẽ lại lần lượt các chiến cơ còn lại theo đúng cách của tàu 7.** Tàu 7 là **mẫu phong cách**: dáng sạch và gọn, màu rực nhiều lớp, mép cánh là dải năng lượng, kính phát sáng, sáu bậc cùng một họ, bản Bạo Tẩu dựng trên bản thường. Bài học trước đó vẫn giữ: bản vẽ "60 % kim loại, một màu" bị chê đơn sắc.
 
 > **Bổ sung V225 · CHẤT CƠ KHÍ (chủ dự án, 11/11):** các tranh mới đẹp màu nhưng **"chưa đem lại cảm giác máy móc, cơ khí"**. Đo lại: khung kim loại tối chỉ 3–6 % (tàu 6, tàu 7), giáp sơn màu chiếm 50–59 %, nên trông như kính và năng lượng. Tranh tàu 8 (khung tối 21 %, ống dẫn, nòng pháo lộ) là tàu gần chất cơ khí nhất. **Từ nay mỗi chiến cơ phải nhìn ra là một cỗ máy lắp ráp**, xem mục 3A. Màu rực và dải năng lượng vẫn giữ.
+>
+> **Chủ dự án chốt (15:17): VẼ LẠI TOÀN BỘ 13 chiến cơ theo V225, kể cả tàu 7 (vừa vẽ ở V223) và tàu 8.** Tàu 7 V223 không còn là mẫu phong cách; nó chỉ còn là tham chiếu về dáng và độ rực màu. **Ảnh chủ đầu tiên đạt chuẩn V225 và được chủ dự án duyệt sẽ thành mẫu phong cách mới** cho các tàu sau.
 
 ---
 
@@ -125,7 +127,7 @@ Game ghép các mảnh này vào tàu và làm chúng chuyển động. Mỗi t�
 
 Được đề xuất khác nếu hợp dáng tàu hơn, miễn giữ ba nguyên tắc: riêng từng tàu, gọn, neon.
 
-**Mẫu phong cách: tàu 7** (12 tranh thân + 8 mảnh hiệu ứng). **Đã đạt, giữ nguyên:** thân tàu 8 bản thường; bộ mảnh hiệu ứng tàu 9 và tàu 10 (sẽ xem lại sau khi thân hai tàu này vẽ lại).
+**Mẫu phong cách:** chưa có (sẽ là ảnh chủ đầu tiên đạt V225). **Giữ nguyên:** 8 mảnh hiệu ứng tàu 7, bộ mảnh tàu 9 và tàu 10 (xem lại sau khi thân tàu vẽ lại). Mọi tranh thân đều vẽ lại.
 
 ## 8. Trang bị và hợp thể
 
@@ -146,7 +148,7 @@ Hầm hố, đồ sộ, ác mộng. Kim loại sẫm, gai, càng, hàm răng, m�
 **Mỗi lần chỉ làm một tàu, theo đúng dây chuyền đã thành công với tàu 7:** ảnh chủ bậc tím → duyệt → 5 bậc còn lại → 6 bản Bạo Tẩu → 8 mảnh hiệu ứng. Xong một tàu mới sang tàu kế.
 
 **Hai loại tham chiếu trong gói `THAM_CHIEU_DANG_BAC_TIM.zip`:**
-- `tau7_tim_MAU_PHONG_CACH.png`: mẫu về **phong cách** cho mọi tàu.
+- `tau7_tim_MAU_PHONG_CACH.png`: (tên tệp cũ) nay **chỉ là tham chiếu dáng tàu 7 và độ rực màu**, KHÔNG phải mẫu chất liệu: nó thiếu chất cơ khí.
 - `tauN_tim_tham_chieu_dang.png`: **chỉ tham chiếu dáng** và đặc trưng nhận diện của tàu N (đã sạch quầng, đúng cỡ chuẩn bậc tím). Không giữ màu, chất liệu, mức chi tiết của ảnh này.
 - **Khi lời tả ở phụ lục A khác với dáng trong ảnh tham chiếu, ưu tiên dáng trong ảnh tham chiếu**: người chơi đã quen các tàu này, chỉ làm sạch và làm gọn dáng, không đổi thành tàu khác. (Cách này đã làm với tàu 7.)
 
@@ -172,20 +174,22 @@ Hầm hố, đồ sộ, ác mộng. Kim loại sẫm, gai, càng, hàm răng, m�
 
 ## 12. Việc cần làm (theo thứ tự, mỗi lần một tàu)
 
-**A. Vẽ lại theo cách của tàu 7** (mỗi tàu: ảnh chủ bậc tím → duyệt → 5 bậc → 6 `_bt` → 8 mảnh hiệu ứng nền đen). Thứ tự xếp theo mức cần sửa, tàu nhạt màu nhất làm trước; số trong ngoặc là phần phát sáng hiện tại của bậc tím (tàu 7 mới: 34 %):
+**A. Vẽ lại toàn bộ 10 chiến cơ đang có theo V225** (mỗi tàu: ảnh chủ bậc tím → chủ dự án duyệt → 5 bậc → 6 `_bt` → 8 mảnh hiệu ứng nền đen). Giữ dáng nhận diện của từng tàu theo ảnh tham chiếu, thêm chất cơ khí mục 3A.
 
 | Thứ tự | Tàu | Ghi chú riêng |
 |---|---|---|
-| 1 | **6 U Linh** (1,4 %) | Dáng lông vũ hiện tại đã đạt, **giữ dáng, tô lại**: mép lông là dải năng lượng tím phấn → lam nhạt, lăng kính giữa ngực phát sáng. Bản `_bt` xòe lông như đuôi công, cả sáu bậc cùng kiểu |
-| 2 | **2 Cực Quang** (10 %) | Giữ dáng cánh bướm – tua ngọc của ảnh tham chiếu; làm gọn các tua; ngọc → xanh lơ |
-| 3 | **4 Thần Ma** (12 %) | Sáu bậc hiện không cùng họ (hai bậc dáng mũi tên rộng, bốn bậc dáng kén). Chọn **một** dáng mũi khoan cho cả sáu; rộng / cao ≥ 0,85 |
-| 4 | **10 Tinh Hà** (15 %) | Đèn chính lục radar #5BE35B; crôm 25–40 % |
-| 5 | **5 Thự Quang** (16 %) | Hiện hơi dẹt (1,42): đưa về ≤ 1,25; bỏ vòng tròn mảnh trên mũi |
-| 6 | **3 X-Dực Băng** (22 %) | Giữ dáng bốn cánh tinh thể; bớt chi tiết vụn trên cánh |
-| 7 | **9 Thiên Khung** (26 %) | Hiện hơi rộng (1,30): đưa về ≤ 1,25 |
-| 8 | **1 Phượng Hoàng** (32 %) | Màu đã rực; chủ yếu làm sạch quầng, gọn lông, sáu bậc cùng họ |
+| 1 | **7 Đao Phong** | Làm đầu tiên để có mẫu phong cách mới. Giữ dáng và độ rực của tàu 7 V223; thêm khung thép tối ở thân giữa và gốc lưỡi liềm, khớp xoay có piston nối lưỡi liềm vào thân, cụm động cơ đôi lộ turbin, bệ pháo nhỏ trên vai. Lưỡi liềm là phiến thép có lưỡi năng lượng ở mép, không phải khối kính |
+| 2 | **8 Phần Thiên** | Gần chất cơ khí nhất; giữ dáng, chỉnh tỉ lệ màu theo 3A, làm rõ 4 pháo và ống dẫn |
+| 3 | **6 U Linh** | Lông vũ thành phiến thép xếp lớp có khớp xoay; lăng kính ở ngực đặt trong vỏ máy |
+| 4 | **2 Cực Quang** | Tua ngọc thành cần cơ khí có khớp; giữ dáng cánh bướm |
+| 5 | **4 Thần Ma** | Một dáng mũi khoan cho cả sáu bậc; mũi khoan có rãnh xoắn, mô tơ lộ ở gốc; rộng / cao ≥ 0,85 |
+| 6 | **10 Tinh Hà** | Tàu mẹ: khoang phóng có cửa trượt, ray phóng; đèn chính lục radar #5BE35B |
+| 7 | **5 Thự Quang** | Nan quạt là tấm thép có khớp bản lề; đưa rộng / cao về ≤ 1,25 |
+| 8 | **3 X-Dực Băng** | Tinh thể băng gắn trên khung thép, không phải khối băng trơn |
+| 9 | **9 Thiên Khung** | Phân cánh ngoài nối thân bằng tay đòn cơ khí; rộng / cao ≤ 1,25 |
+| 10 | **1 Phượng Hoàng** | Lông cánh thành phiến thép vát; cụm động cơ lộ turbin |
 
-**B. Tàu 8 Phần Thiên:** thân bản thường giữ nguyên. Chỉ cần 5 bản `_bt` (lục, lam, tím, tím+, SS) kiểu pháo hạm, dựng trên bản thường như đã làm với tàu 7; sau đó 8 mảnh hiệu ứng.
+**B.** (gộp vào A)
 
 **C. Tàu mới:** ảnh chủ tàu 11, 12, 13 theo phụ lục A.
 
