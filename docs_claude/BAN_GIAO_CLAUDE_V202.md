@@ -1,6 +1,15 @@
 # BÀN GIAO DỰ ÁN PHI ĐỘI SAO BĂNG · V202 (2026-11-08)
 
-### V220 (CHỜ DUYỆT, chưa phát hành) · 11/11 · Viền NEON LED cho mọi tàu + bộ hiệu ứng tàu 7
+### V220 · 11/11 · PHÁT HÀNH: viền neon LED cho CẢ 13 TÀU · bộ hiệu ứng tàu 7 · ánh sáng sau lưng thu nhỏ · bỏ thân chữ X
+- Chủ dự án 08:09 (CHỐT): neon "áp dụng cho mọi tàu"; ánh sáng sau lưng "thu bé hơn, đang quá to"; "cánh lựa theo từng loại chiến cơ, trang bị, hợp thể; không phải cánh nào cũng chữ X". 08:27: nhờ soạn prompt để GPT thiết kế đẹp hơn, có thể nhờ Gemini.
+- Mã: (1) tàu 11–13 (id 10–12) vẽ qua craftSprite trong ship83.js → thêm BtFx218.neonAt() sau frameSprite khi Bạo Tẩu; màu đèn LAMP3 theo bảng Gemini; (2) SPAN_MAX 1,35, SPAN_K 1,12 (ánh sáng sau lưng ≤ 1,35 × sải cánh ở SS); (3) lớp bừng sáng bỏ qua điểm đỏ / hồng (tông ≥ 285° hoặc ≤ 20°) còn sót trong tranh cũ tàu 11, 13.
+- Tranh: 6 thân chữ X của V219 (tàu 8 × 5, tau6_tim_bt) TRẢ VỀ bản V218 (git 686e667) chờ GPT vẽ lại; tau7_fx_sang.png (hai lưỡi đao chữ X) cất sang src/btfx218_cho/ → tàu 7 hiện có lửa, sét, hạt, viền neon, chưa có ánh sáng sau lưng.
+- Prompt mới: docs_claude/PROMPT_GPT_V221_THIET_KE.md (THAY mọi tài liệu chuẩn trước; có bảng 13 tàu, quy trình "ảnh chủ bậc tím → sửa ra 5 bậc → _bt sửa trên bản thường", danh sách tự kiểm, việc đợt này) + docs_claude/PROMPT_GEMINI_V221_GOP_Y_THIET_KE.md (soát prompt, mô tả ảnh chủ 13 tàu, họ quái, trang bị / hợp thể). Khi Gemini trả lời: gộp vào prompt bản kế.
+- build74_mau.py: mảnh hiệu ứng vẽ trên NỀN ĐEN (không có vùng trong suốt) được tự tách nền (alpha = kênh sáng nhất) — đã dặn GPT vẽ nền đen để hết lỗi bẩn nền.
+- SỰ CỐ: container khởi động lại giữa lúc chạy test (08:2x). Tệp còn nguyên, chỉ mất tiến trình nền. Bài học: commit + push nguồn TRƯỚC khi chạy chuỗi test dài.
+- Test (chạy lần lượt): t156 14/14; t209 20/20; t204 8/8; t207 8/8; t206 7/7. Web: artifact 9gvh… bản 10.
+
+### (ghi chú cũ của bản chờ duyệt, giữ để tra)
 - Chủ dự án 07:39 (CHỐT): (1) tau6_tim_bt vẽ lại; (2) tàu 8 _bt vẽ lại, "đừng nới to quá"; (3) phe ta (chiến cơ, trang bị, hợp thể) KÍCH THƯỚC VỪA PHẢI, không quá to; hiệu ứng siêu cấp kiểu NEON LED (ảnh minh họa tựa game gốc: viền sáng lam, tia có sét quấn), được đề xuất thêm; (4) TÀU ĐỊCH: hầm hố, đồ sộ, ác mộng.
 - Tài liệu: GUI_GPT_V217 thêm mục A2 "Hai phe, hai tính cách", mức bung _bt đổi thành diện tích 1,25–1,5 lần, lề ≥ 28 px; GUI_GPT_V220 thêm 3 tiêu chí + việc 4 (ảnh ý tưởng tàu địch để duyệt phong cách).
 - Mã: btfx218.js thêm lớp NEON (neon / neonDraw, gọi trong front() cho MỌI tàu id ≤ 9, kể cả tàu chưa có bộ mảnh): viền neon ôm mép thân màu đèn tàu (Fighters28.profiles[id].color) + quầng mờ + vệt trắng chạy dọc viền + các điểm phát sáng sẵn có trên thân bừng theo nhịp. Hệ số m.bk giảm độ bừng với tranh _bt cũ có lửa vẽ sẵn (tàu 1, 7… vẫn hơi lóa vì tranh nền đã là khối lửa). Tắt: window.NEON220=false. env() nay chạy cho mọi tàu.
