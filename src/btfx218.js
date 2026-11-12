@@ -78,6 +78,33 @@
   const TW=new Map();
   function tinted(im,col){const key=im.src.length+'|'+col;let c=TW.get(key);if(c)return c;c=document.createElement('canvas');c.width=im.naturalWidth;c.height=im.naturalHeight;const g=c.getContext('2d');
     g.drawImage(im,0,0);g.globalCompositeOperation='source-atop';g.globalAlpha=.62;g.fillStyle=col;g.fillRect(0,0,c.width,c.height);TW.set(key,c);return c;}
+  // ---- V231 · BUNG kiểu mới (mẫu tàu 8 đã duyệt): tranh thang xám 1024×1024, cùng tỉ lệ điểm ảnh với thân 512, tâm thân ở giữa ----
+  //  Game tô màu theo DẢI MÀU đo từ ảnh duyệt (độ chói → màu tuyệt đối, vẽ cộng sáng), hai nửa cánh bật ra quanh GỐC VAI.
+  //  Nhịp theo video 86546 (soi 5 khung/giây): lóe ở vai → bật ra ≤ 0,2 s gần đủ cỡ → giữ, đập nhẹ, lông lay. Không vòng tròn.
+  //  Chỉ bật cho các bậc đã có tranh mới (ONLY). Tắt: window.BUNG231=false
+  const RAMP={7:{tim:{"bung":[[0.0,0,0,0],[0.035,22,4,0],[0.094,53,13,0],[0.157,87,23,0],[0.216,117,33,0],[0.279,149,44,0],[0.343,175,59,0],[0.406,194,77,2],[0.469,213,94,7],[0.532,222,115,12],[0.596,237,135,18],[0.657,246,157,24],[0.72,250,180,32],[0.782,251,202,51],[0.848,251,224,89],[0.92,251,240,173],[0.946,251,243,206]],"bung2":[[0.0,0,0,0],[0.027,0,9,11],[0.096,6,28,40],[0.148,11,44,67],[0.22,12,67,103],[0.281,16,86,131],[0.342,21,105,153],[0.405,25,128,171],[0.469,11,155,191],[0.533,4,184,203],[0.595,3,211,206],[0.647,43,224,206],[0.717,99,225,206],[0.781,137,232,206],[0.831,166,238,207]]}}};
+  const PIV={7:[[191.2,183],[320.8,183]]};/* gốc vai trái / phải trên khung thân 512 */
+  const ONLY={7:['tim']};
+  const RC=new Map();
+  function rampCv(im,stops,key){let c=RC.get(key);if(c)return c;const w=im.naturalWidth,h=im.naturalHeight;c=document.createElement('canvas');c.width=w;c.height=h;const g=c.getContext('2d',{willReadFrequently:true});g.drawImage(im,0,0);
+    try{const d=g.getImageData(0,0,w,h),p=d.data,L=new Array(256);for(let v=0;v<256;v++){const x=v/255;let j=1;while(j<stops.length-1&&stops[j][0]<x)j++;const a=stops[j-1],b=stops[j],t=b[0]>a[0]?Math.max(0,Math.min(1,(x-a[0])/(b[0]-a[0]))):1;L[v]=[0,1,2].map(i=>a[i+1]+(b[i+1]-a[i+1])*t);}
+      for(let i=0;i<p.length;i+=4){const c3=L[p[i]],m=Math.max(c3[0],c3[1],c3[2]);if(m<1){p[i+3]=0;continue;}p[i]=c3[0]/m*255;p[i+1]=c3[1]/m*255;p[i+2]=c3[2]/m*255;p[i+3]=m;}g.putImageData(d,0,0);}catch{}
+    RC.set(key,c);return c;}
+  function bung231(ctx,a,size,now,ta,id,k,lite){if(!RAMP[id])return null;if(window.BUNG231===false)return false;const tier=a&&a.__f;if(ONLY[id]&&ONLY[id].indexOf(tier)<0)return false;
+    const r=RAMP[id][tier]||RAMP[id].tim,im1=img(id,'bung');if(!im1)return false;const im2=img(id,'bung2');
+    const c1=rampCv(im1,r.bung,id+'|'+tier+'|1'),c2=im2&&r.bung2?rampCv(im2,r.bung2,id+'|'+tier+'|2'):null;
+    const Z=size*2,u=size/512,pr=back_((ta-.08)/.2),pv=PIV[id]||[[200,200],[312,200]];
+    ctx.save();ctx.globalCompositeOperation='lighter';
+    // lóe ở gốc vai trước lúc bật (0 – 0,25 s): đốm sáng mềm, không thành vòng
+    if(ta<.25){const f=1-ta/.25;for(const p of pv){const x=(p[0]-256)*u,y=(p[1]-256)*u,R=size*.22*(1+ta*2),gr=ctx.createRadialGradient(x,y,0,x,y,R);gr.addColorStop(0,'rgba(255,245,210,'+(.9*f)+')');gr.addColorStop(1,'rgba(255,140,40,0)');ctx.globalAlpha=k;ctx.fillStyle=gr;ctx.fillRect(x-R,y-R,R*2,R*2);}}
+    const sc=(.35+.65*pr)*(1+.025*Math.sin(now*6.2)),al=Math.min(1,k*Math.min(1,pr*1.4)*(.9+.1*Math.sin(now*9.1)));
+    for(let s=0;s<2;s++){const px=(pv[s][0]-256)*u,py=(pv[s][1]-256)*u;ctx.save();ctx.beginPath();if(s===0)ctx.rect(-Z,-Z,Z,Z*2);else ctx.rect(0,-Z,Z,Z*2);ctx.clip();
+      ctx.translate(px,py);ctx.scale(sc,sc*(1+.02*Math.sin(now*4.3+s)));ctx.translate(-px,-py);
+      ctx.globalAlpha=al;ctx.drawImage(c1,-Z/2,-Z/2,Z,Z);
+      if(!lite){ctx.globalAlpha=al*.18;const w=1+.03*Math.sin(now*7.7+s*1.3);ctx.drawImage(c1,-Z*w/2,-Z/2+size*.012*Math.sin(now*5.3),Z*w,Z*1.02);}/* lông lay nhẹ */
+      if(c2){ctx.globalAlpha=Math.min(1,al*(.8+.2*Math.sin(now*23+s)));ctx.drawImage(c2,-Z/2,-Z/2,Z,Z);}
+      ctx.restore();}
+    ctx.restore();return true;}
   function bung(ctx,a,size,now,ta,id,k){if(window.BUNG230===false)return false;const im=img(id,'bung');if(!im)return false;
     const tw=tinted(im,tcol(id,a)),pr=back_((ta-.05)/.3),z=size*1.12*(.55+.45*pr)*(1+.03*Math.sin(now*8.5));
     ctx.save();ctx.globalCompositeOperation='lighter';ctx.globalAlpha=Math.min(1,k*(.75+.15*Math.sin(now*13)));ctx.drawImage(tw,-z/2,-z/2+size*.04,z,z);ctx.restore();return true;}
@@ -89,7 +116,8 @@
   // ---- lớp SAU thân: ánh sáng bật xòe + lửa ----
   function back(ctx,a,cell,cw,ch,size,on,now,ta,id,lite){
     if(window.BTFX218===false)return;const k=env(id,on,now);if(k<.02||!has(id))return;const m=anchors(a,cell,cw,ch),L=lvOf(a);
-    const hasB=bung(ctx,a,size,now,ta,id,k);
+    const b231=bung231(ctx,a,size,now,ta,id,k,lite);if(b231===false&&RAMP[id])return;/* V231: bậc chưa có tranh mới → giữ như cũ (tàu chưa có mảnh rời thì không vẽ gì) */
+    const hasB=b231||bung(ctx,a,size,now,ta,id,k);
     ctx.save();ctx.globalCompositeOperation='lighter';
     const sg=hasB?null:img(id,'sang');if(sg){const q=bb(sg),span=m?Math.max(.5,Math.max(...m.tip.map(p=>p[0]))-Math.min(...m.tip.map(p=>p[0]))):.9,
         cwid=Math.min(SPAN_MAX,SPAN_K*L[4])*span*size,sc=cwid/q.w,pr=back_((ta-.03)/.42),W=sg.naturalWidth*sc*(.5+.5*pr),H=sg.naturalHeight*sc*(.92+.08*pr);

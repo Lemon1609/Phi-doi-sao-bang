@@ -16,7 +16,7 @@ T = ['thuong', 'luc', 'lam', 'tim', 'tim5', 'ss']
 G = {'thuong': 345, 'luc': 355, 'lam': 368, 'tim': 380, 'tim5': 392, 'ss': 405}
 MAXD, MAXBT, KMAX = 456, 500, 1.12
 # V230: tàu có dáng cao hẹp đã chốt (chủ dự án 23:24) → KHÔNG nắn tỉ lệ, chỉ đổi cỡ
-NO_ASP = {7}
+NO_ASP = {7, 8}  # V231: tàu 8 dáng cao hẹp (mẫu 86546 đã chốt)
 
 
 def _bbox(im, th):
