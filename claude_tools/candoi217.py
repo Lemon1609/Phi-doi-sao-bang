@@ -18,9 +18,9 @@ MAXD, MAXBT, KMAX = 456, 500, 1.12
 # V230: tàu có dáng cao hẹp đã chốt (chủ dự án 23:24) → KHÔNG nắn tỉ lệ, chỉ đổi cỡ
 NO_ASP = {7, 8}  # V231: tàu 8 dáng cao hẹp (mẫu 86546 đã chốt)
 # V231E: tàu đã được chuẩn hóa sẵn về 512 (claude_tools/tau8_v231*.py) → giữ NGUYÊN tranh, không đổi cỡ, không căn lại tâm
-KEEP = {6, 7, 8}
+KEEP = {2, 6, 7, 8}
 # V232: từng bậc đã chuẩn hóa sẵn (tàu đang thay dần từng bậc)
-KEEPT = {(2, 'tim')}
+KEEPT = set()
 
 
 def _bbox(im, th):
