@@ -41,3 +41,8 @@ Dùng làm căn cứ cho mọi mẫu mới: chiến cơ, trang bị, hợp thể
 - Không chữ trong tranh.
 - Không chép tranh, logo, tên game khác; video gốc chỉ để học cách làm.
 - Robot V196B và icon trang bị hợp thể giữ nguyên.
+
+## 7. Kế hoạch tiếp theo (chủ dự án 12/11 14:54)
+- Sau khi xong thiết kế các mẫu chiến cơ: **thiết kế lại đạn và kỹ năng** của từng tàu theo chuẩn này.
+- Đạn và hiệu ứng kỹ năng phải hợp với chất liệu bung và bảng màu từng bậc của chính tàu đó.
+- Gemini làm phần cơ chế, số liệu; GPT làm phần tranh.
