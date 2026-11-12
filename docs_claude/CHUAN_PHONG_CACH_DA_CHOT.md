@@ -70,3 +70,7 @@ Màu bung theo từng thứ đang lắp: chiến cơ (đang có, theo bậc), **
 ## Tàu 12 Thời Không (12/11 22:43)
 - Ảnh bung bậc tím GPT V239 (mảnh giáp ngưng thời gian + mặt đồng hồ hở + hai kim): hai cung trên / dưới nhìn gần thành vòng quanh tàu và kim nằm trước mũi — Claude đã nêu; **chủ dự án chọn giữ nguyên**.
 - Thường / Bạo Tẩu phải khác rõ:  rộng ≥ 1,25 lần hoặc diện tích ≥ 1,2 lần, phần mở là giáp cứng nằm ngoài viền thân (V240, chủ dự án 22:39).
+
+## Đẩy nhanh tiến độ (chủ dự án 12/11 22:47)
+"Sau đợt này thì đẩy nhanh thiết kế toàn bộ tàu 1 lượt. Xong rồi review nhanh hơn." → một tin nhắn GPT cho 6 tàu còn lại (docs_claude/GUI_GPT_V241_6_TAU_CON_LAI.md), mỗi tàu một zip; Claude ghép hết rồi gửi một bảng duyệt chung (13 tàu × 6 bậc trong trận).
+- Đề xuất đổi hình bung để không chép game gốc: tàu 4 móng vuốt năng lượng + ấn chú hở (tránh vây lưỡi 86541), tàu 5 lăng kính bình minh + nửa vành mặt trời (tránh quạt gai 86542), tàu 9 chòm sao + tinh vân (tránh cánh hoa 86548).
