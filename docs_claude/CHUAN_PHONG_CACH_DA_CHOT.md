@@ -47,3 +47,4 @@ Dùng làm căn cứ cho mọi mẫu mới: chiến cơ, trang bị, hợp thể
 - Sau khi xong thiết kế các mẫu chiến cơ: **thiết kế lại đạn và kỹ năng** của từng tàu theo chuẩn này.
 - Đạn và hiệu ứng kỹ năng phải hợp với chất liệu bung và bảng màu từng bậc của chính tàu đó. **Chủ dự án đồng ý 12/11 14:55**, ví dụ: tàu 8 đạn lửa dạng lông vũ, tàu 7 đạn phiến lưỡi, tàu 6 đạn khối số.
 - Gemini làm phần cơ chế, số liệu; GPT làm phần tranh.
+- **Để dành cho đợt thiết kế lại đạn** (chủ dự án 12/11 19:14): tàu 2 Cực Quang khi Bạo Tẩu gộp 4–5 tia laser thành một tia lớn theo tư vấn Gemini (`docs_claude/de_xuat_cho/GEMINI_V234_TAU2_TRA_LOI.txt`): khép 0,35 s → phình 130 % lúc sóng xung kích → giữ → tách lại 0,35 s cuối; bề ngang trúng 75–80 %, sát thương 95–100 % (lõi 80 %, vùng màn 20 %); đạn lõi trắng ngà viền xanh băng, đặt điểm bắn ra rìa ngoài hai thanh ray.
