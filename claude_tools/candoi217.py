@@ -20,7 +20,7 @@ NO_ASP = {7, 8}  # V231: tàu 8 dáng cao hẹp (mẫu 86546 đã chốt)
 # V231E: tàu đã được chuẩn hóa sẵn về 512 (claude_tools/tau8_v231*.py) → giữ NGUYÊN tranh, không đổi cỡ, không căn lại tâm
 KEEP = {7, 8}
 # V232: từng bậc đã chuẩn hóa sẵn (tàu đang thay dần từng bậc)
-KEEPT = {(7, 'tim')}
+KEEPT = {(6, 'tim')}
 
 
 def _bbox(im, th):
