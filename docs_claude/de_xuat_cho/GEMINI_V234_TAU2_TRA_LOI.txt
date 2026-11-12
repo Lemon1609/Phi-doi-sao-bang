@@ -1,0 +1,24 @@
+Phương án tối ưu nhất là kết hợp Hướng 3 (gộp thành 1 tia chính khi Bạo Tẩu) với việc tách dải màu màn sang Lục – Tím, hoặc áp dụng Hướng 1 biến thể rẽ quạt chữ V nếu Claude cần giữ nguyên logic đạn hiện tại. Trên ảnh chụp tau2 tim sau và tau2 tim sau 0,6s, dù đã bỏ cột năng lượng phụ, 3 tia laser trung tâm vẫn đè kín khoảng trống giữa hai thanh ray khiến mũi tàu bị bão hòa thành một khối lơ trắng.
+1. Đánh giá và lựa chọn hướng xử lý (Câu 1)
+ * Ưu tiên số 1 — Hướng 3 kết hợp tách màu (Trải nghiệm tốt nhất): Khi 4–5 tia lơ thu về 1 trục duy nhất ở tâm, toàn bộ vùng giữa hai thanh ray được giải phóng để màn cực quang (lục → lơ → tím nhạt) lộ rõ.
+ * Độ dễ đọc đạn địch: Thu gọn các tia laser dàn ngang giúp mở rộng khoảng tối quanh thân tàu và hai tàu phụ, giúp người chơi nhận diện đạn địch màu đỏ #FF334F và hồng #F50057 cực kỳ rõ ràng.
+ * Cảm giác "mạnh lên" khi Bạo Tẩu: Hiệu ứng các tia nhỏ hội tụ vào màn cực quang rồi phóng ra một Đại Quang Pháo tạo đột biến thị giác mạnh mẽ hơn hẳn việc chỉ giữ nguyên chùm đạn cũ.
+ * Phương án dự phòng — Hướng 1 cải tiến (Nếu chưa muốn sửa code đạn): Thay vì kéo màn rộng ngang 1,5 lần ở phía trước gây lóa mắt, hãy kéo phần màn rủ ra sau và mở góc chữ V (20°–25°) phủ ra ngoài hai thanh ray như đôi cánh cực quang sau lưng tàu.
+2. Thông số cân bằng cho Tia Gộp ở Hướng 3 (Câu 2)
+Để khớp với thời lượng Bạo Tẩu 6 s (thường/tím) và 9 s (SS) mà không làm lệch cân bằng so với chùm 4–5 tia hiện tại:
+ * Bề ngang hiển thị (Visual Width): Bằng 50% – 60% tổng bề ngang chùm 4–5 tia cũ (tương đương ~2,2 lần 1 tia đơn), gồm lõi trắng ngà đặc ở giữa và viền lơ mỏng để không che khuất màn cực quang hai bên.
+ * Bề ngang va chạm (Hitbox Width): Đặt bằng 75% – 80% độ phủ ngang của 4–5 tia cũ (tính cả vùng từ trường màn cực quang quanh tia) để tàu giữ nguyên khả năng quét quái nhỏ trên màn hình.
+ * Sát thương (DPS): Đặt bằng 95% – 100% tổng sát thương lý thuyết của 4–5 tia cộng lại. Do 1 tia giữa luôn trúng trọn mục tiêu đơn (không bị trượt các tia rìa như ảnh tau2 thuong sau), sát thương thực tế lên Boss đã tự tăng ~20%–25%.
+ * Phân bổ sát thương 2 lớp (Khuyên dùng): Chia Lõi tia chính (80% tổng DPS) và Vùng rìa cực quang (20% tổng DPS) để vừa tối ưu sát thương đơn mục tiêu vừa làm màn cực quang thực sự có tác dụng chiến đấu.
+ * Thời lượng và nhịp chuyển pha (khớp chu kỳ 6 s / 9 s):
+   * Pha hội tụ (0,00 s – 0,35 s): Trong 0,35 s dồn sáng, 4–5 tia laser nghiêng góc khép dần vào tâm mũi tàu thay vì biến mất đột ngột.
+   * Pha bùng nổ (0,35 s – 0,59 s): Khớp với sóng xung kích 0,24 s lúc bung, tia gộp phình đạt 130% bề ngang rồi co về 100%, đồng thời màn cực quang xòe rộng.
+   * Pha duy trì (5,30 s với tàu thường / 8,30 s với SS): Tia gộp giữ ổn định, màn cực quang lay nhẹ hai bên sườn tia.
+   * Pha tách tia (0,35 s cuối): Tia lớn giảm dần độ sáng lõi và tách ngược lại thành 4–5 tia để báo hiệu hết Bạo Tẩu mượt mà.
+3. Gợi ý thiết kế lại đạn Tàu 2 về sau (Câu 3)
+Để đạn mới và màn cực quang dọc không giẫm lên nhau khi chủ dự án làm lại hệ thống đạn:
+ * Tách dải màu (Lõi Nóng – Màn Lạnh): Giảm sắc lơ của màn cực quang, đẩy mạnh dải Lục ngọc (#00E676) chuyển sang Tím (#B388FF); trong khi đạn laser dùng lõi Trắng ngà (#FFFDE7) viền xanh băng mỏng.
+ * Dời điểm xuất phát đạn (Muzzle Points): Không đặt 3 tia laser chụm sát nhau ngay trên mũi tàu như tau2 tim sau; hãy dời các tia phụ sang hẳn rìa ngoài hai thanh ray và để trống khoảng giữa mũi tàu cho màn cực quang vươn lên.
+ * Tương phản hình khối và chất liệu: Bỏ họa tiết đốt trúc và tia sét rìa hiện tại; thiết kế đạn mới dạng xung laser đứt đoạn (Pulse Laser) hoặc tia quang học mảnh sắc nét để tương phản với dải lụa mềm liền mạch của màn cực quang.
+ * Tách lớp hiển thị (Z-Order & Alpha): Vẽ màn cực quang ở lớp dưới đạn, giảm độ đục (Alpha) phần màn vươn trước mũi tàu xuống 40% và tăng độ đậm phần màn rủ sau lưng tàu lên 80% để dứt điểm hiện tượng cháy sáng mũi tàu.
+Bạn muốn mình viết luôn thông số hàm vẽ Canvas (gradient màu, alpha, độ lệch pha sóng sin) cho màn cực quang và tia gộp để gửi trực tiếp cho Claude không?
