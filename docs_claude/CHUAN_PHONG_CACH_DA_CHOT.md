@@ -21,7 +21,8 @@ Dùng làm căn cứ cho mọi mẫu mới: chiến cơ, trang bị, hợp thể
 - Sải hình bung khoảng 3–6 lần bề rộng thân; giữ đúng cỡ ảnh mẫu trong trận.
 - Mỗi tàu một chất liệu bung riêng, không trùng nhau: lông lửa (tàu 8), phiến lưỡi (tàu 7), khối nhiễu số (tàu 6), màn cực quang (tàu 2), tinh thể chữ X (tàu 3), khiên lục giác (tàu 10), xoáy hút vào lõi (tàu 11)…
 - Nhịp (học từ video): dồn sáng ~0,35 s → bừng sáng ở tâm + tia ngắn → hình bung hiện ~85 % rồi xòe ra ~0,28 s, vượt nhẹ → giữ: lay, thở, tàn lửa rơi.
-- Không vòng tròn khép kín quanh tàu. Lúc Bạo Tẩu tàu không nhấp nháy, không vẽ bong bóng khiên.
+- Không vòng tròn khép kín quanh tàu, **trừ** sóng xung kích 0,24 s đúng lúc bật cánh (chủ dự án mở 12/11 15:02). Lúc Bạo Tẩu tàu không nhấp nháy, không vẽ bong bóng khiên.
+- Thêm (V233): tàu lấy đà nhích lên 0,6 s; cột năng lượng phình trước mũi có vòng xung chạy dọc; sảnh tự bung theo chu kỳ.
 
 ## 4. Lên bậc (6 bậc: thường, lục, lam, tím, tím+, SS) — phương án C
 - Bậc tím = mẫu đã duyệt.

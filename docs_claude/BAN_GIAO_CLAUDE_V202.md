@@ -1,5 +1,10 @@
 # BÀN GIAO DỰ ÁN PHI ĐỘI SAO BĂNG · V202 (2026-11-08)
 
+### V233 · 12/11 15:55 · PHÁT HÀNH: tàu 6 U Linh đủ 6 bậc · 4 hiệu ứng học từ video
+- Bậc tím tách từ ảnh bung duyệt 14:43 (claude_tools/tau6_v233.py; thân tách theo màu + đa giác khối mũi). 5 bậc V233B (tau6_v233b_bac.py, hệ số riêng từng bậc theo bề ngang đích 380/410/432/456/456; SS vẽ lại 15:43). Bậc thường bổ sung khối mũi (tau6_v233b_mui.py). Bảng màu tau6_v233b_ramp.py. candoi KEEP={6,7,8}.
+- Hiệu ứng (btfx218 / v118 / build): LIFT233 lấy đà 0,6 s; SHOCK233 sóng xung kích 0,24 s lúc bật cánh (chủ dự án mở ngoại lệ 15:02); BEAM233 cột năng lượng trước mũi + vòng xung (chỉ hình); AUTO233 sảnh tự bung 16 s (bung 3 s và 11 s, giữ 3,5 s). Có sẵn BtFx218.scale (cỡ thân riêng từng bậc, đang để trống).
+- Test: t156 14/14, t209 20/20, t204 8/8, t207 8/8, t206 7/7. APK V233.38 (Lemon1609). Web U5Hf… bản 161.
+
 ### V232 · 12/11 14:30 · PHÁT HÀNH: tàu 7 Đao Phong đủ 6 bậc (dáng 86543) · Bạo Tẩu không nhấp nháy, không bong bóng khiên
 - Bậc tím tách từ ảnh bung duyệt 13:50 (claude_tools/tau7_v232.py): thân 512, phiến lưỡi 1280² (bản màu kiem_mau cho bậc tím + thang xám kiem). 5 bậc GPT V232B chuẩn hóa (tau7_v232b_bac.py), bảng màu 6 bậc (tau7_v232b_ramp.py, bảng GPT + nguyên tắc C), lớp phiến 2 kiem3 cho tím+/SS. candoi KEEP={7,8}.
 - btfx218 BUNG231: RAMP theo bậc có img/mau/img3/fx; bậc không có bảng → lớp cũ vẽ. armor69: BUB231 (Bạo Tẩu không bong bóng khiên); build: BLINK231 (Bạo Tẩu không nhấp nháy, vẫn bất tử).
