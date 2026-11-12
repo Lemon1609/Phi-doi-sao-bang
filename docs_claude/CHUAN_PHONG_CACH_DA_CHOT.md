@@ -44,5 +44,5 @@ Dùng làm căn cứ cho mọi mẫu mới: chiến cơ, trang bị, hợp thể
 
 ## 7. Kế hoạch tiếp theo (chủ dự án 12/11 14:54)
 - Sau khi xong thiết kế các mẫu chiến cơ: **thiết kế lại đạn và kỹ năng** của từng tàu theo chuẩn này.
-- Đạn và hiệu ứng kỹ năng phải hợp với chất liệu bung và bảng màu từng bậc của chính tàu đó.
+- Đạn và hiệu ứng kỹ năng phải hợp với chất liệu bung và bảng màu từng bậc của chính tàu đó. **Chủ dự án đồng ý 12/11 14:55**, ví dụ: tàu 8 đạn lửa dạng lông vũ, tàu 7 đạn phiến lưỡi, tàu 6 đạn khối số.
 - Gemini làm phần cơ chế, số liệu; GPT làm phần tranh.
