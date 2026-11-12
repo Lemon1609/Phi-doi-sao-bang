@@ -1,5 +1,11 @@
 # BÀN GIAO DỰ ÁN PHI ĐỘI SAO BĂNG · V202 (2026-11-08)
 
+### V232 · 12/11 14:30 · PHÁT HÀNH: tàu 7 Đao Phong đủ 6 bậc (dáng 86543) · Bạo Tẩu không nhấp nháy, không bong bóng khiên
+- Bậc tím tách từ ảnh bung duyệt 13:50 (claude_tools/tau7_v232.py): thân 512, phiến lưỡi 1280² (bản màu kiem_mau cho bậc tím + thang xám kiem). 5 bậc GPT V232B chuẩn hóa (tau7_v232b_bac.py), bảng màu 6 bậc (tau7_v232b_ramp.py, bảng GPT + nguyên tắc C), lớp phiến 2 kiem3 cho tím+/SS. candoi KEEP={7,8}.
+- btfx218 BUNG231: RAMP theo bậc có img/mau/img3/fx; bậc không có bảng → lớp cũ vẽ. armor69: BUB231 (Bạo Tẩu không bong bóng khiên); build: BLINK231 (Bạo Tẩu không nhấp nháy, vẫn bất tử).
+- Test: t156 14/14, t209 20/20, t204 8/8, t207 8/8, t206 7/7. APK V232.37 (Lemon1609). Web U5Hf… bản 159.
+- Chờ chủ dự án: vệt chém cung trắng của tàu 7 thành "( )" ở bậc thấp — có đổi không.
+
 ### V231 · 12/11 · PHÁT HÀNH (chủ dự án "duyệt" 12:20): tàu 8 Phần Thiên đủ 6 bậc + cánh bung kiểu mới
 - Mẫu: ảnh tàu 8 bung cánh đã duyệt (07:36) = chuẩn chất lượng 13 tàu; hướng mỹ thuật + quyết định chủ dự án ở docs_claude/DE_XUAT_V231_HUONG_MY_THUAT_13_TAU.md (mục 7, 8). 11 video gốc nén 360 px + bảng khung ở docs_claude/tham_chieu/video_goc/, phân tích nhịp ở tham_chieu/PHAN_TICH_VIDEO_GOC_V231.md.
 - Thân: bậc tím từ ảnh thử GPT (claude_tools/tau8_v231.py); sống cánh bản V231D ghép lên chính thân thường (tau8_v231d_bt.py); 5 bậc V231E chuẩn hóa chung một hệ số (tau8_v231e_bac.py). Mọi _bt = thân thường + sống cánh (thân giữa khớp 100 %). candoi217: tàu 8 trong KEEP (giữ nguyên tranh), NO_ASP={7,8}.
