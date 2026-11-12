@@ -60,3 +60,9 @@ Dùng làm căn cứ cho mọi mẫu mới: chiến cơ, trang bị, hợp thể
 Màu bung theo từng thứ đang lắp: chiến cơ (đang có, theo bậc), **tàu con** thường (13 loại), **tàu hợp thể** (7 mẫu SSS), **tàu con hợp thể** (8 món SSS sidearm) — mỗi thứ một màu riêng, cả cánh lẫn đuôi, tỏa ra từ dưới chính nó. **Vũ khí và giáp: không cần.** Áp dụng mọi tàu.
 - Đã dò (chưa làm gì): tàu con vẽ ở `Battle28.support()` (hai bên thân); món SSS có sẵn `color` (vd. sss_rail_disc #38BDF8, sss_solar_gravity #F59E0B, sss_monarch_rail #A855F7); tàu hợp thể có `profile.color` / `secondColor` (vd. sss:6 Tử Diệu Quang Hoàng #ffdd67 / #64eaff). Tàu con thường chưa thấy trường màu (spec không lộ ra ngoài) — cần đo từ tranh.
 - Công cụ dò: claude_tools/ (chưa có), kịch bản quay tạm ở scratchpad hop/quay.py, do2.py.
+
+## Bậc thấp không đơn sắc (chủ dự án 12/11 21:05)
+"Các tàu bậc cao đẹp là hợp lí nhưng các tàu bậc thấp đừng đơn sắc, nhỏ gọn, xấu quá."
+- Thân bậc thấp: ít nhất 2 màu giáp (giáp chủ + giáp phụ có màu) + màu đèn; cỡ ≥ 90 % bậc tím; chi tiết dày như bậc tím. Phân bậc bằng số bộ phận, độ lớn lõi, độ rực đèn — không bằng cách bỏ màu hay thu nhỏ.
+- Cánh bung bậc thấp: hai sắc (mép một màu, thân một màu, lõi trắng), to gần bậc tím (thuong k .92, luc k .96). Bậc cao vẫn hơn nhờ lớp 2, k 1,08 và độ rực (claude_tools/bac_thap_v238.py).
+- Đo độ bão hòa trung bình thân (V238): đơn sắc = tàu 2 thường 0,08 · tàu 3 thường 0,12 / lục 0,18 · tàu 6 thường 0,25 / lục 0,10 · tàu 7 thường 0,09; nhỏ = tàu 2 thường 159 × 331, tàu 7 thường 245 × 334 (bậc tím 312 × 421, 397 × 456).
