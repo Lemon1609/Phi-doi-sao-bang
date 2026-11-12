@@ -55,3 +55,8 @@ Dùng làm căn cứ cho mọi mẫu mới: chiến cơ, trang bị, hợp thể
 - **Được học:** chất giáp (kim loại sáng, khung thép tối, bộ phận máy lộ ra); năng lượng cộng sáng (lõi trắng → màu bão hòa → mép trong mờ, không viền đen); độ chi tiết dày; hình bung rộng 4–6 lần thân, lệch về phía sau; mỗi tàu một chất liệu bung riêng; lên bậc đổi cả màu lẫn số bộ phận, bậc cao rực hơn; nhịp báo trước ≈ 0,4 s → bật ra ≤ 0,2 s → giữ có đập nhẹ và hạt.
 - **Không chép:** dáng, bố cục, cách sắp xếp bộ phận và chi tiết nhận diện của một tàu hay một hình bung cụ thể (ví dụ cột thanh dựng + chữ Y của 86547).
 
+
+## Để dành sau khi xong 13 chiến cơ (chủ dự án 12/11 20:45–20:49)
+Màu bung theo từng thứ đang lắp: chiến cơ (đang có, theo bậc), **tàu con** thường (13 loại), **tàu hợp thể** (7 mẫu SSS), **tàu con hợp thể** (8 món SSS sidearm) — mỗi thứ một màu riêng, cả cánh lẫn đuôi, tỏa ra từ dưới chính nó. **Vũ khí và giáp: không cần.** Áp dụng mọi tàu.
+- Đã dò (chưa làm gì): tàu con vẽ ở `Battle28.support()` (hai bên thân); món SSS có sẵn `color` (vd. sss_rail_disc #38BDF8, sss_solar_gravity #F59E0B, sss_monarch_rail #A855F7); tàu hợp thể có `profile.color` / `secondColor` (vd. sss:6 Tử Diệu Quang Hoàng #ffdd67 / #64eaff). Tàu con thường chưa thấy trường màu (spec không lộ ra ngoài) — cần đo từ tranh.
+- Công cụ dò: claude_tools/ (chưa có), kịch bản quay tạm ở scratchpad hop/quay.py, do2.py.
