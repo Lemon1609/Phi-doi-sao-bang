@@ -1,0 +1,43 @@
+# CHUẨN PHONG CÁCH ĐÃ CHỐT · Phi Đội Sao Băng (cập nhật 12/11/2026, V232–V233)
+
+Dùng làm căn cứ cho mọi mẫu mới: chiến cơ, trang bị, hợp thể, tàu địch, boss.
+
+## 1. Ảnh chuẩn đã duyệt
+- `src/ship118_cho/V231_dang_tau_da_chot/tau8_bung_canh_DA_DUYET.png`: tàu 8, cánh lông lửa.
+- `src/ship118_cho/V232_tau7/tau7_bung_DA_DUYET.png`: tàu 7, quạt phiến lưỡi.
+- `src/ship118_cho/V233_tau6/tau6_bung_DA_DUYET.png`: tàu 6, cánh nhiễu số.
+- Dáng thân 12 tàu: `src/ship118_cho/V231_dang_tau_da_chot/` (+ `V231D_mau_chot/` cho bốn mẫu hướng của tàu 2, 3, 10, 11).
+
+## 2. Thân
+- Chân thật: giáp cứng, bóng, mép sắc, viền LED mảnh; tươi sáng, bắt mắt.
+- Một điểm nhận diện ở thân, đọc được ở cỡ 64 px.
+- Nhìn thẳng từ trên xuống, mũi hướng lên, đối xứng.
+- Khung 512, cạnh dài 456 px, lề ≥ 24 px.
+- Bản Bạo Tẩu = chính bản thường + phần cứng mở ra, thân giữa trùng khít.
+
+## 3. Hiệu ứng bung (Bạo Tẩu)
+- Năng lượng trong mờ, cộng sáng; sáng nhất ở gốc, tan dần ra ngọn.
+- Năng lượng mọc ra từ một bộ phận cứng của thân.
+- Sải hình bung khoảng 3–6 lần bề rộng thân; giữ đúng cỡ ảnh mẫu trong trận.
+- Mỗi tàu một chất liệu bung riêng, không trùng nhau: lông lửa (tàu 8), phiến lưỡi (tàu 7), khối nhiễu số (tàu 6), màn cực quang (tàu 2), tinh thể chữ X (tàu 3), khiên lục giác (tàu 10), xoáy hút vào lõi (tàu 11)…
+- Nhịp (học từ video): dồn sáng ~0,35 s → bừng sáng ở tâm + tia ngắn → hình bung hiện ~85 % rồi xòe ra ~0,28 s, vượt nhẹ → giữ: lay, thở, tàn lửa rơi.
+- Không vòng tròn khép kín quanh tàu. Lúc Bạo Tẩu tàu không nhấp nháy, không vẽ bong bóng khiên.
+
+## 4. Lên bậc (6 bậc: thường, lục, lam, tím, tím+, SS) — phương án C
+- Bậc tím = mẫu đã duyệt.
+- Mỗi bậc một màu riêng; bậc thấp mờ hơn, ít lông / phiến / khối, cỡ hình bung 62 / 74 / 87 / 100 / 100 / 108 %.
+- Độ sáng tăng dần (72 % → 115 %).
+- Tím+ và SS thêm lớp năng lượng thứ hai; SS sáng nhất.
+- Màu thân đổi theo bậc. Mỗi tàu một bảng màu riêng, không trùng tàu khác.
+- Phe ta được dùng mọi màu, kể cả đỏ, hồng, vàng.
+
+## 5. Quy trình mỗi tàu
+1. GPT vẽ ảnh bậc tím đang bung (nền tối phẳng) → chủ dự án duyệt.
+2. Claude tách lớp từ ảnh duyệt: thân 512, lớp năng lượng thang xám + bản màu; ghép thử, chụp.
+3. GPT vẽ 5 bậc + lớp 2 + bảng màu → Claude chuẩn hóa (thân Bạo Tẩu ghép lên thân thường), tô màu theo bậc bằng mã.
+4. Chạy test, chụp 6 bậc → chủ dự án "duyệt" → phát hành.
+
+## 6. Luật giữ
+- Không chữ trong tranh.
+- Không chép tranh, logo, tên game khác; video gốc chỉ để học cách làm.
+- Robot V196B và icon trang bị hợp thể giữ nguyên.
