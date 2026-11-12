@@ -18,8 +18,21 @@ Bạn là họa sĩ chính của game mobile bắn máy bay dọc **"Phi Đội 
 - Hai bậc liền nhau phải khác nhau ở **cả hình lẫn màu** khi thu nhỏ còn 64 px.
 - **Được dùng mọi màu**, kể cả đỏ, hồng, vàng, cầu vồng (chủ dự án mở ngày 12/11). Mỗi bậc đổi cả màu giáp lẫn màu đèn.
 
-## 3. Tham chiếu video
-Bảng khung hình 11 video gốc (gửi kèm) chỉ để học **cách làm**: nhịp bung, tỉ lệ, cách tiến bậc, chất liệu năng lượng. **Không vẽ lại dáng tàu, hình bung hay bộ màu nhận diện của game gốc**; mỗi tàu của Phi Đội Sao Băng phải có chi tiết nhận diện riêng.
+## 3. Dáng tàu đã chốt và video tham chiếu
+
+Ba bảng trong `dang_tau_da_chot/` là mẫu dáng thân đã chốt do chủ dự án gửi bổ sung. Tra theo mã in trên ảnh. Bảng dưới đây tra mã dáng cho tàu 8 và bốn mẫu của đợt này. Với tàu 11, lấy dáng thân 86538 làm cơ sở và phát triển giáp, màu cùng lõi hút sáng theo hướng Thôn Tinh ở mục 6.
+
+| Tàu | Mã dáng | Bảng ảnh |
+|---|---|---|
+| 2 · Cực Quang | 86540B | `03-86637.png` |
+| 3 · X-Dực Băng | 86544 | `01-86639.png` |
+| 8 · Phần Thiên | 86546 | `02-86638.png` |
+| 10 · Tinh Hà | 86545 | `02-86638.png` |
+| 11 · Thôn Tinh | 86538 | `03-86637.png` |
+
+Tra nhanh các mã còn lại trực tiếp trên ba bảng. Video `86540_360.mp4` có hai mẫu 86540A và 86540B. Video `86546_360.mp4`, đoạn 00:49–00:56, là đoạn đối chiếu nhịp Bạo Tẩu đã được ghi trong bản phân tích.
+
+11 video trong `video_goc/` và 11 bảng khung hình trong `bang_bung/` chỉ để học **cách làm**: nhịp bung, tỉ lệ, cách tiến bậc, chất liệu năng lượng. **Không vẽ lại dáng tàu, hình bung hay bộ màu nhận diện của game gốc**; mỗi tàu của Phi Đội Sao Băng phải có chi tiết nhận diện riêng.
 
 ## 4. Luật đã khóa
 - **Không vòng tròn khép kín** quanh tàu (kể cả sóng xung kích tròn, quầng tròn, vòng nền sao).
@@ -56,7 +69,7 @@ Trình bày như ảnh tàu 8: một ảnh hoàn chỉnh, nền tối, thân + h
 | 2 · Cực Quang | Laser | Theo mẫu bậc tím đã chốt (nhiều ray thẳng) | **Màn cực quang dọc** phất giữa các ray, vươn lên trước; hình dọc, không xòe ngang | Bạc trắng · lơ · lục – lơ – tím nhạt |
 | 3 · X-Dực Băng | Đóng Băng | Theo mẫu bậc tím đã chốt | **4 cánh tinh thể băng** nở theo chữ X, mặt cắt phẳng, cạnh cứng, trong như kính | Bạc · lơ băng · trắng – lơ |
 | 10 · Tinh Hà | Quân Đoàn | Theo mẫu bậc tím đã chốt (dáng rộng) | **Hai tấm khiên** ghép ô lục giác mở sang hai bên, **không khép vòng**; 2–4 tàu con xếp đội hình | Tím nhạt – bạc · hồng · lục ngọc |
-| 11 · Thôn Tinh | Hố đen | **Thiết kế mới**: thân tối, lõi tròn hút sáng giữa thân | **Cánh tách lớp bị hút về lõi**, đĩa sáng xoắn quanh lõi (hở, không thành vòng kín), hạt bay vào | Tím đen · vàng kim · tím → lơ |
+| 11 · Thôn Tinh | Hố đen | **Dáng thân 86538 đã chốt**; phát triển giáp tối và lõi tròn hút sáng giữa thân | **Cánh tách lớp bị hút về lõi**, đĩa sáng xoắn quanh lõi (hở, không thành vòng kín), hạt bay vào | Tím đen · vàng kim · tím → lơ |
 
 ## 7. Cách giao
 - Nén tất cả vào **một zip** đặt tên `V231B_TAU8_VA_4_MAU.zip`, tên tệp đúng như trên.
@@ -65,6 +78,8 @@ Trình bày như ảnh tàu 8: một ảnh hoàn chỉnh, nền tối, thân + h
 
 ## Tệp gửi kèm lệnh này
 1. Ảnh tàu 8 Phần Thiên bung cánh đã duyệt.
-2. `V230_12_mau_bac_tim.png` (12 mẫu bậc tím đang dùng; tàu 2, 3, 10 lấy thân từ đây).
+2. `dang_tau_da_chot/` (3 bảng, 12 dáng thân đã chốt) và `V230_12_mau_bac_tim.png` (bảng tổng hợp V230).
 3. `bang_bung/bung_865xx.jpg` (11 bảng thường / bung của video gốc).
 4. `DE_XUAT_V231_HUONG_MY_THUAT_13_TAU.md` (hướng đầy đủ cho 13 tàu, mục 7 là quyết định mới nhất).
+5. `video_goc/865xx_360.mp4` (11 video tham chiếu đầy đủ thời lượng, bản nén ngang 360 px).
+6. `PHAN_TICH_VIDEO_GOC_V231.md` (phân tích video và nhịp bung).

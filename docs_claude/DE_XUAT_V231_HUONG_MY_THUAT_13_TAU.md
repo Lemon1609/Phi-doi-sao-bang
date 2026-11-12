@@ -264,7 +264,7 @@ Phần này **thay thế** các chỗ còn để ngỏ ở mục 2.5, 4 và 5.
 |---|---|---|---|
 | 1 | Màu hiệu ứng phe ta | **Hồng – đỏ dùng thoải mái, không hạn chế** | Bỏ đề xuất tránh dải 325°–10° ở mục 2.5. Khi ghép tranh mới sẽ gỡ chặn màu trong `fx215.js` và `NEON220`. Đạn địch vẫn đỏ / hồng; việc đọc đạn dựa vào thứ tự lớp và viền đạn [Thử] |
 | 2 | Cỡ cánh trong trận | **Giữ đúng cỡ ảnh mẫu** | Không thu nhỏ, không làm mờ riêng cho trận. Vẫn đo độ tương phản đạn địch trong vùng cánh và báo số, không tự chỉnh |
-| 3 | Tàu 1 ↔ tàu 11 | **Được phối lại màu, hoặc kết hợp phong cách các tàu khác thành một tàu mới** | Tàu 11 Thôn Tinh làm thiết kế mới: tím đen – lơ, lõi hút sáng; tàu 1 giữ mẫu 86540A |
+| 3 | Tàu 1 ↔ tàu 11 | **Được phối lại màu, hoặc kết hợp phong cách các tàu khác thành một tàu mới** | **Cập nhật 12/11 09:29: dáng thân 12 mẫu đã chốt** (`src/ship118_cho/V231_dang_tau_da_chot/`). Tàu 11 giữ dáng 86538, chỉ phối lại màu tím đen – lơ và lõi hút sáng; tàu 1 giữ 86540A. Hai tàu khác nhau bằng màu và kiểu bung |
 | 4 | Tàu 1 ↔ tàu 8 | **Đồng ý** | Tàu 1: quạt lông tròn + đuôi dài, lửa vàng kim → tím |
 | 5 | Tàu 4 ↔ tàu 8 | **Đồng ý** | Tàu 4: giáp đỏ sẫm – đen, năng lượng lơ – lục |
 | 6 | Tàu 5 ↔ tàu 9 | **Đồng ý** | Tàu 9 giữ hồng tím; tàu 5 năng lượng trắng – vàng nhạt |
