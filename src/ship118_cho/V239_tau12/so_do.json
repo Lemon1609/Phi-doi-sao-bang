@@ -1,0 +1,103 @@
+{
+ "he_so_chung": 0.3803,
+ "tam_tim_gpt": [
+  626.5,
+  622.5
+ ],
+ "thuong": {
+  "lech_bt": [
+   0,
+   0
+  ],
+  "than_512": [
+   423,
+   419
+  ],
+  "bao_hoa": 0.36,
+  "bt_le_min": 35,
+  "phan_mo_px": 966
+ },
+ "luc": {
+  "lech_bt": [
+   0,
+   0
+  ],
+  "than_512": [
+   439,
+   424
+  ],
+  "bao_hoa": 0.48,
+  "bt_le_min": 36,
+  "phan_mo_px": 392
+ },
+ "lam": {
+  "lech_bt": [
+   0,
+   0
+  ],
+  "than_512": [
+   435,
+   423
+  ],
+  "bao_hoa": 0.52,
+  "bt_le_min": 35,
+  "phan_mo_px": 1693
+ },
+ "tim": {
+  "lech_bt": [
+   0,
+   0
+  ],
+  "than_512": [
+   449,
+   444
+  ],
+  "bao_hoa": 0.73,
+  "bt_le_min": 30,
+  "phan_mo_px": 379
+ },
+ "tim5": {
+  "lech_bt": [
+   0,
+   0
+  ],
+  "than_512": [
+   445,
+   417
+  ],
+  "bao_hoa": 0.71,
+  "bt_le_min": 33,
+  "phan_mo_px": 1516
+ },
+ "ss": {
+  "lech_bt": [
+   0,
+   0
+  ],
+  "than_512": [
+   455,
+   436
+  ],
+  "bao_hoa": 0.38,
+  "bt_le_min": 27,
+  "phan_mo_px": 4028
+ },
+ "khop_than_anh_bung": {
+  "ti_le": 0.855,
+  "vi_tri": [
+   407,
+   321
+  ],
+  "rmse": 46.5,
+  "tam": [
+   625.9,
+   539.9
+  ]
+ },
+ "fx_khung_bao_1536": [
+  69,
+  1468,
+  380,
+  1111
+ ]
+}
