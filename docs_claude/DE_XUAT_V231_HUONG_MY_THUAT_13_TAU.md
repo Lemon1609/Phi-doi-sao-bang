@@ -203,7 +203,7 @@ Cánh tàu 8 xoay và phóng to **quanh vai**, không quanh tâm tàu. Mỗi tà
 | 4 | Thần Ma · 86541 | **Hai càng năng lượng chĩa xuống + mũi thương** phóng lên giữa | Đỏ đen · lam (vòng mắt) · lơ | Thân tròn hai "mắt" vòng lam; năng lượng lơ, không cam | **(d)** Giáp đỏ + lam trùng bộ màu tàu 8 |
 | 5 | Thự Quang · 86542 | **Chùm gai tinh thể xòe quạt** thẳng, nhọn, từ mâm sau thân | Bạc · hồng tím · hồng tím → trắng | Gai **thẳng**, tỏa tia; thân bạc | **(e)** Hồng tím trùng tàu 9 và nằm sát tông đạn địch |
 | 6 | U Linh · 86547 | **Cánh "nhiễu số"**: các khối chữ nhật lệch hàng xòe ngang, nhấp nháy | Đen xám · lơ ngọc + cam nhỏ · lơ ngọc | Tàu tối duy nhất; hiệu ứng hình khối vuông, không cong | Không |
-| 7 | Đao Phong · bản tím 23:24 | Lưỡi tách 3–5 phiến + vệt chém cung (**đã xong V230**) | Tím · theo bậc · theo bậc | Hai lưỡi cong dài, thân ngọn giáo | Không |
+| 7 | Đao Phong · **86543** (chốt 12/11) | Lưỡi tách 3–5 phiến + vệt chém cung; lưỡi cong ôm hai bên khi bung | Tím · đỏ – vàng (lưỡi) · theo bậc | Thân tím mảnh, hai cặp lưỡi đỏ viền vàng dọc thân | Tranh V230 giữ trong game tới khi có bộ mới |
 | 8 | Phần Thiên · 86546 | **Cánh chim cắt: sống cánh ngang + 8–10 dải lông nhọn treo chếch xuống, lưỡi lam đầu cánh** (**mẫu đã duyệt**) | Đỏ · vàng kim · trắng vàng → cam → cam đỏ, mép lam | Mặt nạ hai mắt vàng; lông nhọn như lưỡi dao; lưỡi lam | Xem câu hỏi 1, 2 (mục 5) |
 | 9 | Thiên Khung · 86548 | **Cánh hoa nhiều lớp** cong, xếp chồng + **bản sao bóng mờ** lệch hai bên | Hồng tím · lam (lõi) · hồng tím → lam | Cánh **cong**, tròn đầu, nhiều lớp; có bóng mờ | **(e)** như tàu 5 |
 | 10 | Tinh Hà · 86545 | **Hai tấm khiên chiến thuật** mở sang hai bên (hình lục giác ghép, không khép vòng) + tàu con | Tím nhạt – bạc · hồng (vòng lõi) · lục ngọc | Dáng cá đuối rộng; tấm phẳng có lưới | Vòng tròn hồng ở **lõi thân** là chi tiết của thân, không phải vòng quanh tàu: giữ? |
@@ -248,9 +248,9 @@ Mục đích: chốt rằng 13 tàu không thành cùng một kiểu cánh, trư
 
 **Bước 3 · Vẽ đủ bộ**, mỗi lượt một tàu: 12 tranh thân + tệp hình bung + bảng 6 màu + tọa độ điểm gốc. Thứ tự đề xuất, đưa các tàu có câu hỏi treo xuống sau:
 
-8 → 2 → 3 → 10 → 6 → 12 → 9 → 5 → 4 → 1 → 11 → 13
+8 → 7 → 2 → 3 → 10 → 6 → 12 → 9 → 5 → 4 → 1 → 11 → 13
 
-(Tàu 7 đã xong ở V230; khi các tàu khác xong sẽ rà lại tàu 7 theo chuẩn mới nếu cần.)
+(Tàu 7 vẽ lại theo dáng 86543, chủ dự án chốt 12/11 09:31; tranh V230 giữ trong game tới khi bộ mới được duyệt.)
 
 **Chưa làm cho tới khi được chốt:** thay tranh trong game, sửa `btfx218.js`, gỡ chặn màu, đổi số liệu.
 
@@ -275,3 +275,5 @@ Phần này **thay thế** các chỗ còn để ngỏ ở mục 2.5, 4 và 5.
 - Vì hiệu ứng phe ta nay có thể đỏ / hồng và cánh giữ nguyên cỡ, Claude sẽ kiểm trước tiên rằng **đạn địch được vẽ trên lớp cánh** và báo số đo độ tương phản ở bản thử tàu 8.
 
 Bước tiếp theo: tin nhắn cho GPT ở `docs_claude/GUI_GPT_V231B_MAU_KY_THUAT_VA_4_MAU_HUONG.md`.
+
+| 8 | Dáng tàu 7 | **Mẫu 86543 dùng cho tàu 7** (12/11 09:31) | Vẽ lại bộ 12 tranh tàu 7 theo dáng 86543, xếp ngay sau tàu 8. Tranh V230 giữ trong game tới khi thay |

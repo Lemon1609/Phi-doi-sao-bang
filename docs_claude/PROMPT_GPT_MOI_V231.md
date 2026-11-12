@@ -26,6 +26,7 @@ Ba bảng trong `dang_tau_da_chot/` là mẫu dáng thân đã chốt do chủ d
 |---|---|---|
 | 2 · Cực Quang | 86540B | `03-86637.png` |
 | 3 · X-Dực Băng | 86544 | `01-86639.png` |
+| 7 · Đao Phong (đợt sau) | 86543 | `01-86639.png` |
 | 8 · Phần Thiên | 86546 | `02-86638.png` |
 | 10 · Tinh Hà | 86545 | `02-86638.png` |
 | 11 · Thôn Tinh | 86538 | `03-86637.png` |
