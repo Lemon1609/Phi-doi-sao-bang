@@ -253,3 +253,25 @@ Mục đích: chốt rằng 13 tàu không thành cùng một kiểu cánh, trư
 (Tàu 7 đã xong ở V230; khi các tàu khác xong sẽ rà lại tàu 7 theo chuẩn mới nếu cần.)
 
 **Chưa làm cho tới khi được chốt:** thay tranh trong game, sửa `btfx218.js`, gỡ chặn màu, đổi số liệu.
+
+---
+
+## 7. ĐÃ CHỐT · chủ dự án trả lời 12/11/2026 08:00
+
+Phần này **thay thế** các chỗ còn để ngỏ ở mục 2.5, 4 và 5.
+
+| # | Câu hỏi | Quyết định của chủ dự án | Hệ quả |
+|---|---|---|---|
+| 1 | Màu hiệu ứng phe ta | **Hồng – đỏ dùng thoải mái, không hạn chế** | Bỏ đề xuất tránh dải 325°–10° ở mục 2.5. Khi ghép tranh mới sẽ gỡ chặn màu trong `fx215.js` và `NEON220`. Đạn địch vẫn đỏ / hồng; việc đọc đạn dựa vào thứ tự lớp và viền đạn [Thử] |
+| 2 | Cỡ cánh trong trận | **Giữ đúng cỡ ảnh mẫu** | Không thu nhỏ, không làm mờ riêng cho trận. Vẫn đo độ tương phản đạn địch trong vùng cánh và báo số, không tự chỉnh |
+| 3 | Tàu 1 ↔ tàu 11 | **Được phối lại màu, hoặc kết hợp phong cách các tàu khác thành một tàu mới** | Tàu 11 Thôn Tinh làm thiết kế mới: tím đen – lơ, lõi hút sáng; tàu 1 giữ mẫu 86540A |
+| 4 | Tàu 1 ↔ tàu 8 | **Đồng ý** | Tàu 1: quạt lông tròn + đuôi dài, lửa vàng kim → tím |
+| 5 | Tàu 4 ↔ tàu 8 | **Đồng ý** | Tàu 4: giáp đỏ sẫm – đen, năng lượng lơ – lục |
+| 6 | Tàu 5 ↔ tàu 9 | **Đồng ý** | Tàu 9 giữ hồng tím; tàu 5 năng lượng trắng – vàng nhạt |
+| 7 | Tàu 13 | **Tham khảo cách tiến bậc của các mẫu rồi cải tiến thêm** | GPT đề xuất mẫu bậc tím riêng cho tàu 13 (vương miện, khe nứt sáng), chủ dự án duyệt trước khi vẽ bộ |
+
+**Ghi chú của Claude:**
+- "Tham khảo video mẫu" được hiểu là học **cách làm** (nhịp bung, cách tiến bậc, độ lớn hiệu ứng). Claude không soạn lời nhắc hay đo chỉnh để tranh giống sát tàu của game gốc; tàu 11 và 13 là thiết kế riêng.
+- Vì hiệu ứng phe ta nay có thể đỏ / hồng và cánh giữ nguyên cỡ, Claude sẽ kiểm trước tiên rằng **đạn địch được vẽ trên lớp cánh** và báo số đo độ tương phản ở bản thử tàu 8.
+
+Bước tiếp theo: tin nhắn cho GPT ở `docs_claude/GUI_GPT_V231B_MAU_KY_THUAT_VA_4_MAU_HUONG.md`.
