@@ -19,6 +19,8 @@ MAXD, MAXBT, KMAX = 456, 500, 1.12
 NO_ASP = {7, 8}  # V231: tàu 8 dáng cao hẹp (mẫu 86546 đã chốt)
 # V231E: tàu đã được chuẩn hóa sẵn về 512 (claude_tools/tau8_v231*.py) → giữ NGUYÊN tranh, không đổi cỡ, không căn lại tâm
 KEEP = {8}
+# V232: từng bậc đã chuẩn hóa sẵn (tàu đang thay dần từng bậc)
+KEEPT = {(7, 'tim')}
 
 
 def _bbox(im, th):
@@ -65,7 +67,7 @@ def can_doi(thu_muc='src/ship118', log=None):
             nm = Image.open(p).convert('RGBA')
             pb = os.path.join(thu_muc, f'tau{n}_{t}_bt.png')
             bt = Image.open(pb).convert('RGBA') if os.path.exists(pb) else None
-            if n in KEEP:
+            if n in KEEP or (n, t) in KEEPT:
                 out[f'tau{n}_{t}'] = nm
                 if bt is not None:
                     out[f'tau{n}_{t}_bt'] = bt
