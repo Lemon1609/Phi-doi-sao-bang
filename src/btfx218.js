@@ -74,7 +74,8 @@
   //  Theo phân tích video game gốc (00:00, 12/11): bung 0,2 s · giữ: đập nhẹ, nhấp nháy · hiệu ứng phụ lặp lại. Tắt: window.BUNG230=false
   const TC={6:['#4f8bff','#7dff4f','#ff5050','#b07cff','#3fd0ff','#ffb030']};/* tàu 7: màu đèn từng bậc theo bộ V230 */
   const SLASH={6:1};
-  const tcol=(id,a)=>{const i=T.indexOf(a&&a.__f);if(TC[id])return TC[id][i<0?3:i];try{if(window.TCOL240!==false&&RAMP[id]){const r=RAMP[id][(a&&a.__f)||'tim'];if(r){const c=midCol(r.bung);return '#'+c.map(v=>(v|0).toString(16).padStart(2,'0')).join('');}}}catch{}return lamp(id);};/* V240: viền neon theo màu cánh của từng bậc */
+  const TIER244={thuong:'#dde8f5',luc:'#4cff7a',lam:'#3fa9ff',tim5:'#ff4fd8',ss:'#ffd24a'};/* V244: mã màu bậc chung cho đèn / neon / ngọc (chủ dự án 13/11 06:53). Bậc tím giữ màu riêng của tàu. Tắt: TIER244=false */
+  const tcol=(id,a)=>{const f=a&&a.__f;if(window.TIER244!==false&&TIER244[f])return TIER244[f];const i=T.indexOf(f);if(TC[id])return TC[id][i<0?3:i];try{if(window.TCOL240!==false&&RAMP[id]){const r=RAMP[id][(a&&a.__f)||'tim'];if(r){const c=midCol(r.bung);return '#'+c.map(v=>(v|0).toString(16).padStart(2,'0')).join('');}}}catch{}return lamp(id);};/* V240: viền neon theo màu cánh của từng bậc */
   const TW=new Map();
   function tinted(im,col){const key=im.src.length+'|'+col;let c=TW.get(key);if(c)return c;c=document.createElement('canvas');c.width=im.naturalWidth;c.height=im.naturalHeight;const g=c.getContext('2d');
     g.drawImage(im,0,0);g.globalCompositeOperation='source-atop';g.globalAlpha=.62;g.fillStyle=col;g.fillRect(0,0,c.width,c.height);TW.set(key,c);return c;}
