@@ -36,6 +36,7 @@ Image.fromarray(h5.clip(0, 255).astype(np.uint8), 'RGBA').save(f'{OUT}/tau10_tim
 dm = drones.astype(np.float32); dd = np.dstack([A * dm[..., None], dm * 255])
 Image.fromarray(dd.clip(0, 255).astype(np.uint8), 'RGBA').crop((0, int(y1 - 40), W, H)).save(f'{OUT}/tau10_tau_con_mau.png')
 E1 = E * (~cv2.dilate(hull.astype(np.uint8), np.ones((5, 5), np.uint8)).astype(bool) & ~drones)[..., None]
+np.save(f'{OUT}/E1_mau.npy', E1.astype(np.float16))   # V237B: lớp khiên ở hệ tọa độ ảnh mẫu
 lum = lambda X: X[..., 0] * .299 + X[..., 1] * .587 + X[..., 2] * .114
 g1 = lum(E1); ramp = [[0.0, 0, 0, 0]]
 for lo in range(0, 256, 16):
