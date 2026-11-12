@@ -277,3 +277,8 @@ Phần này **thay thế** các chỗ còn để ngỏ ở mục 2.5, 4 và 5.
 Bước tiếp theo: tin nhắn cho GPT ở `docs_claude/GUI_GPT_V231B_MAU_KY_THUAT_VA_4_MAU_HUONG.md`.
 
 | 8 | Dáng tàu 7 | **Mẫu 86543 dùng cho tàu 7** (12/11 09:31) | Vẽ lại bộ 12 tranh tàu 7 theo dáng 86543, xếp ngay sau tàu 8. Tranh V230 giữ trong game tới khi thay |
+
+## 8. Chốt mẫu V231D (chủ dự án 12/11/2026 10:32)
+- Chốt 4 mẫu hướng bậc tím đang bung: tàu 2 Cực Quang, tàu 3 X-Dực Băng, tàu 10 Tinh Hà, tàu 11 Thôn Tinh (`src/ship118_cho/V231D_mau_chot/`).
+- Ghi chú đo: ảnh tàu 10 trùng từng điểm ảnh với bản V231C (chưa áp yêu cầu mở khe hai khiên); chủ dự án chốt nguyên như vậy.
+- Tàu 8 bậc tím: chốt sống cánh vẽ lại `tau8_tim_bt_thu.png`; Claude ghép lên chính thân thường (thân giữa trùng khít), thu sống cánh 13% quanh chân để lọt khung 512. Bản thử trên nhánh `thu-v231-tau8`, chưa phát hành.
