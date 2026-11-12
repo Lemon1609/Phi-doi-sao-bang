@@ -1,5 +1,10 @@
 Chào GPT, chủ dự án muốn **vẽ lại hình bung của tàu 6 U Linh cho đẹp hơn và mang nét riêng**. Ảnh bung hiện tại bám quá sát khung hình game gốc (video 86547). Từ nay chỉ học cách làm từ video (nhịp bung, độ sáng, cách lên bậc), **không vẽ lại hình, bố cục hay chi tiết nhận diện của game gốc**.
 
+## Học phong cách game gốc
+Được học phong cách thiết kế và đồ họa của game gốc để làm mẫu mới, nhưng **không chép một tàu hay một hình bung cụ thể nào**.
+- **Được học:** chất giáp (kim loại sáng, khung thép tối, bộ phận máy lộ ra); năng lượng cộng sáng (lõi trắng → màu bão hòa → mép trong mờ, không viền đen); độ chi tiết dày; hình bung rộng 4–6 lần thân, lệch về phía sau; mỗi tàu một chất liệu bung riêng; lên bậc đổi cả màu lẫn số bộ phận, bậc cao rực hơn; nhịp báo trước ≈ 0,4 s → bật ra ≤ 0,2 s → giữ có đập nhẹ và hạt.
+- **Không chép:** dáng, bố cục, cách sắp xếp bộ phận và chi tiết nhận diện của một tàu hay một hình bung cụ thể (ví dụ cột thanh dựng + chữ Y của 86547).
+
 ## Gửi kèm
 - `tau6_bung_hien_tai.png`: ảnh bung đang dùng, để biết **cần bỏ những gì**.
 - `tau6_tim.png`, `tau6_tim_bt.png`: thân bậc tím đang dùng trong game (512 × 512). **Thân giữ nguyên, không vẽ lại.**

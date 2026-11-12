@@ -1,5 +1,10 @@
 Chào GPT, tàu 2, 6, 7, 8 đã xong đủ 6 bậc. Làm tiếp **tàu 3 X-Dực Băng**. Mẫu hướng bậc tím (thân bạc, 4 cánh tinh thể băng xòe chữ X, tay đòn có càng kẹp giữ gốc tinh thể) đã được chủ dự án chốt ở V231D.
 
+## Học phong cách game gốc
+Được học phong cách thiết kế và đồ họa của game gốc để làm mẫu mới, nhưng **không chép một tàu hay một hình bung cụ thể nào**.
+- **Được học:** chất giáp (kim loại sáng, khung thép tối, bộ phận máy lộ ra); năng lượng cộng sáng (lõi trắng → màu bão hòa → mép trong mờ, không viền đen); độ chi tiết dày; hình bung rộng 4–6 lần thân, lệch về phía sau; mỗi tàu một chất liệu bung riêng; lên bậc đổi cả màu lẫn số bộ phận, bậc cao rực hơn; nhịp báo trước ≈ 0,4 s → bật ra ≤ 0,2 s → giữ có đập nhẹ và hạt.
+- **Không chép:** dáng, bố cục, cách sắp xếp bộ phận và chi tiết nhận diện của một tàu hay một hình bung cụ thể (ví dụ cột thanh dựng + chữ Y của 86547).
+
 ## Gửi kèm
 - `03_x_duc_bang.png`: mẫu đã chốt (nền tối).
 - `tau3_tim_bt_claude_tach.png`: thân Bạo Tẩu Claude tách thử từ mẫu, 512 × 512. **Chưa sạch**: tay đòn và càng kẹp bị đứt đoạn vì lẫn với tinh thể. Chỉ dùng để xem tỉ lệ và vị trí.

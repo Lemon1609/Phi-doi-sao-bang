@@ -49,3 +49,9 @@ Dùng làm căn cứ cho mọi mẫu mới: chiến cơ, trang bị, hợp thể
 - Gemini làm phần cơ chế, số liệu; GPT làm phần tranh.
 - **Để dành cho đợt thiết kế lại đạn** (chủ dự án 12/11 19:14): tàu 2 Cực Quang khi Bạo Tẩu gộp 4–5 tia laser thành một tia lớn theo tư vấn Gemini (`docs_claude/de_xuat_cho/GEMINI_V234_TAU2_TRA_LOI.txt`): khép 0,35 s → phình 130 % lúc sóng xung kích → giữ → tách lại 0,35 s cuối; bề ngang trúng 75–80 %, sát thương 95–100 % (lõi 80 %, vùng màn 20 %); đạn lõi trắng ngà viền xanh băng, đặt điểm bắn ra rìa ngoài hai thanh ray.
 - **Tàu 6 hình bung — chủ dự án giữ nguyên (12/11 19:25)**: GPT cho biết ảnh bung tàu 6 đã duyệt (`V233_tau6/tau6_bung_DA_DUYET.png`) được vẽ theo khung ~74 s video 86547; so bằng mắt thấy gần sát gốc ở cột thanh dựng đứng, hai thanh chữ Y, dải kính tam giác xòe ngang. Claude đã cảnh báo và đề xuất bỏ cột thanh + chữ Y; chủ dự án chọn giữ nguyên, chấp nhận rủi ro như 12 dáng thân. Claude không ghép thêm mẫu nào GPT nói là vẽ theo hình game gốc mà không báo trước.
+
+## Học phong cách game gốc (chủ dự án 12/11 19:29)
+Được học phong cách thiết kế và đồ họa của game gốc để làm mẫu mới, nhưng **không chép một tàu hay một hình bung cụ thể nào**.
+- **Được học:** chất giáp (kim loại sáng, khung thép tối, bộ phận máy lộ ra); năng lượng cộng sáng (lõi trắng → màu bão hòa → mép trong mờ, không viền đen); độ chi tiết dày; hình bung rộng 4–6 lần thân, lệch về phía sau; mỗi tàu một chất liệu bung riêng; lên bậc đổi cả màu lẫn số bộ phận, bậc cao rực hơn; nhịp báo trước ≈ 0,4 s → bật ra ≤ 0,2 s → giữ có đập nhẹ và hạt.
+- **Không chép:** dáng, bố cục, cách sắp xếp bộ phận và chi tiết nhận diện của một tàu hay một hình bung cụ thể (ví dụ cột thanh dựng + chữ Y của 86547).
+
