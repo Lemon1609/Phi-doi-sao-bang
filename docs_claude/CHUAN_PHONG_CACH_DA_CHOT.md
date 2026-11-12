@@ -66,3 +66,7 @@ Màu bung theo từng thứ đang lắp: chiến cơ (đang có, theo bậc), **
 - Thân bậc thấp: ít nhất 2 màu giáp (giáp chủ + giáp phụ có màu) + màu đèn; cỡ ≥ 90 % bậc tím; chi tiết dày như bậc tím. Phân bậc bằng số bộ phận, độ lớn lõi, độ rực đèn — không bằng cách bỏ màu hay thu nhỏ.
 - Cánh bung bậc thấp: hai sắc (mép một màu, thân một màu, lõi trắng), to gần bậc tím (thuong k .92, luc k .96). Bậc cao vẫn hơn nhờ lớp 2, k 1,08 và độ rực (claude_tools/bac_thap_v238.py).
 - Đo độ bão hòa trung bình thân (V238): đơn sắc = tàu 2 thường 0,08 · tàu 3 thường 0,12 / lục 0,18 · tàu 6 thường 0,25 / lục 0,10 · tàu 7 thường 0,09; nhỏ = tàu 2 thường 159 × 331, tàu 7 thường 245 × 334 (bậc tím 312 × 421, 397 × 456).
+
+## Tàu 12 Thời Không (12/11 22:43)
+- Ảnh bung bậc tím GPT V239 (mảnh giáp ngưng thời gian + mặt đồng hồ hở + hai kim): hai cung trên / dưới nhìn gần thành vòng quanh tàu và kim nằm trước mũi — Claude đã nêu; **chủ dự án chọn giữ nguyên**.
+- Thường / Bạo Tẩu phải khác rõ:  rộng ≥ 1,25 lần hoặc diện tích ≥ 1,2 lần, phần mở là giáp cứng nằm ngoài viền thân (V240, chủ dự án 22:39).
