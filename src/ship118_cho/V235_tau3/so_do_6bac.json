@@ -1,0 +1,97 @@
+{
+ "he_so_chung": 0.3842,
+ "tam_tim_gpt": [
+  627.0,
+  614.5
+ ],
+ "thuong": {
+  "lech_bt_GPT": [
+   0,
+   0
+  ],
+  "than_512": [
+   313,
+   427
+  ],
+  "bt_le_min": 39,
+  "than_giua_khac": 0.01
+ },
+ "luc": {
+  "lech_bt_GPT": [
+   0,
+   0
+  ],
+  "than_512": [
+   449,
+   408
+  ],
+  "bt_le_min": 30,
+  "than_giua_khac": 0.0
+ },
+ "lam": {
+  "lech_bt_GPT": [
+   0,
+   0
+  ],
+  "than_512": [
+   277,
+   426
+  ],
+  "bt_le_min": 37,
+  "than_giua_khac": 0.0
+ },
+ "tim": {
+  "lech_bt_GPT": [
+   0,
+   0
+  ],
+  "than_512": [
+   214,
+   417
+  ],
+  "bt_le_min": 47,
+  "than_giua_khac": 0.0
+ },
+ "tim5": {
+  "lech_bt_GPT": [
+   0,
+   0
+  ],
+  "than_512": [
+   345,
+   449
+  ],
+  "bt_le_min": 26,
+  "than_giua_khac": 0.0
+ },
+ "ss": {
+  "lech_bt_GPT": [
+   0,
+   0
+  ],
+  "than_512": [
+   350,
+   455
+  ],
+  "bt_le_min": 23,
+  "than_giua_khac": 0.01
+ },
+ "khop_mau": {
+  "ti_le": 0.545,
+  "vi_tri": [
+   286,
+   165
+  ],
+  "rmse": 54.3,
+  "tam_than_gpt_tren_mau": [
+   627.7,
+   499.9
+  ]
+ },
+ "fx_khung_bao_1280": [
+  229,
+  1048,
+  386,
+  1000
+ ]
+}

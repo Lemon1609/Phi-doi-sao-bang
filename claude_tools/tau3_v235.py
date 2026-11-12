@@ -48,6 +48,10 @@ a5 = hull[..., 3:4] / 255; hull[..., :3] = np.where(a5 > 0, hull[..., :3] / np.m
 hull = hull.clip(0, 255).astype(np.uint8)
 Image.fromarray(hull, 'RGBA').save(f'{OUT}/tau3_tim_bt.png')
 E1 = E * ((cv2.dilate(tt, cv2.getStructuringElement(cv2.MORPH_ELLIPSE, (61, 61))) > 0) & ~keep)[..., None]
+# V235B: lấp chỗ càng kẹp đè lên gốc tinh thể (thân mới không còn càng kẹp) rồi lưu lớp năng lượng ở hệ tọa độ ảnh mẫu
+hole = cv2.dilate(((claw > 0) & (tt_d > 0)).astype(np.uint8), np.ones((5, 5), np.uint8))
+E1 = cv2.inpaint(E1.clip(0, 255).astype(np.uint8), hole, 9, cv2.INPAINT_TELEA).astype(np.float32) * (tt_d > 0)[..., None]
+np.save(f'{OUT}/E1_mau.npy', E1.astype(np.float16))
 lum = lambda X: X[..., 0] * .299 + X[..., 1] * .587 + X[..., 2] * .114
 g1 = lum(E1); ramp = [[0.0, 0, 0, 0]]
 for lo in range(0, 256, 16):
