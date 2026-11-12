@@ -883,6 +883,8 @@ for _p in sorted(_g.glob(os.path.join(os.environ.get('BTFX218_DIR','src/btfx218'
     _bf=_io.BytesIO();_im.save(_bf,'WEBP',quality=90)
     _BT218.setdefault(str(int(_num)-1),{})[_k]='data:image/webp;base64,'+_b64.b64encode(_bf.getvalue()).decode()
 print('V218 bo manh Bao Tau:',{k:len(v) for k,v in _BT218.items()})
+# V231 · chủ dự án 12/11 13:17: lúc Bạo Tẩu tàu KHÔNG nhấp nháy (vẫn bất tử như cũ) để thân + cánh bung không bị tắt từng khung. Tắt: window.BLINK231=false
+rep("invuln<=0||Math.floor(time*12)%2===0||mode==='menu'","invuln<=0||Math.floor(time*12)%2===0||mode==='menu'||(window.BLINK231!==false&&superTime>0)")
 rep("</body>","<script id=\"btfx218-art\">const BTFX218_ART="+json.dumps(_BT218,separators=(',',':'))+";</script><script id=\"btfx218-js\">"+open('src/btfx218.js',encoding='utf-8').read()+"</script></body>")
 rep("if(bg){const BGA=typeof SKIN15_BG","if(window.HOLO212Draw&&HOLO212Draw(g,SW,SH,shipY+40*k,k,clock,current())){}else if(bg){const BGA=typeof SKIN15_BG")
 rep("cut*k,ww*k,hh*k);}catch{}}\n  // nhãn pha","cut*k,ww*k,hh*k);}catch{}}\n  try{window.HOLO212Tint&&HOLO212Tint(g,SW,SH,shipY+40*k,k);}catch{}\n  // nhãn pha")

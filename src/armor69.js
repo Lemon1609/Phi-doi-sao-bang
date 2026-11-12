@@ -12,7 +12,7 @@ const Armor69=(()=>{
  function bubble(){if(!(mode==='play'||mode==='pause'))return;const now=performance.now()/1000,dt=Math.min(.05,Math.max(0,now-(last||now)));last=now;
   let frac=0,timed=0;try{frac=maxShield>0?Math.max(0,Math.min(1,shield/maxShield)):0;timed=bulletShieldTime||0;}catch{}
   try{if(prevSh!=null&&shield<prevSh-1e-6)fl=1;prevSh=shield;}catch{}fl=Math.max(0,fl-dt*3);
-  const want=(timed>0||frac>0)?1:0;vis+=(want-vis)*Math.min(1,dt*ARMOR69.fade);if(vis<.02)return;
+  const want=((timed>0||frac>0)&&!(window.BUB231!==false&&typeof superTime!=='undefined'&&superTime>0))?1:0;/* V231: chủ dự án 12/11 — Bạo Tẩu không vẽ bong bóng khiên tròn quanh tàu (khiên vẫn chặn đạn). Tắt: BUB231=false */vis+=(want-vis)*Math.min(1,dt*ARMOR69.fade);if(vis<.02)return;
   let a=timed>0?1:(.38+.42*frac);if(timed>0&&timed<2&&Math.floor(now*10)%2)a*=.35;a=Math.min(1,a*vis+.45*fl);
   const q=(()=>{try{return VisualFX.reduced();}catch{return false;}})();const x=player.x,y=player.y,r=ARMOR69.r*(timed>0?1.08:1)+(q?0:Math.sin(now*4)*1.2);
   if(window.SH183!==false)a*=.55;/* V183: chủ dự án chọn giữ khiên tròn nhưng mờ, mảnh hơn */
