@@ -1,5 +1,9 @@
 # BÀN GIAO DỰ ÁN PHI ĐỘI SAO BĂNG · V202 (2026-11-08)
 
+### 12/11 19:25 · Tàu 6: hình bung gần sát game gốc — chủ dự án GIỮ NGUYÊN
+- GPT nói đã lấy khung ~74 s video 86547 làm tham chiếu trực tiếp cho ảnh bung tàu 6 (đã phát hành V233). Claude so bằng mắt: gần sát ở cột thanh dựng, chữ Y, kính tam giác. Đã cảnh báo; chủ dự án chọn giữ nguyên. Không sửa gì.
+- Tàu 3: gói GUI_GPT_V235_TAU3 đã gửi chủ dự án, chờ chuyển GPT.
+
 ### V233 · 12/11 15:55 · PHÁT HÀNH: tàu 6 U Linh đủ 6 bậc · 4 hiệu ứng học từ video
 - Bậc tím tách từ ảnh bung duyệt 14:43 (claude_tools/tau6_v233.py; thân tách theo màu + đa giác khối mũi). 5 bậc V233B (tau6_v233b_bac.py, hệ số riêng từng bậc theo bề ngang đích 380/410/432/456/456; SS vẽ lại 15:43). Bậc thường bổ sung khối mũi (tau6_v233b_mui.py). Bảng màu tau6_v233b_ramp.py. candoi KEEP={6,7,8}.
 - Hiệu ứng (btfx218 / v118 / build): LIFT233 lấy đà 0,6 s; SHOCK233 sóng xung kích 0,24 s lúc bật cánh (chủ dự án mở ngoại lệ 15:02); BEAM233 cột năng lượng trước mũi + vòng xung (chỉ hình); AUTO233 sảnh tự bung 16 s (bung 3 s và 11 s, giữ 3,5 s). Có sẵn BtFx218.scale (cỡ thân riêng từng bậc, đang để trống).
