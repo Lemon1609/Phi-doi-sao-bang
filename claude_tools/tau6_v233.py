@@ -14,6 +14,8 @@ m = cv2.morphologyEx(m, cv2.MORPH_OPEN, np.ones((5, 5), np.uint8))
 n, lab, st, _ = cv2.connectedComponentsWithStats(m); k = 1 + np.argmax(st[1:, 4]); M = (lab == k).astype(np.uint8)
 M = cv2.morphologyEx(M, cv2.MORPH_CLOSE, np.ones((15, 15), np.uint8))
 cnts, _ = cv2.findContours(M, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE); Fm = np.zeros_like(M); cv2.drawContours(Fm, cnts, -1, 1, -1)
+# phần giữa mũi (tinh thể xanh + lõi vàng) có màu giống năng lượng → bổ sung bằng đa giác đo trên ảnh phóng to có thước
+cv2.fillPoly(Fm, [np.array([(887, 168), (845, 238), (831, 320), (844, 424), (931, 424), (945, 320), (931, 238)], np.int32)], 1)
 al = cv2.GaussianBlur(Fm.astype(np.float32), (3, 3), 0)
 ys, xs = np.where(Fm > 0); x0, x1, y0, y1 = xs.min(), xs.max(), ys.min(), ys.max(); cx, cy = (x0 + x1 + 1) / 2, (y0 + y1 + 1) / 2
 F = 456 / max(x1 - x0 + 1, y1 - y0 + 1)

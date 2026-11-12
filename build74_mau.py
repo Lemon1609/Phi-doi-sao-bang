@@ -885,6 +885,8 @@ for _p in sorted(_g.glob(os.path.join(os.environ.get('BTFX218_DIR','src/btfx218'
 print('V218 bo manh Bao Tau:',{k:len(v) for k,v in _BT218.items()})
 # V231 · chủ dự án 12/11 13:17: lúc Bạo Tẩu tàu KHÔNG nhấp nháy (vẫn bất tử như cũ) để thân + cánh bung không bị tắt từng khung. Tắt: window.BLINK231=false
 rep("invuln<=0||Math.floor(time*12)%2===0||mode==='menu'","invuln<=0||Math.floor(time*12)%2===0||mode==='menu'||(window.BLINK231!==false&&superTime>0)")
+# V233 · 3) sảnh tự bung theo chu kỳ (học từ video đồ giám): 16 s = bung ở 3 s và 11 s (giữ 3,5 s), kỹ năng ở 8 s. Tắt: window.AUTO233=false
+rep("if(D.auto){const c=D.t%15;if(c<dt&&D.t>1)setPhase('normal');if(c>=5&&c-dt<5)setPhase('skill');if(c>=8.5&&c-dt<8.5)setPhase('super');}","if(D.auto&&window.AUTO233!==false){const c=D.t%16,at=(x)=>c>=x&&c-dt<x;if(c<dt&&D.t>1)setPhase('normal');if(at(3)||at(11))setPhase('super');if(at(8))setPhase('skill');if(D.phase==='super'&&D.phaseT>3.5)setPhase('normal');}else if(D.auto){const c=D.t%15;if(c<dt&&D.t>1)setPhase('normal');if(c>=5&&c-dt<5)setPhase('skill');if(c>=8.5&&c-dt<8.5)setPhase('super');}")
 rep("</body>","<script id=\"btfx218-art\">const BTFX218_ART="+json.dumps(_BT218,separators=(',',':'))+";</script><script id=\"btfx218-js\">"+open('src/btfx218.js',encoding='utf-8').read()+"</script></body>")
 rep("if(bg){const BGA=typeof SKIN15_BG","if(window.HOLO212Draw&&HOLO212Draw(g,SW,SH,shipY+40*k,k,clock,current())){}else if(bg){const BGA=typeof SKIN15_BG")
 rep("cut*k,ww*k,hh*k);}catch{}}\n  // nhãn pha","cut*k,ww*k,hh*k);}catch{}}\n  try{window.HOLO212Tint&&HOLO212Tint(g,SW,SH,shipY+40*k,k);}catch{}\n  // nhãn pha")
