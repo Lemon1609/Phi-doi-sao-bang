@@ -1,0 +1,154 @@
+{
+ "9": {
+  "thuong": {
+   "den_hue": 301,
+   "dich_hue": 330,
+   "px_den": 24307,
+   "khac_tim_do": 2
+  },
+  "luc": {
+   "den_hue": 320,
+   "dich_hue": 76,
+   "px_den": 25043,
+   "khac_tim_do": 17
+  },
+  "lam": {
+   "den_hue": 283,
+   "dich_hue": 199,
+   "px_den": 27822,
+   "khac_tim_do": 20
+  },
+  "tim": {
+   "den_hue": 303,
+   "dich_hue": 309,
+   "px_den": 24025,
+   "khac_tim_do": 0
+  },
+  "tim5": {
+   "den_hue": 299,
+   "dich_hue": 326,
+   "px_den": 22511,
+   "khac_tim_do": 4
+  },
+  "ss": {
+   "den_hue": 304,
+   "dich_hue": 266,
+   "px_den": 23377,
+   "khac_tim_do": 1
+  }
+ },
+ "5": {
+  "thuong": {
+   "den_hue": 309,
+   "dich_hue": 49,
+   "px_den": 13759,
+   "khac_tim_do": 6
+  },
+  "luc": {
+   "den_hue": 322,
+   "dich_hue": 67,
+   "px_den": 15716,
+   "khac_tim_do": 7
+  },
+  "lam": {
+   "den_hue": 300,
+   "dich_hue": 199,
+   "px_den": 18139,
+   "khac_tim_do": 15
+  },
+  "tim": {
+   "den_hue": 315,
+   "dich_hue": 345,
+   "px_den": 12971,
+   "khac_tim_do": 0
+  },
+  "tim5": {
+   "den_hue": 310,
+   "dich_hue": 45,
+   "px_den": 14639,
+   "khac_tim_do": 5
+  },
+  "ss": {
+   "den_hue": 310,
+   "dich_hue": 60,
+   "px_den": 12680,
+   "khac_tim_do": 5
+  }
+ },
+ "8": {
+  "thuong": {
+   "den_hue": 21,
+   "dich_hue": 26,
+   "px_den": 10684,
+   "khac_tim_do": 14
+  },
+  "luc": {
+   "den_hue": 21,
+   "dich_hue": 323,
+   "px_den": 13957,
+   "khac_tim_do": 14
+  },
+  "lam": {
+   "den_hue": 6,
+   "dich_hue": 263,
+   "px_den": 20859,
+   "khac_tim_do": 1
+  },
+  "tim": {
+   "den_hue": 7,
+   "dich_hue": 32,
+   "px_den": 13676,
+   "khac_tim_do": 0
+  },
+  "tim5": {
+   "den_hue": 16,
+   "dich_hue": 42,
+   "px_den": 17428,
+   "khac_tim_do": 9
+  },
+  "ss": {
+   "den_hue": 21,
+   "dich_hue": 57,
+   "px_den": 22776,
+   "khac_tim_do": 14
+  }
+ },
+ "1": {
+  "thuong": {
+   "den_hue": 298,
+   "dich_hue": 39,
+   "px_den": 9730,
+   "khac_tim_do": 19
+  },
+  "luc": {
+   "den_hue": 334,
+   "dich_hue": 67,
+   "px_den": 9487,
+   "khac_tim_do": 55
+  },
+  "lam": {
+   "den_hue": 270,
+   "dich_hue": 199,
+   "px_den": 12780,
+   "khac_tim_do": 9
+  },
+  "tim": {
+   "den_hue": 279,
+   "dich_hue": 7,
+   "px_den": 11710,
+   "khac_tim_do": 0
+  },
+  "tim5": {
+   "den_hue": 328,
+   "dich_hue": 275,
+   "px_den": 10669,
+   "khac_tim_do": 49
+  },
+  "ss": {
+   "den_hue": 335,
+   "dich_hue": 51,
+   "px_den": 11419,
+   "khac_tim_do": 56
+  }
+ }
+}
