@@ -1,5 +1,13 @@
 # BÀN GIAO DỰ ÁN PHI ĐỘI SAO BĂNG · V202 (2026-11-08)
 
+### V231 · 12/11 · PHÁT HÀNH (chủ dự án "duyệt" 12:20): tàu 8 Phần Thiên đủ 6 bậc + cánh bung kiểu mới
+- Mẫu: ảnh tàu 8 bung cánh đã duyệt (07:36) = chuẩn chất lượng 13 tàu; hướng mỹ thuật + quyết định chủ dự án ở docs_claude/DE_XUAT_V231_HUONG_MY_THUAT_13_TAU.md (mục 7, 8). 11 video gốc nén 360 px + bảng khung ở docs_claude/tham_chieu/video_goc/, phân tích nhịp ở tham_chieu/PHAN_TICH_VIDEO_GOC_V231.md.
+- Thân: bậc tím từ ảnh thử GPT (claude_tools/tau8_v231.py); sống cánh bản V231D ghép lên chính thân thường (tau8_v231d_bt.py); 5 bậc V231E chuẩn hóa chung một hệ số (tau8_v231e_bac.py). Mọi _bt = thân thường + sống cánh (thân giữa khớp 100 %). candoi217: tàu 8 trong KEEP (giữ nguyên tranh), NO_ASP={7,8}.
+- Cánh: src/btfx218/tau8_fx_bung (lông, cắt từ ảnh duyệt), _bung2 (lưỡi plasma), _bung3 (lớp lông 2 của GPT) — thang xám 1024², tâm thân giữa, cùng tỉ lệ thân 512. Lớp BUNG231 trong btfx218.js: bảng màu 6 bậc phương án C (tau8_v231e_ramp.py), tỉ lệ cánh .62/.74/.87/1/1/1.08, bỏ lông mờ ở bậc thấp, lớp 2 cho tím+/SS, gốc cánh theo vai từng bậc. Nhịp theo video 86546: dồn sáng 0,35 s → bừng sáng tâm + tia ngắn (không vòng) → cánh 85 % xòe ra 0,28 s → lay, thở, tàn lửa. Tắt: BUNG231=false.
+- Đã kiểm: đạn địch vẽ SAU cánh (tests/kiem231_thu_tu_ve.py). Chưa đo được độ nổi đạn địch trong vùng cánh và FPS máy yếu.
+- Tồn: vòng tròn có vạch che thân ~0,3 s đầu Bạo Tẩu là hiệu ứng có sẵn (không do V231), phạm luật không vòng tròn → chờ chủ dự án. Mẫu 4 tàu 2/3/10/11 đã chốt (src/ship118_cho/V231D_mau_chot/); tàu 7 sẽ vẽ lại theo dáng 86543.
+- Web: artifact cũ U5HfBzLWPfPvtUECHaALbq (artifact V230 9gvh… không mở được từ phiên này).
+
 ### 11/11 15:07 · Chủ dự án: tranh "chưa đem lại cảm giác máy móc, cơ khí" (kèm ảnh tựa game gốc) → PROMPT_GPT_V225_THIET_KE.md (THAY V224)
 - Đo (khung tối = sáng < 0,42 và bão hòa < 0,45 / kim loại sáng / giáp màu / phát sáng / mật độ nét): tàu 7 mới 6/10/50/34/27; tàu 6 ảnh chủ 3/17/59/21/24; tàu 8 21/29/28/23/29; tàu 10 9/36/40/15/28; tàu 4 24/37/27/12/24; tàu 1 4/31/33/32/31. Kết luận: thiếu khung thép tối và bộ phận máy lộ ra; tàu 8 gần chất cơ khí nhất.
 - V225 thêm mục 3A "Chất cơ khí": khung thép tối 20–30 %, giáp tấm rời có khe, ≥ 5 loại bộ phận cơ khí, vũ khí lộ thiên, năng lượng nằm trong máy, lông vũ/tua → phiến kim loại có khớp; tỉ lệ màu mới tối 20–30 / crôm 10–20 / giáp 30–40 / phát sáng 15–25.
