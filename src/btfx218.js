@@ -74,7 +74,7 @@
   //  Theo phân tích video game gốc (00:00, 12/11): bung 0,2 s · giữ: đập nhẹ, nhấp nháy · hiệu ứng phụ lặp lại. Tắt: window.BUNG230=false
   const TC={6:['#4f8bff','#7dff4f','#ff5050','#b07cff','#3fd0ff','#ffb030']};/* tàu 7: màu đèn từng bậc theo bộ V230 */
   const SLASH={6:1};
-  const tcol=(id,a)=>{const i=T.indexOf(a&&a.__f);return (TC[id]&&TC[id][i<0?3:i])||lamp(id);};
+  const tcol=(id,a)=>{const i=T.indexOf(a&&a.__f);if(TC[id])return TC[id][i<0?3:i];try{if(window.TCOL240!==false&&RAMP[id]){const r=RAMP[id][(a&&a.__f)||'tim'];if(r){const c=midCol(r.bung);return '#'+c.map(v=>(v|0).toString(16).padStart(2,'0')).join('');}}}catch{}return lamp(id);};/* V240: viền neon theo màu cánh của từng bậc */
   const TW=new Map();
   function tinted(im,col){const key=im.src.length+'|'+col;let c=TW.get(key);if(c)return c;c=document.createElement('canvas');c.width=im.naturalWidth;c.height=im.naturalHeight;const g=c.getContext('2d');
     g.drawImage(im,0,0);g.globalCompositeOperation='source-atop';g.globalAlpha=.62;g.fillStyle=col;g.fillRect(0,0,c.width,c.height);TW.set(key,c);return c;}
@@ -182,5 +182,7 @@
   function lift(id,a,ta,size){if(window.LIFT233===false||!RAMP[id])return 0;const r=RAMP[id][(a&&a.__f)||'tim'];if(!r||ta<0||ta>.6)return 0;return -size*.06*Math.sin(Math.PI*Math.min(1,ta/.6));}/* V233 · 2) nhích lên rồi về trong 0,6 s quanh lúc bung. Tắt: LIFT233=false */
   const SC233={};/* V233B: SS tàu 6 dáng dẹt ngang, khung 512 bó cánh → vẽ THÂN to hơn 30 % (cánh giữ cỡ, không đổi vùng trúng đạn). Tắt: SCALE233=false */
   function scale(id,a){if(window.SCALE233===false)return 1;const t=SC233[id];return (t&&t[a&&a.__f])||1;}
-  window.BtFx218={back,front,has,neonAt,lift,scale,state:()=>({...st,ships:Object.keys(ART()||{})}),anchors};
+  const QBT={11:{"thuong":0.7832,"luc":0.7781,"lam":0.7908,"tim":0.7857,"tim5":0.7756,"ss":0.7883},9:{"thuong":0.7832,"luc":0.7806,"lam":0.7857,"tim":0.7707,"tim5":0.7857,"ss":0.7832},5:{"thuong":0.7961,"luc":0.7832,"lam":0.7908,"tim":0.7883,"tim5":0.7883,"ss":0.7832},1:{"thuong":0.7756,"tim":0.7806,"tim5":0.7857},6:{"thuong":0.8013,"tim":0.7883}};/* V240: tranh Bạo Tẩu thu q để phần giáp mở lọt khung 512 → vẽ ô Bạo Tẩu to 1/q, thân trên màn hình giữ nguyên cỡ. Tắt: QBT240=false */
+  function scaleBT(id,a){const h=scale(id,a);if(window.QBT240===false)return h;const t=QBT[id],q=t&&t[(a&&a.__f)||'tim'];return q?h/q:h;}
+  window.BtFx218={back,front,has,neonAt,lift,scale,scaleBT,state:()=>({...st,ships:Object.keys(ART()||{})}),anchors};
 })();

@@ -1,0 +1,209 @@
+{
+ "tau12_thuong": {
+  "lech_GPT": [
+   -1,
+   0
+  ],
+  "rong_bt_tren_thuong": 1.46,
+  "dien_tich": 2.0,
+  "q": 0.783
+ },
+ "tau12_luc": {
+  "lech_GPT": [
+   0,
+   0
+  ],
+  "rong_bt_tren_thuong": 1.41,
+  "dien_tich": 2.24,
+  "q": 0.778
+ },
+ "tau12_lam": {
+  "lech_GPT": [
+   0,
+   0
+  ],
+  "rong_bt_tren_thuong": 1.4,
+  "dien_tich": 1.99,
+  "q": 0.791
+ },
+ "tau12_tim": {
+  "lech_GPT": [
+   0,
+   0
+  ],
+  "rong_bt_tren_thuong": 1.37,
+  "dien_tich": 1.78,
+  "q": 0.786
+ },
+ "tau12_tim5": {
+  "lech_GPT": [
+   0,
+   0
+  ],
+  "rong_bt_tren_thuong": 1.4,
+  "dien_tich": 1.96,
+  "q": 0.776
+ },
+ "tau12_ss": {
+  "lech_GPT": [
+   0,
+   0
+  ],
+  "rong_bt_tren_thuong": 1.35,
+  "dien_tich": 1.94,
+  "q": 0.788
+ },
+ "tau10_thuong": {
+  "lech_GPT": [
+   0,
+   0
+  ],
+  "rong_bt_tren_thuong": 1.57,
+  "dien_tich": 2.32,
+  "q": 0.783
+ },
+ "tau10_luc": {
+  "lech_GPT": [
+   0,
+   0
+  ],
+  "rong_bt_tren_thuong": 1.41,
+  "dien_tich": 2.49,
+  "q": 0.781
+ },
+ "tau10_lam": {
+  "lech_GPT": [
+   0,
+   0
+  ],
+  "rong_bt_tren_thuong": 1.47,
+  "dien_tich": 2.21,
+  "q": 0.786
+ },
+ "tau10_tim": {
+  "lech_GPT": [
+   0,
+   0
+  ],
+  "rong_bt_tren_thuong": 1.5,
+  "dien_tich": 2.25,
+  "q": 0.771
+ },
+ "tau10_tim5": {
+  "lech_GPT": [
+   0,
+   0
+  ],
+  "rong_bt_tren_thuong": 1.46,
+  "dien_tich": 2.34,
+  "q": 0.786
+ },
+ "tau10_ss": {
+  "lech_GPT": [
+   0,
+   0
+  ],
+  "rong_bt_tren_thuong": 1.39,
+  "dien_tich": 2.27,
+  "q": 0.783
+ },
+ "tau6_thuong": {
+  "lech_GPT": [
+   0,
+   0
+  ],
+  "rong_bt_tren_thuong": 1.4,
+  "dien_tich": 2.51,
+  "q": 0.796
+ },
+ "tau6_luc": {
+  "lech_GPT": [
+   0,
+   0
+  ],
+  "rong_bt_tren_thuong": 1.4,
+  "dien_tich": 2.49,
+  "q": 0.783
+ },
+ "tau6_lam": {
+  "lech_GPT": [
+   0,
+   0
+  ],
+  "rong_bt_tren_thuong": 1.42,
+  "dien_tich": 2.56,
+  "q": 0.791
+ },
+ "tau6_tim": {
+  "lech_GPT": [
+   0,
+   0
+  ],
+  "rong_bt_tren_thuong": 1.34,
+  "dien_tich": 2.57,
+  "q": 0.788
+ },
+ "tau6_tim5": {
+  "lech_GPT": [
+   0,
+   0
+  ],
+  "rong_bt_tren_thuong": 1.34,
+  "dien_tich": 2.56,
+  "q": 0.788
+ },
+ "tau6_ss": {
+  "lech_GPT": [
+   0,
+   0
+  ],
+  "rong_bt_tren_thuong": 1.35,
+  "dien_tich": 2.43,
+  "q": 0.783
+ },
+ "tau2_thuong": {
+  "lech_GPT": [
+   0,
+   0
+  ],
+  "rong_bt_tren_thuong": 1.67,
+  "dien_tich": 1.95,
+  "q": 0.776
+ },
+ "tau2_tim": {
+  "lech_GPT": [
+   0,
+   -9
+  ],
+  "rong_bt_tren_thuong": 1.98,
+  "dien_tich": 2.19,
+  "q": 0.781
+ },
+ "tau2_tim5": {
+  "lech_GPT": [
+   0,
+   0
+  ],
+  "rong_bt_tren_thuong": 2.17,
+  "dien_tich": 1.92,
+  "q": 0.786
+ },
+ "tau7_thuong": {
+  "lech_GPT": [
+   0,
+   0
+  ],
+  "rong_bt_tren_thuong": 1.75,
+  "dien_tich": 1.97,
+  "q": 0.801
+ },
+ "tau7_tim": {
+  "lech_GPT": [
+   0,
+   0
+  ],
+  "rong_bt_tren_thuong": 1.54,
+  "dien_tich": 1.62,
+  "q": 0.788
+ }
+}

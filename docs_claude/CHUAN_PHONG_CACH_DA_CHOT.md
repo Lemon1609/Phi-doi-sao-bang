@@ -74,3 +74,8 @@ Màu bung theo từng thứ đang lắp: chiến cơ (đang có, theo bậc), **
 ## Đẩy nhanh tiến độ (chủ dự án 12/11 22:47)
 "Sau đợt này thì đẩy nhanh thiết kế toàn bộ tàu 1 lượt. Xong rồi review nhanh hơn." → một tin nhắn GPT cho 6 tàu còn lại (docs_claude/GUI_GPT_V241_6_TAU_CON_LAI.md), mỗi tàu một zip; Claude ghép hết rồi gửi một bảng duyệt chung (13 tàu × 6 bậc trong trận).
 - Đề xuất đổi hình bung để không chép game gốc: tàu 4 móng vuốt năng lượng + ấn chú hở (tránh vây lưỡi 86541), tàu 5 lăng kính bình minh + nửa vành mặt trời (tránh quạt gai 86542), tàu 9 chòm sao + tinh vân (tránh cánh hoa 86548).
+
+## Quy tắc bậc (chủ dự án 12/11 23:06)
+"Chiến cơ bậc cao sẽ đẹp hơn, lộng lẫy hơn, hiện đại, công nghệ cao hơn bậc thấp."
+- Bậc cao: nhiều tầng giáp, nhiều bộ phận công nghệ (ống dẫn sáng, cảm biến, khớp máy), lõi lớn và rực, viền kim loại quý, chi tiết dày hơn; Bạo Tẩu mở nhiều bộ phận hơn.
+- Bậc thấp vẫn đẹp, nhiều màu, không nhỏ (quy tắc 21:05) nhưng ít tầng, ít bộ phận, đèn dịu hơn.

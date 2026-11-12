@@ -13,6 +13,7 @@ Mỗi tàu nộp **một zip riêng** (`V241_TAU1.zip`, `V241_TAU4.zip`, …). L
 
 ### A2. Mười hai tranh thân `tauN_{thuong,luc,lam,tim,tim5,ss}.png` và `_bt`
 - Khung 1254 × 1254, nền trong suốt, **cùng tỉ lệ cho cả 6 bậc**, thân ở giữa, lề ≥ 24 px.
+- **Bậc cao đẹp hơn, lộng lẫy hơn, hiện đại và công nghệ cao hơn bậc thấp** (quy tắc chủ dự án): bậc cao nhiều tầng giáp, nhiều bộ phận công nghệ (ống dẫn sáng, cảm biến, khớp máy), lõi lớn và rực, viền kim loại quý; Bạo Tẩu mở nhiều bộ phận hơn.
 - **Bậc thấp không đơn sắc, không nhỏ**: ít nhất 2 màu giáp (giáp chủ + giáp phụ có màu) + màu đèn; cỡ ≥ 90 % bậc tím; chi tiết dày như bậc tím. Phân bậc bằng số bộ phận, độ lớn lõi, độ rực đèn.
 - **Thường và Bạo Tẩu phải khác rõ**:
   - `_bt` = chính bản thường + **giáp cứng mở ra nằm ngoài viền thân** (thò ra, xòe ra, dựng lên). Không vẽ lại thân giữa: Claude ghép thân thường đè lên, nên chi tiết vẽ bên trong thân sẽ bị che.
