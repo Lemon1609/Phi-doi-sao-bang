@@ -12,7 +12,7 @@ Ký hiệu: **[Đo]** số đo bằng mã · **[Nhìn]** nhận xét bằng mắ
 | Thân Bạo Tẩu `tau8_tim_bt.png`, thân giữa trùng khít | **Đã hoàn thành** (sống cánh vẫn nên vẽ lại, xem 2.3) |
 | Lông năng lượng + lưỡi plasma thang xám | **Đã hoàn thành** (cắt từ ảnh đã duyệt) |
 | Tọa độ gốc cánh | **Đã hoàn thành** |
-| Ghép vào game: tô màu, bật cánh, đập nhẹ | **Đã thử, cần chỉnh** (thứ tự lớp so với đạn địch) |
+| Ghép vào game: tô màu, bật cánh, đập nhẹ | **Đã thử**; đạn địch vẽ trên cánh (đã kiểm thứ tự vẽ) |
 | Đo đạn địch còn dễ thấy trong vùng cánh | **Chưa thể thực hiện** đáng tin (mục 3.3) |
 | Đo khung hình/giây trên máy yếu | **Chưa thể thực hiện** (trình duyệt chạy ngầm không đại diện cho điện thoại) |
 | Nhận xét 4 mẫu hướng | **Đã hoàn thành**; cả 4 cần họa sĩ sửa nhẹ (mục 4) |
@@ -83,7 +83,7 @@ Ký hiệu: **[Đo]** số đo bằng mã · **[Nhìn]** nhận xét bằng mắ
 - Vòng tròn mờ quanh tàu trong ảnh chụp là **khiên có sẵn của game** (bộ chụp đặt khiên đầy), không phải lớp mới.
 
 ### 3.3 Vướng
-1. **Thứ tự lớp:** trong mã gốc, đạn địch được vẽ **trước** tàu người chơi. Vì vậy cánh, vẽ cộng sáng, đang nằm **trên** đạn địch: đạn vẫn thấy nhưng bị cánh làm sáng lên và lệch màu. Muốn đạn địch nằm trên cánh phải sửa chỗ gọi vẽ trong vòng lặp chính. Việc này đổi được và đảo lại được, mình làm khi bạn đồng ý.
+1. **Thứ tự lớp (đính chính 12/11 10:30):** bản đầu báo cáo ghi nhầm là đạn địch vẽ trước tàu. Ghi lại thứ tự gọi vẽ trong game cho thấy mỗi khung hình vẽ **cánh trước, đạn địch sau** (vòng vẽ đạn `Render27.projectile` nằm cuối khung). Tức đạn địch đã nằm **trên** cánh; không cần sửa mã.
 2. **Đo độ nổi của đạn địch:** đã viết bộ đo (`tests/do231_dan_dich.py`), nhưng kết quả nhiễu:
    - cánh luôn đập nên hai ảnh chụp liền nhau đã khác nhau;
    - đạn đặt tay bị game gỡ khỏi màn hình.
