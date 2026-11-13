@@ -79,3 +79,8 @@ Màu bung theo từng thứ đang lắp: chiến cơ (đang có, theo bậc), **
 "Chiến cơ bậc cao sẽ đẹp hơn, lộng lẫy hơn, hiện đại, công nghệ cao hơn bậc thấp."
 - Bậc cao: nhiều tầng giáp, nhiều bộ phận công nghệ (ống dẫn sáng, cảm biến, khớp máy), lõi lớn và rực, viền kim loại quý, chi tiết dày hơn; Bạo Tẩu mở nhiều bộ phận hơn.
 - Bậc thấp vẫn đẹp, nhiều màu, không nhỏ (quy tắc 21:05) nhưng ít tầng, ít bộ phận, đèn dịu hơn.
+
+## Cánh bung bo theo thân (chủ dự án 13/11 07:55)
+"Phần cánh bung Bạo Tẩu nên thiết kế lại cho phù hợp với thân tàu. Kiểu bo theo thân tàu, cánh, đuôi…"
+- Năng lượng mọc từ mép cánh, đầu cánh, vây đuôi, ống xả, bệ mở của thân Bạo Tẩu và kéo dài tiếp hình dáng đó; có viền năng lượng mỏng ôm sát mép giáp nối liền các dải lớn.
+- Cách làm (V246): Claude đặt sẵn đúng thân Bạo Tẩu trong game (đúng cỡ, vị trí; 1 đơn vị thân 512 = 0,8 px trên khung 1254) lên khung vẽ; GPT chỉ vẽ năng lượng lên khung đó; Claude xóa thân theo đúng tệp đặt sẵn (không cần dò) → năng lượng khớp mép thân.
