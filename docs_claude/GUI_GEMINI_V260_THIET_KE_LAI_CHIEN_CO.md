@@ -38,10 +38,7 @@ Trả về **bảng 13 dòng**:
 | Tàu | Bản hiện tại: mạnh / yếu | Ý tưởng thân mới (dáng, khối, 2–3 bộ phận đặc trưng lấy từ câu chuyện) | Màu thân (chính, phụ, viền, đèn) | Bạo Tẩu mở ra thế nào | Tiến bậc Thường → SS |
 |---|---|---|---|---|---|
 
-Ghi chú:
-- **Tàu 4** là mẫu chủ dự án vừa thiết kế cùng bạn. Giữ ý chính, đề xuất bản **sáng hơn** và **Bạo Tẩu mở rộng hơn** (hiện Bạo Tẩu chỉ rộng hơn 1,02 lần).
-- **Tàu 9 và 13** vừa được duyệt dáng. Có thể nâng cấp nhưng nên giữ ý chính (tàu 9: đài quan sát trắng ngọc trai, đĩa radar; tàu 13: đen gương + crôm, nhưng phải phản chiếu nhiều, sáng hơn).
-- **Tàu 1** đang chờ thiết kế lại thân, bạn làm luôn.
+Ghi chú: chủ dự án muốn **thiết kế lại toàn bộ 13 tàu**, kể cả tàu 4 (mẫu vừa làm cùng bạn), tàu 9, tàu 13 (vừa duyệt dáng) và tàu 1. Không cần giữ dáng cũ, chỉ giữ tên, câu chuyện và luật ở trên.
 
 ## Bước 2 (sau khi chủ dự án duyệt bảng): vẽ từng tàu, bậc Tím
 Mỗi tàu 2 ảnh, **nền đen**:
