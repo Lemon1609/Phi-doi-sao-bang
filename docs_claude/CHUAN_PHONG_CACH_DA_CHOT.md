@@ -109,3 +109,8 @@ V253, đổi lại được (window.DIM253=false tắt độ đậm riêng; ản
 - tàu 10: khiên lục giác đậm 75 % (cả 6 bậc);
 - tàu 11: xoáy to ×1,35 (cả 6 bậc);
 - tàu 12: kim đồng hồ phía trước mũi dịu 25 %, giữ bố cục.
+
+## Thân tàu 4 do chủ dự án cùng Gemini thiết kế (13/11 10:38)
+Bản thường + Bạo Tẩu bậc tím (src/ship118_cho/V255_tau4_chu_du_an/): đỏ sẫm + đen than + bạc, 4 cụm mắt lam / lục ngọc, sống mũi đỏ, lõi hồng, đôi sừng. Thay việc thiết kế lại thân tàu 4 của GPT (V248).
+- Claude đo: bản thường rộng/cao 1,08 (đạt khối dày). Bạo Tẩu chỉ rộng 1,02 lần, diện tích 1,05 lần bản thường (chưa đạt luật ≥ 1,25 / ≥ 1,2). Năng lượng bung cách mép thân 30–45 px trên khung 1254.
+- Đề xuất V255 (docs_claude/GUI_V255_TAU4_BAO_TAU_MO_RONG.md): Bạo Tẩu trượt hai cụm mắt ngoài ra hai bên, rộng 1,25–1,35 lần, chạm gốc móng vuốt và sừng năng lượng.
