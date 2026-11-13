@@ -95,3 +95,17 @@ Màu bung theo từng thứ đang lắp: chiến cơ (đang có, theo bậc), **
 
 ## Ảnh tham khảo phong cách (chủ dự án 13/11 09:17)
 docs_claude/tham_chieu/phong_cach/gemini_mau_dep_13_11.png: ảnh Gemini chủ dự án thấy đẹp, dùng **làm tham khảo phong cách** (không làm tranh thật): thân khối dày trắng viền vàng, đèn lơ ngọc, lõi sáng ở ngực; năng lượng là mảng mềm chuyển màu mượt mọc từ khối vai, có hạt và tia điện nhỏ. Không chép dáng / màu cánh (thân gần tàu 9 mới, cánh lục–tím gần tàu 2).
+
+## Cánh bung chốt cùng Gemini (chủ dự án 13/11 09:58)
+docs_claude/tham_chieu/phong_cach/gemini_canh_bung_chot_13_11.png: "bản bung cánh mình và Gemini chốt, có thể tham khảo phong cách". Học:
+- cánh bung là **chùm lưỡi tinh thể năng lượng sắc**, nhiều lớp, xòe chéo ra sau từ khối vai; mỗi lưỡi chuyển màu mượt từ gốc sáng ra ngọn;
+- **tia điện nhỏ** chạy quanh lưỡi, **mảnh tinh thể vỡ** bay quanh, **rèm sáng mảnh rơi dọc** xuống phía sau;
+- giáp vai, nòng súng vẫn rõ khối, năng lượng nằm sau giáp, phía trước mũi để trống.
+Không chép nguyên bảng lục – lơ – tím (gần tàu 2 Cực Quang, tàu 3 băng); mỗi tàu giữ màu và chất liệu riêng.
+
+## Chỉnh trong game theo Gemini rà soát (chủ dự án 13/11 09:58 "Có")
+V253, đổi lại được (window.DIM253=false tắt độ đậm riêng; ảnh gốc ở src/ship118_cho/V253_goc/):
+- tàu 1 SS và tàu 5 SS: năng lượng đậm 82 %; tàu 5: vành sáng trước mũi (cả 6 bậc) dịu đi khoảng 30 %;
+- tàu 10: khiên lục giác đậm 75 % (cả 6 bậc);
+- tàu 11: xoáy to ×1,35 (cả 6 bậc);
+- tàu 12: kim đồng hồ phía trước mũi dịu 25 %, giữ bố cục.

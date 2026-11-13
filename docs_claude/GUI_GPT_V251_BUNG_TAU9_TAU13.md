@@ -10,6 +10,17 @@ Cả hai đều là **mạng đường sáng mảnh, phân nhánh, tỏa ngang**
 - **Thân**: khối dày, giáp trắng viền vàng mảnh, đèn lơ ngọc, lõi sáng rõ ở ngực, động cơ có lửa. Chi tiết dày nhưng gọn, mép sạch.
 - Tàu 9 học cách làm **quạt năng lượng mềm từ hai khối vai** như ảnh, nhưng giữ ý "quạt quét radar + cung chia độ" và tông lam thiên thanh – trắng. **Không dùng dải lục – tím** của ảnh (trùng tàu 2 Cực Quang).
 
+## Ảnh tham khảo thứ hai: cánh bung chủ dự án đã chốt cùng Gemini
+`tham_khao_canh_bung.png`: chủ dự án dặn "có thể tham khảo phong cách". Học:
+- cánh bung là **chùm lưỡi tinh thể năng lượng sắc**, nhiều lớp, xòe chéo ra sau từ khối vai; mỗi lưỡi chuyển màu mượt từ gốc sáng ra ngọn;
+- **tia điện nhỏ** quanh lưỡi, **mảnh tinh thể vỡ** bay quanh, **rèm sáng mảnh rơi dọc** phía sau;
+- năng lượng nằm sau giáp, giáp vai và nòng vẫn rõ khối.
+
+Cách áp:
+- **Tàu 13** học ảnh này nhiều nhất: lưỡi hái sắc, mép rõ, có tia điện và mảnh vỡ.
+- **Tàu 9** học ảnh thứ nhất (quạt mềm) là chính; lấy thêm hạt sáng và rèm sáng rơi mảnh của ảnh này.
+- **Không dùng bảng lục – lơ – tím** của ảnh: trùng tàu 2 Cực Quang và tàu 3 băng.
+
 ## Cách vẽ
 - `tauN_khung_ve.png`: khung 1254 đã đặt **đúng thân Bạo Tẩu trong game**, đúng cỡ (bản không nền `tauN_than_bao_tau_dat_san.png`).
 - **Lần trước GPT dời thân lên trên / xuống dưới.** Lần này **giữ thân đúng chỗ đặt sẵn, không dời, không đổi cỡ, không vẽ lại thân**. Chỉ vẽ năng lượng.
