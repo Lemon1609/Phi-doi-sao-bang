@@ -902,6 +902,7 @@ rep("type,damage:damage*allyDamageScale()*gear.damage*(activeRobot?1.25:1)*(","t
 rep("</body>","<script id=\"v191-js\">"+open('src/v191.js',encoding='utf-8').read()+"</script></body>")
 rep("</body>","<script id=\"v188-js\">"+open('src/v188.js',encoding='utf-8').read()+"</script></body>")
 rep("</body>","<script id=\"v185-art\">const SAO185=\"data:image/png;base64,"+base64.b64encode(open('src/v185/sao_diem_32.png','rb').read()).decode()+"\",MANH185=\"data:image/png;base64,"+base64.b64encode(open('src/v185/manh_chien_co_ngay4_128.png','rb').read()).decode()+"\";</script><script id=\"v183-js\">"+open('src/v183.js',encoding='utf-8').read()+"</script></body>")
+rep("</body>","<style id=\"story259-css\">"+open('src/story259.css',encoding='utf-8').read()+"</style><script id=\"story259-js\">"+open('src/story259.js',encoding='utf-8').read()+"</script></body>")  # V259 câu chuyện 13 chiến cơ ở sảnh
 open('Phi_Doi_Sao_Bang_V74_mau.html','w',encoding='utf-8').write(h);print(round(len(h)/1e6,2),'MB')
 # ---- V100 · BẢN THỬ cho chủ dự án: dữ liệu tách riêng (tiền tố thu100:) + bảng nạp tài khoản mẫu ----
 h2=h.replace('<head>','<head><script id="thu100-js">'+open('src/thu100.js',encoding='utf-8').read()+'</script>',1).replace('</body>','<script id="thu100p-js">'+open('src/thu100_panel.js',encoding='utf-8').read()+'</script></body>',1)
