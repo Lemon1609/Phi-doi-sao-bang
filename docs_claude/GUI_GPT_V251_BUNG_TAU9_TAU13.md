@@ -4,6 +4,12 @@ Chào GPT, 12 tranh thân tàu 9 và tàu 13 (V249 + V250) đã ghép vào game.
 
 Cả hai đều là **mạng đường sáng mảnh, phân nhánh, tỏa ngang** (chòm sao / vết nứt). Lần này mỗi tàu một **hình khối khác hẳn**, và khác cả 11 tàu kia.
 
+## Ảnh tham khảo phong cách (chủ dự án chọn: "làm tham khảo phong cách")
+`tham_khao_phong_cach.png`: mẫu chủ dự án thấy đẹp. **Chỉ học phong cách, không chép dáng tàu hay màu cánh của ảnh.**
+- **Năng lượng là mảng mềm có khối**: dải lụa / quạt sáng chuyển màu mượt, mọc ra từ khối vai, có hạt và tia điện nhỏ quanh mép. Không phải mạng đường mảnh.
+- **Thân**: khối dày, giáp trắng viền vàng mảnh, đèn lơ ngọc, lõi sáng rõ ở ngực, động cơ có lửa. Chi tiết dày nhưng gọn, mép sạch.
+- Tàu 9 học cách làm **quạt năng lượng mềm từ hai khối vai** như ảnh, nhưng giữ ý "quạt quét radar + cung chia độ" và tông lam thiên thanh – trắng. **Không dùng dải lục – tím** của ảnh (trùng tàu 2 Cực Quang).
+
 ## Cách vẽ
 - `tauN_khung_ve.png`: khung 1254 đã đặt **đúng thân Bạo Tẩu trong game**, đúng cỡ (bản không nền `tauN_than_bao_tau_dat_san.png`).
 - **Lần trước GPT dời thân lên trên / xuống dưới.** Lần này **giữ thân đúng chỗ đặt sẵn, không dời, không đổi cỡ, không vẽ lại thân**. Chỉ vẽ năng lượng.

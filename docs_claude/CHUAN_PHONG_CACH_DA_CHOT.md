@@ -92,3 +92,6 @@ Màu bung theo từng thứ đang lắp: chiến cơ (đang có, theo bậc), **
 - 13/11 08:12: chủ dự án chốt **giữ nguyên hình bung hiện tại** ("phần bung giữ như cũ") → hủy gói V246 (vẽ lại năng lượng bo theo thân cho tàu 1, 4, 5, 11, 12). Tàu 1 và tàu 4 chỉ thiết kế lại thân (V248), thân mới vẽ khớp vào khung năng lượng đang dùng.
 - 13/11 08:38: chủ dự án duyệt dáng bậc tím V249 tàu 9 (trắng ngọc trai + lam thiên thanh, thân hình thoi, mái vòm quan sát, cánh 3 tầng lưỡi) và tàu 13 (đen gương + bạc crôm, đèn tím điện, mũi nêm, cánh rìu, lõi hư không): "Khá đẹp rồi đấy". Lưu ở src/ship118_cho/V249_tau9_tau13_DA_DUYET/.
 - 13/11 08:45: GPT vẫn gửi V246 tàu 1, 4 (năng lượng dạng sợi, thân vẽ lại lệch) → chủ dự án đồng ý **không dùng**, giữ hình bung V243; chờ thân mới V248. Tư liệu: src/ship118_cho/V246_khong_dung/.
+
+## Ảnh tham khảo phong cách (chủ dự án 13/11 09:17)
+docs_claude/tham_chieu/phong_cach/gemini_mau_dep_13_11.png: ảnh Gemini chủ dự án thấy đẹp, dùng **làm tham khảo phong cách** (không làm tranh thật): thân khối dày trắng viền vàng, đèn lơ ngọc, lõi sáng ở ngực; năng lượng là mảng mềm chuyển màu mượt mọc từ khối vai, có hạt và tia điện nhỏ. Không chép dáng / màu cánh (thân gần tàu 9 mới, cánh lục–tím gần tàu 2).
