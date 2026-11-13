@@ -27,6 +27,13 @@ gm = cv2.dilate(gray.astype(np.uint8), np.ones((9, 9), np.uint8)) > 0; G[854:, 8
 bg = np.median(np.concatenate([G[:6].reshape(-1, 3), G[:, :6].reshape(-1, 3), G[:, -6:].reshape(-1, 3)]), 0)
 hm = cv2.dilate(mw, np.ones((5, 5), np.uint8)) > 0
 E = np.clip(G - bg - 6, 0, 255); ET = E * cv2.erode(mw, np.ones((5, 5), np.uint8))[..., None]; E1 = E * (~hm)[..., None]
+KT = os.environ.get('KHONGTHAN')   # V258: ảnh (b) Gemini xóa thân, vẽ nốt năng lượng sau thân → dùng thẳng, không lấp, không cắt
+if KT:
+    GK = np.asarray(Image.open(KT).convert('RGB')).astype(np.float32)
+    if GK.shape[:2] != (1024, 1024): GK = cv2.resize(GK, (1024, 1024), interpolation=cv2.INTER_AREA)
+    cb = GK[854:, 854:]; gr = (cb.max(-1) - cb.min(-1) < 36) & (cb.max(-1) > 24); GK[854:, 854:][cv2.dilate(gr.astype(np.uint8), np.ones((9, 9), np.uint8)) > 0] = 0
+    bk = np.median(np.concatenate([GK[:6].reshape(-1, 3), GK[:, :6].reshape(-1, 3), GK[:, -6:].reshape(-1, 3)]), 0)
+    E1full = np.clip(GK - bk - 6, 0, 255); SO['khong_than'] = True
 # lớp trước thân: chỉ chỗ sáng hơn hẳn tranh thân (năng lượng vắt qua giáp)
 Kw = cv2.warpAffine(K, Mh, (1024, 1024), flags=cv2.INTER_AREA); dT = np.clip(G - Kw - 40, 0, 255) * (mw > 0)[..., None]
 lum = lambda X: X[..., 0] * .299 + X[..., 1] * .587 + X[..., 2] * .114
@@ -38,7 +45,8 @@ warp = lambda X: cv2.warpAffine(X, Mfx, (PX, PX), flags=cv2.INTER_AREA)
 g = np.clip(warp(g1), 0, 255).astype(np.uint8)   # bản chưa lấp: dùng dò gốc cánh
 # V257B: lấp chỗ thân bằng năng lượng loang (inpaint + mờ) → bậc khác thân nhỏ hơn / lệch cũng không lộ lỗ đen hình thân. Tắt: FILLK=0
 FK = float(os.environ.get('FILLK', .8))
-if FK > 0:
+if KT: E1 = E1full
+elif FK > 0:
     sm = cv2.resize(E1, (512, 512), interpolation=cv2.INTER_AREA).clip(0, 255).astype(np.uint8); hs = cv2.resize(hm.astype(np.uint8), (512, 512), interpolation=cv2.INTER_NEAREST)
     fl = cv2.GaussianBlur(cv2.inpaint(sm, hs, 12, cv2.INPAINT_TELEA).astype(np.float32), (0, 0), 6); fl = cv2.resize(fl, (1024, 1024), interpolation=cv2.INTER_LINEAR)
     E1 = np.where(hm[..., None], fl * FK, E1)
