@@ -147,3 +147,5 @@ Bản thường + Bạo Tẩu bậc tím (src/ship118_cho/V255_tau4_chu_du_an/):
 - **Cánh bung**: tiếp tục với Gemini (V256 + V258) trên thân hiện tại, thêm tàu 1.
 - **Việc tiếp**: đạn và kỹ năng theo từng tàu: Gemini lên ý tưởng, GPT vẽ, Claude làm vào game (V262).
 - Câu chuyện tàu 4: giữ bản gốc có sừng (thân của chủ dự án có sừng).
+- Chủ dự án 13/11 14:27: cánh bung Gemini tàu 1 "không đẹp lắm, cánh bung sáng nay đẹp hơn" → giữ cánh bung tàu 1 hiện có trong game (bản Gemini lưu ở src/ship118_cho/V262_gemini_bung_tau1_khong_dung/).
+- Bảng đạn + kỹ năng 13 tàu của Gemini (docs_claude/de_xuat_cho/GEMINI_V262_BANG_DAN_KY_NANG_13_TAU.txt) → tin duyệt V262B (hiệu ứng trúng không vòng kín, màu đạn bậc Tím theo bảng màu cánh bung, tàu 7 bỏ vệt chữ X, quạt SS ≤ 40 % màn hình); GPT vẽ 24 hình đạn trắng / xám (V263).
