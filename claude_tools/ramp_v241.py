@@ -11,12 +11,13 @@ C = {'đồng': (205, 120, 60), 'vàng ấm': (255, 190, 80), 'trắng vàng': (
      'lục chanh': (170, 240, 60), 'lam điện': (40, 120, 255), 'lục lam': (40, 200, 200), 'hồng đào': (255, 150, 140), 'vàng nhạt': (255, 235, 150),
      'lục nhạt': (140, 230, 140), 'lam nhạt': (120, 170, 255), 'hồng tím': (230, 100, 220), 'vàng ngà': (255, 240, 200), 'hồng nhạt': (255, 170, 210),
      'lục': (60, 210, 90), 'vàng lục': (190, 230, 70), 'tím đậm': (110, 40, 200), 'hồng rực': (255, 70, 170), 'lam ngọc': (30, 190, 200),
-     'trắng tím': (240, 225, 255), 'trắng lam': (225, 235, 255), 'lam xám': (110, 140, 190), 'tím nhạt': (190, 160, 240), 'lơ điện': (60, 220, 255), 'bạc tím': (200, 190, 230)}
+     'trắng tím': (240, 225, 255), 'trắng lam': (225, 235, 255), 'lam xám': (110, 140, 190), 'tím nhạt': (190, 160, 240), 'lơ điện': (60, 220, 255), 'bạc tím': (200, 190, 230), 'trắng bạc': (225, 232, 240), 'lam thiên thanh': (110, 190, 255)}
 PAL = {
  1: {'thuong': ('đồng', 'vàng ấm', 'trắng vàng'), 'luc': ('lục lá', 'vàng chanh', 'trắng'), 'lam': ('lam', 'lơ', 'trắng'), 'tim5': ('tím hồng', 'tím sáng', 'trắng hồng'), 'ss': ('vàng kim', 'trắng vàng', 'trắng')},
  4: {'thuong': ('lam đậm', 'lục ngọc', 'trắng lơ'), 'luc': ('lục đậm', 'lục chanh', 'trắng'), 'lam': ('lam', 'lơ', 'trắng'), 'tim5': ('tím', 'lục ngọc', 'trắng lơ'), 'ss': ('lục lam', 'trắng lơ', 'trắng')},
  5: {'thuong': ('hồng đào', 'vàng nhạt', 'trắng'), 'luc': ('lục nhạt', 'vàng chanh', 'trắng'), 'lam': ('lam nhạt', 'lơ', 'trắng'), 'tim5': ('tím hồng', 'vàng ngà', 'trắng'), 'ss': ('vàng kim', 'trắng vàng', 'trắng')},
- 9: {'thuong': ('lam', 'hồng nhạt', 'trắng'), 'luc': ('lục', 'vàng lục', 'trắng'), 'lam': ('lam đậm', 'lơ', 'trắng'), 'tim5': ('tím đậm', 'hồng rực', 'trắng'), 'ss': ('lam ngọc', 'trắng tím', 'trắng')},
+ 9: {'thuong': ('lam nhạt', 'trắng bạc', 'trắng'), 'luc': ('lục ngọc', 'lục chanh', 'trắng'), 'lam': ('lam đậm', 'lam thiên thanh', 'trắng'), 'tim5': ('tím', 'hồng tím', 'trắng'), 'ss': ('vàng kim', 'vàng nhạt', 'trắng')},  # V250 thân mới
+ 13: {'thuong': ('lam xám', 'tím nhạt', 'trắng'), 'luc': ('lục ngọc', 'tím nhạt', 'trắng'), 'lam': ('lam', 'tím', 'trắng'), 'tim5': ('tím đậm', 'hồng tím', 'trắng'), 'ss': ('vàng kim', 'trắng tím', 'trắng')},
  11: {'thuong': ('lam xám', 'tím nhạt', 'trắng lơ'), 'luc': ('lục', 'lam ngọc', 'trắng'), 'lam': ('lam', 'lơ', 'trắng'), 'tim5': ('tím hồng', 'lam ngọc', 'trắng'), 'ss': ('bạc tím', 'trắng lơ', 'trắng')},
 }[N]
 V = np.round(np.linspace(0, 1, 33), 4)
