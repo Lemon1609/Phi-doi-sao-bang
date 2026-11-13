@@ -1,3 +1,5 @@
+> **HỦY (13/11 14:17)**: chủ dự án "Giữ lại các thiết kế lúc sáng nay nhé, không sửa nữa".
+
 > **ĐÃ THAY bằng GUI_GEMINI_V260_THIET_KE_LAI_CHIEN_CO.md** (chủ dự án 13/11 13:33: "nhờ Gemini góp ý thiết kế lại cả tàu, chứ không chỉ sơn lại").
 
 # Gửi Gemini: làm tươi sáng, bắt mắt 12 chiến cơ (giữ nguyên dáng)

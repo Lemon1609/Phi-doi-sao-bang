@@ -1,3 +1,5 @@
+> **HỦY (13/11 14:17)**: chủ dự án "Giữ lại các thiết kế lúc sáng nay nhé, không sửa nữa".
+
 Chào GPT, cảm ơn 4 tàu đầu V261: sáng, sơn bóng, chi tiết đẹp hơn hẳn bản cũ. Nhưng chủ dự án nhận xét:
 
 > **"Mình cảm giác form thân chiến cơ đang cùng 1 form… có thể sửa đa dạng thêm."**

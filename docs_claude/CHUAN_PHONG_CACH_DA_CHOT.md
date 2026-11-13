@@ -139,3 +139,11 @@ Bản thường + Bạo Tẩu bậc tím (src/ship118_cho/V255_tau4_chu_du_an/):
 - Chủ dự án 13/11 13:49: thân tàu 11 Gemini vẽ "không đẹp" (dáng quả trứng, không cánh, kaki xỉn) → chọn **GPT vẽ thân, Gemini lo ý tưởng, rà soát, cánh bung**. Tin GPT: docs_claude/GUI_GPT_V261_THIET_KE_LAI_13_TAU.md (bảng ý tưởng Gemini đã chỉnh theo V260B).
 - Chủ dự án 13/11 14:05: "Thiết kế lại tàu 4, không mặt quỷ, sừng quỷ..." → tàu 4 cấm mặt / mắt xếp thành mặt, răng nanh, mõm, sừng, đầu thú; ý mới: chiến cơ công nghệ dị giới, mũi giáo pha lê, 4 lò phản ứng trên cánh, cánh lưỡi liềm kép (tin V261B). Câu chuyện tàu 4 sửa theo (bỏ sừng, "bốn mắt" → bốn lò phản ứng dị giới).
 - Chủ dự án 13/11 14:08: "form thân chiến cơ đang cùng 1 form… có thể sửa đa dạng thêm" (tàu 11, 6, 13 cùng khuôn tam giác + lõi tròn + 2 cụm tròn + 2 râu ăng-ten) → luật đa dạng: mỗi tàu một họ bóng dáng (bảng trong V261B), che màu chỉ nhìn bóng đen vẫn nhận ra; chỉ tàu 9 có 2 đĩa tròn trên vai; lõi mỗi tàu một hình, một chỗ; mỗi lượt kèm ảnh bóng đen đặt cạnh nhau.
+
+## Giữ thiết kế sáng nay (chủ dự án 13/11 14:17)
+"Mình nghĩ lại rồi. Giữ lại các thiết kế lúc sáng nay nhé, không sửa nữa. Tiếp tục phát triển thêm."
+- **Thân 13 tàu giữ như trong game**; hủy V259, V260, V261, V261B (vẽ lại thân) và V255 (mở rộng Bạo Tẩu tàu 4). Bản GPT V261 lưu ở src/ship118_cho/V261_gpt_tim/ (không dùng).
+- **Tàu 4**: dùng mẫu chủ dự án + Gemini sáng nay (thân đỏ 4 mắt + Bạo Tẩu + cánh bung Gemini), giữ nguyên thiết kế; GPT vẽ 10 bậc còn lại (V262). Bạo Tẩu tàu 4 chỉ rộng hơn thường 1,02 lần (chủ dự án giữ).
+- **Cánh bung**: tiếp tục với Gemini (V256 + V258) trên thân hiện tại, thêm tàu 1.
+- **Việc tiếp**: đạn và kỹ năng theo từng tàu: Gemini lên ý tưởng, GPT vẽ, Claude làm vào game (V262).
+- Câu chuyện tàu 4: giữ bản gốc có sừng (thân của chủ dự án có sừng).

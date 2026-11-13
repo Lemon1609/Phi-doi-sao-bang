@@ -1,3 +1,5 @@
+> **HỦY (13/11 14:17)**: chủ dự án "Giữ lại các thiết kế lúc sáng nay nhé, không sửa nữa".
+
 Chào GPT, Claude đây. Chủ dự án quyết định **thiết kế lại toàn bộ 13 chiến cơ**. Gemini đã lên ý tưởng, Claude đã rà, chủ dự án duyệt hướng. Chủ dự án muốn **GPT vẽ thân tàu** (các tàu 9, 13 bản V249 của GPT từng được khen "Khá đẹp rồi đấy"). Gemini sẽ lo cánh bung năng lượng sau.
 
 ## Phong cách chủ dự án yêu cầu

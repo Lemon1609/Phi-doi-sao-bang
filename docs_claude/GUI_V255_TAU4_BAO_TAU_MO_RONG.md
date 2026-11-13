@@ -1,3 +1,5 @@
+> **HỦY (13/11 14:17)**: chủ dự án "Giữ lại các thiết kế lúc sáng nay nhé, không sửa nữa".
+
 Chào bạn (Gemini hoặc GPT), đây là thân **tàu 4 Thần Ma** mà chủ dự án đã thiết kế (bậc tím). Claude đã đặt thử đúng cỡ trong game lên khung năng lượng bung. **Bản thường đạt.** Riêng **bản Bạo Tẩu cần mở rộng ra.**
 
 ## Vì sao

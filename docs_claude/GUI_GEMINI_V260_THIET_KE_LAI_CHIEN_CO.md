@@ -1,3 +1,5 @@
+> **HỦY (13/11 14:17)**: chủ dự án "Giữ lại các thiết kế lúc sáng nay nhé, không sửa nữa".
+
 # Gửi Gemini: góp ý và thiết kế lại toàn bộ 13 chiến cơ (thay tin V259 "sơn lại")
 
 **Dán kèm:**

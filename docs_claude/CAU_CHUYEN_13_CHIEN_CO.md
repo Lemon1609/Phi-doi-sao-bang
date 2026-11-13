@@ -30,9 +30,9 @@ X-Dực Băng Hà được đẽo từ mảnh lõi sao chổi băng vĩnh cửu 
 - **Xuất xứ:** Không rõ, trục vớt từ xác chiến hạm lạ ở Tinh Vân Đen
 - **Chế tạo:** Thuần hóa tại phòng thí nghiệm kín Hắc Thạch
 - **Thời điểm:** Tìm thấy năm Tinh Lịch 2193
-- **Lõi:** Bốn lò phản ứng dị giới chưa giải mã hết
+- **Lõi:** Bốn "mắt" phản ứng chưa giải mã hết
 
-Không ai biết Thần Ma Dị Hình được chế tạo ở đâu: Phi Đội tìm thấy nó trôi dạt trong xác một chiến hạm lạ, bốn lò phản ứng dị giới vẫn còn sáng. Sau khi được thuần hóa, nó thành con át chủ bài đáng sợ nhất, mũi giáo pha lê bắn ra loạt đạn xuyên thủng mọi lớp khiên. Khi Bạo Tẩu, đôi cánh lưỡi liềm tách lớp mở rộng, bốn lò phản ứng bừng sáng và phóng ra những lưỡi năng lượng sắc như pha lê. Phi công đồn rằng thỉnh thoảng nó tự quay mũi về vùng trời mà nó đã đến.
+Không ai biết Thần Ma Dị Hình được chế tạo ở đâu: Phi Đội tìm thấy nó trôi dạt trong xác một chiến hạm lạ, bốn con mắt năng lượng vẫn còn mở. Sau khi được thuần hóa, nó thành con át chủ bài đáng sợ nhất, với loạt đạn xuyên thủng mọi lớp khiên. Khi Bạo Tẩu, những lưỡi năng lượng như móng vuốt bung ra từ bốn con mắt, đôi sừng bốc lửa và ấn chú tam giác hiện lên sau lưng. Phi công đồn rằng thỉnh thoảng nó tự quay đầu về vùng trời mà nó đã đến.
 
 ## 5. Trí Tuệ Thự Quang: Bình Minh dẫn lối
 - **Xuất xứ:** Trạm quỹ đạo Thự Quang, quanh hành tinh Kim Tinh
