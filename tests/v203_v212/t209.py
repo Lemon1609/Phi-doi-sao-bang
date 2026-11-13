@@ -34,7 +34,7 @@ with sync_playwright() as p:
   arm(['mirror'])
   r=pg.evaluate("""async()=>{superTime=0;Combat26.reset&&0;const c0=Combat26.state().charge;V209EV.on('hazard',{});return {d:Combat26.state().charge-c0,c0}}""")
   chk('Phá Chướng Nạp (mirror Lv5): phá chướng ngại → +20% thanh Bạo Tẩu',r['d']==20 or (r['c0']>80),r)
-  r=pg.evaluate("""async()=>{activateSuper();const s0=superTime;await new Promise(r=>setTimeout(r,4300));const a=superTime;V209EV.on('elite',{});return {ext:+(superTime-a).toFixed(2)}}""")
+  r=pg.evaluate("""async()=>{activateSuper();const s0=superTime;await new Promise(r=>setTimeout(r,5200));/* V254: hồi nội bộ 4 s tính theo đồng hồ game; máy test vẽ nặng thì đồng hồ game chạy ~0,9 lần đồng hồ thật → 4,3 s thật chưa đủ 4 s game */const a=superTime;V209EV.on('elite',{});return {ext:+(superTime-a).toFixed(2)}}""")
   chk('Đang Bạo Tẩu: phá chướng ngại kéo dài +0,7 s',abs(r['ext']-.7)<.05,r)
   arm(['phase'])
   r=pg.evaluate("""async()=>{superTime=0;invuln=0;bulletShieldTime=0;shield=0;await new Promise(r=>setTimeout(r,100));const n0=(V209EV.state().n.ev_graze_pulse||0);for(let i=0;i<5;i++){invuln=0;Combat26.graze({x:player.x+12,y:player.y,r:4},12);}return {n:(V209EV.state().n.ev_graze_pulse||0)-n0,sh:+(shield/maxShield*100).toFixed(1)}}""")

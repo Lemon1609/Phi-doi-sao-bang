@@ -1,6 +1,6 @@
 # Gửi Gemini: thiết kế lại năng lượng, cánh bung Bạo Tẩu cho toàn bộ chiến cơ
 
-Gói này gồm **3 phần dán theo thứ tự**:
+Gói này gồm **3 phần dán theo thứ tự**. Ảnh `hien_tai_13_tau_bac_tim_trong_tran.jpg` (cánh bung bậc Tím hiện tại trong trận) gửi kèm Phần 2 để Gemini thấy cái đang thay:
 1. **Phần 1**: dán một lần, kèm 3 ảnh tham khảo.
 2. **Phần 2**: Gemini trả về bảng ý tưởng cho 13 tàu. Chủ dự án duyệt bảng.
 3. **Phần 3**: mỗi tàu một tin, kèm ảnh `khung/tauN_than_bao_tau.png` của tàu đó.
