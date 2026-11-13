@@ -13,7 +13,8 @@ if G.shape[:2] != (1024, 1024): G = cv2.resize(G, (1024, 1024), interpolation=cv
 K = np.asarray(Image.open(KH).convert('RGB')).astype(np.float32)
 m = (K.max(-1) > 12).astype(np.uint8); ys, xs = np.where(m); x0, x1, y0, y1 = xs.min(), xs.max(), ys.min(), ys.max()
 tpl = K[y0:y1 + 1, x0:x1 + 1]; msk = m[y0:y1 + 1, x0:x1 + 1]; best = None
-for s in np.arange(.9, 1.101, .01):
+_kr = [float(x) for x in os.environ.get('KHOPRANGE', '.9,1.1').split(',')]   # V273: thân to gần kín khung (tàu 4) → thu hẹp dải tỉ lệ dò
+for s in np.arange(_kr[0], _kr[1] + .001, .01):
     t = cv2.resize(tpl, None, fx=s, fy=s, interpolation=cv2.INTER_AREA); mm = cv2.resize(msk, None, fx=s, fy=s, interpolation=cv2.INTER_NEAREST)
     r = cv2.matchTemplate(G, t, cv2.TM_SQDIFF, mask=np.dstack([mm] * 3)); v, _, loc, _ = cv2.minMaxLoc(r); v /= mm.sum() * 3
     if best is None or v < best[0]: best = (v, s, loc)

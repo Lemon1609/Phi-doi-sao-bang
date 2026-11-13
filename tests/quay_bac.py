@@ -15,6 +15,7 @@ with sync_playwright() as p:
     for t, e in E.items():
         if len(sys.argv) > 3 and t not in sys.argv[3].split(','): continue
         pg.reload(); pg.wait_for_timeout(4500); pg.evaluate(CLEAN); pg.evaluate(PATCH, list(e))
+        if os.environ.get('INITJS'): pg.evaluate(os.environ['INITJS'])  # V273: đặt biến thử (vd. phóng to cánh) trước khi bật Bạo Tẩu
         pg.evaluate("()=>{const SID=%d;Progress.setLocked(false);selectCraft(SID);launchCraft=SID;document.getElementById('gamemode').value='campaign';document.getElementById('mission-select').value='40';Lobby.hide();reset();if(mode==='pause')mode='play';window.__iv=setInterval(()=>{hp=maxHp;shield=0;superTime=0;try{player.y=760;player.x=240}catch{}},20)}" % SID)
         pg.wait_for_timeout(4000)
         pg.evaluate("()=>{clearInterval(window.__iv);window.__iv=setInterval(()=>{hp=maxHp;shield=0;try{player.y=760;player.x=240}catch{}},20);window.__t0=performance.now();activateSuper()}")
