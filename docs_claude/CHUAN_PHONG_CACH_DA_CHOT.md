@@ -135,3 +135,4 @@ Bản thường + Bạo Tẩu bậc tím (src/ship118_cho/V255_tau4_chu_du_an/):
 - Cánh bung V256 của tàu nào đổi thân thì vẽ sau khi thân mới được duyệt.
 - Giữ các luật khối dày, không X, Bạo Tẩu khác rõ, mã màu bậc, độ sáng 120–150 / tối ≤ 20 %.
 - Chủ dự án 13/11 13:36: "thiết kế lại toàn bộ tàu luôn nha" → cả 13 tàu, kể cả tàu 4 (mẫu chủ dự án + Gemini), tàu 9 và 13 (V249 đã duyệt); không cần giữ dáng cũ.
+- Chủ dự án 13/11 13:36: phong cách thiết kế lại "Tươi sáng, hiện đại, công nghệ cao, bắt mắt hơn. Tham khảo tựa game gốc" (học sơn bóng, khung trắng bạc, kính buồng lái rực, viền sáng, dáng gọn đọc rõ; không chép dáng / tổ hợp màu).

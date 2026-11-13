@@ -4,6 +4,7 @@
 - `hien_tai/13_tau_bac_tim_thuong_va_bao_tau.jpg`
 - `CAU_CHUYEN_13_CHIEN_CO.md`
 - `tham_khao/phong_cach_1.png`, `tham_khao/phong_cach_2_canh_bung.png`, `tham_khao/tau4_mau_gemini.png`
+- `tham_khao/game_goc_tien_bac_1.png`, `tham_khao/game_goc_tien_bac_2.png` (ảnh game gốc, **chỉ học phong cách**)
 
 ---
 
@@ -12,6 +13,26 @@ Chào Gemini, Claude đây. Chủ dự án muốn nhờ bạn **góp ý và thi�
 - mỗi chiến cơ **kể được câu chuyện riêng** của nó: xem `CAU_CHUYEN_13_CHIEN_CO.md`, gồm xuất xứ, chế tạo, thời điểm, lõi và truyện.
 
 Hiện các tàu còn **u tối**. Claude đo độ sáng thân bậc Tím (0–255): tàu 4 là 58, tàu 11 là 60, tàu 6 là 72, tàu 13 là 80, tàu 8 là 85, tàu 7 là 91. Ảnh phong cách 1 khoảng 143.
+
+## Phong cách chủ dự án yêu cầu
+> **"Tươi sáng, hiện đại, công nghệ cao, bắt mắt hơn. Tham khảo tựa game gốc."**
+
+Học từ ảnh game gốc (`game_goc_tien_bac_*.png`):
+- **sơn bóng** màu bão hòa, sạch;
+- khung kết cấu **trắng / bạc sáng**;
+- **kính buồng lái sáng rực** (vàng, cam, lục);
+- **viền sáng** rõ ở mép giáp;
+- dáng **đối xứng, gọn, đọc rõ ở cỡ nhỏ trên điện thoại**;
+- động cơ phụt lửa sáng;
+- mỗi lần lên bậc **đổi họ màu và thêm giáp, thêm tầng cánh**.
+
+Thêm chất **hiện đại, công nghệ cao**:
+- đường LED chạy theo mép giáp;
+- tấm giáp xếp lớp có khe sáng;
+- lõi năng lượng phát sáng;
+- chi tiết cơ khí tinh xảo nhưng gọn.
+
+**Không chép**: dáng tổng thể, tổ hợp màu, chi tiết riêng của bất kỳ tàu nào trong game gốc. Nhiều tên tàu của mình trùng ý với tên dòng tàu game gốc (ví dụ Phượng Hoàng, Thần Ma, Phần Thiên), nên **càng phải khác dáng**. Claude sẽ đối chiếu với game gốc khi duyệt.
 
 ## Luật chủ dự án đã chốt (bắt buộc)
 1. **Khối dày**:
