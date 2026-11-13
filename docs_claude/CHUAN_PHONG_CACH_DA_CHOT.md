@@ -149,3 +149,12 @@ Bản thường + Bạo Tẩu bậc tím (src/ship118_cho/V255_tau4_chu_du_an/):
 - Câu chuyện tàu 4: giữ bản gốc có sừng (thân của chủ dự án có sừng).
 - Chủ dự án 13/11 14:27: cánh bung Gemini tàu 1 "không đẹp lắm, cánh bung sáng nay đẹp hơn" → giữ cánh bung tàu 1 hiện có trong game (bản Gemini lưu ở src/ship118_cho/V262_gemini_bung_tau1_khong_dung/).
 - Bảng đạn + kỹ năng 13 tàu của Gemini (docs_claude/de_xuat_cho/GEMINI_V262_BANG_DAN_KY_NANG_13_TAU.txt) → tin duyệt V262B (hiệu ứng trúng không vòng kín, màu đạn bậc Tím theo bảng màu cánh bung, tàu 7 bỏ vệt chữ X, quạt SS ≤ 40 % màn hình); GPT vẽ 24 hình đạn trắng / xám (V263).
+
+## Màu cánh bung / hiệu ứng theo bậc, màu tàu, trang bị (chủ dự án 13/11 14:32)
+"Phần cánh bung nên chốt là: tùy từng bậc tàu, màu tàu, trang bị mà cánh bung, hiệu ứng sẽ có màu riêng."
+- Cánh bung + hiệu ứng (đạn, kỹ năng) của chiến cơ: màu theo **tàu** (bậc Tím = màu riêng) và **bậc** (Thường trắng bạc, Lục, Lam, Tím+ hồng tím, SS vàng kim).
+- **Trang bị** (tàu con, tàu hợp thể, tàu con hợp thể; không tính vũ khí và giáp, theo ý chủ dự án trước đó) tỏa màu riêng của trang bị dưới chính nó lúc Bạo Tẩu.
+- GPT hết lượt vẽ đến 20:30 hôm nay (chủ dự án báo 14:32).
+
+## Cánh bung phải có chất công nghệ tương lai (chủ dự án 13/11 14:33)
+Cánh bung Gemini tàu 1 lần 2 (src/ship118_cho/V264_gemini_bung_tau1_lan2/): "khá đẹp, nhưng chưa đem lại cảm giác công nghệ tương lai, hiện đại" → mọi cánh bung dùng ngôn ngữ hình công nghệ: tấm ánh sáng cứng cắt cạnh hình học, đường mạch dẫn năng lượng có nút sáng, lưới lục giác mờ, vạch quét, hạt vuông / dải dữ liệu, khớp phát năng lượng ở gốc cánh (tin V264).
