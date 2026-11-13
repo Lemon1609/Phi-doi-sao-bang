@@ -88,5 +88,5 @@ Màu bung theo từng thứ đang lắp: chiến cơ (đang có, theo bậc), **
 ## Dáng tàu (chủ dự án 13/11 08:04)
 "Tham khảo cách thiết kế của game gốc… Có thể sử dụng màu khác. Mình không thích tàu chữ X."
 - Không làm tàu chữ X, không dáng tỏa tròn / ngôi sao, không vòng cung lớn quanh tàu.
-- Cách làm học từ game gốc: thân thon dài dáng mũi tên / dao găm (bề ngang bản thường ~45–60 % chiều cao), cánh ngắn xuôi sau ôm thân, sống thân rõ, một màu chủ + một điểm nhấn + màu đèn; bản thường gọn, độ hoành tráng dồn vào Bạo Tẩu.
+- ~~Thân thon dài 45–60 %~~ — **chủ dự án bác 08:22: "không duyệt thiết kế tàu quá thon"**. Khối chuẩn đo từ tàu đã duyệt: bản thường rộng/cao ~0,8–1,05, Bạo Tẩu 1,25–1,6; giáp dày nhiều lớp, vai rộng, cánh lớn xuôi sau 2–3 tầng, lõi rõ. Không chữ X, không tỏa tròn, không thân que mảnh.
 - 13/11 08:12: chủ dự án chốt **giữ nguyên hình bung hiện tại** ("phần bung giữ như cũ") → hủy gói V246 (vẽ lại năng lượng bo theo thân cho tàu 1, 4, 5, 11, 12). Tàu 1 và tàu 4 chỉ thiết kế lại thân (V248), thân mới vẽ khớp vào khung năng lượng đang dùng.
