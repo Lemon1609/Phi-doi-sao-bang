@@ -158,3 +158,4 @@ Bản thường + Bạo Tẩu bậc tím (src/ship118_cho/V255_tau4_chu_du_an/):
 
 ## Cánh bung phải có chất công nghệ tương lai (chủ dự án 13/11 14:33)
 Cánh bung Gemini tàu 1 lần 2 (src/ship118_cho/V264_gemini_bung_tau1_lan2/): "khá đẹp, nhưng chưa đem lại cảm giác công nghệ tương lai, hiện đại" → mọi cánh bung dùng ngôn ngữ hình công nghệ: tấm ánh sáng cứng cắt cạnh hình học, đường mạch dẫn năng lượng có nút sáng, lưới lục giác mờ, vạch quét, hạt vuông / dải dữ liệu, khớp phát năng lượng ở gốc cánh (tin V264).
+- Chủ dự án 13/11 14:34: "cánh bung sẽ là dạng LED, neon... như tựa game gốc" → cánh là tấm / dải ánh sáng neon mặt mịn, viền sáng gắt 1–2 nét, lõi trắng nóng, quầng mềm, mép sạch như vector; không vân lông, không lửa tự nhiên; điểm nhấn dải chấm LED, mạch có nút sáng, khớp phát sáng ở gốc.
