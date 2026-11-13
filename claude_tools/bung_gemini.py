@@ -35,10 +35,17 @@ ext = max(np.percentile(abs(xs - c), 99.8), np.percentile(abs(ys - c), 99.8)) / 
 FR = int(np.ceil((2 * ext * 1.06 + 128) / 256) * 256); PX = min(FR, 1536); KK = PX / FR / U
 Mfx = np.float32([[KK, 0, PX / 2 - c * KK], [0, KK, PX / 2 - c * KK]])
 warp = lambda X: cv2.warpAffine(X, Mfx, (PX, PX), flags=cv2.INTER_AREA)
-g = np.clip(warp(g1), 0, 255).astype(np.uint8); Image.fromarray(np.dstack([g] * 4), 'RGBA').save(f'{OUT}/fx.png')
+g = np.clip(warp(g1), 0, 255).astype(np.uint8)   # bản chưa lấp: dùng dò gốc cánh
+# V257B: lấp chỗ thân bằng năng lượng loang (inpaint + mờ) → bậc khác thân nhỏ hơn / lệch cũng không lộ lỗ đen hình thân. Tắt: FILLK=0
+FK = float(os.environ.get('FILLK', .8))
+if FK > 0:
+    sm = cv2.resize(E1, (512, 512), interpolation=cv2.INTER_AREA).clip(0, 255).astype(np.uint8); hs = cv2.resize(hm.astype(np.uint8), (512, 512), interpolation=cv2.INTER_NEAREST)
+    fl = cv2.GaussianBlur(cv2.inpaint(sm, hs, 12, cv2.INPAINT_TELEA).astype(np.float32), (0, 0), 6); fl = cv2.resize(fl, (1024, 1024), interpolation=cv2.INTER_LINEAR)
+    E1 = np.where(hm[..., None], fl * FK, E1)
+gw = np.clip(warp(lum(E1)), 0, 255).astype(np.uint8); Image.fromarray(np.dstack([gw] * 4), 'RGBA').save(f'{OUT}/fx.png')
 Ew = np.clip(warp(E1), 0, 255); mx = Ew.max(-1, keepdims=True)
 Image.fromarray(np.dstack([np.where(mx > 0, Ew / np.maximum(mx, 1) * 255, 0), mx]).clip(0, 255).astype(np.uint8), 'RGBA').save(f'{OUT}/fx_mau.png')
-g3 = np.clip((g.astype(np.float32) - 150) * 2.2, 0, 255).astype(np.uint8); Image.fromarray(np.dstack([g3] * 4), 'RGBA').save(f'{OUT}/fx3.png')
+g3 = np.clip((gw.astype(np.float32) - 150) * 2.2, 0, 255).astype(np.uint8); Image.fromarray(np.dstack([g3] * 4), 'RGBA').save(f'{OUT}/fx3.png')
 gT = np.clip(warp(lum(dT)), 0, 255).astype(np.uint8); SO['lop_truoc_than_px'] = int((gT > 30).sum())
 if SO['lop_truoc_than_px'] > 200: Image.fromarray(np.dstack([gT] * 4), 'RGBA').save(f'{OUT}/fxT.png')
 ramp = [[0.0, 0, 0, 0]]
