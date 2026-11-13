@@ -114,3 +114,9 @@ V253, đổi lại được (window.DIM253=false tắt độ đậm riêng; ản
 Bản thường + Bạo Tẩu bậc tím (src/ship118_cho/V255_tau4_chu_du_an/): đỏ sẫm + đen than + bạc, 4 cụm mắt lam / lục ngọc, sống mũi đỏ, lõi hồng, đôi sừng. Thay việc thiết kế lại thân tàu 4 của GPT (V248).
 - Claude đo: bản thường rộng/cao 1,08 (đạt khối dày). Bạo Tẩu chỉ rộng 1,02 lần, diện tích 1,05 lần bản thường (chưa đạt luật ≥ 1,25 / ≥ 1,2). Năng lượng bung cách mép thân 30–45 px trên khung 1254.
 - Đề xuất V255 (docs_claude/GUI_V255_TAU4_BAO_TAU_MO_RONG.md): Bạo Tẩu trượt hai cụm mắt ngoài ra hai bên, rộng 1,25–1,35 lần, chạm gốc móng vuốt và sừng năng lượng.
+
+## Gemini thiết kế lại cánh bung toàn bộ tàu, Gemini review thiết kế (chủ dự án 13/11 10:43–10:44)
+- "Phần Bạo Tẩu Gemini thiết kế đẹp hơn" (tàu 4: lưỡi tinh thể lục – lơ – tím mọc từ cụm mắt, sừng lửa, tia điện, mảnh vỡ; src/ship118_cho/V255_tau4_chu_du_an/tau4_bung_gemini.png).
+- "Nhờ Gemini thiết kế lại về năng lượng, cánh bung Bạo Tẩu của toàn bộ tàu luôn nhé" → tin docs_claude/GUI_GEMINI_V256_THIET_KE_LAI_BUNG_TOAN_BO.md (bảng ý tưởng 13 tàu trước, rồi vẽ từng tàu trên khung đặt sẵn thân).
+- "Từ nay thiết kế có thể nhờ Gemini review" → tranh GPT / Gemini vẽ có thể gửi Gemini rà soát trước khi ghép; Claude soạn tin rà soát kèm số đo.
+- Hủy luật "phần bung giữ như cũ" (08:12) cho tàu 4 (chủ dự án chọn bung Gemini); các tàu khác chờ bảng ý tưởng Gemini.
