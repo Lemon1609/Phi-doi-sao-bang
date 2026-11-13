@@ -50,7 +50,16 @@ elif FK > 0:
     sm = cv2.resize(E1, (512, 512), interpolation=cv2.INTER_AREA).clip(0, 255).astype(np.uint8); hs = cv2.resize(hm.astype(np.uint8), (512, 512), interpolation=cv2.INTER_NEAREST)
     fl = cv2.GaussianBlur(cv2.inpaint(sm, hs, 12, cv2.INPAINT_TELEA).astype(np.float32), (0, 0), 6); fl = cv2.resize(fl, (1024, 1024), interpolation=cv2.INTER_LINEAR)
     E1 = np.where(hm[..., None], fl * FK, E1)
-gw = np.clip(warp(lum(E1)), 0, 255).astype(np.uint8); Image.fromarray(np.dstack([gw] * 4), 'RGBA').save(f'{OUT}/fx.png')
+gw = np.clip(warp(lum(E1)), 0, 255).astype(np.uint8)
+# V267: ảnh neon quá sáng (viền trắng gắt) → bảng màu các bậc rơi hết vào đầu trắng, bậc Lục / Lam nhạt. Hạ gamma cho trung bình về ~92 (như các bung đã duyệt). Tắt: GTB=0
+GT = float(os.environ.get('GTB', 92)); mm = gw > 10
+if GT > 0 and mm.any() and gw[mm].mean() > GT + 8:
+    lo, hi = 1.0, 3.0
+    for _ in range(30):
+        gm = (lo + hi) / 2; mv = (255 * (gw[mm] / 255.0) ** gm).mean()
+        lo, hi = (gm, hi) if mv > GT else (lo, gm)
+    gw = np.clip(255 * (gw / 255.0) ** ((lo + hi) / 2), 0, 255).astype(np.uint8); SO['gamma_fx'] = round((lo + hi) / 2, 3)
+Image.fromarray(np.dstack([gw] * 4), 'RGBA').save(f'{OUT}/fx.png')
 Ew = np.clip(warp(E1), 0, 255); mx = Ew.max(-1, keepdims=True)
 Image.fromarray(np.dstack([np.where(mx > 0, Ew / np.maximum(mx, 1) * 255, 0), mx]).clip(0, 255).astype(np.uint8), 'RGBA').save(f'{OUT}/fx_mau.png')
 g3 = np.clip((gw.astype(np.float32) - 150) * 2.2, 0, 255).astype(np.uint8); Image.fromarray(np.dstack([g3] * 4), 'RGBA').save(f'{OUT}/fx3.png')
