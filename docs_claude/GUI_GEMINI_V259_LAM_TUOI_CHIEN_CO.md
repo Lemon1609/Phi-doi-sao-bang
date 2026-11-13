@@ -1,3 +1,5 @@
+> **ĐÃ THAY bằng GUI_GEMINI_V260_THIET_KE_LAI_CHIEN_CO.md** (chủ dự án 13/11 13:33: "nhờ Gemini góp ý thiết kế lại cả tàu, chứ không chỉ sơn lại").
+
 # Gửi Gemini: làm tươi sáng, bắt mắt 12 chiến cơ (giữ nguyên dáng)
 
 **Dán kèm:** `hien_tai_12_tau_xep_toi_den_sang.jpg`, `tham_khao/phong_cach_1.png`, `tham_khao/tau4_mau_gemini.png`.

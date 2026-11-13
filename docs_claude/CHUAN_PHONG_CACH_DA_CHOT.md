@@ -127,3 +127,10 @@ Bản thường + Bạo Tẩu bậc tím (src/ship118_cho/V255_tau4_chu_du_an/):
 - **Mở khóa** luật "Robot V196B và icon trang bị hợp thể giữ nguyên" (chủ dự án chọn "Có mở khóa").
 - Chuẩn sáng: thân bậc Tím độ sáng TB ~120–150 (ảnh phong cách 1 ≈ 143), phần tối (< 60) ≤ 20 % (tàu 13 đen gương ≤ 35 %). Cách làm: Gemini "sơn lại" giữ đúng viền thân; Claude ghép giữ viền cũ (màu mới, alpha cũ) → năng lượng bung vẫn khớp. Tin: docs_claude/GUI_GEMINI_V259_LAM_TUOI_CHIEN_CO.md.
 - Câu chuyện: 13 chiến cơ chính, 3–5 câu mỗi tàu, hiện ở sảnh khi chọn tàu.
+
+## Gemini thiết kế lại cả tàu (chủ dự án 13/11 13:33)
+"Ý của mình là nhờ Gemini góp ý thiết kế lại cả tàu, chứ không chỉ sơn lại."
+- Tin V259 "sơn lại giữ viền" → thay bằng V260 (docs_claude/GUI_GEMINI_V260_THIET_KE_LAI_CHIEN_CO.md): Gemini góp ý và đề xuất bảng ý tưởng 13 tàu (dáng, bộ phận lấy từ câu chuyện, màu, Bạo Tẩu, tiến bậc) → chủ dự án duyệt → vẽ bậc Tím (thường 1024, Bạo Tẩu 1400, cùng tỉ lệ) → cánh bung → 10 bậc còn lại.
+- Tin V248B gửi GPT thân tàu 1: hủy (Gemini làm luôn tàu 1).
+- Cánh bung V256 của tàu nào đổi thân thì vẽ sau khi thân mới được duyệt.
+- Giữ các luật khối dày, không X, Bạo Tẩu khác rõ, mã màu bậc, độ sáng 120–150 / tối ≤ 20 %.

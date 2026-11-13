@@ -1,3 +1,5 @@
+> **HỦY, không gửi GPT**: từ 13/11 13:33 Gemini thiết kế lại toàn bộ 13 tàu, gồm cả tàu 1 (tin V260).
+
 Chào GPT, cảm ơn bản V248 tàu 1 và tàu 4. Claude đã ghép thử đúng tọa độ lên khung năng lượng. **Tàu 1 cần vẽ lại**, vì tin V248 trước ghi sai một điều kiện (lỗi của Claude). **Tàu 4: chủ dự án đã tự thiết kế xong, GPT không cần làm tàu 4 nữa.**
 
 > Tin cũ ghi "thân thon dài, rộng 45–60 % chiều cao". **Chủ dự án đã bác: "không duyệt thiết kế tàu quá thon".**
