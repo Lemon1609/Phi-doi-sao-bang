@@ -84,3 +84,8 @@ Màu bung theo từng thứ đang lắp: chiến cơ (đang có, theo bậc), **
 "Phần cánh bung Bạo Tẩu nên thiết kế lại cho phù hợp với thân tàu. Kiểu bo theo thân tàu, cánh, đuôi…"
 - Năng lượng mọc từ mép cánh, đầu cánh, vây đuôi, ống xả, bệ mở của thân Bạo Tẩu và kéo dài tiếp hình dáng đó; có viền năng lượng mỏng ôm sát mép giáp nối liền các dải lớn.
 - Cách làm (V246): Claude đặt sẵn đúng thân Bạo Tẩu trong game (đúng cỡ, vị trí; 1 đơn vị thân 512 = 0,8 px trên khung 1254) lên khung vẽ; GPT chỉ vẽ năng lượng lên khung đó; Claude xóa thân theo đúng tệp đặt sẵn (không cần dò) → năng lượng khớp mép thân.
+
+## Dáng tàu (chủ dự án 13/11 08:04)
+"Tham khảo cách thiết kế của game gốc… Có thể sử dụng màu khác. Mình không thích tàu chữ X."
+- Không làm tàu chữ X, không dáng tỏa tròn / ngôi sao, không vòng cung lớn quanh tàu.
+- Cách làm học từ game gốc: thân thon dài dáng mũi tên / dao găm (bề ngang bản thường ~45–60 % chiều cao), cánh ngắn xuôi sau ôm thân, sống thân rõ, một màu chủ + một điểm nhấn + màu đèn; bản thường gọn, độ hoành tráng dồn vào Bạo Tẩu.
