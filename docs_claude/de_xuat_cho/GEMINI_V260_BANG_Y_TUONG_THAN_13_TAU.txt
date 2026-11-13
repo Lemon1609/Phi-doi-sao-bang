@@ -1,0 +1,391 @@
+Toàn bộ 13 chiến cơ được tái thiết kế theo chuẩn sơn bóng công nghệ cao, khung giáp trắng/bạc sáng (độ sáng trung bình **120–150**, mảng tối khe máy **≤ 20%**), kính buồng lái rực sáng và gắn trực tiếp các chi tiết cơ khí từ hồ sơ cốt truyện vào kết cấu thân:
+
+| Tàu | Bản hiện tại: mạnh / yếu | Ý tưởng thân mới (dáng, khối, 2–3 bộ phận đặc trưng lấy từ câu chuyện) | Màu thân (chính, phụ, viền, đèn) | Bạo Tẩu mở ra thế nào | Tiến bậc Thường → SS |
+| --- | --- | --- | --- | --- | --- |
+| **1. Nộ Hỏa Phượng Hoàng** | **Mạnh:** Chủ đề hỏa điểu rõ, chi tiết dày. |  |  |  |  |
+
+
+
+**Yếu:** Dáng chữ X 4 càng vi phạm luật; Thường và Bạo Tẩu gần như không đổi khối; thân hơi tối. | Dáng **chim ưng mũi giáo khối dày** (bỏ hoàn toàn chữ X), cánh 2 tầng xuôi sau. Trang bị mỏ giáp nhọn ở mũi, kính buồng lái cam vàng hình mắt phượng, lò plasma tái sinh rực sáng ở ngực và cụm ống xả đuôi xếp tầng. | **Chính:** Trắng sứ bóng
+
+
+
+**Phụ:** Đỏ son ánh kim
+
+
+
+**Viền:** Vàng kim 24K
+
+
+
+**Đèn:** Cam lửa rực | Hai tầng cánh giáp vai trượt mở ngang và xòe 3 cặp phiến lông cơ khí ra ngoài (+35% bề ngang), mở nắp che lò plasma ngực. | **Thường:** Trắng sứ + xám bạc, đèn trắng.
+
+
+
+**Lục/Lam:** Thêm ốp giáp phụ, đèn lục/lam.
+
+
+
+**Tím:** Đỏ son + vàng kim.
+
+
+
+**Tím+/SS:** Thêm tầng giáp cánh thứ 3, viền vàng ròng, lò ngực rực sáng. |
+| **2. Cực Quang Ảo Ảnh** | **Mạnh:** Hai thanh ray dọc độc đáo, nhận diện tốt.
+
+
+
+**Yếu:** Bậc thấp đơn sắc xám tối và quá hẹp; thân nhiều chi tiết vụn tối màu. | Dáng **tiêm kích đánh chặn vai vuông bề thế**. Giữ 2 thanh ray hứng gió mặt trời cao dọc lưng (chừa rãnh giữa cho laser), bổ sung buồng lái kính xanh ngọc bích dài và 2 cụm tản nhiệt bão từ bọc bạc ở vai. | **Chính:** Bạc băng tuyết
+
+
+
+**Phụ:** Xanh ngọc bích `#10B981`
+
+
+
+**Viền:** Crôm sáng
+
+
+
+**Đèn:** Xanh lơ cực quang | Hai thanh ray trượt tịnh tiến ra ngoài, đồng thời 2 cụm giáp vai mở bung 4 cánh lăng kính dẫn hướng sang hai bên (+30% bề ngang). | **Thường:** Bạc sáng + xanh rêu nhạt (cỡ ≥ 92% Tím), đèn trắng.
+
+
+
+**Lục/Lam:** Giáp phụ lục/lam rõ khối.
+
+
+
+**Tím:** Bạc + ngọc bích.
+
+
+
+**Tím+/SS:** Thêm ống dẫn sáng dọc ray, viền bạch kim, đèn hồng tím/vàng kim. |
+| **3. X-Dực Băng Hà** | **Mạnh:** Thân gọn, chủ đề băng giá nhất quán.
+
+
+
+**Yếu:** Bậc Thường/Lục đơn sắc xám xịt; mũi hơi thon. | Dáng **mũi tên tam giác dày khối (delta-wedge)** vững chãi. Mũi khoan phá băng bọc giáp trắng dày, lõi mảnh sao chổi băng vĩnh cửu phát sáng ở tâm lưng, 4 nòng pháo hàn băng đặt chéo sau vai. | **Chính:** Trắng xà cừ
+
+
+
+**Phụ:** Lam băng `#38BDF8`
+
+
+
+**Viền:** Bạch kim
+
+
+
+**Đèn:** Xanh băng lõi trắng | Bốn cụm nòng pháo hàn băng và 2 tấm giáp sườn trượt mở chéo góc 40° về sau, để lộ các tinh thể dẫn nhiệt bên trong (+30% bề ngang). | **Thường:** Trắng mờ + xám xanh băng, đèn bạc.
+
+
+
+**Lục/Lam:** Tăng độ bóng sơn, đèn lục/lam.
+
+
+
+**Tím:** Trắng xà cừ + lam băng.
+
+
+
+**Tím+/SS:** Bổ sung giáp vảy băng đa tầng, khe LED dày, viền vàng kim ở SS. |
+| **4. Thần Ma Dị Hình** | **Mạnh:** Cặp mắt quỷ và sừng cực ngầu, đúng chất dị hình.
+
+
+
+**Yếu:** Độ sáng thân quá thấp (58), mảng tối quá nhiều dễ chìm nền. | Dáng **chiến hạm đầu quỷ vai ngang khối nặng** (nâng sáng giáp chính lên mức 130). Gồm cặp sừng cơ khí cong trên đỉnh đầu, "bốn mắt" lò phản ứng tròn đồng tâm phát sáng trên 2 bệ vai và cụm vuốt giáp cơ khí ở đuôi. | **Chính:** Xám titan sáng `#94A3B8`
+
+
+
+**Phụ:** Đỏ rượu vang `#BE123C`
+
+
+
+**Viền:** Đồng thau sáng
+
+
+
+**Đèn:** Lục bảo & hồng ngọc | Hai bệ vai chứa "bốn mắt" phản ứng trượt mở rộng sang hai bên, cặp sừng trước mở góc và cụm vuốt đuôi bung ngang (+35% bề ngang). | **Thường:** Titan sáng + xám thép, 2 mắt nhỏ, đèn bạc.
+
+
+
+**Lục/Lam:** Mở rộng khe sáng, đèn lục/lam.
+
+
+
+**Tím:** Đủ 4 mắt sáng rực, giáp đỏ bóng.
+
+
+
+**Tím+/SS:** Thêm lớp giáp gai ngoài vai, viền vàng đồng rực. |
+| **5. Trí Tuệ Thự Quang** | **Mạnh:** Dáng vương miện dày dặn, chi tiết sắc nét.
+
+
+
+**Yếu:** Cả 6 bậc đều ám hồng giống nhau; giáp hơi rối chi tiết nhỏ. | Dáng **phi thuyền hộ tống hình khiên vương miện**. Vương miện lăng kính bẻ sáng xếp tầng quanh mũi, kính buồng lái vàng nắng ấm áp của AI Bình Minh, 6 cánh lăng kính thu sáng đối xứng hai bên sườn. | **Chính:** Trắng ngọc trai
+
+
+
+**Phụ:** Hồng san hô `#FB7185`
+
+
+
+**Viền:** Vàng hồng
+
+
+
+**Đèn:** Vàng nắng bình minh | Sáu cánh lăng kính hai bên sườn xòe rộng như đóa hoa cơ khí, đồng thời giáp lưng tách đôi để lộ lõi bẻ sáng trung tâm (+35% bề ngang). | **Thường:** Trắng ngọc + xám bạc, đèn trắng.
+
+
+
+**Lục:** Trắng + lục ngọc.
+
+
+
+**Lam:** Trắng + lam thiên thanh.
+
+
+
+**Tím:** Trắng + hồng san hô.
+
+
+
+**Tím+/SS:** Vương miện 3 tầng, viền vàng ròng, đèn hồng tím/vàng kim. |
+| **6. Siêu Nghiệm U Linh** | **Mạnh:** Phom góc cạnh sắc bén, chất lượng tử độc đáo.
+
+
+
+**Yếu:** Thân quá tối (độ sáng 72), bậc thấp chìm nghỉm vào nền vũ trụ. | Dáng **tiêm kích tàng hình đa diện (stealth facet)** khối dày. Lõi lệch pha lượng tử hình thoi lơ lửng trong khung hở giữa ngực, kính buồng lái xanh ma trơi mảnh, cánh giáp bậc thang sắc cạnh. | **Chính:** Bạch kim sáng
+
+
+
+**Phụ:** Tím oải hương `#A78BFA`
+
+
+
+**Viền:** Bạc ánh xanh
+
+
+
+**Đèn:** Xanh ma trơi `#2DD4BF` | Các tấm giáp cánh bậc thang trượt tách lớp ra ngoài, tạo các khe hở phát sáng lượng tử dọc theo sườn tàu (+30% bề ngang). | **Thường:** Xám bạc sáng + xanh thép, đèn trắng.
+
+
+
+**Lục/Lam:** Giáp phụ lục/lam sáng, không tối nền.
+
+
+
+**Tím:** Bạch kim + tím oải hương.
+
+
+
+**Tím+/SS:** Thêm vây cảm biến lượng tử, khung lõi kép, viền vàng kim ở SS. |
+| **7. Ma Vương Đao Phong** | **Mạnh:** Dáng lưỡi đao rõ nét, Bạo Tẩu bung cánh tốt.
+
+
+
+**Yếu:** Bậc Thường/Lục đơn sắc; màu cam trùng với tàu 8. | Dáng **mũi đại đao công nghệ cao thuôn dày**. Sống kiếm tinh thiết sáng loáng chạy dọc trục thân từ mũi tới đuôi, 4 lưỡi đao phụ gập sát hai bên sườn, buồng lái kính hổ phách góc cạnh. | **Chính:** Bạc thép sáng
+
+
+
+**Phụ:** Cam đồng `#F97316`
+
+
+
+**Viền:** Vàng chanh sắc
+
+
+
+**Đèn:** Vàng hổ phách | Bốn lưỡi đao phụ hai bên sườn bật mở ngang như nan quạt thép, để lộ hệ thống khớp thủy lực phát sáng bên trong (+40% bề ngang). | **Thường:** Bạc thép + xám xanh, 2 lưỡi đao phụ, đèn bạc.
+
+
+
+**Lục/Lam:** Sơn bóng lục/lam, đèn lục/lam.
+
+
+
+**Tím:** Bạc + cam đồng.
+
+
+
+**Tím+/SS:** Đủ 4 lưỡi đao răng cưa sáng, sống kiếm mạ vàng kim. |
+| **8. Phần Thiên Chiến Chuẩn** | **Mạnh:** Dáng chim săn mồi chuẩn mực, Bạo Tẩu mở cánh rất đẹp.
+
+
+
+**Yếu:** Độ sáng thân hơi trầm (85); bậc Lục bị ngả đỏ cam sai mã màu. | Dáng **chim săn mồi giáp nặng mang cờ hiệu phi đội**. Lò nhiệt áp rực sáng ở trung tâm ngực, hai ống xả pháo nhiệt áp cỡ lớn trên vai, cánh giáp 3 lớp vuốt ngược sắc gọn. | **Chính:** Đỏ tươi ánh kim `#EF4444`
+
+
+
+**Phụ:** Trắng ngà
+
+
+
+**Viền:** Vàng ròng
+
+
+
+**Đèn:** Vàng lửa nhiệt áp | Hai cụm giáp vai mang pháo nhiệt áp trượt ngang, 3 tầng cánh giáp xòe rộng về sau và mở khe tản nhiệt đỏ rực (+35% bề ngang). | **Thường:** Trắng ngà + đỏ nhạt, đèn bạc.
+
+
+
+**Lục:** Đổi giáp phụ & đèn sang xanh lục sáng.
+
+
+
+**Lam:** Giáp phụ & đèn lam sáng.
+
+
+
+**Tím:** Đỏ tươi + trắng ngà.
+
+
+
+**Tím+/SS:** Thêm mào cờ hiệu vàng kim, ống xả kép rực sáng. |
+| **9. Thiên Khung Lược Ảnh** | **Mạnh:** Mẫu V249 có mái vòm và đĩa radar rất đẹp, sáng rõ.
+
+
+
+**Yếu:** Bản cũ hơi bè; cần đồng bộ mái vòm pha lê rực hơn. | Dáng **đài quan sát bay hình thoi dày khối**. Mái vòm pha lê lượng tử sáng rực ở trung tâm buồng lái, song đĩa radar định vị trên hai bệ vai, 3 tầng cánh ăng-ten sắc nét. | **Chính:** Trắng sứ công nghệ
+
+
+
+**Phụ:** Xanh coban `#3B82F6`
+
+
+
+**Viền:** Bạc sáng
+
+
+
+**Đèn:** Xanh thiên thanh | Song đĩa radar nâng cao và xoay hướng, 3 tầng cánh ăng-ten trượt mở rộng sang hai bên (+30% bề ngang). | **Thường:** Trắng sứ + xám lam nhạt, radar đơn, đèn bạc.
+
+
+
+**Lục/Lam:** Thêm cảm biến, đèn lục/lam.
+
+
+
+**Tím:** Trắng + coban.
+
+
+
+**Tím+/SS:** Radar kép đa tầng, mái vòm pha lê rực sáng, viền vàng kim. |
+| **10. Tinh Hà Thủ Vọng** | **Mạnh:** Mắt chỉ huy giữa và 2 bệ vai hầm hố.
+
+
+
+**Yếu:** Thân hơi bè ngang, bậc Thường nhợt nhạt thiếu tương phản. | Dáng **pháo đài hộ vệ vai rộng, đầu mũi tù chắc chắn**. Mắt chỉ huy hồng ngọc lớn ở tâm, hai bệ phóng điều khiển tàu con ở hai hông, giáp vai dạng khiên lục giác vát cạnh. | **Chính:** Bạc ánh trăng
+
+
+
+**Phụ:** Tím hoa cà `#C084FC`
+
+
+
+**Viền:** Vàng nhạt
+
+
+
+**Đèn:** Hồng ngọc | Hai cụm giáp lục giác ở hông trượt tách ra ngoài theo tay đòn cơ khí, mở rộng các khe dẫn sáng trên vai (+35% bề ngang). | **Thường:** Bạc sáng + xám titan, đèn trắng.
+
+
+
+**Lục/Lam:** Sơn bóng lục/lam, đèn lục/lam.
+
+
+
+**Tím:** Bạc + tím hoa cà.
+
+
+
+**Tím+/SS:** Giáp vai lục giác 2 lớp, viền vàng kim rực rỡ. |
+| **11. Thôn Tinh Chiến Cơ** | **Mạnh:** Lõi hố đen giữa ngực rất ấn tượng.
+
+
+
+**Yếu:** Thân quá tối (độ sáng 60), chìm hẳn trên nền đen; cánh hơi nhỏ. | Dáng **tàu trọng lực khối trụ nêm dày** (sáng hóa phần vỏ giáp ngoài). Vòng từ trường giam hố đen nhân tạo ở lõi ngực (tâm đen viền sáng gắt), hai tua-bin hút trọng lực ngang hai bên sườn, kính buồng lái xanh ngọc. | **Chính:** Xám bạc ánh kim
+
+
+
+**Phụ:** Tím hoàng gia `#7C3AED`
+
+
+
+**Viền:** Bạch kim
+
+
+
+**Đèn:** Tím neon & trắng vàng | Hai cụm tua-bin trọng lực ngang trượt mở ra ngoài, đồng thời 4 tấm giáp vòng quanh lõi hố đen tách mở tạo khe sáng (+30% bề ngang). | **Thường:** Bạc kim loại + tím nhạt (sáng rõ), đèn trắng.
+
+
+
+**Lục/Lam:** Đổi viền từ trường & đèn sang lục/lam.
+
+
+
+**Tím:** Bạc + tím hoàng gia.
+
+
+
+**Tím+/SS:** Vòng từ trường kép, tua-bin đa tầng, viền vàng kim. |
+| **12. Thời Không Lữ Khách** | **Mạnh:** Phối màu vàng – lam nổi bật, chi tiết cơ khí tốt.
+
+
+
+**Yếu:** Mũi hơi dài nhọn; chưa lộ rõ bộ máy đồng hồ ở thân. | Dáng **phi thuyền mũi kim đồng hồ vai rộng**. Lộ bộ máy bánh răng và vòng chia độ đồng hồ lưỡng cực ở ngực, mũi tàu nhọn dài như kim đồng hồ, hai cụm ổn định thời không hai bên cánh. | **Chính:** Xanh hoàng gia `#2563EB`
+
+
+
+**Phụ:** Vàng kim loại `#FACC15`
+
+
+
+**Viền:** Trắng bạc
+
+
+
+**Đèn:** Xanh ngọc & vàng | Hai cụm ổn định thời không ở cánh trượt mở sang hai bên, để lộ các vòng chia độ phát sáng bên dưới lớp giáp (+30% bề ngang). | **Thường:** Xanh thép + vàng nhạt, đèn bạc.
+
+
+
+**Lục/Lam:** Tăng độ bóng kim loại, đèn lục/lam.
+
+
+
+**Tím:** Xanh hoàng gia + vàng kim loại.
+
+
+
+**Tím+/SS:** Lộ thêm tầng bánh răng cơ khí, viền vàng ròng rực sáng. |
+| **13. Hư Không Đế Vương** | **Mạnh:** Mẫu V249 có mũi nêm và cánh rìu rất uy lực.
+
+
+
+**Yếu:** Độ sáng thân hơi thấp (80); nhiều mảng đen dễ chìm vào nền. | Dáng **chiến hạm hoàng gia mũi nêm + hai cánh rìu bản rộng** (dùng giáp crôm gương phản chiếu sáng để đạt độ sáng ~130). Lõi hư không tím điện ở ngực (công nghệ Thần Ma), kính buồng lái tím sáng sắc cạnh. | **Chính:** Crôm gương sáng
+
+
+
+**Phụ:** Tím điện `#9333EA`
+
+
+
+**Viền:** Bạch kim
+
+
+
+**Đèn:** Tím tử đinh hương | Hai cánh rìu crôm trượt bung rộng sang hai bên theo khớp thủy lực, đồng thời mở giáp che lõi hư không ở ngực (+35% bề ngang). | **Thường:** Crôm sáng + xám bạc, đèn trắng.
+
+
+
+**Lục/Lam:** Ánh phản chiếu gương lục/lam, đèn lục/lam.
+
+
+
+**Tím:** Crôm + tím điện.
+
+
+
+**Tím+/SS:** Cánh rìu kép 2 tầng, vương miện mũi mạ vàng kim đế vương. |
+
+Bạn và Claude xem qua bảng tổng thể này xem đã ưng ý về hình khối, màu sắc và cơ chế mở giáp chưa; chốt xong là mình bắt đầu vẽ từng cặp `tauN_tim.png` và `tauN_tim_bt.png` theo đúng khung 1024 / 1400 ngay nhé!
