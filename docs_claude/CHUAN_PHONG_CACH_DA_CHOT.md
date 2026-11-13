@@ -136,3 +136,4 @@ Bản thường + Bạo Tẩu bậc tím (src/ship118_cho/V255_tau4_chu_du_an/):
 - Giữ các luật khối dày, không X, Bạo Tẩu khác rõ, mã màu bậc, độ sáng 120–150 / tối ≤ 20 %.
 - Chủ dự án 13/11 13:36: "thiết kế lại toàn bộ tàu luôn nha" → cả 13 tàu, kể cả tàu 4 (mẫu chủ dự án + Gemini), tàu 9 và 13 (V249 đã duyệt); không cần giữ dáng cũ.
 - Chủ dự án 13/11 13:36: phong cách thiết kế lại "Tươi sáng, hiện đại, công nghệ cao, bắt mắt hơn. Tham khảo tựa game gốc" (học sơn bóng, khung trắng bạc, kính buồng lái rực, viền sáng, dáng gọn đọc rõ; không chép dáng / tổ hợp màu).
+- Chủ dự án 13/11 13:49: thân tàu 11 Gemini vẽ "không đẹp" (dáng quả trứng, không cánh, kaki xỉn) → chọn **GPT vẽ thân, Gemini lo ý tưởng, rà soát, cánh bung**. Tin GPT: docs_claude/GUI_GPT_V261_THIET_KE_LAI_13_TAU.md (bảng ý tưởng Gemini đã chỉnh theo V260B).
