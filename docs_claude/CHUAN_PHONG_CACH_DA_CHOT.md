@@ -120,3 +120,10 @@ Bản thường + Bạo Tẩu bậc tím (src/ship118_cho/V255_tau4_chu_du_an/):
 - "Nhờ Gemini thiết kế lại về năng lượng, cánh bung Bạo Tẩu của toàn bộ tàu luôn nhé" → tin docs_claude/GUI_GEMINI_V256_THIET_KE_LAI_BUNG_TOAN_BO.md (bảng ý tưởng 13 tàu trước, rồi vẽ từng tàu trên khung đặt sẵn thân).
 - "Từ nay thiết kế có thể nhờ Gemini review" → tranh GPT / Gemini vẽ có thể gửi Gemini rà soát trước khi ghép; Claude soạn tin rà soát kèm số đo.
 - Hủy luật "phần bung giữ như cũ" (08:12) cho tàu 4 (chủ dự án chọn bung Gemini); các tàu khác chờ bảng ý tưởng Gemini.
+
+## Làm tươi sáng toàn bộ (chủ dự án 13/11 11:46)
+"Thiết kế chiến cơ, trang bị, hợp thể vẫn đang khá u tối. Phối hợp cùng Gemini thiết kế lại cho tươi sáng, bắt mắt, thu hút, hấp dẫn giống tựa game gốc. Mỗi chiến cơ sẽ có một câu chuyện riêng."
+- Làm dần: **chiến cơ trước** → tàu con thường (13) → tàu hợp thể SSS (7) → tàu con hợp thể (8) → robot + icon.
+- **Mở khóa** luật "Robot V196B và icon trang bị hợp thể giữ nguyên" (chủ dự án chọn "Có mở khóa").
+- Chuẩn sáng: thân bậc Tím độ sáng TB ~120–150 (ảnh phong cách 1 ≈ 143), phần tối (< 60) ≤ 20 % (tàu 13 đen gương ≤ 35 %). Cách làm: Gemini "sơn lại" giữ đúng viền thân; Claude ghép giữ viền cũ (màu mới, alpha cũ) → năng lượng bung vẫn khớp. Tin: docs_claude/GUI_GEMINI_V259_LAM_TUOI_CHIEN_CO.md.
+- Câu chuyện: 13 chiến cơ chính, 3–5 câu mỗi tàu, hiện ở sảnh khi chọn tàu.
