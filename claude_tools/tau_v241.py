@@ -121,6 +121,8 @@ if os.path.exists(f2):
     if g2.shape != g1.shape: g2 = cv2.resize(g2, (g1.shape[1], g1.shape[0]), interpolation=cv2.INTER_AREA)
     (dx, dy), resp = cv2.phaseCorrelate(cv2.GaussianBlur(g1, (0, 0), 6), cv2.GaussianBlur(g2, (0, 0), 6))
     if abs(dx) > 80 or abs(dy) > 80: dx = dy = 0
+    if os.environ.get('L2SHIFT'):  # đo tay độ lệch lớp 2 (lớp 2 dời xuống/sang bao nhiêu px thì khớp) khi tương quan pha yếu
+        sx2, sy2 = map(float, os.environ['L2SHIFT'].split(',')); dx, dy, resp = -sx2, -sy2, -1.0
     g2s = cv2.warpAffine(g2, np.float32([[1, 0, -dx], [0, 1, -dy]]), (g2.shape[1], g2.shape[0]))
     g3 = np.clip(cv2.warpAffine(np.where(g2s < 8, 0, g2s), Mfx, (PX, PX), flags=cv2.INTER_AREA), 0, 255).astype(np.uint8)
     Image.fromarray(np.dstack([g3, g3, g3, g3]), 'RGBA').save(f'{OUT}/fx3.png'); SO['lop2_lech'] = [round(dx, 1), round(dy, 1), round(resp, 3)]

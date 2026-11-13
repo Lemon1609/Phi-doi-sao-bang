@@ -1,3 +1,5 @@
+> **ĐÃ THAY bằng `GUI_GPT_V248B_THAN_TAU1_TAU4_KHOI_DAY.md` (13/11 10:35)**: mục "thân thon dài 45–60 %" dưới đây sai chuẩn, chủ dự án đã bác thân quá thon lúc 08:22.
+
 Chào GPT, chủ dự án chốt: **hình bung (năng lượng) của tàu 1 Phượng Hoàng và tàu 4 Thần Ma giữ nguyên như hiện tại; chỉ thiết kế lại thân hai tàu này.**
 
 ## Vì sao sửa thân
