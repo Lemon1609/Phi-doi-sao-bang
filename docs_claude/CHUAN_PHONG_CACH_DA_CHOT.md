@@ -188,3 +188,4 @@ Cánh bung Gemini tàu 1 lần 2 (src/ship118_cho/V264_gemini_bung_tau1_lan2/): 
 - 14/11 13:33 · GPT sửa 5 tàu (1, 2, 4, 6, 8) → V292 ghép thử cả 5 (bản trước ở V292_bung_cu). Chờ chủ dự án chọn.
 - 14/11 13:56 · Chủ dự án chốt: tàu 2, 4 lấy bản GPT sửa (V292); 1, 6, 8 giữ bản trước. **Cánh bung 13 tàu đã chốt xong.**
 - 14/11 15:xx · V299 ghép thử đạn tàu 1 theo tranh Gemini: tô màu theo bậc (Tím cam #ff9a3d, Tím+ hồng lõi trắng), quầng + đuôi + lõi trắng, phượng hoàng lúc Bạo Tẩu, nổ cánh hoa lửa (cung đứt đoạn) khi trúng. Chỉ đổi hình ảnh, sát thương giữ nguyên. Tắt: window.DAN299=false.
+- 14/11 15:11 · Chủ dự án: phóng to đạn thường (~30%), hạ sáng cột Bạo Tẩu → V300: đạn tàu 1 L 46→60; đạn BT bớt quầng; cột BEAM233 tàu 1 ×0,35 (BEAMDIM300).

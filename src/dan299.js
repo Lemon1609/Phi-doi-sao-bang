@@ -27,13 +27,13 @@
   // tàu 1 (id 0): cầu lửa; Bạo Tẩu: phượng hoàng ôm cầu lửa
   function draw0(g,s){const col=colorOf(0),bt=sup,k=bt?'tau1_cau_lua_bt':'tau1_cau_lua',f=Math.floor((s.age||0)*12+((s.x|0)&3))%3;
     const im=frame(k,f,col),wh=raw(k,f);if(!im)return false;
-    const L=bt?62:46,W=L*im.width/im.height,ang=Math.atan2(s.vy,s.vx)+Math.PI/2;
+    const L=bt?62:60,/* V300: thường phóng to ~30% */W=L*im.width/im.height,ang=Math.atan2(s.vy,s.vx)+Math.PI/2;
     g.save();g.globalCompositeOperation='lighter';g.translate(s.x,s.y);g.rotate(ang);
     const gc=glowCol(col),pul=1+.08*Math.sin((s.age||0)*28);
-    g.globalAlpha=.42;g.drawImage(gc,-L*.62*pul,-L*.55*pul,L*1.24*pul,L*1.24*pul);           // quầng màu rộng
-    g.globalAlpha=.30;g.drawImage(gc,-L*.22,-L*.1,L*.44,L*1.5);                              // đuôi sáng kéo dài phía sau
-    g.globalAlpha=1;g.drawImage(im,-W/2,-L*.36,W,L);                                         // tranh tô màu
-    g.globalAlpha=.55;g.drawImage(wh,-W*.36,-L*.30,W*.72,L*.72);                             // lõi trắng
+    g.globalAlpha=bt?.14:.42;g.drawImage(gc,-L*.62*pul,-L*.55*pul,L*1.24*pul,L*1.24*pul);           // quầng màu rộng
+    g.globalAlpha=bt?.08:.30;g.drawImage(gc,-L*.22,-L*.1,L*.44,L*1.5);                              // đuôi sáng kéo dài phía sau
+    g.globalAlpha=bt?.8:1;g.drawImage(im,-W/2,-L*.36,W,L);                                         // tranh tô màu
+    g.globalAlpha=bt?.28:.55;g.drawImage(wh,-W*.36,-L*.30,W*.72,L*.72);                             // lõi trắng
     g.restore();return true;}
   const DRAW={0:draw0};
   // hiệu ứng trúng đích: đạn biến mất giữa màn → bung cánh hoa lửa (cung đứt đoạn, không vòng kín)
