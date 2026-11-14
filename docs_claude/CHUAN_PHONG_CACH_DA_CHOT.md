@@ -186,3 +186,4 @@ Cánh bung Gemini tàu 1 lần 2 (src/ship118_cho/V264_gemini_bung_tau1_lan2/): 
 - 14/11 12:40 · GPT V290 13 tàu theo hình dáng thân. Chủ dự án chê 1, 2, 4, 8 → giữ bản cũ. Ghép thử V290 cho 3, 5, 10 (xóa 3 tia rủ xuống), 11, 12, 13; bản trước lưu src/ship118_cho/V290_bung_cu. Chờ chủ dự án chọn từng tàu.
 - 14/11 13:05 · Chủ dự án chốt: tàu 3 giữ bản V289; tàu 5, 10, 11, 12, 13 lấy V290; tàu 1, 2, 4, 7, 8, 9 giữ bản đang dùng. Còn chưa ưng: 1, 2, 4, 8; tàu 6 cần hạ phần lấn trước mũi.
 - 14/11 13:33 · GPT sửa 5 tàu (1, 2, 4, 6, 8) → V292 ghép thử cả 5 (bản trước ở V292_bung_cu). Chờ chủ dự án chọn.
+- 14/11 13:56 · Chủ dự án chốt: tàu 2, 4 lấy bản GPT sửa (V292); 1, 6, 8 giữ bản trước. **Cánh bung 13 tàu đã chốt xong.**
