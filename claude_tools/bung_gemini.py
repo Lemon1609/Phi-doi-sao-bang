@@ -7,7 +7,7 @@ import sys, os, json
 import numpy as np, cv2
 from PIL import Image
 N = int(sys.argv[1]); fG, OUT = sys.argv[2:4]; NM = sys.argv[4] if len(sys.argv) > 4 else 'gem'; os.makedirs(OUT, exist_ok=True)
-U = float(os.environ.get('U', .75)); KH = os.environ.get('KHUNG', f'/home/claude/work/gemini_bung/khung/tau{N}_than_bao_tau.png')
+U = float(os.environ.get('U', .75)); KH = os.environ.get('KHUNG', os.path.join(os.path.dirname(os.path.abspath(__file__)), 'khung_bung', 'khung', f'tau{N}_than_bao_tau.png'))
 G = np.asarray(Image.open(fG).convert('RGB')).astype(np.float32)
 if G.shape[:2] != (1024, 1024): G = cv2.resize(G, (1024, 1024), interpolation=cv2.INTER_AREA)
 K = np.asarray(Image.open(KH).convert('RGB')).astype(np.float32)

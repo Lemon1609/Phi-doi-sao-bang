@@ -1,4 +1,4 @@
-# chụp một tàu (SID) cả 6 bậc lúc Bạo Tẩu (chuỗi khung theo thời gian). python3 tests/quay231e_6bac.py <html tuyệt đối> <thư mục ra>
+# chụp một tàu (SID, 0-based) cả 6 bậc lúc Bạo Tẩu: SID=<0-based> python3 tests/quay_bac.py <html tuyệt đối> <thư mục ra> [bậc,...]
 import sys, os, time
 from playwright.sync_api import sync_playwright
 H, O = sys.argv[1], sys.argv[2]; os.makedirs(O, exist_ok=True)

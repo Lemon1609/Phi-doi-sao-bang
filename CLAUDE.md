@@ -1,0 +1,40 @@
+# Phi Đội Sao Băng · ghi nhớ dự án cho Claude (đọc trước mọi việc)
+
+Thay cho 52 tệp BAN_GIAO cũ (đã chuyển vào `docs_claude/luu_tru/ban_giao/`, chỉ đọc khi cần tra lịch sử).
+Luật phong cách chi tiết + nhật ký quyết định: `docs_claude/CHUAN_PHONG_CACH_DA_CHOT.md` (mục "QUY ĐỊNH HIỆN HÀNH" ở đầu tệp).
+
+## Vai trò, giao tiếp
+- Chủ dự án: Bùi Doãn Bình. **Luôn trả lời tiếng Việt**, ngắn, trung thực; nói rõ cái gì **đo được**, cái gì **nhìn bằng mắt**, cái gì **chỉ đề xuất**.
+- Claude: lập trình chính + ghép tranh. Gemini / GPT vẽ (chủ dự án chuyển tin). Claude soạn tin dán được cho Gemini / GPT, đo bằng Playwright.
+- **Chỉ xuất bản khi chủ dự án nói "duyệt xuất bản"** ("Duyệt" một thiết kế = chỉ duyệt thiết kế).
+- Hỏi trước khi đụng luật đã khóa hoặc việc không đảo ngược được.
+- Mỗi lần xuất bản gửi: HTML offline + APK (kiểm chữ ký) + ảnh chụp + báo cáo ngắn. Không gửi bản thử / zip nguồn / gói bàn giao nếu không được hỏi.
+
+## Khóa cứng
+- Không tự tạo tài khoản hay nhập mật khẩu trên trang bên thứ ba. Email chủ dự án là riêng tư.
+- Nhân vật nữ chiến giáp ở mức game mobile phổ thông (không khỏa thân, không gợi dục); bản 18+ đã bị từ chối.
+- Khóa ký APK nằm trong repo riêng Lemon1609/Phi-doi-sao-bang: **repo phải giữ Private**; không đổi phần ký của workflow.
+- Không đổi tên khóa `saobang-*`. Không tiền thật. Không thêm nguồn kim cương mới.
+- Không cài mã ngoài để lách hạn chế. Game gốc chỉ học phong cách / cách làm, **không chép** tàu, cánh, đạn cụ thể.
+- Tăng số lượng đạn theo bậc giữ nguyên tổng sát thương, trừ khi chủ dự án quyết khác.
+
+## Dựng và kiểm tra
+- Repo: `/home/claude/nguon_push`, nhánh `nguon-v212` (push origin sau mỗi mốc).
+- Dựng: `python3 build74_mau.py` → `Phi_Doi_Sao_Bang_V74_mau.html` (gốc phát hành) + `Phi_Doi_Sao_Bang_THU.html` (bản thử có thu100). Cả hai bị .gitignore.
+  - Mô-đun chèn bằng `rep(a,b)` (khẳng định đúng số lần xuất hiện); chèn mới đặt trước dòng `open('Phi_Doi_Sao_Bang_V74_mau.html','w'...)`.
+- Kiểm tra hồi quy: `python3 tests/t156.py <html tuyệt đối> <thư mục>` (14/14) và `python3 tests/v203_v212/t209.py <html>` (20/20; thỉnh thoảng 19/20 do chờ thời gian — chạy lại).
+- Chụp cánh bung 6 bậc: `SID=<0-based> python3 tests/quay_bac.py <html> <ra> [bậc]` → `<bậc>_<t*100>.png`; ghép bảng trước/sau: `python3 claude_tools/bang_truoc_sau.py <trước> <sau> "<tiêu đề>" <ra.jpg>`.
+- Chụp đạn 6 bậc: `SID=<0-based> python3 tests/quay_dan.py <html> <ra> [bậc]`; dò kiểu đạn một tàu: `python3 tests/do_dan.py <html> <id> <bậc>`.
+
+## Quy trình tranh
+- Cánh bung (Bạo Tẩu): khung chuẩn `claude_tools/khung_bung/khung/tauN_than_bao_tau.png` (1024, thân bậc Tím đúng cỡ game, U=0,75), viền 6 bậc ở `khung_bung/vien_6_bac/`.
+  - Gemini (ảnh đúng khung): `KHONGTHAN=<b> PIVBAND=80 python3 claude_tools/bung_gemini.py N <a> <ra> <tên>`.
+  - GPT (ảnh vuông bất kỳ, thân lệch): `python3 claude_tools/bung_gpt.py N <a> <b> <ra> <tên>`.
+  - Rồi chép fx.png / fx_mau.png / fx3.png vào `src/btfx218/tauN_fx_<tên>{,_mau,3}.png` và chạy `python3 claude_tools/cai_bung_gemini.py N <ra> <tên>`; kiểm PIV đối xứng.
+- Hình vũ khí: tranh trắng/xám nền đen → tách alpha theo độ sáng, xóa ✦ → `python3 claude_tools/chuan_hoa_sprite.py <vào> <ra>` → `src/vu_khi295/` (bộ Gemini, 34 tệp). Màu theo bậc + hiệu ứng vẽ bằng mã trong `src/dan299.js`.
+- Thân tàu: `claude_tools/tau_v241.py`.
+- Lưu ảnh gốc mỗi lượt vào `src/ship118_cho/V<số>_*` và ghi quyết định vào `CHUAN_PHONG_CACH_DA_CHOT.md`.
+
+## Trạng thái (14/11/2026)
+- Bản phát hành gần nhất: web + APK **V233** (chưa xuất bản gì sau đó).
+- Bản thử: cánh bung mới đã chốt đủ 13 tàu (V293); đạn mới tàu 1 (V299–V300). Đang làm: đạn 12 tàu còn lại theo bảng `docs_claude/de_xuat_cho/GEMINI_V273_BANG_VU_KHI.md` (cơ chế nảy / đuổi / làm chậm / hút: làm thật, đo và báo số trước khi giữ).

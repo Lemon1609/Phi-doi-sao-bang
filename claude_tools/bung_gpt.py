@@ -4,7 +4,7 @@ import sys, os, json, subprocess
 import numpy as np, cv2
 from PIL import Image
 N, A, B, O, NM = sys.argv[1:6]; os.makedirs(O, exist_ok=True)
-K = os.environ.get('KHUNG', f'/home/claude/work/v275/goi/khung/tau{N}_than_bao_tau.png')
+K = os.environ.get('KHUNG', os.path.join(os.path.dirname(os.path.abspath(__file__)), 'khung_bung', 'khung', f'tau{N}_than_bao_tau.png'))
 for s, d in [(A, 'a1024.png'), (B, 'b1024.png')]: Image.open(s).convert('RGB').resize((1024, 1024), Image.LANCZOS).save(f'{O}/{d}')
 env = dict(os.environ, KHOPRANGE='.6,1.5', KHONGTHAN=f'{O}/b1024.png', KHUNG=K, PIVBAND='80')
 subprocess.run(['python3', 'claude_tools/bung_gemini.py', N, f'{O}/a1024.png', f'{O}/thu', NM], env=env, capture_output=True)
