@@ -906,7 +906,7 @@ rep("</body>","<style id=\"story259-css\">"+open('src/story259.css',encoding='ut
 rep("for(const pod of Battle28.support()){ctx.save();sprite(i,pod.x,pod.y,38+i.spec.rank*2);","for(const pod of Battle28.support()){try{window.EqGlow264&&EqGlow264.under(ctx,i,pod,38+i.spec.rank*2)}catch{};ctx.save();sprite(i,pod.x,pod.y,38+i.spec.rank*2);")  # V264 trang bị tỏa màu riêng lúc Bạo Tẩu
 rep("</body>","<script id=\"eqglow264-js\">"+open('src/eqglow264.js',encoding='utf-8').read()+"</script></body>")
 # V299 đạn mới theo tranh Gemini (tàu 1 trước)
-_d299={k:(n) for k,n in [('tau1_cau_lua',3),('tau1_cau_lua_bt',3)]}
+_d299={k:(n) for k,n in [('tau1_cau_lua',3),('tau1_cau_lua_bt',3),('tau3_khoi_bang',2),('tau4_vuot',2),('tau4_vuot_bt',2),('tau5_quang_tien',2),('tau6_khoi_pixel',3),('tau7_kiem_khi',2),('tau7_kiem_khi_bt',2),('tau8_ten_lua_nhiet',2),('tau10_cau_luc_giac',2),('tau11_cau_ho_den',3),('tau12_dia_banh_rang',2),('tau13_luoi_hai',2),('tau13_luoi_hai_bt',2)]}  # V302: đạn 13 tàu
 _d299js='window.DAN299_IMG={'+','.join('"%s":["data:image/png;base64,%s",%d]'%(k,base64.b64encode(open('src/vu_khi295/%s.png'%k,'rb').read()).decode(),n) for k,n in _d299.items())+'};'
 rep("</body>","<script id=\"dan299-js\">"+_d299js+open('src/dan299.js',encoding='utf-8').read()+"</script></body>")
 open('Phi_Doi_Sao_Bang_V74_mau.html','w',encoding='utf-8').write(h);print(round(len(h)/1e6,2),'MB')
