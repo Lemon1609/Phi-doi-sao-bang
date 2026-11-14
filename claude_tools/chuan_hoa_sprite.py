@@ -5,7 +5,7 @@ import numpy as np
 from PIL import Image
 SPEC = {'tau1_cau_lua': (64, 64, 3), 'tau1_cau_lua_bt': (96, 96, 3), 'tau3_khoi_bang': (64, 64, 2), 'tau3_manh_bang': (32, 48, 2),
         'tau4_vuot': (64, 96, 2), 'tau4_vuot_bt': (80, 112, 2), 'tau5_quang_tien': (48, 96, 2), 'tau6_khoi_pixel': (48, 64, 3),
-        'tau7_kiem_khi': (40, 112, 2), 'tau7_kiem_khi_bt': (56, 128, 2), 'tau8_ten_lua_nhiet': (48, 96, 2), 'tau10_cau_luc_giac': (64, 64, 2),
+        'tau7_kiem_khi': (40, 112, 2), 'tau7_kiem_khi_bt': (56, 128, 2), 'tau8_ten_lua_nhiet': (64, 96, 2), 'tau10_cau_luc_giac': (64, 64, 2),
         'tau11_cau_ho_den': (64, 64, 3), 'tau11_hat_xoan': (32, 48, 2), 'tau12_dia_banh_rang': (64, 64, 2), 'tau13_luoi_hai': (64, 112, 2),
         'tau13_luoi_hai_bt': (96, 128, 2), 'tl_04_ngu_loi': (64, 112, 2), 'tl_10_bay_dan': (32, 48, 2),
         'vp_nguyet_nhan': (64, 64, 2), 'vp_quang_thuong': (48, 112, 2), 'vp_drone_tau_me': (64, 64, 2), 'vp_dong_ho_cat': (48, 64, 2)}
