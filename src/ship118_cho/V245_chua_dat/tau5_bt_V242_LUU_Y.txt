@@ -1,1 +1,0 @@
-Mẫu duyệt: chưa đạt mức mở rộng yêu cầu. Đo alpha >16: lam rộng khoảng 1,05 lần, diện tích 0,88 lần; tim rộng 1,04 lần, diện tích 1,02 lần. Thân giữa chưa đảm bảo khớp điểm ảnh, cần hoàn thiện. Thân gốc đã chiếm phần lớn chiều ngang khung 1254; cần cân nhắc tăng khung hoặc giảm tỉ lệ chung để mở rộng mà vẫn đủ lề.

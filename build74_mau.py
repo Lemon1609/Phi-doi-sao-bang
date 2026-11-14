@@ -911,6 +911,9 @@ _d299js='window.DAN299_IMG={'+','.join('"%s":["data:image/png;base64,%s",%d]'%(k
 rep("</body>","<script id=\"dan299-js\">"+_d299js+open('src/dan299.js',encoding='utf-8').read()+"</script></body>")
 open('Phi_Doi_Sao_Bang_V74_mau.html','w',encoding='utf-8').write(h);print(round(len(h)/1e6,2),'MB')
 # ---- V100 · BẢN THỬ cho chủ dự án: dữ liệu tách riêng (tiền tố thu100:) + bảng nạp tài khoản mẫu ----
+# V301: chỉ dựng khi cần (BAN_THU=1 hoặc khi xuất bản) để mỗi lần dựng nhanh hơn, bớt một tệp 81 MB
+if os.environ.get('BAN_THU')!='1':
+    import sys; sys.exit(0)
 h2=h.replace('<head>','<head><script id="thu100-js">'+open('src/thu100.js',encoding='utf-8').read()+'</script>',1).replace('</body>','<script id="thu100p-js">'+open('src/thu100_panel.js',encoding='utf-8').read()+'</script></body>',1)
 assert h2.count('thu100-js')==1 and h2.count('thu100p-js')==1
 open('Phi_Doi_Sao_Bang_THU.html','w',encoding='utf-8').write(h2);print('ban thu',round(len(h2)/1e6,2),'MB')

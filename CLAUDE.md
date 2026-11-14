@@ -20,9 +20,9 @@ Luật phong cách chi tiết + nhật ký quyết định: `docs_claude/CHUAN_P
 
 ## Dựng và kiểm tra
 - Repo: `/home/claude/nguon_push`, nhánh `nguon-v212` (push origin sau mỗi mốc).
-- Dựng: `python3 build74_mau.py` → `Phi_Doi_Sao_Bang_V74_mau.html` (gốc phát hành) + `Phi_Doi_Sao_Bang_THU.html` (bản thử có thu100). Cả hai bị .gitignore.
+- Dựng: `python3 build74_mau.py` → `Phi_Doi_Sao_Bang_V74_mau.html` (gốc phát hành, dùng để kiểm tra). Thêm `BAN_THU=1` để dựng cả `Phi_Doi_Sao_Bang_THU.html` (bản thử có thu100) — bắt buộc khi xuất bản. Cả hai bị .gitignore.
   - Mô-đun chèn bằng `rep(a,b)` (khẳng định đúng số lần xuất hiện); chèn mới đặt trước dòng `open('Phi_Doi_Sao_Bang_V74_mau.html','w'...)`.
-- Kiểm tra hồi quy: `python3 tests/t156.py <html tuyệt đối> <thư mục>` (14/14) và `python3 tests/v203_v212/t209.py <html>` (20/20; thỉnh thoảng 19/20 do chờ thời gian — chạy lại).
+- Kiểm tra hồi quy: `python3 tests/t156.py <html tuyệt đối> <thư mục>` (14/14) và `python3 tests/t209_on_dinh.py <html>` (chạy t209 tối đa 3 lần, in mọi lần trượt).
 - Chụp cánh bung 6 bậc: `SID=<0-based> python3 tests/quay_bac.py <html> <ra> [bậc]` → `<bậc>_<t*100>.png`; ghép bảng trước/sau: `python3 claude_tools/bang_truoc_sau.py <trước> <sau> "<tiêu đề>" <ra.jpg>`.
 - Chụp đạn 6 bậc: `SID=<0-based> python3 tests/quay_dan.py <html> <ra> [bậc]`; dò kiểu đạn một tàu: `python3 tests/do_dan.py <html> <id> <bậc>`.
 
@@ -33,7 +33,7 @@ Luật phong cách chi tiết + nhật ký quyết định: `docs_claude/CHUAN_P
   - Rồi chép fx.png / fx_mau.png / fx3.png vào `src/btfx218/tauN_fx_<tên>{,_mau,3}.png` và chạy `python3 claude_tools/cai_bung_gemini.py N <ra> <tên>`; kiểm PIV đối xứng.
 - Hình vũ khí: tranh trắng/xám nền đen → tách alpha theo độ sáng, xóa ✦ → `python3 claude_tools/chuan_hoa_sprite.py <vào> <ra>` → `src/vu_khi295/` (bộ Gemini, 34 tệp). Màu theo bậc + hiệu ứng vẽ bằng mã trong `src/dan299.js`.
 - Thân tàu: `claude_tools/tau_v241.py`.
-- Lưu ảnh gốc mỗi lượt vào `src/ship118_cho/V<số>_*` và ghi quyết định vào `CHUAN_PHONG_CACH_DA_CHOT.md`.
+- Chỉ lưu ảnh gốc của bản ĐÃ CHỐT vào `src/ship118_cho/V<số>_*` (lượt bị loại không lưu); ghi quyết định vào `CHUAN_PHONG_CACH_DA_CHOT.md`.
 
 ## Trạng thái (14/11/2026)
 - Bản phát hành gần nhất: web + APK **V233** (chưa xuất bản gì sau đó).

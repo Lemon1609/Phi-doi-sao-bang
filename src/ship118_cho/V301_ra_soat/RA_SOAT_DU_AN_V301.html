@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="vi"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Rà soát dự án</title>
+<style>
+:root{--bg:#f6f7fb;--card:#fff;--ink:#1b2130;--mute:#5b6478;--line:#e2e6ef;--ok:#127a46;--okb:#e6f6ee;--warn:#9a5b00;--warnb:#fff4e0;--hi:#a1262f;--hib:#fde9eb;--acc:#3b5bdb}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#11141b;--card:#1a1f2a;--ink:#e8ebf2;--mute:#9aa3b6;--line:#2a3140;--ok:#5fd59a;--okb:#16301f;--warn:#ffc061;--warnb:#33270f;--hi:#ff8a93;--hib:#3a1a1e;--acc:#8ea8ff}}
+:root[data-theme="dark"]{--bg:#11141b;--card:#1a1f2a;--ink:#e8ebf2;--mute:#9aa3b6;--line:#2a3140;--ok:#5fd59a;--okb:#16301f;--warn:#ffc061;--warnb:#33270f;--hi:#ff8a93;--hib:#3a1a1e;--acc:#8ea8ff}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.55 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
+main{max-width:980px;margin:0 auto;padding:24px 16px 60px}
+h1{font-size:24px;margin:0 0 4px}h2{font-size:18px;margin:32px 0 10px}.sub{color:var(--mute);margin:0 0 18px}
+.sum{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px;margin:14px 0}
+.sum div{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:12px}.sum b{display:block;font-size:22px}.sum span{color:var(--mute);font-size:13px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px 16px;margin:10px 0}
+.card h3{margin:0 0 6px;font-size:16px;display:flex;gap:8px;align-items:baseline;flex-wrap:wrap}
+.tag{font-size:12px;padding:2px 8px;border-radius:99px;font-weight:600;white-space:nowrap}
+.ok{background:var(--okb);color:var(--ok)}.warn{background:var(--warnb);color:var(--warn)}.hi{background:var(--hib);color:var(--hi)}
+.card p{margin:4px 0}.k{color:var(--mute);font-size:13px}.de{border-left:3px solid var(--acc);padding-left:10px;margin-top:8px}
+code{font-size:13px;background:var(--bg);padding:1px 5px;border-radius:5px;word-break:break-all}
+label.ch{display:flex;gap:8px;align-items:center;margin-top:10px;font-weight:600;color:var(--acc);cursor:pointer}
+footer{color:var(--mute);font-size:13px;margin-top:30px}
+</style></head><body><main>
+<h1>Rà soát dự án Phi Đội Sao Băng</h1>
+<p class="sub">14/11/2026 · repo <code>nguon_push</code>, nhánh <code>nguon-v212</code> · Claude rà toàn bộ thư mục, công cụ, tài liệu, kiểm tra, skill. Phần đã chắc chắn đã sửa và đẩy lên (commit <code>8a6d134</code>); phần còn lại chờ bạn duyệt bên dưới. Bản dựng sau khi dọn vẫn đạt kiểm tra 14/14.</p>
+
+<div class="sum">
+<div><b>7</b><span>việc đã sửa</span></div>
+<div><b>10</b><span>đề xuất chờ duyệt</span></div>
+<div><b>2,1 GB</b><span>thư mục dự án (0,95 GB là lịch sử git)</span></div>
+<div><b>81 MB</b><span>mỗi bản HTML dựng ra</span></div>
+</div>
+
+<h2>A. Đã sửa (chắc chắn, đảo ngược được qua git)</h2>
+
+<div class="card"><h3>1. Thiếu tệp ghi nhớ dự án — tạo <code>CLAUDE.md</code> <span class="tag ok">đã sửa</span></h3>
+<p>Dự án <b>không có</b> AGENTS.md hay CLAUDE.md; skill riêng của dự án (<code>giam-doc-du-an-phi-doi-sao-bang</code>) đã nằm trong thùng rác skill từ trước. Mỗi phiên mới phải đọc lại các tệp bàn giao rất dài (tệp gốc 117 KB).</p>
+<p>Đã tạo <code>CLAUDE.md</code> (~5 KB): vai trò, luật khóa cứng, cách dựng và kiểm tra, quy trình ghép tranh, trạng thái hiện tại. Phiên sau tự đọc tệp này, tiết kiệm token đáng kể.</p></div>
+
+<div class="card"><h3>2. 52 tệp bàn giao cũ (3,2 MB) trùng lặp và lỗi thời <span class="tag ok">đã sửa</span></h3>
+<p>5 tệp ở thư mục gốc + 47 tệp V146–V202 trong <code>docs_claude</code>, mỗi tệp chép lại gần hết tệp trước; bản mới nhất (V230) đã lạc hậu so với V300. Có một cặp trùng hệt nhau (V155).</p>
+<p>Đã chuyển vào <code>docs_claude/luu_tru/ban_giao/</code> (bỏ bản trùng). Thư mục gốc gọn lại.</p></div>
+
+<div class="card"><h3>3. 6 tin gửi Gemini / GPT đã hủy vẫn nằm lẫn với tin hiện hành <span class="tag ok">đã sửa</span></h3>
+<p>V248B, V255, V259, V260, V261, V261B (đều có dòng "HỦY"). Dễ dán nhầm tin cũ.</p>
+<p>Đã chuyển vào <code>docs_claude/luu_tru/huy/</code>.</p></div>
+
+<div class="card"><h3>4. Công cụ ghép cánh bung phụ thuộc thư mục tạm <span class="tag hi">lỗi thật</span> <span class="tag ok">đã sửa</span></h3>
+<p><code>bung_gemini.py</code> và <code>bung_gpt.py</code> mặc định đọc khung từ <code>/home/claude/work/...</code> — thư mục làm việc tạm, mất khi đổi phiên → công cụ hỏng ở phiên sau.</p>
+<p>Đã đưa bộ khung chuẩn 13 tàu + viền 6 bậc (3,8 MB) vào <code>claude_tools/khung_bung/</code> và trỏ mặc định về đó.</p></div>
+
+<div class="card"><h3>5. Công cụ chụp / đo nằm ngoài repo <span class="tag ok">đã sửa</span></h3>
+<p>Công cụ ghép bảng trước/sau và dò kiểu đạn chỉ nằm trong thư mục nháp của phiên. Đã đưa vào repo: <code>claude_tools/bang_truoc_sau.py</code>, <code>tests/do_dan.py</code>. Sửa dòng hướng dẫn sai tên tệp ở đầu <code>tests/quay_bac.py</code>.</p></div>
+
+<div class="card"><h3>6. 33 công cụ dùng một lần lẫn với công cụ đang dùng <span class="tag ok">đã sửa</span></h3>
+<p>Các tệp <code>tauN_v23x*.py</code>, <code>bac_thap_v238*</code>, <code>bao_tau_v240</code>, <code>led_v244</code>, <code>ramp_v241</code>, <code>smoke66</code>: viết cho một lần làm tàu cũ, không công cụ nào khác gọi tới. Đã chuyển vào <code>claude_tools/luu_tru/</code>; giữ lại các công cụ đang dùng (bung_gemini, bung_gpt, cai_bung_gemini, chuan_hoa_sprite, tau_v241, …).</p></div>
+
+<div class="card"><h3>7. Tài liệu luật phong cách là nhật ký 34 KB, luật cũ và mới lẫn nhau <span class="tag ok">đã sửa</span></h3>
+<p>Ví dụ mục "Gemini thiết kế lại cả tàu" đã bị hủy nhưng vẫn đọc như luật. Đã thêm mục <b>QUY ĐỊNH HIỆN HÀNH</b> ngắn ở đầu <code>CHUAN_PHONG_CACH_DA_CHOT.md</code> (thân, 13 cánh bung đã chốt, luật cánh bung, màu, vũ khí, phân công); phần nhật ký giữ nguyên bên dưới để tra.</p></div>
+
+<h2>B. Đề xuất chờ bạn duyệt</h2>
+
+<div class="card"><h3>1. Lưu trữ ảnh mỗi lượt quá nặng: <code>src/ship118_cho/</code> 394 MB <span class="tag warn">lãng phí lớn</span></h3>
+<p>113 thư mục ảnh gốc / bảng chụp của từng lượt Gemini–GPT. Không vào game, nhưng chiếm gần nửa repo và làm mỗi lần đẩy git chậm.</p>
+<p class="de"><b>Đề xuất:</b> chỉ giữ ảnh gốc của các bản <b>đã chốt</b>; các lượt bị loại nén thành một zip ngoài repo (hoặc xóa — lịch sử git vẫn còn). Giảm khoảng 300 MB thư mục làm việc.</p>
+<label class="ch"><input type="checkbox"> Duyệt</label></div>
+
+<div class="card"><h3>2. 12 thư mục thân tàu cũ <code>src/ship118_cu_v215 … v254</code> (≈ 62 MB) không còn được dùng <span class="tag warn">lãng phí</span></h3>
+<p>Bản dựng không tham chiếu tới thư mục nào; là bản sao lưu trước mỗi lần thay thân.</p>
+<p class="de"><b>Đề xuất:</b> xóa khỏi thư mục làm việc (vẫn còn trong lịch sử git để khôi phục).</p>
+<label class="ch"><input type="checkbox"> Duyệt</label></div>
+
+<div class="card"><h3>3. Lớp hiệu ứng cũ còn ẩn trong bộ Bạo Tẩu, ảnh thừa bị nhúng vào game <span class="tag warn">cần soát</span></h3>
+<p>Bản dựng nhúng <b>mọi</b> ảnh <code>tau*_fx_*.png</code> (22,5 MB). 26 ảnh (1,4 MB) không thuộc cánh bung đang dùng — gồm các lớp cũ "lửa / sét / hạt / drone" của tàu 7, 9, 10 và <code>tau4_fx_vuotT</code> (lớp đè giáp đã tắt). Một số lớp cũ (ví dụ <code>drone</code> của tàu 10) có thể vẫn vẽ chồng lên cánh mới lúc Bạo Tẩu.</p>
+<p class="de"><b>Đề xuất:</b> Claude chụp kiểm tàu 7, 9, 10 khi tắt từng lớp cũ; lớp nào không còn cần thì gỡ mã + ảnh, và chỉ nhúng ảnh mà bảng cánh bung thật sự dùng. Game nhẹ hơn, không còn nguy cơ chồng hình cũ.</p>
+<label class="ch"><input type="checkbox"> Duyệt</label></div>
+
+<div class="card"><h3>4. Mã thử nghiệm / đã tắt trong <code>btfx218.js</code> <span class="tag warn">dọn mã</span></h3>
+<p><code>FRONT273={}</code> (lớp đè giáp tàu 4, đã tắt), <code>GA={}</code>, các cờ thử <code>BTK273</code>; bảng <code>RAMP</code> là một dòng JSON rất dài khó đọc và khó so sánh khi đổi.</p>
+<p class="de"><b>Đề xuất:</b> gỡ phần đã tắt; tách RAMP / PIV / QBT ra tệp dữ liệu riêng (<code>btfx218_data.json</code>) để mỗi lần đổi một tàu chỉ đổi một khối. Không đổi hình trong game.</p>
+<label class="ch"><input type="checkbox"> Duyệt</label></div>
+
+<div class="card"><h3>5. 119 bài kiểm tra cũ, chỉ 2 bài còn dùng thường xuyên <span class="tag warn">không còn cần</span></h3>
+<p><code>tests/t44 … t115</code> viết cho các phiên bản rất cũ, nhiều bài ghi ảnh vào <code>/tmp</code> cố định; không ai chạy lại. Bài <code>t209</code> thỉnh thoảng 19/20 (chờ theo đồng hồ thật) và có một lần kẹt ở sảnh (8/20).</p>
+<p class="de"><b>Đề xuất:</b> chuyển bài cũ vào <code>tests/luu_tru/</code>; sửa <code>t209</code> chờ theo đồng hồ trong game và tự thử lại khi kẹt sảnh, để kết quả ổn định.</p>
+<label class="ch"><input type="checkbox"> Duyệt</label></div>
+
+<div class="card"><h3>6. Mỗi lần dựng ghi ra 2 tệp 81 MB <span class="tag warn">chậm</span></h3>
+<p>Bản gốc phát hành và bản thử (thêm bảng thu100) được dựng mỗi lần, dù hầu hết lúc làm việc chỉ cần một bản.</p>
+<p class="de"><b>Đề xuất:</b> thêm tùy chọn dựng một bản (mặc định chỉ bản thử khi đang làm; dựng đủ hai bản khi xuất bản).</p>
+<label class="ch"><input type="checkbox"> Duyệt</label></div>
+
+<div class="card"><h3>7. Lịch sử git 0,95 GB <span class="tag warn">nặng</span></h3>
+<p>Đã nén gọn (git gc) nhưng vẫn 0,95 GB vì lịch sử chứa mọi ảnh cũ. Kéo repo về máy mới / CI build APK sẽ lâu.</p>
+<p class="de"><b>Đề xuất:</b> giữ nguyên (an toàn nhất). Nếu muốn nhẹ hẳn, có thể tách ảnh lưu trữ sang repo riêng — việc này viết lại lịch sử, <b>không đảo ngược được</b>, nên chỉ làm khi bạn chắc chắn.</p>
+<label class="ch"><input type="checkbox"> Duyệt</label></div>
+
+<div class="card"><h3>8. Đạn kiểu "plasma" xuất hiện ở mọi tàu <span class="tag warn">cần soát</span></h3>
+<p>Khi dò đạn 13 tàu, tàu nào cũng có thêm một loại đạn plasma tím (đánh dấu như tàu 10). Có thể là đạn của robot / tàu hỗ trợ (đúng), hoặc một đường bắn dư.</p>
+<p class="de"><b>Đề xuất:</b> Claude truy nguồn loại đạn này trước khi làm đạn mới cho 12 tàu, để không tô nhầm màu hay đếm nhầm sát thương.</p>
+<label class="ch"><input type="checkbox"> Duyệt</label></div>
+
+<div class="card"><h3>9. Ghi nhớ của Claude về dự án đã cũ <span class="tag warn">nhỏ</span></h3>
+<p>Phần ghi nhớ dài hạn (dùng chung mọi phiên) vẫn mô tả giai đoạn trước. CLAUDE.md mới đã đủ cho công việc trong repo.</p>
+<p class="de"><b>Đề xuất:</b> cập nhật ghi nhớ thành vài dòng: dự án dùng CLAUDE.md, bản phát hành gần nhất V233, quy trình Gemini/GPT/Claude.</p>
+<label class="ch"><input type="checkbox"> Duyệt</label></div>
+
+<div class="card"><h3>10. Skill trong tài khoản (ngoài dự án game) <span class="tag warn">ngoài phạm vi</span></h3>
+<p>3 skill Vietsovpetro rất dài (21–53 KB mỗi tệp SKILL.md) — tốn token mỗi khi được nạp. Không liên quan dự án game nên Claude chưa sửa.</p>
+<p class="de"><b>Đề xuất:</b> rà riêng 3 skill này trong một phiên khác (rút gọn phần lặp, tách bảng tra cứu ra tệp phụ) nếu bạn muốn.</p>
+<label class="ch"><input type="checkbox"> Duyệt</label></div>
+
+<footer>Chưa xuất bản gì; bản phát hành gần nhất vẫn là V233. Đánh dấu các mục duyệt rồi nhắn lại số mục (ví dụ "duyệt 1, 2, 3, 5, 8").</footer>
+</main></body></html>

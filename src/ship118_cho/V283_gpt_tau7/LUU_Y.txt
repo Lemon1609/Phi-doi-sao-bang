@@ -1,1 +1,0 @@
-Mẫu duyệt ý tưởng, chưa đạt quy cách tích hợp: cả hai ảnh có khung 1254 × 1254 thay vì 1024 × 1024; thân trong ảnh thứ nhất bị vẽ lại và thay đổi kích thước/vị trí so với khung gốc. Ảnh chỉ năng lượng được AI vẽ lại, không phải phép xóa thân chính xác và chưa bù đủ phần khuất; cần căn lại và kiểm tra độ rộng, vùng trống, đáy y 760 trên khung 1024.

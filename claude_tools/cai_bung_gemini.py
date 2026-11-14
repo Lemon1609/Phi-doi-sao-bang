@@ -10,7 +10,7 @@ for j in range(i, len(s)):
     elif s[j] == '}':
         d -= 1
         if d == 0: break
-R = json.loads(re.sub(r'([{,])(\d+):', r'\1"\2":', s[i:j + 1]))
+R = json.loads(re.sub(r'([{,]\s*)(\d+):', r'\1"\2":', s[i:j + 1]))
 for t, v in R[key].items():
     v['img'] = NM; v['fx'] = SO['fx_khung']
     if t == 'tim': v['bung'] = RT; v['mau'] = NM + '_mau'
@@ -28,7 +28,7 @@ for t, v in R[key].items():
     e = edge(t); v['off'] = [[0, 0], [0, 0]] if SO.get('khong_than') else [[int(round(e[0] - eT[0])), 0], [int(round(e[1] - eT[1])), 0]]  # ảnh không thân: năng lượng mọc từ lõi chung, mọi bậc cùng gốc
     if t in DIM: v['dim'] = DIM[t]
 print('off', {t: v['off'] for t, v in R[key].items()})
-txt = json.dumps(R, separators=(',', ':')); txt = re.sub(r'"(\d+)":\{"thuong"', r'\1:{"thuong"', txt)
+txt = '{\n' + ',\n'.join('    %s:%s' % (k, json.dumps(R[k], separators=(',', ':'))) for k in sorted(R, key=int)) + '\n  }'  # V301: mỗi tàu một dòng
 s = s[:i] + txt + s[j + 1:]
 piv = json.dumps(SO['goc_canh_512'], separators=(',', ':'))
 m = re.search(r'const PIV=\{', s); k0 = m.end()
