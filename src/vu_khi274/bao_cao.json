@@ -1,0 +1,274 @@
+{
+ "tau10_cau_luc_giac": {
+  "khung_nhap": 2,
+  "khung_ra": 2,
+  "o": [
+   64,
+   64
+  ]
+ },
+ "tau11_cau_ho_den": {
+  "khung_nhap": 3,
+  "khung_ra": 3,
+  "o": [
+   64,
+   64
+  ]
+ },
+ "tau11_hat_xoan": {
+  "khung_nhap": 2,
+  "khung_ra": 2,
+  "o": [
+   32,
+   48
+  ]
+ },
+ "tau12_dia_banh_rang": {
+  "khung_nhap": 2,
+  "khung_ra": 2,
+  "o": [
+   64,
+   64
+  ]
+ },
+ "tau13_luoi_hai": {
+  "khung_nhap": 2,
+  "khung_ra": 2,
+  "o": [
+   64,
+   112
+  ]
+ },
+ "tau13_luoi_hai_bt": {
+  "khung_nhap": 2,
+  "khung_ra": 2,
+  "o": [
+   96,
+   128
+  ]
+ },
+ "tau1_cau_lua": {
+  "khung_nhap": 3,
+  "khung_ra": 3,
+  "o": [
+   64,
+   64
+  ]
+ },
+ "tau1_cau_lua_bt": {
+  "khung_nhap": 3,
+  "khung_ra": 3,
+  "o": [
+   96,
+   96
+  ]
+ },
+ "tau3_khoi_bang": {
+  "khung_nhap": 2,
+  "khung_ra": 2,
+  "o": [
+   64,
+   64
+  ]
+ },
+ "tau3_manh_bang": {
+  "khung_nhap": 2,
+  "khung_ra": 2,
+  "o": [
+   32,
+   48
+  ]
+ },
+ "tau4_vuot": {
+  "khung_nhap": 2,
+  "khung_ra": 2,
+  "o": [
+   64,
+   96
+  ]
+ },
+ "tau4_vuot_bt": {
+  "khung_nhap": 2,
+  "khung_ra": 2,
+  "o": [
+   80,
+   112
+  ]
+ },
+ "tau5_quang_tien": {
+  "khung_nhap": 2,
+  "khung_ra": 2,
+  "o": [
+   48,
+   96
+  ]
+ },
+ "tau6_khoi_pixel": {
+  "khung_nhap": 3,
+  "khung_ra": 3,
+  "o": [
+   48,
+   64
+  ]
+ },
+ "tau7_kiem_khi": {
+  "khung_nhap": 2,
+  "khung_ra": 2,
+  "o": [
+   40,
+   112
+  ]
+ },
+ "tau7_kiem_khi_bt": {
+  "khung_nhap": 2,
+  "khung_ra": 2,
+  "o": [
+   56,
+   128
+  ]
+ },
+ "tau8_ten_lua_nhiet": {
+  "khung_nhap": 2,
+  "khung_ra": 2,
+  "o": [
+   48,
+   96
+  ]
+ },
+ "tl_01_hoa_nguc": {
+  "khung_nhap": 2,
+  "khung_ra": 2,
+  "o": [
+   48,
+   96
+  ]
+ },
+ "tl_02_han_suong": {
+  "khung_nhap": 2,
+  "khung_ra": 2,
+  "o": [
+   48,
+   96
+  ]
+ },
+ "tl_03_loi_kich": {
+  "khung_nhap": 2,
+  "khung_ra": 2,
+  "o": [
+   48,
+   96
+  ]
+ },
+ "tl_04_ngu_loi": {
+  "khung_nhap": 2,
+  "khung_ra": 2,
+  "o": [
+   64,
+   112
+  ]
+ },
+ "tl_05_xoan_oc": {
+  "khung_nhap": 2,
+  "khung_ra": 2,
+  "o": [
+   48,
+   96
+  ]
+ },
+ "tl_06_thien_tinh": {
+  "khung_nhap": 2,
+  "khung_ra": 2,
+  "o": [
+   48,
+   96
+  ]
+ },
+ "tl_07_thien_kiem": {
+  "khung_nhap": 2,
+  "khung_ra": 2,
+  "o": [
+   48,
+   96
+  ]
+ },
+ "tl_08_diet_tinh": {
+  "khung_nhap": 2,
+  "khung_ra": 2,
+  "o": [
+   48,
+   96
+  ]
+ },
+ "tl_09_phan_quyet": {
+  "khung_nhap": 2,
+  "khung_ra": 2,
+  "o": [
+   48,
+   96
+  ]
+ },
+ "tl_10_bay_dan": {
+  "khung_nhap": 2,
+  "khung_ra": 2,
+  "o": [
+   32,
+   48
+  ]
+ },
+ "tl_11_huyet_tinh": {
+  "khung_nhap": 2,
+  "khung_ra": 2,
+  "o": [
+   48,
+   96
+  ]
+ },
+ "tl_12_qua_khu": {
+  "khung_nhap": 2,
+  "khung_ra": 2,
+  "o": [
+   48,
+   96
+  ]
+ },
+ "tl_13_tram_khong": {
+  "khung_nhap": 2,
+  "khung_ra": 2,
+  "o": [
+   48,
+   96
+  ]
+ },
+ "vp_dong_ho_cat": {
+  "khung_nhap": 2,
+  "khung_ra": 2,
+  "o": [
+   48,
+   64
+  ]
+ },
+ "vp_drone_tau_me": {
+  "khung_nhap": 2,
+  "khung_ra": 2,
+  "o": [
+   64,
+   64
+  ]
+ },
+ "vp_nguyet_nhan": {
+  "khung_nhap": 2,
+  "khung_ra": 2,
+  "o": [
+   64,
+   64
+  ]
+ },
+ "vp_quang_thuong": {
+  "khung_nhap": 2,
+  "khung_ra": 2,
+  "o": [
+   48,
+   112
+  ]
+ }
+}
