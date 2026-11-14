@@ -25,6 +25,8 @@ Luật phong cách chi tiết + nhật ký quyết định: `docs_claude/CHUAN_P
 - Kiểm tra hồi quy: `python3 tests/t156.py <html tuyệt đối> <thư mục>` (14/14) và `python3 tests/t209_on_dinh.py <html>` (chạy t209 tối đa 3 lần, in mọi lần trượt).
 - Chụp cánh bung 6 bậc: `SID=<0-based> python3 tests/quay_bac.py <html> <ra> [bậc]` → `<bậc>_<t*100>.png`; ghép bảng trước/sau: `python3 claude_tools/bang_truoc_sau.py <trước> <sau> "<tiêu đề>" <ra.jpg>`.
 - Chụp đạn 6 bậc: `SID=<0-based> python3 tests/quay_dan.py <html> <ra> [bậc]`; dò kiểu đạn một tàu: `python3 tests/do_dan.py <html> <id> <bậc>`.
+- Chụp đạn trang bị: `python3 tests/quay_tb.py <html> <ra> [món,...]` (mỗi món một trình duyệt, màn 12 vì màn boss Bầy Đàn không bắn; `CHUOI=1` chụp thêm chuỗi khung). Đo sát thương bia cố định: `SID=<0-based> CO=1|0 [HS='{"4":1.3}'] python3 tests/do_st_codinh.py <html>` (dao động giữa các lần ~±6 %).
+- Trang bị có 3 đường vẽ: 12 món gốc qua `GEAR_FX` (gear45); bộ 9 / 10–12 là đạn thường trong `shots` (có `gearItem`, vẽ qua `Fighters28.draw` → art82); bộ 36 bắn qua `skill81` (đọc `GEAR44_ASSETS[id_projectile_*]`). Hình đạn mới: `src/gearvk304.js`.
 
 ## Quy trình tranh
 - Cánh bung (Bạo Tẩu): khung chuẩn `claude_tools/khung_bung/khung/tauN_than_bao_tau.png` (1024, thân bậc Tím đúng cỡ game, U=0,75), viền 6 bậc ở `khung_bung/vien_6_bac/`.
@@ -37,4 +39,4 @@ Luật phong cách chi tiết + nhật ký quyết định: `docs_claude/CHUAN_P
 
 ## Trạng thái (14/11/2026)
 - Bản phát hành gần nhất: web + APK **V233** (chưa xuất bản gì sau đó).
-- Bản thử: cánh bung mới đã chốt đủ 13 tàu (V293); đạn mới tàu 1 (V299–V300). Đang làm: đạn 12 tàu còn lại theo bảng `docs_claude/de_xuat_cho/GEMINI_V273_BANG_VU_KHI.md` (cơ chế nảy / đuổi / làm chậm / hút: làm thật, đo và báo số trước khi giữ).
+- Bản thử: cánh bung mới đủ 13 tàu (V293); đạn mới 13 tàu (V299–V302) + cơ chế thật tàu 3/4/9/12 (V303); hình đạn trang bị mới cho 13 tên lửa + 3 vũ khí phụ (V304). Còn 10 vũ khí phụ dùng hình cũ.

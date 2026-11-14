@@ -6,19 +6,19 @@
 //  tàu 12 (id 11): mục tiêu trúng đạn bị khựng 0,15 s (làm chậm nhịp di chuyển); sát thương giảm theo HS12.
 //  Tắt toàn bộ: window.CO303=false (để đo so sánh). Hệ số cân: window.CO303_HS={3:..,12:..}
 (function(){
-  const HS=Object.assign({3:.76,4:1.1,12:1.2},/* V303: đo 3 lần × 40 s mỗi cấu hình, chỉnh để tổng sát thương ≈ cũ */window.CO303_HS||{});
+  const HS=Object.assign({3:.72,4:1.25,12:1.2},/* V303: đo 3 lần × 40 s mỗi cấu hình, chỉnh để tổng sát thương ≈ cũ */window.CO303_HS||{});
   const SEEN=new WeakSet(),HITN=new WeakMap();let n9=0;
   function px(){try{return player.x;}catch{return 240;}}
   function tag(s){const id=s.art28;
     if(id===2&&!s.__manh){s.damage*=HS[3];}
-    else if(id===3){s.damage*=HS[4];s.pathStyle=2;s.pathCurve=150*(s.x<px()?1:-1);s.pathPhase=0;}
+    else if(id===3){s.damage*=HS[4];s.pathStyle=2;s.pathCurve=70*(s.x<px()?1:-1);s.pathPhase=0;}
     else if(id===8){if((n9++)%3===0){s.homing=true;s.homingSpeed=s.homingSpeed||Math.hypot(s.vx,s.vy)||700;}}
     else if(id===11){s.damage*=HS[12];}}
   function manh(s){if(typeof shot!=='function')return;for(const sd of [-1,1]){const sp=Math.hypot(s.vx,s.vy)||600,a=Math.atan2(s.vy,s.vx)+sd*.62;
-      try{shot(s.x,s.y-6,Math.cos(a)*sp*.9,Math.sin(a)*sp*.9,'ice',s.damage/HS[3]*.35,3);const m=shots.at(-1);if(m){m.art28=2;m.__manh=true;m.piercing=false;m.freeze=s.freeze;m.color=s.color;m.hit=new Set(s.hit||[]);m.effect22=null;SEEN.add(m);}}catch{}}}
+      try{shot(s.x,s.y-6,Math.cos(a)*sp*.9,Math.sin(a)*sp*.9,'ice',s.damage/HS[3]*.35,3);const m=shots.at(-1);if(m){m.art28=2;m.__manh=true;m.piercing=false;m.freeze=s.freeze;m.color=s.color;m.hit=new Set(s.hit||[]);m.effect22=null;m.__co303=1;}}catch{}}}
   function step(){if(window.CO303===false)return;let L;try{L=shots;}catch{return;}
     for(let i=0;i<L.length;i++){const s=L[i];if(!s||s.dead||s.art28===undefined||s.gearKind)continue;try{if(s.art28!==selected)continue;}catch{}
-      if(!SEEN.has(s)){SEEN.add(s);tag(s);}
+      if(!s.__co303){s.__co303=1;tag(s);}/* V304: đánh dấu trên chính viên đạn — bản sao (tách / nhân đạn) mang theo dấu, không bị nhân hệ số lần nữa */
       const h=s.hit?s.hit.size:0,o=HITN.get(s)||0;if(h>o){HITN.set(s,h);
         if(s.art28===2&&!s.__manh&&o===0)manh(s);
         if(s.art28===11&&s.hit){for(const e of s.hit){if(e&&!e.dead&&!e.bossPart&&!(typeof boss!=='undefined'&&e===boss))e.frozen=Math.max(e.frozen||0,.15);}}}}}

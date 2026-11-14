@@ -910,6 +910,9 @@ _d299={k:(n) for k,n in [('tau1_cau_lua',3),('tau1_cau_lua_bt',3),('tau3_khoi_ba
 _d299js='window.DAN299_IMG={'+','.join('"%s":["data:image/png;base64,%s",%d]'%(k,base64.b64encode(open('src/vu_khi295/%s.png'%k,'rb').read()).decode(),n) for k,n in _d299.items())+'};'
 rep("</body>","<script id=\"dan299-js\">"+_d299js+open('src/dan299.js',encoding='utf-8').read()+"</script></body>")
 rep("</body>","<script id=\"co303-js\">"+open('src/co303.js',encoding='utf-8').read()+"</script></body>")  # V303 cơ chế đạn
+_vk304=['tl_01_hoa_nguc','tl_02_han_suong','tl_03_loi_kich','tl_04_ngu_loi','tl_05_xoan_oc','tl_06_thien_tinh','tl_07_thien_kiem','tl_08_diet_tinh','tl_09_phan_quyet','tl_10_bay_dan','tl_11_huyet_tinh','tl_12_qua_khu','tl_13_tram_khong','vp_nguyet_nhan','vp_quang_thuong','vp_dong_ho_cat']
+_vk304js='window.GEARVK304_IMG={'+','.join('"%s":["data:image/png;base64,%s",2]'%(k,base64.b64encode(open('src/vu_khi295/%s.png'%k,'rb').read()).decode()) for k in _vk304)+'};'
+rep("</body>","<script id=\"gearvk304-js\">"+_vk304js+open('src/gearvk304.js',encoding='utf-8').read()+"</script></body>")  # V304 hình đạn trang bị
 open('Phi_Doi_Sao_Bang_V74_mau.html','w',encoding='utf-8').write(h);print(round(len(h)/1e6,2),'MB')
 # ---- V100 · BẢN THỬ cho chủ dự án: dữ liệu tách riêng (tiền tố thu100:) + bảng nạp tài khoản mẫu ----
 # V301: chỉ dựng khi cần (BAN_THU=1 hoặc khi xuất bản) để mỗi lần dựng nhanh hơn, bớt một tệp 81 MB
