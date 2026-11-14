@@ -905,6 +905,10 @@ rep("</body>","<script id=\"v185-art\">const SAO185=\"data:image/png;base64,"+ba
 rep("</body>","<style id=\"story259-css\">"+open('src/story259.css',encoding='utf-8').read()+"</style><script id=\"story259-js\">"+open('src/story259.js',encoding='utf-8').read()+"</script></body>")  # V259 câu chuyện 13 chiến cơ ở sảnh
 rep("for(const pod of Battle28.support()){ctx.save();sprite(i,pod.x,pod.y,38+i.spec.rank*2);","for(const pod of Battle28.support()){try{window.EqGlow264&&EqGlow264.under(ctx,i,pod,38+i.spec.rank*2)}catch{};ctx.save();sprite(i,pod.x,pod.y,38+i.spec.rank*2);")  # V264 trang bị tỏa màu riêng lúc Bạo Tẩu
 rep("</body>","<script id=\"eqglow264-js\">"+open('src/eqglow264.js',encoding='utf-8').read()+"</script></body>")
+# V299 đạn mới theo tranh Gemini (tàu 1 trước)
+_d299={k:(n) for k,n in [('tau1_cau_lua',3),('tau1_cau_lua_bt',3)]}
+_d299js='window.DAN299_IMG={'+','.join('"%s":["data:image/png;base64,%s",%d]'%(k,base64.b64encode(open('src/vu_khi295/%s.png'%k,'rb').read()).decode(),n) for k,n in _d299.items())+'};'
+rep("</body>","<script id=\"dan299-js\">"+_d299js+open('src/dan299.js',encoding='utf-8').read()+"</script></body>")
 open('Phi_Doi_Sao_Bang_V74_mau.html','w',encoding='utf-8').write(h);print(round(len(h)/1e6,2),'MB')
 # ---- V100 · BẢN THỬ cho chủ dự án: dữ liệu tách riêng (tiền tố thu100:) + bảng nạp tài khoản mẫu ----
 h2=h.replace('<head>','<head><script id="thu100-js">'+open('src/thu100.js',encoding='utf-8').read()+'</script>',1).replace('</body>','<script id="thu100p-js">'+open('src/thu100_panel.js',encoding='utf-8').read()+'</script></body>',1)
