@@ -32,3 +32,7 @@ html body #nav74#nav74 button.on::before{left:12%;right:12%;top:1px;height:2px}
 html body #lb68#lb68 .cta.c b,html body #lb68#lb68 .cta.c small{-webkit-text-fill-color:#4a2000!important;color:#4a2000!important}
 html body #lb68#lb68 .cta.e b,html body #lb68#lb68 .cta.e small{-webkit-text-fill-color:#fff!important}
 html body #lb68#lb68 .cta.lk66 b,html body #lb68#lb68 .cta.lk66 small{-webkit-text-fill-color:#e8e8e8!important;color:#e8e8e8!important}
+/* Đợt 2 · kho trang bị: tab lọc + tab con hình thang (quy tắc cũ dùng 4 lớp id → dùng 5) */
+html body #hub40#hub40 .hb-filter{gap:2px!important}
+html body #hub40#hub40 .hb-filter button,html body #nav74s#nav74s#nav74s#nav74s#nav74s .n74s button{border:0!important;border-image:none!important;border-radius:0!important;clip-path:polygon(9px 0,calc(100% - 9px) 0,100% 100%,0 100%)!important;background:linear-gradient(#22405f,#0d1d33)!important;box-shadow:inset 0 1px 0 #9fc4e8!important;color:#b8d4ee!important}
+html body #hub40#hub40 .hb-filter button.on,html body #hub40#hub40 .hb-filter button.sel,html body #hub40#hub40 .hb-filter button[aria-pressed="true"],html body #nav74s#nav74s#nav74s#nav74s#nav74s .n74s button.on{background:linear-gradient(#58b6ff,#1766d0 55%,#0b3c92)!important;color:#fff!important;box-shadow:inset 0 2px 0 #fff,inset 0 -2px 0 #05245a!important}
