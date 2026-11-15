@@ -169,3 +169,6 @@ html body #hub40#hub40 .hb-it[data-t306=luc]{--u15-fq:url(ui306n/o_vat_pham_luc.
 html body #hub40#hub40 .hb-it[data-t306=lam]{--u15-fq:url(ui306n/o_vat_pham_lam.png)}
 html body #hub40#hub40 .hb-it[data-t306=tim]{--u15-fq:url(ui306n/o_vat_pham_tim.png)}
 html body #hub40#hub40 .hb-it[data-t306=vang]{--u15-fq:url(ui306n/o_vat_pham_vang.png)}
+html body #hub40#hub40 .hb-it[data-t306]::after{z-index:0!important}
+html body #hub40#hub40 .hb-it[data-t306] .gear25-art{z-index:1}
+html body #hub40#hub40 .hb-it[data-t306] :is(.lv,.eq,.hb-dot){z-index:3}
