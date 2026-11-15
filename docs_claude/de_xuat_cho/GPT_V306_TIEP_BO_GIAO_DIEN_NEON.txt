@@ -1,0 +1,17 @@
+Chào bạn, mình nhờ bạn vẽ TIẾP bộ giao diện "Phi Đội Sao Băng" (game bắn máy bay dọc, khung 390×844) theo ĐÚNG phong cách bộ đã có (ảnh đính kèm: V306_THAM_CHIEU_PHONG_CACH_NEON.png).
+
+PHONG CÁCH (bắt buộc khớp ảnh tham chiếu)
+- Neon LED tương lai: nền kính tối (navy #0A1630 -> #060B14), viền là đường LED mảnh phát sáng, bloom nhẹ, nguồn sáng từ trên xuống.
+- Hình dáng: vát 45° đối xứng bốn góc, CÙNG độ dày viền với các nút đính kèm. Không kim loại dày, không đinh vít.
+- Màu theo vai trò: cyan #38D6FF chủ đạo/được chọn; vàng #FFC83C hành động chính; xanh dương #2D7DFF phụ; đỏ cam #FF5A2A nguy hiểm/boss; lục #4DE38A thành công; tím #B46BFF bậc cao; xám #7C8DA3 khóa.
+
+TỆP CẦN VẼ (mỗi tệp một ảnh riêng, nền ĐEN thuần #000, không chữ, không số, không logo, không dấu watermark chồng lên hình, chừa lề đen >= 8 px quanh phần sáng)
+A. Ba nút nhấn (pressed), cùng hình dáng và cùng viền LED với nut_vang / nut_xanh / nut_do_cam: tối hơn 30-40%, viền mờ bớt, thân như lún xuống. Tên: nut_vang_nhan, nut_xanh_nhan, nut_do_cam_nhan. Kích thước 1560x480.
+B. Ô vật phẩm vuông 768x768, 5 bậc: o_vat_pham_xam / luc / lam / tim / vang (viền LED đổi màu theo bậc, bậc càng cao càng sáng); thêm o_vat_pham_chon (đang chọn, viền cyan sáng + góc ngoặc) và o_vat_pham_trong (ô trống/khóa, xám, nét đứt). Chừa chỗ sao ở góc trên, cấp ở góc dưới (không vẽ số).
+C. Đĩa ải 480x480 (tròn, phát sáng): do_ai_thuong (xanh), do_ai_hien_tai (vàng, vầng sáng mạnh), do_ai_boss (đỏ cam, đầu lâu cách điệu của bạn), do_ai_khoa (xám mờ + ổ khóa), do_ai_hoan_thanh (lục, dấu tích). Giữa đĩa để trống cho số.
+D. Sao: sao_day.png (vàng sáng) và sao_rong.png (khung tối), mỗi cái 192x192.
+E. thanh_tien_do (khung rỗng 1800x120) + thanh_tien_do_lap_day (phần lấp cyan phát sáng, khớp 100% với khung, cùng kích thước).
+F. Bộ icon LED đơn sắc cyan, mỗi icon 384x384, nét cùng độ dày: nang_luong, vang, kim_cuong, nha, chien_dau, phi_doi, trang_bi, cua_hang, qua, thu, cai_dat, o_khoa, dau_tich, canh_bao, bom, tim, mui_ten_trai, mui_ten_phai.
+
+THỨ TỰ ƯU TIÊN: A, B, C, D, rồi E, F. Gửi từng nhóm một để mình ghép dần.
+Yêu cầu chung: thiết kế gốc, không chép hình/icon/logo của game cụ thể. Nếu bạn đổi mã hex nào, nêu rõ.
