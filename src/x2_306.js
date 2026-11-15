@@ -1,8 +1,8 @@
 'use strict';
 // V306n · NHÂN ĐÔI HỢP KIM ở màn kết quả chiến dịch (chủ dự án duyệt 15/11/2026): trả thể lực, giới hạn lượt/ngày, trần mỗi lần.
-// Chỉ nhân hợp kim nhận được trong chuyến bay; không đụng kim cương/vật phẩm. Số chốt có thể chỉnh qua window.X2306 (chờ Gemini rà soát).
+// Chỉ nhân hợp kim nhận được trong chuyến bay; không đụng kim cương/vật phẩm. Số chốt theo Gemini rà soát 15/11/2026: 4 thể lực, 3 lượt/ngày, trần 1500, mở sau khi qua ải 5; chỉnh qua window.X2306.
 (()=>{try{
- const KEY='saobang-x2-v1',CFG=Object.assign({cost:4,limit:3,cap:3000},window.X2306||{});
+ const KEY='saobang-x2-v1',CFG=Object.assign({cost:4,limit:3,cap:1500,minClear:5},window.X2306||{});
  const day=()=>{const d=new Date();return d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0');};
  const load=()=>{try{const s=JSON.parse(localStorage.getItem(KEY)||'null');return s&&s.d===day()?{d:s.d,n:s.n|0}:{d:day(),n:0};}catch{return {d:day(),n:0};}};
  const save=s=>{try{localStorage.setItem(KEY,JSON.stringify(s));}catch{}};
@@ -13,6 +13,7 @@
   const rib=rs.querySelector('.rs-rib');if(!rib||!/HOÀN THÀNH/i.test(rib.textContent))return;
   if(typeof gameMode==='undefined'||gameMode!=='campaign'||typeof runCredits==='undefined'||typeof Progress==='undefined'||typeof V75==='undefined')return;
   try{if(Daily.active()||Daily.recent())return;}catch{}
+  try{if(!Progress.v70.cleared().includes(CFG.minClear))return;}catch{return;}
   if(runCredits<doneAt)doneAt=0;
   const base=Math.min(CFG.cap,Math.max(0,(runCredits|0)-doneAt));if(base<=0)return;
   const st=load(),left=Math.max(0,CFG.limit-st.n);
