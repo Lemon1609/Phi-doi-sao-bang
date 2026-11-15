@@ -6,11 +6,12 @@
   const D=window.GEARVK304_IMG||{},IM={};for(const k in D){const im=new Image();im.src=D[k][0];IM[k]={im,n:D[k][1]};}
   const MIS={inferno:'tl_01_hoa_nguc',cryo:'tl_02_han_suong',thunder:'tl_03_loi_kich',singularity:'tl_04_ngu_loi',spiral:'tl_05_xoan_oc',stellar:'tl_06_thien_tinh',
     comet36:'tl_07_thien_kiem',nova36:'tl_08_diet_tinh',judgement36:'tl_09_phan_quyet',swarm9:'tl_10_bay_dan',devour10_m:'tl_11_huyet_tinh',chrono11_m:'tl_12_qua_khu',monarch12_m:'tl_13_tram_khong'};
-  const SIDE={disc:'vp_nguyet_nhan',lance36:'vp_quang_thuong',chrono11_s:'vp_dong_ho_cat'};
+  const SIDE={disc:'vp_nguyet_nhan',lance36:'vp_quang_thuong',chrono11_s:'vp_dong_ho_cat',ricochet:'vp_luc_lang',gravity:'vp_cau_trong_luc',prism:'vp_tinh_the_bang'};   // V305 +3
+  const SPIN={disc:9,ricochet:6,gravity:2};   // rad/s, món tròn xoay; món dài bay theo hướng
   const SZ={mis:[58,70],side:[40,52]};               // chiều dài vẽ (thường, siêu)
   const ok=o=>o&&o.im.complete&&o.im.naturalWidth;
   const CACHE={};
-  function frames(id,k,metal){const key=id;if(CACHE[key])return CACHE[key];const o=IM[k];if(!ok(o))return null;
+  function frames(id,k,metal){const key=id+'|'+k;if(CACHE[key])return CACHE[key];const o=IM[k];if(!ok(o))return null;
     const cat=typeof GearCatalog!=='undefined'?GearCatalog:{},col=(cat[id]&&cat[id].color)||'#ffffff';
     const fw=o.im.naturalWidth/o.n,fh=o.im.naturalHeight,out=[];
     for(let i=0;i<o.n;i++){const t=document.createElement('canvas');t.width=fw;t.height=fh;const q=t.getContext('2d');q.drawImage(o.im,i*fw,0,fw,fh,0,0,fw,fh);
@@ -41,7 +42,7 @@
     const F=frames(v,k,mis);if(!F)return false;const b={x:s.x,y:s.y,vx:s.vx||0,vy:s.vy||-1,age:s.age||0,id:v,variant:(s.superShot||(typeof superTime!=='undefined'&&superTime>0))?'super':'normal'};
     put(c0||ctx,b,F,mis);return true;}
   function put(c,b,F,mis){const L=(mis?SZ.mis:SZ.side)[b.variant==='super'?1:0],W=L*F.ar,ang=Math.atan2(b.vy,b.vx)+Math.PI/2,im=F.f[Math.floor(b.age*8)%F.f.length],oy=mis?L*.18:0;
-    c.save();try{c.translate(b.x,b.y);c.rotate(mis?ang:ang+b.age*(b.id==='disc'?9:0));
+    c.save();try{c.translate(b.x,b.y);c.rotate(mis?ang:ang+b.age*(SPIN[b.id]||0));
     c.globalCompositeOperation='lighter';const r=Math.max(W,L*.5),g=c.createRadialGradient(0,oy,0,0,oy,r*.75);
     g.addColorStop(0,F.g0);g.addColorStop(1,F.g1);c.fillStyle=g;c.fillRect(-r,-r+oy,r*2,r*2);
     c.globalCompositeOperation='source-over';c.drawImage(im,-W/2,-L/2,W,L);}finally{c.restore();}}
@@ -56,5 +57,20 @@
       for(let i=0;i<4;i++)g.drawImage(F.f[i%F.f.length],i*fw,0,fw,fh);
       const u=c.toDataURL('image/png');GEAR44_ASSETS[id+'_projectile_normal']=u;GEAR44_ASSETS[id+'_projectile_super']=u;}}
   setTimeout(strip,500);
-  window.GearVK304={MIS,SIDE,SZ,ST,one,frames};
+  // V305 · Thôn Phệ (devour10_s) và Ấn Triện (monarch12_s) là hiệu ứng kỹ năng trong skill81 (quả cầu 'orb', tia 'beam') → skill81 gọi fx81 trước khi tự vẽ.
+  function on(id){try{return typeof Gear44==='undefined'||Gear44.activeId('sidearm')===id;}catch{return true;}}   // đang lắp SSS → giữ hình SSS
+  function img1(F,p,x,y,w,rot,al){const im=F.f[Math.min(F.f.length-1,Math.floor(p*F.f.length))],h=w/F.ar;
+    g0.save();try{g0.globalAlpha*=al;g0.translate(x,y);if(rot)g0.rotate(rot);g0.drawImage(im,-w/2,-h/2,w,h);}finally{g0.restore();}}
+  let g0=null;
+  function fx81(g,v,a){if(window.GEARVK304===false)return false;g0=g;
+    if(v.k==='orb'&&on('devour10_s')){const F=frames('devour10_s','vp_loi_thon_phe',false);if(!F)return false;const t=.5-v.life;
+      g.save();try{g.globalCompositeOperation='lighter';const r=40,q=g.createRadialGradient(v.x,v.y,0,v.x,v.y,r);q.addColorStop(0,F.g0);q.addColorStop(1,F.g1);g.fillStyle=q;g.globalAlpha=a;g.fillRect(v.x-r,v.y-r,r*2,r*2);}finally{g.restore();}
+      img1(F,(t*6)%1,v.x,v.y,40*(1+t*.3),-t*7,Math.min(1,v.life*4));return true;}
+    if(v.k==='beam'&&v.v==='monarch12_s'&&on('monarch12_s')){const M=frames('monarch12_s','vp_mui_an_trien',false),S=frames('monarch12_s','vp_an_trien',false);if(!M||!S)return false;
+      const p=Math.min(1,(.2-v.life)/.2),dx=v.b.x-v.a.x,dy=v.b.y-v.a.y,q=Math.min(1,p*1.8);
+      if(q<1)img1(M,0,v.a.x+dx*q,v.a.y+dy*q,9,Math.atan2(dy,dx)+Math.PI/2,1);                 // mũi ấn bay dọc tia
+      if(p>.45)img1(S,p>.8?.99:0,v.b.x,v.b.y,34+p*8,0,Math.min(1,(1-p)*3+.25));               // ấn tam giác hở lóe trên mục tiêu
+      return false;}                                                                        // vẫn để skill81 vẽ tia
+    return false;}
+  window.GearVK304={MIS,SIDE,SZ,ST,one,frames,fx81};
 })();

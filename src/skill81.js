@@ -170,7 +170,7 @@ const Skill81=(()=>{
   prevSh=shNow;prevHp=hpNow;}
  let haloT=0;
  function draw(){if(!on()||!V.length&&cloakT<=0&&!feathers)return;const g=ctx;try{g.save();g.globalCompositeOperation='lighter';
-  for(const v of V){const a=Math.max(0,Math.min(1,v.life*3));g.globalAlpha=a;
+  for(const v of V){const a=Math.max(0,Math.min(1,v.life*3));g.globalAlpha=a;if(window.GearVK304&&GearVK304.fx81)try{if(GearVK304.fx81(g,v,a))continue;}catch{}/* V305 hình vũ khí phụ đợt 2 */
    if(v.k==='pulse'){g.strokeStyle=v.c;g.lineWidth=4;g.beginPath();g.arc(v.x,v.y,v.r*(1.1-v.life),0,6.283);g.stroke();}
    else if(v.k==='swordUp'){const y=v.y-(.4-v.life)*900,f=pj('comet36',sup(),v.life);if(f)pjDraw(g,f,v.x,y,52,0);else{const im=img('comet36_proj81n')||img(v.v+'_beam81n');if(im)g.drawImage(im,v.x-8,y-28,16,56);}}
    else if(v.k==='swordDown'){const y=v.y-v.life*400,f=pj('comet36',true,v.life);if(f)pjDraw(g,f,v.x,y,66,Math.PI);else{const im=img('comet36_proj81s')||img('comet36_beam81s');g.save();g.translate(v.x,y);g.rotate(Math.PI);if(im)g.drawImage(im,-11,-34,22,68);g.restore();}}

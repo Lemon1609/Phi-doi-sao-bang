@@ -10,7 +10,7 @@ SPEC = {'tau1_cau_lua': (64, 64, 3), 'tau1_cau_lua_bt': (96, 96, 3), 'tau3_khoi_
         'tau13_luoi_hai_bt': (96, 128, 2), 'tl_04_ngu_loi': (64, 112, 2), 'tl_10_bay_dan': (32, 48, 2),
         'vp_nguyet_nhan': (64, 64, 2), 'vp_quang_thuong': (48, 112, 2), 'vp_drone_tau_me': (64, 64, 2), 'vp_dong_ho_cat': (48, 64, 2),
         # V305: 6 hình vũ khí phụ đợt 2
-        'vp_luc_lang': (48, 48, 2), 'vp_cau_trong_luc': (64, 64, 2), 'vp_tinh_the_bang': (32, 64, 2), 'vp_loi_thon_phe': (64, 64, 2), 'vp_mui_an_trien': (24, 64, 2), 'vp_an_trien': (96, 96, 2)}
+        'vp_luc_lang': (48, 48, 2), 'vp_cau_trong_luc': (64, 64, 2), 'vp_tinh_the_bang': (24, 96, 2), 'vp_loi_thon_phe': (64, 64, 2), 'vp_mui_an_trien': (24, 96, 2), 'vp_an_trien': (96, 96, 2)}
 I, O = sys.argv[1], sys.argv[2]; os.makedirs(O, exist_ok=True); bao = {}
 for f in sorted(glob.glob(I + '/*.png')):
     k = os.path.basename(f)[:-4]; cw, ch, n = SPEC.get(k, (48, 96, 2))

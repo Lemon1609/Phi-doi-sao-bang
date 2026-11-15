@@ -1,0 +1,57 @@
+# V305 · Tự kiểm tra mỗi lần push nhánh nguồn: dựng game + chạy t156 (14 mục) + t209 (20 mục, tối đa 3 lần).
+# Workflow RIÊNG, chỉ đọc mã nguồn, không dùng khóa ký / secret, không đụng workflow ký APK (nhánh build-apk-v198).
+name: Kiểm tra tự động
+
+on:
+  push:
+    branches: ["nguon-v212"]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: kiem-tra-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  kiem_tra:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Cài thư viện
+        run: |
+          pip install pillow numpy playwright
+          python -m playwright install --with-deps chromium
+
+      - name: Dựng game
+        run: |
+          python3 build74_mau.py
+          ls -la Phi_Doi_Sao_Bang_V74_mau.html
+
+      - name: t156 (14 mục)
+        run: |
+          python3 tests/t156.py "$PWD/Phi_Doi_Sao_Bang_V74_mau.html" out_t156 | tee t156.log
+          grep -q "14 / 14" t156.log
+
+      - name: t209 (20 mục, tối đa 3 lần)
+        run: |
+          python3 tests/t209_on_dinh.py "$PWD/Phi_Doi_Sao_Bang_V74_mau.html" | tee t209.log
+          grep -q "KẾT QUẢ: ĐẠT" t209.log
+
+      - name: Lưu ảnh + nhật ký khi lỗi
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: kiem-tra-loi
+          path: |
+            out_t156/
+            t156.log
+            t209.log
+          retention-days: 7
