@@ -1,0 +1,43 @@
+Chào Gemini, cảm ơn bạn đã vẽ bộ UI kit "Phi Đội Sao Băng" (24 tệp PNG nền trong suốt). Mình nhờ bạn đóng vai ART DIRECTOR: (A) review bộ hiện tại, rồi (B) hoàn thiện thành một hệ giao diện thống nhất theo phong cách NEON LED – CÔNG NGHỆ TƯƠNG LAI, và dễ làm quen nhất với người chơi mobile.
+
+BỐI CẢNH
+- Game bắn máy bay dọc cho điện thoại, khung dọc 390×844 (hiển thị 2–3x). Người chơi nhiều tuổi, chơi nhanh bằng một tay, phải hiểu giao diện trong vài giây.
+- Bộ hiện tại: kim loại xám có đinh vít, vát chéo, lõi màu; các nút vàng / xanh / đỏ cam, ô vật phẩm 5 bậc, đĩa ải, tab, thanh tiến độ.
+
+(A) REVIEW – bạn hãy tự đánh giá và liệt kê ngắn gọn
+1. Những chỗ chưa thống nhất giữa các tệp (hình dáng vát, độ dày viền, nguồn sáng, mức phát sáng, độ bão hòa màu).
+2. Chỗ nào còn nặng chất "cơ khí / kim loại đinh vít" so với hướng mới NEON LED tương lai.
+3. Khả năng đọc ở 50% kích thước và trên nền trận đấu sáng/tối.
+4. Thứ còn thiếu để làm đủ các màn: trạng thái nhấn (pressed), vô hiệu hóa (disabled), được chọn (selected), có thông báo (badge đỏ), đang tải.
+
+(B) HƯỚNG THIẾT KẾ MỚI: NEON LED – TƯƠNG LAI
+- Tấm nền dạng KÍNH tối trong mờ (navy #0A1630 → #060B14), viền là ĐƯỜNG LED mảnh phát sáng thay cho khối kim loại dày. Giảm đinh vít; chỉ giữ chi tiết cơ khí tối giản ở góc (khung góc ngoặc ánh sáng, vạch mạch điện, các chấm LED nhỏ).
+- Phát sáng có kiểm soát (bloom nhẹ), không làm mờ chữ. Một nguồn sáng thống nhất từ trên xuống.
+- Bảng màu vai trò rõ ràng (bạn có thể tinh chỉnh mã hex cho hài hòa hơn, nhưng giữ vai trò):
+  • Cyan LED #38D6FF = màu chủ đạo, khung, tab đang chọn
+  • Vàng #FFC83C = HÀNH ĐỘNG CHÍNH DUY NHẤT trên mỗi màn (Xuất kích / Nhận / Tiếp tục)
+  • Xanh dương #2D7DFF = hành động phụ
+  • Đỏ cam #FF5A2A = nguy hiểm / chế độ khó / boss
+  • Lục #4DE38A = thành công / tăng chỉ số; Tím #B46BFF = bậc cao; Xám #7C8DA3 = khóa
+- Quy tắc DỄ LÀM QUEN: mỗi màn chỉ 1 nút vàng; nút "Quay lại" luôn ở một chỗ và cùng một kiểu; tab đang chọn luôn sáng cyan + vạch LED dưới chân; vật phẩm bậc càng cao viền càng sáng và đổi màu theo bậc; khóa luôn là xám + ổ khóa.
+
+SẢN PHẨM CẦN GỬI (PNG nền trong suốt, KHÔNG chữ, KHÔNG logo, KHÔNG số – game tự chèn)
+Giữ NGUYÊN tên tệp cũ cho các món hiện có, vẽ lại theo hướng neon LED, ở độ phân giải đúng cỡ dùng: gấp 3 lần kích thước hiển thị (ví dụ nút lớn hiển thị 170×56 → vẽ 510×168).
+1. khung_bang.png – khung nội dung 9-slice: nền kính tối bên trong (không rỗng hoàn toàn), viền LED, 4 góc ngoặc sáng. GHI RÕ lề cố định (px) mỗi cạnh để mình cắt 9-slice; vùng giữa phải đồng nhất.
+2. tab_tieu_de.png – tab nhô ở viền trên khung.
+3. nut_vang / nut_xanh / nut_do_cam (.png) + 3 bản _khoa + THÊM bản _nhan (pressed, tối và lún hơn). Cùng một hình dáng cho cả 7×3 biến thể.
+4. nut_quay_lai.png (+ _nhan), nut_dong (nút X đóng cửa sổ, vuông nhỏ).
+5. tab_thang_tat / tab_thang_bat.png: tab chọn chế độ; bật = sáng cyan, vạch LED dưới chân.
+6. o_vat_pham_xam / luc / lam / tim / vang.png: ô vật phẩm 5 bậc, cùng hình dáng, chỉ đổi màu LED và độ sáng; thêm o_vat_pham_chon.png (đang chọn) và o_vat_pham_trong.png (ô trống / khóa).
+7. do_ai_thuong / hien_tai / boss / khoa.png: đĩa ải; thêm do_ai_hoan_thanh.png (đã vượt, 3 sao). 3 ô sao rỗng/đầy: sao_day.png, sao_rong.png.
+8. thanh_tai_nguyen.png (thanh trên cùng 3 ô chìm), thanh_tien_do.png (khung rỗng) + thanh_tien_do_lap_day.png (phần lấp, căn khớp 100% với khung).
+9. day_co_khi.png → đổi tên day_chan_man.png: dải chân màn hình đặt nút lên, kiểu bảng điều khiển LED.
+10. BỘ ICON ĐƠN SẮC LED (mỗi icon 128×128, nét sáng cyan, nền trong suốt): năng lượng, vàng, kim cương, nhà (sảnh), chiến đấu, phi đội, trang bị, cửa hàng, quà, thư, cài đặt, ổ khóa, dấu tích, cảnh báo, bom, tim (mạng), mũi tên trái/phải. Cùng độ dày nét, cùng bo góc.
+11. bang_mau.png: swatch có mã hex cuối cùng + 1 ảnh BẢNG QUY TẮC ngắn (nút nào dùng khi nào, kích thước chạm tối thiểu 48 px).
+12. (Tùy chọn, rất hữu ích) 3 wireframe/mockup tham khảo khung dọc 390×844: Sảnh, Kho trang bị, Bản đồ ải, dựng từ chính các tệp trên – để mình bố trí đúng ý bạn.
+
+YÊU CẦU CHUNG
+- Thiết kế gốc: không chép hình, icon, chữ hay logo của game cụ thể; nhân vật không cần.
+- Mỗi tệp gửi riêng (không ghép tấm), nền thật sự trong suốt (alpha), lề trống ≥ 4 px quanh viền sáng để không bị cắt bloom.
+- Nếu hai hướng đều hợp lý, hãy chọn một và nói lý do ngắn.
+Cảm ơn bạn!
