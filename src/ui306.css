@@ -88,3 +88,12 @@ html body #cmap#cmap#cmap .cm-node:not(.mini):not(#_a):not(#_b):not(#_c){backgro
 html body #cmap#cmap .cm-node:not(.mini):not(.major){width:56px!important;height:56px!important}
 html body #cmap#cmap .cm-node.cur:not(.mini):not(.major){width:66px!important;height:66px!important;filter:drop-shadow(0 0 8px #ffb62e)}
 html body #cmap#cmap .cm-node:not(.mini) b,html body #cmap#cmap .cm-node:not(.mini) span{font-weight:900}
+/* V306j · ruột đĩa sáng hơn + đĩa boss tròn thay thoi */
+html body #cmap#cmap .cm-node:not(.mini):not(.major){background-image:url(ui306n/do_ai_thuong.png),radial-gradient(circle at 50% 38%,#2f78c8 0,#143a74 55%,#0a1c3d 78%)!important}
+html body #cmap#cmap .cm-node.lock:not(.mini){background-image:url(ui306n/do_ai_khoa.png),radial-gradient(circle at 50% 38%,#3a4d66 0,#1f2d42 60%,#121b2a 80%)!important}
+html body #cmap#cmap .cm-node.done:not(.mini){background-image:url(ui306n/do_ai_hoan_thanh.png),radial-gradient(circle at 50% 38%,#2fa56e 0,#12583c 58%,#0a2c22 80%)!important}
+html body #cmap#cmap .cm-node.cur:not(.mini){background-image:url(ui306n/do_ai_hien_tai.png),radial-gradient(circle at 50% 38%,#ffd66a 0,#e08a10 62%,#8a4a06 82%)!important}
+html body #cmap#cmap .cm-node.mini{width:78px!important;height:78px!important;border-radius:50%!important;transform:translate(-50%,-50%)!important;border:0!important;box-shadow:none!important;background:url(ui306n/do_ai_boss.png) center/100% 100% no-repeat,radial-gradient(circle at 50% 38%,#6a2a1a 0,#2a0e0a 70%)!important}
+html body #cmap#cmap .cm-node.mini>*{transform:none!important}
+html body #cmap#cmap .cm-node.mini canvas{border-radius:50%!important;width:62%!important;height:62%!important;position:absolute;left:19%;top:19%}
+html body #cmap#cmap .cm-node.mini b{transform:none!important;left:50%!important;right:auto!important;bottom:-12px!important;margin-left:-17px!important}
