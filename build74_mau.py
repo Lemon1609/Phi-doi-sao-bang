@@ -920,6 +920,7 @@ def _ui306css(c):
         c=c.replace('url(ui306n/%s)'%os.path.basename(_f),'url(data:image/png;base64,'+base64.b64encode(open(_f,'rb').read()).decode()+')')
     return c
 rep("</body>","<script id=\"bw306\">"+open('src/bw306.js',encoding='utf-8').read()+"</script></body>")
+rep("</body>","<script id=\"uisnd306\">"+open('src/ui_snd306.js',encoding='utf-8').read()+"</script></body>")
 rep("</body>","<script id=\"icon306\">"+open('src/icon306.js',encoding='utf-8').read()+"</script></body>")
 rep("</body>","<style id=\"ui306-css\">"+_ui306css(open('src/ui306.css',encoding='utf-8').read())+"</style></body>")  # V306 giao diện đợt 1
 open('Phi_Doi_Sao_Bang_V74_mau.html','w',encoding='utf-8').write(h);print(round(len(h)/1e6,2),'MB')
