@@ -1,0 +1,32 @@
+Chào Gemini, mình nhờ bạn vẽ tiếp đợt 2 hình đạn VŨ KHÍ PHỤ cho game bắn máy bay dọc "Phi Đội Sao Băng" (cùng bộ với 13 tên lửa + Nguyệt Nhận / Quang Thương / Đồng Hồ Cát bạn đã vẽ — giữ đúng phong cách đó).
+
+QUY CÁCH CHUNG (giống đợt trước)
+- Chỉ trắng / xám / bạc, nền đen tuyền. KHÔNG tô màu (Claude tô màu theo từng món và theo bậc trong game).
+- Mỗi tệp = 2 khung đặt ngang cạnh nhau (khung 1 và khung 2 khác nhau nhẹ để tạo nhịp nhấp nháy / xoay).
+- Đạn hướng mũi LÊN TRÊN, nằm giữa khung, chừa lề ~5 %.
+- Không chữ, không logo, không dấu ✦, không bóng đổ, không viền khung.
+- Nét sạch, chi tiết vừa phải: trong game hình chỉ cao 30–60 px nên cần dáng rõ, đọc được khi nhỏ.
+- Phong cách công nghệ cao / năng lượng (giống đợt trước), không chép hình từ game khác.
+
+6 TỆP CẦN VẼ
+1. vp_luc_lang.png — Pháo Lục Lăng (tỉ lệ khung 1:1)
+   Hạt đạn hình lục giác RỖNG, lõi sáng ở tâm, viền kép mảnh. Khung 2 xoay 30°.
+
+2. vp_cau_trong_luc.png — Cầu Trọng Lực (1:1)
+   Cầu năng lượng trong mờ, tâm sáng nhỏ, 2 cung quỹ đạo elip mảnh quấn quanh (như nguyên tử thu gọn). Khung 2 các cung xoay lệch đi.
+
+3. vp_tinh_the_bang.png — Quang Pháo Hàn Băng (tỉ lệ 1:2, đứng)
+   Mảnh tinh thể băng nhọn hai đầu, mặt cắt nhiều cạnh, vài tinh thể tuyết nhỏ bám đuôi. Khung 2 lóe sáng ở một cạnh.
+
+4. vp_loi_thon_phe.png — Hạt Nhân Thôn Phệ (1:1)
+   Viên cầu LÕI ĐEN (để đen/xám rất tối), viền sáng mảnh bao ngoài, 2–3 vệt năng lượng xoáy hút vào tâm. Khung 2 vệt xoáy xoay tiếp.
+
+5. vp_mui_an_trien.png — Ấn Triện Hư Không, viên đạn (tỉ lệ 3:8, đứng)
+   Tia đạn mảnh thuôn dài, đầu mũi có ký hiệu tam giác nhỏ. Khung 2 đuôi sáng ngắn hơn.
+
+6. vp_an_trien.png — Ấn Triện Hư Không, dấu ấn hiện trên mục tiêu khi trúng (1:1)
+   Ấn TAM GIÁC HỞ: chỉ vẽ 3 góc của tam giác (không nối kín cạnh), vài vạch ký hiệu công nghệ mảnh bên trong. Khung 2 to hơn ~10 % và nhạt hơn (lúc lóe rồi tắt).
+
+KHÔNG CẦN VẼ (Claude vẽ bằng mã): Pháo Điện Từ (tia railgun), Pháo Thái Dương (laser xung), Pháo Chân Trời (tia quét), Pháo Thiên Hoàn (cung năng lượng). Tàu Mẹ Hộ Vệ đã có hình drone từ đợt trước.
+
+Gửi lại 6 ảnh (đặt tên đúng như trên nếu được). Cảm ơn bạn!
