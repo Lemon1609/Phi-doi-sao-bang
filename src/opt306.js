@@ -16,17 +16,21 @@ body.opt306-soft :is(#nav74,#nav74s,#lb68 .cta,.h1-res,.h1-ribbon,.m63-card,#rs,
 #opt306 button{flex:1 1 30%;min-height:34px;padding:4px 6px;font:800 11px/1.15 'Neo',sans-serif;color:#e8f4ff;background:rgba(11,29,51,.85);border:1px solid #3e6f98;border-radius:6px;cursor:pointer}
 #opt306 button[aria-pressed="true"]{border-color:#38d6ff;background:rgba(10,60,90,.9);color:#fff}`;
  document.head.appendChild(st);
- // ---- đạn ta mờ: nhân hệ số vào ctx.globalAlpha chỉ trong lúc vẽ đạn người chơi ----
- let k=1,hooked=false;
+ // ---- đạn ta mờ: bọc các hàm vẽ đạn mà vòng lặp chính gọi sau khi đặt globalAlpha (chỉ đạn trong mảng shots) ----
+ let hooked=false,busy=false;
+ function wrap(obj,name,hasCtx){
+  const o=obj[name];if(typeof o!=='function'||o.__o306)return;
+  const f=function(){
+   if(!O.ally||busy)return o.apply(this,arguments);
+   const s=hasCtx?arguments[1]:arguments[0];
+   if(!s||typeof shots==='undefined'||shots.indexOf(s)<0)return o.apply(this,arguments);
+   busy=true;const a=ctx.globalAlpha;ctx.globalAlpha=a*DIM;
+   try{return o.apply(this,arguments);}finally{ctx.globalAlpha=a;busy=false;}
+  };f.__o306=1;obj[name]=f;
+ }
  function hook(){
-  if(hooked||typeof ctx==='undefined'||typeof drawShot!=='function')return;
-  try{
-   const proto=Object.getPrototypeOf(ctx),d=Object.getOwnPropertyDescriptor(proto,'globalAlpha');if(!d)return;
-   Object.defineProperty(ctx,'globalAlpha',{configurable:true,get(){return d.get.call(ctx)/(k||1);},set(v){d.set.call(ctx,Math.max(0,Math.min(1,v*k)));}});
-   const o=drawShot;
-   window.drawShot=drawShot=function(s){if(!O.ally)return o.apply(this,arguments);k=DIM;try{return o.apply(this,arguments);}finally{k=1;}};
-   hooked=true;
-  }catch(e){}
+  if(hooked)return;
+  try{wrap(Fighters28,'draw',true);wrap(Equipment25,'drawShot',false);wrap(VisualFX,'drawShot',false);hooked=true;}catch(e){}
  }
  function apply(){
   document.body.classList.toggle('opt306-big',!!O.text);document.body.classList.toggle('opt306-soft',!!O.ui);
