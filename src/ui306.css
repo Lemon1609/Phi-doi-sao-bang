@@ -139,3 +139,10 @@ html body #overlay #dock-return:active:not(#_u79):not(#_u79):not(#_u79):not(#_u7
 #rs .rs306-stars i.on{background-image:url(ui306n/sao_day.png);filter:drop-shadow(0 0 8px #ffb62e);animation:ui306star .5s cubic-bezier(.2,.9,.3,1.3) both;animation-delay:var(--d,.4s)}
 html body #rs .summary392 b{font-size:11px;letter-spacing:1px;opacity:.85}
 @media (prefers-reduced-motion:reduce){#rs .rs306-stars i.on{animation:none}}
+/* V306n · nút nhân đôi hợp kim */
+#rs #rs306-x2{display:flex;flex-direction:column;align-items:center;gap:2px;margin:8px auto 4px;min-width:250px;padding:10px 22px;border:0;border-radius:0;background:url(ui306n/nut_xanh.png) center/100% 100% no-repeat;color:#fff;cursor:pointer;text-shadow:0 2px 3px #00204a,0 0 8px #000a}
+#rs #rs306-x2 b{font:900 14px/1.1 'Neo',sans-serif;letter-spacing:1px}
+#rs #rs306-x2 small{font:700 11px/1.2 'Neo',sans-serif;color:#cfeaff}
+#rs #rs306-x2:active{background-image:url(ui306n/nut_xanh_nhan.png)}
+#rs #rs306-x2:disabled{background-image:url(ui306n/nut_xanh_khoa.png);cursor:default}
+#rs #rs306-x2.done{background-image:url(ui306n/nut_vang.png)}

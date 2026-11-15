@@ -1,0 +1,23 @@
+Chào Gemini / GPT. Mình nhờ bạn đóng vai GAME DESIGNER + PRODUCER rà soát game bắn máy bay dọc "Phi Đội Sao Băng" (HTML5 + APK, khung 390×844, chơi một tay) và đề xuất cải tiến CHỨC NĂNG, CƠ CHẾ, TÍNH NĂNG. Giao diện đang chuyển sang phong cách neon LED (không cần góp ý phần vẽ lần này).
+
+HIỆN CÓ (tóm tắt)
+- Chiến dịch 160 ải / 8 chương, boss mỗi 5 ải, 3 sao/ải (qua ải; còn ≥ x% máu theo chương; mục tiêu thứ 3 xoay vòng: không dùng bom / lách đạn / hạ tinh anh / kích Bạo Tẩu / hạ boss trong thời gian).
+- 13 chiến cơ, cánh bung 6 bậc (Bạo Tẩu), trang bị 5 bậc màu, hợp thể SSS, đá khảm, rương, vô tận (kỷ lục theo đợt), phó bản, thử thách ngày 10 luật xoay vòng, điểm danh 7 ngày, thẻ tháng, thể lực (tối đa 120, hồi 1/5 phút), càn quét.
+- Tiền tệ: hợp kim, vật liệu, kim cương (KHÔNG có nguồn kim cương mới), thể lực. Không tiền thật, không quảng cáo.
+- Vừa thêm: cảnh báo boss, âm giao diện, băng 3 sao màn kết quả, và NÚT "NHÂN ĐÔI HỢP KIM" ở màn kết quả.
+
+CÂU 1 · RÀ SỐ CHO "NHÂN ĐÔI HỢP KIM" (cần trả lời cụ thể)
+- Hiện chốt tạm: trả 4 thể lực, tối đa 3 lượt/ngày, trần +3000 hợp kim mỗi lần, chỉ nhân hợp kim nhận được trong chuyến bay (không nhân kim cương, vật phẩm).
+- Hỏi: chi phí (thể lực hay hợp kim?), số lượt/ngày, trần có hợp lý không; có gây lạm phát hợp kim không (một ải thường cho khoảng 48 hợp kim, +100 lần đầu); nên nhân cả vật liệu không; có nên khóa ở chương nào đó.
+
+CÂU 2 · ĐỀ XUẤT TÍNH NĂNG / CƠ CHẾ (tối đa 8 mục, xếp hạng)
+Mỗi mục ghi: (a) tên; (b) vấn đề người chơi nó giải quyết; (c) cơ chế cụ thể + số liệu; (d) tác động kinh tế (có tạo nguồn kim cương/hợp kim mới không); (e) độ khó làm (S/M/L); (f) rủi ro. Ưu tiên: giữ chân người chơi 7/30 ngày đầu, cảm giác tiến bộ, đa dạng trận, mục tiêu ngắn hạn.
+Gợi ý chủ đề (không bắt buộc): nhiệm vụ ngày/tuần, thành tựu, sự kiện xoay vòng, chế độ boss rush, xếp hạng bạn bè/ngày (cục bộ), bộ sưu tập chiến cơ, hướng dẫn người mới, cân bằng độ khó động (hỗ trợ khi thua nhiều lần), tính năng truy cập (chế độ màu, cỡ chữ, giảm hiệu ứng).
+
+RÀNG BUỘC KHÓA
+- Không tiền thật, không quảng cáo, không thêm nguồn kim cương mới.
+- Tăng số đạn theo bậc giữ nguyên tổng sát thương trừ khi chủ dự án quyết khác.
+- Chỉ học bố cục/cách làm từ game gốc, không chép tàu, icon, chữ, đạn cụ thể.
+- Nhân vật nữ chiến giáp ở mức game mobile phổ thông.
+
+ĐỊNH DẠNG TRẢ LỜI: bảng ngắn cho câu 1; danh sách xếp hạng cho câu 2; cuối cùng 3 việc nên làm TRƯỚC TIÊN và vì sao. Nói rõ chỗ nào là suy đoán.
