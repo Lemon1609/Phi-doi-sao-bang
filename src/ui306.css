@@ -151,3 +151,15 @@ html body #rs .summary392 b{font-size:11px;letter-spacing:1px;opacity:.85}
 #cm-sheet .c306-stars i{width:24px;height:22px;background:url(ui306n/sao_rong.png) center/contain no-repeat;opacity:.9}
 #cm-sheet .c306-stars i:nth-child(2){width:28px;height:26px}
 #cm-sheet .c306-stars i.on{background-image:url(ui306n/sao_day.png);filter:drop-shadow(0 0 5px #ffb62e)}
+/* V306s · hàng 3 ô thưởng màn kết quả */
+#rs .rw306{display:flex;justify-content:center;gap:10px;margin:8px 0 4px}
+#rs .rw306-c{display:flex;flex-direction:column;align-items:center;width:84px}
+#rs .rw306-s{position:relative;display:block;width:64px;height:64px;background:center/100% 100% no-repeat}
+#rs .rw306-s.o_vat_pham_lam{background-image:url(ui306n/o_vat_pham_lam.png)}
+#rs .rw306-s.o_vat_pham_tim{background-image:url(ui306n/o_vat_pham_tim.png)}
+#rs .rw306-s.o_vat_pham_vang{background-image:url(ui306n/o_vat_pham_vang.png)}
+#rs .rw306-s i{position:absolute;inset:14px;background:center/contain no-repeat;filter:drop-shadow(0 0 5px #7fe9ff)}
+#rs .rw306-s i.vang{background-image:url(ui306n/vang.png)}#rs .rw306-s i.trang_bi{background-image:url(ui306n/trang_bi.png)}#rs .rw306-s i.qua{background-image:url(ui306n/qua.png)}
+#rs .rw306-c b{margin-top:2px;font:900 17px/1.1 'Neo',sans-serif;color:#fff;text-shadow:0 0 8px #38d6ff}
+#rs .rw306-c small{font:800 9.5px/1.2 'Neo',sans-serif;color:#9fc2dc;letter-spacing:.04em}
+#rs .rw306-c.zero{opacity:.45;filter:grayscale(.6)}
