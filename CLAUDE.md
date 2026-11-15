@@ -37,6 +37,9 @@ Luật phong cách chi tiết + nhật ký quyết định: `docs_claude/CHUAN_P
 - Thân tàu: `claude_tools/tau_v241.py`.
 - Chỉ lưu ảnh gốc của bản ĐÃ CHỐT vào `src/ship118_cho/V<số>_*` (lượt bị loại không lưu); ghi quyết định vào `CHUAN_PHONG_CACH_DA_CHOT.md`.
 
-## Trạng thái (14/11/2026)
+## Trạng thái (16/11/2026)
 - Bản phát hành gần nhất: web + APK **V233** (chưa xuất bản gì sau đó).
 - Bản thử: cánh bung mới đủ 13 tàu (V293); đạn mới 13 tàu (V299–V302) + cơ chế thật tàu 3/4/9/12 (V303); hình đạn trang bị mới cho 13 tên lửa + 3 vũ khí phụ (V304). Còn 10 vũ khí phụ dùng hình cũ.
+- Giao diện neon (V305–V306t, chưa xuất bản): bộ ảnh `src/ui306n/` + `src/ui306.css`, ghi đè CSS cũ bằng id lặp (`#cmap#cmap#cmap`) hoặc ≥26 `:not(#_u79)`. Mô-đun JS nhỏ chèn trước dòng `ui306-css` trong `build74_mau.py`: `icon306` (emoji→biểu tượng), `bw306` (cảnh báo boss, chỉ boss), `uisnd306` (âm thanh UI CC0 Kenney, `docs_claude/giay_phep/`), `stars306` (băng 3 sao kết quả), `x2_306` (nhân đôi hợp kim: trần 1500, 3 lượt/ngày, −4 thể lực, mở sau ải 5; nhật ký đo `saobang-x2log306`), `opt306` (tùy chọn ĐẠN TA mờ / CHỮ lớn / GIAO DIỆN dịu, khóa `saobang-opt306`, đạn mờ bọc `Fighters28.draw`/`Equipment25.drawShot`/`VisualFX.drawShot` chỉ cho đạn trong `shots`), `card306` (3 sao thẻ ải), `reward306` (3 ô thưởng kết quả: runCredits/runItems/runChests), `tier306` (khung ô trang bị theo bậc qua `--u15-fq`).
+- Bố cục màn hình học theo game gốc (chủ dự án chốt 15/11); ba tùy chọn thị giác là thiết kế riêng. Chưa nối khung neon: hộp thoại `adv69/pl67/tr67/sk69`, thanh tiến độ, phần còn lại bộ biểu tượng.
+- t209 mục "Đang Bạo Tẩu: phá chướng ngại +0,7 s" hay trượt lượt đầu (đo 16/11: V306m 1/4, V306q 2/4 trượt; chưa rõ nguyên nhân). Cách chụp màn kết quả: campaign → `end(true)`, ẩn `lk90/cmap/nav74/.m63/#super-buff`.
