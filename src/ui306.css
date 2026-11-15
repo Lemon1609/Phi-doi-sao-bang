@@ -1,0 +1,14 @@
+/* V306 · Giao diện đợt 1: khung chung học bố cục từ video mẫu (thanh tài nguyên một dải, dải icon gọn, tab tiêu đề nhô, đáy cơ khí). Chỉ CSS, không tranh ngoài. */
+html body #hgr41#hgr41#hgr41 .h1-res{gap:0!important;padding:0 4px!important;border-radius:6px!important;border:1px solid #5a7898!important;background:linear-gradient(#1a2a40,#0a1424 60%,#101c30)!important;box-shadow:inset 0 1px 0 #ffffff40,inset 0 -2px 0 #00000080,0 2px 6px #000a!important;height:30px!important;align-items:center!important}
+html body #hgr41#hgr41#hgr41 .h1-res .h1-chip{background:none!important;border:0!important;border-image:none!important;border-radius:0!important;box-shadow:none!important;height:26px!important;min-height:0!important;position:relative}
+html body #hgr41#hgr41#hgr41 .h1-res .h1-chip+.h1-chip::before{content:"";position:absolute;left:0;top:5px;bottom:5px;width:1px;background:linear-gradient(transparent,#6aa4d8aa,transparent)}
+html body #hgr41#hgr41#hgr41 .h1-res .h1-chip b{color:#ffe9a0!important;font-size:12px!important;text-shadow:0 1px 0 #000}
+html body #hgr41#hgr41#hgr41 .h1-ribbon{gap:5px!important;height:46px!important;min-height:0!important}
+html body #hgr41#hgr41#hgr41 .h1-ribbon .h1-ic{height:46px!important;min-height:0!important;padding:2px 0!important;border-radius:6px!important;border:1px solid #9fdcff!important;border-image:none!important;flex-direction:column!important;gap:0!important;justify-content:center!important;background:linear-gradient(#3aa0ff,#1456c0 55%,#0b3c92)!important;box-shadow:inset 0 1px 0 #ffffffaa,inset 0 -2px 0 #05245a,0 2px 0 #031634!important;font-size:10px!important}
+html body #hgr41#hgr41#hgr41 .h1-ribbon .h1-ic img.ic74{height:24px!important;width:auto!important;max-width:60%!important;margin:0!important}
+html body #hgr41#hgr41#hgr41 .h1-ribbon .h1-ic span,html body #hgr41#hgr41#hgr41 .h1-ribbon .h1-ic small{font-size:10px!important;line-height:1.1!important;margin:0!important;position:static!important}
+html body #hgr41#hgr41#hgr41 .h1-ribbon .h1-ic.lk{filter:grayscale(.6) brightness(.8)}
+html body #hgr41#hgr41#hgr41 .h1-stage{position:relative}
+html body #hgr41#hgr41#hgr41 .h1-stage::before{content:"XƯỞNG";position:absolute;z-index:6;top:0;left:50%;transform:translateX(-50%);padding:3px 22px;font:900 11px/1 'Neo','Be Vietnam Pro',sans-serif;letter-spacing:2px;color:#e6f4ff;text-shadow:0 1px 0 #000;background:linear-gradient(#34506e,#16263c);border:1px solid #9fb6cc;border-radius:0 0 8px 8px;clip-path:polygon(0 0,100% 0,calc(100% - 8px) 100%,8px 100%);box-shadow:0 2px 4px #000a;pointer-events:none}
+html body #nav74{background:linear-gradient(#3a4a60,#1a2536 12%,#0c1422 40%,#060b14)!important;border-top:2px solid #8aa2bc!important;box-shadow:0 -3px 8px #000b,inset 0 1px 0 #ffffff55!important}
+html body #lb68 .cta{filter:drop-shadow(0 3px 0 #000a)}
