@@ -97,3 +97,7 @@ html body #cmap#cmap .cm-node.mini{width:78px!important;height:78px!important;bo
 html body #cmap#cmap .cm-node.mini>*{transform:none!important}
 html body #cmap#cmap .cm-node.mini canvas{border-radius:50%!important;width:62%!important;height:62%!important;position:absolute;left:19%;top:19%}
 html body #cmap#cmap .cm-node.mini b{transform:none!important;left:50%!important;right:auto!important;bottom:-12px!important;margin-left:-17px!important}
+/* V306k · nút Xuất kích trong thẻ ải theo neon */
+html body #cmap#cmap .cm-sheet .cm-go:not(#_a):not(#_b):not(#_c):not(#_d){background:url(ui306n/nut_vang.png) center/100% 100% no-repeat!important;border:0!important;border-radius:0!important;box-shadow:none!important;min-height:52px;color:#fff!important;-webkit-text-fill-color:#fff!important;text-shadow:0 2px 3px #5a3600,0 0 8px #000a!important}
+html body #cmap#cmap .cm-sheet .cm-go:active:not(#_a):not(#_b):not(#_c):not(#_d){background-image:url(ui306n/nut_vang_nhan.png)!important}
+html body #cmap#cmap .cm-sheet .cm-go:disabled:not(#_a):not(#_b):not(#_c):not(#_d){background-image:url(ui306n/nut_vang_khoa.png)!important;filter:none!important;opacity:1!important}
