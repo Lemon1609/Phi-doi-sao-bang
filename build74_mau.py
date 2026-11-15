@@ -924,6 +924,7 @@ rep("</body>","<script id=\"uisnd306\">"+open('src/ui_snd306.js',encoding='utf-8
 rep("</body>","<script id=\"stars306\">"+open('src/stars306.js',encoding='utf-8').read()+"</script></body>")
 rep("</body>","<script id=\"x2-306\">"+open('src/x2_306.js',encoding='utf-8').read()+"</script></body>")
 rep("</body>","<script id=\"icon306\">"+open('src/icon306.js',encoding='utf-8').read()+"</script></body>")
+rep("</body>","<script id=\"bar306\">"+open('src/bar306.js',encoding='utf-8').read()+"</script></body>")
 rep("</body>","<script id=\"tier306\">"+open('src/tier306.js',encoding='utf-8').read()+"</script></body>")
 rep("</body>","<script id=\"reward306\">"+open('src/reward306.js',encoding='utf-8').read()+"</script></body>")
 rep("</body>","<script id=\"card306\">"+open('src/card306.js',encoding='utf-8').read()+"</script></body>")

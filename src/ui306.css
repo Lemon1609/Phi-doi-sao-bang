@@ -172,3 +172,8 @@ html body #hub40#hub40 .hb-it[data-t306=vang]{--u15-fq:url(ui306n/o_vat_pham_van
 html body #hub40#hub40 .hb-it[data-t306]::after{z-index:0!important}
 html body #hub40#hub40 .hb-it[data-t306] .gear25-art{z-index:1}
 html body #hub40#hub40 .hb-it[data-t306] :is(.lv,.eq,.hb-dot){z-index:3}
+/* V306u · thanh chỉ số neon */
+html body .hb-bar:not(#_a):not(#_b):not(#_c){height:14px;background:url(ui306n/thanh_tien_do.png) center/100% 100% no-repeat!important;overflow:visible!important;border:0!important}
+html body .hb-bar:not(#_a):not(#_b):not(#_c)>i{opacity:0}
+html body .hb-bar:not(#_a):not(#_b):not(#_c)::after{content:'';position:absolute;inset:0;background:url(ui306n/thanh_tien_do_lap_day.png) center/100% 100% no-repeat;clip-path:inset(0 calc(100% - var(--p,0%)) 0 0);pointer-events:none}
+html body .hb-bar:not(#_a):not(#_b):not(#_c)>em{z-index:2;top:3px;bottom:3px}
