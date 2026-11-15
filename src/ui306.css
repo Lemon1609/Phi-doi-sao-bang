@@ -146,3 +146,8 @@ html body #rs .summary392 b{font-size:11px;letter-spacing:1px;opacity:.85}
 #rs #rs306-x2:active{background-image:url(ui306n/nut_xanh_nhan.png)}
 #rs #rs306-x2:disabled{background-image:url(ui306n/nut_xanh_khoa.png);cursor:default}
 #rs #rs306-x2.done{background-image:url(ui306n/nut_vang.png)}
+/* V306r · hàng 3 sao trong thẻ chạm ải */
+#cm-sheet .c306-stars{display:inline-flex;gap:4px;align-items:flex-end}
+#cm-sheet .c306-stars i{width:24px;height:22px;background:url(ui306n/sao_rong.png) center/contain no-repeat;opacity:.9}
+#cm-sheet .c306-stars i:nth-child(2){width:28px;height:26px}
+#cm-sheet .c306-stars i.on{background-image:url(ui306n/sao_day.png);filter:drop-shadow(0 0 5px #ffb62e)}
