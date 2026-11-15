@@ -56,3 +56,13 @@ html body #hgr41#hgr41#hgr41 .h1-res .h1-chip+.h1-chip::before{display:none}
 html body #hgr41#hgr41#hgr41 .h1-stage::before{background:url(ui306n/tab_tieu_de.png) center/100% 100% no-repeat!important;padding:6px 28px 12px!important}
 html body #nav74#nav74 button{clip-path:none!important;background:url(ui306n/tab_thang_tat.png) center/100% 100% no-repeat!important;box-shadow:none!important}
 html body #nav74#nav74 button.on{background:url(ui306n/tab_thang_bat.png) center/100% 100% no-repeat!important;box-shadow:none!important}
+/* V306g · nút NEON LED (Gemini, đợt 2): hai nút chế độ + dải 3 nút sảnh; chữ trắng trên nền kính màu */
+html body #lb68#lb68 .cta::before{background-size:100% 100%!important;filter:none!important}
+html body #lb68#lb68 .cta.e::before{background-image:url(ui306n/nut_do_cam.png)!important}
+html body #lb68#lb68 .cta.c::before{background-image:url(ui306n/nut_vang.png)!important}
+html body #lb68#lb68 .cta.lk66::before{background-image:url(ui306n/nut_do_cam_khoa.png)!important}
+html body #lb68#lb68 .cta.c b,html body #lb68#lb68 .cta.c small{-webkit-text-fill-color:#fff!important;color:#fff!important;text-shadow:0 2px 3px #5a3600,0 0 8px #000a!important}
+html body #lb68#lb68 .cta.e b,html body #lb68#lb68 .cta.e small{-webkit-text-fill-color:#fff!important;text-shadow:0 2px 3px #3a0600,0 0 8px #000a!important}
+html body #lb68#lb68 .cta:active::before{filter:brightness(.8)!important;transform:translateY(2px)}
+html body #hgr41#hgr41#hgr41 .h1-ribbon .h1-ic{background:url(ui306n/nut_xanh.png) center/100% 100% no-repeat!important;border:0!important;border-image:none!important;box-shadow:none!important;padding:4px 10px!important}
+html body #hgr41#hgr41#hgr41 .h1-ribbon .h1-ic.lk{background-image:url(ui306n/nut_xanh_khoa.png)!important;filter:none!important}
