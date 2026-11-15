@@ -12,3 +12,23 @@ html body #hgr41#hgr41#hgr41 .h1-stage{position:relative}
 html body #hgr41#hgr41#hgr41 .h1-stage::before{content:"XƯỞNG";position:absolute;z-index:6;top:0;left:50%;transform:translateX(-50%);padding:3px 22px;font:900 11px/1 'Neo','Be Vietnam Pro',sans-serif;letter-spacing:2px;color:#e6f4ff;text-shadow:0 1px 0 #000;background:linear-gradient(#34506e,#16263c);border:1px solid #9fb6cc;border-radius:0 0 8px 8px;clip-path:polygon(0 0,100% 0,calc(100% - 8px) 100%,8px 100%);box-shadow:0 2px 4px #000a;pointer-events:none}
 html body #nav74{background:linear-gradient(#3a4a60,#1a2536 12%,#0c1422 40%,#060b14)!important;border-top:2px solid #8aa2bc!important;box-shadow:0 -3px 8px #000b,inset 0 1px 0 #ffffff55!important}
 html body #lb68 .cta{filter:drop-shadow(0 3px 0 #000a)}
+/* 1b · hai nút chế độ vát chéo (trái đỏ cam = Vô Tận, phải vàng = Xuất Kích) trên đáy cơ khí */
+html body #lb68#lb68 .lb68-cta{gap:4px!important;padding:0 2px!important}
+html body #lb68#lb68 .cta{background:none!important;border:0!important;border-image:none!important;box-shadow:none!important;filter:none!important;min-height:64px!important;position:relative;overflow:visible!important;clip-path:none!important}
+html body #lb68#lb68 .cta::before{content:"";position:absolute;inset:0;z-index:0;border:2px solid #ffffffcc;box-shadow:inset 0 3px 0 #ffffffaa,inset 0 -5px 0 #0004,0 4px 0 #000b;clip-path:polygon(16px 0,100% 0,calc(100% - 16px) 100%,0 100%);border-radius:0}
+html body #lb68#lb68 .cta.e::before{background:linear-gradient(#ffb15c,#f2551f 52%,#b01c0c);}
+html body #lb68#lb68 .cta.c::before{background:linear-gradient(#fff4a8,#ffc83c 50%,#e8830a);clip-path:polygon(0 0,calc(100% - 16px) 0,100% 100%,16px 100%)}
+html body #lb68#lb68 .cta>*{position:relative;z-index:1}
+html body #lb68#lb68 .cta b{font:900 21px/1 'Neo','Be Vietnam Pro',sans-serif!important;font-style:italic;letter-spacing:1px!important;filter:none!important}
+html body #lb68#lb68 .cta.e b,html body #lb68#lb68 .cta.e small{color:#fff!important;text-shadow:0 2px 0 #7a1000,0 0 8px #ff6a2a!important;filter:none!important}
+html body #lb68#lb68 .cta.c b,html body #lb68#lb68 .cta.c small{color:#4a2000!important;text-shadow:0 1px 0 #fff6c0!important}
+html body #lb68#lb68 .cta.lk66::before,html body #lb68#lb68 .cta.lk66{filter:grayscale(.75) brightness(.8)}
+html body #lb68#lb68 .cta:active::before{filter:brightness(.88);transform:translateY(2px)}
+/* tab đáy: hình thang, tab đang chọn sáng viền vàng */
+html body #nav74#nav74{gap:3px!important;padding:5px 4px 0!important}
+html body #nav74#nav74 button{background:linear-gradient(#22344f,#0d1828)!important;clip-path:polygon(10px 0,calc(100% - 10px) 0,100% 100%,0 100%)!important;box-shadow:inset 0 1px 0 #9fb6cc!important}
+html body #nav74#nav74 button.on{background:linear-gradient(#58b6ff,#1766d0 55%,#0b3c92)!important;box-shadow:inset 0 2px 0 #fff,inset 0 -2px 0 #05245a!important}
+html body #nav74#nav74 button.on::before{left:12%;right:12%;top:1px;height:2px}
+html body #lb68#lb68 .cta.c b,html body #lb68#lb68 .cta.c small{-webkit-text-fill-color:#4a2000!important;color:#4a2000!important}
+html body #lb68#lb68 .cta.e b,html body #lb68#lb68 .cta.e small{-webkit-text-fill-color:#fff!important}
+html body #lb68#lb68 .cta.lk66 b,html body #lb68#lb68 .cta.lk66 small{-webkit-text-fill-color:#e8e8e8!important;color:#e8e8e8!important}
