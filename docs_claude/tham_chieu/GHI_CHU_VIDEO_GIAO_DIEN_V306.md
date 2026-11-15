@@ -14,3 +14,11 @@ Video: 87721 (sảnh, chiến lệnh, thư viện, cửa hàng, bản đồ), 87
 - Quét ải: danh sách ải kèm 3 sao, số lượt hôm nay, nút vàng có giá.
 ## Bản đồ / chọn ải
 - Đường nối chấm; nút ải đĩa phát sáng kèm 3 sao; hộp thưởng mục tiêu; hai nút Boss / Sự kiện ngang ở đáy.
+
+## Video 87934 (15/11/2026) · chỉ ghi bố cục, không chép hình/chữ
+- Bản đồ ải: đĩa tròn phát sáng nối bằng đường chấm sáng; ải boss dùng đĩa đỏ có đầu lâu; 3 sao nhỏ ngay dưới mỗi đĩa; ải sắp mở mờ đi.
+- Chạm ải: thẻ nổi ở giữa gồm tiêu đề + 3 sao, sức mạnh đề nghị, thể lực tiêu hao, số lượt còn lại hôm nay, vật phẩm rơi đặc biệt, mô tả ngắn, một nút vàng lớn "xuất kích" và một nút phụ nhỏ.
+- Màn nạp: hình HUD tròn xoay + một câu mẹo.
+- Trong trận: thanh trên rất mảnh (tạm dừng, điểm, thanh máu mảnh vàng), nút bom tròn có số ở góc trái dưới, chữ nổi nhỏ khi nhặt thưởng.
+- Cảnh báo boss: dải đỏ ngang kèm tên và cấp boss, thanh máu boss mảnh ở trên cùng.
+- Màn kết quả: băng 3 sao to ở trên, điểm số rất lớn, vàng nhận được, hàng 3 ô vật phẩm thưởng, số lượt còn lại, hai nút cuối: vàng "tiếp tục" và xanh "nhân đôi thưởng".
