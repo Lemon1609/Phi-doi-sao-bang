@@ -1,0 +1,30 @@
+Chào bạn, mình nhờ bạn thiết kế BỘ GIAO DIỆN (UI kit) mới cho game bắn máy bay dọc "Phi Đội Sao Băng" (chạy trên điện thoại, khung dọc 390×844). Mục tiêu: giao diện "game mobile sci-fi cao cấp" — khung kim loại cơ khí, nút bóng có chiều sâu, ánh neon — bố cục học theo các game bắn máy bay kiểu cổ điển nhưng KHÔNG chép bất kỳ hình, biểu tượng, chữ hay logo nào của game cụ thể. Mọi thứ phải là thiết kế gốc.
+
+PHỐI MÀU (đề xuất, bạn có thể chỉnh cho hài hòa hơn, nhưng giữ vai trò từng màu)
+- Nền tối: xanh navy #0A1630 → #0D1D33
+- Kim loại viền: xám thép sáng #9FB6CC, bóng đáy #2A3A50
+- Xanh chủ đạo (nút phụ, tab đang chọn): #58B6FF → #1766D0 → #0B3C92
+- Vàng (nút chính / xuất kích / nhận thưởng): #FFF4A8 → #FFC83C → #E8830A
+- Đỏ cam (chế độ vô tận / cảnh báo): #FFB15C → #F2551F → #B01C0C
+- Tím (trang bị bậc cao): #B46BFF; Lục (bậc thường): #5BE08A
+- Chữ sáng #E6F4FF, chữ phụ #8FB4D8, số liệu quý #FFE9A0
+
+CÁC TỆP CẦN VẼ (PNG nền TRONG SUỐT, không chữ, không logo; có sẵn ô co giãn kiểu 9-slice nếu là khung)
+1. khung_bang.png — khung nội dung lớn 600×800: góc kim loại cơ khí rõ, cạnh thẳng đơn giản (để co giãn), bên trong rỗng/trong suốt. Ghi rõ lề cố định 56 px mỗi cạnh.
+2. tab_tieu_de.png — tab tiêu đề nhô ở giữa viền trên khung, 280×64, hình thang, không chữ.
+3. nut_vang.png, nut_xanh.png, nut_do_cam.png — nút lớn 480×128, hình bình hành vát chéo hai đầu, bóng 3D (vệt sáng trên, đáy tối), không chữ. Mỗi màu thêm bản "tối/khóa" (xám) cùng kích thước.
+4. nut_quay_lai.png — nút nhỏ vát chéo 220×96, xanh, có sẵn mũi tên quay lại (không chữ).
+5. tab_thang_tat.png / tab_thang_bat.png — tab hình thang 240×84 (tắt = tối, bật = xanh sáng viền vàng mảnh).
+6. do_ai_thuong.png, do_ai_hien_tai.png, do_ai_boss.png, do_ai_khoa.png — nút ải trên bản đồ: đĩa phát sáng 160×160 có chỗ cho số ở giữa và 3 ô sao phía dưới (vẽ sẵn 3 ô sao rỗng); biến thể boss có biểu tượng đầu lâu cách điệu riêng của bạn; hiện tại thì có vầng sáng; khóa thì xám mờ.
+7. o_vat_pham_xam/luc/lam/tim/vang.png — ô vật phẩm vuông 256×256, 5 bậc màu viền, nền tối, góc cắt vát nhẹ, chỗ cho sao ở trên và cấp ở dưới (không vẽ số).
+8. thanh_tai_nguyen.png — thanh ngang 1000×110, kim loại, 3 ô chìm (năng lượng, vàng, kim cương) có vạch ngăn, không biểu tượng bên trong.
+9. thanh_tien_do.png — thanh tiến trình rỗng 600×40 + phần lấp đầy riêng (xanh phát sáng) 600×40.
+10. day_co_khi.png — dải khung cơ khí chân màn hình 1170×260: bên dưới nút bấm, có đường ống / bulong / rãnh, để đặt nút lên.
+
+YÊU CẦU CHUNG
+- Phong cách thống nhất, cùng nguồn sáng (từ trên), cùng độ dày viền.
+- Đọc rõ khi thu nhỏ 50%.
+- Không chữ (game tự chèn tiếng Việt), không nhân vật, không chép game khác.
+- Nếu bạn đề xuất bảng màu khác, gửi kèm 1 ảnh bảng màu (swatch) có mã hex.
+
+Gửi lại tệp đặt tên đúng như trên nếu được. Cảm ơn bạn!
