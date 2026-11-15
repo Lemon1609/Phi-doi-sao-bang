@@ -101,3 +101,17 @@ html body #cmap#cmap .cm-node.mini b{transform:none!important;left:50%!important
 html body #cmap#cmap .cm-sheet .cm-go:not(#_a):not(#_b):not(#_c):not(#_d){background:url(ui306n/nut_vang.png) center/100% 100% no-repeat!important;border:0!important;border-radius:0!important;box-shadow:none!important;min-height:52px;color:#fff!important;-webkit-text-fill-color:#fff!important;text-shadow:0 2px 3px #5a3600,0 0 8px #000a!important}
 html body #cmap#cmap .cm-sheet .cm-go:active:not(#_a):not(#_b):not(#_c):not(#_d){background-image:url(ui306n/nut_vang_nhan.png)!important}
 html body #cmap#cmap .cm-sheet .cm-go:disabled:not(#_a):not(#_b):not(#_c):not(#_d){background-image:url(ui306n/nut_vang_khoa.png)!important;filter:none!important;opacity:1!important}
+/* V306k · icon LED thay emoji trong thẻ ải / hộp thoại */
+.ic306{display:inline-block;width:1.4em;height:1.4em;filter:drop-shadow(0 0 3px #38d6ff);vertical-align:-.28em;background-size:contain;background-repeat:no-repeat;background-position:center;margin:0 .1em}
+.ic306-nl{background-image:url(ui306n/nang_luong.png)}.ic306-khoa{background-image:url(ui306n/o_khoa.png)}.ic306-qua{background-image:url(ui306n/qua.png)}
+.ic306-kc{background-image:url(ui306n/kim_cuong.png)}.ic306-bom{background-image:url(ui306n/bom.png)}.ic306-cb{background-image:url(ui306n/canh_bao.png)}.ic306-tich{background-image:url(ui306n/dau_tich.png)}
+/* V306k · phản hồi chạm: nút lún nhẹ + sáng */
+html body :is(#nav74 button,.h1-ic,#lb68 .cta,.hb-it,#hub40 .hb-filter button,#nav74s .n74s button,.m63 .m63-go){transition:transform .08s ease,filter .08s ease}
+html body :is(#nav74 button,.h1-ic,.hb-it,#hub40 .hb-filter button,#nav74s .n74s button):active{transform:scale(.96);filter:brightness(1.25)}
+/* V306k · ải hiện tại bung ra khi hiện + màn kết quả nảy điểm */
+@keyframes ui306pop{0%{transform:translate(-50%,-50%) scale(.6);opacity:0}60%{transform:translate(-50%,-50%) scale(1.12);opacity:1}100%{transform:translate(-50%,-50%) scale(1)}}
+@keyframes ui306score{0%{transform:scale(.7);opacity:0}55%{transform:scale(1.15);opacity:1}100%{transform:scale(1)}}
+@keyframes ui306slide{0%{transform:translateY(-14px);opacity:0}100%{transform:none;opacity:1}}
+html body #overlay.rs-on #rs .rs-score{animation:ui306score .7s cubic-bezier(.2,.9,.3,1.2) both .15s}
+html body #overlay.rs-on #rs .rs-rib{animation:ui306slide .4s ease-out both}
+@media (prefers-reduced-motion:reduce){html body #overlay.rs-on #rs .rs-score,html body #overlay.rs-on #rs .rs-rib{animation:none}}
