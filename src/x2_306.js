@@ -25,6 +25,7 @@
    let ok=false;try{ok=V75.useEn(CFG.cost);}catch{}
    if(!ok){say('THIẾU THỂ LỰC · cần '+CFG.cost+' để nhân đôi');return;}
    Progress.grantCredits(base);s.n++;save(s);doneAt=runCredits|0;
+   try{const k='saobang-x2log306',L=JSON.parse(localStorage.getItem(k)||'[]');L.push({t:Date.now(),lv:(typeof level!=='undefined'?level:null),base,bonus:base,uses:s.n,en:CFG.cost});localStorage.setItem(k,JSON.stringify(L.slice(-200)));}catch{}
    b.disabled=true;b.classList.add('done');b.innerHTML='<b>ĐÃ NHÂN ĐÔI ✓</b><small>+'+base+' hợp kim · còn '+(CFG.limit-s.n)+'/'+CFG.limit+' lượt hôm nay</small>';
    say('+'+base+' HỢP KIM (nhân đôi)');
   });
