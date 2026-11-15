@@ -131,3 +131,11 @@ html body #overlay #start:not(#_u79):not(#_u79):not(#_u79):not(#_u79):not(#_u79)
 html body #overlay #start:active:not(#_u79):not(#_u79):not(#_u79):not(#_u79):not(#_u79):not(#_u79):not(#_u79):not(#_u79):not(#_u79):not(#_u79):not(#_u79):not(#_u79):not(#_u79):not(#_u79):not(#_u79):not(#_u79):not(#_u79):not(#_u79):not(#_u79):not(#_u79):not(#_u79):not(#_u79):not(#_u79):not(#_u79):not(#_u79):not(#_u79){background-image:url(ui306n/nut_vang_nhan.png)!important}
 html body #overlay #dock-return:not(#_u79):not(#_u79):not(#_u79):not(#_u79):not(#_u79):not(#_u79):not(#_u79):not(#_u79):not(#_u79):not(#_u79):not(#_u79):not(#_u79):not(#_u79):not(#_u79):not(#_u79):not(#_u79):not(#_u79):not(#_u79):not(#_u79):not(#_u79):not(#_u79):not(#_u79):not(#_u79):not(#_u79):not(#_u79):not(#_u79){background:url(ui306n/nut_xanh.png) center/100% 100% no-repeat!important;border:0!important;border-image:none!important;border-radius:0!important;box-shadow:none!important;min-height:50px;color:#fff!important;-webkit-text-fill-color:#fff!important;text-shadow:0 2px 3px #00204a,0 0 8px #000a!important}
 html body #overlay #dock-return:active:not(#_u79):not(#_u79):not(#_u79):not(#_u79):not(#_u79):not(#_u79):not(#_u79):not(#_u79):not(#_u79):not(#_u79):not(#_u79):not(#_u79):not(#_u79):not(#_u79):not(#_u79):not(#_u79):not(#_u79):not(#_u79):not(#_u79):not(#_u79):not(#_u79):not(#_u79):not(#_u79):not(#_u79):not(#_u79):not(#_u79){background-image:url(ui306n/nut_xanh_nhan.png)!important}
+/* V306n · băng 3 sao ở màn kết quả */
+@keyframes ui306star{0%{transform:scale(0) rotate(-40deg);opacity:0}65%{transform:scale(1.25) rotate(8deg);opacity:1}100%{transform:scale(1) rotate(0)}}
+#rs .rs306-stars{display:flex;justify-content:center;align-items:flex-end;gap:6px;margin:6px 0 2px}
+#rs .rs306-stars i{width:52px;height:48px;background:url(ui306n/sao_rong.png) center/contain no-repeat;opacity:.9}
+#rs .rs306-stars i:nth-child(2){width:64px;height:59px;margin-bottom:6px}
+#rs .rs306-stars i.on{background-image:url(ui306n/sao_day.png);filter:drop-shadow(0 0 8px #ffb62e);animation:ui306star .5s cubic-bezier(.2,.9,.3,1.3) both;animation-delay:var(--d,.4s)}
+html body #rs .summary392 b{font-size:11px;letter-spacing:1px;opacity:.85}
+@media (prefers-reduced-motion:reduce){#rs .rs306-stars i.on{animation:none}}
