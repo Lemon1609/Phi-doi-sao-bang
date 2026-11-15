@@ -73,3 +73,18 @@ html body .m63 .m63-go:active:not(#_u79):not(#_u79):not(#_u79):not(#_u79):not(#_
 /* V306h · dải chân màn hình: bỏ viền kim loại, dùng dải neon */
 html body #nav74#nav74{background:url(ui306n/day_chan_man.png) center/100% 100% no-repeat!important;border:0!important;box-shadow:none!important}
 html body #nav74#nav74::before,html body #nav74#nav74 button::after{display:none!important}
+/* V306i · bản nhấn của GPT + đĩa ải neon */
+html body #lb68#lb68 .cta.c:active::before{background-image:url(ui306n/nut_vang_nhan.png)!important;filter:none!important;transform:translateY(1px)}
+html body #lb68#lb68 .cta.e:not(.lk66):active::before{background-image:url(ui306n/nut_do_cam_nhan.png)!important;filter:none!important;transform:translateY(1px)}
+html body #hgr41#hgr41#hgr41 .h1-ribbon .h1-ic:not(.lk):active{background-image:url(ui306n/nut_xanh_nhan.png)!important}
+html body #cmap#cmap .cm-node:not(.mini){background:url(ui306n/do_ai_thuong.png) center/100% 100% no-repeat!important;border:0!important;box-shadow:none!important;color:#fff!important}
+html body #cmap#cmap .cm-node.lock:not(.mini){background-image:url(ui306n/do_ai_khoa.png)!important;color:#a9bdd2!important}
+html body #cmap#cmap .cm-node.done:not(.mini){background-image:url(ui306n/do_ai_hoan_thanh.png)!important}
+html body #cmap#cmap .cm-node.cur:not(.mini){background-image:url(ui306n/do_ai_hien_tai.png)!important;box-shadow:none!important}
+html body #cmap#cmap .cm-node.major:not(.mini){background-image:url(ui306n/do_ai_boss.png)!important}
+html body #cmap#cmap .cm-node.major.lock:not(.mini){background-image:url(ui306n/do_ai_khoa.png)!important}
+html body #cmap#cmap .cm-node.major.done:not(.mini){background-image:url(ui306n/do_ai_hoan_thanh.png)!important}
+html body #cmap#cmap#cmap .cm-node:not(.mini):not(#_a):not(#_b):not(#_c){background-size:100% 100%!important;background-position:center!important;background-repeat:no-repeat!important;background-origin:border-box!important}
+html body #cmap#cmap .cm-node:not(.mini):not(.major){width:56px!important;height:56px!important}
+html body #cmap#cmap .cm-node.cur:not(.mini):not(.major){width:66px!important;height:66px!important;filter:drop-shadow(0 0 8px #ffb62e)}
+html body #cmap#cmap .cm-node:not(.mini) b,html body #cmap#cmap .cm-node:not(.mini) span{font-weight:900}
