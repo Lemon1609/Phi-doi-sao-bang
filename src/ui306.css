@@ -42,3 +42,11 @@ html body #cmap#cmap .cm-node.lock:not(.mini){border-color:#4a6784!important;bac
 html body #cmap#cmap .cm-node.cur:not(.mini){border-color:#fff3b0!important;background:radial-gradient(circle at 50% 35%,#ffd66a,#e08a10 70%)!important;box-shadow:0 0 0 4px #ffcf5e55,0 0 20px #ffb62e!important;animation:ui306pulse 1.6s ease-in-out infinite}
 @keyframes ui306pulse{50%{box-shadow:0 0 0 7px #ffcf5e33,0 0 30px #ffb62e}}
 @media (prefers-reduced-motion:reduce){html body #cmap#cmap .cm-node.cur:not(.mini){animation:none}}
+
+/* V306 · dùng tranh bộ UI mới (Gemini/GPT, cắt từ tấm tổng hợp): nút chế độ + tab tiêu đề */
+html body #lb68#lb68 .cta::before{background:center/100% 100% no-repeat!important;border:0!important;box-shadow:none!important;clip-path:none!important;filter:drop-shadow(0 3px 0 #000a)}
+html body #lb68#lb68 .cta.e::before{background-image:url(ui306/nut_do_cam.png)!important}
+html body #lb68#lb68 .cta.c::before{background-image:url(ui306/nut_vang.png)!important}
+html body #lb68#lb68 .cta.lk66::before{background-image:url(ui306/nut_xam.png)!important;filter:drop-shadow(0 3px 0 #000a)}
+html body #hgr41#hgr41#hgr41 .h1-stage::before{background:url(ui306/tab_tieu_de.png) center/100% 100% no-repeat!important;border:0!important;clip-path:none!important;box-shadow:none!important;padding:6px 26px 12px!important;color:#e6f4ff!important}
+html body #lb68#lb68 .cta.lk66 b,html body #lb68#lb68 .cta.lk66 small{text-shadow:0 2px 2px #000,0 0 6px #000!important}

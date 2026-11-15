@@ -913,7 +913,11 @@ rep("</body>","<script id=\"co303-js\">"+open('src/co303.js',encoding='utf-8').r
 _vk304=['tl_01_hoa_nguc','tl_02_han_suong','tl_03_loi_kich','tl_04_ngu_loi','tl_05_xoan_oc','tl_06_thien_tinh','tl_07_thien_kiem','tl_08_diet_tinh','tl_09_phan_quyet','tl_10_bay_dan','tl_11_huyet_tinh','tl_12_qua_khu','tl_13_tram_khong','vp_nguyet_nhan','vp_quang_thuong','vp_dong_ho_cat','vp_luc_lang','vp_cau_trong_luc','vp_tinh_the_bang','vp_loi_thon_phe','vp_mui_an_trien','vp_an_trien']  # V305: +6 vũ khí phụ đợt 2
 _vk304js='window.GEARVK304_IMG={'+','.join('"%s":["data:image/png;base64,%s",2]'%(k,base64.b64encode(open('src/vu_khi295/%s.png'%k,'rb').read()).decode()) for k in _vk304)+'};'
 rep("</body>","<script id=\"gearvk304-js\">"+_vk304js+open('src/gearvk304.js',encoding='utf-8').read()+"</script></body>")  # V304 hình đạn trang bị
-rep("</body>","<style id=\"ui306-css\">"+open('src/ui306.css',encoding='utf-8').read()+"</style></body>")  # V306 giao diện đợt 1
+def _ui306css(c):
+    for _f in sorted(glob.glob('src/ui306/*.png')):
+        c=c.replace('url(ui306/%s)'%os.path.basename(_f),'url(data:image/png;base64,'+base64.b64encode(open(_f,'rb').read()).decode()+')')
+    return c
+rep("</body>","<style id=\"ui306-css\">"+_ui306css(open('src/ui306.css',encoding='utf-8').read())+"</style></body>")  # V306 giao diện đợt 1
 open('Phi_Doi_Sao_Bang_V74_mau.html','w',encoding='utf-8').write(h);print(round(len(h)/1e6,2),'MB')
 # ---- V100 · BẢN THỬ cho chủ dự án: dữ liệu tách riêng (tiền tố thu100:) + bảng nạp tài khoản mẫu ----
 # V301: chỉ dựng khi cần (BAN_THU=1 hoặc khi xuất bản) để mỗi lần dựng nhanh hơn, bớt một tệp 81 MB
