@@ -177,3 +177,6 @@ html body :is(.hb-bar,.q77-bar,#rs .fx68-bar):not(#_a):not(#_b):not(#_c){height:
 html body :is(.hb-bar,.q77-bar,#rs .fx68-bar):not(#_a):not(#_b):not(#_c)>:is(i,.q77-fill){opacity:0}
 html body :is(.hb-bar,.q77-bar,#rs .fx68-bar):not(#_a):not(#_b):not(#_c)::before{content:'';position:absolute;inset:0;background:url(ui306n/thanh_tien_do_lap_day.png) center/100% 100% no-repeat;clip-path:inset(0 calc(100% - var(--p,0%)) 0 0);pointer-events:none}
 html body .hb-bar:not(#_a):not(#_b):not(#_c)>em{z-index:2;top:3px;bottom:3px}
+html body .q77-pb:not(#_a):not(#_b):not(#_c){position:relative;height:11px!important;margin-top:4px;background:url(ui306n/thanh_tien_do.png) center/100% 100% no-repeat!important;border:0!important;border-radius:0!important;overflow:visible!important}
+html body .q77-pb:not(#_a):not(#_b):not(#_c)>i{opacity:0}
+html body .q77-pb:not(#_a):not(#_b):not(#_c)::before{content:'';position:absolute;inset:0;background:url(ui306n/thanh_tien_do_lap_day.png) center/100% 100% no-repeat;clip-path:inset(0 calc(100% - var(--p,0%)) 0 0)}
