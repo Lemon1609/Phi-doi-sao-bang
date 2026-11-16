@@ -919,16 +919,16 @@ def _ui306css(c):
     for _f in sorted(glob.glob('src/ui306n/*.png')):
         c=c.replace('url(ui306n/%s)'%os.path.basename(_f),'url(data:image/png;base64,'+base64.b64encode(open(_f,'rb').read()).decode()+')')
     return c
-rep("</body>","<script id=\"bw306\">"+open('src/bw306.js',encoding='utf-8').read()+"</script></body>")
-rep("</body>","<script id=\"uisnd306\">"+open('src/ui_snd306.js',encoding='utf-8').read()+"</script></body>")
-rep("</body>","<script id=\"stars306\">"+open('src/stars306.js',encoding='utf-8').read()+"</script></body>")
+rep("</body>","<script id=\"bw306-js\">"+open('src/bw306.js',encoding='utf-8').read()+"</script></body>")
+rep("</body>","<script id=\"uisnd306-js\">"+open('src/ui_snd306.js',encoding='utf-8').read()+"</script></body>")
+rep("</body>","<script id=\"stars306-js\">"+open('src/stars306.js',encoding='utf-8').read()+"</script></body>")
 rep("</body>","<script id=\"x2-306\">"+open('src/x2_306.js',encoding='utf-8').read()+"</script></body>")
-rep("</body>","<script id=\"icon306\">"+open('src/icon306.js',encoding='utf-8').read()+"</script></body>")
-rep("</body>","<script id=\"bar306\">"+open('src/bar306.js',encoding='utf-8').read()+"</script></body>")
-rep("</body>","<script id=\"tier306\">"+open('src/tier306.js',encoding='utf-8').read()+"</script></body>")
-rep("</body>","<script id=\"reward306\">"+open('src/reward306.js',encoding='utf-8').read()+"</script></body>")
-rep("</body>","<script id=\"card306\">"+open('src/card306.js',encoding='utf-8').read()+"</script></body>")
-rep("</body>","<script id=\"opt306\">"+open('src/opt306.js',encoding='utf-8').read()+"</script></body>")
+rep("</body>","<script id=\"icon306-js\">"+open('src/icon306.js',encoding='utf-8').read()+"</script></body>")
+rep("</body>","<script id=\"bar306-js\">"+open('src/bar306.js',encoding='utf-8').read()+"</script></body>")
+rep("</body>","<script id=\"tier306-js\">"+open('src/tier306.js',encoding='utf-8').read()+"</script></body>")
+rep("</body>","<script id=\"reward306-js\">"+open('src/reward306.js',encoding='utf-8').read()+"</script></body>")
+rep("</body>","<script id=\"card306-js\">"+open('src/card306.js',encoding='utf-8').read()+"</script></body>")
+rep("</body>","<script id=\"opt306-js\">"+open('src/opt306.js',encoding='utf-8').read()+"</script></body>")
 rep("</body>","<style id=\"ui306-css\">"+_ui306css(open('src/ui306.css',encoding='utf-8').read())+"</style></body>")  # V306 giao diện đợt 1
 open('Phi_Doi_Sao_Bang_V74_mau.html','w',encoding='utf-8').write(h);print(round(len(h)/1e6,2),'MB')
 # ---- V100 · BẢN THỬ cho chủ dự án: dữ liệu tách riêng (tiền tố thu100:) + bảng nạp tài khoản mẫu ----
