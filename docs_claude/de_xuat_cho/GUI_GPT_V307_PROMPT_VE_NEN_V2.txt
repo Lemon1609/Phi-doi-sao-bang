@@ -1,0 +1,26 @@
+V307 · PROMPT GPT VẼ NỀN — BẢN 2 (đã gộp góp ý của Gemini 16/11 + Claude chỉnh theo cách game cắt ảnh)
+Cách dùng: dán KHÓA PHONG CÁCH + khối ảnh tương ứng; gửi từng ảnh một. Sai thì sửa bằng câu ngắn.
+Khổ ảnh: dọc 9:16 (1024×1792 hoặc 1024×1536 nếu chỉ có cỡ đó). Game dùng 720×1560 (cao hơn 9:16) nên Claude sẽ CẮT mỗi bên khoảng 9% chiều ngang. => Nội dung quan trọng phải nằm trong 82% giữa chiều ngang; vật thể sát mép (0–9%) sẽ mất.
+
+[KHÓA PHONG CÁCH CHUNG — DÁN ĐẦU MỖI LẦN]
+"Tranh minh họa bối cảnh 2D cao cấp cho game bắn máy bay dọc di động, phong cách sci-fi điện ảnh hiện đại, chi tiết sắc nét, ánh sáng volumetric mềm, tương phản có kiểm soát, chiều sâu không gian rõ rệt. Bối cảnh vũ trụ trống trải, chỉ có môi trường và kiến trúc tĩnh, góc nhìn từ trên xuống. Hoàn toàn nguyên bản. Không có chữ hay biểu tượng."
+
+=== ẢNH 1 · NỀN TRẬN CHƯƠNG 1 · LỚP XA (nền đặc) ===
+"[Khóa phong cách] + Vũ trụ sâu tông xanh ngọc lục bảo pha xanh đêm thẫm, dải tinh vân ánh cam hổ phách ấm chỉ ở hai rìa trái và phải. Góc trên bên trái có một hành tinh khí khổng lồ mờ trong sương vũ trụ, vành đai mỏng thanh mảnh (hành tinh nằm trong vùng 10–40% chiều ngang, KHÔNG chạm mép trên). Dải dọc 40% ở giữa màn giữ độ tối sâu, ít sao, không tinh vân sáng. Cụm sao li ti độ sáng vừa. Mép trên cùng và mép dưới cùng chỉ là nền không gian tối đồng nhất, không hành tinh hay vật thể lớn chạm mép."
+
+=== ẢNH 2 · CHƯƠNG 1 · LỚP GIỮA (để Claude tách nền) ===
+"[Khóa phong cách] + Trên khoảng không đen kịt: 2–3 dải khói tinh vân mỏng bán trong suốt tông xanh ngọc nhạt và vài mảnh trạm không gian cổ bỏ hoang trôi dạt, đặt trong hai dải ngang 10–30% và 70–90% chiều ngang (mép ngoài 0–10% để trống). Dải giữa 30–70% hoàn toàn đen và trống. Độ sáng thấp đến trung bình, ánh sáng viền mềm. Các cụm vật thể cô lập, không có sương mù phủ toàn nền. Không vật thể nào chạm mép trên hay mép dưới."
+
+=== ẢNH 3 · CHƯƠNG 1 · LỚP GẦN (để Claude tách nền) ===
+"[Khóa phong cách] + Trên khoảng không đen kịt: khối đá thiên thạch sắc cạnh, dầm kim loại vỡ và vệt bụi vũ trụ lướt qua, đặt trong hai dải 9–24% và 76–91% chiều ngang (mép ngoài 0–9% trống, 24–76% ở giữa hoàn toàn đen và trống). Vật thể tối màu, tương phản cao, có ánh sáng viền (rim-light) xanh ngọc–cam sắc nét để nổi khối. Không vật thể nào chạm mép trên hay mép dưới."
+
+=== ẢNH 4 · NỀN SẢNH "XƯỞNG ĐÓNG TÀU TƯƠNG LAI" (khổ dọc 3:4) ===
+"[Khóa phong cách, nhưng góc nhìn chính diện hơi ngước nhẹ] + Bên trong khoang bảo trì của xưởng đóng tàu vũ trụ khổng lồ, công nghệ tương lai sạch sẽ. Sau lớp kính vòm lớn ở nửa trên là dải ngân hà và MỘT HỐ ĐEN vũ trụ lệch về phía trên bên phải (khoảng x 68%, y 25–30%), bao quanh bởi đĩa bồi tụ cam vàng và vòng thấu kính hấp dẫn xanh lam. Hai bên rìa là giàn cẩu thép, cánh tay robot, đường ống phát sáng xanh lơ dịu, vài tia lửa hàn cam nhỏ. Ở phần dưới chính giữa (khoảng 60–72% chiều cao) là một BỆ ĐÁP TRÒN bằng kim loại tối, chỉ phát sáng ở VIỀN vòng tròn xanh lam; lòng bệ tối. Từ trần chiếu xuống một luồng sáng mềm vào giữa. 18% trên cùng và 15% dưới cùng ánh sáng trầm, ít chi tiết."
+
+=== ẢNH 5 · NỀN BẢN ĐỒ (9:16) ===
+"[Khóa phong cách] + Bản đồ không gian nhìn từ trên: các cụm tinh vân nhiều tầng tím lam huyền ảo và hồng cánh sen dịu, hai hành tinh nhỏ nằm trong dải 10–25% và 75–90% chiều ngang, các chòm sao mịn. Chừa một hành lang tối, quang đãng uốn lượn nhẹ hình chữ S từ đáy lên đỉnh ở giữa màn (không tinh vân sáng hay hành tinh đè lên hành lang). Mật độ chi tiết vừa phải."
+
+=== BẢNG MÀU 10 CHƯƠNG (Gemini đề xuất, Claude giữ; chủ dự án có thể đổi) ===
+Ch1 xanh đêm ngọc lục bảo + cam hổ phách (rìa) · Ch2 tím chàm sâu + hồng tím (magenta) · Ch3 đỏ rượu vang sẫm + đồng xỉn (nền TRẦM để đạn đỏ/vàng nổi) · Ch4 xanh lục thẫm + xanh bạc hà · Ch5 xanh coban đậm + lam băng (không dùng trắng sáng làm nền) · Ch6 hồng san hô trầm + xanh mòng két tối · Ch7 xanh đại dương thẫm + tím tử đinh hương · Ch8 xám chì thép + đỏ thẫm cơ khí (rìa) · Ch9 xanh chàm hoàng gia + bụi vàng kim li ti ở rìa · Ch10 tím đen + HỐ ĐEN trung tâm (viền cam cháy–xanh điện).
+LƯU Ý CỦA CLAUDE: Gemini giả định đạn địch màu trắng/đỏ/vàng; Claude CHƯA đo màu đạn địch thật. Sau khi có ảnh sẽ chụp trận thật để kiểm độ nổi của đạn trên từng chương, nếu hụt thì chỉnh độ sáng nền (không đổi ý tưởng màu).
+LƯU Ý KỸ THUẬT: GPT không xuất được nền trong suốt thật; lớp giữa/gần dùng nền đen rồi Claude tách theo độ sáng (vật thể quá tối sẽ mất, nên cần ánh sáng viền). Lặp dọc: Claude ghép/ làm mờ nối đầu–cuối.
