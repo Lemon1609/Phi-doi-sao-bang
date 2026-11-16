@@ -34,9 +34,10 @@ const HOLO212=(()=>{
   x.clearRect(0,0,N,N);x.putImageData(o,0,0);return WF[k]=a;}
  // ---- vẽ nền (gọi từ sân khấu sảnh thay cho ảnh xưởng). Trả true nếu đã vẽ.
  function draw(g,SW,SH,py,k,clock,P){if(!on())return false;const T=tierCol(P,S.tier||1);LP=P;
-  const bgG=g.createLinearGradient(0,0,0,SH);bgG.addColorStop(0,'#0B2A66');bgG.addColorStop(.55,'#071d4a');bgG.addColorStop(1,'#04122f');g.fillStyle=bgG;g.fillRect(0,0,SW,SH);
+  const sk=window.SANH307!==false&&!!document.querySelector('.sk307'); // V307: có nền sảnh vẽ bằng mã (xưởng + hố đen) thì để trong suốt cho nền đó lộ ra
+  if(sk)g.clearRect(0,0,SW,SH);else{const bgG=g.createLinearGradient(0,0,0,SH);bgG.addColorStop(0,'#0B2A66');bgG.addColorStop(.55,'#071d4a');bgG.addColorStop(1,'#04122f');g.fillStyle=bgG;g.fillRect(0,0,SW,SH);}
   // lưới kỹ thuật
-  g.save();g.strokeStyle='rgba(60,120,230,.22)';g.lineWidth=1;const step=Math.max(18,SW/16);g.beginPath();for(let x=(SW/2)%step;x<SW;x+=step){g.moveTo(x+.5,0);g.lineTo(x+.5,SH);}for(let y=(py)%step;y<SH;y+=step){g.moveTo(0,y+.5);g.lineTo(SW,y+.5);}g.stroke();
+  g.save();g.strokeStyle=sk?'rgba(60,120,230,.10)':'rgba(60,120,230,.22)';g.lineWidth=1;const step=Math.max(18,SW/16);g.beginPath();for(let x=(SW/2)%step;x<SW;x+=step){g.moveTo(x+.5,0);g.lineTo(x+.5,SH);}for(let y=(py)%step;y<SH;y+=step){g.moveTo(0,y+.5);g.lineTo(SW,y+.5);}g.stroke();
   g.strokeStyle='rgba(90,160,255,.10)';g.beginPath();for(let x=(SW/2)%(step/4);x<SW;x+=step/4){g.moveTo(x+.5,0);g.lineTo(x+.5,SH);}g.stroke();
   // số liệu mờ + đồ thị cột góc phải
   g.fillStyle='rgba(120,170,255,.22)';g.font='9px monospace';const L=['SYS.HULL  '+(P&&P.t==='s'?'SSS':'MK-'+((P&&P.i|0)+1)),'CORE.OUT  '+(92+Math.round(Math.sin(clock)*3))+'%','SHIELD    ONLINE','VECTOR    0.'+(400+((clock*37)|0)%500)];L.forEach((t,j)=>g.fillText(t,12,SH*.62+j*12));
