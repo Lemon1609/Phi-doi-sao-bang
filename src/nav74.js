@@ -77,13 +77,13 @@ const Nav74=(()=>{
  let bar,strip,cur='home',sub=null;
  function build(){if(bar)return;bar=document.createElement('nav');bar.id='nav74';document.body.appendChild(bar);
   strip=document.createElement('div');strip.id='nav74s';strip.hidden=true;document.body.appendChild(strip);
-  bar.addEventListener('click',e=>{const b=e.target.closest('[data-t]');if(!b)return;tab(b.dataset.t);});
+  bar.addEventListener('click',e=>{const b=e.target.closest('[data-t]');if(!b)return;if(b.classList.contains('ux75-lk')){try{toast('MỞ Ở ẢI '+b.dataset.need);}catch{}return;}tab(b.dataset.t);});
   strip.addEventListener('click',e=>{if(e.target.closest('[data-b197]')){ch197=false;paint();return;}const b=e.target.closest('[data-s],[data-c]');if(!b)return;if(b.dataset.c){cc197=b.dataset.c;setTimeout(()=>{try{paint();}catch{}},60);}if(b.dataset.s){if(b.dataset.s===sub&&F[sub]&&F[sub].chips){ch197=true;paint();return;}if(b.classList.contains('lk')){try{toast('MỞ Ở ẢI '+F[b.dataset.s].lv);}catch{}return;}subGo(b.dataset.s);}else{const f=F[b.dataset.c];closeAll();f&&f.go();}});
   document.body.classList.add('nav74on');}
  // V197: khi mục có chip (Hợp thể…), hàng chip THAY hàng tab con (nút ‹ để quay lại). Tắt: window.NAV197=false
  let ch197=true,cc197=null;
  function paint(){if(!bar)return;
-  bar.innerHTML=TABS.map(t=>`<button type="button" data-t="${t.id}" class="${t.id===cur?'on':''} ${gateHide(t.id)?'ux75-hide':''}"><i>${IC74(t.id,t.ic)}</i><small>${t.n}</small>${tabDot(t)?'<em></em>':''}</button>`).join('');
+  bar.innerHTML=TABS.map(t=>`<button type="button" data-t="${t.id}" class="${t.id===cur?'on':''} ${gateHide(t.id)?'ux75-lk':''}" data-need="${(()=>{try{return UX75.GATE[t.id]||0;}catch{return 0;}})()}"><i>${IC74(t.id,t.ic)}</i><small>${t.n}</small>${tabDot(t)?'<em></em>':''}</button>`).join('');
   const t=TABS.find(x=>x.id===cur);if(!t||!t.sub){strip.hidden=true;document.body.classList.remove('nav74sub');return;}
   const subs=t.sub.filter(visible),f=F[sub];
   const chips=f&&f.chips&&open_(sub)?`<div class="n74c">${f.chips.map(c=>`<button type="button" data-c="${c}" style="--lc:${F[c].c}"><b>${IC74(c,F[c].ic)}</b>${F[c].n}</button>`).join('')}</div>`:'';

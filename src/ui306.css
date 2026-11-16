@@ -235,3 +235,7 @@ html body #lb68#lb68 .cta.c::before{animation:lb307br 2.4s ease-in-out infinite}
 @keyframes lb307br{50%{transform:scale(1.035);filter:brightness(1.12)}}
 @media (prefers-reduced-motion:reduce){html body #lb68#lb68 .cta.c::before{animation:none}}
 html body.lite79 #lb68#lb68 .cta.c::before{animation:none}
+
+/* V307 · thanh 5 tab luôn hiện đủ (như game gốc); tab chưa mở thì mờ + ổ khóa + "ẢI n" */
+html body #nav74#nav74 button.ux75-lk{display:flex!important;opacity:.55;filter:grayscale(.6);position:relative}
+html body #nav74#nav74 button.ux75-lk::before{content:'🔒 ẢI ' attr(data-need);position:absolute;left:50%;top:4px;transform:translateX(-50%);font:800 8px/1 'Be Vietnam Pro',sans-serif;color:#ffd56a;background:#000a;border-radius:6px;padding:2px 5px;white-space:nowrap}

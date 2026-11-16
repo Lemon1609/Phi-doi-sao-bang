@@ -11,8 +11,8 @@ const UX75=(()=>{
  function sweep5(n){let k=0,cr=0;for(let i=0;i<5;i++){let r=null;try{r=Campaign36.sweep(n);}catch{}if(!r)break;k++;cr+=r.credits|0;}
   if(k){T('CÀN QUÉT ẢI '+n+' ×'+k+' · +'+cr.toLocaleString('vi-VN')+' HỢP KIM');try{DeviceSave.flush();}catch{}}else T('HẾT LƯỢT / VÉ / THỂ LỰC ĐỂ CÀN QUÉT');return k;}
  // ---- ẩn mềm tab ----
- const GATE={equip:3,shop:6,fleet:12};
- function tabs(){const c=cleared();for(const [id,need] of Object.entries(GATE)){const b=document.querySelector('#nav74 [data-t="'+id+'"]');if(b)b.classList.toggle('ux75-hide',c<need);}}
+ const GATE={equip:0,shop:6,fleet:12};   // V307: Trang bị mở ngay từ đầu; Cửa hàng/Phi đội hiện luôn nhưng khóa (như game gốc)
+ function tabs(){const c=cleared();for(const [id,need] of Object.entries(GATE)){const b=document.querySelector('#nav74 [data-t="'+id+'"]');if(b){b.classList.toggle('ux75-lk',c<need);b.dataset.need=need;}}}
  // ---- gợi ý khi thua ----
  let card=null;
  function hint(){if(window.__m78)return;/* V78.4: chỉ hiện khi thật sự đang ở màn THUA (không hiện khi thắng rồi bấm về sảnh) */try{if(mode!=='over'||(typeof stageFinished36!=='undefined'&&stageFinished36))return;}catch{}try{if(gameMode!=='campaign')return;}catch{return;}let n=0,me=0,rq=0;try{n=+document.getElementById('mission-select').value||level;me=Math.round(Combat.stats().cp);rq=Math.round(Meta40.reqCP(n));}catch{}
