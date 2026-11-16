@@ -180,3 +180,5 @@ html body .hb-bar:not(#_a):not(#_b):not(#_c)>em{z-index:2;top:3px;bottom:3px}
 html body .q77-pb:not(#_a):not(#_b):not(#_c){position:relative;height:11px!important;margin-top:4px;background:url(ui306n/thanh_tien_do.png) center/100% 100% no-repeat!important;border:0!important;border-radius:0!important;overflow:visible!important}
 html body .q77-pb:not(#_a):not(#_b):not(#_c)>i{opacity:0}
 html body .q77-pb:not(#_a):not(#_b):not(#_c)::before{content:'';position:absolute;inset:0;background:url(ui306n/thanh_tien_do_lap_day.png) center/100% 100% no-repeat;clip-path:inset(0 calc(100% - var(--p,0%)) 0 0)}
+/* V307 · sảnh: chip gợi ý mục tiêu không đè hàng tab nền/hạng; đặt dưới tab XƯỞNG */
+html body .h1-stage .nx66:not(#_a):not(#_b){top:46px!important;bottom:auto!important;font-size:10.5px;box-shadow:0 0 10px rgba(255,200,80,.25)}

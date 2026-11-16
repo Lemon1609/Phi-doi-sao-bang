@@ -1,0 +1,13 @@
+V307 · XIN TRANH NỀN (Gemini hoặc GPT, chủ dự án gửi lại cho Claude)
+Mục tiêu: nền rực rỡ, nhiều màu, có chiều sâu như các game bắn máy bay dọc thương mại (chỉ học bố cục / ánh sáng / kỹ thuật; KHÔNG vẽ lại nền, hành tinh, tàu, icon cụ thể của game nào; vật thể là thiên hà, tinh vân, hành tinh, trạm vũ trụ nguyên bản).
+Giữ nội dung nhân vật/ tàu ở mức phổ thông (không khỏa thân, không gợi dục).
+
+A. NỀN TRẬN (mỗi chương 1–10, 3 lớp như hiện có): kích thước 720×1560, PNG.
+   - xa: nền đặc, tinh vân + hành tinh lớn nhiều màu RIÊNG từng chương (ch1 xanh ngọc/cam, ch2 tím/hồng, ch3 đỏ cam, ch4 lục/vàng, ch5 lam điện, …), độ sáng TB cao hơn bản hiện tại (hiện RGB trung bình ~ (3,20,28), muốn ~ (25,40,70)). CHÍNH GIỮA màn (đường bay đạn) tối hơn một chút để đạn địch nổi bật.
+   - giữa: nền trong suốt, mây tinh vân/ tiểu hành tinh/ cấu trúc xa, alpha mỏng.
+   - gần: nền trong suốt, mảnh vụn/ đá/ khói chỉ ở hai mép trái phải.
+   - Cuộn dọc lặp được (đầu = cuối).
+B. NỀN SẢNH 'HOLOGRAM': 786×1100 (vùng sân khấu chiến cơ): sàn tròn phát sáng + cột sáng từ trên, sao và hành tinh ở xa, tâm sáng nhẹ để chiến cơ nổi.
+C. NỀN BẢN ĐỒ: 720×1500: tinh vân nhiều màu, 1–2 hành tinh lớn, đường nối chấm sẽ vẽ bằng mã nên để trống một dải ngoằn ngoèo.
+D. Quy cách: không chữ, không logo, không viền, không nhân vật.
+Gửi lần lượt: chương 1 (3 lớp) + B + C trước để Claude đo; duyệt xong mới làm chương 2–10.
