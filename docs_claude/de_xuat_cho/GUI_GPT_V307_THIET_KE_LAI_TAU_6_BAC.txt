@@ -4,7 +4,7 @@ Chào GPT. Mình làm game bắn máy bay dọc "Phi Đội Sao Băng". Mình mu
 
 1) NGUYÊN TẮC TIẾN HÓA 6 BẬC (cùng một tàu, cùng một "gia đình" màu)
 Thứ tự: 1 Thường (xám/trắng, bản đơn giản) → 2 Lục → 3 Lam → 4 Tím → 5 Tím+5 → 6 SS (cao nhất).
-- MÀU: mỗi tàu giữ MỘT màu chủ đạo xuyên suốt 6 bậc (màu nhấn chỉ dịch sang màu kề, tối đa khoảng ±25° trên vòng màu) và tăng độ rực, độ bóng, đèn phát sáng. Không đổi cả thân từ đỏ sang xanh. Màu bậc được thể hiện chủ yếu bằng đèn / đường sáng / lõi năng lượng nhỏ (Lục, Lam, Tím, Tím đậm hơn, Vàng-trắng ở SS), phần thân vẫn nhận ra là cùng một tàu.
+- MÀU (đã đối chiếu 10 video quay từng bậc của game gốc): THÂN TÀU là kim loại trung tính (bạc / trắng ngà / xám / đen than) và GIỮ NGUYÊN chất liệu, tông qua cả 6 bậc. Chỉ phần MÀU NHẤN (mắt, viền giáp, đèn, ống xả, đường sáng, lõi, dải sọc) đổi theo màu bậc: Thường (xám/trắng ánh nhẹ) → Lục → Lam → Tím → Tím đậm/hồng tím (Tím+5) → Vàng-trắng viền vàng (SS). Màu nhấn chiếm khoảng 15–25 % diện tích thân, KHÔNG tô cả thân. Nhờ vậy bậc nhìn ra ngay qua màu nhấn, còn tàu vẫn nhận ra là một dòng. Tăng dần độ rực, độ bóng, độ dày đèn khi lên bậc.
 - DÁNG (đây là phần chính, mỗi bậc thêm bộ phận mới, không bỏ bộ phận cũ):
   • Bậc 1 Thường: thân gọn, cánh trơn, 2 động cơ, ít chi tiết, khối lớn đơn giản.
   • Bậc 2 Lục: thêm tấm giáp hai bên thân, mũi nhọn hơn, thêm cánh đuôi nhỏ, ống xả to hơn.
@@ -33,7 +33,7 @@ Hãy áp dụng cách tiến hóa này (thân trung tính tối + 1–2 màu nh�
 - Chất liệu: kim loại bóng, khối rõ, bóng đổ mềm, sáng-tối đậm nhạt hợp lý, chi tiết mịn. Phong cách game mobile hạng nặng, sáng đẹp, nịnh mắt, dễ đọc ở kích thước nhỏ. Không chữ viết, không logo.
 - Bản quyền: sáng tác riêng hoàn toàn. KHÔNG sao chép tàu, cánh, biểu tượng của bất kỳ game hoặc phim nào.
 
-3) DANH SÁCH TÀU (giữ tên, màu chủ đạo hiện tại và đặc điểm nhận dạng để khớp truyện)
+3) DANH SÁCH TÀU (giữ tên, tông thân hiện tại và đặc điểm nhận dạng để khớp truyện)
 1. Nộ Hỏa Phượng Hoàng — màu chủ đạo TÍM + ánh vàng; chim lửa, cánh như lông phượng, đuôi dài.
 2. Cực Quang Ảo Ảnh — chủ đạo VÀNG-NÂU/NGÀ; hai thanh ray dọc song song hứng gió mặt trời, thân mảnh.
 3. X-Dực Băng Hà — chủ đạo BẠC-XANH BĂNG; cánh chữ X, lõi sao chổi băng.
@@ -49,4 +49,4 @@ Hãy áp dụng cách tiến hóa này (thân trung tính tối + 1–2 màu nh�
 13. Hư Không Đế Vương — chủ đạo ĐEN GƯƠNG + VÀNG; mạnh nhất, giáp gương, lõi hư không.
 
 4) ĐỢT ĐẦU: hãy vẽ tàu số ___ (mình sẽ điền). Sau khi mình duyệt phong cách thì vẽ tiếp các tàu còn lại.
-Cuối câu trả lời, ghi 3 dòng: (a) mỗi bậc bạn đã thêm bộ phận nào (ở cả trạng thái thường và Bạo Tẩu), (b) màu chủ đạo bạn giữ là gì, (c) chỗ nào bạn đoán mà đề bài không nói.
+Cuối câu trả lời, ghi 3 dòng: (a) mỗi bậc bạn đã thêm bộ phận nào (ở cả trạng thái thường và Bạo Tẩu), (b) màu thân trung tính và màu nhấn của từng bậc là gì, (c) chỗ nào bạn đoán mà đề bài không nói.
