@@ -25,13 +25,12 @@ Mình quay đủ các hình thái của vài dòng tàu của một game khác �
 - Bậc cuối cùng chỉ khác bậc kề ở mật độ chi tiết và độ sáng, nhưng bộ phận đầy đủ nhất.
 Hãy áp dụng cách tiến hóa này (thêm bộ phận theo bậc) cho từng tàu của mình, theo đúng đặc điểm riêng của tàu ở mục 3.
 
-1c) ẢNH THAM CHIẾU ĐÍNH KÈM (BẮT BUỘC XEM): với mỗi tàu mình đính kèm 2 ảnh: thân BẬC TÍM (bậc 4) THƯỜNG và BẠO TẨU hiện có. Thiết kế thân này ĐÃ ĐƯỢC CHỦ DỰ ÁN CHỐT. Bạn phải GIỮ NGUYÊN dáng gốc, bảng màu, nét nhận dạng của nó ở bậc 4, rồi: (a) làm bậc 1–3 là bản ĐƠN GIẢN hóa của nó (bớt bộ phận, bớt giáp, bớt động cơ nhưng vẫn nhận ra cùng một tàu); (b) làm bậc 5–6 là bản PHONG PHÚ hơn của nó (thêm bộ phận, giáp, động cơ, chi tiết). Không thiết kế một tàu hoàn toàn khác.
+1c) ẢNH THAM CHIẾU ĐÍNH KÈM (BẮT BUỘC XEM): với mỗi tàu mình đính kèm ảnh thân BẬC TÍM (bậc 4) THƯỜNG hiện có (cũng có kèm ảnh Bạo Tẩu hiện có chỉ để bạn biết, KHÔNG vẽ lại, KHÔNG bắt chước phần cơ khí của nó). Thiết kế thân này ĐÃ ĐƯỢC CHỦ DỰ ÁN CHỐT. Bạn phải GIỮ NGUYÊN dáng gốc, bảng màu, nét nhận dạng của nó ở bậc 4, rồi: (a) làm bậc 1–3 là bản ĐƠN GIẢN hóa của nó (bớt bộ phận, bớt giáp, bớt động cơ nhưng vẫn nhận ra cùng một tàu); (b) làm bậc 5–6 là bản PHONG PHÚ hơn của nó (thêm bộ phận, giáp, động cơ, chi tiết). Không thiết kế một tàu hoàn toàn khác.
 
 2) CÁCH TRÌNH BÀY
-- MỖI BẬC CÓ 2 TRẠNG THÁI (game gốc cũng vậy, mình đã quay đủ cả hai cho từng bậc):
-  • THƯỜNG: tàu bay bình thường như mô tả ở mục 1.
-  • BẠO TẨU: cùng một thân tàu y hệt, nhưng BUNG THÊM MÔ-ĐUN CƠ KHÍ (ví dụ cánh phụ xòe ra, pod hình lục giác / tròn hai bên có khe sáng, chân cơ khí hoặc nòng pháo duỗi ra dưới thân, tấm giáp mở, khớp lộ ra). Thân giữa không đổi để mình ghép, chỉ thêm bộ phận ra hai bên và phía dưới. Bậc càng cao thì bộ mô-đun bung càng nhiều, phức tạp và rộng hơn (bậc 1 chỉ vài bộ phận nhỏ, bậc SS rất đồ sộ). Màu và chất liệu mô-đun cùng bảng màu với thân tàu. KHÔNG vẽ tia năng lượng, cánh sáng, hiệu ứng ngoài thân (mình vẽ bằng mã); chỉ vẽ bộ phận cứng.
-- Một ảnh / một tàu: 2 hàng × 6 cột (hàng trên = THƯỜNG bậc 1→6, hàng dưới = BẠO TẨU bậc 1→6), CÙNG tỉ lệ, CÙNG hướng (nhìn từ trên xuống, mũi hướng lên), nền đen thuần, mỗi ô đặt giữa, có nhãn nhỏ 1–6. Thân giữa của ô trên và ô dưới cùng một cột phải CÙNG vị trí, CÙNG cỡ.
+- CHỈ VẼ TRẠNG THÁI THƯỜNG. KHÔNG vẽ trạng thái Bạo Tẩu: không cánh bung, không tay máy, không khớp nối, không mô-đun bung ra. (Hiệu ứng Bạo Tẩu của từng tàu đã được duyệt riêng, là năng lượng trong mờ phát sáng mọc ra từ thân; mình xử lý bằng mã, hoàn toàn không dùng bộ phận cơ khí.)
+- Một ảnh / một tàu: 1 hàng 6 cột (bậc 1→6), CÙNG tỉ lệ, CÙNG hướng (nhìn từ trên xuống, mũi hướng lên), nền đen thuần, mỗi ô đặt giữa, có nhãn nhỏ 1–6. Thân giữa của 6 ô cùng vị trí, cùng cỡ để mình ghép.
+- ĐỘ KHÁC BIỆT GIỮA CÁC BẬC (lần trước còn yếu): không chỉ thêm pod động cơ. Phải đổi cả SILHOUETTE (đường viền ngoài): kích thước và hình dạng cánh chính (bậc cao cánh to hơn, nhiều tầng, thêm cánh phụ / vây), số lượng và cỡ động cơ, giáp bọc thân, mũi / buồng lái. Nhìn ở dạng bóng đen (chỉ nhìn đường viền) vẫn phải phân biệt được bậc 1, 3, 6.
 - KHÔNG vẽ lửa động cơ, khói, tia sáng ngoài thân (mình vẽ bằng mã). Vẽ rõ miệng ống xả.
 - Tàu cân đối trái-phải (đối xứng) để mình ghép.
 - Chất liệu: kim loại bóng, khối rõ, bóng đổ mềm, sáng-tối đậm nhạt hợp lý, chi tiết mịn. Phong cách game mobile hạng nặng, sáng đẹp, nịnh mắt, dễ đọc ở kích thước nhỏ. Không chữ viết, không logo.
@@ -53,4 +52,4 @@ Hãy áp dụng cách tiến hóa này (thêm bộ phận theo bậc) cho từng
 13. Hư Không Đế Vương — bảng màu ĐEN GƯƠNG + VÀNG; mạnh nhất, giáp gương, lõi hư không.
 
 4) ĐỢT ĐẦU: hãy vẽ tàu số ___ (mình sẽ điền). Sau khi mình duyệt phong cách thì vẽ tiếp các tàu còn lại.
-Cuối câu trả lời, ghi 3 dòng: (a) mỗi bậc bạn đã thêm bộ phận nào (ở cả trạng thái thường và Bạo Tẩu), (b) bạn giữ bảng màu của tàu thế nào, (c) chỗ nào bạn đoán mà đề bài không nói.
+Cuối câu trả lời, ghi 3 dòng: (a) mỗi bậc bạn đã thêm hoặc đổi bộ phận nào, (b) bạn giữ bảng màu của tàu thế nào, (c) chỗ nào bạn đoán mà đề bài không nói.
