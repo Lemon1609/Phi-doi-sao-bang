@@ -1,0 +1,27 @@
+GỬI GEMINI · V307 · CÂN BẰNG 3 QUYẾT ĐỊNH VỀ CHIẾN DỊCH SAO BĂNG (dán nguyên văn)
+
+Chào Gemini. Cảm ơn bản đề xuất trước. Chủ dự án muốn bạn cân bằng giúp 3 quyết định dưới đây. Lần này xin làm theo SỐ LIỆU THẬT của game (bên dưới), và ghi rõ giả định nào là bạn tự đặt.
+
+[SỐ LIỆU THẬT]
+- Mùa hiện tại: 14 ngày, 20 cấp, mỗi cấp 500 XP (tổng 10.000 XP). Có làn miễn phí và làn Elite.
+- Elite giá 1.500 kim cương, mua xong được +1.000 XP ngay.
+- Nguồn XP/ngày: năng lượng đã dùng (1 XP / 1 năng lượng, tối đa 250/ngày), mốc nhiệm vụ ngày (60 điểm +100 XP, 100 điểm +150 XP), Tháp +30, Vô tận +40 (tối đa 3 lần), thử thách ngày +80.
+- Kim cương nhận từ nhiệm vụ: mốc ngày 5/10/10/10/15 = tối đa 50/ngày; mốc tuần 25 ×4 + 50 = 150/tuần.
+- Event nhiệm vụ đang có: boss, dpts, endless, energy, login, market, stage, stone, sweep, tower, towerf, upgrade. THỬ THÁCH NGÀY CHƯA CÓ event theo dõi.
+- Ràng buộc chủ dự án: KHÔNG tiền thật, KHÔNG thêm nguồn kim cương mới ngoài nguồn đang có, KHÔNG quảng cáo.
+
+[QUYẾT ĐỊNH 1] Kéo mùa lên 28 ngày / 30 cấp?
+Chủ dự án hỏi có chấp nhận tốc độ nhận kim cương giảm không. Tôi tính: mùa 14 ngày thu tối đa ~107 kim cương/ngày, mùa 28 ngày còn ~89/ngày (giảm khoảng 17%). Bạn tự kiểm lại.
+Yêu cầu: (a) Tính lại "bao nhiêu ngày để hoàn vốn 1.500 kim cương Elite" cho 3 kiểu người chơi: nặng (làm hết nhiệm vụ), vừa, nhẹ. Bản trước ghi "4 ngày" là sai (tôi tính ~11 ngày với người nặng, >30 ngày với người nhẹ). (b) So 3 phương án: A giữ 14 ngày/20 cấp; B 28 ngày/30 cấp; C 21 ngày/25 cấp. Mỗi phương án: XP/cấp, tổng XP, số ngày người vừa đạt cấp cuối, kim cương thưởng cả mùa, tỷ lệ thưởng đến từ làn Elite. (c) Khuyến nghị MỘT phương án và nêu rõ cái giá.
+
+[QUYẾT ĐỊNH 2] Thêm 3 nhiệm vụ ngày và 2 nhiệm vụ tuần?
+Chỉ dùng event có sẵn ở trên (ghi rõ mỗi nhiệm vụ dùng event nào, mục tiêu, điểm). Nếu cần nhiệm vụ cho thử thách ngày thì ghi "cần thêm event mới" để lập trình viên làm. Quan trọng: nhiệm vụ mới KHÔNG được làm tăng tổng kim cương/ngày hay /tuần; nếu thêm điểm thì chia lại điểm các mốc cũ và nói rõ tổng kim cương ngày/tuần sau chỉnh (phải bằng 50 và 150).
+
+[QUYẾT ĐỊNH 3] Rương vượt cấp sau cấp cuối của phương án chọn?
+(a) Nội dung rương là vật phẩm đang có trong game, KHÔNG kim cương; (b) XP/rương, giới hạn số rương/mùa (chặn lạm phát); (c) cộng tổng giá trị rương vào bảng tổng thưởng mùa (bản trước bỏ sót ~50.000 ◈ từ rương tràn); (d) dùng đúng tên vật phẩm/hạng như trong game; không biết tên thật thì ghi "[tên tạm]", đừng tự đặt.
+
+[ĐỊNH DẠNG TRẢ LỜI]
+1) Bảng giả định (cái nào từ số liệu thật ở trên, cái nào bạn tự đặt).
+2) Từng quyết định: bảng số + khuyến nghị 1 dòng.
+3) Cuối: liệt kê những chỗ bạn KHÔNG chắc.
+Không viết "giữ nguyên" cho thứ thực ra bị đổi; nếu đổi thì ghi rõ cũ → mới.
