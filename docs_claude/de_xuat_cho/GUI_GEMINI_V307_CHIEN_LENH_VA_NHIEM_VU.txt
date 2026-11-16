@@ -1,0 +1,27 @@
+V307 · NHỜ GEMINI VIẾT VÀ CÂN ĐỐI PHẦN THƯỞNG: "CHIẾN LỆNH" (lộ trình thưởng theo mốc) + BỔ SUNG NHIỆM VỤ NGÀY/TUẦN
+(Chủ dự án giao 16/11/2026: "nhờ Gemini viết và cân đối về phần thưởng". Claude chỉ lập trình theo bảng Gemini trả về sau khi chủ dự án duyệt.)
+
+LUẬT CỨNG (không được vi phạm)
+1. KHÔNG tiền thật, không gói nạp, không quảng cáo, không bản "cao cấp trả phí": chỉ MỘT đường thưởng MIỄN PHÍ.
+2. KHÔNG thêm nguồn 💎 kim cương mới: tổng 💎 trong Chiến lệnh = 0, hoặc nếu muốn có thì phải ghi rõ số, và Claude sẽ hỏi lại chủ dự án.
+3. Giữ nguyên tên khóa lưu và hệ thống đang chạy; phần mới độc lập, không đổi số liệu hiện có.
+4. Phần thưởng chỉ dùng loại tài nguyên GAME ĐÃ CÓ: ◈ hợp kim, 🔋 thể lực, 🎫 vé càn quét, phôi Trắng/Lục/Lam, hộp khảm đá, phi công mảnh (pilot shards), vé boss tối thượng (ULT_BOSS_TICKET), rương trang bị.
+
+SỐ LIỆU HIỆN CÓ (để cân đối; đính kèm thêm tệp DO_KINH_TE_V203.md nếu cần)
+- Thể lực hồi 1 / 5 phút = 288 / ngày, trần 120. Càn quét 6 🔋 (miễn phí 10–15 lượt/ngày, sau đó tốn vé). Chơi lại ải thường 6 🔋, ải boss 10 🔋.
+- Nhiệm vụ ngày: 8 việc, điểm tối đa 140/ngày. Mốc ngày hiện tại (điểm → thưởng):
+ DAILY_MILESTONES:[{points:20,gem:5,alloy:5000,energy:20},{points:40,gem:10,exp:30,extra:{type:'SWEEP_TICKET',amount:3}},{points:60,gem:10,alloy:5000,extra:[{type:'PH_LUC_RANDOM',amount:1},{type:'SEASON_XP',amount:100}]},{points:80,gem:10,alloy:5000,extra:{type:'SOCKET_BOX_LV1',amount:1}},{points:100,gem:15,extra:[{type:'BLUE_FODDER_SMART',amount:1},{type:'PILOT_BOX_RANDOM',amount:1},{type:'SEASON_XP',amount:150}]}],
+ WEEKLY_MILESTONES:[{points:100,gem:25,alloy:10000},{points:200,gem:25,extra:{type:'SWEEP_TICKET',amount:5}},{points:300,gem:25,extra:{type:'ULT_BOSS_TICKET',amount:1}},{points:400,gem:25,extra:{type:'PILOT_SHARDS_SELECT',amount:15}},{points:500,gem:50,extra:{type:'BLUE_FODDER_BOX',amount:1},core:1}],
+ DAILY_TASKS:{
+- Nhiệm vụ tuần: 7 việc; mốc tuần 100/200/300/400… điểm (đã có thưởng 25 💎 mỗi mốc ở bản hiện tại; Claude KHÔNG thêm 💎 ngoài mức này).
+- Nhiệm vụ ngày ví dụ: đăng nhập +2.000 ◈; vượt 3 ải +3.000 ◈; càn quét 2 lần +1 vé; tiêu 50 🔋 +20 🔋; đột phá/khảm 1 lần +2.000 ◈; mua 1 món Chợ Đen +100 ◈.
+- Có sẵn: điểm danh 7 ngày (Meta40), Vòng quay, Tháp boss, Phó bản, Chợ Đen, Thư viện.
+
+CẦN GEMINI TRẢ LỜI
+A. CHIẾN LỆNH miễn phí (mùa 4 tuần, làm lại mỗi mùa):
+   1) Nguồn "điểm chiến lệnh": nên lấy từ đâu cho khỏi tạo vòng lặp lạm phát? (đề xuất: tích từ điểm năng động ngày hiện có, hoặc từ số ải đã vượt/sao.)
+   2) Bảng 30 mốc: mỗi mốc cần điểm bao nhiêu (tích lũy), thưởng gì (chỉ loại ở LUẬT 4), mốc 10/20/30 là thưởng lớn.
+   3) Tổng thưởng cả mùa quy đổi ra "◈ tương đương" và "🔋 tương đương", so với thu nhập tự nhiên 4 tuần: không quá +15% (để không phá cân bằng).
+B. BỔ SUNG NHIỆM VỤ NGÀY/TUẦN: đề xuất tối đa 3 nhiệm vụ ngày + 2 nhiệm vụ tuần MỚI (điều kiện đo được bằng sự kiện game đã có: login, stage, sweep, energy, upgrade, market, boss), kèm điểm và thưởng; thưởng rương trang bị / mảnh phi công ở mức nhỏ (ghi xác suất nếu ngẫu nhiên).
+C. KIỂM LẠM PHÁT: bảng "thu mỗi ngày trước / sau" cho 3 loại người chơi: ít chơi (15 phút), vừa (45 phút), nặng (2 giờ).
+ĐỊNH DẠNG TRẢ LỜI: bảng markdown + một khối JSON cho Chiến lệnh (id, điểm, thưởng) để Claude đưa thẳng vào mã; ghi rõ giả định.
