@@ -1,0 +1,24 @@
+GỬI GEMINI · V307 · VIẾT LỜI TRUYỆN CHO 8 PHI CÔNG (dán nguyên văn)
+
+Chào Gemini. Game bắn máy bay dọc "Phi Đội Sao Băng" (tiếng Việt, khoa học viễn tưởng, giọng đại tự sự pha ấm áp). Chủ dự án muốn mỗi phi công có một trang truyện riêng, đọc bằng nút "TRUYỆN" ngay trong màn Phi công. Đã có truyện cho 13 chiến cơ (ví dụ cơ số 1: "Ngọn lửa không bao giờ tắt", Nộ Hỏa Phượng Hoàng, rèn tại trạm Hỏa Tinh, Tinh Lịch 2187). Hãy viết cùng phong cách, cùng dòng thời gian (Tinh Lịch 2187–2195, Liên Minh Thiên Hà, Bộ Tư Lệnh Phi Đội Sao Băng).
+
+Ràng buộc: nhân vật nữ chiến giáp ở mức game mobile phổ thông (không khỏa thân, không gợi dục, không bạo lực máu me). Không dùng tên người thật, tên thương hiệu, nhân vật có bản quyền.
+
+8 phi công (tên – danh hiệu – hạng – vai trò trong trận để lời truyện ăn khớp, KHÔNG nhắc số liệu):
+1. Lâm Phương – Át Chủ Bài – A – nạp Graze (lách đạn sát để lấy năng lượng)
+2. Hạ Vy – Chỉ Huy – A – kéo dài Bạo Tẩu, tăng sát thương khi Bạo Tẩu
+3. Kiều An – Kỹ Sư – A – tự hồi giáp khi không trúng đạn
+4. Thiên Lam – Xạ Thủ – S – mạnh khi đánh boss, chí mạng
+5. Bảo Ngọc – Cựu Binh – A – gần chết thì chịu đòn tốt hơn
+6. Mộc Miên – Cứu Thương – S – nhặt vật phẩm thì hồi, hút vật phẩm xa
+7. Hàn Sương – Băng Tiễn – S – tên lửa nhanh, tàu con bắn mạnh
+8. Tử Dạ – Bóng Đêm – SS – tăng sát thương theo trang bị SSS, bom để lại trường bóng tối
+
+Mỗi phi công trả về đúng định dạng:
+- TIÊU ĐỀ NGẮN (4–7 chữ, như "Ngọn lửa không bao giờ tắt")
+- XUẤT THÂN: [quê quán / nơi đào tạo] · NIÊN ĐẠI: [Tinh Lịch ...] · SỞ TRƯỜNG: [1 cụm] · ĐIỀU YÊU THÍCH / NỖI SỢ: [1 cụm]
+- TRUYỆN: 90–130 từ, một đoạn, có một khoảnh khắc cụ thể (không chỉ liệt kê), kết bằng một câu đọng lại.
+- LIÊN HỆ: 1 câu nói họ gắn với chiến cơ số mấy hoặc đồng đội nào (chọn trong 13 chiến cơ: 1 Nộ Hỏa Phượng Hoàng, 2 Cực Quang Ảo Ảnh, 3 X-Dực Băng Hà, 4 Thần Ma Dị Hình, 5 Trí Tuệ Thự Quang, 6 Siêu Nghiệm U Linh, 7 Ma Vương Đao Phong, 8 Phần Thiên Chiến Chuẩn, 9 Thiên Khung Lược Ảnh, 10 Tinh Hà Thủ Vọng, 11 Thôn Tinh Chiến Cơ, 12 Thời Không Lữ Khách, 13 Hư Không Đế Vương).
+Các phi công phải khác giọng nhau (Hạ Vy điềm tĩnh, Lâm Phương nhanh nhẹn, Kiều An thực tế, Thiên Lam lạnh và chính xác, Bảo Ngọc từng trải, Mộc Miên dịu dàng, Hàn Sương kiệm lời, Tử Dạ bí ẩn). Không để hai người trùng quê quán.
+
+PHẦN 2 (gửi sau, chủ dự án sẽ gửi tên các robot Hợp Thể SSS): cùng định dạng, 70–100 từ mỗi robot, mô tả nguồn gốc cỗ máy và liên hệ với chiến cơ hợp thành nó.
