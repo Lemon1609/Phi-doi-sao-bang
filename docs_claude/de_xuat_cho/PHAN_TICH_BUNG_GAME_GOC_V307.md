@@ -25,3 +25,15 @@ Nguồn: video 87976–87986 (màn xem tàu, 360×884), lấy 24 khung/video. Ch
 - Giữ 13 hiệu ứng bung đã duyệt (V293) làm HÌNH; điều chỉnh THEO BẬC bằng mã: màu, kích thước, mật độ gai/lông, độ sáng.
 - GPT chỉ vẽ thân thường 6 bậc (đã sửa prompt). Không vẽ bung cơ khí.
 - Hạn chế: độ phân giải thấp, 24 khung/video nên chưa đo chính xác tỉ lệ; chưa ghép từng video với đúng 13 tàu của game mình.
+
+## Phân tích chi tiết theo bậc (lần 2, nhìn bằng mắt + đo độ sáng khung; video 360×884)
+Chu kỳ xem tàu: thường → bung → thường → bung… ; mỗi hình thái (Lv25/30/45/…/100) có cả hai trạng thái.
+Quy luật tăng theo bậc (lặp lại ở hầu hết dòng tàu):
+- B1–B2 (thường/lục): bung nhỏ, ~4–6 tia hoặc gai ngắn, màu đơn (vàng, lục, lam), vùng sáng rộng ≈ 1,2–1,4 × sải cánh.
+- B3 (lam): thêm lớp thứ hai (tia dài + tia ngắn), đổi sang lam/ngọc, rộng ≈ 1,6 ×.
+- B4 (tím): thêm lõi trắng, mật độ gai/lông tăng gấp đôi, tím/hồng, rộng ≈ 1,8–2 ×.
+- B5 (tím+): lớp thứ ba, viền sáng trắng, thêm nhiều tia nhỏ chéo; rộng ≈ 2–2,3 ×.
+- B6 (SS): cam-vàng rực, hai tầng gai/cánh chồng nhau, rộng ≈ 2,3–2,5 ×, đạn đổi sang cột sáng dày.
+Đạn trong màn xem: 3 giọt (B1–B2) → 5 → 7 giọt dài ở bậc cao; bung kèm đạn dày hơn, sáng hơn.
+Nhóm hình bung (mẫu): (a) sao gai radial (87977, 87980), (b) cánh nhện/hoa (87978, 87986), (c) cánh băng/lông (87981, 87979), (d) vòm quạt (87979, 87983), (e) cánh lưỡi liềm (87982), (f) cột sáng + halo (87984), (g) tinh thể (87985).
+Hạn chế: chọn khung tự động dính nhiều khung màn danh sách; chưa đo chính xác từng tỉ lệ; một số số liệu "rộng ≈ n × sải" là ước lượng bằng mắt.
