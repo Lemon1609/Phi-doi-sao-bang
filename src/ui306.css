@@ -182,3 +182,19 @@ html body .q77-pb:not(#_a):not(#_b):not(#_c)>i{opacity:0}
 html body .q77-pb:not(#_a):not(#_b):not(#_c)::before{content:'';position:absolute;inset:0;background:url(ui306n/thanh_tien_do_lap_day.png) center/100% 100% no-repeat;clip-path:inset(0 calc(100% - var(--p,0%)) 0 0)}
 /* V307 · sảnh: chip gợi ý mục tiêu không đè hàng tab nền/hạng; đặt dưới tab XƯỞNG */
 html body .h1-stage .nx66:not(#_a):not(#_b){top:46px!important;bottom:auto!important;font-size:10.5px;box-shadow:0 0 10px rgba(255,200,80,.25)}
+/* V307 · sảnh: lớp tinh vân nhiều màu + sao lấp lánh quanh sân khấu (tâm để trống cho chiến cơ; chỉ CSS, nhẹ) */
+html body .h1-stage:not(#_a):not(#_b)::after{content:'';position:absolute;inset:0;pointer-events:none;z-index:1;mix-blend-mode:screen;
+ background:
+  radial-gradient(circle at 12% 18%,rgba(190,70,255,.38) 0,transparent 34%),
+  radial-gradient(circle at 90% 30%,rgba(40,210,255,.34) 0,transparent 36%),
+  radial-gradient(circle at 78% 92%,rgba(255,150,60,.30) 0,transparent 34%),
+  radial-gradient(circle at 6% 86%,rgba(60,120,255,.34) 0,transparent 38%),
+  radial-gradient(1.4px 1.4px at 22% 12%,#fff 50%,transparent 52%),radial-gradient(1.2px 1.2px at 68% 8%,#cfeaff 50%,transparent 52%),
+  radial-gradient(1.6px 1.6px at 88% 58%,#fff 50%,transparent 52%),radial-gradient(1.2px 1.2px at 8% 55%,#ffe9c4 50%,transparent 52%),
+  radial-gradient(1.4px 1.4px at 35% 90%,#fff 50%,transparent 52%),radial-gradient(1.2px 1.2px at 58% 94%,#cfeaff 50%,transparent 52%),
+  radial-gradient(1.2px 1.2px at 94% 82%,#fff 50%,transparent 52%),radial-gradient(1.2px 1.2px at 16% 36%,#cfeaff 50%,transparent 52%);
+ -webkit-mask-image:radial-gradient(ellipse 52% 46% at 50% 54%,transparent 45%,#000 100%);mask-image:radial-gradient(ellipse 52% 46% at 50% 54%,transparent 45%,#000 100%);
+ animation:ui307neb 14s ease-in-out infinite alternate}
+@keyframes ui307neb{from{opacity:.75;transform:scale(1)}to{opacity:1;transform:scale(1.04)}}
+@media (prefers-reduced-motion:reduce){html body .h1-stage::after{animation:none}}
+body.lite79 .h1-stage::after{animation:none}
