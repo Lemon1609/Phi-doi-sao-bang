@@ -10,7 +10,7 @@
   const rs=document.getElementById('rs');if(!rs)return;let best=0,ch=null;
   try{best=Campaign36.getState().endlessBest|0;}catch{}try{ch=UI78.count();}catch{}
   let el=rs.querySelector('.vt307');if(!el){el=document.createElement('div');el.className='vt307';
-   const a=rs.querySelector('#rs306-x2')||rs.querySelector('button');if(a&&a.parentNode)a.parentNode.insertBefore(el,a);else rs.appendChild(el);}
+   const a=rs.querySelector('.rw306');if(a&&a.parentNode)a.parentNode.insertBefore(el,a.nextSibling);else rs.appendChild(el);}
   el.innerHTML='<div><small>ĐỢT NÀY</small><b>'+(wave|0)+'</b></div><div><small>KỶ LỤC ĐỢT</small><b>'+Math.max(best,wave|0)+'</b></div>'+(ch==null?'':'<div><small>RƯƠNG HÔM NAY</small><b>📦 '+ch+'/30</b></div>');
  }
  let hk=false;function hook(){if(hk||typeof end!=='function')return;hk=true;const o=end;
