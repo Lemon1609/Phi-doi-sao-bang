@@ -1,0 +1,10 @@
+V307 · NHỜ GEMINI GÓP Ý / CHỈNH SỬA PROMPT VẼ NỀN CỦA GPT (trước khi gửi GPT)
+Bối cảnh: game bắn máy bay dọc "Phi Đội Sao Băng" (HTML5 + Android). Chủ dự án muốn nền trận, nền bản đồ, nền sảnh RỰC RỠ và ĐẸP hơn, theo chủ đề: sảnh = nhà máy chế tạo tương lai + dải ngân hà + hố đen vũ trụ. Hiện nền trận rất tối (RGB trung bình ~ (3,20,28)); chỉ học phong cách/ánh sáng của các game bắn máy bay thương mại, KHÔNG vẽ lại nền/tàu/biểu tượng cụ thể nào.
+Tệp kèm: GUI_GPT_V307_PROMPT_VE_NEN.txt (5 khối prompt + bảng màu 10 chương).
+Nhờ Gemini:
+1. Đọc 5 khối prompt, chỉ ra chỗ MƠ HỒ hoặc dễ khiến GPT vẽ sai (ví dụ: lớp trong suốt bằng nền đen thuần, "giữa tối để đạn nổi", lặp dọc được, khổ ảnh).
+2. Viết lại gọn và mạnh hơn cho từng khối (giữ cấu trúc, giữ luật: không chữ/logo/nhân vật, nguyên bản). Gợi ý thêm từ khoá ánh sáng/ chất liệu giúp ảnh "đã mắt" nhưng KHÔNG làm rối vùng giữa màn.
+3. Với nền sảnh (ẢNH 4): đề xuất bố cục cụ thể (vị trí hố đen, bệ tròn, cột sáng, giàn cẩu) để chiến cơ ở giữa vẫn nổi và nút UI ở trên/dưới không bị nền chói làm khó đọc.
+4. Kiểm bảng màu 10 chương: có chương nào dễ trùng nhau, dễ làm đạn địch (trắng/đỏ/vàng) khó thấy không? Đề xuất sửa.
+5. Đề xuất cách GPT giữ NHẤT QUÁN phong cách giữa 10 chương (câu "khoá phong cách" ngắn để dán đầu mọi ảnh).
+Trả lời: bản prompt đã chỉnh cho từng khối (sẵn để dán) + danh sách thay đổi ngắn.

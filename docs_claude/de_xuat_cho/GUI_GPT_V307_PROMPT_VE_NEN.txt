@@ -1,0 +1,25 @@
+V307 · PROMPT CHO GPT VẼ TRANH NỀN (gửi từng khối; Claude xử lý khung/độ trong suốt sau)
+Dùng chung cho mọi ảnh (dán đầu mỗi lần):
+"Vẽ tranh nền game bắn máy bay dọc trên điện thoại, phong cách sci-fi tương lai, màu rực rỡ, ánh sáng điện ảnh, chi tiết sắc nét, nguyên bản 100% (KHÔNG vẽ lại nền, hành tinh, tàu, biểu tượng của bất kỳ game nào có sẵn). KHÔNG chữ, KHÔNG logo, KHÔNG viền khung, KHÔNG nhân vật, KHÔNG UI. Khổ dọc 9:19,5 (1024×2184 nếu được; gần nhất cũng được). Bố cục có CHIỀU SÂU: xa mờ sáng, gần rõ tối."
+
+=== ẢNH 1 · NỀN TRẬN CHƯƠNG 1 · LỚP XA (nền đặc) ===
+"[Chung] + Dải ngân hà xanh ngọc – cam cháy, một hành tinh khí khổng lồ lệch trái phía trên với vành đai mỏng, tinh vân khói mềm, nhiều sao nhỏ. Độ sáng trung bình KHÁ (không đen thui): vùng nền xanh đêm #0B1E3A → #1D3A66, điểm nhấn cam #FF8A3D chỉ ở mép. CHÍNH GIỮA màn (dải rộng 40% ở giữa) TỐI hơn và ít chi tiết để đạn địch trắng/đỏ nổi bật. Cuộn dọc lặp được: mép trên và mép dưới cùng màu/độ sáng."
+
+=== ẢNH 2 · CHƯƠNG 1 · LỚP GIỮA (nền ĐEN THUẦN #000000 để Claude tách nền) ===
+"[Chung] + Chỉ vẽ mây tinh vân mỏng, vài tiểu hành tinh xa, cấu trúc trạm bỏ hoang mờ, TRÊN NỀN ĐEN THUẦN #000000. Mọi thứ nửa trong suốt, độ sáng thấp–vừa, tản đều, KHÔNG che giữa màn. Lặp dọc được."
+
+=== ẢNH 3 · CHƯƠNG 1 · LỚP GẦN (nền ĐEN THUẦN) ===
+"[Chung] + Chỉ vẽ mảnh vụn kim loại, đá lớn, tia khói ở HAI MÉP TRÁI và PHẢI (mỗi bên rộng ≤ 18% khổ ảnh), giữa HOÀN TOÀN ĐEN #000000. Tối, tương phản cao, lặp dọc được."
+
+=== ẢNH 4 · NỀN SẢNH "XƯỞNG ĐÓNG TÀU TƯƠNG LAI" (786×1100 → cứ vẽ khổ dọc 3:4) ===
+"[Chung] + Bên trong xưởng đóng tàu vũ trụ khổng lồ: giàn cẩu thép, cánh tay robot, đường ray, tia hàn cam bắn lẻ tẻ, ống dẫn sáng xanh. Ở xa qua khung kính vòm lớn là dải ngân hà và MỘT HỐ ĐEN với đĩa bồi tụ cam–xanh, vòng sáng thấu kính hấp dẫn. Ở giữa phía dưới có BỆ TRÒN PHÁT SÁNG xanh lam (để đặt chiến cơ lên), tâm sáng, hai bên tối. Phần giữa-trên để thoáng (có cột sáng từ trần chiếu xuống), không vật thể lớn che."
+
+=== ẢNH 5 · NỀN BẢN ĐỒ (720×1500) ===
+"[Chung] + Không gian sâu: tinh vân hai màu (tím–hồng và lam), 1–2 hành tinh lớn ở rìa, một vùng sao dày. Chừa MỘT DẢI ngoằn ngoèo từ dưới lên trên ở giữa tương đối tối/đơn giản (sẽ vẽ đường nối chấm lên). Không chữ."
+
+=== BẢNG MÀU 10 CHƯƠNG (dùng cho ẢNH 1–3 khi làm tiếp, sau khi duyệt chương 1) ===
+Ch1 xanh ngọc + cam · Ch2 tím + hồng · Ch3 đỏ cam + vàng · Ch4 lục + vàng chanh · Ch5 lam điện + trắng · Ch6 hồng cánh sen + xanh lơ · Ch7 xanh biển sâu + ngọc · Ch8 tím đen + đỏ · Ch9 vàng đồng + nâu đỏ · Ch10 (chương cuối) HỐ ĐEN trung tâm, đĩa bồi tụ cam–xanh, nền tối tím.
+
+=== CÁCH GỬI / NHẬN ===
+- Gửi lần lượt: ẢNH 1, 2, 3, rồi 4, 5. Mỗi ảnh một lần; sai thì chỉnh bằng câu ngắn, đừng viết lại cả khối.
+- Claude đo độ sáng, tách nền đen thành trong suốt, cắt/co về cỡ game, kiểm lặp dọc và chụp trận thật để duyệt.
