@@ -1,0 +1,34 @@
+GỬI GEMINI · V307 · LÀM LẠI (1) NHIỆM VỤ TUẦN MỚI, (2) BẢNG THƯỞNG CẤP 21–25 (dán nguyên văn)
+
+Cảm ơn bạn. Chủ dự án CHỌN phương án C: mùa 21 ngày / 25 cấp (500 XP/cấp, tổng 12.500 XP). Rương vượt cấp: 1.000 XP/rương, tối đa 3 rương/mùa, mỗi rương gồm hợp kim + đá nâng + vé càn quét, KHÔNG kim cương.
+Lần trước bạn chưa thấy danh sách nhiệm vụ THẬT nên đề xuất bị trùng. Đây là dữ liệu thật trong mã. Xin bám sát nó.
+
+[A. NHIỆM VỤ NGÀY HIỆN CÓ: 8 nhiệm vụ = 140 điểm; mốc 20/40/60/80/100; kim cương 5/10/10/10/15 = 50/ngày]
+D_LOGIN (login, 1, +20đ) · D_STAGES (stage, 3 ải, +20đ) · D_SWEEP (sweep, 2 lần, +15đ) · D_ENERGY (energy, 50 thể lực, +20đ) · D_TOWER_CHALLENGE (tower, 2 tầng Tháp hoặc 1 Thử thách ngày, +20đ) · D_UPGRADE (upgrade, đột phá/khảm/tẩy đá 1 lần, +15đ) · D_ENDLESS (endless, 1 trận, +15đ) · D_MARKET (market, mua 1 món Chợ Đen, +15đ).
+Mốc 60 điểm tặng +100 XP mùa; mốc 100 điểm tặng +150 XP mùa. Điểm tối đa 140 nhưng mốc cao nhất chỉ 100 → đã dư 40 điểm.
+=> Quyết định chủ dự án: KHÔNG thêm nhiệm vụ ngày, KHÔNG đổi mốc ngày.
+
+[B. NHIỆM VỤ TUẦN HIỆN CÓ: 7 nhiệm vụ = 600 điểm; mốc 100/200/300/400/500; kim cương 25/25/25/25/50 = 150/tuần]
+W_DAILY_POINTS (dpts, 350 năng động ngày, +150đ) · W_CLEAR_STAGES (stage, 25 ải, +80đ) · W_TOWER_CLIMB (towerf, 10 tầng Tháp, +80đ) · W_ENERGY_SPEND (energy, 350 thể lực, +100đ) · W_BOSS_KILL (boss, 25 Boss, +70đ) · W_BLACK_MARKET (market, 6 lượt, +60đ) · W_SOCKET_REROLL (stone, 10 lần tẩy/khảm đá, +60đ).
+Event chưa có nhiệm vụ tuần: endless, sweep, upgrade, login. (Event thật có: boss, dpts, endless, energy, login, market, stage, stone, sweep, tower, towerf, upgrade.)
+
+[C. YÊU CẦU 1] Đề xuất TỐI ĐA 2 nhiệm vụ tuần mới, dùng event ở mục "chưa có nhiệm vụ tuần" (không trùng loại với 7 cái trên).
+- Mỗi nhiệm vụ: tên, event, mục tiêu, điểm, phần thưởng trực tiếp (KHÔNG kim cương).
+- Nêu rõ tổng điểm tuần mới (hiện 600) và mốc tuần cao nhất (hiện 500). Không nâng mốc nếu không cần; nếu thêm điểm làm người chơi nhẹ dễ hơn thì nói rõ.
+- Phần thưởng trực tiếp phải nhỏ, so với phần thưởng nhiệm vụ cũ (ví dụ W_BOSS_KILL thưởng 1 phôi Lục, W_SOCKET_REROLL thưởng 12.500 ◈).
+- Dùng đúng tên vật phẩm trong game. Tên mình đã biết: hợp kim (alloy), đá nâng (upgradeStone), đá tẩy (rerollStone), vé càn quét (sweepTicket), vé may mắn (luckyTicket), vé Boss tối thượng (ultBossTicket), thể lực (energy), hộp khảm đá cấp 1/2 (socketBoxLv1/2), hộp phôi Lục/Lam (fodderGreenBox/fodderBlueBox), mảnh phi công chọn/ngẫu nhiên (pilotShardSelect/pilotShardRandom), rương trang bị Tím (purpleEquipChest), lõi SSS chọn (sssCoreSelect).
+
+[D. THƯỞNG 20 CẤP HIỆN TẠI (làn Miễn phí / làn Elite)]
+1: 5.000◈ / 100💎+10.000◈ · 2: 5 đá nâng / 3 vé càn quét · 3: 50💎 / 1 hộp phôi Lục · 4: 10.000◈ / 5 đá tẩy · 5: 1 vé may mắn / 10 mảnh PC chọn · 6: 50 thể lực / 150💎 · 7: 10 đá nâng / 20.000◈ · 8: hộp khảm cấp 1 / 1 vé Boss tối thượng · 9: 100💎 / 25 mảnh PC ngẫu nhiên · 10: hộp phôi Lam / SKIN Ảo Ảnh Thần Cơ · 11: 15.000◈ / 200💎 · 12: 5 vé càn quét / hộp khảm cấp 2 · 13: 15 đá nâng / 50 thể lực · 14: 150💎 / 30.000◈ · 15: 10 mảnh PC chọn / 2 vé may mắn · 16: 20.000◈ / 10 đá tẩy · 17: hộp khảm cấp 2 / 250💎 · 18: 20 đá nâng / hộp phôi Lam · 19: 200💎 / 2 vé Boss tối thượng · 20: rương trang bị Tím / 1 lõi SSS chọn + danh hiệu Quán Quân Mùa.
+Tổng kim cương: làn miễn phí 500, làn Elite 700.
+
+[E. YÊU CẦU 2] Làm bảng 25 cấp mới cho mùa 21 ngày.
+- GIỮ NGUYÊN tổng kim cương 500 (miễn phí) và 700 (Elite), tức không thêm nguồn kim cương mới. Rải lại vị trí cho đều nhịp 3 tuần (ví dụ cấp nhận kim cương: bạn đề xuất).
+- Quà lớn nhất (skin, lõi SSS, danh hiệu, rương Tím) đặt ở CẤP CUỐI (25) hoặc gần cuối để có động lực. Skin nên đặt cấp giữa mùa (~13) hoặc theo ý bạn, nêu lý do.
+- Tổng tài nguyên cấp 21–25 chỉ nên tăng thêm đúng bằng phần "thêm 5 cấp" (so với 20 cấp), không phát thêm nhiều hơn mức tương đương 5 cấp cũ. Nếu tổng hợp kim/đá nâng/vé cả mùa tăng thì nói rõ tăng bao nhiêu % so với mùa 14 ngày cũ.
+- Trình bày: một bảng 25 dòng (cấp | làn miễn phí | làn Elite), rồi bảng tổng theo loại vật phẩm cả mùa, CÓ ghi hàng "cũ → mới".
+
+[F. ĐỊNH DẠNG TRẢ LỜI]
+1) Hai nhiệm vụ tuần mới (bảng).
+2) Bảng 25 cấp + bảng tổng cũ → mới.
+3) Cuối: liệt kê chỗ KHÔNG chắc. Không viết "giữ nguyên" cho thứ thực sự bị đổi.
