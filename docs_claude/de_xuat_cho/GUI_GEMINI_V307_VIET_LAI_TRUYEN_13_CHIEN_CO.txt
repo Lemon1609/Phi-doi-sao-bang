@@ -1,0 +1,21 @@
+GỬI GEMINI · V307 · VIẾT LẠI TRUYỆN 13 CHIẾN CƠ (dán nguyên văn; đính kèm TRUYEN_13_CHIEN_CO_HIEN_TAI.txt)
+
+Chào Gemini. Game bắn máy bay dọc "Phi Đội Sao Băng" (tiếng Việt, khoa học viễn tưởng, giọng đại tự sự pha ấm áp). File đính kèm là truyện hiện có của 13 chiến cơ. Chủ dự án thấy chưa đủ hay và muốn viết lại cho hấp dẫn hơn, vì từ nay truyện nằm ngay trong màn Chiến cơ (nút "TRUYỆN" trên khung xem tàu), người chơi sẽ đọc từng chiếc khi sở hữu nó.
+
+Giữ nguyên: tên 13 chiến cơ, thứ tự, các chi tiết ngoại hình đã mô tả (cánh, mắt, lõi, vòng từ...) để khớp với tranh trong game, dòng thời gian Tinh Lịch 2187–2195, Liên Minh Thiên Hà, Bộ Tư Lệnh Phi Đội Sao Băng. Có thể đổi tiêu đề và toàn bộ lời truyện nếu bạn thấy hay hơn.
+
+Hãy làm hay hơn ở các điểm:
+- Mở bằng một khoảnh khắc cụ thể (hình ảnh, âm thanh, một câu thoại), không mở bằng "X là chiếc chiến cơ...".
+- Mỗi chiếc có một nỗi niềm / cái giá / bí mật riêng, để người chơi có lý do thấy gắn bó.
+- Các chiếc nối với nhau thành một mạch lớn: 13 truyện đọc lần lượt phải thấy cuộc chiến và các nhân vật cùng chạy qua nhau (có thể nhắc chéo tên tàu khác hoặc phi công trong Phi Đội: Lâm Phương, Hạ Vy, Kiều An, Thiên Lam, Bảo Ngọc, Mộc Miên, Hàn Sương, Tử Dạ).
+- Mỗi chiếc một giọng, một tông khác nhau (anh hùng, bi tráng, huyền bí, hài hước nhẹ, lạnh lùng...), tránh lặp cấu trúc câu.
+- Cơ số 13 (Hư Không Đế Vương) phải là đỉnh của mạch, gợi lại các chiếc trước.
+
+Ràng buộc: tên tàu, nhân vật, địa danh là sáng tác riêng, không dùng tên thương hiệu hoặc nhân vật có bản quyền, không bạo lực máu me, không nội dung nhạy cảm.
+
+Mỗi chiến cơ trả về đúng định dạng:
+- TIÊU ĐỀ NGẮN (4–7 chữ)
+- XUẤT XỨ: ... · CHẾ TẠO: ... · THỜI ĐIỂM: ... · LÕI / VẬT LIỆU: ... (mỗi mục dưới 14 từ)
+- TRUYỆN: 110–150 từ, một đoạn, kết bằng một câu đọng lại.
+
+Cuối cùng, liệt kê 3 dòng: (1) mạch lớn bạn đã nối 13 chiếc thế nào, (2) chiếc nào bạn thay đổi nhiều nhất, (3) chỗ nào bạn đoán mà đề bài không nói.
