@@ -934,6 +934,7 @@ rep("</body>","<script id=\"sanh307-js\">"+open('src/sanh307.js',encoding='utf-8
 rep("</body>","<script id=\"target307-js\">"+open('src/target307.js',encoding='utf-8').read()+"</script></body>")
 rep("</body>","<script id=\"vt307-js\">"+open('src/vt307.js',encoding='utf-8').read()+"</script></body>")
 rep("</body>","<script id=\"truyen307-js\">"+open('src/truyen307.js',encoding='utf-8').read()+"</script></body>")
+rep("</body>","<script id=\"pstory307-js\">"+open('src/pstory307.js',encoding='utf-8').read()+"</script></body>")
 rep("</body>","<style id=\"ui306-css\">"+_ui306css(open('src/ui306.css',encoding='utf-8').read())+"</style></body>")  # V306 giao diện đợt 1
 open('Phi_Doi_Sao_Bang_V74_mau.html','w',encoding='utf-8').write(h);print(round(len(h)/1e6,2),'MB')
 # ---- V100 · BẢN THỬ cho chủ dự án: dữ liệu tách riêng (tiền tố thu100:) + bảng nạp tài khoản mẫu ----
