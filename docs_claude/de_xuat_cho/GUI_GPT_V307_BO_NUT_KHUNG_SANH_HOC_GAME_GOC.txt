@@ -1,0 +1,44 @@
+V307 · GÓI PROMPT GPT: VẼ LẠI BỘ NÚT, KHUNG, Ô, THANH + SẢNH THEO PHONG CÁCH GAME GỐC (chủ dự án chốt 16/11: "sửa lại hết")
+Cách dùng: dán [KHÓA PHONG CÁCH UI] + từng khối ảnh; gửi từng ảnh một. Gửi kết quả cho Gemini góp ý (mẫu ở cuối), rồi mang về cho Claude.
+Mục tiêu: nhìn ấm, bóng, nổi khối, hấp dẫn như game gốc; HOÀN TOÀN NGUYÊN BẢN (không chép nút/khung/biểu tượng/chữ cụ thể của game nào).
+
+[GAME GỐC DÙNG KỸ THUẬT GÌ — nhìn bằng mắt từ video, chưa đo từng điểm màu]
+- Khung kim loại xanh lam đậm, viền sáng dày có vát (bevel), có đèn neon xanh nhạt dọc cạnh, góc cắt chéo.
+- Nút hành động chính là khối vàng–cam bóng như kim loại/kính, vát 3D, có quầng sáng nhẹ; nút phụ xanh lam; nút xác nhận xanh lục; cảnh báo đỏ.
+- Ô icon vuông bo góc, nền xanh thẫm, viền sáng, chấm đỏ báo thông báo ở góc.
+- Thanh tài nguyên dạng viên thuốc có icon tròn bên trái; chữ trắng viền tối đậm.
+- Nền sảnh là không gian tối có sao + cột sáng + hào quang quanh chiến cơ.
+
+[KHÓA PHONG CÁCH UI — DÁN ĐẦU MỖI LẦN]
+"Tài nguyên giao diện 2D cho game bắn máy bay dọc di động, phong cách sci-fi cao cấp, kim loại bóng có vát nổi khối 3D, ánh sáng viền sắc, quầng sáng neon mềm, màu rực nhưng sạch. Nền ảnh đen thuần #000000 phẳng (để tách nền). Chính diện, đối xứng, căn giữa, có khoảng trống đen đều quanh vật. KHÔNG chữ, KHÔNG số, KHÔNG logo, KHÔNG nhân vật. Hoàn toàn nguyên bản."
+Khổ ảnh: mỗi ảnh 1 vật, vuông 1024×1024 (nút/khung dài thì khổ ngang 1536×1024 nếu có). Vùng giữa nút/khung phẳng, ít chi tiết để Claude chèn chữ.
+
+=== A. NÚT HÀNH ĐỘNG CHÍNH (vàng–cam) · 3 trạng thái, 3 ảnh riêng ===
+"[Khóa] + Một nút bấm hình chữ nhật bo góc cắt chéo, dài ngang tỉ lệ 3,4:1. Thân vàng–cam rực (vàng #FFC83D trên cùng chuyển cam #E8590C dưới đáy), viền kim loại vàng sáng dày, vát nổi khối, vệt sáng kính phía trên, bóng đổ nhẹ dưới đáy, quầng sáng cam mờ xung quanh. Hai đầu nút có chi tiết cánh nhỏ kim loại đối xứng. Vùng giữa phẳng, sạch."
+ A1 thường · A2 nhấn (tối hơn 15%, nút lún xuống, không quầng) · A3 khóa (xám bạc, mất màu, không quầng)
+=== B. NÚT PHỤ (xanh lam) + C. XÁC NHẬN (xanh lục) + D. CẢNH BÁO (đỏ) ===
+Cùng dáng và cùng cách vẽ như A nhưng thân: B xanh lam #2E8BFF→#1445B8; C xanh lục #3FD468→#16833A; D đỏ #FF4B4B→#A3141A. Mỗi màu 3 trạng thái (thường / nhấn / khóa) = 9 ảnh. Có thể gộp 3 trạng thái 1 ảnh theo hàng dọc khi GPT làm đều tay.
+=== E. HAI NÚT CHẾ ĐỘ LỚN Ở ĐÁY SẢNH ===
+"[Khóa] + Hai tấm nút lớn hình chữ nhật cắt chéo tỉ lệ 2,2:1, cùng khổ. Tấm 1: vàng–cam rực (cho 'chiến dịch'). Tấm 2: tím–hồng sẫm #7A2BD8→#C23CC8 viền kim loại bạc (cho 'vô tận'). Nổi khối mạnh, vát dày, quầng sáng cùng màu, hai cánh kim loại nhỏ ở hai đầu. Vùng giữa phẳng cho chữ." 2 ảnh + bản khóa (xám) mỗi cái.
+=== F. Ô ICON VUÔNG (TAB) · 2 trạng thái ===
+"[Khóa] + Một ô vuông bo góc, nền xanh navy thẫm gradient, viền kim loại xanh lam sáng dày có vát, góc trên trái cắt chéo nhẹ, đèn neon xanh nhạt dọc cạnh trên. Lòng ô trống để chèn biểu tượng." F1 không chọn · F2 được chọn (viền vàng sáng + quầng vàng). Thêm F3: chấm thông báo đỏ tròn bóng (nhỏ, tách riêng).
+=== G. KHUNG BẢNG (PANEL / HỘP THOẠI) · 9-slice ===
+"[Khóa] + Khung hộp thoại hình chữ nhật dọc, lòng trống nền xanh navy thẫm có lưới mờ, viền kim loại xanh lam dày vát, bốn góc cắt chéo có đinh/ đèn, thanh tiêu đề phía trên cao ~12% khung, hơi nhô ra, cùng chất liệu. Phần lòng phẳng." Khổ dọc 1024×1536. G2: bản có thanh tiêu đề vàng cho bảng quan trọng.
+=== H. THANH TÀI NGUYÊN + THANH TIẾN ĐỘ ===
+H1 "viên thuốc ngang tỉ lệ 4:1, nền navy thẫm, viền kim loại xanh, đầu trái có ô tròn trống để đặt icon, đầu phải có ô nhỏ vuông (nút cộng) trống."
+H2 "thanh tiến độ ngang tỉ lệ 8:1: khung kim loại xanh + lõi rỗng tối" và H3 "lõi đầy: dải sáng xanh ngọc→vàng, bóng kính, đầu nhọn" (tách riêng, cùng khổ).
+=== I. KHUNG CHÂN DUNG TRÒN + KHUNG SAO ===
+I1 "khung tròn kim loại bạc viền xanh, lòng trống" · I2 "ba ngôi sao vàng bóng nổi khối xếp ngang" · I3 "ba ngôi sao xám rỗng, cùng khổ".
+=== J. KHUNG Ô VẬT PHẨM THEO BẬC (5 ảnh) ===
+"[Khóa] + Một ô vuông bo góc, lòng trống tối, viền kim loại dày vát. Xám · Lục · Lam · Tím · Vàng (viền + quầng theo bậc, vàng có tia sáng nhẹ)."
+=== K. SẢNH · bản vẽ bố cục (cho Claude lập trình; GPT chỉ vẽ nền K1) ===
+K1 NỀN SÂN KHẤU SẢNH (dọc 9:16): dùng prompt ảnh 4 trong GUI_GPT_V307_PROMPT_VE_NEN_V2.txt nhưng ĐỔI theo game gốc: nền không gian TỐI có sao + dải ngân hà + HỐ ĐEN ở góc trên phải, MỘT cột sáng tím–hồng dọc chính giữa từ trên xuống, hai cụm giàn thép xưởng mờ ở hai rìa, sàn bệ tròn sáng viền xanh ở khoảng 62–72% chiều cao. Giữ 40% giữa tối/ít chi tiết để chiến cơ nổi.
+Bố cục Claude sẽ dựng bằng mã (theo game gốc): thanh tài nguyên trên cùng · hàng 5 tab · cột nút nhỏ hai bên sân khấu · tên + lực chiến dưới chiến cơ · thanh phi công · đáy: hai nút chế độ lớn (E) + hai nút nhỏ giữa (kho, phi công) · thanh nav dưới cùng.
+
+[QUY TẮC CHUNG]
+- Mỗi ảnh 1 vật (hoặc 1 hàng trạng thái nếu GPT làm đều). Nền đen thuần; không bóng đổ lên nền (bóng nằm trong vật). Không vẽ chữ, kể cả chữ giả.
+- Cùng 1 bộ phải THỐNG NHẤT độ dày viền, góc cắt, màu kim loại. Gửi ảnh A1 trước, chốt rồi mới làm bộ còn lại, và dán A1 vào các lượt sau làm tham chiếu "đúng phong cách này".
+- Claude làm: tách nền đen theo độ sáng, cắt 9-slice, đổi kích thước, thay vào `src/ui306n/` theo tên hiện có (nut_vang, nut_xanh, nut_do_cam, nut_xam, o_vat_pham_*, khung_bang, thanh_tai_nguyen, thanh_tien_do, tab_thang_bat/tat, sao_day, sao_rong…). Đo độ sáng/độ bão hòa, chụp sảnh + hộp thoại thật để chủ dự án duyệt trước khi xuất bản.
+
+[MẪU TIN CHO GEMINI GÓP Ý (gửi kèm ảnh GPT trả về)]
+"Gemini ơi, đây là bộ nút/khung GPT vẽ cho game bắn máy bay dọc di động, phong cách học từ game gốc (kim loại bóng vát 3D, vàng-cam cho hành động chính). Hãy chấm từng ảnh: (1) có thống nhất độ dày viền / góc / màu giữa các ảnh không; (2) nút vàng-cam có đủ nổi bật và hấp dẫn để người chơi muốn bấm không; (3) vùng giữa có đủ phẳng để chèn chữ 12–16 px không; (4) nền đen có tách alpha được không (vật nào có vùng tối gần đen sẽ bị mất); (5) có chỗ nào trông giống một game cụ thể cần tránh không. Trả lời bằng danh sách lỗi + câu sửa prompt ngắn cho từng ảnh."
