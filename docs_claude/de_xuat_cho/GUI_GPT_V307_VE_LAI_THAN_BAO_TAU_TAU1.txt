@@ -1,0 +1,17 @@
+GỬI GPT · V307 · VẼ LẠI THÂN BẠO TẨU TÀU 1 (dán tiếp trong cùng cuộc trò chuyện; đính kèm ảnh 6 bậc THƯỜNG đã chốt, và ảnh thân Bạo Tẩu bản trước để biết cái cần tránh)
+
+Lớp năng lượng cánh lông phượng bản trước ĐẸP, giữ lại (mình sẽ phóng to bằng mã). Chỉ vẽ LẠI ẢNH THÂN BẠO TẨU, vì bản trước thô kệch: các tấm giáp bị xếp chồng như ngói, thân to nặng, bậc 4–6 gần như không mở (đo: bậc 4 hẹp lại, bậc 5 0 %, bậc 6 +2 %), bậc 4 còn mất cánh chữ V.
+
+CÁCH LÀM (đây là điểm quan trọng nhất)
+- Lấy NGUYÊN bản thường cùng bậc. KHÔNG thêm tấm giáp chồng lớp, KHÔNG làm thân dày thêm. Chỉ DI CHUYỂN các bộ phận SẴN CÓ của bản thường:
+  • hai cụm cánh chính trượt / xoay dang ra ngoài, cánh nhọn thanh thoát vẫn nguyên hình dáng;
+  • hai pod động cơ dang ra hai bên, hở khe rõ giữa pod và thân giữa; trong khe có rãnh sáng (màu nhấn của bậc) để thấy chúng "tách ra";
+  • mũi và thân giữa giữ y hệt bản thường, trùng khít.
+- Giữ KHOẢNG TRỐNG (nền đen) giữa các bộ phận đã mở: tàu phải thoáng, nhìn là thấy các bộ phận tách rời nhau, không dính thành một khối. Không để các tấm giáp chạm / chồng lên nhau.
+- Bản thường có chi tiết nào (cánh chữ V bậc 4, mảnh giáp bay bậc 5–6...) phải còn ở bản Bạo Tẩu, chỉ đổi vị trí.
+- ĐỘ MỞ BẮT BUỘC (đo bằng bề rộng ngoài cùng so với bản thường cùng bậc): bậc 1 +20 %, bậc 2 +22 %, bậc 3 +25 %, bậc 4 +28 %, bậc 5 +32 %, bậc 6 +35 %. Chiều cao tàu gần như không đổi. Mình sẽ đo lại, bậc nào thiếu mình trả về.
+- Màu và buồng lái / ngọc y như bản thường cùng bậc, thêm viền LED sáng ở chỗ khe. Đối xứng trái-phải. Không lửa, không tia ngoài thân, không chữ.
+- CẤM: tay máy, khớp nối mảnh, cánh tay robot, lưỡi dao dài mảnh, giáp chồng như ngói.
+
+TRÌNH BÀY: 1 hàng 6 cột (bậc 1→6), nhãn 1–6, nền đen thuần, thân giữa mỗi ô cùng vị trí / cùng cỡ với ảnh thường (để mình xếp chồng).
+Cuối câu trả lời ghi 3 dòng: (a) bạn đã di chuyển những bộ phận nào ở từng bậc, (b) độ mở ước tính (%) từng bậc, (c) chỗ nào bạn đoán.
