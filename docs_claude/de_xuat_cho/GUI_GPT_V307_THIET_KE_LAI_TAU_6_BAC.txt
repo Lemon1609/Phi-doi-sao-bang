@@ -4,7 +4,7 @@ Chào GPT. Mình làm game bắn máy bay dọc "Phi Đội Sao Băng". Mình mu
 
 1) NGUYÊN TẮC TIẾN HÓA 6 BẬC (cùng một tàu, cùng một "gia đình" màu)
 Thứ tự: 1 Thường (xám/trắng, bản đơn giản) → 2 Lục → 3 Lam → 4 Tím → 5 Tím+5 → 6 SS (cao nhất).
-- MÀU: mỗi tàu giữ MỘT màu chủ đạo xuyên suốt 6 bậc; chỉ dịch sắc nhẹ (tối đa khoảng ±25° trên vòng màu) và tăng độ rực, độ bóng, đèn phát sáng. Không đổi cả thân từ đỏ sang xanh. Màu bậc được thể hiện chủ yếu bằng đèn / đường sáng / lõi năng lượng nhỏ (Lục, Lam, Tím, Tím đậm hơn, Vàng-trắng ở SS), phần thân vẫn nhận ra là cùng một tàu.
+- MÀU: mỗi tàu giữ MỘT màu chủ đạo xuyên suốt 6 bậc (màu nhấn chỉ dịch sang màu kề, tối đa khoảng ±25° trên vòng màu) và tăng độ rực, độ bóng, đèn phát sáng. Không đổi cả thân từ đỏ sang xanh. Màu bậc được thể hiện chủ yếu bằng đèn / đường sáng / lõi năng lượng nhỏ (Lục, Lam, Tím, Tím đậm hơn, Vàng-trắng ở SS), phần thân vẫn nhận ra là cùng một tàu.
 - DÁNG (đây là phần chính, mỗi bậc thêm bộ phận mới, không bỏ bộ phận cũ):
   • Bậc 1 Thường: thân gọn, cánh trơn, 2 động cơ, ít chi tiết, khối lớn đơn giản.
   • Bậc 2 Lục: thêm tấm giáp hai bên thân, mũi nhọn hơn, thêm cánh đuôi nhỏ, ống xả to hơn.
@@ -13,6 +13,15 @@ Thứ tự: 1 Thường (xám/trắng, bản đơn giản) → 2 Lục → 3 Lam
   • Bậc 5 Tím+5: thêm bộ phận lơ lửng hoặc tách rời (tinh thể, vòng từ, lưỡi, mảnh giáp bay quanh), lõi sáng lớn, đường viền phát sáng liền mạch.
   • Bậc 6 SS: cao nhất, viền vàng kim loại, đầy đủ bộ phận của các bậc trước + cụm động cơ lớn, cánh / giáp trang trí công phu, phần lơ lửng nhiều hơn, lõi vàng-trắng. Nhìn phải "ra hàng hiếm" ngay lập tức.
 - Mỗi bậc phải nhận ra ngay là KHÁC bậc kề nó (xem ở kích thước nhỏ 140 px). Bậc cao KHÔNG chỉ là bậc thấp được tô sáng hơn.
+
+1b) CÁCH TIẾN HÓA QUAN SÁT ĐƯỢC TRONG MỘT GAME BẮN MÁY BAY THƯƠNG MẠI (chỉ học kỹ thuật, KHÔNG sao chép dáng tàu nào)
+Mình quay đủ các hình thái của vài dòng tàu của một game khác để rút kinh nghiệm. Một dòng tàu đi từ bản đầu đến bản cao nhất như sau (nhìn bằng mắt):
+- Thân nền luôn là màu trung tính tối (đen, xanh than, xám đậm); màu nổi bật chỉ nằm ở 1–2 màu nhấn (viền giáp, vòng tròn sáng, đèn). Khi lên bậc, màu nhấn đổi sang màu kề cận, không đổi cả thân.
+- Bản đầu: gọn, khối đơn giản, 2 bộ phận chính (ví dụ hai "mắt" hoặc hai pod), chân / cánh mảnh, ống xả đơn.
+- Bản giữa: to thêm khoảng 15–25 %, thêm tấm giáp bọc quanh các bộ phận chính, thêm các nút tròn sáng (như đèn báo) dọc thân, chân / cánh dài và cong hơn, thêm mũi nhọn dưới đuôi.
+- Bản cao: đối xứng chặt, rộng hơn hẳn, nhiều lớp giáp chồng nhau, dãy nút sáng dày, cánh / càng dài nhiều mảnh, cụm ống xả nhiều ống, khe sáng chạy dọc thân; nhìn "đắt tiền" và nặng.
+- Bậc cuối cùng (có nhãn MAX) chỉ khác bậc kề ở mật độ chi tiết và độ sáng, nhưng bộ phận thì đầy đủ nhất.
+Hãy áp dụng cách tiến hóa này (thân trung tính tối + 1–2 màu nhấn, thêm bộ phận theo bậc) cho 13 tàu của mình, theo đúng đặc điểm riêng của từng tàu ở mục 3.
 
 2) CÁCH TRÌNH BÀY
 - Một ảnh / một tàu: 6 bậc xếp thành 1 hàng 6 cột (hoặc 2 hàng × 3 cột), CÙNG tỉ lệ, CÙNG hướng (nhìn từ trên xuống, mũi hướng lên), nền đen thuần, mỗi bậc đặt giữa ô, có nhãn nhỏ 1–6.
