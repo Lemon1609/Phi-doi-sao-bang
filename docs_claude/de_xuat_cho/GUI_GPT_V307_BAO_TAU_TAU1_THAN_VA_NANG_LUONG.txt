@@ -1,0 +1,20 @@
+GỬI GPT · V307 · BẠO TẨU TÀU 1 (thân Bạo Tẩu 6 bậc + lớp năng lượng 6 bậc). Dán tiếp trong cùng cuộc trò chuyện, ĐÍNH KÈM lại ảnh 6 bậc thường đã chốt (87997).
+
+Theo quy tắc V307 đã chốt: thân thường, thân Bạo Tẩu và lớp hiệu ứng là BA lớp riêng, để mình ghép và làm hoạt ảnh. Hãy vẽ 2 ảnh cho tàu 1 (Nộ Hỏa Phượng Hoàng), mỗi ảnh 1 hàng 6 cột (bậc 1→6, nhãn 1–6), nền đen thuần.
+
+ẢNH A · THÂN BẠO TẨU (6 bậc)
+- Lấy CHÍNH thân thường của từng bậc trong ảnh đính kèm. Cùng tâm thân, cùng cỡ thân giữa (đặt thân giữa trùng khít với bản thường để mình xếp chồng).
+- Bạo Tẩu = thân "mở khóa": các bộ phận cứng TÁCH / MỞ RA vừa phải: tấm giáp cánh trượt ra ngoài và xòe như quạt, pod động cơ hai bên dang rộng, thêm vài khe sáng ở thân. Cánh / giáp dày, mép sắc, chắc chắn.
+- Mức mở tăng theo bậc: bậc 1 mở ít (rộng thêm ~15 %), bậc 6 mở nhiều (rộng thêm ~35–40 %), có thêm lớp giáp phụ.
+- CẤM: tay máy, khớp nối mảnh như xương, cánh tay robot, lưỡi dao dài mảnh, hình khớp cơ khí rườm rà (bản trước vẽ kiểu này là sai). Chỉ dùng tấm giáp dày trượt / xòe / dang ra.
+- Giữ nguyên màu nhấn của từng bậc như bản thường, giữ buồng lái / ngọc cùng màu bậc. Đối xứng trái-phải. Không lửa, không tia, không hiệu ứng ngoài thân.
+
+ẢNH B · LỚP NĂNG LƯỢNG (6 bậc, KHÔNG có tàu)
+- Chỉ vẽ hiệu ứng Bạo Tẩu, nền đen thuần, sáng / trong mờ (mình sẽ chồng bằng chế độ cộng sáng sau lưng tàu). Tâm hiệu ứng = tâm ô (nơi đặt tâm thân tàu). KHÔNG vẽ thân tàu, không vòng tròn khép kín.
+- Chất liệu (học nguyên lý từ game bắn máy bay thương mại, KHÔNG sao chép hình): neon / LED trong mờ, lõi trắng, mép mờ mềm, mọc theo dáng phượng hoàng: lông cánh phượng xòe hai bên như đôi cánh lông lửa, nhiều lông dài nhọn xếp lớp, đuôi lông phía sau.
+- Màu theo bậc: 1 xanh băng, 2 lục, 3 lam, 4 tím, 5 hồng tím lõi trắng, 6 vàng kim + trắng.
+- Tăng theo bậc: số lông (bậc 1 khoảng 4 mỗi bên → bậc 6 khoảng 12 mỗi bên, 2–3 tầng chồng nhau), độ rộng (bậc 1 ≈ 1,3 lần sải cánh thân → bậc 6 ≈ 2,3 lần), độ sáng và lõi trắng; bậc 5–6 thêm viền sáng trắng và vài tia nhỏ chéo.
+- Nón trước mũi tàu (60°) phải TRỐNG để không che đạn. Phần phía trước tàu không vẽ gì.
+- Cùng khung hình mỗi ô, cùng tỉ lệ với ảnh A để mình xếp đúng.
+
+Giữ: khung mỗi ô vuông, nền đen thuần, đối xứng. Cuối câu trả lời ghi 3 dòng: (a) mức mở của thân ở từng bậc, (b) số lông và độ rộng lớp năng lượng ở từng bậc, (c) chỗ nào bạn đoán.
