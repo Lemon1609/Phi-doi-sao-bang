@@ -42,7 +42,7 @@
  <ellipse cx="209" cy="455" rx="150" ry="34" fill="url(#sk-floor)" style="stroke:none"/>
  <rect x="169" y="0" width="80" height="470" fill="url(#sk-beam)" opacity=".85"/><rect x="194" y="0" width="30" height="470" fill="url(#sk-beam2)" opacity=".9"/>
 </svg>`;
- svg=svg.replace(/stroke="(#[0-9a-fA-F]{3,6}|url\([^)]+\))"/g,'class="st" style="--c:$1"').replace('<defs>','<defs><style>svg *{stroke:none!important}svg .st{stroke:var(--c)!important;stroke-width:1.6px!important;fill-opacity:1}</style>');
+ svg=svg.replace(/stroke="(#[0-9a-fA-F]{3,6}|url\([^)]+\))"/g,'class="st" style="--c:$1"').replace('<defs>','<defs><style>.sk307 svg *{stroke:none!important}.sk307 svg .st{stroke:var(--c)!important;stroke-width:1.6px!important}</style>');
  function mount(){
   const st=document.querySelector('.h1-stage');if(!st||st.querySelector('.sk307'))return;
   const d=document.createElement('div');d.className='sk307';d.setAttribute('aria-hidden','true');d.innerHTML=svg;
