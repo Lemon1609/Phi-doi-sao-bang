@@ -225,3 +225,13 @@ html body #game-field .tg307 b{display:block;font-size:15px;color:#ffd56a;font-w
 html body #game-field .tg307 i{display:block;height:4px;border-radius:2px;background:rgba(255,255,255,.14);margin-top:4px;overflow:hidden}
 html body #game-field .tg307 u{display:block;height:100%;background:linear-gradient(90deg,#27d6ff,#ffd56a);transition:width .25s}
 html body #game-field .tg307.pass{border-color:#ffd56a;box-shadow:0 0 16px rgba(255,200,60,.8)}
+
+/* V307 · sảnh: hai nút chế độ lớn theo bộ GPT (vàng = XUẤT KÍCH, tím = VÔ TẬN); nút khóa xám; XUẤT KÍCH thở nhẹ */
+html body #lb68#lb68 .cta.c::before{background-image:url(ui306n/che_do_vang.png)!important}
+html body #lb68#lb68 .cta.e::before{background-image:url(ui306n/che_do_tim.png)!important}
+html body #lb68#lb68 .cta.lk66::before{background-image:url(ui306n/nut_xam.png)!important}
+html body #lb68#lb68 .cta.e b{text-shadow:0 2px 3px #1a0630,0 0 8px #000a!important}
+html body #lb68#lb68 .cta.c::before{animation:lb307br 2.4s ease-in-out infinite}
+@keyframes lb307br{50%{transform:scale(1.035);filter:brightness(1.12)}}
+@media (prefers-reduced-motion:reduce){html body #lb68#lb68 .cta.c::before{animation:none}}
+html body.lite79 #lb68#lb68 .cta.c::before{animation:none}
