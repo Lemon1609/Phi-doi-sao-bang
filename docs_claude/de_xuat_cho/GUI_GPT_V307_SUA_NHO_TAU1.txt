@@ -1,0 +1,11 @@
+GỬI GPT · V307 · SỬA NHỎ TÀU 1 (dán tiếp trong cùng cuộc trò chuyện, đính kèm lại ảnh 6 bậc bạn vừa vẽ)
+
+Ảnh 6 bậc vừa rồi ĐÚNG HƯỚNG: giữ nguyên dáng thân, silhouette từng bậc và bảng màu nhấn (bạc, lục, lam, tím, hồng, vàng kim). Chỉ sửa 5 điểm sau, không đổi thiết kế còn lại:
+
+1) BUỒNG LÁI / NGỌC: hiện cả 6 bậc đều cam giống nhau nên làm loãng màu bậc. Đổi buồng lái và ngọc giữa thân theo MÀU NHẤN của bậc (bậc 1 xanh băng nhạt hoặc bạc-xanh, bậc 2 lục, bậc 3 lam điện, bậc 4 tím, bậc 5 hồng-tím lõi trắng, bậc 6 vàng-trắng). Vẫn bóng, có điểm sáng trắng.
+2) BẬC 1: đang gần như xám bạc, trơn. Thêm 2–3 mảng nhấn nhỏ (viền cánh, đầu ống xả, rãnh thân) màu xanh băng hoặc cam nhạt để tàu không nhạt, nhưng vẫn là bậc đơn giản nhất.
+3) BẬC 5 (hồng): màu hồng nhạt và loãng. Làm hồng-tím ĐẬM, bão hòa hơn, tấm giáp lớn phủ màu rõ hơn, viền LED trắng-hồng; tăng diện tích màu nhấn lên ít nhất 40% thân.
+4) CÁC MẢNH GIÁP BAY Ở BẬC 5, 6: đang như mảnh dán rời. Thêm viền sáng nhẹ và một điểm nối / tia sáng mảnh nối về thân để cảm giác "lơ lửng có liên kết". Chú ý KHÔNG vẽ tia dài ngoài thân, chỉ viền ngắn.
+5) BẬC 4 → 5: bậc 5 phải to và nhiều chi tiết hơn bậc 4 rõ rệt (cánh thêm tầng, thêm pod). Hiện bậc 4 và 5 rộng ngang nhau.
+
+Giữ nguyên: khung 512, cạnh dài 456, lề ≥ 24, nền đen thuần, đối xứng, không lửa, không chữ ngoài nhãn 1–6. Cuối câu trả lời, ghi 3 dòng: (a) bạn đã đổi gì ở từng điểm 1–5, (b) chỗ nào bạn đoán, (c) bậc nào còn yếu theo bạn.
