@@ -46,11 +46,12 @@ const V92=(()=>{
   const s=document.createElement('span');s.className='bkw92';s.style.cssText='display:block;margin-top:4px;color:#ffd36a';s.textContent='🏆 Thưởng Chinh Phục Tuần (chặng 12): '+(BW.w===week()?'ĐÃ NHẬN':'CHƯA NHẬN')+' · bản sao Lam Lv1 (15% thành Tím) + 20.000 ◈';p.appendChild(s);}}
  // =================== §4.1 Bậc hạng Vô tận ===================
  const sid=()=>{try{return Math.floor(Date.now()/SEASON_CONFIG_V77.CYCLE_MS);}catch{return Math.floor(Date.now()/(14*864e5));}};
- let RK=Object.assign({sid:sid(),best:0},ld(V92CFG.rank.key));
+ const CYC=()=>{try{return SEASON_CONFIG_V77.CYCLE_DAYS;}catch{return 14;}}; // V307: mùa 21 ngày — dữ liệu cũ (không có cyc) bị ép chốt mùa 1 lần
+ let RK=Object.assign({sid:sid(),best:0,cyc:CYC()},ld(V92CFG.rank.key));
  const tierOf=b=>{let t=V92CFG.rank.tiers[0];for(const x of V92CFG.rank.tiers)if(b>=x.min)t=x;return t;};
  function grantR(r){const out=[];try{Progress.grantCredits(r.alloy);out.push(fmt(r.alloy)+' ◈');}catch{}try{Dust67.add(r.dust);out.push(r.dust+' Bụi Tinh Vân');}catch{}try{V75.addTk(r.tk);out.push(r.tk+' 🎫');}catch{}
   for(const [t,n] of r.cp)for(let i=0;i<n;i++){const x=giveCopy(t);if(x)out.push(x);}return out;}
- function rollSeason(){const id=sid();if(RK.sid>=id)return;const old=RK;RK={sid:id,best:0};sv(V92CFG.rank.key,RK);
+ function rollSeason(){const id=sid();if(RK.cyc===CYC()&&RK.sid>=id)return;const old=RK;RK={sid:id,best:0,cyc:CYC()};sv(V92CFG.rank.key,RK);
   if(old.played){const t=tierOf(old.best|0);const got=grantR(t.r);try{if(window.FR93&&FR93.give(t.id))got.push('Khung '+t.n);}catch{}setTimeout(()=>T('🏁 HẾT MÙA VÔ TẬN · Hạng '+t.n+' · '+got.join(' · ')),1500);}}
  function recordEndless(sc){if(!on())return;rollSeason();RK.played=1;if(sc>(RK.best|0))RK.best=Math.round(sc);sv(V92CFG.rank.key,RK);}
  let endH=false;function hookEnd(){if(endH||typeof end!=='function')return;endH=true;const o=end;const f=function(){let gm='',sc=0;try{gm=gameMode;sc=score;}catch{}const r=o.apply(this,arguments);try{if(gm==='endless'&&sc>0)recordEndless(sc);}catch{}return r;};window.end=f;try{end=f;}catch{}}

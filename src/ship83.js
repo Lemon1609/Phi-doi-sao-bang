@@ -47,7 +47,7 @@ const Ship83=(()=>{
  const tower=()=>g(()=>Meta40.state().S.tower.best),badge=()=>g(()=>O78.state().badge),stars=()=>g(()=>{const o=Campaign36.getState().stars||{};let t=0;for(const k in o)t+=o[k]|0;return t;});
  const best=()=>g(()=>{const c=Progress.getState().cleared||[];return c.length?Math.max(...c):0;});
  const ovBest=()=>g(()=>{const s=O78.state();return Math.max(s.best|0,s.max|0,...(s.life||[0]));});
- function trackSeason(){try{const lv=S77.level();const st=S77.state();const id=st.sid||st.season||st.id||st.start||'cur';if(lv>=20&&!S.seasons[id]){S.seasons[id]=1;save();}}catch{}}
+ function trackSeason(){try{const lv=S77.level();const st=S77.state();const id=st.sid||st.season||st.id||st.start||'cur';if(lv>=25&&!S.seasons[id]){S.seasons[id]=1;save();}}catch{}}
  const both=(lab,a,ta,b,tb)=>[lab,Math.floor(Math.min(1,a/ta,b/tb)*100),100,null,`${lab} (${Math.min(a,ta)}/${ta} · ${Math.min(b,tb)}/${tb})`];
  const ROUTES=[
   {i:10,g:10,rank:'SS',n:4,a:()=>['Điểm boss cuối tuần tích lũy',S.raid|0,120000000],b:()=>both('Tháp tầng 150 + 800 huy hiệu',tower(),150,badge(),800)},

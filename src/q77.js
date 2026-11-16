@@ -27,7 +27,10 @@ const QUEST_CONFIG_V77={
   W_ENERGY_SPEND:{target:350,points:100,title:'Tiêu hao 350 thể lực',ev:'energy',rw:{energy:50}},
   W_BOSS_KILL:{target:25,points:70,title:'Tiêu diệt 25 Boss bất kỳ',ev:'boss',rw:{phLuc:1}},
   W_BLACK_MARKET:{target:6,points:60,title:'Mua 6 lượt tại Chợ Đen',ev:'market',rw:{alloy:5000}},
-  W_SOCKET_REROLL:{target:10,points:60,title:'Tẩy hoặc khảm đá 10 lần',ev:'stone',rw:{alloy:12500}}}};
+  W_SOCKET_REROLL:{target:10,points:60,title:'Tẩy hoặc khảm đá 10 lần',ev:'stone',rw:{alloy:12500}},
+  // V307 (Gemini cân bằng): 2 nhiệm vụ tuần mới, tổng điểm tuần 600 → 720, mốc cao nhất vẫn 500
+  W_ENDLESS_RUN:{target:5,points:60,title:'Chơi 5 trận Vô Tận',ev:'endless',rw:{alloy:8000,exp:2}},
+  W_SWEEP_OPS:{target:15,points:60,title:'Càn quét ải 15 lần',ev:'sweep',rw:{phLuc:1,tk:2}}}};
 const Q77=(()=>{
  const KEY='PLAYER_QUESTS_V77',C=QUEST_CONFIG_V77;
  const dayK=()=>new Date(Date.now()+7*3600000).toISOString().slice(0,10);
@@ -53,7 +56,7 @@ const Q77=(()=>{
  const rwTxt=r=>[r.alloy?fmt(r.alloy)+' ◈':'',r.exp?r.exp+' ⬢':'',r.tk?r.tk+' 🎫':'',r.energy?r.energy+' 🔋':'',r.ph?'1 phôi Trắng':'',r.phLuc?'1 phôi Lục':''].filter(Boolean).join(' + ');
  function track(ev,n=1){roll();let changed=false;
   for(const [k,t] of Object.entries(C.DAILY_TASKS))if(t.ev===ev){const c=S.dpr[k]|0;if(c<t.target){S.dpr[k]=Math.min(t.target,c+n);changed=true;if(S.dpr[k]>=t.target){S.dp=Math.min(140,S.dp+t.points);give(t.rw,t.title);T('✔ NHIỆM VỤ NGÀY · '+t.title+' · +'+t.points+' năng động');setTimeout(()=>track('dpts',t.points),0);}}}
-  for(const [k,t] of Object.entries(C.WEEKLY_TASKS))if(t.ev===ev){const c=S.wpr[k]|0;if(c<t.target){S.wpr[k]=Math.min(t.target,c+n);changed=true;if(S.wpr[k]>=t.target){S.wp=Math.min(600,S.wp+t.points);give(t.rw,t.title);T('✔ NHIỆM VỤ TUẦN · '+t.title+' · +'+t.points+' điểm tuần');}}}
+  for(const [k,t] of Object.entries(C.WEEKLY_TASKS))if(t.ev===ev){const c=S.wpr[k]|0;if(c<t.target){S.wpr[k]=Math.min(t.target,c+n);changed=true;if(S.wpr[k]>=t.target){S.wp=Math.min(720,S.wp+t.points);give(t.rw,t.title);T('✔ NHIỆM VỤ TUẦN · '+t.title+' · +'+t.points+' điểm tuần');}}}
   if(changed){save();paintDot();if(el&&!el.hidden)render();}}
  function claim(kind,pts){roll();const L=kind==='d'?C.DAILY_MILESTONES:C.WEEKLY_MILESTONES,m=L.find(x=>x.points===pts),have=kind==='d'?S.dp:S.wp,got=kind==='d'?S.dc:S.wc;
   if(!m||got.includes(pts)||have<pts)return false;got.push(pts);save();try{if(m.gem)Econ74.add(m.gem,(kind==='d'?'năng động ngày ':'năng động tuần ')+pts);}catch{}try{if(m.alloy)Progress.grantCredits(m.alloy);if(m.energy)V75.addEn(m.energy,'mốc năng động');if(m.exp)Workshop.grant({exp:m.exp});if(m.core)Meta407.addCores(m.core,'NHIỆM VỤ TUẦN');}catch{}extra(m.extra);render();paintDot();return true;}
