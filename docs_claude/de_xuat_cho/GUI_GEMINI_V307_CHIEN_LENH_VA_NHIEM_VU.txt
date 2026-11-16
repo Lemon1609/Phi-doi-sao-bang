@@ -1,27 +1,36 @@
-V307 · NHỜ GEMINI VIẾT VÀ CÂN ĐỐI PHẦN THƯỞNG: "CHIẾN LỆNH" (lộ trình thưởng theo mốc) + BỔ SUNG NHIỆM VỤ NGÀY/TUẦN
-(Chủ dự án giao 16/11/2026: "nhờ Gemini viết và cân đối về phần thưởng". Claude chỉ lập trình theo bảng Gemini trả về sau khi chủ dự án duyệt.)
+V307 · NHỜ GEMINI RÀ SOÁT VÀ CÂN ĐỐI THƯỞNG: MÙA GIẢI (Chiến lệnh) HIỆN CÓ + NHIỆM VỤ NGÀY/TUẦN
+(Chủ dự án giao 16/11/2026: "nhờ Gemini viết và cân đối phần thưởng". Claude chỉ lập trình theo bảng Gemini trả về SAU KHI chủ dự án duyệt.)
 
-LUẬT CỨNG (không được vi phạm)
-1. KHÔNG tiền thật, không gói nạp, không quảng cáo, không bản "cao cấp trả phí": chỉ MỘT đường thưởng MIỄN PHÍ.
-2. KHÔNG thêm nguồn 💎 kim cương mới: tổng 💎 trong Chiến lệnh = 0, hoặc nếu muốn có thì phải ghi rõ số, và Claude sẽ hỏi lại chủ dự án.
-3. Giữ nguyên tên khóa lưu và hệ thống đang chạy; phần mới độc lập, không đổi số liệu hiện có.
-4. Phần thưởng chỉ dùng loại tài nguyên GAME ĐÃ CÓ: ◈ hợp kim, 🔋 thể lực, 🎫 vé càn quét, phôi Trắng/Lục/Lam, hộp khảm đá, phi công mảnh (pilot shards), vé boss tối thượng (ULT_BOSS_TICKET), rương trang bị.
+LUẬT CỨNG
+1. KHÔNG tiền thật, không gói nạp, không quảng cáo. 💎 chỉ là tiền tệ TRONG GAME (đã có nguồn thu hiện tại bên dưới).
+2. KHÔNG thêm nguồn 💎 mới ngoài mức đang có; nếu muốn đổi mức 💎 thì nêu rõ con số "trước → sau" và lý do.
+3. Chỉ dùng loại thưởng game ĐÃ CÓ: ◈ hợp kim, 🔋 thể lực, vé càn quét, đá nâng/đá tẩy, hộp khảm đá cấp 1/2, phôi Lục/Lam, mảnh phi công (chọn / ngẫu nhiên), vé boss tối thượng, vé may mắn, rương trang bị Tím, Lõi SSS, skin, danh hiệu.
+4. Giữ nguyên tên hệ thống đang chạy; phần mới phải tách biệt, không phá số liệu cũ.
 
-SỐ LIỆU HIỆN CÓ (để cân đối; đính kèm thêm tệp DO_KINH_TE_V203.md nếu cần)
-- Thể lực hồi 1 / 5 phút = 288 / ngày, trần 120. Càn quét 6 🔋 (miễn phí 10–15 lượt/ngày, sau đó tốn vé). Chơi lại ải thường 6 🔋, ải boss 10 🔋.
-- Nhiệm vụ ngày: 8 việc, điểm tối đa 140/ngày. Mốc ngày hiện tại (điểm → thưởng):
- DAILY_MILESTONES:[{points:20,gem:5,alloy:5000,energy:20},{points:40,gem:10,exp:30,extra:{type:'SWEEP_TICKET',amount:3}},{points:60,gem:10,alloy:5000,extra:[{type:'PH_LUC_RANDOM',amount:1},{type:'SEASON_XP',amount:100}]},{points:80,gem:10,alloy:5000,extra:{type:'SOCKET_BOX_LV1',amount:1}},{points:100,gem:15,extra:[{type:'BLUE_FODDER_SMART',amount:1},{type:'PILOT_BOX_RANDOM',amount:1},{type:'SEASON_XP',amount:150}]}],
- WEEKLY_MILESTONES:[{points:100,gem:25,alloy:10000},{points:200,gem:25,extra:{type:'SWEEP_TICKET',amount:5}},{points:300,gem:25,extra:{type:'ULT_BOSS_TICKET',amount:1}},{points:400,gem:25,extra:{type:'PILOT_SHARDS_SELECT',amount:15}},{points:500,gem:50,extra:{type:'BLUE_FODDER_BOX',amount:1},core:1}],
- DAILY_TASKS:{
-- Nhiệm vụ tuần: 7 việc; mốc tuần 100/200/300/400… điểm (đã có thưởng 25 💎 mỗi mốc ở bản hiện tại; Claude KHÔNG thêm 💎 ngoài mức này).
-- Nhiệm vụ ngày ví dụ: đăng nhập +2.000 ◈; vượt 3 ải +3.000 ◈; càn quét 2 lần +1 vé; tiêu 50 🔋 +20 🔋; đột phá/khảm 1 lần +2.000 ◈; mua 1 món Chợ Đen +100 ◈.
-- Có sẵn: điểm danh 7 ngày (Meta40), Vòng quay, Tháp boss, Phó bản, Chợ Đen, Thư viện.
+HỆ THỐNG ĐANG CÓ (đã chạy trong game)
+A. MÙA GIẢI "CHIẾN DỊCH SAO BĂNG": 14 ngày/mùa, 20 cấp × 500 XP = 10.000 XP. Hai làn: Miễn phí và Tinh Anh (giá 1.500 💎, tặng ngay 1.000 XP).
+   Nguồn XP: 1 XP/thể lực tiêu (tối đa 250/ngày) · mốc năng động ngày 60 điểm: +100, 100 điểm: +150 · tầng Tháp Boss mới: +30 · Vô tận sống >90 s: +40 (3 trận/ngày) · Thử thách ngày: +80.
+   Thưởng cấp 1→20 (Miễn phí | Tinh Anh):
+   1: 5.000◈ | 100💎+10.000◈ ; 2: đá nâng×5 | vé càn quét×3 ; 3: 50💎 | phôi Lục (rương) ; 4: 10.000◈ | đá tẩy×5 ;
+   5: vé may mắn×1 | mảnh phi công chọn×10 ; 6: 50🔋 | 150💎 ; 7: đá nâng×10 | 20.000◈ ; 8: hộp khảm Lv1 | vé boss tối thượng×1 ;
+   9: 100💎 | mảnh phi công ngẫu nhiên×25 ; 10: rương phôi Lam | skin "Ảo Ảnh Thần Cơ" ; 11: 15.000◈ | 200💎 ; 12: vé càn quét×5 | hộp khảm Lv2 ;
+   13: đá nâng×15 | 50🔋 ; 14: 150💎 | 30.000◈ ; 15: mảnh phi công chọn×10 | vé may mắn×2 ; 16: 20.000◈ | đá tẩy×10 ;
+   17: hộp khảm Lv2 | 250💎 ; 18: đá nâng×20 | rương phôi Lam ; 19: 200💎 | vé boss tối thượng×2 ; 20: rương trang bị Tím | Lõi SSS chọn×1 + danh hiệu Quán quân mùa.
+B. NHIỆM VỤ NGÀY: 8 việc, tối đa 140 điểm/ngày. Mốc ngày 20/40/60/80/100 điểm:
+   20: 5💎+5.000◈+20🔋 ; 40: 10💎+30exp+vé càn quét×3 ; 60: 10💎+5.000◈+1 phôi Lục ngẫu nhiên+100 XP mùa ; 80: 10💎+5.000◈+hộp khảm Lv1 ;
+   100: 15💎+1 phôi Lam thông minh+1 hộp phi công ngẫu nhiên+150 XP mùa.
+   Ví dụ việc ngày: đăng nhập +2.000◈ ; vượt 3 ải +3.000◈ ; càn quét 2 lần +1 vé ; tiêu 50🔋 +20🔋 ; đột phá/khảm 1 lần +2.000◈ ; mua 1 món Chợ Đen +100◈.
+C. NHIỆM VỤ TUẦN: 7 việc; mốc tuần 100/200/300/400/500 điểm: 25💎+10.000◈ ; 25💎+vé càn quét×5 ; 25💎+vé boss TT×1 ; 25💎+mảnh phi công chọn×15 ; 50💎+rương phôi Lam+1 lõi.
+D. Thể lực hồi 1/5 phút = 288/ngày, trần 120. Càn quét 6🔋 (miễn phí 10–15 lượt/ngày). Chơi lại ải thường 6🔋, boss 10🔋.
+
+NHẬN XÉT SƠ BỘ CỦA CLAUDE (để Gemini xem lại, không phải kết luận)
+- Tối đa XP/ngày từ thể lực 250 + mốc 250 + Tháp/Vô tận/Thử thách khoảng +200 ⇒ ~700 XP/ngày: 14 ngày dư sức đầy 20 cấp (10.000 XP) trong ~14–15 ngày chơi nhẹ. Cần kiểm: người chơi ít (15 phút/ngày) có đạt cấp 20 không?
+- Làn Tinh Anh tổng 💎 = 100+150+200+250 = 700 💎 (+ skin, Lõi SSS) so với giá 1.500 💎: người chơi lời hay lỗ? 
+- Các cấp 21+ không có; thiết kế gốc có tới ~30 mốc: có nên kéo mùa lên 28 ngày / 30 cấp không?
 
 CẦN GEMINI TRẢ LỜI
-A. CHIẾN LỆNH miễn phí (mùa 4 tuần, làm lại mỗi mùa):
-   1) Nguồn "điểm chiến lệnh": nên lấy từ đâu cho khỏi tạo vòng lặp lạm phát? (đề xuất: tích từ điểm năng động ngày hiện có, hoặc từ số ải đã vượt/sao.)
-   2) Bảng 30 mốc: mỗi mốc cần điểm bao nhiêu (tích lũy), thưởng gì (chỉ loại ở LUẬT 4), mốc 10/20/30 là thưởng lớn.
-   3) Tổng thưởng cả mùa quy đổi ra "◈ tương đương" và "🔋 tương đương", so với thu nhập tự nhiên 4 tuần: không quá +15% (để không phá cân bằng).
-B. BỔ SUNG NHIỆM VỤ NGÀY/TUẦN: đề xuất tối đa 3 nhiệm vụ ngày + 2 nhiệm vụ tuần MỚI (điều kiện đo được bằng sự kiện game đã có: login, stage, sweep, energy, upgrade, market, boss), kèm điểm và thưởng; thưởng rương trang bị / mảnh phi công ở mức nhỏ (ghi xác suất nếu ngẫu nhiên).
-C. KIỂM LẠM PHÁT: bảng "thu mỗi ngày trước / sau" cho 3 loại người chơi: ít chơi (15 phút), vừa (45 phút), nặng (2 giờ).
-ĐỊNH DẠNG TRẢ LỜI: bảng markdown + một khối JSON cho Chiến lệnh (id, điểm, thưởng) để Claude đưa thẳng vào mã; ghi rõ giả định.
+1. Kiểm cân bằng MÙA GIẢI: tốc độ lên cấp theo 3 kiểu người chơi (ít 15 phút, vừa 45 phút, nặng 2 giờ); tổng thưởng quy ra ◈ và 🔋 tương đương; làn Tinh Anh có đáng 1.500💎 không; đề xuất chỉnh số (nêu "trước → sau").
+2. Đề xuất mở rộng mùa lên 30 cấp (hoặc giữ 20): bảng cấp 21–30 (hoặc cả bảng mới), chỉ dùng loại thưởng ở LUẬT 3.
+3. Bổ sung tối đa 3 nhiệm vụ ngày + 2 nhiệm vụ tuần MỚI (điều kiện đo được bằng sự kiện đã có: login, stage, sweep, energy, upgrade, market, boss/tower, endless): điểm + thưởng; thưởng rương trang bị / mảnh phi công ở mức nhỏ (ghi xác suất nếu ngẫu nhiên).
+4. Kiểm lạm phát: bảng "thu mỗi ngày trước / sau" cho 3 kiểu người chơi.
+ĐỊNH DẠNG TRẢ LỜI: bảng markdown + một khối JSON (id, điểm/XP, thưởng) để Claude đưa thẳng vào mã; ghi rõ giả định.
