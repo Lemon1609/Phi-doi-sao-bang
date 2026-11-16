@@ -215,3 +215,13 @@ html body .h1-stage .sk307 .sk-sp.s1{animation-delay:.8s}html body .h1-stage .sk
 @keyframes sk307sp{0%,100%{opacity:.15}50%{opacity:1}}
 @media (prefers-reduced-motion:reduce){html body .h1-stage .sk307 .sk-sp{animation:none}}
 body.lite79 .h1-stage .sk307 .sk-sp{animation:none}
+
+/* V307 · thẻ "mục tiêu kế tiếp" trong Vô tận (target307.js) */
+html body #game-field .tg307{position:absolute;right:8px;top:46px;z-index:6;min-width:104px;max-width:140px;padding:5px 8px 6px;border-radius:8px;pointer-events:none;
+ background:linear-gradient(180deg,rgba(8,20,48,.86),rgba(4,10,28,.86));border:1.5px solid rgba(80,170,255,.7);box-shadow:0 0 10px rgba(40,120,255,.35);text-align:right;font-family:'Be Vietnam Pro',sans-serif;line-height:1.1}
+html body #game-field .tg307[hidden]{display:none}
+html body #game-field .tg307 small{display:block;font-size:8.5px;letter-spacing:.06em;color:#9fd2ff;font-weight:700}
+html body #game-field .tg307 b{display:block;font-size:15px;color:#ffd56a;font-weight:800;text-shadow:0 1px 2px #000;margin-top:1px}
+html body #game-field .tg307 i{display:block;height:4px;border-radius:2px;background:rgba(255,255,255,.14);margin-top:4px;overflow:hidden}
+html body #game-field .tg307 u{display:block;height:100%;background:linear-gradient(90deg,#27d6ff,#ffd56a);transition:width .25s}
+html body #game-field .tg307.pass{border-color:#ffd56a;box-shadow:0 0 16px rgba(255,200,60,.8)}
