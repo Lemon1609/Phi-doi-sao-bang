@@ -1,0 +1,19 @@
+GỬI GEMINI · V307 · GÓP Ý ƯU TIÊN & CÁCH TRÌNH BÀY QUÀ THƯỞNG / PHI CÔNG (dán nguyên văn; đính kèm file SO_SANH_TINH_NANG_GIAO_DIEN_GAME_GOC_V307.md)
+
+Chào Gemini. Chủ dự án muốn game của chúng ta "dễ nhìn, dễ thuộc, hấp dẫn" hơn bằng cách học cách trình bày của một game bắn máy bay gốc (chỉ học bố cục, nhịp, cách thể hiện; KHÔNG chép hình, chữ, icon). File đính kèm là bảng so sánh từng mục.
+
+Ràng buộc cứng: không tiền thật, không quảng cáo, KHÔNG thêm nguồn kim cương mới, không làm phần nạp tiền. Bạn chỉ góp ý về trình bày và nhịp trải nghiệm; mọi con số thưởng phải dùng nguồn thưởng đã có.
+
+Xin bạn trả lời gọn, theo 5 phần:
+
+1) XẾP HẠNG ƯU TIÊN. Trong bảng, sắp 5 nhóm việc theo tác động lên cảm giác "hấp dẫn, dễ làm quen" của người chơi mới (ngày 1–3). Nêu lý do 1 dòng mỗi nhóm. Nếu thấy mục nào nên bỏ hoặc hoãn thì nói rõ.
+
+2) QUÀ THƯỞNG. Game gốc hiện thưởng bằng ô vuông có khung màu theo bậc, số lượng nhỏ ở góc, nút "nhận" vàng hoặc dấu ✓, kèm tranh banner lớn ở các hộp quà. Gợi ý cách trình bày cho 3 tình huống của mình: (a) nhận quà điểm danh hằng ngày, (b) mở rương/phần thưởng cuối ải, (c) lên cấp mùa giải. Với mỗi tình huống: thứ tự xuất hiện, thời lượng hiệu ứng (giây), âm báo, và điều gì khiến người chơi muốn quay lại ngày mai. Không đề xuất thêm phần thưởng mới; chỉ cách trình bày phần đã có.
+
+3) PHI CÔNG. Phi công của mình mở ở ải 50 (khá muộn), giao diện hộp nhỏ. Game gốc dùng tranh nhân vật lớn + bảng kỹ năng bên phải + bảng chỉ số cấp trước→sau (số tăng màu xanh lục) + nút lớn "mở/trang bị". Góp ý: (a) có nên mở phi công sớm hơn (ví dụ ải 10–20) để người chơi gắn bó nhân vật sớm không? Nêu rủi ro cân bằng (lực chiến tăng sớm). (b) bố cục màn phi công nên có những khối thông tin nào, theo thứ tự nào; (c) cách dẫn người chơi mới đến màn phi công lần đầu.
+
+4) NHẬN DIỆN MÀU THEO CHỨC NĂNG. Đề xuất quy ước màu nút cho cả game: vàng-cam = hành động chính; xanh lam = phụ; xanh lục = nhận/xác nhận/trang bị; đỏ = cảnh báo/xóa; xám = khóa. Có chỗ nào trong game bắn máy bay dọc mà quy ước này gây nhầm (ví dụ nút "nhân đôi thưởng" nên màu gì) không?
+
+5) CHỖ KHÔNG CHẮC. Liệt kê những điểm bạn đoán, không dựa trên dữ kiện trong file.
+
+Định dạng: bảng cho phần 1, gạch đầu dòng ngắn cho phần 2–4. Không viết lại cả game; không đưa số kim cương mới.
