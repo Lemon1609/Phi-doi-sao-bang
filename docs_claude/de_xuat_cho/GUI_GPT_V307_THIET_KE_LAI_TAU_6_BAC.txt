@@ -2,7 +2,7 @@ GỬI GPT · V307 · THIẾT KẾ LẠI 13 CHIẾN CƠ × 6 BẬC (dán nguyên 
 
 Chào GPT. Mình làm game bắn máy bay dọc "Phi Đội Sao Băng". Mình muốn vẽ lại 13 chiến cơ cho đẹp, hấp dẫn, và quan trọng nhất: MỖI TÀU CÓ 6 BẬC, bậc thấp lên cao phải khác nhau rõ về THIẾT KẾ, không chỉ đổi màu.
 
-1) NGUYÊN TẮC TIẾN HÓA 6 BẬC (cùng một tàu, cùng một "gia đình" màu)
+1) NGUYÊN TẮC TIẾN HÓA 6 BẬC (cùng một tàu, cùng thân kim loại trung tính, màu nhấn đổi theo bậc)
 Thứ tự: 1 Thường (xám/trắng, bản đơn giản) → 2 Lục → 3 Lam → 4 Tím → 5 Tím+5 → 6 SS (cao nhất).
 - MÀU (đã đối chiếu 10 video quay từng bậc của game gốc): THÂN TÀU là kim loại trung tính (bạc / trắng ngà / xám / đen than) và GIỮ NGUYÊN chất liệu, tông qua cả 6 bậc. Chỉ phần MÀU NHẤN (mắt, viền giáp, đèn, ống xả, đường sáng, lõi, dải sọc) đổi theo màu bậc: Thường (xám/trắng ánh nhẹ) → Lục → Lam → Tím → Tím đậm/hồng tím (Tím+5) → Vàng-trắng viền vàng (SS). Màu nhấn chiếm khoảng 15–25 % diện tích thân, KHÔNG tô cả thân. Nhờ vậy bậc nhìn ra ngay qua màu nhấn, còn tàu vẫn nhận ra là một dòng. Tăng dần độ rực, độ bóng, độ dày đèn khi lên bậc.
 - DÁNG (đây là phần chính, mỗi bậc thêm bộ phận mới, không bỏ bộ phận cũ):
@@ -16,7 +16,7 @@ Thứ tự: 1 Thường (xám/trắng, bản đơn giản) → 2 Lục → 3 Lam
 
 1b) CÁCH TIẾN HÓA QUAN SÁT ĐƯỢC TRONG MỘT GAME BẮN MÁY BAY THƯƠNG MẠI (chỉ học kỹ thuật, KHÔNG sao chép dáng tàu nào)
 Mình quay đủ các hình thái của vài dòng tàu của một game khác để rút kinh nghiệm. Một dòng tàu đi từ bản đầu đến bản cao nhất như sau (nhìn bằng mắt):
-- Thân nền luôn là màu trung tính tối (đen, xanh than, xám đậm); màu nổi bật chỉ nằm ở 1–2 màu nhấn (viền giáp, vòng tròn sáng, đèn). Khi lên bậc, màu nhấn đổi sang màu kề cận, không đổi cả thân.
+- Thân nền luôn là màu trung tính tối (đen, xanh than, xám đậm); màu nổi bật chỉ nằm ở 1–2 màu nhấn (viền giáp, vòng tròn sáng, đèn). Khi lên bậc, chỉ màu nhấn đổi theo màu bậc (Lục, Lam, Tím...), không đổi cả thân.
 - Bản đầu: gọn, khối đơn giản, 2 bộ phận chính (ví dụ hai "mắt" hoặc hai pod), chân / cánh mảnh, ống xả đơn.
 - Bản giữa: to thêm khoảng 15–25 %, thêm tấm giáp bọc quanh các bộ phận chính, thêm các nút tròn sáng (như đèn báo) dọc thân, chân / cánh dài và cong hơn, thêm mũi nhọn dưới đuôi.
 - Bản cao: đối xứng chặt, rộng hơn hẳn, nhiều lớp giáp chồng nhau, dãy nút sáng dày, cánh / càng dài nhiều mảnh, cụm ống xả nhiều ống, khe sáng chạy dọc thân; nhìn "đắt tiền" và nặng.
@@ -33,20 +33,20 @@ Hãy áp dụng cách tiến hóa này (thân trung tính tối + 1–2 màu nh�
 - Chất liệu: kim loại bóng, khối rõ, bóng đổ mềm, sáng-tối đậm nhạt hợp lý, chi tiết mịn. Phong cách game mobile hạng nặng, sáng đẹp, nịnh mắt, dễ đọc ở kích thước nhỏ. Không chữ viết, không logo.
 - Bản quyền: sáng tác riêng hoàn toàn. KHÔNG sao chép tàu, cánh, biểu tượng của bất kỳ game hoặc phim nào.
 
-3) DANH SÁCH TÀU (giữ tên, tông thân hiện tại và đặc điểm nhận dạng để khớp truyện)
-1. Nộ Hỏa Phượng Hoàng — màu chủ đạo TÍM + ánh vàng; chim lửa, cánh như lông phượng, đuôi dài.
-2. Cực Quang Ảo Ảnh — chủ đạo VÀNG-NÂU/NGÀ; hai thanh ray dọc song song hứng gió mặt trời, thân mảnh.
-3. X-Dực Băng Hà — chủ đạo BẠC-XANH BĂNG; cánh chữ X, lõi sao chổi băng.
-4. Thần Ma Dị Hình — chủ đạo ĐỎ-BẠC; đối xứng dị hình, 4 "mắt" năng lượng, giáp sinh học như xương.
-5. Trí Tuệ Thự Quang — chủ đạo TRẮNG-NGÀ; vương miện gai chứa lăng kính, thân thanh thoát.
-6. Siêu Nghiệm U Linh — chủ đạo XÁM-XANH ĐEN; tàng hình, mũi dao, cánh gấp lệch.
-7. Ma Vương Đao Phong — chủ đạo XANH LỤC-ĐEN thép; các lưỡi giáp như thanh kiếm, dáng càng.
-8. Phần Thiên Chiến Chuẩn — chủ đạo CAM-ĐỎ; thân chim săn mồi, cờ hiệu, lò nhiệt áp.
-9. Thiên Khung Lược Ảnh — chủ đạo TRẮNG-XANH; mái vòm pha lê, hai đĩa radar trên vai.
-10. Tinh Hà Thủ Vọng — chủ đạo HỒNG-TÍM NHẠT; mắt chỉ huy hồng ở lõi, ba tàu con.
-11. Thôn Tinh Chiến Cơ — chủ đạo TÍM ĐEN; hố đen nhân tạo giữa thân trong vòng từ trường tím.
-12. Thời Không Lữ Khách — chủ đạo CAM-BẠC; bộ máy đồng hồ lưỡng cực, bánh răng.
-13. Hư Không Đế Vương — chủ đạo ĐEN GƯƠNG + VÀNG; mạnh nhất, giáp gương, lõi hư không.
+3) DANH SÁCH TÀU (giữ tên và đặc điểm nhận dạng để khớp truyện; "tông gốc" chỉ để nhận ra tàu, thân vẫn là kim loại trung tính và tông gốc dùng làm màu nhấn)
+1. Nộ Hỏa Phượng Hoàng — tông gốc TÍM + ánh vàng; chim lửa, cánh như lông phượng, đuôi dài.
+2. Cực Quang Ảo Ảnh — tông gốc VÀNG-NÂU/NGÀ; hai thanh ray dọc song song hứng gió mặt trời, thân mảnh.
+3. X-Dực Băng Hà — tông gốc BẠC-XANH BĂNG; cánh chữ X, lõi sao chổi băng.
+4. Thần Ma Dị Hình — tông gốc ĐỎ-BẠC; đối xứng dị hình, 4 "mắt" năng lượng, giáp sinh học như xương.
+5. Trí Tuệ Thự Quang — tông gốc TRẮNG-NGÀ; vương miện gai chứa lăng kính, thân thanh thoát.
+6. Siêu Nghiệm U Linh — tông gốc XÁM-XANH ĐEN; tàng hình, mũi dao, cánh gấp lệch.
+7. Ma Vương Đao Phong — tông gốc XANH LỤC-ĐEN thép; các lưỡi giáp như thanh kiếm, dáng càng.
+8. Phần Thiên Chiến Chuẩn — tông gốc CAM-ĐỎ; thân chim săn mồi, cờ hiệu, lò nhiệt áp.
+9. Thiên Khung Lược Ảnh — tông gốc TRẮNG-XANH; mái vòm pha lê, hai đĩa radar trên vai.
+10. Tinh Hà Thủ Vọng — tông gốc HỒNG-TÍM NHẠT; mắt chỉ huy hồng ở lõi, ba tàu con.
+11. Thôn Tinh Chiến Cơ — tông gốc TÍM ĐEN; hố đen nhân tạo giữa thân trong vòng từ trường tím.
+12. Thời Không Lữ Khách — tông gốc CAM-BẠC; bộ máy đồng hồ lưỡng cực, bánh răng.
+13. Hư Không Đế Vương — tông gốc ĐEN GƯƠNG + VÀNG; mạnh nhất, giáp gương, lõi hư không.
 
 4) ĐỢT ĐẦU: hãy vẽ tàu số ___ (mình sẽ điền). Sau khi mình duyệt phong cách thì vẽ tiếp các tàu còn lại.
 Cuối câu trả lời, ghi 3 dòng: (a) mỗi bậc bạn đã thêm bộ phận nào (ở cả trạng thái thường và Bạo Tẩu), (b) màu thân trung tính và màu nhấn của từng bậc là gì, (c) chỗ nào bạn đoán mà đề bài không nói.
