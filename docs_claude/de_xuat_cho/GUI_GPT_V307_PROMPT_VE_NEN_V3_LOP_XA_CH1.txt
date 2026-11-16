@@ -1,0 +1,14 @@
+V307 · PROMPT GPT BẢN 3 · LỚP XA CHƯƠNG 1 (nền đặc) · giữ gam xanh ngọc + cam hổ phách
+Lý do làm lại (đo từ game gốc 16/11): nền ta tối hơn game gốc 3–4 lần ở trung vị độ sáng, và game gốc có địa hình/kết cấu phủ cả chiều ngang chứ không để trống ở giữa. Ghi chú: docs_claude/tham_chieu/GHI_CHU_MAU_SAC_HIEU_UNG_GAME_GOC_V307.md
+Khổ ảnh: dọc 9:16. Game cắt ~9% mỗi bên → nội dung quan trọng nằm trong 82% giữa.
+
+[DÁN NGUYÊN VĂN]
+"Tranh minh họa bối cảnh 2D cao cấp cho game bắn máy bay dọc di động, phong cách sci-fi điện ảnh, chi tiết sắc nét, góc nhìn từ trên xuống, hoàn toàn nguyên bản, không chữ, không biểu tượng, không nhân vật, không tàu.
+Cảnh: một trường tinh vân và đá vũ trụ khổng lồ nhìn từ trên cao, kết cấu phủ KÍN toàn bộ chiều ngang ảnh. Gam màu chủ đạo xanh ngọc lục bảo thẫm và xanh đêm, rìa trái và phải có các mảng ánh cam hổ phách ấm. Độ bão hòa màu cao, màu đậm, rực nhưng không chói.
+Cấu trúc ánh sáng: nhiều mảng tối sâu gần như đen xen kẽ các mảng sáng có chi tiết (vân tinh vân, khe nứt, mảng đá phát sáng xanh ngọc ở rìa). Độ sáng trung bình ở mức trung bình, KHÔNG phải nền đen: khoảng 20% diện tích là vùng sáng có chi tiết, 60% là xanh thẫm có kết cấu mờ, 20% là vùng tối sâu. Dải 40% giữa ảnh có kết cấu mờ và tối hơn rìa một bậc (xanh đêm thẫm có vân khói nhạt), không có vật sáng chói, để tàu và đạn vẫn nổi.
+Một hành tinh khí có vành đai mỏng ở góc trên bên trái, nằm trong vùng 10–35% chiều ngang, mép trên không chạm hành tinh. Sao li ti rải đều, độ sáng vừa.
+Mép trên cùng và mép dưới cùng cùng một tông màu để ảnh nối liền khi cuộn lặp dọc. Không có vật thể lớn chạm mép trên hay mép dưới."
+
+[GHI CHÚ CHO CLAUDE KHI NHẬN ẢNH]
+- Đo p10/p50/p90 độ sáng (mục tiêu: p10 ≈ 15–25, p50 ≈ 40–55, p90 ≈ 90–150), kiểm nối đầu–cuối, cắt 720×1560, chụp trận thật kiểm độ nổi của đạn ta (xanh lam) và đạn địch (cam/đỏ) trên cam hổ phách.
+- Nếu GPT vẽ ra cam quá nhiều ở giữa → nhờ giảm cam xuống chỉ ở rìa (đạn địch màu cam sẽ chìm).
