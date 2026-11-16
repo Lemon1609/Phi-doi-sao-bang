@@ -198,3 +198,4 @@ html body .h1-stage:not(#_a):not(#_b)::after{content:'';position:absolute;inset:
 @keyframes ui307neb{from{opacity:.75;transform:scale(1)}to{opacity:1;transform:scale(1.04)}}
 @media (prefers-reduced-motion:reduce){html body .h1-stage::after{animation:none}}
 body.lite79 .h1-stage::after{animation:none}
+html body .h1-stage .nx66:not(#_a):not(#_b){left:auto!important;right:8px;transform:none!important;max-width:52%}
