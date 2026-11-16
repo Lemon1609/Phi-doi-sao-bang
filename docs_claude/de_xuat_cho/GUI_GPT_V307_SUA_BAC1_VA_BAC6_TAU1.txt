@@ -1,0 +1,8 @@
+GỬI GPT · V307 · SỬA LẦN 2 TÀU 1 (dán tiếp trong cùng cuộc trò chuyện, đính kèm lại ảnh 6 bậc bạn vừa vẽ)
+
+Bản vừa rồi tốt: buồng lái / ngọc đã đổi theo bậc, bậc 5 đã to và hồng đậm. GIỮ NGUYÊN toàn bộ dáng thân và silhouette của cả 6 bậc. Chỉ sửa 2 điểm:
+
+1) BẬC 1 vẫn quá xám bạc (rất ít màu). Đây là bậc đơn giản nhất nhưng vẫn phải hấp dẫn. Thêm mảng màu nhấn LỚN và rõ, màu XANH BĂNG - XANH LAM NHẠT tươi (không phải xám): sơn xanh băng phủ các tấm giáp hai bên thân và mặt trên cánh, viền cánh xanh băng sáng, miệng ống xả sáng xanh nhạt, rãnh thân xanh sáng. Phần màu nhấn phải chiếm ít nhất 25 % diện tích tàu, bão hòa rõ (nhìn là thấy xanh, không phải trắng xám). Giữ thiết kế đơn giản như hiện tại, chỉ thêm màu.
+2) BẬC 6 (vàng kim) hiện nhiều mảng bạc trắng xen kẽ nên loãng. Đổi các mảng bạc-trắng lớn trên cánh thành VÀNG KIM sáng (kim loại vàng, có phản chiếu), chỉ giữ ít chi tiết trắng ở mép và viền. Phần màu vàng chiếm ít nhất 45 % diện tích. Vẫn giữ viền sáng cho mảnh giáp bay.
+
+Giữ nguyên: khung 512, cạnh dài 456, lề ≥ 24, nền đen thuần, đối xứng, không lửa, nhãn 1–6. Bậc 2–5 không đổi. Cuối câu trả lời ghi 3 dòng: (a) bạn đã đổi gì ở bậc 1 và bậc 6, (b) chỗ nào bạn đoán, (c) bậc nào còn yếu theo bạn.
