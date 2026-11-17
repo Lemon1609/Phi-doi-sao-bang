@@ -61,8 +61,9 @@ const Evo82=(()=>{
  const elig=(c,min,ex)=>!c.lk&&c.u!==ex&&c.t>=min.t&&c.lv>=min.lv;
  function plan(kind,ref){const x=tgt(kind,ref);if(!x)return null;if(x.t>=11)return {x,max:true};const st=EVO82.step[x.t],K=x.k==='craft'?0:1,ex=x.copy?x.copy.u:-1;
   const same=S.c.filter(c=>c.k===x.k&&c.m==x.m&&elig(c,st.min,ex)).sort((a,b)=>a.t-b.t||a.lv-b.lv);
-  const pick=[];let needSame=st.same,needAny=st.any;const useS=same.slice(0,needSame);pick.push(...useS);let miss=needSame-useS.length;
-  let wild=0;if(miss>0&&(x.g==='S'||x.g==='SS')){wild=miss;needAny+=miss*2;miss=0;}
+  // V307 (chủ dự án chốt 17/11): tiến khung CHỈ nhận bản sao CÙNG MẪU — phần 'cùng loại' cũ gộp vào số bản sao cùng mẫu. Tắt: window.CUNGMAU307=false
+  const CM=window.CUNGMAU307!==false;const pick=[];let needSame=CM?st.same+st.any:st.same,needAny=CM?0:st.any;const useS=same.slice(0,needSame);pick.push(...useS);let miss=needSame-useS.length;
+  let wild=0;if(!CM&&miss>0&&(x.g==='S'||x.g==='SS')){wild=miss;needAny+=miss*2;miss=0;}
   const anyPool=S.c.filter(c=>slotOf(c.k,c.m)===x.slot&&elig(c,st.min,ex)&&!pick.includes(c)).sort((a,b)=>(a.m==x.m)-(b.m==x.m)||a.t-b.t||a.lv-b.lv);
   const useA=anyPool.slice(0,needAny);pick.push(...useA);const missA=needAny-useA.length;
   // ứng viên chưa đủ cấp (đúng khung) → nâng nhanh

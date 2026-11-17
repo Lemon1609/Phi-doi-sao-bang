@@ -1,0 +1,71 @@
+GỬI GPT · NÂNG CẤP ĐỒ HỌA / GIAO DIỆN MỘT LƯỢT (Phi Đội Sao Băng · V307 · 17/11/2026)
+=====================================================================================
+Bạn vẽ tài nguyên giao diện cho game bắn máy bay dọc (HTML5 / Android, màn dọc 9:19,5, thiết kế ở 393×852 pt, xuất ảnh @3x).
+Kèm theo gói này là ẢNH CHỤP MÀN HIỆN TẠI của game (thư mục anh_hien_tai/). Hãy giữ bố cục, chỉ vẽ lại phần đồ họa.
+
+A. PHONG CÁCH CHUNG (bắt buộc)
+- Khoa học viễn tưởng vũ trụ, "neon kim loại": nền xanh navy rất tối (#060b18 → #13284a), viền kim loại xám xanh, đèn neon xanh cyan (#5ab8ff / #7fdcff).
+- Màu chức năng: VÀNG = nút chính (#ffe07a → #f2a51d, chữ nâu #3a2100); TÍM = tiến khung / nút phụ quan trọng (#9b6cff → #5d2fd0); XANH LỤC = xác nhận / nhận; ĐỎ = thiếu / cảnh báo.
+- Màu khung theo phẩm chất (dùng thống nhất ở mọi ô, hàng, thẻ): Trắng #d6e0ea · Lục #3ee08f · Lam #3aa8ff · Tím #b45cff · Vàng/cam (đặc biệt) #ffb43a.
+- KHÔNG có chữ trong ảnh (game tự viết chữ tiếng Việt). Không logo, không nhân vật/tàu/biểu tượng của game khác. Không chép khung của game tham khảo.
+- PNG nền trong suốt. Khung / nút / thanh: vẽ để cắt 9 ô (9-slice) — ghi rõ lề cắt (px) trong tên hoặc file ghi chú.
+- Đồng bộ với bộ nút + khung neon đã có (src/ui306n: nut_vang, nut_xanh, nut_luc, nut_do, o_vat_pham_*, khung_bang, tab_*…). Bộ mới phải cùng "họ" với bộ này.
+
+B. DANH SÁCH CẦN VẼ (theo thứ tự ưu tiên)
+---------------------------------------------------------------
+B1. BIỂU TƯỢNG TÀI NGUYÊN (256×256, nền trong, vật thể giữa chiếm ~70 %)
+  1. da_xp_1 · Đá XP Sơ Cấp (tinh thể xanh nhạt, nhỏ, 1 khối)
+  2. da_xp_2 · Đá XP Trung Cấp (xanh lục, 2–3 khối)
+  3. da_xp_3 · Đá XP Cao Cấp (tím, cụm sắc nhọn phát sáng)
+  4. da_xp_4 · Đá XP Tinh Túy (vàng cam, lõi rực, vầng sáng) — hiếm nhất
+  5. hop_kim · Hợp kim (thỏi / đồng xu kim loại vàng kiểu tương lai) — tiền tệ chính
+  6. loi_sieu_hop · Lõi Siêu Hợp (lõi năng lượng tím trong vỏ kim loại)
+  7. ve_can_quet · Vé càn quét (thẻ / vé năng lượng)
+  8. the_luc · Thể lực (bình / tia sét năng lượng xanh lục)
+  9. ban_sao_chien_co · Bản sao chiến cơ (khung chiếu hologram máy bay — KHÔNG vẽ tàu cụ thể)
+  10. ban_sao_trang_bi · Bản sao trang bị (hộp / bản vẽ hologram)
+  11. manh_phi_cong · Mảnh phi công (huy hiệu mảnh vỡ hình mũ phi công)
+  12–23. Nguyên liệu tiến khung: 4 loại × 3 màu (Lục / Lam / Tím):
+        Lõi Hợp Kim · Tinh Thể Năng Lượng · Mạch Lượng Tử · Sợi Plasma → nl_<loai>_<mau>.png
+B2. MÀN "CHÚC MỪNG NHẬN ĐƯỢC" (nhận quà)
+  - huy_hieu_nhan_qua.png 1024×400: huy hiệu cánh chữ V / mũi tên phát sáng xanh, có chỗ trống phía dưới cho chữ.
+  - tia_sang_nen.png 1080×1080: chùm tia sáng xoay (nền trong, nhạt) đặt sau huy hiệu.
+  - o_thuong_<mau>.png ×5 (Trắng/Lục/Lam/Tím/Vàng) 192×192: ô vật phẩm có viền màu + ánh sáng trong (9-slice không cần).
+B3. MÀN NÂNG CẤP / TIẾN KHUNG
+  - khung_the_lon.png 720×720 9-slice: khung thẻ vật phẩm lớn có góc kim loại + neon (thẻ trung tâm).
+  - be_sang.png 720×240: bệ / vòng sáng đặt dưới vật phẩm.
+  - mui_ten_tien.png 256×128: mũi tên kép phát sáng xanh lục (giữa 2 thẻ trước → sau).
+  - dai_thanh_cong.png 1080×200: dải sáng ngang (cyan) cho chữ "NÂNG CẤP THÀNH CÔNG".
+  - o_vat_lieu_trong.png 192×192: ô trống có dấu + mờ; o_vat_lieu_thieu.png: viền đỏ.
+  - thanh_xp_nen.png / thanh_xp_day.png 900×48 9-slice: thanh kinh nghiệm (đầy: xanh lục sáng).
+B4. MÀN KHO TRANG BỊ + TÚI ĐỒ
+  - nen_kho.png 1080×1300: nền xưởng chứa máy bay (giàn thép, đèn rọi, sàn kim loại) — chỉ nền, không tàu.
+  - o_dang_mac_<giap|ten_lua|vu_khi_phu>.png 300×380 9-slice: ô trang bị đang mặc, có biểu tượng loại mờ ở góc.
+  - hang_tui_<mau>.png ×4 1080×180 9-slice: hàng danh sách trong túi (dải màu phẩm chất bên trái nhạt dần).
+  - tab_day_bat / tab_day_tat 360×120 9-slice: tab ở đáy túi.
+  - icon_tui_do.png 256×256: ba lô / hòm đồ tương lai.
+B5. HỘP THOẠI CHUNG (thay các hộp còn khung cũ: Tiến khung cũ, Phi công, Cửa hàng trao đổi, Skin)
+  - hop_thoai.png 1080×1400 9-slice: khung hộp có thanh tiêu đề kim loại + neon, nút ✕ riêng.
+  - nut_dong.png đã có — vẽ lại cùng họ nếu cần.
+  - nut_tim.png / nut_tim_nhan.png / nut_tim_khoa.png 9-slice: nút tím (cùng họ với nut_vang).
+B6. MÀN KẾT QUẢ TRẬN + HỒI SINH
+  - sao_ket_qua_day.png / sao_ket_qua_rong.png 256×256: ngôi sao lớn 3 cái.
+  - tem_ky_luc_moi.png 400×200: tem "kỷ lục mới" (để trống chữ).
+  - nen_ket_qua.png 1080×1300: vầng hành tinh / tia sáng phía sau điểm.
+  - hop_hoi_sinh.png 1080×600 9-slice.
+B7. CÀI ĐẶT DẠNG LƯỚI (256×256 mỗi icon, cùng một khung tròn/vuông bo)
+  - icon_cai_dat_am_thanh, _hinh_anh, _rung, _sao_luu, _so_tay, _nhat_ky, _tu_dien (bật/tắt màn thử ở sảnh), _thu_ky_nang, _xem_max, _khoe, _ma_quan_tri.
+B8. PHI CÔNG
+  - be_phi_cong.png 900×300: bệ sáng dưới chân dung toàn thân (đã có tạm bằng mã).
+  - icon_moc_lam / icon_moc_tim / icon_moc_tim5 128×128: 3 huy hiệu mốc kỹ năng (khóa / mở).
+
+C. VIỆC ĐANG CHỜ TỪ TRƯỚC (đã có tin riêng, vẽ tiếp theo đúng tin đó)
+  - Bạo Tẩu tàu 1–13 (GUI_GPT_V307_BAO_TAU_*), sửa Bạo Tẩu tàu 2.
+  - 4 băng tranh đầu hộp Nhiệm vụ / Mùa giải / Điểm danh / Quà (GUI_GPT_V307_BANG_TRANH_4_HOP).
+  - Nền sảnh xưởng hố đen (GUI_GPT_V307_NEN_SANH_XUONG_HO_DEN).
+  - Nền chương 1 bản 3 lớp xa (GUI_GPT_V307_PROMPT_VE_NEN_V3_LOP_XA_CH1).
+
+D. CÁCH GIAO
+  - Mỗi mục B gửi 1 tấm "bảng tổng" (tất cả hình của mục trên nền đen, có khoảng cách) + các tệp PNG rời đúng tên ở trên.
+  - Ghi lề cắt 9-slice bằng tên tệp, ví dụ hop_thoai__9s_64.png (lề 64 px bốn phía).
+  - Ưu tiên giao trước: B1 → B2 → B3 → B4. Mục B5–B8 sau.
