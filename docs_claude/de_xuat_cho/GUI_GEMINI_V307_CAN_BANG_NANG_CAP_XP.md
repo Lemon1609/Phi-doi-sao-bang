@@ -8,6 +8,11 @@ Mình (chủ dự án) đã chốt cơ chế, nhờ bạn tính **số liệu c�
 - Không thêm nguồn kim cương, không tiền thật. Món đang mặc/khóa không được làm vật liệu.
 - Tiến khung (Trắng→Lục→Lam→Tím…, trần 25/35/45/50/55/60/75/80/85/90/95/100) giữ nguyên, **không** thuộc phạm vi này.
 
+## Lưu ý khi tính
+- Đá nâng cấp cũ hiện **còn dùng cho**: nâng cấp chiến cơ (cùng công thức đá), nâng phi công (pilot67), và được tặng ở nhiệm vụ, mùa giải, ải chương 10, hầm ngục. Hệ mới chỉ áp cho **trang bị**; nếu bạn thấy nên áp cả chiến cơ thì nêu rõ.
+- Trang bị rơi ra ở ải hiện nay chủ yếu dưới dạng phôi; phôi Trắng/Lục tự phân giải thành mảnh. Hãy đề xuất: món nào thành vật liệu XP, món nào vẫn phân giải.
+- Phôi dùng để tiến khung cũng mất hẳn khi dùng, không hoàn.
+
 ## Số đo của hệ CŨ (bậc cơ bản, từ mã)
 Mỗi cấp L→L+1: ◈ = 20+3·L (×0,92 từ hạng Vô Tận ≥2); đá = 2+⌊L/5⌋, cộng 5·(1+bậc) ở cấp mốc (L+1 chia hết 5).
 
@@ -31,4 +36,4 @@ Mỗi cấp L→L+1: ◈ = 20+3·L (×0,92 từ hạng Vô Tận ≥2); đá = 2
 3. **Đá XP**: các cỡ (nhỏ/vừa/lớn) và XP mỗi viên; **tỉ lệ rơi theo dải ải / mini boss / boss / quét**.
 4. **Quy đổi tồn kho**: 1 đá cũ = ? Đá XP; ◈ không đổi (vẫn dùng việc khác).
 5. Ngưỡng **cảnh báo dư XP** và cảnh báo khi chọn vật liệu Tím trở lên.
-6. Kiểm: người chơi không thể "đấu giá" lên max nhanh hơn hệ cũ quá ±15%.
+6. Kiểm: thời gian (số ải) để một món lên Lv100 không lệch quá ±15% so với hệ cũ.
