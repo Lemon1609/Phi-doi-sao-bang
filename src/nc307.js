@@ -1,0 +1,107 @@
+'use strict';
+// V307 · NÂNG CẤP TRANG BỊ BẰNG XP (khung giao diện, chủ dự án chốt 17/11/2026)
+//  • Chọn món ở hàng túi trên cùng · thẻ lớn kèm sao ở giữa · bảng 3 dòng "hiện tại → sau" (số sau xanh lá)
+//  • Hàng 5 ô vật liệu = trang bị khác (MẤT HẲN, không hoàn) · ô Đá XP · nút TỰ CHỌN · 1 nút vàng NÂNG CẤP
+//  • Số liệu: Gemini lượt 2 (GEMINI_TRA_LOI_NANG_CAP_XP_V307_LUOT2.md). Chờ lượt 3 → chỉ sửa bảng NC307CFG.
+//  • Đá XP Nhỏ tạm = đá nâng cấp cũ (1 viên = 15 XP), trừ qua Workshop.spendExp → chưa cần quy đổi tồn kho.
+//  • Tắt: window.NC307=false (nút Nâng cấp cũ hoạt động lại).
+const NC307CFG={
+ need:L=>50+6*L,                     // XP từ L lên L+1
+ feed:[15,40,100,180,280,400,750,1200,1800,2500,3400,4500],   // XP gốc theo 12 nấc khung (Trắng … Tím+5)
+ refund:.85,                         // phần XP đã đầu tư được kế thừa khi làm vật liệu
+ stoneXp:15,slots:5,overWarn:30,warnN:6,warnLv:15};
+const NC307=(()=>{
+ const KEY='saobang-nc307-v1',C=NC307CFG;
+ let S={x:{}};try{Object.assign(S,JSON.parse(localStorage.getItem(KEY)||'{}'));}catch{}S.x=S.x||{};
+ const save=()=>{try{localStorage.setItem(KEY,JSON.stringify(S));}catch{}};
+ const on=()=>window.NC307!==false&&typeof Progress!=='undefined'&&Progress.v70;
+ const esc=s=>String(s==null?'':s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+ const fmt=n=>Math.round(n).toLocaleString('vi-VN');
+ const items=()=>{try{return Progress.v70.items();}catch{return [];}};
+ const get=id=>items().find(i=>i.id===id);
+ const eqIds=()=>{try{return Object.values(Progress.v70.equipped()||{});}catch{return [];}};
+ const nOf=it=>{try{const t=V70T(it);const k=TIER70.name.indexOf(t);return k<0?0:k;}catch{return 0;}};
+ const capOf=it=>{try{return Workshop.cap(it);}catch{return 100;}};
+ const xpOf=id=>S.x[id]|0;
+ function invested(it){let s=0;for(let L=1;L<(it.level|0||1);L++)s+=C.need(L);return s+xpOf(it.id);}
+ const feedXp=it=>C.feed[Math.min(11,nOf(it))]+Math.floor(C.refund*invested(it));
+ const usable=(it,tg)=>it&&tg&&it.id!==tg.id&&!eqIds().includes(it.id)&&!it.super&&!it.key;
+ const stones=()=>{try{return Workshop.expBalance();}catch{return 0;}};
+ // ---------- trạng thái màn ----------
+ let cur=null,mats=[],st=0,ask=null,el=null,msg='';
+ function sim(it,gain){let L=it.level|0||1,x=xpOf(it.id)+gain;const cap=capOf(it);while(L<cap&&x>=C.need(L)){x-=C.need(L);L++;}const over=L>=cap?x:0;return {L,x:L>=cap?0:x,over,cap,need:L<cap?C.need(L):0};}
+ const gainNow=()=>mats.reduce((s,id)=>{const m=get(id);return s+(m?feedXp(m):0);},0)+st*C.stoneXp;
+ function statRows(it,L){let a={},b={};try{a=Progress.stat(it);b=Progress.stat({...it,level:L});}catch{}
+  const f=(k,v)=>k==='interval'?v.toFixed(2)+' s':k==='auxDamage'?v.toFixed(2):v.toFixed(1);
+  const nm={armor:'Giáp',hp:'Máu',auxDamage:'Sát thương/viên',interval:'Nhịp bắn'};
+  return Object.keys(a).slice(0,2).map(k=>[nm[k]||k,f(k,a[k]),f(k,b[k]),k==='interval'?b[k]<a[k]-1e-9:b[k]>a[k]+1e-9]);}
+ function stars(it){const n=nOf(it),fr=[0,1,2,2,2,2,3,3,3,3,3,3][n],plus=n<2?0:n<6?n-2:n-6;return '★'.repeat(fr+1)+'<span style="color:#ffd166">'+'✦'.repeat(plus)+'</span>';}
+ function artOf(it){try{return String(Progress.art(it)).replace(/<b>[\s\S]*?<\/b>/g,'');}catch{return '';}}
+ function colorOf(it){try{return V70C(it);}catch{return '#d6e0ea';}}
+ function card(it,cls){const art=artOf(it);return `<div class="${cls}" style="--c:${colorOf(it)}">${art}<b>Lv${it.level|0}</b></div>`;}
+ function render(){if(!el)return;if(!cur||!get(cur)){const l=items();cur=l[0]&&l[0].id;}const it=get(cur);
+  mats=mats.filter(id=>usable(get(id),it));
+  if(!it){el.querySelector('.nc307-in').innerHTML='<p class="nc307-e">Chưa có trang bị.</p>';return;}
+  const g=gainNow(),r=sim(it,g),r0=sim(it,0),rows=statRows(it,r.L),title=(()=>{try{return Progress.title(it);}catch{return it.id;}})();
+  const bag=items().slice().sort((a,b)=>(eqIds().includes(b.id)-eqIds().includes(a.id))||nOf(b)-nOf(a)||(b.level-a.level));
+  const pct0=r0.need?Math.min(100,r0.x/r0.need*100):100,pct=r.need?Math.min(100,r.x/r.need*100):100;
+  el.querySelector('.nc307-in').innerHTML=`
+  <div class="nc307-top"><b>NÂNG CẤP</b><button class="nc307-x" data-nc="x" aria-label="Đóng">✕</button></div>
+  <button class="nc307-swap" data-nc="bag">⇅ Đổi món <small>(${bag.length} trong túi)</small></button>
+  <div class="nc307-hero" data-nc="bag" style="--c:${colorOf(it)}"><div class="nc307-art">${artOf(it)}</div><h3>${esc(title)}</h3><div class="nc307-st">${stars(it)} <span>${esc((()=>{try{return V70T(it);}catch{return '';}})())}</span></div></div>
+  <table class="nc307-tb"><tr><td>Cấp</td><td>${it.level|0}</td><td>→</td><td class="${r.L>(it.level|0)?'up':''}">${r.L}<small>/${r.cap}</small></td></tr>
+   ${rows.map(x=>`<tr><td>${x[0]}</td><td>${x[1]}</td><td>→</td><td class="${x[3]?'up':''}">${x[2]}</td></tr>`).join('')}</table>
+  <div class="nc307-xp"><div class="nc307-bar"><i style="width:${r.L>(it.level|0)?0:pct0}%"></i><u style="width:${pct}%"></u></div><span>${r0.need?fmt(r0.x)+' / '+fmt(r0.need)+' XP':'Đạt trần cấp '+r0.cap}${g?` <em>+${fmt(g)} XP</em>`:''}</span></div>
+  ${r.over>C.overWarn?`<p class="nc307-w">Dư ${fmt(r.over)} XP sẽ bị mất do chạm trần Lv${r.cap}. Hãy bỏ bớt vật liệu!</p>`:''}
+  <div class="nc307-mats">${Array.from({length:C.slots},(_,k)=>{const m=get(mats[k]);return m?`<button data-nc="un" data-id="${esc(m.id)}" class="f">${card(m,'nc307-mini')}<em>+${fmt(feedXp(m))}</em></button>`:`<button data-nc="slot" class="e">+</button>`;}).join('')}
+   <div class="nc307-stone"><span>Đá XP <small>(${fmt(stones())})</small></span><div><button data-nc="s-">−</button><b>${st}</b><button data-nc="s+">+</button><button data-nc="s10">+10</button></div><small>1 viên = ${C.stoneXp} XP</small></div></div>
+  <div class="nc307-acts"><button data-nc="auto" class="nc307-auto">TỰ CHỌN</button><button data-nc="go" class="nc307-go" ${g&&r0.need?'':'disabled'}>NÂNG CẤP</button></div>
+  ${msg?`<p class="nc307-m">${esc(msg)}</p>`:''}
+  ${ask?`<div class="nc307-ask"><div><p>Trang bị ${esc(ask.why)} sẽ <b>biến mất vĩnh viễn</b>. Dùng làm nguyên liệu?</p><button data-nc="ok">Đồng ý</button><button data-nc="no">Thôi</button></div></div>`:''}
+  ${el.dataset.list?sheetHtml(it,el.dataset.list):''}`;}
+ let tab='all';
+ const kname=k=>{try{return Progress.kindName(k);}catch{return k;}};
+ function sheetHtml(it,mode){const isMat=mode==='mat';
+  let l=isMat?items().filter(m=>usable(m,it)&&!mats.includes(m.id)):items();
+  const kinds=[...new Set(items().map(m=>m.kind))];
+  if(tab!=='all')l=l.filter(m=>m.kind===tab);
+  l=l.slice().sort(isMat?((a,b)=>nOf(a)-nOf(b)||a.level-b.level):((a,b)=>(eqIds().includes(b.id)-eqIds().includes(a.id))||nOf(b)-nOf(a)||(b.level-a.level)));
+  return `<div class="nc307-sh" data-nc="no"><div class="nc307-shp"><i class="nc307-grip"></i><div class="nc307-sht"><b>${isMat?'Chọn vật liệu · bị tiêu hao':'Chọn trang bị cần nâng'}</b><button data-nc="no">✕</button></div>
+   <div class="nc307-tabs"><button data-nc="tab" data-id="all" class="${tab==='all'?'on':''}">Tất cả</button>${kinds.map(k=>`<button data-nc="tab" data-id="${esc(k)}" class="${tab===k?'on':''}">${esc(kname(k))}</button>`).join('')}</div>
+   <div class="nc307-grid">${l.length?l.map(m=>`<button data-nc="${isMat?'add':'pick'}" data-id="${esc(m.id)}" class="${m.id===cur?'on':''}">${card(m,'nc307-mini')}${eqIds().includes(m.id)?'<s>Đang mặc</s>':''}${isMat?`<em>+${fmt(feedXp(m))}</em>`:''}</button>`).join(''):'<i>Không có trang bị phù hợp.</i>'}</div></div></div>`;}
+ function needsAsk(m){return nOf(m)>=C.warnN?'khung '+(()=>{try{return V70T(m);}catch{return 'Tím';}})():(m.level|0)>=C.warnLv?'Lv'+m.level:'';}
+ function add(id){const m=get(id),it=get(cur);if(!usable(m,it)||mats.length>=C.slots||mats.includes(id))return;const w=needsAsk(m);if(w){ask={id,why:w};return;}mats.push(id);}
+ function auto(){const it=get(cur);if(!it)return;st=0;mats=mats.filter(id=>!needsAsk(get(id)||{}));
+  const pool=items().filter(m=>usable(m,it)&&!mats.includes(m.id)&&!needsAsk(m)).sort((a,b)=>feedXp(a)-feedXp(b));
+  for(const m of pool){if(mats.length>=C.slots)break;const r=sim(it,gainNow());if(r.L>=r.cap)break;if(sim(it,gainNow()+feedXp(m)).over>C.overWarn&&mats.length)break;mats.push(m.id);}
+  let r=sim(it,gainNow());const have=stones();while(r.L<r.cap&&st<have){st++;r=sim(it,gainNow());if(r.over>C.overWarn){st--;break;}}
+  if(!mats.length&&!st)msg='Không có vật liệu phù hợp (món đang mặc, Tím trở lên và món từ Lv'+C.warnLv+' không tự chọn).';}
+ function go(){const it=get(cur);if(!it)return;const g=gainNow();if(!g)return;const r=sim(it,g),old=it.level|0;
+  if(st&&!Workshop.spendExp(st)){msg='Không đủ Đá XP';return;}
+  for(const id of mats){Progress.v70.remove(id);delete S.x[id];}
+  Progress.v70.set(it.id,{level:r.L});S.x[it.id]=r.x;save();mats=[];st=0;
+  msg=r.L>old?'Lên Lv'+r.L+'!':'+'+fmt(g)+' XP';try{Progress.render();}catch{}try{Audio393.sfx('pickup');}catch{}}
+ function click(e){const b=e.target.closest('[data-nc]');if(!b||!el.contains(b))return;const a=b.dataset.nc,id=b.dataset.id;msg='';
+  if(a==='x'){close();return;}
+  if(a==='bag'){el.dataset.list='bag';}
+  else if(a==='tab'){tab=id;}
+  else if(a==='pick'){cur=id;mats=[];st=0;delete el.dataset.list;}
+  else if(a==='slot'){el.dataset.list='mat';}
+  else if(a==='add'){delete el.dataset.list;add(id);}
+  else if(a==='un'){mats=mats.filter(x=>x!==id);}
+  else if(a==='ok'){if(ask){mats.length<C.slots&&mats.push(ask.id);ask=null;}}
+  else if(a==='no'){if(b!==e.target&&b.classList.contains('nc307-sh'))return;ask=null;delete el.dataset.list;}
+  else if(a==='s+'){st=Math.min(stones(),st+1);}else if(a==='s-'){st=Math.max(0,st-1);}else if(a==='s10'){st=Math.min(stones(),st+10);}
+  else if(a==='auto')auto();else if(a==='go')go();
+  render();}
+ function open(id){if(!on())return false;cur=id||cur;mats=[];st=0;ask=null;msg='';
+  if(!el){el=document.createElement('div');el.id='nc307';el.innerHTML='<div class="nc307-in"></div>';el.addEventListener('click',click);document.body.appendChild(el);}
+  el.classList.add('open');render();return true;}
+ function close(){if(el)el.classList.remove('open');try{const sh=document.querySelector('.hb-sheet.open');if(sh&&sh.dataset.item&&typeof gearSheet==='function')gearSheet(sh.dataset.item,true);}catch{}}
+ // Nút NÂNG CẤP trong chi tiết trang bị → mở màn mới (chặn giữ-để-nâng cũ)
+ const hit=e=>{if(!on())return;const b=e.target.closest&&e.target.closest('#sh-up');if(!b)return;const sh=b.closest('.hb-sheet');const id=sh&&sh.dataset.item;if(!id||!get(id))return;e.stopImmediatePropagation();e.preventDefault();if(e.type==='click')open(id);};
+ ['pointerdown','mousedown','touchstart','click'].forEach(t=>document.addEventListener(t,hit,true));
+ // nút sh-up luôn bấm được (chỉ mở màn), đổi nhãn
+ setInterval(()=>{try{if(!on())return;const b=document.querySelector('.hb-sheet.open #sh-up');if(b&&get(b.closest('.hb-sheet').dataset.item)&&!b.dataset.nc){b.dataset.nc='1';b.disabled=false;b.innerHTML='NÂNG CẤP<small>Dùng trang bị khác / Đá XP</small>';}}catch{}},300);
+ return {open,close,sim,feedXp,cfg:C,state:()=>JSON.parse(JSON.stringify(S)),_m:()=>mats.slice()};
+})();
