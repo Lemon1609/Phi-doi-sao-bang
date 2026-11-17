@@ -33,16 +33,17 @@ const QUA307=(()=>{
  // ---------- hiển thị ----------
  const TC=['#d6e0ea','#3ee08f','#3aa8ff','#b45cff'];
  function frameOfCopy(t){return t>=6?3:t>=2?2:t>=1?1:0;}
+ const IMG=(k,f)=>{const s=(window.TN307_IMG||{})[k];return s?`<img src="${s}" alt="">`:`<i class="c">${f}</i>`;};
  function cell(x,i){let ic='',nm='',col='#7fdcff';
   if(x.type==='gem'){ic='<i class="g">💎</i>';nm='Kim cương';col='#7fe6ff';}
-  else if(x.type==='cr'){ic='<i class="c">◈</i>';nm='Hợp kim';col='#ffd166';}
+  else if(x.type==='cr'){ic=IMG('hop_kim','◈');nm='Hợp kim';col='#ffd166';}
   else if(x.type==='xp'){let N='Đá XP',C='#8fd6ff';try{N=XPDA307.NAME[x.t];C=XPDA307.COL[x.t];}catch{}let I='';try{I=XPDA307.IMG(x.t);}catch{}ic=I?`<img src="${I}" alt="">`:`<i class="d" style="--g:${C}"></i>`;nm=N;col=C;}
-  else if(x.type==='tk'){ic='<i class="c">🎫</i>';nm='Vé càn quét';}
-  else if(x.type==='en'){ic='<i class="c">⚡</i>';nm='Thể lực';col='#5ce39a';}
-  else if(x.type==='core'){ic='<i class="c">✪</i>';nm='Lõi Siêu Hợp';col='#c77dff';}
+  else if(x.type==='tk'){ic=IMG('ve','🎫');nm='Vé càn quét';}
+  else if(x.type==='en'){ic=IMG('the_luc','⚡');nm='Thể lực';col='#5ce39a';}
+  else if(x.type==='core'){ic=IMG('loi_sieu_hop','✪');nm='Lõi Siêu Hợp';col='#c77dff';}
   else if(x.type==='copy'){const c=x.c||{};col=TC[frameOfCopy(c.t|0)];let n='';try{n=c.k==='craft'?(crafts[c.m]||{}).name:(GearCatalog[c.m]||{}).name;}catch{}
    let tn='';try{tn=TIER70.name[c.t|0];}catch{}nm='Bản sao '+tn+(n?' · '+n:'');let src='';try{if(c.k==='craft'){const S=SHIP118[c.m];src=S&&(S.lam||S.thuong);}}catch{}
-   ic=src?`<img src="${src}" alt="">`:(c.k==='gear'?(()=>{try{return String(Progress.art({kind:GearCatalog[c.m].kind,variant:c.m,grade:'',rank:'',level:1})).replace(/<b>[\s\S]*?<\/b>/g,'');}catch{return '<i class="c">❖</i>';}})():'<i class="c">❖</i>');}
+   ic=src?`<img src="${src}" alt="">`:(c.k==='gear'?(()=>{try{return String(Progress.art({kind:GearCatalog[c.m].kind,variant:c.m,grade:'',rank:'',level:1})).replace(/<b>[\s\S]*?<\/b>/g,'');}catch{return '<i class="c">❖</i>';}})():IMG('ban_sao_cc','❖'));}
   else if(x.type==='gear'){const it=x.it;try{nm=Progress.title(it).split(' · ')[0];ic=String(Progress.art(it)).replace(/<b>[\s\S]*?<\/b>/g,'');col=V70C(it);}catch{nm='Trang bị';}}
   x._nm=nm;x._col=col;
   return `<button class="q307-it" data-q="i" data-i="${i}" style="--c:${col};--d:${(i*0.12).toFixed(2)}s"><span class="q307-f">${ic}<b>${x.n>1||['gem','cr','xp','tk','en','core'].includes(x.type)?fmt(x.n):''}</b></span><small>${esc(nm)}</small></button>`;}

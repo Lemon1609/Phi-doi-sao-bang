@@ -104,12 +104,12 @@ const NC307=(()=>{
    else{let s0={};try{s0=Progress.stat(it);}catch{}const nmS={armor:'Giáp',hp:'Máu',auxDamage:'Sát thương/viên',interval:'Nhịp bắn'};for(const key of Object.keys(s0).slice(0,2)){const v=s0[key];if(key==='interval')continue;rows.push([nmS[key]||key,v.toFixed(key==='auxDamage'?2:1),(v*k).toFixed(key==='auxDamage'?2:1),true]);}}
    const req=[];const st=p.st||{};
    if(st.mainLv)req.push({t:'Cấp món chính',v:(it.level|0)+'/'+st.mainLv,ok:(it.level|0)>=st.mainLv});
-   if(p.needSame)req.push({t:'Bản sao cùng mẫu',v:(p.needSame-p.miss)+'/'+p.needSame,ok:!p.miss});
+   if(p.needSame)req.push({t:'Bản sao cùng mẫu',v:(p.needSame-p.miss)+'/'+p.needSame,ok:!p.miss,im:(window.TN307_IMG||{})[it.kind==='craft'?'ban_sao_cc':'ban_sao_tb']});
    if(p.needAny)req.push({t:'Bản sao cùng loại',v:(p.needAny-p.missA)+'/'+p.needAny,ok:!p.missA});
-   for(const q of p.mats||[]){let N=q.id;try{N=V70.matName(q.id);}catch{}req.push({t:N,v:q.have+'/'+q.n,ok:q.have>=q.n});}
+   for(const q of p.mats||[]){let N=q.id;try{N=V70.matName(q.id);}catch{}req.push({t:N,v:q.have+'/'+q.n,ok:q.have>=q.n,im:(typeof MAT69_ART!=='undefined'&&MAT69_ART[q.id])||''});}
    const cost=(p.cr|0)+(p.stone|0)*15;
    body=`<table class="nc307-tb">${rows.map(x=>`<tr><td>${x[0]}</td><td>${x[1]}</td><td>→</td><td class="up">${x[2]}</td></tr>`).join('')}</table>
-   <div class="nc307-req">${req.map(r=>`<div class="${r.ok?'ok':'no'}"><span>${esc(r.t)}</span><b>${esc(r.v)}</b>${r.ok?'':'<em>Thiếu</em>'}</div>`).join('')}</div>
+   <div class="nc307-req">${req.map(r=>`<div class="${r.ok?'ok':'no'}">${r.im?`<img src="${r.im}" alt="">`:''}<span>${esc(r.t)}</span><b>${esc(r.v)}</b>${r.ok?'':'<em>Thiếu</em>'}</div>`).join('')}</div>
    <div class="nc307-cost">Chi phí <b>${fmt(cost)} ◈</b>${(p.rf&&p.rf.cr)?` · hoàn ${fmt(p.rf.cr)} ◈ từ bản sao đã nâng`:''}</div>`;}
   return `<div class="nc307-top"><b>TIẾN KHUNG</b><button class="nc307-x" data-nc="x" aria-label="Đóng">✕</button></div>
    <div class="nc307-adw"><h3>${esc(title)}</h3><div class="nc307-cards">${card(n,'Hiện tại')}${p&&!p.max?`<i class="nc307-arr">➜</i>${card(n+1,'Sau tiến khung')}`:''}</div></div>
