@@ -41,7 +41,8 @@ const NC307=(()=>{
  const zero=()=>({1:0,2:0,3:0,4:0});
  const stXp=()=>T4.reduce((a,t)=>a+(st[t]|0)*D.XP[t],0),stN=()=>T4.reduce((a,t)=>a+(st[t]|0),0);
  // ---------- trạng thái màn ----------
- let back=false;
+ let back=false,mode='up',flash='',warnAsk=false;
+ const WK='saobang-nc307-warn';const noWarnToday=()=>{try{return localStorage.getItem(WK)===new Date().toDateString();}catch{return false;}};
  setInterval(()=>{try{if(!back)return;const d=[...document.querySelectorAll('.ev82,.adv70')].find(x=>!x.hidden&&x.getClientRects().length);if(d)return;back=false;if(el){el.classList.add('open');render();}}catch{}},300);
  let cur=null,mats=[],st=zero(),ask=null,el=null,msg='';
  function sim(it,gain){let L=it.level|0||1,x=xpOf(it.id)+gain;const cap=capOf(it);while(L<cap&&x>=C.need(L)){x-=C.need(L);L++;}const over=L>=cap?x:0;return {L,x:L>=cap?0:x,over,cap,need:L<cap?C.need(L):0};}
@@ -56,7 +57,8 @@ const NC307=(()=>{
  function artOf(it){if(it&&it.kind==='craft'){let src='';try{const S=SHIP118[it.idx];let f=FORM[nOf(it)];try{if(S.ss&&window.SS122!==false&&Workshop.craftGrade(it.idx)==='SS')f='ss';}catch{}src=S[f]||S.tim||S.lam||S.thuong;}catch{}return src?`<span class="nc307-ship"><img src="${src}" alt=""></span>`:'';}try{return String(Progress.art(it)).replace(/<b>[\s\S]*?<\/b>/g,'');}catch{return '';}}
  function colorOf(it){if(it&&it.kind==='craft'){try{return TIER70.fcol[TIER70.frame[nOf(it)]];}catch{return '#d6e0ea';}}try{return V70C(it);}catch{return '#d6e0ea';}}
  function card(it,cls){const art=artOf(it);return `<div class="${cls}" style="--c:${colorOf(it)}">${art}<b>Lv${it.level|0}</b></div>`;}
- function render(){if(!el)return;if(!cur||!get(cur)){const l=items();cur=l[0]&&l[0].id;}const it=get(cur);
+ function render(){if(!el)return;if(flash){const f=flash;setTimeout(()=>{if(flash===f)flash='';},1700);}if(!cur||!get(cur)){const l=items();cur=l[0]&&l[0].id;}const it=get(cur);
+  if(it&&mode==='adv'){el.querySelector('.nc307-in').innerHTML=advHtml(it);return;}
   mats=mats.filter(id=>usable(get(id),it));
   if(!it){el.querySelector('.nc307-in').innerHTML='<p class="nc307-e">Chưa có trang bị.</p>';return;}
   const g=gainNow(),r=sim(it,g),r0=sim(it,0),rows=statRows(it,r.L),title=(()=>{if(it.kind==='craft'){try{return document.querySelector('#hb-info h3,#hb-info .hb-name')?.textContent||('Chiến cơ '+(it.idx+1));}catch{return 'Chiến cơ';}}try{return Progress.title(it);}catch{return it.id;}})();
@@ -73,7 +75,8 @@ const NC307=(()=>{
   <div class="nc307-mats">${it.kind==='craft'?'':Array.from({length:C.slots},(_,k)=>{const m=get(mats[k]);return m?`<button data-nc="un" data-id="${esc(m.id)}" class="f">${card(m,'nc307-mini')}<em>+${fmt(feedXp(m))}</em></button>`:`<button data-nc="slot" class="e">+</button>`;}).join('')}
    <div class="nc307-stones">${T4.map(t=>`<div class="nc307-gem" style="--g:${D.COL[t]}"><i></i><div><b>${D.NAME[t]}</b><small>${fmt(D.XP[t])} XP · có ${fmt(D.have(t))}</small></div><div class="nc307-gb"><button data-nc="s-" data-id="${t}">−</button><b>${st[t]|0}</b><button data-nc="s+" data-id="${t}">+</button></div></div>`).join('')}</div></div>
   <div class="nc307-acts"><button data-nc="adv" class="nc307-adv">⇄ TIẾN KHUNG</button><button data-nc="auto" class="nc307-auto">TỰ CHỌN</button><button data-nc="go" class="nc307-go" ${g&&r0.need?'':'disabled'}>NÂNG CẤP</button></div>
-  ${msg?`<p class="nc307-m">${esc(msg)}</p>`:''}
+  ${msg?`<p class="nc307-m">${esc(msg)}</p>`:''}${flash?`<div class="nc307-ok" key="${Date.now()}">${esc(flash)}</div>`:''}
+  ${warnAsk?(()=>{const r=sim(it,gainNow());return `<div class="nc307-ask"><div><p>Lượt nâng này vượt trần <b>Lv${r.cap}</b>, dư <b>${fmt(r.over)} XP</b> sẽ mất (không hoàn). Vẫn nâng?</p><label class="nc307-nw"><input type="checkbox"> Hôm nay không nhắc lại</label><button data-nc="wno">Hủy</button><button data-nc="wok">Tiếp tục nâng</button></div></div>`;})():''}
   ${ask?`<div class="nc307-ask"><div><p>Trang bị ${esc(ask.why)} sẽ <b>biến mất vĩnh viễn</b>. Dùng làm nguyên liệu?</p><button data-nc="ok">Đồng ý</button><button data-nc="no">Thôi</button></div></div>`:''}
   ${el.dataset.list?sheetHtml(it,el.dataset.list):''}`;}
  let tab='all';
@@ -90,6 +93,28 @@ const NC307=(()=>{
   let st='';try{const a=Progress.stat(m);st=m.kind==='armor'?`Giáp ${a.armor.toFixed(1)} · Máu ${a.hp.toFixed(1)}`:`ST ${a.auxDamage.toFixed(2)} · ${a.interval.toFixed(2)} s`;}catch{}
   const eq=eqIds().includes(m.id);
   return `<button class="nc307-row ${m.id===cur?'on':''}" data-nc="${isMat?'add':'pick'}" data-id="${esc(m.id)}" style="--c:${colorOf(m)}">${card(m,'nc307-mini')}<div class="nc307-ri"><b>${esc(t)}</b><span class="nc307-rs">${stars(m)} <small>${esc(lb)}</small></span><small>${tab==='all'?esc(kname(m.kind))+' · ':''}${st}</small></div><div class="nc307-rr"><b>Lv${m.level|0}<small>/${capOf(m)}</small></b>${eq?'<s>Đang mặc</s>':''}${isMat?`<em>+${fmt(feedXp(m))} XP</em>`:''}${!isMat&&m.id===cur?'<s class="cur">Đang chọn</s>':''}</div></button>`;}
+ function advHtml(it){const K=it.kind==='craft'?'craft':'gear',ref=it.kind==='craft'?it.idx:it.id;let p=null;try{p=Evo82.plan(K,ref);}catch{}
+  const n=nOf(it),title=(()=>{if(it.kind==='craft')return 'Chiến cơ '+(it.idx+1);try{return Progress.title(it).split(' · ')[0];}catch{return '';}})();
+  const nm=k=>{try{return TIER70.name[k];}catch{return '';}},capN=k=>{try{return TIER70.cap[k];}catch{return 100;}},tm=(()=>{try{return TIER70.tm;}catch{return .0364;}})();
+  const card=(k,lab)=>`<div class="nc307-ac" style="--c:${(()=>{try{return TIER70.fcol[TIER70.frame[k]];}catch{return '#d6e0ea';}})()}"><small>${esc(lab)}</small><div class="nc307-art">${artOf(it)}</div><b>${esc(nm(k))}</b></div>`;
+  let body='';
+  if(!p||p.max){body=`<p class="nc307-m">Đã đạt khung cao nhất: ${esc(nm(n))}.</p>`;}
+  else{const k=(1+(n+1)*tm)/(1+n*tm);const rows=[['Trần cấp',capN(n),capN(n+1),true]];
+   if(it.kind==='craft'){let a=1;try{a=Workshop.levelFactor(it._v);}catch{}rows.push(['Hệ số sức mạnh','×'+a.toFixed(3),'×'+(a*k).toFixed(3),true]);}
+   else{let s0={};try{s0=Progress.stat(it);}catch{}const nmS={armor:'Giáp',hp:'Máu',auxDamage:'Sát thương/viên',interval:'Nhịp bắn'};for(const key of Object.keys(s0).slice(0,2)){const v=s0[key];if(key==='interval')continue;rows.push([nmS[key]||key,v.toFixed(key==='auxDamage'?2:1),(v*k).toFixed(key==='auxDamage'?2:1),true]);}}
+   const req=[];const st=p.st||{};
+   if(st.mainLv)req.push({t:'Cấp món chính',v:(it.level|0)+'/'+st.mainLv,ok:(it.level|0)>=st.mainLv});
+   if(p.needSame)req.push({t:'Bản sao cùng mẫu',v:(p.needSame-p.miss)+'/'+p.needSame,ok:!p.miss});
+   if(p.needAny)req.push({t:'Bản sao cùng loại',v:(p.needAny-p.missA)+'/'+p.needAny,ok:!p.missA});
+   for(const q of p.mats||[]){let N=q.id;try{N=V70.matName(q.id);}catch{}req.push({t:N,v:q.have+'/'+q.n,ok:q.have>=q.n});}
+   const cost=(p.cr|0)+(p.stone|0)*15;
+   body=`<table class="nc307-tb">${rows.map(x=>`<tr><td>${x[0]}</td><td>${x[1]}</td><td>→</td><td class="up">${x[2]}</td></tr>`).join('')}</table>
+   <div class="nc307-req">${req.map(r=>`<div class="${r.ok?'ok':'no'}"><span>${esc(r.t)}</span><b>${esc(r.v)}</b>${r.ok?'':'<em>Thiếu</em>'}</div>`).join('')}</div>
+   <div class="nc307-cost">Chi phí <b>${fmt(cost)} ◈</b>${(p.rf&&p.rf.cr)?` · hoàn ${fmt(p.rf.cr)} ◈ từ bản sao đã nâng`:''}</div>`;}
+  return `<div class="nc307-top"><b>TIẾN KHUNG</b><button class="nc307-x" data-nc="x" aria-label="Đóng">✕</button></div>
+   <div class="nc307-adw"><h3>${esc(title)}</h3><div class="nc307-cards">${card(n,'Hiện tại')}${p&&!p.max?`<i class="nc307-arr">➜</i>${card(n+1,'Sau tiến khung')}`:''}</div></div>
+   ${body}${msg?`<p class="nc307-m">${esc(msg)}</p>`:''}${flash?`<div class="nc307-ok">${esc(flash)}</div>`:''}
+   <div class="nc307-acts"><button data-nc="upm" class="nc307-adv">⇄ NÂNG CẤP</button><span></span><button data-nc="brk" class="nc307-go" ${p&&!p.max&&p.ok?'':'disabled'}>TIẾN KHUNG</button></div>`;}
  function needsAsk(m){return nOf(m)>=C.warnN?'khung '+(()=>{try{return V70T(m);}catch{return 'Tím';}})():(m.level|0)>=C.warnLv?'Lv'+m.level:'';}
  function add(id){const m=get(id),it=get(cur);if(!usable(m,it)||mats.length>=C.slots||mats.includes(id))return;const w=needsAsk(m);if(w){ask={id,why:w};return;}mats.push(id);}
  function auto(){const it=get(cur);if(!it)return;if(it.kind==='craft')mats=[];st=zero();mats=mats.filter(id=>!needsAsk(get(id)||{}));
@@ -101,10 +126,14 @@ const NC307=(()=>{
   if(stN()&&!D.spend(st)){msg='Không đủ Đá XP';return;}
   for(const id of mats){Progress.v70.remove(id);delete S.x[id];}
   if(it.kind==='craft')Workshop.set70(it.idx,{level:r.L});else Progress.v70.set(it.id,{level:r.L});S.x[it.id]=r.x;save();mats=[];st=zero();
-  msg=r.L>old?'Lên Lv'+r.L+'!':'+'+fmt(g)+' XP';try{Progress.render();}catch{}try{if(it.kind==='craft')Hub40.render();}catch{}try{Audio393.sfx('pickup');}catch{}}
+  msg='';flash=r.L>old?'NÂNG CẤP THÀNH CÔNG · Lv'+r.L:'+'+fmt(g)+' XP';try{Progress.render();}catch{}try{if(it.kind==='craft')Hub40.render();}catch{}try{Audio393.sfx('pickup');}catch{}}
  function click(e){const b=e.target.closest('[data-nc]');if(!b||!el.contains(b))return;const a=b.dataset.nc,id=b.dataset.id;msg='';
   if(a==='x'){close();return;}
-  if(a==='adv'){const it=get(cur);if(!it)return;el.classList.remove('open');back=true;try{V70.open(it.kind==='craft'?'craft':'gear',it.kind==='craft'?it.idx:it.id);}catch{}return;}
+  if(a==='adv'){mode='adv';flash='';}
+  else if(a==='upm'){mode='up';flash='';}
+  else if(a==='brk'){const it=get(cur);if(it){const K=it.kind==='craft'?'craft':'gear',ref=it.kind==='craft'?it.idx:it.id;let ok=false;try{ok=Evo82.doBreak(K,ref);}catch{}if(ok){flash='TIẾN KHUNG THÀNH CÔNG';try{Audio393.sfx('pickup');}catch{}}else{let p=null;try{p=Evo82.plan(K,ref);}catch{}msg=p&&p.lacks&&p.lacks[0]||'Chưa đủ điều kiện';}}}
+  else if(a==='wok'){warnAsk=false;if(b.closest('.nc307-ask').querySelector('input:checked'))try{localStorage.setItem(WK,new Date().toDateString());}catch{}go();}
+  else if(a==='wno'){warnAsk=false;}
   if(a==='bag'){el.dataset.list='bag';}
   else if(a==='tab'){tab=id;}
   else if(a==='pick'){cur=id;mats=[];st=zero();delete el.dataset.list;}
@@ -114,9 +143,9 @@ const NC307=(()=>{
   else if(a==='ok'){if(ask){mats.length<C.slots&&mats.push(ask.id);ask=null;}}
   else if(a==='no'){if(b!==e.target&&b.classList.contains('nc307-sh'))return;ask=null;delete el.dataset.list;}
   else if(a==='s+'){const t=+id;const it=get(cur);if(st[t]<D.have(t)&&it&&sim(it,gainNow()).L<capOf(it))st[t]++;}else if(a==='s-'){const t=+id;st[t]=Math.max(0,(st[t]|0)-1);}
-  else if(a==='auto')auto();else if(a==='go')go();
+  else if(a==='auto')auto();else if(a==='go'){const it=get(cur);const r=it&&sim(it,gainNow());if(r&&r.over>C.overWarn&&!noWarnToday())warnAsk=true;else go();}
   render();}
- function open(id){if(!on())return false;cur=id||cur;mats=[];st=zero();ask=null;msg='';
+ function open(id,md){if(!on())return false;cur=id||cur;mode=md||'up';flash='';warnAsk=false;mats=[];st=zero();ask=null;msg='';
   if(!el){el=document.createElement('div');el.id='nc307';el.innerHTML='<div class="nc307-in"></div>';el.addEventListener('click',click);document.body.appendChild(el);}
   el.classList.add('open');render();return true;}
  function close(){if(el)el.classList.remove('open');try{const sh=document.querySelector('.hb-sheet.open');if(sh&&sh.dataset.item&&typeof gearSheet==='function')gearSheet(sh.dataset.item,true);}catch{}}

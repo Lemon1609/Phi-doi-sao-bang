@@ -105,3 +105,22 @@ html body #nc307#nc307#nc307#nc307#nc307#nc307#nc307#nc307#nc307#nc307#nc307#nc3
 #nc307 .nc307-gb button{width:26px;height:26px;border-radius:6px;background:rgba(255,255,255,.08);border:1px solid rgba(160,220,255,.35);padding:0}
 #nc307 .nc307-in>.nc307-mats:has(.nc307-stones:first-child){display:block}
 html body #nc307#nc307#nc307#nc307#nc307#nc307#nc307#nc307#nc307#nc307#nc307#nc307#nc307#nc307#nc307#nc307#nc307#nc307#nc307#nc307 .nc307-adv{height:54px;border-radius:12px!important;background:linear-gradient(180deg,#9b6cff,#5d2fd0)!important;border:1px solid #c9b0ff!important;border-image:none!important;color:#fff!important;font-weight:800;font-size:12px;letter-spacing:.04em}
+#nc307 .nc307-adw{text-align:center}
+#nc307 .nc307-adw h3{margin:2px 0 8px;font-size:17px;color:#e6f2ff}
+#nc307 .nc307-cards{display:flex;align-items:center;justify-content:center;gap:10px}
+#nc307 .nc307-ac{flex:0 0 40%;border-radius:14px;border:1px solid var(--c);background:radial-gradient(circle at 50% 40%,color-mix(in srgb,var(--c) 28%,transparent),rgba(8,16,34,.8) 70%);padding:8px 6px;display:flex;flex-direction:column;align-items:center;gap:4px}
+#nc307 .nc307-ac small{font-size:11px;color:#8fb0d0}
+#nc307 .nc307-ac .nc307-art{height:96px}#nc307 .nc307-ac .nc307-art>span.gear25-art{width:86px!important}#nc307 .nc307-ac .nc307-ship,#nc307 .nc307-ac .nc307-ship img{width:96px;height:96px;max-width:96px;max-height:96px}
+#nc307 .nc307-ac b{color:var(--c);font-size:14px}
+#nc307 .nc307-arr{font-style:normal;font-size:24px;color:#4dff8a;text-shadow:0 0 10px #4dff8a;animation:nc307a 1s ease-in-out infinite}
+@keyframes nc307a{50%{transform:translateX(4px)}}
+#nc307 .nc307-req{display:flex;flex-direction:column;gap:4px}
+#nc307 .nc307-req>div{display:flex;align-items:center;gap:8px;padding:6px 10px;border-radius:9px;background:rgba(10,22,44,.7);border:1px solid rgba(120,190,255,.2);font-size:13px}
+#nc307 .nc307-req span{flex:1;color:#b9d0e8}#nc307 .nc307-req b{color:#fff}
+#nc307 .nc307-req .ok b{color:#4dff8a}#nc307 .nc307-req .no{border-color:rgba(255,90,90,.45)}#nc307 .nc307-req .no b{color:#ff6b6b}
+#nc307 .nc307-req em{font-style:normal;font-size:11px;font-weight:800;color:#fff;background:#d23b3b;border-radius:5px;padding:1px 6px}
+#nc307 .nc307-cost{text-align:center;font-size:13px;color:#cfe0f2}#nc307 .nc307-cost b{color:#ffd166}
+#nc307 .nc307-ok{position:fixed;left:0;right:0;top:42%;z-index:5;text-align:center;padding:12px 0;font-weight:900;font-size:18px;letter-spacing:.12em;color:#fff;background:linear-gradient(90deg,transparent,rgba(30,160,255,.85) 20%,rgba(30,160,255,.85) 80%,transparent);text-shadow:0 0 10px #8fe0ff;animation:nc307ok 1.6s ease-out forwards;pointer-events:none}
+@keyframes nc307ok{0%{opacity:0;transform:scaleY(.2)}15%{opacity:1;transform:none}75%{opacity:1}100%{opacity:0}}
+#nc307 .nc307-nw{display:block;margin:6px 0 4px;font-size:12px;color:#cfe0f2}
+#nc307 .nc307-ask p b{color:#ffd166}

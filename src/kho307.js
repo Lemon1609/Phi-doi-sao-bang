@@ -69,7 +69,7 @@ const KHO307=(()=>{
   slots.forEach((s,i)=>{const id=E[kinds[i]];s.classList.toggle('k307-on',!!id&&id===sel);if(!s.__k307){s.__k307=1;s.addEventListener('click',ev=>{if(!on())return;const k=Object.keys(eq())[[...doll.querySelectorAll('.hb-slot')].indexOf(s)];const id=eq()[k];if(!id)return;if(sel!==id){sel=id;ev.stopImmediatePropagation();ev.preventDefault();patch();}},true);}});
   let bar=body.querySelector(':scope>.k307-bar');
   if(!bar){bar=document.createElement('div');bar.className='k307-bar';bar.innerHTML='<div class="k307-two"><button data-k="up">NÂNG CẤP<small></small></button><button data-k="adv">TIẾN KHUNG<small></small></button></div><button data-k="bag" class="k307-bag">🎒 TÚI ĐỒ <small></small></button>';
-   bar.addEventListener('click',e=>{const b=e.target.closest('[data-k]');if(!b)return;const k=b.dataset.k;if(k==='up'){if(sel)NC307.open(sel);}else if(k==='adv'){if(sel)try{V70.open('gear',sel);}catch{}}else if(k==='bag')bag();});
+   bar.addEventListener('click',e=>{const b=e.target.closest('[data-k]');if(!b)return;const k=b.dataset.k;if(k==='up'){if(sel)NC307.open(sel);}else if(k==='adv'){if(sel)NC307.open(sel,'adv');}else if(k==='bag')bag();});
    const m7=body.querySelector(':scope>.m7-card');(m7||doll).after(bar);}
   const it=sel&&items().find(i=>i.id===sel);
   bar.querySelector('[data-k=up] small').textContent=it?title(it)+' · Lv'+(it.level|0)+'/'+capOf(it):'';
