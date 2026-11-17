@@ -1,0 +1,11 @@
+GỬI GPT · V307 · SỬA BẠO TẨU TÀU 2 (dán tiếp trong cùng cuộc trò chuyện, đính kèm lại ảnh 6 bậc thường tàu 2 đã chốt)
+
+Cảm ơn bạn, màu 6 bậc và chất liệu pha lê rất ổn. Cần sửa 4 điểm rồi vẽ lại cả 2 ảnh:
+
+1. ẢNH A · THÂN BẠO TẨU chưa đủ khác thân thường. Hiện hai ray chỉ nhích nhẹ. Cần: hai ray TÁCH XA thân giữa (khoảng hở đen rõ giữa ray và thân), thêm tấm pin / cánh phụ dang ngang mỗi bên. Tổng bề rộng thân Bạo Tẩu so với thân thường cùng bậc: bậc 1 rộng thêm ~20 %, bậc 3 ~28 %, bậc 6 ~35 %. Thân giữa, buồng lái, lõi giữ nguyên vị trí và cỡ để mình xếp chồng.
+2. ẢNH B · LỚP NĂNG LƯỢNG còn quá hẹp. Cần kéo ra ngoài: tổng sải cả hai bên (mép ngoài trái → mép ngoài phải) ≈ 2,3 × bề rộng thân thường ở bậc 1, ≈ 3,5 × ở bậc 6 (bậc 1 hiện ≈ 1,2 ×). Hai cánh năng lượng NỐI VỀ PHÍA THÂN ở khoảng giữa tàu (không để hở hai khối rời nhau), mọc từ hai ray ra ngoài và hơi chếch ra sau; phía trước mũi (nón 60°) vẫn TRỐNG.
+3. BỎ KHUNG VIỀN Ô. Ảnh A có đường viền mỏng quanh từng ô; không vẽ khung, chỉ nền đen thuần, mỗi ô cùng tâm, cùng cỡ như ảnh thường.
+4. Mỗi bậc phải khác bậc trước ở HÌNH BAO, không chỉ thêm gai. Bậc 5–6 tối đa 2 tầng chồng.
+
+Giữ nguyên: màu 6 bậc, nhãn 1–6, nền đen thuần, đối xứng, không chữ trong tranh.
+Cuối câu trả lời ghi: (a) bề rộng thân Bạo Tẩu so với thân thường ở từng bậc (%), (b) tổng sải lớp năng lượng so với bề rộng thân thường ở từng bậc (lần), (c) chỗ nào bạn đoán.
