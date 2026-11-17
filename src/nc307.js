@@ -68,7 +68,11 @@ const NC307=(()=>{
   l=l.slice().sort(isMat?((a,b)=>nOf(a)-nOf(b)||a.level-b.level):((a,b)=>(eqIds().includes(b.id)-eqIds().includes(a.id))||nOf(b)-nOf(a)||(b.level-a.level)));
   return `<div class="nc307-sh" data-nc="no"><div class="nc307-shp"><i class="nc307-grip"></i><div class="nc307-sht"><b>${isMat?'Chọn vật liệu · bị tiêu hao':'Chọn trang bị cần nâng'}</b><button data-nc="no">✕</button></div>
    <div class="nc307-tabs"><button data-nc="tab" data-id="all" class="${tab==='all'?'on':''}">Tất cả</button>${kinds.map(k=>`<button data-nc="tab" data-id="${esc(k)}" class="${tab===k?'on':''}">${esc(kname(k))}</button>`).join('')}</div>
-   <div class="nc307-grid">${l.length?l.map(m=>`<button data-nc="${isMat?'add':'pick'}" data-id="${esc(m.id)}" class="${m.id===cur?'on':''}">${card(m,'nc307-mini')}${eqIds().includes(m.id)?'<s>Đang mặc</s>':''}${isMat?`<em>+${fmt(feedXp(m))}</em>`:''}</button>`).join(''):'<i>Không có trang bị phù hợp.</i>'}</div></div></div>`;}
+   <div class="nc307-rows">${l.length?l.map(m=>rowHtml(m,isMat)).join(''):'<i>Không có trang bị phù hợp.</i>'}</div></div></div>`;}
+ function rowHtml(m,isMat){const t=(()=>{try{return Progress.title(m).split(' · ')[0];}catch{return m.id;}})(),lb=(()=>{try{return V70T(m);}catch{return '';}})();
+  let st='';try{const a=Progress.stat(m);st=m.kind==='armor'?`Giáp ${a.armor.toFixed(1)} · Máu ${a.hp.toFixed(1)}`:`ST ${a.auxDamage.toFixed(2)} · ${a.interval.toFixed(2)} s`;}catch{}
+  const eq=eqIds().includes(m.id);
+  return `<button class="nc307-row ${m.id===cur?'on':''}" data-nc="${isMat?'add':'pick'}" data-id="${esc(m.id)}" style="--c:${colorOf(m)}">${card(m,'nc307-mini')}<div class="nc307-ri"><b>${esc(t)}</b><span class="nc307-rs">${stars(m)} <small>${esc(lb)}</small></span><small>${esc(kname(m.kind))} · ${st}</small></div><div class="nc307-rr"><b>Lv${m.level|0}<small>/${capOf(m)}</small></b>${eq?'<s>Đang mặc</s>':''}${isMat?`<em>+${fmt(feedXp(m))} XP</em>`:''}${!isMat&&m.id===cur?'<s class="cur">Đang chọn</s>':''}</div></button>`;}
  function needsAsk(m){return nOf(m)>=C.warnN?'khung '+(()=>{try{return V70T(m);}catch{return 'Tím';}})():(m.level|0)>=C.warnLv?'Lv'+m.level:'';}
  function add(id){const m=get(id),it=get(cur);if(!usable(m,it)||mats.length>=C.slots||mats.includes(id))return;const w=needsAsk(m);if(w){ask={id,why:w};return;}mats.push(id);}
  function auto(){const it=get(cur);if(!it)return;st=0;mats=mats.filter(id=>!needsAsk(get(id)||{}));

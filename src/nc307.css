@@ -75,3 +75,20 @@ html body #nc307#nc307#nc307#nc307#nc307#nc307#nc307#nc307#nc307#nc307#nc307#nc3
 #nc307 .nc307-grid s{position:absolute;left:0;right:0;bottom:-2px;font-size:9px;text-decoration:none;background:#1d7a4a;border-radius:4px;text-align:center}
 #nc307 .nc307-grid em{position:absolute;left:3px;top:3px;right:auto;bottom:auto;z-index:2;background:rgba(0,0,0,.65);border-radius:4px;padding:0 3px;font-style:normal;font-size:10px;color:#4dff8a;text-align:center;text-shadow:0 1px 3px #000}
 #nc307 .nc307-grid>i{grid-column:1/-1;opacity:.7}
+#nc307 .nc307-rows{flex:1;overflow-y:auto;-webkit-overflow-scrolling:touch;overscroll-behavior:contain;padding:8px 10px 24px;display:flex;flex-direction:column;gap:6px}
+#nc307 .nc307-row{display:flex;align-items:center;gap:10px;width:100%;text-align:left;padding:6px 10px 6px 6px;border-radius:12px;background:linear-gradient(90deg,color-mix(in srgb,var(--c) 18%,transparent),rgba(10,22,44,.75) 55%);border:1px solid color-mix(in srgb,var(--c) 45%,transparent)}
+#nc307 .nc307-row.on{border-color:#fff;box-shadow:0 0 10px color-mix(in srgb,var(--c) 60%,transparent)}
+#nc307 .nc307-row .nc307-mini{flex:0 0 54px}
+#nc307 .nc307-row .nc307-mini b{display:none}
+#nc307 .nc307-ri{flex:1;min-width:0;display:flex;flex-direction:column;gap:2px}
+#nc307 .nc307-ri>b{font-size:14px;color:var(--c);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+#nc307 .nc307-rs{color:#ffd166;font-size:12px;letter-spacing:1px}
+#nc307 .nc307-rs small{color:#bcd;letter-spacing:0;margin-left:4px}
+#nc307 .nc307-ri>small{font-size:11px;color:#8fa8c6;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+#nc307 .nc307-rr{flex:0 0 auto;display:flex;flex-direction:column;align-items:flex-end;gap:3px}
+#nc307 .nc307-rr>b{font-size:15px}
+#nc307 .nc307-rr>b small{font-size:11px;color:#7f95b0;font-weight:400}
+#nc307 .nc307-rr s{font-size:10px;text-decoration:none;background:#1d7a4a;border-radius:4px;padding:1px 6px}
+#nc307 .nc307-rr s.cur{background:#2f6fd0}
+#nc307 .nc307-rr em{font-style:normal;font-size:12px;font-weight:700;color:#4dff8a}
+#nc307 .nc307-rows>i{opacity:.7;text-align:center;padding:20px}
