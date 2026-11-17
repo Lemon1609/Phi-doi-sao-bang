@@ -1,0 +1,25 @@
+GỬI GPT · V307 · THIẾT KẾ LẠI TÀU 2, 3, 8 TRÊN NỀN TÀU GỐC (mỗi lượt 1 tàu; đính kèm tauN_6bac_GOC.png + tauN_bac4_GOC_512.png của đúng tàu đó, KHÔNG đính kèm tàu khác)
+
+Chào GPT. Game "Phi Đội Sao Băng" có 13 chiến cơ, mỗi tàu 6 bậc. Tàu 2, 3, 8 đang có tranh (đính kèm) nhưng chưa đẹp và chưa thấy rõ tiến hóa. Hãy THIẾT KẾ LẠI cho đẹp hơn, VẪN TRÊN NỀN tàu gốc: giữ ý tưởng, dáng tổng thể và nét nhận diện của bậc 4 gốc (tauN_bac4_GOC_512.png), rồi làm 6 bậc tiến hóa rõ.
+
+A. LUẬT CHUNG (rút từ các lượt trước, bắt buộc)
+1. Cả 6 bậc CÙNG MỘT PHONG CÁCH VẼ và CÙNG MỘT KIỂU bộ phận đặc trưng (cùng kiểu cánh / ray / đuôi), chỉ tăng số lượng, độ dài, độ cầu kỳ. Không bậc nào đổi sang kiểu bộ phận khác.
+2. Bậc sau khác bậc trước RÕ ở hình bao (nhìn được ở 64 px), không chỉ đổi màu. Mỗi bậc thêm 1–2 bộ phận LỚN, không rải chi tiết vụn.
+3. Tỉ lệ: bậc thấp gọn nhưng không gầy nhom; bậc cao thanh lịch, có khe nền đen giữa các lớp giáp, không thành khối hộp. Không bắt chước quạt lá kim xếp tầng hay 2 mảnh kim cương dưới đuôi (đó là dấu hiệu của tàu khác).
+4. Hai lớp màu: (a) PHẨM CẤP qua màu ánh sáng lõi / đèn / mạch năng lượng: 1 trắng · 2 lục · 3 lam · 4 tím · 5 hồng-tím · 6 vàng, kèm vật liệu cao cấp dần (bậc 1 sơn mờ → bậc 6 ngọc trai / bạch kim + viền vàng kim mảnh); (b) MÀU THÂN theo bảng riêng của tàu ở mục B, đổi dần qua 6 bậc. Tối đa 3 màu thân + màu ánh sáng; không lòe loẹt.
+5. Bắt mắt: tương phản sáng-tối mạnh, điểm phản sáng trắng trên gờ, 2–4 mạch năng lượng phát sáng chạy theo thân về lõi, bộ phận năng lượng / pha lê bán trong suốt, viền rim-light mảnh màu phẩm cấp; độ sáng trung bình ≥ 0,6, bão hòa ≥ 0,45.
+6. Nhìn thẳng từ trên xuống, mũi hướng lên, đối xứng. Vẽ MỌI BẬC CÙNG CỠ KHUNG (mình tự thu nhỏ bậc thấp bằng mã). 1 hàng 6 ô, nhãn 1–6, nền đen thuần, không chữ trong tranh.
+
+B. TỪNG TÀU
+- TÀU 2 · CỰC QUANG ẢO ẢNH (gốc: thân mảnh, các thanh ray dọc song song hứng gió mặt trời).
+  Tiến hóa: số ray 2 → 2 (dài hơn) → 4 → 4 (có tấm pin giữa ray) → 6 (tấm pin bung thành buồm pha lê DỌC theo ray) → 6 (buồm pha lê có gai ngắn dọc mép, ray giữa vươn cao hơn mũi). Hình bao luôn là chữ nhật ĐỨNG, mọi bộ phận song song trục dọc, không xòe chéo.
+  Màu thân (chủ đề cực quang trên nền ngà): b1 ngà xám mờ + xanh ngọc nhạt · b2 ngà + xanh lục cực quang · b3 ngà vàng + teal · b4 ngà ánh kim + teal + dải tím mảnh · b5 đen ngọc trai + dải cực quang lục-tím dọc buồm · b6 trắng ngọc trai + vàng kim + buồm có dải cực quang 3 màu.
+- TÀU 3 · X-DỰC BĂNG HÀ (gốc: dáng mũi tên bạc, cánh chéo, lõi sao chổi băng ở mũi).
+  Tiến hóa: cánh chéo hình chữ X: b1 X ngắn · b2 X dài hơn có rãnh băng · b3 đầu cánh mọc tinh thể băng · b4 như gốc nhưng đẹp hơn · b5 mỗi cánh tách đôi thành 8 nhánh như bông tuyết, lõi sao chổi có đuôi băng ngắn · b6 bông tuyết 8 nhánh có nhánh phụ gai băng, cánh băng trong suốt. Giữa các nhánh có khe nền đen.
+  Màu thân (chủ đề băng tuyết): b1 xám bạc mờ + xanh băng nhạt · b2 trắng bạc + xanh băng · b3 bạc + lam băng đậm · b4 trắng tuyết + lam thẫm + tinh thể cyan · b5 lam đêm gần đen + cyan sáng + bạc · b6 trắng pha lê + cyan + viền bạch kim / vàng nhạt.
+- TÀU 8 · PHẦN THIÊN CHIẾN CHUẨN (gốc: thân chim săn mồi mũi nhọn, cánh cụp về sau, màu cam-đỏ).
+  Tiến hóa: cánh xương có MÀNG giữa các xương (kiểu cánh lửa) cụp về phía sau như chim ưng lao xuống: b1 cánh ngắn 2 xương · b2 3 xương · b3 cánh dài hơn + lò nhiệt nhỏ ở lưng · b4 như gốc nhưng đẹp hơn, lò nhiệt đỏ rực · b5 4 xương, màng cánh bán trong suốt như lửa, đuôi lông vũ 3 phiến · b6 5 xương, cờ hiệu lửa ở hai đầu cánh, đuôi 5 phiến, viền vàng kim.
+  Màu thân (chủ đề lửa than hồng): b1 nâu đồng mờ + cam nhạt · b2 đồng + cam · b3 đỏ gạch + cam sáng · b4 đỏ son + cam vàng · b5 đỏ thẫm gần đen + màng lửa cam-hồng · b6 đỏ son bóng + vàng kim + màng lửa vàng-trắng. (Đèn / lõi vẫn theo màu phẩm cấp ở luật A4.)
+
+TRẢ VỀ: tauN_6bac.png. Cuối câu trả lời ghi: (a) mỗi bậc thêm bộ phận gì, (b) màu thân + màu ánh sáng mỗi bậc, (c) chỗ nào bạn đoán.
+Mình sẽ đo: độ trùng bóng giữa 2 bậc liền nhau (cần < 0,75), diện tích tăng dần, sắc màu tàu 2 / 3 / 8 cùng bậc phải lệch rõ.
