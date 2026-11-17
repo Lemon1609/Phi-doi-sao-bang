@@ -14,14 +14,16 @@ B. Bảng rơi theo dải ải (1–10, 11–30, 31–50, 51–70, 71–90, 91�
 C. Nguồn loại cao nhất: hầm ngục (mỗi cấp độ khó), sự kiện tuần, điểm danh, mùa giải, nhiệm vụ: số lượng mỗi nguồn.
 D. Quy đổi tồn kho (xem mục dưới).
 
-## Vấn đề cần bạn quyết cùng (Claude phát hiện khi lắp)
-"Đá nâng cấp ⬢" cũ **không chỉ dùng để nâng Level**, mà còn đang được trừ ở:
-- **Tiến khung** (V70): mỗi lần đổi khung Lục/Lam/Tím: chiến cơ 40 / 80 / 150 đá, trang bị 25 / 60 / 110 đá.
-- **Nâng cấp bản sao** (Evo82): mỗi cấp ⌈lv/13⌉ đá + 19·lv ◈, và đá khi nâng khung bản sao.
+## Bỏ hẳn "Đá nâng cấp ⬢" cũ (chủ dự án chốt 17/11)
+Game chỉ còn **một họ đá là Đá XP** (các loại I…IV ở trên), chỉ dùng để nâng Level trang bị và chiến cơ. Mọi việc **nâng bậc, tiến khung, tiến hóa…** chuyển sang trả bằng **◈ hợp kim** (tiền tệ trong game). Đá ⬢ cũ đang bị trừ ở các chỗ sau, hãy quy hết ra ◈ (tham chiếu lượt 3: 1 đá = 15 ◈), giữ tổng chi phí tương đương, làm tròn số đẹp:
+- **Tiến khung** (V70): đổi khung Lục / Lam / Tím: chiến cơ 40 / 80 / 150 đá, trang bị 25 / 60 / 110 đá (cộng vào ◈ sẵn có của bước đó).
+- **Nâng cấp bản sao** (Evo82): mỗi cấp ⌈lv/13⌉ đá + 19·lv ◈; và đá khi nâng khung bản sao.
 - **Cây tiềm năng phi công**: 25·l, 40·l, 60·l đá mỗi nút (nút cuối 500 đá).
-- **Vũ khí tối thượng** (ult72) và **cửa hàng trao đổi** (trade67) cũng trừ đá.
+- **Vũ khí tối thượng** (ult72) và **cửa hàng trao đổi** (trade67): các món đang trả đá.
+- Phần thưởng đang tặng đá ⬢ (nhiệm vụ, mùa giải, ải chương 10, hầm ngục…): đổi sang Đá XP loại phù hợp.
 
-Claude đề xuất (chủ dự án chưa chốt): **giữ "Đá nâng cấp ⬢" làm tiền riêng cho các việc trên**, Đá XP chỉ để nâng Level. Khi đó mỗi ải rơi **cả hai**: hãy cho tỉ lệ đá ⬢ còn rơi mỗi dải ải (bản đo trước đây: ải 2–3 = 22, ải 25 = 34, ải 45 = 36, ải 65 = 48, ải 85 = 50, ải 105 = 62, ải 125–140 = 96 đá/lượt; hầm boss 8n đá + 2n hợp kim phụ), đủ cho các việc trên nhưng không thừa vì Level đã sang Đá XP.
-Tồn kho cũ: đề xuất **giữ nguyên số đá ⬢** (vẫn dùng được) và **tặng thêm** một lượng Đá XP bù cho phần trước đây dùng nâng Level; bạn cho công thức.
+Vì ◈ phải gánh thêm các khoản trên, hãy kiểm lại **◈ rơi ở ải có đủ không** (◈ đo được mỗi lượt: ải 2–3 = 56–59, ải 25 = 132, ải 45 = 198, ải 65 = 264, ải 85 = 330, ải 105 = 396, ải 125–140 = 462–512), và nói có cần tăng không.
+
+**Tồn kho cũ**: đá ⬢ người chơi đang có đổi hết sang Đá XP (nêu tỉ lệ ra loại nào, bảo toàn XP: 1 đá cũ = 15 XP).
 
 Trả JSON đầy đủ.
