@@ -1,0 +1,20 @@
+GỬI GPT · V307 · 4 BĂNG TRANH ĐẦU HỘP (Nhiệm vụ · Mùa giải · Điểm danh · Quà) · mỗi lượt 1 ảnh
+
+Chào GPT. Trong game "Phi Đội Sao Băng", mỗi hộp phần thưởng có một băng tranh ngang ở trên cùng làm điểm nhìn, giống các game mobile thương mại. Mình đang để tạm ảnh bán thân + nền màu (xem HIEN_TAI_bang_tranh_tam.jpg). Nhờ bạn vẽ 4 băng tranh thật.
+
+KHUNG HÌNH (cả 4 ảnh)
+- Ảnh NGANG 1440 × 512 (khoảng 2,8 : 1), PNG, nền vẽ kín (không trong suốt).
+- Game sẽ cắt hiển thị khoảng 330 × 118 điểm ảnh trên điện thoại: nội dung quan trọng nằm trong 85 % giữa theo chiều ngang, 80 % giữa theo chiều dọc.
+- BỐ CỤC BẮT BUỘC: nhân vật ở NỬA BÊN PHẢI (chiếm 35–45 % bề rộng, từ ngực trở lên, mặt nằm ở 1/3 trên); 55 % BÊN TRÁI là nền cảnh tối hơn, ít chi tiết, không vật sáng chói, vì mình sẽ đặt chữ tiêu đề trắng lên đó.
+- Không chữ, không số, không logo, không khung viền (khung do game vẽ).
+- Màu tươi, ánh sáng điện ảnh, có chiều sâu; phong cách tranh game mobile anime bán thực, khớp với ảnh chân dung đính kèm.
+- Nhân vật giữ ĐÚNG gương mặt, tóc, đồ bay như ảnh chan_dung_N.png; trang phục kín đáo mức game phổ thông (không hở ngực/bụng, không tư thế gợi dục).
+- Nguyên bản: không vẽ lại banner, nhân vật hay đồ vật của game nào khác.
+
+4 ẢNH
+1) nhiem_vu.png · nhân vật: Hạ Vy (chan_dung_2.png, Chỉ Huy, màu vàng #FFD166). Bối cảnh: phòng chỉ huy trên tàu mẹ, ánh xanh ngọc; trước mặt cô là màn hologram danh sách nhiệm vụ có các dấu tích (chỉ là ký hiệu, không chữ). Cô một tay chỉ vào màn hình. Gam: xanh ngọc + vàng.
+2) mua_giai.png · nhân vật: Thiên Lam (chan_dung_4.png, Xạ Thủ, tím #8E7BFF). Bối cảnh: dải ngân hà tím–hồng phía sau, ruy băng ánh sáng và một chiếc cúp pha lê nhỏ lơ lửng cạnh cô (cúp nguyên bản, không giống cúp game nào). Gam: tím + vàng kim.
+3) diem_danh.png · nhân vật: Mộc Miên (chan_dung_6.png, Cứu Thương, hồng #FF7EB6). Bối cảnh: cửa kính trạm vũ trụ lúc bình minh hành tinh, ánh xanh lục dịu; cạnh cô có 7 ô lịch hologram nhỏ xếp hàng, ô cuối phát sáng vàng (chỉ ô sáng, không số). Cô cầm một hộp quà nhỏ. Gam: xanh lục + hồng.
+4) qua.png · nhân vật: Lâm Phương (chan_dung_1.png, Át Chủ Bài, xanh lam #3FD2FF). Bối cảnh: khoang hàng với nhiều hộp quà và rương công nghệ phát sáng vàng cam, tia sáng tỏa từ một rương đang mở. Cô nháy mắt, giơ hai ngón tay. Gam: vàng cam + xanh lam.
+
+TRẢ VỀ: đúng 4 tên tệp trên. Cuối câu trả lời ghi 1 dòng: chỗ nào bạn đoán.

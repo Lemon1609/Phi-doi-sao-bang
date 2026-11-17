@@ -1,0 +1,19 @@
+GỬI GPT · V307 · NỀN SẢNH "XƯỞNG CHẾ TẠO TƯƠNG LAI + DẢI NGÂN HÀ + HỐ ĐEN" (3 ảnh)
+
+Chào GPT. Sảnh game "Phi Đội Sao Băng": chiến cơ đứng giữa sân khấu trên một bệ tròn phát sáng, có cột sáng từ trên chiếu xuống. Xem HIEN_TAI_sanh.png (nền hiện tại vẽ tạm bằng mã) và BO_CUC_sanh.png (các vùng nút che lên nền). Chủ dự án muốn chủ đề: NHÀ MÁY CHẾ TẠO TƯƠNG LAI + DẢI NGÂN HÀ + HỐ ĐEN VŨ TRỤ.
+
+ẢNH 1 · nen_sanh.png · DỌC 1080 × 1480, PNG nền kín
+- Cảnh: bên trong một xưởng đóng tàu vũ trụ khổng lồ nhìn thẳng. Hai bên là giàn thép đứng, cánh tay cẩu robot, đường ray, vài tia lửa hàn cam nhỏ. Phía trên giữa có một ô cửa kính lớn nhìn ra vũ trụ: dải ngân hà chéo nhiều màu (xanh, tím, vàng nhạt) và MỘT HỐ ĐEN có đĩa bồi tụ cam–trắng, viền thấu kính hấp dẫn xanh nhạt, đặt ở 55–75 % chiều ngang, 15–30 % chiều cao.
+- Ở 62–72 % chiều cao, giữa ảnh: một bệ tròn phẳng nhìn nghiêng (hình elip rộng 55 % bề ngang), viền neon xanh lam, mặt bệ có vòng sáng mờ. Từ trên chiếu xuống tâm bệ một cột sáng tím–hồng mềm, rộng ~14 % bề ngang.
+- VÙNG PHẢI ĐỂ YÊN (sẽ bị nút che hoặc là chỗ chiến cơ):
+  • cột giữa 30–70 % bề ngang, từ 25 % đến 70 % chiều cao: chỉ có cột sáng và nền tối mịn, KHÔNG vật thể sáng, không chi tiết rối (chiến cơ đứng ở đây);
+  • hai dải mép 0–16 % và 84–100 % bề ngang, từ 15 % đến 60 % chiều cao: chỉ giàn thép tối, ít sáng (cột nút tròn đè lên);
+  • 12 % trên cùng: tối, ít chi tiết (thanh tài nguyên và hàng ô vuông đè lên).
+- Độ sáng trung bình mức vừa (không đen kịt): tâm bệ sáng nhất, hai bên tối dần; màu bão hòa, tươi.
+- Không chữ, không logo, không tàu, không nhân vật.
+
+ẢNH 2 · sanh_tren.png · NGANG 1080 × 360, PNG NỀN TRONG SUỐT: khung giàn máy treo ở MÉP TRÊN sân khấu (dầm thép, đèn rọi, móc cẩu), chỉ phủ 30 % trên của ảnh, phần dưới trong suốt dần. Dùng làm lớp nổi phía trên chiến cơ.
+
+ẢNH 3 · sanh_be.png · NGANG 1080 × 420, PNG NỀN TRONG SUỐT: riêng bệ tròn phát sáng nhìn nghiêng (elip rộng 80 % ảnh), viền neon xanh lam, vòng hoa văn kỹ thuật mảnh, sương sáng mỏng bốc lên. Dùng làm lớp dưới chân chiến cơ.
+
+QUY TẮC: tranh nguyên bản; chỉ học cách bố trí ánh sáng của game bắn máy bay thương mại, không vẽ lại nền / tàu / biểu tượng của game nào. Trả về đúng 3 tên tệp trên; cuối câu trả lời ghi 1 dòng chỗ nào bạn đoán.

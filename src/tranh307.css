@@ -1,0 +1,42 @@
+/* V307 · tranh lớn nửa trên (tranh307.js) */
+html body .tr307.tr307.tr307{position:relative;flex:0 0 auto;height:118px;margin:6px 0 8px;border-radius:10px;overflow:hidden;border:1px solid color-mix(in srgb,var(--tc) 70%,#fff);
+ box-shadow:0 0 14px color-mix(in srgb,var(--tc) 45%,transparent),inset 0 0 0 1px #ffffff22;background:#06102a;isolation:isolate}
+html body .tr307.tr307.tr307 .tr307-bg{position:absolute;inset:0;z-index:0;
+ background:radial-gradient(120% 140% at 85% 30%,color-mix(in srgb,var(--tc) 70%,#fff) 0,color-mix(in srgb,var(--tc) 45%,#0a1838) 30%,#071230 62%,#040a1c 100%),#071230}
+html body .tr307.tr307.tr307 .tr307-bg::before{content:"";position:absolute;inset:0;opacity:.75;
+ background:radial-gradient(1px 1px at 12% 22%,#fff,transparent),radial-gradient(1px 1px at 30% 70%,#cfe6ff,transparent),radial-gradient(1.5px 1.5px at 48% 30%,#fff,transparent),radial-gradient(1px 1px at 22% 48%,#fff,transparent),radial-gradient(1px 1px at 40% 88%,#bfe0ff,transparent),radial-gradient(1.2px 1.2px at 6% 80%,#fff,transparent)}
+html body .tr307.tr307.tr307 .tr307-bg::after{content:"";position:absolute;right:-10%;top:-40%;width:70%;height:180%;transform:rotate(18deg);background:linear-gradient(90deg,transparent,color-mix(in srgb,var(--tc) 40%,transparent),transparent);filter:blur(8px);opacity:.8}
+html body .tr307.tr307.tr307 .tr307-pil{position:absolute;z-index:1;right:-4px;bottom:-26px;height:156px;width:auto;max-width:none;object-fit:contain;
+ -webkit-mask-image:linear-gradient(90deg,transparent 0,#000 22%);mask-image:linear-gradient(90deg,transparent 0,#000 22%);filter:drop-shadow(0 0 8px color-mix(in srgb,var(--tc) 60%,transparent))}
+html body .tr307.tr307.tr307 .tr307-full{position:absolute;inset:0;width:100%;height:100%;max-width:none;object-fit:cover;object-position:60% 35%;z-index:0}
+html body .tr307.tr307.tr307.art::after{content:"";position:absolute;inset:0;z-index:1;background:linear-gradient(90deg,#040a1ccc 0,#040a1c66 45%,transparent 70%)}
+html body .tr307.tr307.tr307 .tr307-t{position:absolute;z-index:2;left:14px;top:50%;transform:translateY(-50%);max-width:60%;display:flex;flex-direction:column;gap:4px;text-align:left}
+html body .tr307.tr307.tr307 .tr307-t b{font:900 17px/1.1 'Neo',sans-serif;letter-spacing:.5px;color:#fff;text-shadow:0 0 8px var(--tc),0 2px 2px #000}
+html body .tr307.tr307.tr307 .tr307-t small{font:700 11px/1.3 'Neo',sans-serif;color:#d8ecff;text-shadow:0 1px 2px #000}
+
+/* ---- màn Phi công: hàng chân dung nhỏ ở trên, thẻ nhân vật lớn ---- */
+html body .pl67-wrap.pl307.pl307.pl307{display:flex!important;flex-direction:column!important}
+html body .pl67-wrap.pl307.pl307.pl307>*{flex:0 0 auto}
+html body .pl67-wrap.pl307.pl307.pl307>.m63-eye,html body .pl67-wrap.pl307.pl307.pl307>h3{order:0}
+html body .pl67-wrap.pl307.pl307.pl307>.pl67-tabs{order:1}
+html body .pl67-wrap.pl307.pl307.pl307>.pl67-list{order:2;display:flex!important;flex-wrap:nowrap!important;gap:6px!important;overflow-x:auto!important;overflow-y:hidden!important;padding:4px 2px 6px!important;grid-template-columns:none!important;scrollbar-width:none}
+html body .pl67-wrap.pl307.pl307.pl307>.pl67-list::-webkit-scrollbar{display:none}
+html body .pl67-wrap.pl307.pl307.pl307>.pl67-list>button{flex:0 0 66px!important;width:66px!important;min-width:0!important;padding:4px 2px!important}
+html body .pl67-wrap.pl307.pl307.pl307>.pl67-list>button small{font-size:8.5px!important}
+html body .pl67-wrap.pl307.pl307.pl307>.pl67-list>button b{font-size:10px!important;line-height:1.15!important}
+html body .pl67-wrap.pl307.pl307.pl307>.pl67-card{order:3;position:relative;display:grid!important;grid-template-columns:1fr!important;align-items:start!important;justify-items:center!important;gap:6px!important;padding-top:8px!important;
+ background:radial-gradient(60% 30% at 50% 36%,color-mix(in srgb,var(--c,#2fd0ff) 45%,transparent) 0,transparent 70%),radial-gradient(90% 60% at 50% 25%,#14306a 0,#081638 60%,#050c22 100%)!important}
+html body .pl67-wrap.pl307.pl307.pl307>.pl67-card::before{content:"";position:absolute;left:28%;top:196px;width:44%;height:24px;border-radius:50%;border:2px solid #36d6ffaa;box-shadow:0 0 14px #36d6ff,inset 0 0 10px #36d6ff88;pointer-events:none}
+html body .pl67-wrap.pl307.pl307.pl307>.pl67-card>img.pl307-hero{width:auto!important;max-width:100%!important;height:218px!important;object-fit:contain!important;object-position:50% 100%;border-radius:0!important;border:0!important;background:none!important;box-shadow:none!important;position:relative;z-index:1;
+ -webkit-mask-image:linear-gradient(180deg,#000 80%,transparent);mask-image:linear-gradient(180deg,#000 80%,transparent);filter:drop-shadow(0 0 10px #36d6ff88)}
+html body .pl67-wrap.pl307.pl307.pl307>.pl67-card>img.pl307-hero:not(.full){height:200px!important;width:200px!important;-webkit-mask-image:radial-gradient(75% 70% at 50% 45%,#000 60%,transparent 100%);mask-image:radial-gradient(75% 70% at 50% 45%,#000 60%,transparent 100%)}
+html body .pl67-wrap.pl307.pl307.pl307>.pl67-sum{order:4}
+html body .pl67-wrap.pl307.pl307.pl307>.pl67-team{order:5}
+html body .pl67-wrap.pl307.pl307.pl307>.pl67-note{order:6}
+html body .pl67-wrap.pl307.pl307.pl307>:not(.m63-eye):not(h3):not(.pl67-tabs):not(.pl67-list):not(.pl67-card):not(.pl67-sum):not(.pl67-team):not(.pl67-note){order:7}
+html body .pl67-wrap.pl307.pl307.pl307 .pl307-nav{position:absolute;inset:0;pointer-events:none;z-index:3}
+html body .pl67-wrap.pl307.pl307.pl307 .pl307-nav button{pointer-events:auto;position:absolute;top:86px;width:30px;height:52px;min-height:0;padding:0;border:0!important;border-radius:0!important;box-shadow:none!important;clip-path:none!important;
+ background:url(ui306n/mui_ten_trai.png) center/contain no-repeat!important;color:transparent!important;font-size:0!important}
+html body .pl67-wrap.pl307.pl307.pl307 .pl307-nav button[data-d="-1"]{left:2px}
+html body .pl67-wrap.pl307.pl307.pl307 .pl307-nav button[data-d="1"]{right:2px;left:auto;background-image:url(ui306n/mui_ten_phai.png)!important}
+html body .pl67-wrap.pl307.pl307.pl307>.pl67-card>:not(img):not(.pl307-nav){justify-self:stretch;width:100%}

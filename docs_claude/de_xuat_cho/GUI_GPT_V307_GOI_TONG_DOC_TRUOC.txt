@@ -1,0 +1,21 @@
+GÓI GỬI GPT · V307 (17/11/2026) · chủ dự án chuyển cho GPT, rồi gửi ảnh GPT trả về cho Claude
+
+CÁCH DÙNG
+- Mỗi thư mục là MỘT việc. Mở PROMPT.txt, dán nguyên văn vào GPT, đính kèm các ảnh trong cùng thư mục (trừ ảnh tên "HIEN_TAI_…" chỉ để GPT hiểu bối cảnh; vẫn nên đính kèm).
+- Mỗi việc nên làm trong một cuộc trò chuyện GPT riêng (đỡ lẫn ảnh). Có thể chạy song song nhiều việc.
+- Gửi lại cho Claude ẢNH GỐC GPT xuất ra (tải về PNG, không chụp màn hình), đặt đúng tên tệp ghi ở cuối mỗi prompt. Claude đo rồi báo đạt/không đạt; bậc nào thiếu Claude soạn prompt "sửa nhỏ".
+
+THỨ TỰ ƯU TIÊN (gợi ý)
+1. 01_TAU_2_DEN_13_SAU_BAC: 13 chiến cơ × 6 bậc (việc lớn nhất). Gửi theo đợt 2–3 tàu, mỗi tàu 1 ảnh 6 ô. Tham chiếu từng tàu nằm trong V307_TAU_THAM_CHIEU.zip; MAU_DAT_tau1_6_bac.png là mẫu tàu 1 đã đạt để GPT biết mức cần đạt. Trả về: tauN_6bac.png.
+2. 02_THAN_BAO_TAU_TAU1: thân Bạo Tẩu tàu 1 (chủ dự án chọn phương án b: GPT vẽ lại, được biến đổi, mở rộng +20…+35 %). Trả về: tau1_bt_6bac.png. Đạt rồi mới làm tàu 2–13 cùng cách.
+3. 03_PHI_CONG_TOAN_THAN_8: 8 tranh phi công lớn (dọc 1024×1536, nền trong suốt hoặc #00FF00). Trả về: phi_cong_1.png … phi_cong_8.png.
+4. 04_BANG_TRANH_4_HOP: 4 băng tranh ngang 1440×512 cho Nhiệm vụ / Mùa giải / Điểm danh / Quà. Trả về: nhiem_vu.png, mua_giai.png, diem_danh.png, qua.png.
+5. 05_NEN_SANH: nền sảnh xưởng chế tạo + ngân hà + hố đen (1 nền + 2 lớp trong suốt). Trả về: nen_sanh.png, sanh_tren.png, sanh_be.png.
+6. 06_NEN_CHUONG1_V3: lớp xa nền trận chương 1 (bản 3, sáng hơn).
+
+LUẬT CHUNG (đã ghi trong từng prompt)
+- Nguyên bản: chỉ học bố cục / ánh sáng / cách làm của game thương mại, không vẽ lại tàu, nhân vật, icon, nền cụ thể của game nào.
+- Nhân vật nữ: trang phục kín đáo mức game mobile phổ thông.
+- Không chữ, không logo trong tranh (chữ do game vẽ).
+
+Claude đã làm sẵn chỗ trong game: băng tranh 4 hộp và màn Phi công lớn đang chạy bằng tranh tạm; khi có ảnh GPT chỉ cần thả tệp vào src/tranh307/ là thay, không phải sửa mã.

@@ -1,0 +1,30 @@
+GỬI GPT · V307 · TRANH PHI CÔNG LỚN (8 nhân vật · mỗi lượt 1 ảnh · đính kèm chan_dung_N.png của đúng nhân vật)
+
+Chào GPT. Game bắn máy bay dọc "Phi Đội Sao Băng" đang làm lại màn Phi công: chân dung lớn ở nửa trên, đứng trên bệ sáng, bảng chỉ số ở dưới (xem HIEN_TAI_man_phi_cong.png, hiện đang tạm dùng ảnh bán thân). Mình cần tranh lớn hơn, đẹp hơn cho 8 phi công. Mỗi lượt vẽ 1 nhân vật.
+
+GIỮ ĐÚNG NHÂN VẬT: gương mặt, kiểu tóc, màu tóc, màu mắt, bộ đồ bay và màu chủ đạo phải giống ảnh chan_dung_N.png đính kèm (cùng một người, chỉ khác khung hình và tư thế).
+
+KHUNG HÌNH
+- Ảnh DỌC 1024 × 1536 (2:3), PNG NỀN TRONG SUỐT. Nếu không xuất được nền trong suốt: nền XANH LỤC THUẦN #00FF00 phẳng, không bóng đổ trên nền, không vệt sáng nền (mình tự tách).
+- Nhân vật từ ĐẦU GỐI trở lên, đứng thẳng hướng 3/4 về phía người xem, đặt GIỮA ảnh, đỉnh đầu cách mép trên ~6 %, đầu gối chạm mép dưới. Gương mặt rõ, chiếm khoảng 12–14 % chiều cao ảnh.
+- Tư thế tự tin, có một động tác tay theo tính cách (bảng dưới). Có thể cầm mũ bay hoặc mũ đội trên đầu kính lật lên.
+- Ánh sáng: viền sáng (rim light) màu chủ đạo của nhân vật ở hai mép người, mặt sáng rõ. Phong cách tranh game mobile anime bán thực, nét sạch, màu tươi, chi tiết bộ đồ bay (giáp vai, đai, đèn LED nhỏ).
+
+NỘI DUNG (bắt buộc)
+- Trang phục chiến giáp / đồ bay KÍN ĐÁO ở mức game mobile phổ thông: không hở ngực, không hở bụng, không quần quá ngắn, không tư thế gợi dục, không cận cảnh vòng một. Nhân vật là phi công quân sự chuyên nghiệp.
+- Không chữ, không logo, không số, không khung, không nền cảnh.
+- Nguyên bản: không vẽ lại nhân vật của game nào khác.
+
+8 NHÂN VẬT (số = tên tệp ảnh tham chiếu và tên tệp trả về)
+1. Lâm Phương · Át Chủ Bài · hạng A · màu chủ đạo xanh lam #3FD2FF · động tác: giơ hai ngón tay chào kiểu phi công, nụ cười tự tin.
+2. Hạ Vy · Chỉ Huy · hạng A · vàng #FFD166 · một tay chống hông, tay kia chỉ về phía trước ra lệnh.
+3. Kiều An · Kỹ Sư · hạng A · cam #FF9F43 · cầm cờ lê / máy tính bảng kỹ thuật phát sáng, găng tay kỹ sư.
+4. Thiên Lam · Xạ Thủ · hạng S · tím #8E7BFF · ánh mắt sắc, một tay chạm kính ngắm gắn trên mũ.
+5. Bảo Ngọc · Cựu Binh · hạng A · lục ngọc #59E3A0 · khoanh tay, dáng vững, giáp vai dày hơn người khác.
+6. Mộc Miên · Cứu Thương · hạng S · hồng #FF7EB6 · ôm hộp cứu thương nhỏ phát sáng (giữ bạn đồng hành nhỏ nếu ảnh tham chiếu có).
+7. Hàn Sương · Băng Tiễn · hạng S · xanh băng #9FE8FF · hơi băng tỏa quanh bàn tay, tóc bay nhẹ.
+8. Tử Dạ · Bóng Đêm · hạng SS · tím đậm #C77DFF · áo choàng ngắn bay sau lưng, ánh tím lóe ở mắt, dáng bí ẩn (vẫn kín đáo).
+
+HẠNG CAO TRÔNG "QUÝ" HƠN: hạng S thêm chi tiết kim loại sáng và đèn LED; hạng SS thêm viền vàng kim + hiệu ứng năng lượng tím quanh người (nhẹ, không che mặt).
+
+TRẢ VỀ: phi_cong_N.png (N = 1…8). Cuối câu trả lời ghi 2 dòng: (a) nền trong suốt hay nền #00FF00, (b) điểm nào bạn đoán (ví dụ màu mắt không thấy rõ).

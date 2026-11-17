@@ -29,7 +29,7 @@ Giao diện:
 - Thẻ "mục tiêu kế tiếp" chế độ Vô tận (`src/target307.js`, chỉ dùng số liệu thật của người chơi).
 - Bộ UI GPT: nút/khung/ô/thanh (`claude_tools/bo_ui_gpt_v307.py` → `src/ui306n/`).
 - Nút sảnh: XUẤT KÍCH, VÔ TẬN chỉ còn chữ "VÔ TẬN"; thống kê Vô tận chuyển sang màn kết quả (`src/vt307.js`).
-- Thanh 5 tab luôn hiện (SẢNH, CHIẾN ĐẤU, PHI ĐỘI, TRANG BỊ, CỬA HÀNG); Trang bị mở từ đầu, Phi đội mở ải 12, Cửa hàng ải 6; tab khóa có nhãn "Ải n". (`src/nav74.js`, `src/ux75.js`.) **Cần hỏi người dùng xác nhận Trang bị mở từ đầu.**
+- Thanh 5 tab luôn hiện (SẢNH, CHIẾN ĐẤU, PHI ĐỘI, TRANG BỊ, CỬA HÀNG); Trang bị mở từ đầu, Phi đội mở ải 12, Cửa hàng ải 6; tab khóa có nhãn "Ải n". (`src/nav74.js`, `src/ux75.js`.) **Chủ dự án đã xác nhận 17/11: Trang bị mở từ đầu.**
 - Nút TRUYỆN trong màn Chiến cơ (`src/truyen307.js`) và màn Phi công (`src/pstory307.js`, 8 truyện Gemini nhúng sẵn). Nút TRUYỆN ở sảnh đã ẩn.
 Tàu 1 (Nộ Hỏa Phượng Hoàng):
 - 6 thân thường mới từ ảnh GPT 87997 (đã đo: màu rực 51/26/47/46/40/60 %, rộng 233→420 px). `src/ship118/tau1_*`.

@@ -936,6 +936,18 @@ rep("</body>","<script id=\"vt307-js\">"+open('src/vt307.js',encoding='utf-8').r
 rep("</body>","<script id=\"truyen307-js\">"+open('src/truyen307.js',encoding='utf-8').read()+"</script></body>")
 rep("</body>","<script id=\"pstory307-js\">"+open('src/pstory307.js',encoding='utf-8').read()+"</script></body>")
 rep("</body>","<style id=\"ui306-css\">"+_ui306css(open('src/ui306.css',encoding='utf-8').read())+"</style></body>")  # V306 giao diện đợt 1
+# V307 · tranh lớn nửa trên (GPT): src/tranh307/<khóa>.png|jpg|webp → TRANH307 (băng: nhiem_vu/mua_giai/diem_danh/qua, rộng ≤720; phi_cong_1..8 cao ≤720)
+from PIL import Image as _Im307
+import io as _io307
+_T307={}
+for _p in sorted(glob.glob('src/tranh307/*.png')+glob.glob('src/tranh307/*.jpg')+glob.glob('src/tranh307/*.webp')):
+    _k=os.path.splitext(os.path.basename(_p))[0];_im=_Im307.open(_p).convert('RGBA')
+    if _k.startswith('phi_cong_'):
+        if _im.height>720:_im=_im.resize((round(_im.width*720/_im.height),720),_Im307.LANCZOS)
+    elif _im.width>720:_im=_im.resize((720,round(_im.height*720/_im.width)),_Im307.LANCZOS)
+    _b=_io307.BytesIO();_im.save(_b,'WEBP',quality=86,method=6);_T307[_k]='data:image/webp;base64,'+base64.b64encode(_b.getvalue()).decode()
+print('tranh307:',sorted(_T307))
+rep("</body>","<script id=\"tranh307-art\">const TRANH307="+json.dumps(_T307)+";</script><style id=\"tranh307-css\">"+_ui306css(open('src/tranh307.css',encoding='utf-8').read())+"</style><script id=\"tranh307-js\">"+open('src/tranh307.js',encoding='utf-8').read()+"</script></body>")  # V307 tranh nửa trên
 rep("</body>","<style id=\"cot307-css\">"+_ui306css(open('src/cot307.css',encoding='utf-8').read())+"</style><script id=\"cot307-js\">"+open('src/cot307.js',encoding='utf-8').read()+"</script></body>")  # V307 sảnh: hàng ô vuông
 open('Phi_Doi_Sao_Bang_V74_mau.html','w',encoding='utf-8').write(h);print(round(len(h)/1e6,2),'MB')
 # ---- V100 · BẢN THỬ cho chủ dự án: dữ liệu tách riêng (tiền tố thu100:) + bảng nạp tài khoản mẫu ----
