@@ -1,0 +1,24 @@
+GỬI GPT · V307 · BẠO TẨU TÀU 2–13 (thân Bạo Tẩu 6 bậc + lớp năng lượng 6 bậc). MỖI LƯỢT 1 TÀU. Đính kèm đúng ảnh tauN_6bac_THUONG.png của tàu đó (6 bậc thân thường đã chốt). Không đính kèm tàu khác.
+
+Lý do: thân thường của các tàu vừa được vẽ lại, nên cánh / hình thái Bạo Tẩu cũ không còn khớp. Hãy vẽ lại cho từng tàu 2 ảnh (mỗi ảnh 1 hàng 6 cột, bậc 1→6, nhãn 1–6, nền đen thuần), theo đúng quy tắc đã dùng cho tàu 1 (bên dưới), chỉ khác chủ đề cánh năng lượng và điểm nhận diện từng tàu.
+
+QUY TẮC (copy từ lượt tàu 1, áp cho mọi tàu)
+- ẢNH A · THÂN BẠO TẨU: lấy chính thân thường từng bậc, cùng tâm, cùng cỡ thân giữa. Bạo Tẩu = thân "mở khóa": tấm giáp / cánh / pod TÁCH và dang rộng vừa phải, thêm vài khe sáng. Mức mở: bậc 1 rộng thêm ~15–20 %, bậc 6 ~30–35 %, bậc cao thêm lớp giáp phụ. CẤM tay máy, khớp mảnh như xương, lưỡi dao dài mảnh. Giữ họ màu, buồng lái / lõi cùng màu bậc. Đối xứng, không lửa, không tia ngoài thân.
+- ẢNH B · LỚP NĂNG LƯỢNG (không có tàu): neon / LED trong mờ, lõi trắng, mép mờ mềm, vẽ để cộng sáng sau lưng tàu; tâm = tâm ô; KHÔNG vòng khép kín; nón 60° phía trước mũi TRỐNG. Màu theo bậc: 1 xanh băng · 2 lục · 3 lam · 4 tím · 5 hồng tím lõi trắng · 6 vàng kim + trắng. Tăng theo bậc: số nhánh (≈4 mỗi bên → ≈12, 2–3 tầng), độ rộng (≈1,3× → ≈2,3× sải cánh thân; tổng sải hình bung 2,5–3,5× bề rộng thân), độ sáng; bậc 5–6 thêm viền trắng và vài tia nhỏ chéo.
+- Bắt buộc từ bài học tàu 2: mỗi bậc phải khác bậc trước ở HÌNH BAO (không chỉ thêm nhánh / đổi màu); bậc 5–6 tối đa 2 tầng chồng nhau, giữ khe đen để đọc được ở 64 px. Không chép hình bất kỳ game nào.
+
+CHỦ ĐỀ CÁNH NĂNG LƯỢNG VÀ ĐIỂM NHẬN DIỆN TỪNG TÀU (giữ ý tưởng cũ đã chốt, vẽ lại cho khớp thân mới)
+- Tàu 2 · quạt pha lê gai: các cánh pha lê dọc song song với hai ray, gai ngắn dọc mép; thân Bạo Tẩu mở hai ray ra ngoài.
+- Tàu 3 · gai băng: bông tuyết nhiều nhánh bám theo cánh chữ X; thân mở hai cánh X dang rộng.
+- Tàu 4 · vuốt trăng khuyết: vuốt trăng khuyết nối từ các vuốt hai bên thân, 2 lớp ở bậc cao; thân mở hai mắt và giáp xương.
+- Tàu 5 · tia bình minh: tia sáng tỏa theo các gai vương miện như bình minh; thân mở các gai ra thành quạt.
+- Tàu 6 · bóng ma nhiễu số: cánh bóng mờ như nhiễu số / glitch bám theo hai cánh chéo; thân mở các tấm cánh nhọn.
+- Tàu 7 · vệt chém kiếm khí: các vệt chém thẳng dài chéo hai bên (xem tàu 7 đang trong game).
+- Tàu 8 · cánh dơi lửa: màng lửa kéo dài theo các xương cánh cụp về sau; thân mở các xương cánh ra như chim ưng sải cánh.
+- Tàu 9 · quạt radar: quạt quét nhiều tầng như màn radar nửa vòng; thân mở các pod hai bên.
+- Tàu 10 · mạng lục giác: mạng lục giác nối thân với các tàu con; thân mở tách các tàu con ra xa hơn.
+- Tàu 11 · hư không xoáy: các cung xoáy từ trường quanh hố đen giữa thân; thân mở hai cánh tam giác dang rộng.
+- Tàu 12 · bánh răng mặt số: bánh răng / mặt số từng tầng ở hai bên; thân mở các khối pod.
+- Tàu 13 · lưỡi hái sét tím: lưỡi hái cong kèm tia sét tím ở hai bên; thân mở hai khối động cơ và các lưỡi liềm.
+
+TRẢ VỀ cho mỗi tàu: tauN_bao_tau_than.png (ảnh A) và tauN_bao_tau_nang_luong.png (ảnh B). Cuối câu trả lời ghi 3 dòng: (a) mức mở của thân ở từng bậc, (b) số nhánh và độ rộng lớp năng lượng ở từng bậc, (c) chỗ nào bạn đoán.
