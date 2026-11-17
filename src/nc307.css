@@ -45,7 +45,7 @@
 #nc307 .nc307-stone div{display:flex;align-items:center;gap:6px}
 #nc307 .nc307-stone button{min-width:32px;height:30px;border-radius:7px;background:rgba(255,255,255,.08);border:1px solid rgba(160,220,255,.35)}
 #nc307 .nc307-stone small{color:#7f95b0}
-#nc307 .nc307-acts{display:grid;grid-template-columns:1fr 2fr;gap:8px;margin-top:auto}
+#nc307 .nc307-acts{display:grid;grid-template-columns:1fr 1fr 2fr;gap:8px;margin-top:auto}
 html body #nc307#nc307#nc307#nc307#nc307#nc307#nc307#nc307#nc307#nc307#nc307#nc307#nc307#nc307#nc307#nc307#nc307#nc307#nc307#nc307 .nc307-auto{height:54px;border-radius:12px;background:rgba(40,120,200,.25)!important;border:1px solid #5ab8ff!important;border-image:none!important;color:#dff3ff!important;letter-spacing:.08em}
 html body #nc307#nc307#nc307#nc307#nc307#nc307#nc307#nc307#nc307#nc307#nc307#nc307#nc307#nc307#nc307#nc307#nc307#nc307#nc307#nc307 .nc307-go{height:54px;border-radius:12px!important;border:0!important;border-image:none!important;background:linear-gradient(180deg,#ffe07a,#f2a51d)!important;color:#3a2100!important;font-weight:800;font-size:18px;letter-spacing:.1em;box-shadow:0 0 18px rgba(255,190,60,.45)}
 html body #nc307#nc307#nc307#nc307#nc307#nc307#nc307#nc307#nc307#nc307#nc307#nc307#nc307#nc307#nc307#nc307#nc307#nc307#nc307#nc307 .nc307-go:disabled{filter:grayscale(.8) brightness(.6);box-shadow:none}
@@ -104,3 +104,4 @@ html body #nc307#nc307#nc307#nc307#nc307#nc307#nc307#nc307#nc307#nc307#nc307#nc3
 #nc307 .nc307-gb b{min-width:22px;text-align:center;color:#fff}
 #nc307 .nc307-gb button{width:26px;height:26px;border-radius:6px;background:rgba(255,255,255,.08);border:1px solid rgba(160,220,255,.35);padding:0}
 #nc307 .nc307-in>.nc307-mats:has(.nc307-stones:first-child){display:block}
+html body #nc307#nc307#nc307#nc307#nc307#nc307#nc307#nc307#nc307#nc307#nc307#nc307#nc307#nc307#nc307#nc307#nc307#nc307#nc307#nc307 .nc307-adv{height:54px;border-radius:12px!important;background:linear-gradient(180deg,#9b6cff,#5d2fd0)!important;border:1px solid #c9b0ff!important;border-image:none!important;color:#fff!important;font-weight:800;font-size:12px;letter-spacing:.04em}

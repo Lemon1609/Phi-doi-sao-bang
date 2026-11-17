@@ -41,6 +41,8 @@ const NC307=(()=>{
  const zero=()=>({1:0,2:0,3:0,4:0});
  const stXp=()=>T4.reduce((a,t)=>a+(st[t]|0)*D.XP[t],0),stN=()=>T4.reduce((a,t)=>a+(st[t]|0),0);
  // ---------- trạng thái màn ----------
+ let back=false;
+ setInterval(()=>{try{if(!back)return;const d=[...document.querySelectorAll('.ev82,.adv70')].find(x=>!x.hidden&&x.getClientRects().length);if(d)return;back=false;if(el){el.classList.add('open');render();}}catch{}},300);
  let cur=null,mats=[],st=zero(),ask=null,el=null,msg='';
  function sim(it,gain){let L=it.level|0||1,x=xpOf(it.id)+gain;const cap=capOf(it);while(L<cap&&x>=C.need(L)){x-=C.need(L);L++;}const over=L>=cap?x:0;return {L,x:L>=cap?0:x,over,cap,need:L<cap?C.need(L):0};}
  const gainNow=()=>mats.reduce((s,id)=>{const m=get(id);return s+(m?feedXp(m):0);},0)+stXp();
@@ -70,7 +72,7 @@ const NC307=(()=>{
   ${r.over>C.overWarn?`<p class="nc307-w">Dư ${fmt(r.over)} XP sẽ bị mất do chạm trần Lv${r.cap}. Hãy bỏ bớt vật liệu!</p>`:''}
   <div class="nc307-mats">${it.kind==='craft'?'':Array.from({length:C.slots},(_,k)=>{const m=get(mats[k]);return m?`<button data-nc="un" data-id="${esc(m.id)}" class="f">${card(m,'nc307-mini')}<em>+${fmt(feedXp(m))}</em></button>`:`<button data-nc="slot" class="e">+</button>`;}).join('')}
    <div class="nc307-stones">${T4.map(t=>`<div class="nc307-gem" style="--g:${D.COL[t]}"><i></i><div><b>${D.NAME[t]}</b><small>${fmt(D.XP[t])} XP · có ${fmt(D.have(t))}</small></div><div class="nc307-gb"><button data-nc="s-" data-id="${t}">−</button><b>${st[t]|0}</b><button data-nc="s+" data-id="${t}">+</button></div></div>`).join('')}</div></div>
-  <div class="nc307-acts"><button data-nc="auto" class="nc307-auto">TỰ CHỌN</button><button data-nc="go" class="nc307-go" ${g&&r0.need?'':'disabled'}>NÂNG CẤP</button></div>
+  <div class="nc307-acts"><button data-nc="adv" class="nc307-adv">⇄ TIẾN KHUNG</button><button data-nc="auto" class="nc307-auto">TỰ CHỌN</button><button data-nc="go" class="nc307-go" ${g&&r0.need?'':'disabled'}>NÂNG CẤP</button></div>
   ${msg?`<p class="nc307-m">${esc(msg)}</p>`:''}
   ${ask?`<div class="nc307-ask"><div><p>Trang bị ${esc(ask.why)} sẽ <b>biến mất vĩnh viễn</b>. Dùng làm nguyên liệu?</p><button data-nc="ok">Đồng ý</button><button data-nc="no">Thôi</button></div></div>`:''}
   ${el.dataset.list?sheetHtml(it,el.dataset.list):''}`;}
@@ -102,6 +104,7 @@ const NC307=(()=>{
   msg=r.L>old?'Lên Lv'+r.L+'!':'+'+fmt(g)+' XP';try{Progress.render();}catch{}try{if(it.kind==='craft')Hub40.render();}catch{}try{Audio393.sfx('pickup');}catch{}}
  function click(e){const b=e.target.closest('[data-nc]');if(!b||!el.contains(b))return;const a=b.dataset.nc,id=b.dataset.id;msg='';
   if(a==='x'){close();return;}
+  if(a==='adv'){const it=get(cur);if(!it)return;el.classList.remove('open');back=true;try{V70.open(it.kind==='craft'?'craft':'gear',it.kind==='craft'?it.idx:it.id);}catch{}return;}
   if(a==='bag'){el.dataset.list='bag';}
   else if(a==='tab'){tab=id;}
   else if(a==='pick'){cur=id;mats=[];st=zero();delete el.dataset.list;}

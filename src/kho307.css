@@ -1,0 +1,59 @@
+/* V307 · Kho 1 màn + Túi đồ (kho307.js) */
+html body #hb-body.k307.k307.k307>.hb-acts,html body #hb-body.k307.k307.k307>.hb-filter,html body #hb-body.k307.k307.k307>.hb-grid{display:none!important}
+html body #hb-body.k307 .hb-slot.k307-on{outline:2px solid #ffd166;outline-offset:2px;box-shadow:0 0 14px rgba(255,200,80,.55)}
+#hb-body .k307-bar{display:flex;flex-direction:column;gap:8px;margin:10px 0 12px}
+#hb-body .k307-two{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+html body #hb-body#hb-body#hb-body#hb-body#hb-body#hb-body#hb-body#hb-body#hb-body#hb-body#hb-body#hb-body#hb-body#hb-body#hb-body#hb-body#hb-body#hb-body#hb-body#hb-body .k307-bar button{font:800 15px/1.1 "Be Vietnam Pro",sans-serif;letter-spacing:.08em;color:#fff;border-radius:12px!important;border-image:none!important;min-height:58px;padding:8px 6px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;cursor:pointer}
+html body #hb-body#hb-body#hb-body#hb-body#hb-body#hb-body#hb-body#hb-body#hb-body#hb-body#hb-body#hb-body#hb-body#hb-body#hb-body#hb-body#hb-body#hb-body#hb-body#hb-body .k307-bar button small{font:600 10.5px/1.2 "Be Vietnam Pro",sans-serif;letter-spacing:0;opacity:.85;max-width:100%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+html body #hb-body#hb-body#hb-body#hb-body#hb-body#hb-body#hb-body#hb-body#hb-body#hb-body#hb-body#hb-body#hb-body#hb-body#hb-body#hb-body#hb-body#hb-body#hb-body#hb-body .k307-two button[data-k=up]{background:linear-gradient(180deg,#ffe07a,#f2a51d)!important;color:#3a2100!important;border:0!important;box-shadow:0 0 16px rgba(255,190,60,.4)}
+html body #hb-body#hb-body#hb-body#hb-body#hb-body#hb-body#hb-body#hb-body#hb-body#hb-body#hb-body#hb-body#hb-body#hb-body#hb-body#hb-body#hb-body#hb-body#hb-body#hb-body .k307-two button[data-k=adv]{background:linear-gradient(180deg,#9b6cff,#5d2fd0)!important;border:1px solid #c9b0ff!important;box-shadow:0 0 14px rgba(150,100,255,.4)}
+html body #hb-body#hb-body#hb-body#hb-body#hb-body#hb-body#hb-body#hb-body#hb-body#hb-body#hb-body#hb-body#hb-body#hb-body#hb-body#hb-body#hb-body#hb-body#hb-body#hb-body .k307-bar .k307-bag{background:rgba(30,90,170,.35)!important;border:1px solid #5ab8ff!important;flex-direction:row;gap:10px;min-height:48px}
+#k307{position:fixed;inset:0;z-index:2147483250;display:none;background:radial-gradient(ellipse at 50% 20%,#13284a 0%,#060b18 75%);color:#e6f2ff}
+#k307.open{display:block}
+#k307 button{font:inherit;color:inherit;cursor:pointer}
+#k307 .k307-in{max-width:480px;margin:0 auto;height:100%;display:flex;flex-direction:column;padding:10px 12px 8px;box-sizing:border-box;gap:8px}
+#k307 .k307-top{display:flex;align-items:center;gap:10px;font-size:17px;letter-spacing:.12em;color:#9fe2ff}
+#k307 .k307-top span{flex:1;font-size:12px;letter-spacing:0;color:#8fb0d0}
+#k307 .k307-top button{width:34px;height:34px;border-radius:8px;background:rgba(255,255,255,.08);border:1px solid rgba(160,220,255,.35)}
+#k307 .k307-tabs{display:flex;gap:6px;overflow-x:auto}
+#k307 .k307-tabs button{flex:0 0 auto;padding:5px 12px;border-radius:8px;background:rgba(255,255,255,.06);border:1px solid rgba(160,220,255,.25);font-size:12px}
+html body #k307#k307#k307#k307#k307#k307#k307#k307#k307#k307#k307#k307#k307#k307#k307#k307#k307#k307#k307#k307 .k307-tabs button.on{background:#2f8cff!important;border-color:#bfe4ff!important;color:#fff!important}
+#k307 .k307-list{flex:1;overflow-y:auto;-webkit-overflow-scrolling:touch;overscroll-behavior:contain;display:flex;flex-direction:column;gap:6px;padding-bottom:6px}
+#k307 .k307-list>i{opacity:.7;text-align:center;padding:30px}
+#k307 .k307-row{display:flex;align-items:center;gap:10px;width:100%;text-align:left;padding:6px 10px 6px 6px;border-radius:12px;background:linear-gradient(90deg,color-mix(in srgb,var(--c) 18%,transparent),rgba(10,22,44,.75) 55%);border:1px solid color-mix(in srgb,var(--c) 45%,transparent)}
+#k307 .k307-ic{flex:0 0 54px;height:54px;border-radius:9px;border:2px solid var(--c);display:flex;align-items:center;justify-content:center;overflow:hidden;background:rgba(0,0,0,.3)}
+#k307 .k307-ic>span.gear25-art{width:46px!important;margin:0;filter:none}
+#k307 .k307-ic>span.gear25-art::before,#k307 .k307-ic>span.gear25-art::after{display:none}
+#k307 .k307-ic i{font-style:normal;font-size:26px;color:var(--c);text-shadow:0 0 8px var(--c)}
+#k307 .k307-ri{flex:1;min-width:0;display:flex;flex-direction:column;gap:2px}
+#k307 .k307-ri>b{font-size:14px;color:var(--c);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+#k307 .k307-ri>span{color:#ffd166;font-size:12px;letter-spacing:1px}
+#k307 .k307-ri>span small{color:#bcd;letter-spacing:0;margin-left:4px}
+#k307 .k307-ri>small{font-size:11px;color:#8fa8c6;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+#k307 .k307-rr{flex:0 0 auto;display:flex;flex-direction:column;align-items:flex-end;gap:3px}
+#k307 .k307-rr>b{font-size:15px}
+#k307 .k307-rr>b small{font-size:11px;color:#7f95b0;font-weight:400}
+#k307 .k307-rr s{font-size:10px;text-decoration:none;background:#1d7a4a;border-radius:4px;padding:1px 6px}
+#k307 .k307-rr em{font-style:normal;font-size:11px;color:#4dff8a}
+#k307 .k307-m{margin:0;text-align:center;color:#ffd166;font-size:13px}
+#k307 .k307-acts{display:grid;grid-template-columns:repeat(3,1fr);gap:6px}
+html body #k307#k307#k307#k307#k307#k307#k307#k307#k307#k307#k307#k307#k307#k307#k307#k307#k307#k307#k307#k307 .k307-acts button{min-height:46px;border-radius:10px;font-size:11.5px;font-weight:800;line-height:1.2;letter-spacing:.05em;background:rgba(40,160,90,.3)!important;border:1px solid #5ce39a!important;border-image:none!important;color:#e9fff1!important}
+#k307 .k307-foot{display:grid;grid-template-columns:1fr 1fr;gap:6px;border-top:1px solid rgba(120,190,255,.2);padding-top:8px}
+html body #k307#k307#k307#k307#k307#k307#k307#k307#k307#k307#k307#k307#k307#k307#k307#k307#k307#k307#k307#k307 .k307-foot button{min-height:40px;border-radius:10px;background:rgba(255,255,255,.06)!important;border:1px solid rgba(160,220,255,.25)!important;border-image:none!important;font-weight:800;letter-spacing:.08em;color:#cfe6ff!important}
+html body #k307#k307#k307#k307#k307#k307#k307#k307#k307#k307#k307#k307#k307#k307#k307#k307#k307#k307#k307#k307 .k307-foot button.on{background:#2f8cff!important;color:#fff!important}
+#k307 .k307-foot{grid-template-columns:1fr 1fr 1fr}
+#k307 .k307-hop{display:flex;flex-direction:column;gap:8px;background:rgba(10,22,44,.6);border:1px solid rgba(120,190,255,.25);border-radius:12px;padding:10px}
+#k307 .k307-hop>p{margin:0;font-size:12px;color:#a9c0da;line-height:1.4}
+#k307 .k307-hop>p b{color:#ffd166}
+#k307 .k307-slots{display:grid;grid-template-columns:repeat(5,1fr);gap:6px}
+html body #k307#k307#k307#k307#k307#k307#k307#k307#k307#k307#k307#k307#k307#k307#k307#k307#k307#k307#k307#k307 .k307-slots button{aspect-ratio:1;border-radius:10px;background:rgba(10,22,44,.8)!important;border:1px dashed rgba(140,200,255,.45)!important;border-image:none!important;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:2px;font-size:22px;color:#7fb8e6!important;position:relative}
+#k307 .k307-slots button .k307-ic{flex:0 0 auto;width:100%;height:auto;aspect-ratio:1;border:0}
+#k307 .k307-slots button small{position:absolute;bottom:2px;right:4px;font-size:10px;color:#fff}
+#k307 .k307-hc{font-size:12px;color:#cfe0f2;text-align:center}
+#k307 .k307-hc em{font-style:normal;color:#4dff8a}
+#k307 .k307-acts2{grid-template-columns:1fr 2fr}
+html body #k307#k307#k307#k307#k307#k307#k307#k307#k307#k307#k307#k307#k307#k307#k307#k307#k307#k307#k307#k307 .k307-acts2 button.go{background:linear-gradient(180deg,#ffe07a,#f2a51d)!important;color:#3a2100!important;border:0!important;font-size:16px}
+html body #k307#k307#k307#k307#k307#k307#k307#k307#k307#k307#k307#k307#k307#k307#k307#k307#k307#k307#k307#k307 .k307-acts2 button.go:disabled{filter:grayscale(.8) brightness(.6)}
+#k307 .k307-ask{position:fixed;inset:0;background:rgba(0,0,0,.6);display:flex;align-items:center;justify-content:center;z-index:2}
+#k307 .k307-ask>div{background:#0d1b36;border:1px solid #ffb347;border-radius:14px;padding:14px;max-width:340px;text-align:center}
+#k307 .k307-ask>div>button{margin:6px;padding:8px 16px;border-radius:8px;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.3)}
