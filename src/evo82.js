@@ -7,18 +7,20 @@
 //  • Save cũ: phôi Trắng/Lục → ◈ + ⬢ · phôi Lam/Tím → bản sao Lam/Tím Lv1 + ◈. Món đang có giữ nguyên khung và cấp.
 //  Tắt: window.EVO82=false (quay về phôi V70)
 const EVO82={
+ // V307 (chủ dự án chốt 17/11, theo game gốc): Trắng→Lục, Lục→Lam, Lam+3→Tím chỉ cần 1 bộ nguyên liệu (không bản sao);
+ //   Lam+1/+2/+3 cần bản sao bậc Lam CÙNG MẪU 1·1·2; Tím+1…+5 cần bản sao bậc Tím cùng mẫu 1·1·2·2·3. Bản sao không cần cấp.
  step:[
-  {mainLv:25,same:0,any:1,min:{lv:15,t:0},mat:1,cr:[1500,1050],st:[20,15]},
-  {mainLv:35,same:0,any:1,min:{lv:25,t:0},mat:2,cr:[3500,2450],st:[35,25]},
-  {mainLv:45,same:1,any:0,min:{lv:35,t:1},mat:0,cr:[5000,3500],st:[45,30]},
-  {mainLv:50,same:0,any:2,min:{lv:35,t:1},mat:0,cr:[6500,4550],st:[60,40]},
-  {mainLv:55,same:1,any:1,min:{lv:45,t:2},mat:0,cr:[8500,5950],st:[75,55]},
-  {mainLv:60,same:0,any:1,min:{lv:45,t:2},mat:3,cr:[12000,8400],st:[100,70]},
-  {mainLv:75,same:1,any:0,min:{lv:45,t:2},mat:0,cr:[15000,10500],st:[120,85]},
-  {mainLv:80,same:0,any:2,min:{lv:45,t:2},mat:0,cr:[18000,12600],st:[145,100]},
-  {mainLv:85,same:1,any:0,min:{lv:75,t:6},mat:0,cr:[22000,15400],st:[175,120]},
-  {mainLv:90,same:0,any:2,min:{lv:75,t:6},mat:0,cr:[27000,18900],st:[210,145]},
-  {mainLv:95,same:1,any:1,min:{lv:75,t:6},mat:3,cr:[35000,24500],st:[260,180]}],
+  {mainLv:25,same:0,any:0,min:{lv:1,t:0},mat:1,cr:[1500,1050],st:[20,15]},
+  {mainLv:35,same:0,any:0,min:{lv:1,t:0},mat:2,cr:[3500,2450],st:[35,25]},
+  {mainLv:45,same:1,any:0,min:{lv:1,t:2},mat:0,cr:[5000,3500],st:[45,30]},
+  {mainLv:50,same:1,any:0,min:{lv:1,t:2},mat:0,cr:[6500,4550],st:[60,40]},
+  {mainLv:55,same:2,any:0,min:{lv:1,t:2},mat:0,cr:[8500,5950],st:[75,55]},
+  {mainLv:60,same:0,any:0,min:{lv:1,t:0},mat:3,cr:[12000,8400],st:[100,70]},
+  {mainLv:75,same:1,any:0,min:{lv:1,t:6},mat:0,cr:[15000,10500],st:[120,85]},
+  {mainLv:80,same:1,any:0,min:{lv:1,t:6},mat:0,cr:[18000,12600],st:[145,100]},
+  {mainLv:85,same:2,any:0,min:{lv:1,t:6},mat:0,cr:[22000,15400],st:[175,120]},
+  {mainLv:90,same:2,any:0,min:{lv:1,t:6},mat:0,cr:[27000,18900],st:[210,145]},
+  {mainLv:95,same:3,any:0,min:{lv:1,t:6},mat:0,cr:[35000,24500],st:[260,180]}],
  refund:{cr:.85,st:.90,sCr:.80,sSt:.85,base:[300,800,2000,2000,2000,2000,6000,6000,6000,6000,6000,6000]},
  phTier:[0,1,2,6],
  mig:{0:{cr:1500,st:15},1:{cr:4000,st:40},2:{cr:2500},3:{cr:8000}},

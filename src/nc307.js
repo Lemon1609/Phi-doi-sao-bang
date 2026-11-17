@@ -115,7 +115,7 @@ const NC307=(()=>{
    slots=Array.from({length:5},(_,i)=>{const x=L[i];if(!x)return '<div class="nc307-ns e"></div>';const ok=x.h>=x.n;return `<div class="nc307-ns ${ok?'':'no'}" title="${esc(x.t)}">${x.im?`<img src="${x.im}" alt="">`:''}<small>${Math.min(x.h,999)}/${x.n}</small>${ok?'':'<em>Thiếu</em>'}</div>`;}).join('');
    cost=(p.cr|0)+(p.stone|0)*15;if(st.mainLv&&lv<st.mainLv)need=`Cần món chính đạt Lv${st.mainLv} (đang Lv${lv})`;}
   return `<div class="nc307-top"><b>TIẾN KHUNG</b><button class="nc307-x" data-nc="x" aria-label="Đóng">✕</button></div>
-   <div class="nc307-cards">${cardA}${max?'':'<i class="nc307-arr">➤</i>'+cardB}</div>
+   <div class="nc307-cards">${cardA}${max?'':'<i class="nc307-arr">'+((window.NC307_IMG||{}).ten?'<img src="'+window.NC307_IMG.ten+'" alt="">':'➤')+'</i>'+cardB}</div>
    ${max?`<p class="nc307-m">Đã đạt khung cao nhất: ${esc(nm(n))}.</p>`:`${need?`<p class="nc307-w">${esc(need)}</p>`:''}<div class="nc307-row2"><span>Chi phí <b class="cr">${fmt(cost)} ◈</b></span><span>${(p.rf&&p.rf.cr)?'hoàn '+fmt(p.rf.cr)+' ◈':''}</span></div><div class="nc307-mats nc307-nl">${slots}</div>`}
    ${msg?`<p class="nc307-m">${esc(msg)}</p>`:''}${flash?`<div class="nc307-ok">${esc(flash)}</div>`:''}
    <div class="nc307-bot"><button data-nc="upm" class="nc307-b2">NÂNG CẤP</button><button data-nc="brk" class="nc307-go" ${!max&&p.ok?'':'disabled'}>TIẾN KHUNG</button><button data-nc="x" class="nc307-b3">VỀ</button></div>`;}
@@ -150,7 +150,7 @@ const NC307=(()=>{
   else if(a==='auto')auto();else if(a==='go'){const it=get(cur);const r=it&&sim(it,gainNow());if(r&&r.over>C.overWarn&&!noWarnToday())warnAsk=true;else go();}
   render();}
  function open(id,md){if(!on())return false;cur=id||cur;mode=md||'up';flash='';warnAsk=false;mats=[];st=zero();ask=null;msg='';
-  if(!el){el=document.createElement('div');el.id='nc307';el.innerHTML='<div class="nc307-in"></div>';el.addEventListener('click',click);document.body.appendChild(el);}
+  if(!el){el=document.createElement('div');el.id='nc307';try{const I=window.NC307_IMG||{};for(const k in I)el.style.setProperty('--k-'+k,'url('+I[k]+')');if(I.the)el.classList.add('gpt');}catch{}el.innerHTML='<div class="nc307-in"></div>';el.addEventListener('click',click);document.body.appendChild(el);}
   el.classList.add('open');render();return true;}
  function close(){if(el)el.classList.remove('open');try{const sh=document.querySelector('.hb-sheet.open');if(sh&&sh.dataset.item&&typeof gearSheet==='function')gearSheet(sh.dataset.item,true);}catch{}}
  // Nút NÂNG CẤP trong chi tiết trang bị → mở màn mới (chặn giữ-để-nâng cũ)
