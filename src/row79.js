@@ -17,15 +17,16 @@ const Row79=(()=>{
    let grade='';try{grade=Workshop.craftGrade(i)||'';}catch{}let lv='';try{lv=(th.querySelector('small')||{}).textContent||'';}catch{}
    let cond='';if(lock){try{cond=Campaign36.craftCondition(i);}catch{}}
    const img=(th.querySelector('img')||{}).src||'';const cur=th.getAttribute('aria-current')==='true';
-   out.push({i,lock,n,f,grade,lv,cond,img,cur});}
+   let st='';try{const v=Workshop.craftProgress(i);const k=Workshop.levelFactor(v)*Campaign36.factor(v.grade);lv='Lv '+v.level+'/'+Workshop.cap(v);st='ST ×'+k.toFixed(2);}catch{}
+   out.push({i,lock,n,f,grade,lv,cond,img,cur,st});}
   return out;}
  function sheet(){let el=document.getElementById('r79');if(el)el.remove();el=document.createElement('div');el.id='r79';
   const R=rows();
-  el.innerHTML=`<div class="r79c"><div class="r79h"><b>DANH SÁCH CHIẾN CƠ</b><button class="r79x v75-x" data-r79="x" aria-label="Đóng">✕</button></div><div class="r79l">${R.map(r=>`
+  el.innerHTML=`<div class="r79c"><div class="r79h"><b>DANH SÁCH CHIẾN CƠ</b><button class="r79x" data-r79="x" aria-label="Đóng">✕</button></div><div class="r79l">${R.map(r=>`
    <div class="r79r ${r.f>=3?'leg':r.f>=2?'rare':''} ${r.lock?'lk':''} ${r.cur?'cur':''}" data-r79="pick" data-c="${r.i}">
     <span class="r79i"><img alt="" src="${r.img}"></span>
-    <span class="r79t"><b>${esc(nameOf(r.i))}</b><small>${r.lock?esc(r.cond||'Chưa mở khóa'):`${esc(r.lv)} · <em style="color:${FC[r.f]}">${esc(tierName(r.n))}</em>${r.grade?' · Bậc '+esc(r.grade):''}`}</small></span>
-    <span class="r79a">${r.lock?'🔒':r.cur?'ĐANG DÙNG':'CHỌN'}</span></div>`).join('')}</div></div>`;
+    <span class="r79t"><b>${esc(nameOf(r.i))}</b><small>${r.lock?esc(r.cond||'Chưa mở khóa'):`${esc(r.lv)} · <em style="color:${FC[r.f]}">${esc(tierName(r.n))}</em>${r.grade?' · Bậc '+esc(r.grade):''}${r.st?'<br>'+esc(r.st):''}`}</small></span>
+    <span class="r79a">${r.lock?'🔒':r.cur?'ĐANG DÙNG':'TRANG BỊ'}</span></div>`).join('')}</div></div>`;
   document.body.appendChild(el);}
  document.addEventListener('click',e=>{const t=e.target;if(!t.closest)return;
   if(t.closest('.r79b')){e.preventDefault();e.stopPropagation();sheet();return;}
