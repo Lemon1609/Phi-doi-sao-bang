@@ -41,7 +41,7 @@ const NC307=(()=>{
  const zero=()=>({1:0,2:0,3:0,4:0});
  const stXp=()=>T4.reduce((a,t)=>a+(st[t]|0)*D.XP[t],0),stN=()=>T4.reduce((a,t)=>a+(st[t]|0),0);
  // ---------- trạng thái màn ----------
- let back=false,mode='up',flash='',warnAsk=false;
+ let upPop=0,back=false,mode='up',flash='',warnAsk=false;
  const WK='saobang-nc307-warn';const noWarnToday=()=>{try{return localStorage.getItem(WK)===new Date().toDateString();}catch{return false;}};
  setInterval(()=>{try{if(!back)return;const d=[...document.querySelectorAll('.ev82,.adv70')].find(x=>!x.hidden&&x.getClientRects().length);if(d)return;back=false;if(el){el.classList.add('open');render();}}catch{}},300);
  let cur=null,mats=[],st=zero(),ask=null,el=null,msg='';
@@ -57,10 +57,14 @@ const NC307=(()=>{
  function artOf(it){if(it&&it.kind==='craft'){let src='';try{const S=SHIP118[it.idx];let f=FORM[nOf(it)];try{if(S.ss&&window.SS122!==false&&Workshop.craftGrade(it.idx)==='SS')f='ss';}catch{}src=S[f]||S.tim||S.lam||S.thuong;}catch{}return src?`<span class="nc307-ship"><img src="${src}" alt=""></span>`:'';}try{return String(Progress.art(it)).replace(/<b>[\s\S]*?<\/b>/g,'');}catch{return '';}}
  function colorOf(it){if(it&&it.kind==='craft'){try{return TIER70.fcol[TIER70.frame[nOf(it)]];}catch{return '#d6e0ea';}}try{return V70C(it);}catch{return '#d6e0ea';}}
  function card(it,cls){const art=artOf(it);return `<div class="${cls}" style="--c:${colorOf(it)}">${art}<b>Lv${it.level|0}</b></div>`;}
- function render(){if(!el)return;if(flash){const f=flash;setTimeout(()=>{if(flash===f)flash='';},1700);}if(!cur||!get(cur)){const l=items();cur=l[0]&&l[0].id;}const it=get(cur);
+ function render(){if(!el)return;if(flash){const f=flash;setTimeout(()=>{if(flash===f)flash='';},1700);}if(cur&&!get(cur))cur=null;const it=cur?get(cur):null;
   if(it&&mode==='adv'){el.querySelector('.nc307-in').innerHTML=advHtml(it);return;}
   mats=mats.filter(id=>usable(get(id),it));
-  if(!it){el.querySelector('.nc307-in').innerHTML='<p class="nc307-e">Chưa có trang bị.</p>';return;}
+  if(!it){el.querySelector('.nc307-in').innerHTML=`<div class="nc307-top"><b>NÂNG CẤP</b><button class="nc307-x" data-nc="x" aria-label="Đóng">✕</button></div>
+   <div class="nc307-pn"><button class="nc307-pc nc307-pick" data-nc="bag"><b>Chọn trang bị</b><div class="nc307-art"><i>+</i></div><small>Chạm để mở túi</small></button>
+   <table class="nc307-tb"><tr><td>Cấp</td><td>—</td><td>➤</td><td>—</td></tr><tr><td>Chỉ số</td><td>—</td><td>➤</td><td>—</td></tr></table></div>
+   <div class="nc307-mats">${Array.from({length:C.slots},()=>'<button class="e" disabled>+</button>').join('')}</div>
+   <div class="nc307-bot"><button class="nc307-b2" disabled>TIẾN KHUNG</button><button class="nc307-go" disabled>NÂNG CẤP</button><button data-nc="x" class="nc307-b3">VỀ</button></div>${el.dataset.list?sheetHtml(null,el.dataset.list):''}`;return;}
   const g=gainNow(),r=sim(it,g),r0=sim(it,0),rows=statRows(it,r.L),title=(()=>{if(it.kind==='craft'){try{return document.querySelector('#hb-info h3,#hb-info .hb-name')?.textContent||('Chiến cơ '+(it.idx+1));}catch{return 'Chiến cơ';}}try{return Progress.title(it);}catch{return it.id;}})();
   const bag=items().slice().sort((a,b)=>(eqIds().includes(b.id)-eqIds().includes(a.id))||nOf(b)-nOf(a)||(b.level-a.level));
   const pct0=r0.need?Math.min(100,r0.x/r0.need*100):100,pct=r.need?Math.min(100,r.x/r.need*100):100;
@@ -85,7 +89,7 @@ const NC307=(()=>{
   ${el.dataset.list?sheetHtml(it,el.dataset.list):''}`;}
  let tab='all';
  const kname=k=>{try{return Progress.kindName(k);}catch{return k;}};
- function sheetHtml(it,mode){const isMat=mode==='mat';
+ function sheetHtml(it,mode){const isMat=mode==='mat'&&!!it;
   let l=isMat?items().filter(m=>usable(m,it)&&!mats.includes(m.id)):items();
   const kinds=[...new Set(items().map(m=>m.kind))];
   if(tab!=='all')l=l.filter(m=>m.kind===tab);
@@ -106,7 +110,8 @@ const NC307=(()=>{
   let S=[];if(it.kind==='craft'){let a=1;try{a=Workshop.levelFactor(it._v);}catch{}S.push(['Hệ số',a.toFixed(3),(a*k).toFixed(3)]);}
   else{let s0={};try{s0=Progress.stat(it);}catch{}const N={armor:'Giáp',hp:'Máu',auxDamage:'Sát thương'};for(const key of Object.keys(s0)){if(key==='interval')continue;const v=s0[key],d=key==='auxDamage'?2:1;S.push([N[key]||key,v.toFixed(d),(v*k).toFixed(d)]);}}
   const lv=it.level|0;
-  const cardA=`<div class="nc307-ac" style="--c:${fc(n)}"><b class="t">${esc(title)}</b><div class="nc307-art">${artOf(it)}</div><b class="f">${esc(nm(n))}</b></div>`;
+  const pop=Date.now()-upPop<1800?'<em class="nc307-p1">+1</em>':'';
+  const cardA=`<div class="nc307-ac" style="--c:${fc(n)}">${pop}<b class="t">${esc(title)}</b><div class="nc307-art">${artOf(it)}</div><b class="f">${esc(nm(n))}</b></div>`;
   const cardB=max?'':`<div class="nc307-ac" style="--c:${fc(n+1)}"><b class="t">${esc(title)}</b><div class="nc307-art">${artOf(it)}</div><b class="f">${esc(nm(n+1))}</b></div>`;
   const tbl=max?'':`<table class="nc307-tb nc307-tc"><tr><td>Cấp</td><td>${lv}/${capN(n)}</td><td>➤</td><td class="up">${lv}/${capN(n+1)}</td></tr>${S.map(x=>`<tr><td>${x[0]}</td><td>${x[1]}</td><td>➤</td><td class="up">${x[2]}</td></tr>`).join('')}</table>`;
   let slots='',cost=0,need='';
@@ -116,7 +121,7 @@ const NC307=(()=>{
    slots=Array.from({length:5},(_,i)=>{const x=L[i];if(!x)return '<div class="nc307-ns e"></div>';const ok=x.h>=x.n;return `<div class="nc307-ns ${ok?'':'no'}" title="${esc(x.t)}">${x.im?`<img src="${x.im}" alt="">`:''}<small>${Math.min(x.h,999)}/${x.n}</small>${ok?'':'<em>Thiếu</em>'}</div>`;}).join('');
    cost=(p.cr|0)+(p.stone|0)*15;if(st.mainLv&&lv<st.mainLv)need=`Cần món chính đạt Lv${st.mainLv} (đang Lv${lv})`;}
   return `<div class="nc307-top"><b>TIẾN KHUNG</b><button class="nc307-x" data-nc="x" aria-label="Đóng">✕</button></div>
-   <div class="nc307-cards">${cardA}${max?'':'<i class="nc307-arr">'+((window.NC307_IMG||{}).ten?'<img src="'+window.NC307_IMG.ten+'" alt="">':'➤')+'</i>'+cardB}</div>
+   <div class="nc307-cards">${cardA}${max?'':'<i class="nc307-arr nc307-link"><span></span>'+((window.NC307_IMG||{}).ten?'<img src="'+window.NC307_IMG.ten+'" alt="">':'➤')+'</i>'+cardB}</div>
    ${tbl}
    ${max?`<p class="nc307-m">Đã đạt khung cao nhất: ${esc(nm(n))}.</p>`:`${need?`<p class="nc307-w">${esc(need)}</p>`:''}<div class="nc307-row2"><span>Chi phí <b class="cr">${fmt(cost)} ◈</b></span><span>${(p.rf&&p.rf.cr)?'hoàn '+fmt(p.rf.cr)+' ◈':''}</span></div><div class="nc307-mats nc307-nl">${slots}</div>`}
    ${msg?`<p class="nc307-m">${esc(msg)}</p>`:''}${flash?`<div class="nc307-ok">${esc(flash)}</div>`:''}
@@ -137,7 +142,7 @@ const NC307=(()=>{
   if(a==='x'){close();return;}
   if(a==='adv'){mode='adv';flash='';}
   else if(a==='upm'){mode='up';flash='';}
-  else if(a==='brk'){const it=get(cur);if(it){const K=it.kind==='craft'?'craft':'gear',ref=it.kind==='craft'?it.idx:it.id;let ok=false;try{ok=Evo82.doBreak(K,ref);}catch{}if(ok){flash='TIẾN KHUNG THÀNH CÔNG';try{Audio393.sfx('pickup');}catch{}}else{let p=null;try{p=Evo82.plan(K,ref);}catch{}msg=p&&p.lacks&&p.lacks[0]||'Chưa đủ điều kiện';}}}
+  else if(a==='brk'){const it=get(cur);if(it){const K=it.kind==='craft'?'craft':'gear',ref=it.kind==='craft'?it.idx:it.id;let ok=false;try{ok=Evo82.doBreak(K,ref);}catch{}if(ok){flash='TIẾN KHUNG THÀNH CÔNG';upPop=Date.now();try{Audio393.sfx('pickup');}catch{}}else{let p=null;try{p=Evo82.plan(K,ref);}catch{}msg=p&&p.lacks&&p.lacks[0]||'Chưa đủ điều kiện';}}}
   else if(a==='wok'){warnAsk=false;if(b.closest('.nc307-ask').querySelector('input:checked'))try{localStorage.setItem(WK,new Date().toDateString());}catch{}go();}
   else if(a==='wno'){warnAsk=false;}
   if(a==='bag'){el.dataset.list='bag';}
@@ -151,7 +156,7 @@ const NC307=(()=>{
   else if(a==='s+'){const t=+id;const it=get(cur);if(st[t]<D.have(t)&&it&&sim(it,gainNow()).L<capOf(it))st[t]++;}else if(a==='s-'){const t=+id;st[t]=Math.max(0,(st[t]|0)-1);}
   else if(a==='auto')auto();else if(a==='go'){const it=get(cur);const r=it&&sim(it,gainNow());if(r&&r.over>C.overWarn&&!noWarnToday())warnAsk=true;else go();}
   render();}
- function open(id,md){if(!on())return false;cur=id||cur;mode=md||'up';flash='';warnAsk=false;mats=[];st=zero();ask=null;msg='';
+ function open(id,md){if(!on())return false;cur=id===undefined?cur:id;mode=md||'up';flash='';warnAsk=false;mats=[];st=zero();ask=null;msg='';
   if(!el){el=document.createElement('div');el.id='nc307';try{const I=window.NC307_IMG||{};for(const k in I)el.style.setProperty('--k-'+k,'url('+I[k]+')');if(I.the)el.classList.add('gpt');}catch{}el.innerHTML='<div class="nc307-in"></div>';el.addEventListener('click',click);document.body.appendChild(el);}
   el.classList.add('open');render();return true;}
  function close(){if(el)el.classList.remove('open');try{const sh=document.querySelector('.hb-sheet.open');if(sh&&sh.dataset.item&&typeof gearSheet==='function')gearSheet(sh.dataset.item,true);}catch{}}

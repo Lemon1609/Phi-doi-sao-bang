@@ -186,3 +186,12 @@ html body #nc307#nc307#nc307#nc307#nc307#nc307#nc307#nc307#nc307#nc307#nc307#nc3
 #nc307 .nc307-tb td:first-child{width:34%}
 #nc307 .nc307-cards{align-items:center}
 #nc307 .nc307-ac{flex:0 1 40%}
+
+#nc307 .nc307-link{position:relative;flex:1 1 auto;min-width:40px;display:flex;align-items:center;justify-content:center;align-self:center}
+#nc307 .nc307-link span{position:absolute;left:-14px;right:-14px;top:50%;height:4px;margin-top:-2px;border-radius:2px;background:linear-gradient(90deg,rgba(80,200,255,.15),#7fe4ff,#4dff8a,#7fe4ff,rgba(80,200,255,.15));background-size:200% 100%;box-shadow:0 0 10px #59d6ff;animation:nc307l 1.2s linear infinite}
+@keyframes nc307l{to{background-position:-200% 0}}
+#nc307 .nc307-link img{position:relative;z-index:1}
+#nc307 .nc307-ac{position:relative}
+#nc307 .nc307-p1{position:absolute;right:-6px;top:-10px;z-index:3;font-style:normal;font-weight:900;font-size:22px;color:#4dff8a;text-shadow:0 0 10px #4dff8a,0 2px 3px #000;animation:nc307p1 1.8s ease-out forwards}
+@keyframes nc307p1{0%{transform:scale(.2);opacity:0}20%{transform:scale(1.4);opacity:1}40%{transform:scale(1)}85%{opacity:1}100%{opacity:0;transform:translateY(-14px)}}
+#nc307 .nc307-pick{border-style:dashed}#nc307 .nc307-pick .nc307-art i{font-style:normal;font-size:46px;color:#7fb8e6}
