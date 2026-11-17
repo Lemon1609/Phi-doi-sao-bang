@@ -52,3 +52,11 @@ Danh sách dòng cao: hạng (huy chương top 3 / số), avatar, tên, điểm 
 - Bản đồ: chỉ nút số ải tròn, sao dưới nút, đường chấm; chương ghi chữ lớn mờ ở nền; không văn bản.
 - Chọn đồng đội: dòng cao có avatar, tên, "+% điểm" số to màu xanh lá/vàng, lực chiến; một nút "Xuất kích" vàng.
 - Quy tắc chung: số lớn + icon thay câu; tối đa 3 mức chữ (tiêu đề, giá trị, nhãn nhỏ); mọi ô có cùng cỡ và cùng khoảng cách.
+
+## 11. Cơ chế nâng cấp / tiến cấp trang bị (video 88040.mp4, 93 s, xem 31 khung, nhìn bằng mắt)
+Chỉ học nguyên lý; không chép số, hình, chữ.
+- **Nâng cấp (cấp Lv):** chọn món từ popup túi (dòng: ảnh, tên, Lv, chỉ số, ô chọn). Giữa màn: thẻ món lớn + sao. Dưới thẻ: bảng 3 dòng chỉ số "hiện tại → sau" (số sau màu xanh lá). Thanh kinh nghiệm + dòng "kinh nghiệm nhận được" cập nhật ngay khi chọn vật liệu. Hàng 5 ô vật liệu (là các trang bị khác bị tiêu hao) + nút "tự chọn". Dòng tiêu hao tiền ở góc. MỘT nút vàng "Nâng cấp".
+- **Cảnh báo trước khi lãng phí:** nếu kinh nghiệm vượt cấp tối đa, hiện popup "dư X kinh nghiệm, không hoàn lại, tiếp tục?" có nút Hủy / Tiếp tục và ô "hôm nay không nhắc nữa".
+- **Tiến cấp (mở trần Lv):** hai thẻ trước | sau (+1 → +2), mũi tên sáng giữa hai thẻ; cùng kiểu bảng chỉ số "→"; trần Lv tăng theo cấp tiến (50 → 55 → 60). Vật liệu tiến cấp là bản cùng loại (nhận từ hợp thành).
+- **Kho:** popup danh sách theo tab loại; hàng nút đáy popup: tiến nhanh / hợp thành / bán. Mỗi dòng có chữ rất ít.
+- **Áp dụng cho ta (đề xuất, chưa làm):** (1) bảng "trước → sau" cho nâng cấp; (2) popup cảnh báo khi nâng quá trần hoặc phí lãng phí; (3) nút "tự chọn vật liệu"; (4) màn tiến cấp dạng hai thẻ + mũi tên; (5) cân bằng ta giữ nguyên (đá + hợp kim), không thêm nguồn kim cương.
