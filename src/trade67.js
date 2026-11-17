@@ -38,8 +38,9 @@ const Trade67=(()=>{
  const TRADES=[
   {id:'scrap',n:'Thu mua phôi Trắng thừa',give:{ph:2},get:{c:1200,e:25},lim:5},
   {id:'sweep',n:'Vé càn quét',give:{c:5000},get:{tk:3},lim:2},// V85: thay ô 'thu mua phôi' khi đã bỏ phôi (V82)
-  {id:'stone2c',n:'Đổi đá lấy hợp kim',give:{e:40},get:{c:1500},lim:3},
-  {id:'c2stone',n:'Gói đá nâng cấp',give:{c:4000},get:{e:60},lim:1},
+  // V307 (bỏ đá ⬢, Gemini lượt 4): bỏ ô 'Đổi đá lấy hợp kim' (đá giờ trả bằng ◈ → thành ô in ◈); gói đá → 3 gói Đá XP giá 1 ◈ / 1 XP
+  ...(window.DA307===false?[{id:'stone2c',n:'Đổi đá lấy hợp kim',give:{e:40},get:{c:1500},lim:3},{id:'c2stone',n:'Gói đá nâng cấp',give:{c:4000},get:{e:60},lim:1}]:
+   [{id:'xp307a',n:'Gói Đá XP (150 XP)',give:{c:150},get:{e:10},lim:3},{id:'xp307b',n:'Gói Đá XP (300 XP)',give:{c:300},get:{e:20},lim:2},{id:'xp307c',n:'Gói Đá XP (720 XP)',give:{c:720},get:{e:48},lim:1}]),
   {id:'pilotA',n:'5 mảnh phi công (hạng A)',give:{c:6000},get:{pp:5,rank:'A'},lim:1},
   {id:'pilotS',n:'5 mảnh phi công (hạng S)',give:{c:12000},get:{pp:5,rank:'S'},lim:1},
   {id:'core',n:'1 Lõi Siêu Hợp',give:{c:5000},get:{core:1},lim:1},
@@ -67,12 +68,12 @@ const Trade67=(()=>{
  function rollDay(){const now=Date.now(),d=today();
   if(S.bm.maxTs&&now<S.bm.maxTs-3600000){cheat=true;return;}cheat=false;S.bm.maxTs=Math.max(S.bm.maxTs||0,now);
   const ss=sess();if(S.bm.date===ss&&S.bm.slots.length)return;S.bm.date=ss;S.bm.used={};
-  const pick=arr=>arr[Math.floor(Math.random()*arr.length)];const scrapPool=[(window.Evo82&&Evo82.on())?'sweep':'scrap','stone2c'];
-  const slots=[scrapPool[0],scrapPool[1],'c2stone',(pilotIds('S').length?(Math.random()<.6?'pilotA':'pilotS'):'pilotA'),'core'];
+  const pick=arr=>arr[Math.floor(Math.random()*arr.length)];const X307=window.DA307!==false;const scrapPool=[(window.Evo82&&Evo82.on())?'sweep':'scrap',X307?'xp307a':'stone2c'];
+  const slots=[scrapPool[0],scrapPool[1],X307?(Math.random()<.6?'xp307b':'xp307c'):'c2stone',(pilotIds('S').length?(Math.random()<.6?'pilotA':'pilotS'):'pilotA'),'core'];
   if(weekend()){const rare=SKINS67.filter(s=>s.src==='rare'&&!S.owned.includes(s.id));slots.push(rare.length?'skin:'+pick(rare).id:'bundle');}
   else{const bm=SKINS67.filter(s=>s.src==='bm'&&!S.owned.includes(s.id));slots.push(bm.length&&Math.random()<.4?'skin:'+pick(bm).id:'bundle');}
   slots.push('gem:'+gemPick());S.bm.slots=slots;save();}
- const T=id=>TRADES.find(t=>t.id===id);
+ const OLD307={stone2c:'xp307a',c2stone:'xp307b'};const T=id=>TRADES.find(t=>t.id===id)||TRADES.find(t=>t.id===OLD307[id])||TRADES[0];
  function fragBest(){try{const w=Workshop.getState().gearFragments||{};let best=null,n=0;for(const k in w)if(w[k]>n){n=w[k];best=k;}return [best,n];}catch{return [null,0];}}
  // V75: mảnh trang bị đã bỏ → ô thu mua nhận phôi Trắng (cùng mẫu, mẫu đang có nhiều nhất)
  function phBest(){try{const L=V70.phList();let best=null,n=0;for(const k in L)if(/:0$/.test(k)&&L[k]>n){n=L[k];best=k;}return [best,n];}catch{return [null,0];}}
