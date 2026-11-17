@@ -115,6 +115,13 @@ const Event83=(()=>{
  const M=A.meta||{w:563,core:[383.5,357.5]};
  let RD=null;// {t,dmg,shards,stun,openT,hits,lv}
  const attLeft=()=>{roll();return Math.max(0,R.free-S.raid.att.n);};
+ // V307 · ĐUA SÁT THƯƠNG 3 TÀU × 30 s (học boss phi đội game gốc; chủ dự án chọn 17/11). Tắt: window.RACE307=false
+ function team307(){let main=0;try{main=typeof launchCraft==='number'?launchCraft:selected;}catch{}const own=[];for(let i=0;i<13;i++){try{if(i!==main&&Campaign36.ownsCraft(i))own.push(i);}catch{}}
+  const pw=i=>{try{const v=Workshop.craftProgress(i);return Workshop.index(v.grade)*1000+(v.level|0);}catch{return 0;}};own.sort((a,b)=>pw(b)-pw(a));return [main,...own.slice(0,2)];}
+ function nm307(i){try{return craftProfile(i).name;}catch{return 'Chiến cơ '+(i+1);}}
+ function race307(rd){if(!rd||!rd.team||!rd.by)return '';const k=rd.k||1,tot=rd.by.reduce((a,b)=>a+b,0)||1,mv=rd.by.indexOf(Math.max(...rd.by));
+  return `<div class="rd307">${rd.team.map((id,i)=>`<div class="${i===mv&&rd.by[i]>0?'mvp':''}"><b>${i===0?'CHỦ CHIẾN':'HỖ TRỢ '+i}</b><span>${esc(nm307(id))}</span><em>${fmt(rd.by[i]*k)}</em><i style="width:${Math.round(rd.by[i]/tot*100)}%"></i>${i===mv&&rd.by[i]>0?'<u>MVP</u>':''}</div>`).join('')}</div>`;}
+ (()=>{try{if(document.getElementById('rd307-css'))return;const st=document.createElement('style');st.id='rd307-css';st.textContent='.rd307{display:flex;flex-direction:column;gap:6px;margin:8px 0}.rd307>div{position:relative;display:grid;grid-template-columns:78px 1fr auto;align-items:center;gap:6px;padding:7px 10px;border-radius:8px;background:#0b1a3a;border:1px solid #2e5a9a;overflow:hidden}.rd307>div.mvp{border-color:#ffd166;box-shadow:0 0 10px #ffb70366}.rd307 b{font:800 10px/1 Neo,sans-serif;color:#9fd2ff}.rd307 span{font:700 12px/1.2 Neo,sans-serif;color:#fff}.rd307 em{font:900 13px/1 Neo,sans-serif;color:#ffd166;font-style:normal}.rd307 i{position:absolute;left:0;bottom:0;height:3px;background:linear-gradient(90deg,#36d6ff,#ffd166)}.rd307 u{position:absolute;right:6px;top:-1px;text-decoration:none;font:900 9px/1 Neo,sans-serif;color:#201000;background:#ffd166;padding:2px 5px;border-radius:0 0 5px 5px}.rd307h{display:block;font:800 11px/1.3 Neo,sans-serif;color:#7fe6ff;font-style:normal}';document.head.appendChild(st);}catch{}})();
  function canStart(){return raidOpen()&&(attLeft()>0);}
  function bestStage(){let b=1;try{const c=Progress.getState().cleared||[];const m=c.length?Math.max(...c):0;b=m>=20?Math.min(160,Math.floor(m/20)*20):Math.floor(Math.min(19,m+1)/5)*5;}catch{}return b;}
  function reqOf(n){try{return Meta40.reqCP(n)||1;}catch{return 1;}}
@@ -123,7 +130,7 @@ const Event83=(()=>{
   if(bestStage()<5){T('VƯỢT ẢI 4 ĐỂ ĐÁNH BOSS CUỐI TUẦN');return;}
   if(!paid&&attLeft()<=0){T('HẾT LƯỢT MIỄN PHÍ HÔM NAY');return;}
   if(paid){const k=S.raid.att.paid|0;if(k>=R.paid.length){T('HẾT LƯỢT MUA HÔM NAY');return;}let ok=false;try{ok=Econ74.spend(R.paid[k]);}catch{}if(!ok){T('THIẾU KIM CƯƠNG · cần '+R.paid[k]);return;}S.raid.att.paid=k+1;}else S.raid.att.n++;
-  save();close();const lv=bestStage();RD={t:0,dmg:0,shards:0,stun:0,openT:-1,hits:0,lv,k:kOf(lv),started:false,ended:false};document.body.classList.add('raid83');
+  save();close();const lv=bestStage();RD={t:0,dmg:0,shards:0,stun:0,openT:-1,hits:0,lv,k:kOf(lv),started:false,ended:false};if(window.RACE307!==false){RD.team=team307();RD.seg=0;RD.by=RD.team.map(()=>0);}document.body.classList.add('raid83');
   try{Nav74.closeAll&&Nav74.closeAll();}catch{}try{mode='menu';Progress.setLocked(false);}catch{}
   let ok=false;try{document.getElementById('gamemode').value='campaign';document.getElementById('mission-select').value=String(lv);Lobby.hide();reset();ok=mode==='play';}catch(e){console.warn('raid83',e);}
   if(!ok){RD=null;document.body.classList.remove('raid83');if(paid){S.raid.att.paid=Math.max(0,(S.raid.att.paid|0)-1);try{Econ74.add(R.paid[S.raid.att.paid],'HOÀN LƯỢT BOSS');}catch{}}else S.raid.att.n=Math.max(0,S.raid.att.n-1);save();try{Lobby.show();}catch{}T('KHÔNG VÀO ĐƯỢC TRẬN · ĐÃ HOÀN LƯỢT');}}
@@ -134,7 +141,7 @@ const Event83=(()=>{
   if(!boss){try{endlessWave=9;for(const e of enemies)if(!e.dead&&!e.boss){e.dead=true;}}catch{}return;}
   if(!boss.raid83){boss.raid83=1;RD.started=true;}
   if(!boss.bossHealthReady)return;
-  RD.t+=dt;const f=Math.max(.05,1-RD.t/R.sec*.85);try{boss.hp=Math.max(boss.hp,boss.max*f);if(boss.hp>boss.max*f+1)boss.hp=boss.max*f;}catch{}
+  RD.t+=dt;if(RD.team){const sg=Math.min(RD.team.length-1,Math.floor(RD.t/30));if(sg!==RD.seg){RD.seg=sg;const id=RD.team[sg];try{selected=id;launchCraft=id;}catch{}try{VisualFX.impact(player.x,player.y,'#7fe6ff',1.4);}catch{}T('ĐỔI TÀU '+(sg+1)+'/'+RD.team.length+' · '+nm307(id));}}const f=Math.max(.05,1-RD.t/R.sec*.85);try{boss.hp=Math.max(boss.hp,boss.max*f);if(boss.hp>boss.max*f+1)boss.hp=boss.max*f;}catch{}
   // lõi hấp thụ
   const cyc=RD.t%R.weak;const open=RD.t>=R.weak-1&&cyc<R.open&&RD.stun<=0;RD.openNow=open;
   if(RD.stun>0)RD.stun=Math.max(0,RD.stun-dt);
@@ -150,20 +157,20 @@ const Event83=(()=>{
   if(RD.drop){const sh=img('shard');for(const d of RD.drop)if(d.t<1.4&&sh){ctx.globalAlpha=1-d.t/1.4;ctx.drawImage(sh,d.x-14,d.y-14,28,28);}}
   ctx.restore();return true;}
  function hud(){if(!RD||RD.ended)return;let h=document.getElementById('rd83h');if(!h){h=document.createElement('div');h.id='rd83h';document.body.appendChild(h);}const left=Math.max(0,R.sec-RD.t);
-  h.innerHTML=`<b>THỰC THỂ THÔN TINH</b><span>⏱ ${left.toFixed(0)}s · ĐIỂM ${fmt(RD.dmg*RD.k)}${RD.stun>0?' · <em>CHOÁNG ×2</em>':RD.openNow?' · <em>LÕI MỞ – BẮN VÀO NGỰC!</em>':''}</span>`;h.hidden=false;}
- function finish(full){if(!RD||RD.ended)return;RD.ended=true;const pts=Math.round(RD.dmg*RD.k);roll();S.raid.total+=pts;S.life=(S.life|0)+pts;try{Ship83._set({raid:S.life});}catch{}
+  const tl=RD.team?`<i class="rd307h">TÀU ${(RD.seg|0)+1}/${RD.team.length} · ${esc(nm307(RD.team[RD.seg|0]))} · ${Math.max(0,Math.ceil(Math.min(30*((RD.seg|0)+1),R.sec)-RD.t))}s</i>`:'';h.innerHTML=`<b>THỰC THỂ THÔN TINH</b>${tl}<span>⏱ ${left.toFixed(0)}s · ĐIỂM ${fmt(RD.dmg*RD.k)}${RD.stun>0?' · <em>CHOÁNG ×2</em>':RD.openNow?' · <em>LÕI MỞ – BẮN VÀO NGỰC!</em>':''}</span>`;h.hidden=false;}
+ function finish(full){if(!RD||RD.ended)return;RD.ended=true;if(RD.team){try{selected=RD.team[0];launchCraft=RD.team[0];}catch{}}const pts=Math.round(RD.dmg*RD.k);roll();S.raid.total+=pts;S.life=(S.life|0)+pts;try{Ship83._set({raid:S.life});}catch{}
   const got=[];R.ms.forEach((ms,i)=>{if(!S.raid.ms[i]&&S.raid.total>=ms.dmg){S.raid.ms[i]=1;got.push('Mốc '+(i+1)+': '+grant(ms).join(', '));}});save();
   document.body.classList.remove('raid83');const h=document.getElementById('rd83h');if(h)h.hidden=true;
   try{Revive393.close();}catch{}try{Combat26.cancelSkill();}catch{}try{superTime=0;bullets=[];beams=[];}catch{}try{if(typeof PlayScreen!=='undefined')PlayScreen.exit(false);}catch{}try{mode='menu';}catch{}try{Lobby.show();}catch{}
   setTimeout(()=>result(pts,got,RD),300);}
  function result(pts,got,rd){let el=document.getElementById('rd83r');if(!el){el=document.createElement('div');el.id='rd83r';el.className='m63 rd83r';document.body.appendChild(el);el.addEventListener('click',e=>{if(e.target.closest('[data-r83]')){el.hidden=true;try{Lobby.show();}catch{}document.body.classList.remove('res78');setTimeout(()=>{try{open();}catch{}},150);}});}
-  el.innerHTML=`<div class="m63-card rd83c">${A.banner?`<img class="rd83b" src="${A.banner}" alt="">`:''}<div class="m63-eye">BOSS CUỐI TUẦN · KẾT QUẢ</div><h3>+${fmt(pts)} ĐIỂM</h3>
+  el.innerHTML=`<div class="m63-card rd83c">${A.banner?`<img class="rd83b" src="${A.banner}" alt="">`:''}<div class="m63-eye">BOSS CUỐI TUẦN · KẾT QUẢ</div><h3>+${fmt(pts)} ĐIỂM</h3>${race307(rd)}
    <p>Tổng tuần: <b>${fmt(S.raid.total)}</b> · Đá Năng Lượng: <b>${rd.shards}</b> (+${rd.shards*R.shard} ${esc(ev().cur)})</p>${got.length?`<p class="ok">🎁 ${got.map(esc).join('<br>')}</p>`:''}${msHtml()}
    <div class="adv-btns"><button class="m63-go" data-r83>VỀ SỰ KIỆN</button></div></div>`;el.hidden=false;}
  function msHtml(){return `<div class="ev83ms">${R.ms.map((m,i)=>{const ok=S.raid.total>=m.dmg;return `<div class="${ok?'ok':''}"><b>${fmt(m.dmg)}</b><small>${esc(msTxt(m))}</small><i>${S.raid.ms[i]?'✓':ok?'…':'🔒'}</i></div>`;}).join('')}</div>`;}
  function msTxt(m){const o=[];if(m.gem)o.push(m.gem+'💎');if(m.alloy)o.push(fmt(m.alloy)+'◈');if(m.stone)o.push(m.stone+'⬢');if(m.pilot)o.push(m.pilot+' mảnh phi công');if(m.copyGreen)o.push('bản sao Lục');if(m.copyBlue)o.push('bản sao Lam');if(m.curr)o.push(m.curr+' tiền tệ tuần');if(m.honor)o.push(m.honor+' Xu Tinh Anh');if(m.stone71)o.push(m.stone71+' đá khảm');if(m.aura)o.push('danh hiệu + hào quang Kẻ Thôn Tinh 7 ngày');return o.join(' · ');}
  // ---------- đo sát thương boss + ×2 khi choáng ----------
- function hookDmg(){try{if(H83.d||window.damageBoss.__r83)return;H83.d=1;const o=window.damageBoss;const f=function(amount,source,part){if(RD&&!RD.ended&&boss&&boss.raid83){if(RD.stun>0)amount*=R.mult;try{if(RD.openNow&&source&&typeof source==='object'&&Number.isFinite(source.x)&&Math.abs(source.x-boss.x)<46&&!source.c83){source.c83=1;RD.hits++;}}catch{}/* V85: boss bất tử thật — nâng máu tạm thời khi nhận đòn để chiến cơ mạnh không 'giết' boss trong 1 khung (trước đây chạm 0 máu là hết điểm cả trận) */const b0=boss,kh=b0.hp,kc=b0.coreHp,BIG=1e9;if(kc!=null)b0.coreHp=BIG;let a=0;try{a=o.call(this,amount,source,part);}finally{if(kc!=null)b0.coreHp=kc;else if(b0.coreHp!=null&&a>0)b0.coreHp+=a;b0.hp=kh;}if(a>0)RD.dmg+=a;return a;}return o.apply(this,arguments);};f.__r83=1;window.damageBoss=f;try{damageBoss=f;}catch{}}catch{}}
+ function hookDmg(){try{if(H83.d||window.damageBoss.__r83)return;H83.d=1;const o=window.damageBoss;const f=function(amount,source,part){if(RD&&!RD.ended&&boss&&boss.raid83){if(RD.stun>0)amount*=R.mult;try{if(RD.openNow&&source&&typeof source==='object'&&Number.isFinite(source.x)&&Math.abs(source.x-boss.x)<46&&!source.c83){source.c83=1;RD.hits++;}}catch{}/* V85: boss bất tử thật — nâng máu tạm thời khi nhận đòn để chiến cơ mạnh không 'giết' boss trong 1 khung (trước đây chạm 0 máu là hết điểm cả trận) */const b0=boss,kh=b0.hp,kc=b0.coreHp,BIG=1e9;if(kc!=null)b0.coreHp=BIG;let a=0;try{a=o.call(this,amount,source,part);}finally{if(kc!=null)b0.coreHp=kc;else if(b0.coreHp!=null&&a>0)b0.coreHp+=a;b0.hp=kh;}if(a>0){RD.dmg+=a;if(RD.by)RD.by[RD.seg|0]+=a;}return a;}return o.apply(this,arguments);};f.__r83=1;window.damageBoss=f;try{damageBoss=f;}catch{}}catch{}}
  let ph84=false;
  function hookPhase(){try{if(ph84||window.damageBoss.__p84)return;ph84=true;const o=window.damageBoss;const f=function(amount,source,part){const b=boss;const r=o.apply(this,arguments);
    try{if(on()&&b&&b.max>0&&(!part||part===b)){const fr=b.hp/b.max;b.__ph84=b.__ph84||{};for(const th of [.7,.5,.3])if(fr<th&&!b.__ph84[th]){b.__ph84[th]=1;inc('bossPh');}if((b.dead||b.hp<=0)&&!b.__ph84.k){b.__ph84.k=1;inc('bossPh');}}}catch{}return r;};f.__p84=1;window.damageBoss=f;try{damageBoss=f;}catch{}}catch{}}
