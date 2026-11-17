@@ -4,6 +4,7 @@ Mỗi lượt 1 tàu: đính kèm ảnh tauN_6bac_HIEN_TAI.png của tàu đó (
 Chào GPT. Game "Phi Đội Sao Băng" đã có sẵn tranh 6 bậc cho mỗi chiến cơ. Ở vài tàu, nhiều bậc chỉ là CÙNG MỘT DÁNG đổi màu, nhìn không thấy nâng cấp / tiến hóa. Mình chỉ cần sửa những bậc đó, giữ tối đa tranh đang có.
 
 CÁCH LÀM
+- (17/11, bài học tàu 4) Nếu sửa từ 3 bậc trở lên thì VẼ LẠI CẢ 6 BẬC cùng một phong cách; không để bậc cũ lạc tông đứng giữa. Mọi bậc dùng CÙNG MỘT kiểu đuôi / vuốt / cánh, chỉ tăng số lượng và độ dài.
 - Lấy đúng tranh của bậc đó trong ảnh đính kèm làm gốc. Giữ nguyên phong cách vẽ, gương mặt tàu (mũi, buồng lái, lõi), màu chủ đạo của tàu.
 - Chỉ THÊM / ĐỔI bộ phận để bậc sau khác bậc trước rõ ràng (thấy được ở cỡ 64 px). Nguyên tắc: bậc thấp ít bộ phận, gọn; bậc cao thêm cánh / giáp / động cơ / bộ phận lơ lửng riêng của tàu đó; không phình thành khối hộp.
 - Màu ánh sáng của lõi / đèn theo bậc: 1 trắng · 2 lục · 3 lam · 4 tím · 5 hồng-tím · 6 vàng; bậc 6 thêm viền vàng kim mảnh. Thân giữ màu riêng của tàu.

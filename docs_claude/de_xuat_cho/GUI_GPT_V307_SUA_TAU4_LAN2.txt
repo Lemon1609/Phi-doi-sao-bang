@@ -1,0 +1,16 @@
+GỬI GPT · V307 · TÀU 4 (Thần Ma Dị Hình) · SỬA LẦN 2 (dán tiếp trong cùng cuộc trò chuyện)
+
+Bản vừa rồi đúng hướng ở màu thân đỏ bóng, mắt năng lượng tăng dần, nhưng còn 3 lỗi:
+1. ĐUÔI / VUỐT KHÔNG THỐNG NHẤT: bậc 1 và 4 gai thẳng, bậc 2–3 vuốt cong nhỏ, bậc 5–6 vuốt trăng khuyết lớn lại CHĨA XUỐNG dưới.
+2. BẬC 4 LẠC TÔNG: là tranh cũ (tối, xanh ngọc, chi tiết vụn) đứng giữa các bậc mới đỏ bóng. Lỗi do mình bảo giữ bậc 4 → lần này VẼ LẠI CẢ BẬC 4 cùng phong cách với 5 bậc kia.
+3. CHI TIẾT LỦNG CỦNG: quá nhiều mảnh nhỏ, gai vụn, đốm đèn rải khắp.
+
+QUY TẮC THỐNG NHẤT CHO CẢ 6 BẬC
+- ĐUÔI: luôn là chùm GAI THẲNG chĩa xuống dưới, số gai tăng: b1 1 · b2 3 · b3 3 (dài hơn) · b4 5 · b5 5 (dài hơn) · b6 7. Không bậc nào dùng đuôi cong.
+- VUỐT: chỉ một kiểu VUỐT CONG HÌNH TRĂNG KHUYẾT, luôn mọc từ vai và CONG LÊN PHÍA TRƯỚC ôm hai bên mũi (như càng cua giơ lên), không bao giờ chĩa xuống. b1–b2 chưa có vuốt · b3 một cặp vuốt nhỏ · b4 một cặp vừa · b5 một cặp lớn, đầu vuốt gần mũi · b6 hai cặp (lớn + nhỏ), đầu vuốt gần chạm nhau trước mũi nhưng không khép kín.
+- MẮT NĂNG LƯỢNG: b1 3 · b2 3 · b3 3 (to hơn) · b4 4 · b5 5 · b6 6, sắp đối xứng, cỡ to rõ; không thêm đốm đèn vụn ngoài mắt.
+- THÂN: mảng giáp đỏ bóng LỚN và liền, viền bạc; giảm 50 % số mảnh nhỏ / gai vụn so với bản vừa rồi. Mỗi bậc chỉ thêm 1–2 bộ phận lớn so với bậc trước.
+- MÀU: thân đỏ + bạc mọi bậc; màu bậc nằm ở mắt / mạch / viền: 1 trắng · 2 lục · 3 lam · 4 tím · 5 hồng-tím · 6 vàng (b6 thêm viền vàng kim mảnh, không mạ vàng toàn thân). Bậc 4 phải TÍM rõ, không xanh ngọc.
+- Kích thước: mọi bậc cùng cỡ khung (mình tự thu nhỏ bậc thấp bằng mã).
+
+Vẽ lại đủ 6 bậc, 1 hàng 6 ô, nền đen, nhãn 1–6. Cuối câu trả lời ghi số gai đuôi, số vuốt, số mắt từng bậc.
