@@ -61,12 +61,20 @@ const BOSS75_OLD={
    [{type:'CROWN_DUAL_FAN',fastWays:7,fastSpeed:290,slowWays:6,slowSpeed:185,cd:1.6},{type:'RICOCHET_ORBS',count:2,bounces:1,speed:220,cd:2.5}],
    [{type:'DOUBLE_HELIX',ways:16,fireSec:1.6,pauseSec:.4,speed:225,every:.1},{type:'TRIPLE_LASER',lanes:3,warnSec:.8,cd:4.0}],
    [{type:'COSMIC_COLLAPSE',spiralArms:4,spiralSpeed:205,ringWays:20,ringMissing:3,ringSpeed:190,ringCd:2.2,every:.14},{type:'AIMED_BURST',burst:5,gap:.08,speed:340,cd:2.4,needle:1}]]}};
+// V307 · đòn bổ sung theo pha (thêm vào cuối danh sách đòn của pha, hồi dài để không quá dày). Tắt: window.B307=false
+const ADD307={
+ CH5:[[],[{type:'GAP_ARC',ways:22,gap:3,waves:2,waveGap:.55,speed:165,cd:5.0}],[]],
+ CH6:[[],[{type:'TWIN_PILLAR',off:62,width:22,warnSec:1.0,activeSec:1.4,cd:6.0}],[]],
+ CH7:[[],[],[{type:'X_CROSS',spread:150,width:18,warnSec:1.0,activeSec:.7,beads:6,beadSpeed:165,cd:6.0}]],
+ CH8:[[],[{type:'GAP_COLUMNS',lanes:5,width:30,warnSec:1.1,activeSec:.55,cd:6.5}],[]],
+ CH9:[[],[],[{type:'X_CROSS',spread:160,width:18,warnSec:1.0,activeSec:.7,beads:7,beadSpeed:170,cd:6.5}]],
+ CH10:[[],[{type:'GAP_COLUMNS',lanes:5,width:30,warnSec:1.1,activeSec:.55,cd:7.0}],[{type:'TWIN_PILLAR',off:66,width:22,warnSec:1.0,activeSec:1.4,cd:6.5},{type:'GAP_ARC',ways:24,gap:3,waves:2,waveGap:.5,speed:175,cd:5.5}]]};
 const B75=(()=>{
  const TAU=Math.PI*2,D=Math.PI/180;let S=null;
  const playing=()=>typeof mode!=='undefined'&&mode==='play';
  const ky=()=>(typeof H==='number'?H:1100)/1100;
  function kindNow(){if(window.B75===false)return null;try{if(gameMode!=='campaign'||Dungeons.active()||Meta40.state().run)return null;}catch{}try{if(Eclipse67.active())return null;}catch{}if(BOSS75.STAGES[level])return BOSS75.STAGES[level];const n=level|0;if(window.B77SUB!==false&&typeof V77_SPEC!=='undefined'&&n%5===0&&n%20!==0){const ch=Math.min(9,Math.floor((n-1)/20)+1);return 'SUB:CH'+ch+':'+(n%10===5?'SUB_ODD':'SUB_MID10');}return null;}
- function specOf(kd){if(!kd)return null;if(kd.startsWith('SUB:')){const [,c,t]=kd.split(':');const sp=V77_SPEC.SUB_BOSSES_18[c][t];return {name:sp.name,phases:sp.phases.map(p=>p.moves),th:sp.phases.slice(1).map(p=>p.hp),sc:1};}const sp=(window.B75_OLD===true&&BOSS75_OLD[kd])||BOSS75.SPEC[kd];return {name:sp.name,phases:sp.phases,th:sp.th||[.7,.3],sc:sp.sc||.72};}
+ function specOf(kd){if(!kd)return null;if(kd.startsWith('SUB:')){const [,c,t]=kd.split(':');const sp=V77_SPEC.SUB_BOSSES_18[c][t];return {name:sp.name,phases:sp.phases.map(p=>p.moves),th:sp.phases.slice(1).map(p=>p.hp),sc:1};}const sp=(window.B75_OLD===true&&BOSS75_OLD[kd])||BOSS75.SPEC[kd];const ad=window.B307!==false&&ADD307[kd];return {name:sp.name,phases:ad?sp.phases.map((p,i)=>p.concat(ad[i]||[])):sp.phases,th:sp.th||[.7,.3],sc:sp.sc||.72};}
  function shot(x,y,a,s,o={}){if(S&&S.sc&&S.sc!==1)s=Math.min(230,s*S.sc);const n0=bullets.length;try{emit(x,y,a,s/Math.max(.01,enemyScale()),o.needle?'needle':'orb',{boss75:1,fix75:o.fix||s>258?1:0,...(o.r?{r:o.r}:{}),...(o.x||{})});}catch{return null;}return bullets.length>n0?bullets[bullets.length-1]:null;}
  const aim=(x,y)=>Math.atan2(player.y-y,player.x-x);
  function beam(x,width,warn,dur,o={}){try{Safety31.push(beams,24,{x,y:o.y||0,width,age:0,warn,duration:dur,angle28:o.a===undefined?Math.PI/2:o.a,length28:o.len||((typeof H==='number'?H:1100)+40),color:o.col||'#ff4d6d'});}catch{}}
@@ -116,6 +124,11 @@ const B75=(()=>{
    case 'CROWN_DUAL_FAN':if(every(key,m.cd,dt)){const a0=aim(bx,by),st=1.1/(m.fastWays-1);fan(bx,by,a0,m.fastWays,1.1,m.fastSpeed);fan(bx,by,a0,m.slowWays,1.1-st,m.slowSpeed);}break;
    case 'RICOCHET_ORBS':if(every(key,m.cd,dt))for(const s of [-1,1])special(shot(bx,by,Math.PI/2+s*.75,m.speed,{r:m.r||9}),{k:'bounce',n:m.bounces});break;
    case 'DOUBLE_HELIX':{S.pt=(S.pt||0)+dt;const cyc=m.fireSec+m.pauseSec;if(S.pt%cyc<m.fireSec&&every(key,(m.every||.1),dt)){S.ha=(S.ha||0)+TAU/m.ways;shot(bx,by,S.ha,m.speed);shot(bx,by,-S.ha+Math.PI,m.speed);}break;}
+   // V307 · 4 đòn mới học cách làm game gốc (chủ dự án chọn 17/11). Tắt: window.B307=false
+   case 'GAP_COLUMNS':if(every(key,m.cd,dt)){const n=m.lanes||5,gw=W/n,pc=Math.max(0,Math.min(n-1,Math.floor(player.x/gw)));let safe=pc+(Math.random()<.5?-1:1);if(safe<0||safe>=n)safe=pc+(safe<0?1:-1);for(let k=0;k<n;k++)if(k!==safe)beam(gw*(k+.5),m.width||30,m.warnSec||1.1,m.activeSec||.55,{col:m.col||'#ff4d6d'});}break;
+   case 'TWIN_PILLAR':if(every(key,m.cd,dt)){const o=m.off||62;for(const s of [-1,1])beam(Math.max(24,Math.min(W-24,bx+s*o)),m.width||22,m.warnSec||1.0,m.activeSec||1.4,{y:by,col:'#36e0ff'});}break;
+   case 'X_CROSS':if(every(key,m.cd,dt)){const tx=player.x,ty=Math.min((typeof H==='number'?H:1100)-90,player.y-60),wn=m.warnSec||1.0;for(const s of [-1,1]){const ox=Math.max(10,Math.min(W-10,bx+s*(m.spread||150))),oy=by,a=Math.atan2(ty-oy,tx-ox);beam(ox,m.width||18,wn,m.activeSec||.7,{y:oy,a,len:1500,col:'#ff7a3a'});later(wn+.05,()=>{for(let i=0;i<(m.beads||6);i++)later(i*.11,()=>shot(ox,oy,a,m.beadSpeed||165,{r:7}));});}}break;
+   case 'GAP_ARC':if(every(key,m.cd,dt)){const n=m.ways||22,gap=m.gap||3,pa=aim(bx,by);for(let w=0;w<(m.waves||2);w++)later(w*(m.waveGap||.55),()=>{const x=b.x,y=b.y+22,a0=Math.PI*.08,a1=Math.PI*.92;let g=Math.round((pa-a0)/(a1-a0)*(n-1))-Math.floor(gap/2)+(w?(Math.random()<.5?-3:3):0);g=Math.max(0,Math.min(n-gap,g));for(let i=0;i<n;i++){if(i>=g&&i<g+gap)continue;shot(x,y,a0+(a1-a0)*i/(n-1),m.speed||170,{r:6});}});}break;
    case 'TRIPLE_LASER':if(every(key,m.cd,dt)){const xs=[player.x,player.x-W/3,player.x+W/3].map(x=>Math.max(30,Math.min(W-30,x)));for(const x of xs.slice(0,m.lanes))beam(x,26,m.warnSec,.5,{col:'#ffd166'});}break;
    case 'COSMIC_COLLAPSE':{S.ca=(S.ca||0)+.35*dt;if(every(key,(m.every||.1),dt))for(let i=0;i<m.spiralArms;i++)shot(bx,by,S.ca*3+i*TAU/m.spiralArms,m.spiralSpeed);
     if(every(key+'r',m.ringCd,dt)){const g=Math.floor(Math.random()*m.ringWays);ring(bx,by,m.ringWays,m.ringSpeed,0,i=>((i-g+m.ringWays)%m.ringWays)<m.ringMissing);}break;}}}
