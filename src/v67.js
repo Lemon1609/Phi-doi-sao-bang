@@ -136,10 +136,10 @@ const Eclipse67=(()=>{
  const okl=kill;kill=function(e){const was=e&&e.dead;const r=okl.apply(this,arguments);try{if(act&&e&&e.elite&&!was&&mode==='play'){for(const a of [Math.PI/4,3*Math.PI/4,5*Math.PI/4,7*Math.PI/4])emit(e.x,e.y,a,260/enemyScale(),'orb',{tint30:'#c77dff'});}}catch{}return r;};
  // phần thưởng riêng (không đụng tiến trình Chiến dịch)
  function reward(s){const first=!S.cleared.includes(s),c=ch(s),m=missionFor(s),credits=(45+3*s)*2,exp=12+4*(c+1),dust=s%10===0?4:s%5===0?2:1;
-  Progress.grantCredits(credits);Workshop.grant({exp});const pk=Campaign36.fragments(Math.random);if(Math.random()<.8)Workshop.grant({model:pk.model,gearFragments:2});Dust67.add(dust);
+  Progress.grantCredits(credits);Workshop.grant({exp});/* V307: bỏ 'mảnh trang bị (80%)' — mảnh đã bỏ từ V74, lệnh này cộng ra 0 */Dust67.add(dust);
   if(first)S.cleared.push(s);let star=1;try{star=Report392.starScore();}catch{}S.stars[s]=Math.max(S.stars[s]||0,Math.min(3,Math.max(1,star|0)));save();
   try{Missions393.add('stages');Missions393.flush();}catch{}
-  return {credits,item:null,unlocked:null,first,mission:m,materials:[exp+' đá nâng cấp',dust+' Bụi Tinh Vân','mảnh trang bị (80%)']};}
+  return {credits,item:null,unlocked:null,first,mission:m,materials:[exp+' đá nâng cấp',dust+' Bụi Tinh Vân']};}
  function sweep(s){const d=day();if(S.sweep.day!==d)S.sweep={day:d,used:0};if(S.sweep.used>=ECL.sweep||(S.stars[s]||0)<3)return null;S.sweep.used++;save();const c=ch(s),credits=(45+3*s)*2,exp=12+4*(c+1),dust=s%10===0?4:s%5===0?2:1;Progress.grantCredits(credits);Workshop.grant({exp});Dust67.add(dust);return {credits,exp,dust};}
  const MILE=[[20,{credits:1500,exp:40}],[40,{credits:3000,exp:60,dust:5}],[60,{credits:5000,exp:100,dust:10}]];
  function claim(c,k){const key=c+':'+k;if(S.claims.includes(key)||eStars(c)<MILE[k][0])return false;S.claims.push(key);save();const g=MILE[k][1];if(g.credits)Progress.grantCredits(g.credits);if(g.exp)Workshop.grant({exp:g.exp});if(g.dust)Dust67.add(g.dust);return true;}

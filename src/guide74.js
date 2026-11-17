@@ -38,7 +38,7 @@ const Guide74=(()=>{
    ['Là gì','Vào game mỗi ngày để nhận quà theo chuỗi ngày đăng nhập.'],
    ['Cách dùng',L(['Bấm '+B('ĐIỂM DANH')+' trên thanh trên cùng của sảnh. Chấm đỏ ! nghĩa là hôm nay chưa nhận.','Giữ chuỗi ngày liên tục để nhận quà mốc lớn hơn.'])]]},
   {k:'chest',n:'Kho báu',ic:'🎁',c:'#ffb703',lv:5,open:()=>ob('chest'),p:[
-   ['Là gì','Trang '+B('Rương')+': mở rương để nhận hợp kim, đá nâng cấp và mảnh trang bị.'],
+   ['Là gì','Trang '+B('Rương')+': mở rương để nhận hợp kim, đá nâng cấp và bản sao trang bị / chiến cơ Lv1.'],
    ['Cách dùng',L(['Bấm '+B('KHO BÁU')+' ở góc phải trên cùng sảnh, hoặc nút '+B('RƯƠNG')+' trên thanh dưới.','Cùng trang có tab '+B('Phó bản')+' và '+B('Hệ thống')+'.'])]]},
   {k:'dungeon_gold',n:'Phó bản',ic:'⛏',c:'#ffd166',lv:8,open:()=>ob('dungeon_gold'),p:[
    ['Là gì','Các ải phụ để '+B('cày tài nguyên')+', không ảnh hưởng tiến độ chiến dịch.'],
