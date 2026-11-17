@@ -1,4 +1,4 @@
-# GỬI GEMINI · CÂN BẰNG NÂNG CẤP LEVEL KIỂU MỚI (V307)
+# GỬI GEMINI · CÂN BẰNG NÂNG CẤP KIỂU MỚI: TRANG BỊ, CHIẾN CƠ, PHI CÔNG (V307)
 
 Mình (chủ dự án) đã chốt cơ chế, nhờ bạn tính **số liệu cân bằng**. Mã nguồn sẽ đọc bảng bạn đưa; Claude không tự đặt số.
 
@@ -9,7 +9,8 @@ Mình (chủ dự án) đã chốt cơ chế, nhờ bạn tính **số liệu c�
 - Tiến khung (Trắng→Lục→Lam→Tím…, trần 25/35/45/50/55/60/75/80/85/90/95/100) giữ nguyên, **không** thuộc phạm vi này.
 
 ## Lưu ý khi tính
-- Đá nâng cấp cũ hiện **còn dùng cho**: nâng cấp chiến cơ (cùng công thức đá), nâng phi công (pilot67), và được tặng ở nhiệm vụ, mùa giải, ải chương 10, hầm ngục. Hệ mới chỉ áp cho **trang bị**; nếu bạn thấy nên áp cả chiến cơ thì nêu rõ.
+- **Chủ dự án chốt: chiến cơ cũng nâng Level bằng XP** (cùng hệ với trang bị). Chiến cơ không có bản trùng trong túi như trang bị, nên đề xuất vật liệu XP cho chiến cơ (Đá XP; có dùng bản sao chiến cơ dư làm vật liệu không?).
+- Đá nâng cấp cũ hiện còn được tặng ở nhiệm vụ, mùa giải, ải chương 10, hầm ngục: các nguồn này đổi sang Đá XP theo tỉ lệ bạn đề ra.
 - Trang bị rơi ra ở ải hiện nay chủ yếu dưới dạng phôi; phôi Trắng/Lục tự phân giải thành mảnh. Hãy đề xuất: món nào thành vật liệu XP, món nào vẫn phân giải.
 - Phôi dùng để tiến khung cũng mất hẳn khi dùng, không hoàn.
 
@@ -37,3 +38,28 @@ Mỗi cấp L→L+1: ◈ = 20+3·L (×0,92 từ hạng Vô Tận ≥2); đá = 2
 4. **Quy đổi tồn kho**: 1 đá cũ = ? Đá XP; ◈ không đổi (vẫn dùng việc khác).
 5. Ngưỡng **cảnh báo dư XP** và cảnh báo khi chọn vật liệu Tím trở lên.
 6. Kiểm: thời gian (số ải) để một món lên Lv100 không lệch quá ±15% so với hệ cũ.
+
+---
+
+# PHẦN 2 · PHI CÔNG (chủ dự án chốt hướng, nhờ bạn hoàn thiện số và kỹ năng)
+
+## Cơ chế mới
+- **Nâng Level chỉ tốn ◈ hợp kim** (đơn vị tiền tệ chính của game, chủ dự án gọi là "vàng"). Bỏ đá và Lõi Siêu Hợp khỏi nâng level.
+- **Tiến bậc tốn ◈ + mảnh đúng phi công**, cần đạt trần cấp của bậc hiện tại. Học theo tiến bậc của tàu và trang bị (Trắng → Lục → Lam → Lam+1..+3 → Tím → Tím+1..+5).
+- **Mỗi bậc nâng kỹ năng và nội tại RÕ RỆT**: không chỉ tăng một con số đều đặn, mà có mốc mở hiệu ứng mới (ví dụ ở Lam, Tím, Tím+5).
+
+## Hiện trạng (đọc từ mã `src/pilot67.js`)
+- 8 phi công, hạng A/S/SS; A bắt đầu ở Trắng, S ở Lam, SS ở Tím.
+- 12 bậc, trần cấp: 10/15/20/25/30/35/40/45/50/55/58/60. Tiến bậc (◈ / mảnh): Lục 2.000/15 · Lam 5.000/25 · Lam+1 7.000/20 · Lam+2 9.500/25 · Lam+3 12.000/30 · Tím 18.000/50 · Tím+1 22.000/35 · Tím+2 27.000/45 · Tím+3 33.000/55 · Tím+4 40.000/70 · Tím+5 55.000/100.
+- Hệ số chỉ số theo bậc m: 1,00 · 1,20 · 1,45 · 1,60 · 1,75 · 1,95 · 2,30 · 2,55 · 2,85 · 3,20 · 3,60 · 4,10.
+- Level hiện tốn ◈ + đá (cấp 39→40 cần thêm 2 lõi, 59→60 cần 5 lõi). Giá ◈ mỗi cấp, với n = ⌈(lv+1)/2⌉: n ≤ 10: (300+80n)×0,6 · n ≤ 20: (1.200+150(n−10))×0,6 · còn lại: (3.000+300(n−20))×0,6.
+- Nội tại hiện chỉ là **một con số tăng tuyến tính** từ a đến b theo 6 nấc (pt 1–6) gắn với bậc:
+  Lâm Phương +15→45 % nạp Graze · Hạ Vy Bạo Tẩu +1→2,5 s · Kiều An hồi giáp mỗi 18→10,5 s · Thiên Lam +10→25 % sát thương boss · Bảo Ngọc giảm 15→30 % sát thương khi máu ≤ 2 · Mộc Miên 20→45 % hồi khi nhặt buff · Hàn Sương tên lửa nhanh 12→27 % · Tử Dạ +3→6,5 % mỗi món SSS.
+- Trần đã kiểm: phi công + cây tiềm năng + 3 phụ ≤ 15 % lực chiến của bộ max. **Giữ trần này.**
+- Nguồn mảnh: ngày 2, tuần 5, Vô tận, Tháp Boss (mỗi 5 tầng 5–12, mốc 50/100: 30/60).
+
+## Cần bạn trả
+7. Giá ◈ mỗi cấp mới (bỏ đá, bỏ lõi), tổng chi phí tương đương hệ cũ (quy đá và lõi ra ◈, nêu tỉ lệ).
+8. Có giữ hay chỉnh bảng tiến bậc (◈ + mảnh) không.
+9. Cho từng phi công: bảng nội tại theo bậc, có **2–3 mốc mở hiệu ứng mới** (ghi rõ bậc nào mở gì), số dễ đo trong game. Không vượt trần 15 % lực chiến.
+10. Lõi Siêu Hợp sau khi bỏ khỏi nâng level phi công: còn dùng ở đâu (cây tiềm năng vẫn dùng lõi), có cần quy đổi không.
