@@ -6,7 +6,7 @@
 window.NAV74ON=true;
 // V74 · icon GPT 15a-2 (ICON74) — thiếu tranh thì dùng ký tự
 const ICMAP74={map:'tab_ban_do',dungeon:'ic_nguyen_lieu',challenge:'ic_thu_thach',expedition:'ic_vien_chinh',ships:'tab_chien_co',pilot:'ic_phi_cong',sss:'tab_hop_the',ult:'ic_vu_khi_tt',armory:'tab_kho',stones:'ic_da_kham',materials:'ic_nguyen_lieu',chest:'tab_ruong',market:'ic_giao_dich',skinshop:'ic_skin',breakout:'ic_thu_thach',seed78:'ic_thu_thach',honor:'ic_thanh_tuu',daily:'ic_thu_thach',tower:'ic_thap_boss',endless:'ic_vo_tan',patrol:'ic_tuan_tra',skin:'ic_skin',share:'ic_khoe',sssShip:'tab_hop_the',sssGear:'ic_trang_bi_sss',sssStar:'ic_dot_pha_sss',sssHall:'ic_sanh_sss',sssOc:'ic_dot_pha_sss',gifts:'ic_qua',wheel:'ic_vong_quay',limited:'ic_pho_ban_gh',
- home:'tab_sanh',combat:'tab_chien_dau',fleet:'tab_chien_co',equip:'tab_kho',shop:'tab_cua_hang',g_missions:'ic_nhiem_vu',g_nb:'ic_qua',g_season:'ic_thanh_tuu',g_codex:'ic_sanh_sss',g_pass:'ic_kho_bau',g_daily:'ic_diem_danh',g_ach:'ic_thanh_tuu',g_set:'ic_cai_dat',g_save:'ic_sao_luu',g_guide:'ic_cot_truyen',g_share:'ic_khoe',g_skill:'ic_thu_thach',g_max:'ic_dot_pha_sss',g_auto:'tab_chien_co',gear:'ic_cai_dat'};
+ home:'tab_sanh',combat:'tab_chien_dau',fleet:'tab_chien_co',equip:'tab_kho',shop:'tab_cua_hang',g_missions:'ic_nhiem_vu',g_nb:'ic_qua',g_season:'ic_thanh_tuu',g_codex:'ic_sanh_sss',g_pass:'ic_kho_bau',g_daily:'ic_diem_danh',g_ach:'ic_thanh_tuu',g_set:'ic_cai_dat',g_save:'ic_sao_luu',g_guide:'ic_cot_truyen',g_share:'ic_khoe',g_skill:'ic_thu_thach',g_max:'ic_dot_pha_sss',g_auto:'tab_chien_co',gear:'ic_cai_dat',story:'ic_cot_truyen'};
 function IC74(id,fb){const k=ICMAP74[id];let src=k&&typeof ICON74!=='undefined'?ICON74[k]:null;if(!src&&k){try{const v=getComputedStyle(document.documentElement).getPropertyValue('--u15-'+({ic_nhiem_vu:'ic-missions',ic_vo_tan:'ic-endless',ic_kho_bau:'ic-chest'})[k]);const m=v&&v.match(/url\(["']?([^"')]+)/);if(m)src=m[1];}catch{}}return src?`<img class="ic74" src="${src}" alt="">`:(fb||'');}
 const Nav74=(()=>{
  const $=s=>document.querySelector(s);
@@ -60,6 +60,7 @@ const Nav74=(()=>{
   wheel:{n:'VÒNG QUAY',ic:'🎡',c:'#ff2a6d',lk:()=>{try{return Econ74.wOpen();}catch{return false;}},lv:45,go:()=>{try{Econ74.wheel();}catch{}},dot:()=>{try{return Econ74.wOpen()&&Econ74.freeLeft()>0;}catch{return false;}}},
   overlimit:{n:'BOSS VƯỢT HẠN',ic:'☠',c:'#ff2a6d',lk:()=>{try{return O78.unlocked();}catch{return false;}},lv:90,go:()=>{try{O78.open();}catch{}},dot:()=>{try{return O78.unlocked()&&O78.left()>0;}catch{return false;}}},
   limited:{n:'PHÓ BẢN GIỚI HẠN',ic:'⏱',c:'#ff7b00',lk:()=>{try{return Econ74.lOpen();}catch{return false;}},lv:45,go:()=>{markDay('limited');try{Econ74.limited();}catch{}},dot:dailyOnce('limited',()=>{try{return Econ74.lOpen()&&Econ74.triesLeft()>0;}catch{return false;}})},
+  story:{n:'CỐT TRUYỆN',ic:'📜',c:'#ffb347',go:()=>{try{Story80.journal();}catch{}}},   // V307: nhật ký chiến dịch ra cột phải sảnh
   gifts:{n:'QUÀ',ic:'🎁',c:'#ff5d8f',go:()=>page('gifts'),dot:()=>ribDot('daily')||ribDot('ach')||ribDot('missions')}};
  const TABS=[
   {id:'home',n:'SẢNH',ic:'🏠'},
@@ -112,7 +113,7 @@ const Nav74=(()=>{
  // V75: nút "trang đầy đủ" của Hub40 mở màn cũ cuộn dọc (tính năng đã bỏ) → chặn; Hợp thể đầy đủ chuyển sang trang SSS mới
  document.addEventListener('click',e=>{const b=e.target.closest&&e.target.closest('#hub40 .hb-full[data-full]');if(!b)return;e.preventDefault();e.stopImmediatePropagation();const k=b.dataset.full;try{if(k==='gems'){tab('fleet');setTimeout(()=>subGo('sss'),60);}}catch{}},true);
  // ---------- sảnh: hàng trên + 2 trái + 2 phải theo giai đoạn ----------
- const STAGE={early:{L:['dungeon'],R:['daily','tower']},mid:{L:['patrol','market'],R:['daily','sss']},late:{L:['patrol','expedition'],R:['daily','ult']}};
+ const STAGE={early:{L:['dungeon'],R:['story','daily','tower']},mid:{L:['patrol','market'],R:['story','daily','sss']},late:{L:['patrol','expedition'],R:['story','daily','ult']}};// V307: thêm CỐT TRUYỆN
  let lastKey='';
  function lobby(){const r=$('#hgr41');if(!r)return;const st=r.querySelector('.h1-stage');if(!st)return;r.classList.add('n74lob');
   const rib=r.querySelector('.h1-ribbon');if(rib&&!rib.querySelector('[data-n74="gifts"]')){const g=document.createElement('button');g.type='button';g.className='h1-ic n74rib';g.dataset.n74='gifts';g.innerHTML=IC74('gifts','<b>🎁</b>')+'<small>QUÀ</small><em class="n74d" hidden></em>';rib.insertBefore(g,rib.firstChild);
@@ -126,7 +127,8 @@ const Nav74=(()=>{
   const key=ph+open_('expedition')+set.L.concat(set.R).map(id=>id+open_(id)+hasDot(id)).join();if(key===lastKey&&st.querySelector('.n74-l'))return;lastKey=key;
   let L=st.querySelector('.n74-l'),R=st.querySelector('.n74-r');if(!L){L=document.createElement('div');L.className='l74 l74-l n74-l';st.appendChild(L);R=document.createElement('div');R.className='l74 l74-r n74-r';st.appendChild(R);
    st.addEventListener('click',e=>{const b=e.target.closest('[data-n74s]');if(!b)return;e.stopPropagation();e.preventDefault();const f=F[b.dataset.n74s];f&&f.go();},true);}
-  L.innerHTML=set.L.map(id=>id==='market'&&window.V98!==false&&open_('expedition')?'expedition':id).map(t).join('');// V98 REVIEW97: đã mở Viễn chinh thì thay ô Chợ Đen (Chợ Đen có trong tab CỬA HÀNG)R.innerHTML=set.R.map(t).join('');
+  L.innerHTML=set.L.map(id=>id==='market'&&window.V98!==false&&open_('expedition')?'expedition':id).map(t).join('');// V98 REVIEW97: đã mở Viễn chinh thì thay ô Chợ Đen (Chợ Đen có trong tab CỬA HÀNG)
+  R.innerHTML=set.R.map(t).join('');// V307: dòng này trước đây nằm sau dấu // nên cột phải không bao giờ hiện
   // icon tài nguyên GPT 15a-2
   if(typeof ICON74!=='undefined')[['stone','res_da_nang_cap'],['coin','res_hop_kim'],['gem','res_loi']].forEach(([c,k])=>{const i=r.querySelector('.h1-res .h1-chip.'+c+' > i');if(i&&!i.dataset.ic74&&ICON74[k]){i.dataset.ic74=1;i.innerHTML=`<img class="ic74r" src="${ICON74[k]}" alt="">`;}});
   const gm=r.querySelector('.gem74');if(gm&&!gm.dataset.ic74&&typeof ICON74!=='undefined'&&ICON74.res_kim_cuong){gm.dataset.ic74=1;gm.innerHTML=`<img class="ic74r" src="${ICON74.res_kim_cuong}" alt=""> <b data-gem74>${(()=>{try{return Econ74.gems().toLocaleString('vi-VN');}catch{return 0;}})()}</b>`;}

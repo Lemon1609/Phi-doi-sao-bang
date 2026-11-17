@@ -6,6 +6,7 @@
 - **Luật cánh bung**: neon trong mờ / vệt sáng, mọc theo hình dáng tàu (không nhất thiết là cánh); rộng ~2–2,5 lần thân; nón 60° trước mũi trống; không vòng khép kín; đáy không quá y≈760/1024; mọi chi tiết phải sáng (vẽ cộng sáng, vùng tối biến mất); 13 tàu khác dáng khi che màu.
 - **Màu**: bậc Tím = màu riêng tàu; các bậc khác theo màu bậc (Thường bạc trắng, Lục, Lam, Tím+ hồng tím lõi trắng, SS vàng kim); trang bị phụ tỏa màu riêng lúc Bạo Tẩu.
 - **Vũ khí**: bảng `de_xuat_cho/GEMINI_V273_BANG_VU_KHI.md` (+ chỉnh của Claude: tàu 7 kiếm khí thẳng; nổ vòng → cung đứt đoạn). Hình: bộ Gemini `src/vu_khi295/` (34). Đạn to, 3 lớp sáng, đuôi dài như video gốc; cột Bạo Tẩu hạ sáng cho mọi tàu. Cơ chế nảy / đuổi / làm chậm / hút làm thật, đo và báo số trước.
+- **Thân Bạo Tẩu (chốt 17/11/2026, chủ dự án chọn phương án b)**: GPT vẽ lại thân Bạo Tẩu riêng cho từng tàu. Ba lớp tách riêng: thân thường · thân Bạo Tẩu · lớp hiệu ứng bung. Thân Bạo Tẩu ĐƯỢC biến đổi (mở bộ phận, khe sáng), rộng hơn thân thường +20…+35 %, giữ họ màu và điểm nhận diện; cấm kiểu mô-đun cơ khí / tay máy / khớp nối. Thay luật cũ "thân giữa trùng khít" ở mục 2. Prompt: `de_xuat_cho/GUI_GPT_V307_VE_LAI_THAN_BAO_TAU_TAU1.txt` (làm tàu 1 trước).
 - **Phân công**: Gemini và GPT vẽ (trắng/xám cho vũ khí), Claude tô màu, hiệu ứng, ghép, đo.
 
 Dùng làm căn cứ cho mọi mẫu mới: chiến cơ, trang bị, hợp thể, tàu địch, boss.
@@ -21,7 +22,7 @@ Dùng làm căn cứ cho mọi mẫu mới: chiến cơ, trang bị, hợp thể
 - Một điểm nhận diện ở thân, đọc được ở cỡ 64 px.
 - Nhìn thẳng từ trên xuống, mũi hướng lên, đối xứng.
 - Khung 512, cạnh dài 456 px, lề ≥ 24 px.
-- Bản Bạo Tẩu = chính bản thường + phần cứng mở ra, thân giữa trùng khít.
+- ~~Bản Bạo Tẩu = chính bản thường + phần cứng mở ra, thân giữa trùng khít.~~ (thay bằng luật 17/11/2026 ở đầu tệp: thân Bạo Tẩu GPT vẽ lại, được biến đổi)
 
 ## 3. Hiệu ứng bung (Bạo Tẩu)
 - Năng lượng trong mờ, cộng sáng; sáng nhất ở gốc, tan dần ra ngọn.
