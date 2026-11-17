@@ -94,7 +94,7 @@ const NC307=(()=>{
   <div class="nc307-bot"><button data-nc="adv" class="nc307-b2">TIẾN KHUNG</button><button data-nc="go" class="nc307-go" ${g&&r0.need?'':'disabled'}>NÂNG CẤP</button><button data-nc="x" class="nc307-b3">VỀ</button></div>
   ${msg?`<p class="nc307-m">${esc(msg)}</p>`:''}${flash?`<div class="nc307-ok" key="${Date.now()}">${esc(flash)}</div>`:''}
   ${warnAsk?(()=>{const r=sim(it,gainNow());return `<div class="nc307-ask"><div><p>Lượt nâng này vượt trần <b>Lv${r.cap}</b>, dư <b>${fmt(r.over)} XP</b> sẽ mất (không hoàn). Vẫn nâng?</p><label class="nc307-nw"><input type="checkbox"> Hôm nay không nhắc lại</label><button data-nc="wno">Hủy</button><button data-nc="wok">Tiếp tục nâng</button></div></div>`;})():''}
-  ${ask?`<div class="nc307-ask"><div><p>Trang bị ${esc(ask.why)} sẽ <b>biến mất vĩnh viễn</b>. Dùng làm nguyên liệu?</p><button data-nc="ok">Đồng ý</button><button data-nc="no">Thôi</button></div></div>`:''}
+  ${ask?`<div class="nc307-ask"><div><p>${/^bản sao/.test(ask.why)?'':'Trang bị '}${esc(ask.why.replace(/^bản sao/,'Bản sao'))} sẽ <b>biến mất vĩnh viễn</b>. Dùng làm nguyên liệu?</p><button data-nc="ok">Đồng ý</button><button data-nc="no">Thôi</button></div></div>`:''}
   ${el.dataset.list?sheetHtml(it,el.dataset.list):''}`;}
  let tab='all';
  const kname=k=>{if(k==='craft')return 'Chiến cơ';try{return Progress.kindName(k);}catch{return k;}};
