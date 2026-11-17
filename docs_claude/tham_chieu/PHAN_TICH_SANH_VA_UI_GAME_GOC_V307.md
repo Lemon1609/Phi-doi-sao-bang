@@ -44,3 +44,11 @@ Danh sách dòng cao: hạng (huy chương top 3 / số), avatar, tên, điểm 
 4. Thanh trên + nút quay lại cố định.
 5. Dữ liệu dạng số + icon, không đoạn văn.
 6. Chấm đỏ chỉ cho việc nhận được ngay.
+
+## 10. Bổ sung 17/11 (xem lại khung độ phân giải cao: nâng cấp trang bị, kho, bản đồ, chọn đồng đội)
+- Chi tiết một món trong game gốc KHÔNG có đoạn mô tả. Một dòng danh sách chỉ gồm: ảnh + sao, tên, "Lv x/y", 2 chỉ số (Công, % cộng điểm), 1 từ "đặc tính", ô chọn. Mô tả dài chỉ có ở hộp thoại riêng khi bấm vào ảnh.
+- Màn nâng cấp: ô trung tâm lớn đặt món + hàng 5 ô vật liệu + dòng "tiêu hao" + MỘT nút vàng "Nâng cấp"; nút phụ (Tiến cấp, Quay lại) xanh nhỏ nằm hai góc đáy. Màn tiến cấp: hai thẻ trước | sau, mỗi thẻ ảnh + tên + sao; dưới là bảng "chỉ số hiện tại → sau" từng dòng, số sau màu xanh lá.
+- Chọn món từ túi: popup danh sách dòng cao 1 dòng, thanh cuộn, tab loại ở đáy popup.
+- Bản đồ: chỉ nút số ải tròn, sao dưới nút, đường chấm; chương ghi chữ lớn mờ ở nền; không văn bản.
+- Chọn đồng đội: dòng cao có avatar, tên, "+% điểm" số to màu xanh lá/vàng, lực chiến; một nút "Xuất kích" vàng.
+- Quy tắc chung: số lớn + icon thay câu; tối đa 3 mức chữ (tiêu đề, giá trị, nhãn nhỏ); mọi ô có cùng cỡ và cùng khoảng cách.
