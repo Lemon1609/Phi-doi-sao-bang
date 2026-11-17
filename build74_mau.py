@@ -951,6 +951,7 @@ for _p in sorted(glob.glob('src/tranh307/*.png')+glob.glob('src/tranh307/*.jpg')
 print('tranh307:',sorted(_T307))
 rep("</body>","<script id=\"tranh307-art\">const TRANH307="+json.dumps(_T307)+";</script><style id=\"tranh307-css\">"+_ui306css(open('src/tranh307.css',encoding='utf-8').read())+"</style><script id=\"tranh307-js\">"+open('src/tranh307.js',encoding='utf-8').read()+"</script></body>")  # V307 tranh nửa trên
 rep("</body>","<style id=\"dd307-css\">"+_ui306css(open('src/dd307.css',encoding='utf-8').read())+"</style></body>")  # V307 điểm danh: ô ngày viền màu theo bậc
+rep("</body>","<style id=\"hb307-css\">"+open('src/hb307.css',encoding='utf-8').read()+"</style><script id=\"hb307-js\">"+open('src/hb307.js',encoding='utf-8').read()+"</script></body>")  # V307 chi tiết trang bị gọn
 rep("</body>","<style id=\"cot307-css\">"+_ui306css(open('src/cot307.css',encoding='utf-8').read())+"</style><script id=\"cot307-js\">"+open('src/cot307.js',encoding='utf-8').read()+"</script></body>")  # V307 sảnh: hàng ô vuông
 rep("</body>","<script id=\"hud307-js\">"+open('src/hud307.js',encoding='utf-8').read()+"</script></body>")  # V307 HUD: bật chữ nổi nhặt đồ
 open('Phi_Doi_Sao_Bang_V74_mau.html','w',encoding='utf-8').write(h);print(round(len(h)/1e6,2),'MB')
