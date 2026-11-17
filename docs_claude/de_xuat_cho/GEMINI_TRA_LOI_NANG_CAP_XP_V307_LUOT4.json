@@ -1,0 +1,400 @@
+{
+  "meta": {
+    "game": "Phi Đội Sao Băng",
+    "version": "V307_L4",
+    "note": "Giữ nguyên công thức XP cấp (50 + 6L), hoàn trả 85%, bảng XP gốc 12 khung và chi phí ◈ nâng cấp phi công từ Lượt 3. Loại bỏ hoàn toàn Đá nâng cấp ⬢."
+  },
+  "A_phan_loai_da_xp": [
+    {
+      "id": "xp_stone_1",
+      "cap": "I",
+      "ten": "Đá XP Sơ Cấp (I)",
+      "xp_moi_vien": 15,
+      "ty_le_quy_doi_so_voi_cap_1": 1,
+      "nguon_chinh": "Ải thường & Mini Boss (1–50), Nhiệm vụ ngày, Quy đổi lẻ"
+    },
+    {
+      "id": "xp_stone_2",
+      "cap": "II",
+      "ten": "Đá XP Trung Cấp (II)",
+      "xp_moi_vien": 60,
+      "ty_le_quy_doi_so_voi_cap_1": 4,
+      "nguon_chinh": "Ải thường & Boss (11–141+), Hầm ngục cấp thấp-trung"
+    },
+    {
+      "id": "xp_stone_3",
+      "cap": "III",
+      "ten": "Đá XP Cao Cấp (III)",
+      "xp_moi_vien": 240,
+      "ty_le_quy_doi_so_voi_cap_1": 16,
+      "nguon_chinh": "Boss từ ải 11+, Mini Boss từ ải 31+, Ải thường từ ải 51+, Hầm ngục"
+    },
+    {
+      "id": "xp_stone_4",
+      "cap": "IV",
+      "ten": "Đá XP Tinh Túy (IV)",
+      "xp_moi_vien": 1000,
+      "ty_le_quy_doi_so_voi_cap_1": 66.67,
+      "nguon_chinh": "Độc quyền tại Hầm ngục, Sự kiện tuần, Điểm danh, Mùa giải, Nhiệm vụ & Quà mốc (Không rơi ở ải chiến dịch)"
+    }
+  ],
+  "B_bang_roi_theo_dai_ai": [
+    {
+      "dai_ai": "1-10",
+      "xp_ky_vong_muc_tieu_ai_thuong": 300,
+      "ai_thuong": {
+        "vat_pham_roi": [
+          { "id": "xp_stone_1", "ten": "Đá XP I", "so_luong": "18-22 (TB 20)", "xac_suat": 1.0 }
+        ],
+        "xp_ky_vong": 300
+      },
+      "mini_boss": {
+        "vat_pham_roi": [
+          { "id": "xp_stone_1", "ten": "Đá XP I", "so_luong": "20-24 (TB 22)", "xac_suat": 1.0 },
+          { "id": "xp_stone_2", "ten": "Đá XP II", "so_luong": "1", "xac_suat": 0.5 }
+        ],
+        "xp_ky_vong": 360,
+        "chenh_lech_so_voi_ai_thuong": "+20.0%"
+      },
+      "boss": {
+        "vat_pham_roi": [
+          { "id": "xp_stone_1", "ten": "Đá XP I", "so_luong": "12-16 (TB 14)", "xac_suat": 1.0 },
+          { "id": "xp_stone_2", "ten": "Đá XP II", "so_luong": "3-4 (TB 3.5)", "xac_suat": 1.0 }
+        ],
+        "xp_ky_vong": 420,
+        "chenh_lech_so_voi_ai_thuong": "+40.0%"
+      }
+    },
+    {
+      "dai_ai": "11-30",
+      "xp_ky_vong_muc_tieu_ai_thuong": 488,
+      "ai_thuong": {
+        "vat_pham_roi": [
+          { "id": "xp_stone_1", "ten": "Đá XP I", "so_luong": "16-20 (TB 18)", "xac_suat": 1.0 },
+          { "id": "xp_stone_2", "ten": "Đá XP II", "so_luong": "4", "xac_suat": 0.91 }
+        ],
+        "xp_ky_vong": 488.4
+      },
+      "mini_boss": {
+        "vat_pham_roi": [
+          { "id": "xp_stone_1", "ten": "Đá XP I", "so_luong": "16-20 (TB 18)", "xac_suat": 1.0 },
+          { "id": "xp_stone_2", "ten": "Đá XP II", "so_luong": "5-6 (TB 5.5)", "xac_suat": 1.0 }
+        ],
+        "xp_ky_vong": 600,
+        "chenh_lech_so_voi_ai_thuong": "+22.9%"
+      },
+      "boss": {
+        "vat_pham_roi": [
+          { "id": "xp_stone_2", "ten": "Đá XP II", "so_luong": "8-10 (TB 9)", "xac_suat": 1.0 },
+          { "id": "xp_stone_3", "ten": "Đá XP III", "so_luong": "1", "xac_suat": 0.6 }
+        ],
+        "xp_ky_vong": 684,
+        "chenh_lech_so_voi_ai_thuong": "+40.0%"
+      }
+    },
+    {
+      "dai_ai": "31-50",
+      "xp_ky_vong_muc_tieu_ai_thuong": 630,
+      "ai_thuong": {
+        "vat_pham_roi": [
+          { "id": "xp_stone_1", "ten": "Đá XP I", "so_luong": "10-14 (TB 12)", "xac_suat": 1.0 },
+          { "id": "xp_stone_2", "ten": "Đá XP II", "so_luong": "7-8 (TB 7.5)", "xac_suat": 1.0 }
+        ],
+        "xp_ky_vong": 630
+      },
+      "mini_boss": {
+        "vat_pham_roi": [
+          { "id": "xp_stone_2", "ten": "Đá XP II", "so_luong": "8-10 (TB 9)", "xac_suat": 1.0 },
+          { "id": "xp_stone_3", "ten": "Đá XP III", "so_luong": "1", "xac_suat": 1.0 }
+        ],
+        "xp_ky_vong": 780,
+        "chenh_lech_so_voi_ai_thuong": "+23.8%"
+      },
+      "boss": {
+        "vat_pham_roi": [
+          { "id": "xp_stone_2", "ten": "Đá XP II", "so_luong": "7-9 (TB 8)", "xac_suat": 1.0 },
+          { "id": "xp_stone_3", "ten": "Đá XP III", "so_luong": "1-2 (TB 1.75)", "xac_suat": 1.0 }
+        ],
+        "xp_ky_vong": 900,
+        "chenh_lech_so_voi_ai_thuong": "+42.9%"
+      }
+    },
+    {
+      "dai_ai": "51-70",
+      "xp_ky_vong_muc_tieu_ai_thuong": 780,
+      "ai_thuong": {
+        "vat_pham_roi": [
+          { "id": "xp_stone_2", "ten": "Đá XP II", "so_luong": "8-10 (TB 9)", "xac_suat": 1.0 },
+          { "id": "xp_stone_3", "ten": "Đá XP III", "so_luong": "1", "xac_suat": 1.0 }
+        ],
+        "xp_ky_vong": 780
+      },
+      "mini_boss": {
+        "vat_pham_roi": [
+          { "id": "xp_stone_2", "ten": "Đá XP II", "so_luong": "9-11 (TB 10)", "xac_suat": 1.0 },
+          { "id": "xp_stone_3", "ten": "Đá XP III", "so_luong": "1-2 (TB 1.5)", "xac_suat": 1.0 }
+        ],
+        "xp_ky_vong": 960,
+        "chenh_lech_so_voi_ai_thuong": "+23.1%"
+      },
+      "boss": {
+        "vat_pham_roi": [
+          { "id": "xp_stone_2", "ten": "Đá XP II", "so_luong": "6-8 (TB 7)", "xac_suat": 1.0 },
+          { "id": "xp_stone_3", "ten": "Đá XP III", "so_luong": "2-4 (TB 3)", "xac_suat": 1.0 }
+        ],
+        "xp_ky_vong": 1140,
+        "chenh_lech_so_voi_ai_thuong": "+46.2%"
+      }
+    },
+    {
+      "dai_ai": "71-90",
+      "xp_ky_vong_muc_tieu_ai_thuong": 900,
+      "ai_thuong": {
+        "vat_pham_roi": [
+          { "id": "xp_stone_2", "ten": "Đá XP II", "so_luong": "6-8 (TB 7)", "xac_suat": 1.0 },
+          { "id": "xp_stone_3", "ten": "Đá XP III", "so_luong": "2", "xac_suat": 1.0 }
+        ],
+        "xp_ky_vong": 900
+      },
+      "mini_boss": {
+        "vat_pham_roi": [
+          { "id": "xp_stone_2", "ten": "Đá XP II", "so_luong": "6-8 (TB 7)", "xac_suat": 1.0 },
+          { "id": "xp_stone_3", "ten": "Đá XP III", "so_luong": "2-4 (TB 3)", "xac_suat": 1.0 }
+        ],
+        "xp_ky_vong": 1140,
+        "chenh_lech_so_voi_ai_thuong": "+26.7%"
+      },
+      "boss": {
+        "vat_pham_roi": [
+          { "id": "xp_stone_2", "ten": "Đá XP II", "so_luong": "4-6 (TB 5)", "xac_suat": 1.0 },
+          { "id": "xp_stone_3", "ten": "Đá XP III", "so_luong": "4-5 (TB 4.5)", "xac_suat": 1.0 }
+        ],
+        "xp_ky_vong": 1380,
+        "chenh_lech_so_voi_ai_thuong": "+53.3%"
+      }
+    },
+    {
+      "dai_ai": "91-115",
+      "xp_ky_vong_muc_tieu_ai_thuong": 1020,
+      "ai_thuong": {
+        "vat_pham_roi": [
+          { "id": "xp_stone_2", "ten": "Đá XP II", "so_luong": "4-6 (TB 5)", "xac_suat": 1.0 },
+          { "id": "xp_stone_3", "ten": "Đá XP III", "so_luong": "3", "xac_suat": 1.0 }
+        ],
+        "xp_ky_vong": 1020
+      },
+      "mini_boss": {
+        "vat_pham_roi": [
+          { "id": "xp_stone_2", "ten": "Đá XP II", "so_luong": "3-5 (TB 4)", "xac_suat": 1.0 },
+          { "id": "xp_stone_3", "ten": "Đá XP III", "so_luong": "4-5 (TB 4.5)", "xac_suat": 1.0 }
+        ],
+        "xp_ky_vong": 1320,
+        "chenh_lech_so_voi_ai_thuong": "+29.4%"
+      },
+      "boss": {
+        "vat_pham_roi": [
+          { "id": "xp_stone_3", "ten": "Đá XP III", "so_luong": "6-7 (TB 6.5)", "xac_suat": 1.0 }
+        ],
+        "xp_ky_vong": 1560,
+        "chenh_lech_so_voi_ai_thuong": "+52.9%"
+      }
+    },
+    {
+      "dai_ai": "116-140",
+      "xp_ky_vong_muc_tieu_ai_thuong": 1485,
+      "ai_thuong": {
+        "vat_pham_roi": [
+          { "id": "xp_stone_2", "ten": "Đá XP II", "so_luong": "4-5 (TB 4.5)", "xac_suat": 1.0 },
+          { "id": "xp_stone_3", "ten": "Đá XP III", "so_luong": "5", "xac_suat": 1.0 },
+          { "id": "xp_stone_3", "ten": "Đá XP III (Thưởng thêm)", "so_luong": "1", "xac_suat": 0.0625 }
+        ],
+        "xp_ky_vong": 1485
+      },
+      "mini_boss": {
+        "vat_pham_roi": [
+          { "id": "xp_stone_2", "ten": "Đá XP II", "so_luong": "3-4 (TB 3.5)", "xac_suat": 1.0 },
+          { "id": "xp_stone_3", "ten": "Đá XP III", "so_luong": "7-8 (TB 7.5)", "xac_suat": 1.0 }
+        ],
+        "xp_ky_vong": 2010,
+        "chenh_lech_so_voi_ai_thuong": "+35.4%"
+      },
+      "boss": {
+        "vat_pham_roi": [
+          { "id": "xp_stone_3", "ten": "Đá XP III", "so_luong": "9-11 (TB 10)", "xac_suat": 1.0 }
+        ],
+        "xp_ky_vong": 2400,
+        "chenh_lech_so_voi_ai_thuong": "+61.6%"
+      }
+    },
+    {
+      "dai_ai": "141+",
+      "xp_ky_vong_muc_tieu_ai_thuong": 1650,
+      "ai_thuong": {
+        "vat_pham_roi": [
+          { "id": "xp_stone_2", "ten": "Đá XP II", "so_luong": "3-4 (TB 3.5)", "xac_suat": 1.0 },
+          { "id": "xp_stone_3", "ten": "Đá XP III", "so_luong": "6", "xac_suat": 1.0 }
+        ],
+        "xp_ky_vong": 1650
+      },
+      "mini_boss": {
+        "vat_pham_roi": [
+          { "id": "xp_stone_3", "ten": "Đá XP III", "so_luong": "9-10 (TB 9.5)", "xac_suat": 1.0 }
+        ],
+        "xp_ky_vong": 2280,
+        "chenh_lech_so_voi_ai_thuong": "+38.2%"
+      },
+      "boss": {
+        "vat_pham_roi": [
+          { "id": "xp_stone_3", "ten": "Đá XP III", "so_luong": "11-12 (TB 11.5)", "xac_suat": 1.0 }
+        ],
+        "xp_ky_vong": 2760,
+        "chenh_lech_so_voi_ai_thuong": "+67.3%"
+      }
+    }
+  ],
+  "C_nguon_da_xp_cap_4": {
+    "ham_nguc_pho_ban_xp": [
+      { "cap_do_kho": "Tầng 1 - Dễ", "so_luong_da_iv": 1, "xp_tu_da_iv": 1000, "kem_theo": "8 Đá XP II" },
+      { "cap_do_kho": "Tầng 2 - Thường", "so_luong_da_iv": 2, "xp_tu_da_iv": 2000, "kem_theo": "4 Đá XP III" },
+      { "cap_do_kho": "Tầng 3 - Khó", "so_luong_da_iv": 4, "xp_tu_da_iv": 4000, "kem_theo": "6 Đá XP III" },
+      { "cap_do_kho": "Tầng 4 - Ác Mộng", "so_luong_da_iv": 6, "xp_tu_da_iv": 6000, "kem_theo": "8 Đá XP III" },
+      { "cap_do_kho": "Tầng 5 - Địa Ngục", "so_luong_da_iv": 10, "xp_tu_da_iv": 10000, "kem_theo": "12 Đá XP III" }
+    ],
+    "su_kien_tuan": {
+      "moc_tich_luy_diem": "10 viên/tuần (chia 3 mốc: 2 + 3 + 5 viên)",
+      "cua_hang_doi_huy_hieu_su_kien": "Tối đa 15 viên/tuần"
+    },
+    "diem_danh": {
+      "diem_danh_tan_thu_7_ngay": { "ngay_3": 2, "ngay_7": 5, "tong": 7 },
+      "diem_danh_thang_30_ngay": { "ngay_7": 2, "ngay_14": 3, "ngay_21": 4, "ngay_28": 6, "tong": 15 }
+    },
+    "mua_giai_28_ngay": {
+      "battle_pass_mien_phi": "12 viên/mùa (rải tại mốc Lv.10, 20, 30, 40, 50)",
+      "battle_pass_vip": "Thêm 28 viên/mùa (Tổng 40 viên/mùa khi mở khóa VIP)",
+      "thuong_tong_ket_xep_hang": {
+        "Dong": 2,
+        "Bac": 4,
+        "Vang": 6,
+        "Bach_Kim": 10,
+        "Kim_Cuong": 15,
+        "Huyen_Thoai": 25
+      }
+    },
+    "nhiem_vu_va_qua": {
+      "ruong_100_diem_nhiem_vu_ngay": "1 viên/ngày (7 viên/tuần)",
+      "ruong_100_diem_nhiem_vu_tuan": "5 viên/tuần",
+      "qua_vuot_ai_lan_dau_moc_boss_lon": "2–5 viên tại các mốc ải 20, 40, 60, 80, 100, 120, 140"
+    }
+  },
+  "D_quy_doi_bo_da_nang_cap_cu": {
+    "he_so_quy_doi": {
+      "1_da_nang_cap_cu_sang_hop_kim": 15,
+      "1_da_nang_cap_cu_sang_xp": 15
+    },
+    "quy_doi_chi_phi_sang_hop_kim": {
+      "tien_khung_V70_cong_them_vao_hop_kim_san_co": {
+        "chien_co": {
+          "Luc": { "da_cu": 40, "hop_kim_cong_them": 600 },
+          "Lam": { "da_cu": 80, "hop_kim_cong_them": 1200 },
+          "Tim": { "da_cu": 150, "hop_kim_cong_them": 2250 }
+        },
+        "trang_bi": {
+          "Luc": { "da_cu": 25, "hop_kim_chinh_xac": 375, "hop_kim_cong_them_lam_tron": 380 },
+          "Lam": { "da_cu": 60, "hop_kim_cong_them": 900 },
+          "Tim": { "da_cu": 110, "hop_kim_cong_them": 1650 }
+        }
+      },
+      "nang_cap_ban_sao_Evo82": {
+        "nang_cap_moi_level": {
+          "cong_thuc_cu": "ceil(lv / 13) đá + 19 * lv ◈",
+          "cong_thuc_moi": "15 * ceil(lv / 13) + 19 * lv ◈"
+        },
+        "nang_khung_ban_sao": "hop_kim_moi = hop_kim_cu + (so_da_khung_ban_sao_cu * 15)"
+      },
+      "cay_tiem_nang_phi_cong": {
+        "nut_bac_1": { "cu": "25 * l đá", "moi": "375 * l ◈" },
+        "nut_bac_2": { "cu": "40 * l đá", "moi": "600 * l ◈" },
+        "nut_bac_3": { "cu": "60 * l đá", "moi": "900 * l ◈" },
+        "nut_cuoi": { "cu": "500 đá", "moi": "7.500 ◈" }
+      },
+      "vu_khi_toi_thuong_ult72": {
+        "quy_tac": "hop_kim_moi = hop_kim_cu + (so_da_cu * 15), làm tròn bội số 10 gần nhất",
+        "vi_du_moc_tieu_bieu": {
+          "30_da": "+450 ◈",
+          "60_da": "+900 ◈",
+          "120_da": "+1.800 ◈",
+          "200_da": "+3.000 ◈"
+        }
+      },
+      "cua_hang_trao_doi_trade67": {
+        "vat_pham_mua_bang_da_cu": "Chuyển sang giá ◈ = so_da_cu * 15 (làm tròn bội số 10)",
+        "o_ban_da_cu_chuyen_thanh_goi_da_xp": [
+          { "goi": "10 Đá XP I (150 XP)", "gia_hop_kim": 150 },
+          { "goi": "5 Đá XP II (300 XP)", "gia_hop_kim": 300 },
+          { "goi": "3 Đá XP III (720 XP)", "gia_hop_kim": 720 }
+        ]
+      }
+    },
+    "quy_doi_phan_thuong_da_cu_sang_da_xp": {
+      "nguyen_tac": "Tong_XP_moi = So_da_cu * 15, quy sang loại Đá XP tương ứng giai đoạn mở khóa",
+      "nhiem_vu_va_qua_tan_thu_chuong_1_10": "1 Đá ⬢ cũ -> 1 Đá XP I (15 XP)",
+      "ai_chuong_10_va_moc_trung_cap_11_50": "4 Đá ⬢ cũ -> 1 Đá XP II (60 XP)",
+      "ham_nguc_va_mua_giai_moc_cao": "16 Đá ⬢ cũ -> 1 Đá XP III (240 XP); mốc đỉnh mùa giải/hầm ngục khó quy sang Đá XP IV (1.000 XP)"
+    },
+    "danh_gia_kinh_te_hop_kim_roi_o_ai": {
+      "hien_trang_do_duoc": {
+        "cong_thuc_hien_tai": "≈ 50 + 3.3 * so_ai",
+        "cac_moc": {
+          "ai_2_3": "56-59 ◈",
+          "ai_25": "132 ◈",
+          "ai_45": "198 ◈",
+          "ai_65": "264 ◈",
+          "ai_85": "330 ◈",
+          "ai_105": "396 ◈",
+          "ai_125_140": "462-512 ◈"
+        }
+      },
+      "ket_luan": "KHÔNG ĐỦ — CẦN TĂNG +25% ĐẾN +30%",
+      "ly_do": "Trước đây Đá ⬢ rơi song song đóng góp ~35–45% giá trị tài nguyên nâng bậc/tiến hóa. Khi dồn toàn bộ Tiến khung (+2.250 ◈ khung Tím), Evo82, Cây tiềm năng phi công (7.500 ◈ nút cuối), Ult72 và Trade67 sang ◈ mà giữ nguyên mức rơi cũ, người chơi sẽ bị kẹt cứng tài nguyên ở giai đoạn ải 30–90.",
+      "de_xuat_dieu_chinh": {
+        "cong_thuc_moi": "65 + 4.2 * so_ai (tăng ~27% đều trên toàn tuyến)",
+        "muc_roi_sau_tang": {
+          "ai_2_3": "73-78 ◈",
+          "ai_25": "170 ◈",
+          "ai_45": "254 ◈",
+          "ai_65": "338 ◈",
+          "ai_85": "422 ◈",
+          "ai_105": "506 ◈",
+          "ai_125_140": "590-653 ◈"
+        }
+      }
+    },
+    "quy_doi_ton_kho_cu_khi_bao_tri": {
+      "cong_thuc_bao_toan_xp": "Tong_XP = So_Da_Cu * 15",
+      "thuat_toan_chia_loai": [
+        "Bước 1: n_IV = floor(Tong_XP / 1000) -> nhận Đá XP IV (1.000 XP)",
+        "Bước 2: du_1 = Tong_XP % 1000; n_III = floor(du_1 / 240) -> nhận Đá XP III (240 XP)",
+        "Bước 3: du_2 = du_1 % 240; n_II = floor(du_2 / 60) -> nhận Đá XP II (60 XP)",
+        "Bước 4: du_3 = du_2 % 60; n_I = ceil(du_3 / 15) -> nhận Đá XP I (15 XP, làm tròn lên để người chơi không bao giờ bị thiệt XP)"
+      ],
+      "vi_du_minh_hoa": [
+        {
+          "ton_kho_cu": "20 Đá ⬢",
+          "tong_xp": 300,
+          "nhan_duoc": "5 Đá XP II (300 XP)"
+        },
+        {
+          "ton_kho_cu": "100 Đá ⬢",
+          "tong_xp": 1500,
+          "nhan_duoc": "1 Đá XP IV (1.000 XP) + 2 Đá XP III (480 XP) + 2 Đá XP I (30 XP) = 1.510 XP"
+        },
+        {
+          "ton_kho_cu": "550 Đá ⬢",
+          "tong_xp": 8250,
+          "nhan_duoc": "8 Đá XP IV (8.000 XP) + 1 Đá XP III (240 XP) + 1 Đá XP I (15 XP) = 8.255 XP"
+        }
+      ]
+    }
+  }
+}
+
