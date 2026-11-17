@@ -1,0 +1,11 @@
+GỬI GPT · V307 · VẼ LẠI TÀU 2 VÀ TÀU 3 (dán tiếp trong cùng cuộc trò chuyện, sau khi dán bản 4)
+
+Hai ảnh vừa rồi chưa đạt, mình trả về. Lý do (mình đã đo):
+1. Cả hai tàu tiến hóa giống tàu 1: bậc 5–6 xòe quạt lá kim chéo + 2 mảnh kim cương dưới đuôi. Hai tàu ở bậc 6 nhìn như một.
+2. Bậc 4 hẹp hơn bậc 3 (tàu 2: 273 so với 317 px; tàu 3: 245 so với 344 px). Bậc 1–3 phải nằm gọn trong hình bao bậc 4.
+3. Tàu 2 mất màu gốc vàng-nâu/ngà, cả 6 bậc thành bạc trắng.
+
+Hãy vẽ lại theo đúng bảng mục 3 của bản 4:
+- Tàu 2: hình bao CHỮ NHẬT ĐỨNG. Tiến hóa bằng số thanh ray (2 → 4 → 6) và tấm pin bung thành buồm pha lê DỌC theo ray. Không có bộ phận nào xòe chéo. Thân màu vàng-nâu/ngà.
+- Tàu 3: hình bao CHỮ X / BÔNG TUYẾT. Tiến hóa bằng 4 cánh X dài ra, mọc tinh thể băng, rồi tách thành 8 nhánh bông tuyết. Giữa các nhánh phải có khoảng trống nền đen.
+Mỗi tàu một ảnh, 1 hàng 6 ô như cũ.

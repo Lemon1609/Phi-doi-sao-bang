@@ -1,0 +1,36 @@
+GỬI GPT · V307 · 13 CHIẾN CƠ × 6 BẬC · BẢN 4: MỖI TÀU MỘT KIỂU TIẾN HÓA RIÊNG
+(dán nguyên văn, thay cho bản trước; đính kèm ảnh bậc Tím của đúng tàu đó trong V307_TAU_THAM_CHIEU.zip; KHÔNG đính kèm ảnh tàu khác)
+
+Chào GPT. Bản trước có lỗi lớn: tàu 2 và tàu 3 tiến hóa giống hệt tàu 1. Bậc 2–3 đều thêm cánh chéo có sọc màu; bậc 5–6 đều xòe một quạt "lá kim" xếp tầng chéo hai bên và có 2 mảnh kim cương lơ lửng dưới đuôi. Nhìn 3 tàu ở bậc 6 thấy cùng một dáng. Lần này mỗi tàu phải có CÁCH LỚN LÊN RIÊNG, theo đúng bảng ở mục 3.
+
+1) CẤM (áp dụng cho mọi tàu trừ tàu 1)
+- Cấm quạt các phiến/lá kim song song xếp tầng chéo hai bên thân (đó là dấu hiệu riêng của tàu 1).
+- Cấm 2 mảnh kim cương / thoi lơ lửng dưới đuôi.
+- Cấm "bậc cao = bậc thấp + thêm cánh xòe chéo". Bộ phận thêm vào phải là bộ phận RIÊNG của tàu đó (mục 3).
+- Cấm đổi họ màu thân: thân giữ bảng màu gốc của tàu (ví dụ tàu 2 vàng-nâu/ngà, không phải bạc trắng). Chỉ MÀU NHẤN đổi theo bậc: 1 bạc trắng · 2 lục · 3 lam · 4 tím (giữ như ảnh tham chiếu) · 5 hồng-tím lõi trắng · 6 vàng kim + trắng.
+
+2) KÍCH THƯỚC (sẽ đo lại)
+- Bề rộng VÀ diện tích tăng dần nghiêm ngặt: bậc 1 < 2 < 3 < 4 < 5 < 6. Bậc 4 = ảnh tham chiếu, giữ đúng cỡ.
+- Bậc 1–3 phải nằm GỌN TRONG hình bao của bậc 4 (là bản rút gọn của bậc 4). Bản trước bậc 3 rộng hơn bậc 4: sai.
+- Bậc 5 rộng hơn bậc 4 khoảng 10–20 %, bậc 6 rộng hơn bậc 4 khoảng 25–40 %.
+- Hình bao ở bậc 6 phải đúng "HÌNH BAO" ghi trong bảng: nếu tô đen 13 tàu bậc 6 thì phải phân biệt được cả 13.
+
+3) BẢNG TIẾN HÓA RIÊNG (chủ đề khớp với hiệu ứng Bạo Tẩu đã chốt của từng tàu)
+Tàu 1 · Nộ Hỏa Phượng Hoàng: đã xong, không vẽ.
+Tàu 2 · Cực Quang Ảo Ảnh (vàng-nâu/ngà, 2 thanh ray dọc hứng gió mặt trời). HÌNH BAO: chữ nhật ĐỨNG, cao hơn rộng, mọi bộ phận song song trục dọc. Lớn lên: b1 hai ray ngắn sát thân · b2 ray dài hơn, giữa ray có tấm pin mặt trời hẹp gập · b3 thêm cặp ray ngoài ngắn hơn (4 ray) · b4 tham chiếu · b5 tấm pin bung thành 2 "buồm pha lê" dọc theo ray (thẳng đứng, không xòe chéo), ray phát sáng · b6 6 ray như dây đàn hạc, buồm pha lê có gai ngắn dọc mép ngoài, ray giữa vươn cao hơn mũi.
+Tàu 3 · X-Dực Băng Hà (bạc-xanh băng, cánh chữ X, lõi sao chổi băng). HÌNH BAO: chữ X / bông tuyết, 4 nhánh chéo 45° tỏa từ tâm, có KHOẢNG TRỐNG nền đen giữa các nhánh. Lớn lên: b1 X nhỏ cánh ngắn · b2 4 cánh X dài ra, rãnh băng trên cánh · b3 đầu mỗi cánh mọc tinh thể băng nhọn · b4 tham chiếu · b5 mỗi cánh X tách đôi thành 8 nhánh như bông tuyết, lõi sao chổi lớn hơn có đuôi băng ngắn · b6 bông tuyết 8 nhánh có nhánh phụ gai băng, viền vàng kim.
+Tàu 4 · Thần Ma Dị Hình (đỏ-bạc, 4 mắt, giáp xương). HÌNH BAO: CÀNG CUA / VUỐT hướng lên trước mũi. Lớn lên: mắt năng lượng 2→2→4→4→6→6; xương sườn ôm thân dày dần; b5 thêm một cặp vuốt cong hình trăng khuyết ôm về phía trước mũi; b6 hai cặp vuốt trăng khuyết lớn, đầu vuốt gần chạm nhau trước mũi (không khép kín).
+Tàu 5 · Trí Tuệ Thự Quang (trắng-ngà, vương miện gai chứa lăng kính). HÌNH BAO: BÁN NGUYỆT phía trước (như mặt trời mọc), đuôi hẹp. Lớn lên: vương miện gai ở mũi lớn dần và tỏa thành hào quang hình quạt phía TRÊN-TRƯỚC; số lăng kính 1→1→3→3→5→7; b6 hào quang nhiều tia ngắn đều như bình minh.
+Tàu 6 · Siêu Nghiệm U Linh (xám-xanh đen, tàng hình, mũi dao, cánh gấp lệch). HÌNH BAO: MŨI TÊN PHẲNG tam giác, mép răng cưa vuông như điểm ảnh. Lớn lên: cánh tam giác phẳng góc cạnh rộng dần; b5 mép cánh vỡ thành các ô vuông "nhiễu số" tách nhẹ khỏi cánh; b6 nhiều ô vuông bậc thang, một bên cánh lệch dài hơn chút (đối xứng gần đúng).
+Tàu 7 · Ma Vương Đao Phong (xanh lục-đen thép, lưỡi giáp như kiếm, dáng càng). HÌNH BAO: NHIỀU MŨI NHỌN CHĨA THẲNG LÊN TRƯỚC như giá kiếm. Lớn lên: số lưỡi kiếm thẳng song song chĩa về trước 2→2→4→4→6→6; b6 thêm hai thanh đại đao dài hai bên thân, mũi đao vượt mũi tàu.
+Tàu 8 · Phần Thiên Chiến Chuẩn (cam-đỏ, chim săn mồi, cờ hiệu, lò nhiệt áp). HÌNH BAO: CÁNH CỤP VỀ SAU như chim ưng lao xuống. Lớn lên: cánh xương có màng giữa các xương (kiểu cánh dơi lửa) dài dần về phía sau; lò nhiệt ở lưng lớn và đỏ rực dần; b6 cờ hiệu lửa ở hai đầu cánh.
+Tàu 9 · Thiên Khung Lược Ảnh (trắng-xanh, mái vòm pha lê, 2 đĩa radar trên vai). HÌNH BAO: HAI ĐĨA TRÒN lớn hai bên vai. Lớn lên: đĩa radar to dần; b3 thêm ăng-ten; b5 mỗi đĩa có thêm cung quét radar mảnh bên ngoài (cung hở, không vòng kín); b6 đĩa đôi lồng nhau + ăng-ten vàng.
+Tàu 10 · Tinh Hà Thủ Vọng (hồng-tím nhạt, mắt chỉ huy hồng, ba tàu con). HÌNH BAO: TÀU MẸ + CÁC TÀU CON RỜI xếp hình tam giác. Lớn lên: số tàu con 0→1→2→3→3 (to hơn)→5; giáp tàu mẹ có hoa văn lục giác đậm dần; tàu con nối với mẹ bằng tia sáng mảnh.
+Tàu 11 · Thôn Tinh Chiến Cơ (tím đen, hố đen nhân tạo trong vòng từ trường). HÌNH BAO: TRÒN XOẮN. Lớn lên: lõi hố đen lớn dần; các cung từ trường quanh lõi từ 1 cung ngắn → nhiều cung xoáy lệch tâm như thiên hà xoắn (cung hở, có khe); giáp thân uốn theo chiều xoáy.
+Tàu 12 · Thời Không Lữ Khách (cam-bạc, bộ máy đồng hồ, bánh răng). HÌNH BAO: CÁC VÒNG BÁNH RĂNG ở hai bên thân. Lớn lên: số bánh răng lộ ra 0→2→2→4→4→6, to dần; b5 bánh răng lớn có kim chỉ; b6 hai mặt số đồng hồ lớn ở hai bên, viền vàng.
+Tàu 13 · Hư Không Đế Vương (đen gương + vàng, mạnh nhất, giáp gương, lõi hư không). HÌNH BAO: HAI LƯỠI LIỀM CONG LỚN hướng xuống hai bên. Lớn lên: hai lưỡi hái cong ở hai bên dài và cong dần; b5 lưỡi có rãnh sáng tím như sét; b6 lưỡi hái đôi mỗi bên, giáp gương phản chiếu, viền vàng dày.
+
+4) GIỮ NHƯ CŨ
+Nhìn thẳng từ trên xuống, mũi hướng lên, đối xứng; giáp bóng như sơn kim loại, màu bão hòa, điểm sáng trắng; mảng giáp dày, mép sắc, đọc được ở 64–140 px; không gai mảnh như sợi chỉ; không lửa, không tia ngoài thân, không chữ. Trình bày 1 hàng 6 ô, nhãn 1–6, nền đen thuần, mỗi ô cùng tâm.
+
+5) TRẢ VỀ: tauN_6bac.png. Cuối câu trả lời ghi 3 dòng: (a) mỗi bậc đã thêm bộ phận nào (theo bảng mục 3), (b) bề rộng ước tính bậc 1–6 so với bậc 4 (%), (c) chỗ nào bạn đoán.
