@@ -19,7 +19,7 @@ Luật phong cách chi tiết + nhật ký quyết định: `docs_claude/CHUAN_P
 - Tăng số lượng đạn theo bậc giữ nguyên tổng sát thương, trừ khi chủ dự án quyết khác.
 
 ## Dựng và kiểm tra
-- Repo: `/home/claude/nguon_push`, nhánh `nguon-v212` (push origin sau mỗi mốc).
+- Repo: `/home/claude/phi-doi-sao-bang`, nhánh `nguon-v212` (push origin sau mỗi mốc).
 - Dựng: `python3 build74_mau.py` → `Phi_Doi_Sao_Bang_V74_mau.html` (gốc phát hành, dùng để kiểm tra). Thêm `BAN_THU=1` để dựng cả `Phi_Doi_Sao_Bang_THU.html` (bản thử có thu100) — bắt buộc khi xuất bản. Cả hai bị .gitignore.
   - Mô-đun chèn bằng `rep(a,b)` (khẳng định đúng số lần xuất hiện); chèn mới đặt trước dòng `open('Phi_Doi_Sao_Bang_V74_mau.html','w'...)`.
 - Kiểm tra hồi quy: `python3 tests/t156.py <html tuyệt đối> <thư mục>` (14/14) và `python3 tests/t209_on_dinh.py <html>` (chạy t209 tối đa 3 lần, in mọi lần trượt).
@@ -56,3 +56,4 @@ Luật phong cách chi tiết + nhật ký quyết định: `docs_claude/CHUAN_P
 - Giao diện neon (V305–V306): bộ ảnh `src/ui306n/` + `src/ui306.css`, ghi đè CSS cũ bằng id lặp (`#cmap#cmap#cmap`) hoặc ≥26 `:not(#_u79)`. Mô-đun JS nhỏ chèn trước dòng `ui306-css` trong `build74_mau.py`: `icon306`, `bw306`, `uisnd306`, `stars306`, `x2_306`, `opt306`, `card306`, `reward306`, `tier306`, `bar306`.
 - t209 mục "Đang Bạo Tẩu: phá chướng ngại +0,7 s" hay trượt (đo 16/11: có lần trượt cả 3 lượt đầu rồi đạt 20/20 khi chạy lại; chưa rõ nguyên nhân). Cách chụp màn kết quả: campaign → `end(true)`, ẩn `lk90/cmap/nav74/.m63/#super-buff`.
 - Chưa nối khung neon: hộp thoại `adv69/pl67/tr67/sk69`; phần còn lại bộ biểu tượng.
+- **Nâng cấp XP V307 (17/11)**: `src/nc307.js/.css` màn nâng cấp trang bị mới (thẻ món, bảng hiện tại→sau, 5 ô vật liệu = trang bị khác mất hẳn, Đá XP, TỰ CHỌN, nút vàng; chọn món/vật liệu bằng bảng kéo lên, mỗi món 1 hàng). Số trong `NC307CFG` (Gemini lượt 2–3: XP cấp 50+6L, hoàn 85 %, Đá XP Nhỏ tạm = đá cũ 15 XP). Tắt `window.NC307=false`. Tiến khung giữ quy tắc cũ (cùng mẫu). Chưa làm: bảng rơi Đá XP, chiến cơ XP, phi công ◈ (tin Gemini `de_xuat_cho/GEMINI_TRA_LOI_NANG_CAP_XP_V307_LUOT3.md`). `src/max307.js`: mẫu đã Tím+5 không rơi bản sao nữa (đổi mẫu khác, hết mẫu → Đá XP); tắt `window.MAX307=false`.
