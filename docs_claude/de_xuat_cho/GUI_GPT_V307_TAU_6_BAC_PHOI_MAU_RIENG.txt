@@ -1,0 +1,29 @@
+GỬI GPT · V307 · PHỐI MÀU RIÊNG TỪNG TÀU + LÀM TÀU BẮT MẮT HƠN (dán tiếp; GIỮ dáng và tỉ lệ bản vừa rồi, đã tốt hơn)
+
+Vấn đề còn lại (chủ dự án): "các tàu giống y chang màu nhau từng bậc", "phong cách chưa đủ hấp dẫn, bắt mắt". Mình đo sắc màu chủ đạo: tàu 2 và tàu 3 cùng bậc chỉ lệch 0–17° (bậc 4 lệch 0°, bậc 3 lệch 5°, bậc 6 lệch 6°). Lỗi do tin trước của mình bắt mọi tàu dùng chung một bảng màu bậc. Bỏ cách đó, làm như sau.
+
+1) HAI LỚP TÍN HIỆU MÀU
+- PHẨM CẤP (giống nhau ở mọi tàu, để người chơi đọc bậc): màu ÁNH SÁNG của lõi / ngọc / đèn / mạch năng lượng (10–15 % diện tích): 1 trắng · 2 lục · 3 lam · 4 tím · 5 hồng-tím · 6 vàng. Kèm độ cao cấp vật liệu tăng dần: bậc 1 sơn mờ → bậc 3 kim loại bóng → bậc 5 kim loại + pha lê → bậc 6 ngọc trai / bạch kim + viền vàng kim mảnh.
+- MÀU THÂN (riêng từng tàu, đổi qua 6 bậc trong họ màu của tàu đó, KHÔNG dùng bảng chung):
+  Tàu 2 · Cực Quang Ảo Ảnh (chủ đề cực quang trên nền ngà):
+   b1 ngà xám mờ + xanh ngọc nhạt · b2 ngà + xanh lục cực quang · b3 ngà vàng + xanh ngọc-lam (teal) · b4 ngà ánh kim + teal + dải tím cực quang mảnh · b5 đen ngọc trai + dải cực quang lục-tím chạy dọc buồm · b6 trắng ngọc trai + vàng kim + buồm pha lê có dải cực quang 3 màu (lục · teal · tím).
+  Tàu 3 · X-Dực Băng Hà (chủ đề băng tuyết):
+   b1 xám bạc mờ + xanh băng nhạt · b2 trắng bạc + xanh băng · b3 bạc + lam băng đậm · b4 trắng tuyết + lam thẫm + tinh thể cyan · b5 lam đêm gần đen + cyan sáng + bạc · b6 trắng pha lê + cyan + viền bạch kim / vàng nhạt, cánh băng trong suốt.
+  (Tàu khác sẽ có bảng riêng ở mục 4.)
+- Kết quả cần đạt: đặt tàu 2 và tàu 3 cạnh nhau ở CÙNG bậc phải khác màu rõ ràng; trong cùng một tàu, 6 bậc vẫn đổi màu thân rõ.
+
+2) LÀM TÀU BẮT MẮT (học cách game bắn máy bay thương mại làm, không chép tàu nào)
+- Tương phản sáng-tối mạnh: mảng giáp tối sâu xen mép sáng lóa; điểm phản sáng trắng (specular) trên gờ giáp; ánh sáng từ trên-trái, có đổ bóng trong để tàu có khối, không phẳng như icon.
+- 2–4 MẠCH NĂNG LƯỢNG phát sáng chạy theo đường cong thân, nối về lõi; lõi có quầng sáng.
+- Bộ phận năng lượng / pha lê BÁN TRONG SUỐT (buồm tàu 2, cánh băng tàu 3) có độ sáng chuyển từ gốc ra ngọn, có vân bên trong.
+- Viền rim-light mảnh màu phẩm cấp quanh hình bao tàu (rõ hơn ở bậc cao).
+- Chi tiết tầng lớp có độ dày (giáp chồng, rãnh, đinh tán nhỏ) nhưng mảng lớn vẫn rõ, đọc được ở 64 px.
+- Độ sáng trung bình thân ≥ 0,6 và bão hòa ≥ 0,45 (thang 0–1); không xám bùn, không tối mờ.
+
+3) GIỚI HẠN: mỗi bậc tối đa 3 màu thân + màu ánh sáng phẩm cấp; không cầu vồng loạn (trừ dải cực quang có chủ đích của tàu 2 bậc 5–6); không lòe loẹt vì game còn hệ skin sau này.
+
+4) HỌ MÀU THÂN CHO CÁC TÀU SAU (để không trùng nhau; mỗi tàu tự biến thiên 6 bậc trong họ này)
+ 1 tím + vàng lửa · 2 ngà + cực quang lục-teal · 3 trắng bạc + băng xanh · 4 đỏ máu + bạc xương · 5 trắng ngà + vàng hồng bình minh · 6 xám xanh đen + cyan nhiễu số · 7 lục thép đen + vàng chanh · 8 cam đỏ + vàng than hồng · 9 trắng + lam radar · 10 hồng-tím nhạt + bạc · 11 tím đen + hồng hố đen · 12 cam đồng + bạc đồng hồ · 13 đen gương + vàng kim.
+
+Vẽ lại tàu 2 rồi tàu 3, mỗi tàu 1 ảnh 6 ô như cũ, giữ dáng / tỉ lệ bản vừa rồi. Cuối câu trả lời ghi: mỗi bậc màu thân và màu ánh sáng phẩm cấp.
+Mình sẽ đo: sắc màu chủ đạo tàu 2 so với tàu 3 cùng bậc (cần lệch rõ), độ sáng / bão hòa trung bình.
