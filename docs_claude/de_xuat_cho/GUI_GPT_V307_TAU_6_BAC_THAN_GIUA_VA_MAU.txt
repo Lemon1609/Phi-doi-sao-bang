@@ -1,0 +1,26 @@
+GỬI GPT · V307 · THÂN GIỮA CŨNG PHẢI TIẾN HÓA + CẢ THÂN ĐỔI MÀU (dán tiếp sau bản 4; thay các tin sửa màu trước)
+
+Kiểu lớn lên của bộ phận hai bên (ray tàu 2, cánh X tàu 3) rất tốt, GIỮ LẠI. Nhưng còn 2 lỗi lớn, chủ dự án thấy "không thể hiện sự tiến hóa":
+1. THÂN GIỮA (mũi, buồng lái, thân, động cơ, đuôi) gần như Y HỆT qua 6 bậc: chỉ bộ phận hai bên thay đổi.
+2. MÀU THÂN y hệt qua 6 bậc (mình đo vùng thân giữa: tàu 2 luôn ≈ RGB(185,150,110), tàu 3 luôn ≈ RGB(90,180,235)).
+
+A) THÂN GIỮA TIẾN HÓA (bắt buộc, mỗi bậc khác bậc kề rõ ràng ở cỡ 64 px)
+- Bậc 1: thân ngắn, trơn, mũi tù ngắn, buồng lái nhỏ, 1 động cơ đuôi; bề rộng thân giữa ≈ 70 % bậc 4.
+- Bậc 2: mũi dài và nhọn hơn, thêm 2 tấm giáp vai ôm buồng lái, 2 động cơ; ≈ 80 %.
+- Bậc 3: thân dài hơn, có sống lưng nổi, rãnh sáng chạy dọc thân, 3 động cơ, ống hút gió hai bên; ≈ 90 %.
+- Bậc 4: như ảnh tham chiếu (100 %).
+- Bậc 5: giáp nhiều lớp xếp bậc, buồng lái bọc khung kim loại, lõi năng lượng lộ ra giữa thân, mũi có gờ / gai ngắn, cụm 4 động cơ; ≈ 110 %.
+- Bậc 6: thân lớn nhất, giáp khắc hoa văn kỹ thuật, mũi có "vương miện" / sừng trang trí, lõi lớn sáng, cụm 4–5 động cơ to, đuôi xòe; ≈ 120 %.
+- Hình bao thân giữa phải ĐỔI (dài hơn, nhiều tầng hơn, đuôi khác), không chỉ dán thêm chi tiết lên cùng một thân.
+- Vẫn nhận ra cùng một tàu: giữ kiểu mũi đặc trưng và vị trí lõi / buồng lái.
+
+B) CẢ THÂN ĐỔI MÀU THEO BẬC (không lòe loẹt)
+- Thân chính + giáp lớn (45–55 %): sơn kim loại MÀU BẬC, tông vừa, bóng, không neon: 1 bạc xám · 2 lục ngọc đậm · 3 lam cobalt · 4 tím kim loại · 5 đen graphite ánh hồng-tím · 6 trắng ngà + viền / gờ vàng kim (không mạ vàng toàn bộ).
+- Màu nhận dạng của tàu (10–20 %) chỉ ở vài chi tiết đặc trưng: tàu 2 viền vàng-ngà dọc ray và mép thân; tàu 3 tinh thể băng xanh lơ ở buồng lái và mũi.
+- Kim loại trung tính (bạc / đen thép) 20–30 % ở khớp, động cơ. Đèn / lõi / khe sáng màu bậc, rực, 8–12 %.
+- Tối đa 3 màu chính + đèn; không cầu vồng, không gradient nhiều màu.
+
+C) KÍCH THƯỚC: bề rộng VÀ diện tích tăng dần 1 < 2 < 3 < 4 < 5 < 6 (tàu 3 bậc 3 hiện vẫn rộng hơn bậc 4: sửa).
+
+Vẽ lại tàu 2 rồi tàu 3, mỗi tàu 1 ảnh 6 ô như cũ. Cuối câu trả lời ghi: (a) mỗi bậc thân giữa đổi gì, (b) mỗi bậc màu thân chính, (c) chỗ nào bạn đoán.
+Mình sẽ đo: bề rộng thân giữa từng bậc, màu trung vị vùng thân giữa từng bậc.

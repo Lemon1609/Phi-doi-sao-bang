@@ -1,3 +1,4 @@
+[ĐÃ GỘP VÀO GUI_GPT_V307_TAU_6_BAC_THAN_GIUA_VA_MAU.txt — dùng tệp đó]
 GỬI GPT · V307 · MÀU THÂN THEO BẬC · BẢN 2 (dán tiếp sau bản 4; thay tin màu trước; áp dụng cho tàu 2, tàu 3 và mọi tàu sau)
 
 Dáng tiến hóa rất tốt, GIỮ NGUYÊN DÁNG. Tin màu lần trước mình viết sai ý: chủ dự án muốn CẢ THÂN TÀU đổi màu theo bậc, không chỉ tấm giáp phụ. Mình đo vùng thân giữa: tàu 2 cả 6 bậc vẫn nâu-vàng ≈ RGB(185,150,110), tàu 3 cả 6 bậc vẫn xanh lơ ≈ RGB(90,180,235) → nhìn y hệt nhau. Lần này đổi như sau, nhưng KHÔNG lòe loẹt (sau này game có hệ skin riêng).
