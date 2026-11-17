@@ -3,7 +3,7 @@
 ## QUY ĐỊNH HIỆN HÀNH (tóm tắt 14/11/2026 · phần dưới là nhật ký theo thời gian, nhiều mục đã bị thay thế)
 - **Thân 13 tàu**: giữ thiết kế đang có (13/11 14:17 "không sửa nữa"); tàu 4 = thân chủ dự án + Gemini (đỏ, 4 mắt, sừng), 10 bậc khác GPT căn theo bóng Tím.
 - **Cánh bung đã chốt (V293)**: 1 phượng hoàng (Gemini), 2 quạt pha lê gai (GPT), 3 gai băng (GPT V289), 4 vuốt trăng khuyết (GPT), 5 tia bình minh (GPT V290), 6 bóng ma nhiễu số (GPT V289), 7 vệt chém kiếm khí (GPT), 8 cánh dơi lửa (Gemini), 9 quạt radar (GPT), 10 mạng lục giác (GPT V290), 11 hư không xoáy (GPT V290), 12 bánh răng mặt số (GPT V290), 13 lưỡi hái sét tím (GPT V290).
-- **Luật cánh bung**: neon trong mờ / vệt sáng, mọc theo hình dáng tàu (không nhất thiết là cánh); rộng ~2–2,5 lần thân; nón 60° trước mũi trống; không vòng khép kín; đáy không quá y≈760/1024; mọi chi tiết phải sáng (vẽ cộng sáng, vùng tối biến mất); 13 tàu khác dáng khi che màu.
+- **Luật cánh bung**: neon trong mờ / vệt sáng, mọc theo hình dáng tàu (không nhất thiết là cánh); rộng **2,5–3,5 lần bề rộng thân (tính cả sải hình bung; chốt cân đối 17/11, thay cho cả "2–2,5×" và "3–6×")**, bậc cao dùng cận trên, không vượt khung 1024; nón 60° trước mũi trống; không vòng khép kín; đáy không quá y≈760/1024; mọi chi tiết phải sáng (vẽ cộng sáng, vùng tối biến mất); 13 tàu khác dáng khi che màu.
 - **Màu**: bậc Tím = màu riêng tàu; các bậc khác theo màu bậc (Thường bạc trắng, Lục, Lam, Tím+ hồng tím lõi trắng, SS vàng kim); trang bị phụ tỏa màu riêng lúc Bạo Tẩu.
 - **Vũ khí**: bảng `de_xuat_cho/GEMINI_V273_BANG_VU_KHI.md` (+ chỉnh của Claude: tàu 7 kiếm khí thẳng; nổ vòng → cung đứt đoạn). Hình: bộ Gemini `src/vu_khi295/` (34). Đạn to, 3 lớp sáng, đuôi dài như video gốc; cột Bạo Tẩu hạ sáng cho mọi tàu. Cơ chế nảy / đuổi / làm chậm / hút làm thật, đo và báo số trước.
 - **Thân Bạo Tẩu (chốt 17/11/2026, chủ dự án chọn phương án b)**: GPT vẽ lại thân Bạo Tẩu riêng cho từng tàu. Ba lớp tách riêng: thân thường · thân Bạo Tẩu · lớp hiệu ứng bung. Thân Bạo Tẩu ĐƯỢC biến đổi (mở bộ phận, khe sáng), rộng hơn thân thường +20…+35 %, giữ họ màu và điểm nhận diện; cấm kiểu mô-đun cơ khí / tay máy / khớp nối. Thay luật cũ "thân giữa trùng khít" ở mục 2. Prompt: `de_xuat_cho/GUI_GPT_V307_VE_LAI_THAN_BAO_TAU_TAU1.txt` (làm tàu 1 trước).
@@ -27,7 +27,7 @@ Dùng làm căn cứ cho mọi mẫu mới: chiến cơ, trang bị, hợp thể
 ## 3. Hiệu ứng bung (Bạo Tẩu)
 - Năng lượng trong mờ, cộng sáng; sáng nhất ở gốc, tan dần ra ngọn.
 - Năng lượng mọc ra từ một bộ phận cứng của thân.
-- Sải hình bung khoảng 3–6 lần bề rộng thân; giữ đúng cỡ ảnh mẫu trong trận.
+- (đã thay 17/11 bởi mục "Luật cánh bung": 2,5–3,5×) Sải hình bung khoảng 3–6 lần bề rộng thân; giữ đúng cỡ ảnh mẫu trong trận.
 - Mỗi tàu một chất liệu bung riêng, không trùng nhau: lông lửa (tàu 8), phiến lưỡi (tàu 7), khối nhiễu số (tàu 6), màn cực quang (tàu 2), tinh thể chữ X (tàu 3), khiên lục giác (tàu 10), xoáy hút vào lõi (tàu 11)…
 - Nhịp (học từ video): dồn sáng ~0,35 s → bừng sáng ở tâm + tia ngắn → hình bung hiện ~85 % rồi xòe ra ~0,28 s, vượt nhẹ → giữ: lay, thở, tàn lửa rơi.
 - Không vòng tròn khép kín quanh tàu, **trừ** sóng xung kích 0,24 s đúng lúc bật cánh (chủ dự án mở 12/11 15:02). Lúc Bạo Tẩu tàu không nhấp nháy, không vẽ bong bóng khiên.
