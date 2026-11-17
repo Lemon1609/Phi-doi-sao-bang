@@ -7,6 +7,7 @@ Chào GPT. Bản trước có lỗi lớn: tàu 2 và tàu 3 tiến hóa giống
 - Cấm quạt các phiến/lá kim song song xếp tầng chéo hai bên thân (đó là dấu hiệu riêng của tàu 1).
 - Cấm 2 mảnh kim cương / thoi lơ lửng dưới đuôi.
 - Cấm "bậc cao = bậc thấp + thêm cánh xòe chéo". Bộ phận thêm vào phải là bộ phận RIÊNG của tàu đó (mục 3).
+- MÀU THÂN THEO BẬC: xem tệp GUI_GPT_V307_TAU_6_BAC_MAU_THAN_THEO_BAC.txt (3 lớp: thân chính giữ màu họ tàu; tấm giáp phụ đổi màu bậc 30–50 %; đèn rực). Câu dưới chỉ còn hiệu lực cho lớp thân chính.
 - Cấm đổi họ màu thân: thân giữ bảng màu gốc của tàu (ví dụ tàu 2 vàng-nâu/ngà, không phải bạc trắng). Chỉ MÀU NHẤN đổi theo bậc: 1 bạc trắng · 2 lục · 3 lam · 4 tím (giữ như ảnh tham chiếu) · 5 hồng-tím lõi trắng · 6 vàng kim + trắng.
 
 2) KÍCH THƯỚC (sẽ đo lại)

@@ -1,0 +1,23 @@
+GỬI GPT · V307 · MÀU THÂN THEO BẬC (dán tiếp sau bản 4; áp dụng cho tàu 2, tàu 3 và mọi tàu sau)
+
+Dáng tiến hóa bản 4 rất tốt, GIỮ NGUYÊN DÁNG. Chỉ sửa MÀU: hiện cả 6 bậc cùng một màu thân nên nhìn đơn sắc, lên bậc không thấy "thành tựu". Mình đo: màu của bậc chỉ phủ 3–6 % ở bậc 2–4 (tàu 2 bậc 4 tím 3 %, tàu 3 bậc 4 tím 0 %), cần nhiều hơn rõ rệt nhưng KHÔNG lòe loẹt (sau này game còn có hệ skin đổi màu toàn thân riêng).
+
+CHIA MÀU THÀNH 3 LỚP
+- Lớp A · THÂN CHÍNH (thân giữa, mũi, buồng lái, khoảng 40–50 % diện tích): GIỮ màu họ của tàu (tàu 2 vàng-nâu/ngà; tàu 3 bạc-xanh băng). Bậc thấp hơi xỉn và mờ hơn, bậc cao bóng và sáng hơn. Không đổi họ màu.
+- Lớp B · TẤM GIÁP PHỤ (cánh, ray, pod, vỏ động cơ, giáp vai; khoảng 25–35 %): ĐỔI SANG MÀU CỦA BẬC, sơn kim loại bão hòa vừa phải (không neon, không chói):
+  • Bậc 1: xám bạc trung tính.
+  • Bậc 2: xanh lục ngọc (lục hơi ánh lam).
+  • Bậc 3: xanh lam cobalt.
+  • Bậc 4: tím (tấm giáp phụ tím rõ ràng).
+  • Bậc 5: tấm giáp phụ graphite thẫm, viền và rãnh hồng-tím.
+  • Bậc 6: tấm giáp phụ trắng ngà sáng, viền vàng kim kim loại dày (vàng ở viền và chi tiết, KHÔNG mạ vàng cả tàu).
+- Lớp C · ĐÈN / NGỌC / KHE SÁNG / MIỆNG XẢ (khoảng 8–12 %): màu bậc ở dạng phát sáng rực.
+
+GIỚI HẠN (để không lòe loẹt)
+- Mỗi tàu tối đa 3 màu chính: màu họ tàu + màu bậc + kim loại trung tính (bạc / đen thép). Không cầu vồng, không gradient nhiều màu, không hoa văn sặc sỡ.
+- Màu bậc (lớp B + C) chiếm 30–40 % diện tích ở bậc 2–4 và 40–50 % ở bậc 5–6. Màu họ tàu luôn còn tối thiểu 35 %.
+- Nhìn 6 ô ở cỡ nhỏ phải thấy ngay 6 màu bậc khác nhau, và vẫn nhận ra cùng một tàu.
+
+KÍCH THƯỚC: giữ như bản 4; riêng tàu 3 bậc 3 đang rộng hơn bậc 4 (đo 220 so với 207 px), thu bậc 3 lại cho nhỏ hơn bậc 4.
+
+Vẽ lại tàu 2 rồi tàu 3, mỗi tàu 1 ảnh 6 ô như cũ. Cuối câu trả lời ghi: mỗi bậc lớp B dùng màu gì, ước tính % diện tích màu bậc.
