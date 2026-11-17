@@ -1,7 +1,7 @@
 'use strict';
 // V307 · NÂNG CẤP TRANG BỊ BẰNG XP (khung giao diện, chủ dự án chốt 17/11/2026)
 //  • Chọn món ở hàng túi trên cùng · thẻ lớn kèm sao ở giữa · bảng 3 dòng "hiện tại → sau" (số sau xanh lá)
-//  • Hàng 5 ô vật liệu = trang bị khác (MẤT HẲN, không hoàn) · ô Đá XP · nút TỰ CHỌN · 1 nút vàng NÂNG CẤP
+//  • Hàng 5 ô vật liệu = trang bị CÙNG MẪU (chủ dự án chốt 17/11), MẤT HẲN, không hoàn · ô Đá XP · nút TỰ CHỌN · 1 nút vàng NÂNG CẤP
 //  • Số liệu: Gemini lượt 2 (GEMINI_TRA_LOI_NANG_CAP_XP_V307_LUOT2.md). Chờ lượt 3 → chỉ sửa bảng NC307CFG.
 //  • Đá XP: kho riêng nhiều loại XPDA307 (không còn dùng đá nâng cấp cũ).
 //  • Tắt: window.NC307=false (nút Nâng cấp cũ hoạt động lại).
@@ -36,7 +36,7 @@ const NC307=(()=>{
  const xpOf=id=>S.x[id]|0;
  function invested(it){let s=0;for(let L=1;L<(it.level|0||1);L++)s+=C.need(L);return s+xpOf(it.id);}
  const feedXp=it=>C.feed[Math.min(11,nOf(it))]+Math.floor(C.refund*invested(it));
- const usable=(it,tg)=>it&&tg&&tg.kind!=='craft'&&it.kind!=='craft'&&it.id!==tg.id&&!eqIds().includes(it.id)&&!it.super&&!it.key;
+ const usable=(it,tg)=>it&&tg&&tg.kind!=='craft'&&it.kind!=='craft'&&it.id!==tg.id&&(it.variant||null)===(tg.variant||null)&&it.kind===tg.kind&&!eqIds().includes(it.id)&&!it.super&&!it.key;
  const D=XPDA307,T4=D.types;
  const zero=()=>({1:0,2:0,3:0,4:0});
  const stXp=()=>T4.reduce((a,t)=>a+(st[t]|0)*D.XP[t],0),stN=()=>T4.reduce((a,t)=>a+(st[t]|0),0);
@@ -83,7 +83,7 @@ const NC307=(()=>{
   l=l.slice().sort(isMat?((a,b)=>nOf(a)-nOf(b)||a.level-b.level):((a,b)=>(eqIds().includes(b.id)-eqIds().includes(a.id))||nOf(b)-nOf(a)||(b.level-a.level)));
   return `<div class="nc307-sh" data-nc="no"><div class="nc307-shp"><i class="nc307-grip"></i><div class="nc307-sht"><b>${isMat?'Chọn vật liệu · bị tiêu hao':'Chọn trang bị cần nâng'}</b><button data-nc="no">✕</button></div>
    <div class="nc307-tabs"><button data-nc="tab" data-id="all" class="${tab==='all'?'on':''}">Tất cả</button>${kinds.map(k=>`<button data-nc="tab" data-id="${esc(k)}" class="${tab===k?'on':''}">${esc(kname(k))}</button>`).join('')}</div>
-   <div class="nc307-rows">${l.length?l.map(m=>rowHtml(m,isMat)).join(''):'<i>Không có trang bị phù hợp.</i>'}</div></div></div>`;}
+   <div class="nc307-rows">${l.length?l.map(m=>rowHtml(m,isMat)).join(''):(isMat?'<i>Không có trang bị cùng mẫu để làm vật liệu.</i>':'<i>Không có trang bị phù hợp.</i>')}</div></div></div>`;}
  function rowHtml(m,isMat){const t=(()=>{try{return Progress.title(m).split(' · ')[0];}catch{return m.id;}})(),lb=(()=>{try{return V70T(m);}catch{return '';}})();
   let st='';try{const a=Progress.stat(m);st=m.kind==='armor'?`Giáp ${a.armor.toFixed(1)} · Máu ${a.hp.toFixed(1)}`:`ST ${a.auxDamage.toFixed(2)} · ${a.interval.toFixed(2)} s`;}catch{}
   const eq=eqIds().includes(m.id);
