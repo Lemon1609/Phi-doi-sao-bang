@@ -55,7 +55,7 @@ const Pilot67=(()=>{
  function statAt(p,lv,t){const C=PILOT75.cap[rk(p)],f=PILOT75.tiers[t].m/4.1*(.55+.45*lv/60);return {atk:Math.round(C.atk*f*10)/10,hp:Math.round((C.hp*f+(p.kind==='tank'?4*Math.min(1,f*1.15):0))*10)/10,sh:Math.round(C.sh*f*10)/10};}
  const cpOf=b=>b.atk*24+b.hp*55+b.sh*65;
  function base(id){const p=P(id),lv=lvOf(id);if(!p||!lv)return {atk:0,hp:0,sh:0};return statAt(p,lv,tierOf(id));}
- function passive(id){const p=P(id),lv=lvOf(id);if(!p||!lv)return 0;const pt=PILOT75.tiers[tierOf(id)].pt;return p.a+(p.b-p.a)*Math.min(1,(pt-1)/5);}
+ function passive(id){const p=P(id),lv=lvOf(id);if(!p||!lv)return 0;if(on307()&&P307.pv[id])return P307.pv[id][tierOf(id)];const pt=PILOT75.tiers[tierOf(id)].pt;return p.a+(p.b-p.a)*Math.min(1,(pt-1)/5);}
  // đổi bản cũ (1 lần): nấc + cấp thấp nhất có CP ≥ bản cũ, cộng bù
  (function migrate(){if(S.mig75)return;const R=PILOT75.refund;for(const k in S.own){const id=+k,p=P(id);if(!p)continue;const L=S.own[k].lv|0,r=rk(p),old=cpOf(oldBase(p,L));let t0=PILOT75.rankStart[r],T=t0,LV=1;
    outer:for(let t=t0;t<12;t++){const lo=t>t0?PILOT75.tiers[t-1].cap:1;for(let lv=Math.max(1,lo);lv<=PILOT75.tiers[t].cap;lv++){if(cpOf(statAt(p,lv,t))>=old){T=t;LV=lv;break outer;}if(t===11&&lv===60){T=11;LV=60;}}}
@@ -117,15 +117,19 @@ const Pilot67=(()=>{
  // mảnh rơi khi qua ải/càn quét: 25% (ải boss 100%) 1 mảnh của phi công đã có
  const orw=Progress.rewardStage;Progress.rewardStage=function(stage){const r=orw.apply(this,arguments);try{if(r&&unlockedSys()){const ids=Object.keys(S.own).map(Number);if(ids.length&&(stage%5===0||Math.random()<.25)){const id=ids[Math.floor(Math.random()*ids.length)];addPiece(id,1);(r.materials=r.materials||[]).push('1 mảnh phi công '+P(id).name);}}}catch{}return r;};
  // ---------- nâng cấp ----------
- function lvCost(lv){// từ lv lên lv+1 (trần 60): giá theo cấp tương đương bản cũ (lv/2), nhân 0,6; lõi ở mốc 40 và 60
+ // V307 (Gemini lượt 3, chủ dự án đồng ý 17/11): nâng Level CHỈ tốn ◈, 3 dải; lõi chuyển sang tiến bậc Tím (2) và Tím+5 (5). Tắt: window.PILOT307=false
+ const P307={br:[[19,250,35,0],[39,1100,55,19],[59,2400,180,39]],core:{6:2,11:5},
+  pv:{1:[15,18,20,23,25,28,31,34,36,39,42,45],2:[1.0,1.1,1.3,1.4,1.5,1.7,1.8,2.0,2.1,2.2,2.4,2.5],3:[18.0,17.2,16.5,15.8,15.0,14.2,13.5,12.8,12.2,11.6,11.0,10.5],4:[10,11,13,14,15,17,18,20,21,22,24,25],5:[15,16,18,19,20,22,23,25,26,27,29,30],6:[20,22,25,27,29,31,34,36,38,40,42,45],7:[12,13,15,16,17,19,20,22,23,24,26,27],8:[3.0,3.3,3.6,3.9,4.2,4.5,4.8,5.1,5.5,5.8,6.1,6.5]}};
+ const on307=()=>window.PILOT307!==false;
+ function lvCost(lv){if(on307()){const L=lv|0,b=P307.br.find(r=>L<=r[0])||P307.br[2];return {c:b[1]+b[2]*(L-b[3]),e:0,pieces:0,core:0};}// từ lv lên lv+1 (trần 60): giá theo cấp tương đương bản cũ (lv/2), nhân 0,6; lõi ở mốc 40 và 60
   const n=Math.ceil((lv+1)/2);let c,e,core=0;if(n<=10){c=300+80*n;e=8+2*n;}else if(n<=20){c=1200+150*(n-10);e=30+4*(n-10);}else{c=3000+300*(n-20);e=75+6*(n-20);}
   if(lv+1===40)core=2;if(lv+1===60)core=5;return {c:Math.round(c*.6/10)*10,e:Math.round(e*.6),pieces:0,core};}
- function tierCost(id){const t=tierOf(id);if(t>=11)return null;const T=PILOT75.tiers[t+1];return {c:T.c,pieces:T.sh};}
+ function tierCost(id){const t=tierOf(id);if(t>=11)return null;const T=PILOT75.tiers[t+1];return {c:T.c,pieces:T.sh,core:on307()?(P307.core[t+1]|0):0};}
  function coresHave(){try{return Meta407.cores();}catch{return 0;}}
  function pay(c){if(c.c&&Progress.balance()<c.c)return 'Thiếu hợp kim';if(c.e&&Workshop.expBalance()<c.e)return 'Thiếu đá';if(c.core&&coresHave()<c.core)return 'Thiếu Lõi Siêu Hợp';return '';}
  function spend(c){if(c.c&&!Progress.spendCredits(c.c))return false;if(c.e&&!Workshop.spendExp(c.e)){Progress.grantCredits(c.c||0);return false;}if(c.core&&!(Meta407.spendCores&&Meta407.spendCores(c.core))){Progress.grantCredits(c.c||0);Workshop.grant({exp:c.e||0});return false;}return true;}
  function levelUp(id){const o=S.own[id];if(!o)return 'Chưa có';if(o.lv>=60)return 'Đã tối đa';if(o.lv>=capOf(id))return 'Đạt trần cấp '+capOf(id)+' · cần NÂNG NẤC';const c=lvCost(o.lv);const why=pay(c);if(why)return why;if(!spend(c))return 'Không đủ tài nguyên';o.lv++;save();return '';}
- function tierUp(id){const o=S.own[id];if(!o)return 'Chưa có';const c=tierCost(id);if(!c)return 'Đã tối đa';if(o.lv<capOf(id))return 'Cần đạt cấp '+capOf(id);if((S.pieces[id]||0)<c.pieces)return 'Cần '+c.pieces+' mảnh '+P(id).name+' (có '+(S.pieces[id]||0)+')';if(Progress.balance()<c.c)return 'Thiếu hợp kim';if(!Progress.spendCredits(c.c))return 'Thiếu hợp kim';S.pieces[id]-=c.pieces;S.tier[id]=tierOf(id)+1;save();try{toast('★ '+P(id).name.toUpperCase()+' LÊN NẤC '+PILOT75.tiers[S.tier[id]].n.toUpperCase());}catch{}return '';}
+ function tierUp(id){const o=S.own[id];if(!o)return 'Chưa có';const c=tierCost(id);if(!c)return 'Đã tối đa';if(o.lv<capOf(id))return 'Cần đạt cấp '+capOf(id);if((S.pieces[id]||0)<c.pieces)return 'Cần '+c.pieces+' mảnh '+P(id).name+' (có '+(S.pieces[id]||0)+')';if(c.core&&coresHave()<c.core)return 'Cần '+c.core+' Lõi Siêu Hợp';if(Progress.balance()<c.c)return 'Thiếu hợp kim';if(c.core&&!(Meta407.spendCores&&Meta407.spendCores(c.core)))return 'Thiếu Lõi Siêu Hợp';if(!Progress.spendCredits(c.c)){try{Meta407.addCores&&Meta407.addCores(c.core|0);}catch{}return 'Thiếu hợp kim';}S.pieces[id]-=c.pieces;S.tier[id]=tierOf(id)+1;save();try{toast('★ '+P(id).name.toUpperCase()+' LÊN NẤC '+PILOT75.tiers[S.tier[id]].n.toUpperCase());}catch{}return '';}
  function nodeOk(n){if(!n.need)return true;return tl(n.need[0])>=n.need[1];}
  function treeUp(k){const n=PTREE67.find(x=>x.k===k);if(!n)return 'Không có';const l=tl(k);if(l>=n.max)return 'Đã tối đa';if(!nodeOk(n))return 'Cần nút '+n.need[0]+' đạt Lv.'+n.need[1];const c=n.cost(l+1);const why=pay(c);if(why)return why;if(!spend(c))return 'Không đủ tài nguyên';S.tree[k]=l+1;save();return '';}
  function setSlot(i,id){if(id&&!S.own[id])return;const j=S.team.indexOf(id);if(j>=0)S.team[j]=S.team[i];S.team[i]=id;save();}
