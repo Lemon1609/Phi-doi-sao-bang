@@ -1,0 +1,48 @@
+GỬI GPT · V307 · LOẠT SỬA TÀU (tàu 3, 8 thiết kế lại · tàu 4, 5, 6, 10, 11, 13 sửa bậc lỗi) — mỗi lượt CHỈ 1 TÀU
+Đính kèm đúng 2 ảnh của tàu đó: tauN_6bac_HIEN_TAI.png (6 bậc đang trong game) + tauN_bac4_GOC_512.png (bậc 4 gốc). KHÔNG đính kèm tàu khác. Gửi theo thứ tự: tàu 3 → 8 → 4 → 6 → 5 → 11 → 10 → 13.
+
+Chào GPT. Game "Phi Đội Sao Băng" có 13 chiến cơ × 6 bậc. Lượt trước bạn vẽ tàu 2 (thân bạc, đèn lõi lục-lam-tím-vàng): mình DUYỆT phần màu và phong cách. Nhưng còn một lỗi cần tránh từ nay: tàu 2 chỉ thêm lưỡi dọc, thân giữa gần như không đổi, bậc 3–4–5 nhìn như một tàu.
+
+BÀI HỌC BẮT BUỘC (áp cho mọi tàu trong loạt này)
+0. Mỗi bậc phải đổi HÌNH BAO của THÂN và bộ phận lớn (không chỉ thêm gai, lưỡi, mạch sáng, không chỉ đổi màu). Kiểm tra: thu 2 bậc liền nhau về 64 px, phải phân biệt được bằng bóng đen. Mình sẽ đo độ trùng bóng, cần < 0,75.
+0b. Không dùng "thêm cặp lưỡi dọc" cho tàu khác nhau; mỗi tàu giữ kiểu bộ phận riêng ghi ở mục B.
+0c. Bậc 5 và 6 tối đa 2 lớp bộ phận chồng nhau, giữ khe nền đen để đọc được ở 64 px (bậc 5–6 tàu 2 bị rối).
+0d. Chỉ vẽ tàu, không có người.
+
+A. LUẬT CHUNG (rút từ các lượt trước, bắt buộc)
+1. Cả 6 bậc CÙNG MỘT PHONG CÁCH VẼ và CÙNG MỘT KIỂU bộ phận đặc trưng (cùng kiểu cánh / ray / đuôi), chỉ tăng số lượng, độ dài, độ cầu kỳ. Không bậc nào đổi sang kiểu bộ phận khác.
+2. Bậc sau khác bậc trước RÕ ở hình bao (nhìn được ở 64 px), không chỉ đổi màu. Mỗi bậc thêm 1–2 bộ phận LỚN, không rải chi tiết vụn.
+3. Tỉ lệ: bậc thấp gọn nhưng không gầy nhom; bậc cao thanh lịch, có khe nền đen giữa các lớp giáp, không thành khối hộp. Không bắt chước quạt lá kim xếp tầng hay 2 mảnh kim cương dưới đuôi (đó là dấu hiệu của tàu khác).
+4. Hai lớp màu: (a) PHẨM CẤP qua màu ánh sáng lõi / đèn / mạch năng lượng: 1 trắng · 2 lục · 3 lam · 4 tím · 5 hồng-tím · 6 vàng, kèm vật liệu cao cấp dần (bậc 1 sơn mờ → bậc 6 ngọc trai / bạch kim + viền vàng kim mảnh); (b) MÀU THÂN theo bảng riêng của tàu ở mục B, đổi dần qua 6 bậc. Tối đa 3 màu thân + màu ánh sáng; không lòe loẹt.
+5. Bắt mắt: tương phản sáng-tối mạnh, điểm phản sáng trắng trên gờ, 2–4 mạch năng lượng phát sáng chạy theo thân về lõi, bộ phận năng lượng / pha lê bán trong suốt, viền rim-light mảnh màu phẩm cấp; độ sáng trung bình ≥ 0,6, bão hòa ≥ 0,45.
+6. Nhìn thẳng từ trên xuống, mũi hướng lên, đối xứng. Vẽ MỌI BẬC CÙNG CỠ KHUNG (mình tự thu nhỏ bậc thấp bằng mã). 1 hàng 6 ô, nhãn 1–6, nền đen thuần, không chữ trong tranh.
+
+B. TỪNG TÀU
+
+B1. THIẾT KẾ LẠI (trên nền tàu gốc)
+- TÀU 3 · X-DỰC BĂNG HÀ (gốc: dáng mũi tên bạc, cánh chéo, lõi sao chổi băng ở mũi).
+  Tiến hóa: cánh chéo hình chữ X: b1 X ngắn · b2 X dài hơn có rãnh băng · b3 đầu cánh mọc tinh thể băng · b4 như gốc nhưng đẹp hơn · b5 mỗi cánh tách đôi thành 8 nhánh như bông tuyết, lõi sao chổi có đuôi băng ngắn · b6 bông tuyết 8 nhánh có nhánh phụ gai băng, cánh băng trong suốt. Giữa các nhánh có khe nền đen.
+  Màu thân (chủ đề băng tuyết): b1 xám bạc mờ + xanh băng nhạt · b2 trắng bạc + xanh băng · b3 bạc + lam băng đậm · b4 trắng tuyết + lam thẫm + tinh thể cyan · b5 lam đêm gần đen + cyan sáng + bạc · b6 trắng pha lê + cyan + viền bạch kim / vàng nhạt.
+- TÀU 8 · PHẦN THIÊN CHIẾN CHUẨN (gốc: thân chim săn mồi mũi nhọn, cánh cụp về sau, màu cam-đỏ).
+  Tiến hóa: cánh xương có MÀNG giữa các xương (kiểu cánh lửa) cụp về phía sau như chim ưng lao xuống: b1 cánh ngắn 2 xương · b2 3 xương · b3 cánh dài hơn + lò nhiệt nhỏ ở lưng · b4 như gốc nhưng đẹp hơn, lò nhiệt đỏ rực · b5 4 xương, màng cánh bán trong suốt như lửa, đuôi lông vũ 3 phiến · b6 5 xương, cờ hiệu lửa ở hai đầu cánh, đuôi 5 phiến, viền vàng kim.
+  Màu thân (chủ đề lửa than hồng): b1 nâu đồng mờ + cam nhạt · b2 đồng + cam · b3 đỏ gạch + cam sáng · b4 đỏ son + cam vàng · b5 đỏ thẫm gần đen + màng lửa cam-hồng · b6 đỏ son bóng + vàng kim + màng lửa vàng-trắng. (Đèn / lõi vẫn theo màu phẩm cấp ở luật A4.)
+
+
+B2. SỬA BẬC LỖI (dùng tranh hiện tại làm gốc; sửa từ 3 bậc trở lên thì vẽ lại cả 6 bậc cùng phong cách)
+Danh sách (mình đã đo độ trùng dáng giữa 2 bậc liền nhau; 1,00 = trùng hoàn toàn)
+- Tàu 4 · Thần Ma Dị Hình (đỏ-bạc, giáp xương, 4 mắt): cả 6 bậc trùng dáng (0,85–0,98), bậc 3 còn sai màu (đỏ thay vì lam).
+  GIỮ bậc 4. Sửa 1,2,3,5,6: b1 bỏ bớt giáp xương hai bên, chỉ còn thân + 2 mắt; b2 thêm sườn xương ngắn; b3 thêm 1 cặp vuốt nhỏ, đèn lam; b5 thêm cặp vuốt trăng khuyết lớn ôm trước mũi, 6 mắt; b6 hai cặp vuốt trăng khuyết + gai xương vàng kim.
+- Tàu 5 · Trí Tuệ Thự Quang (trắng-ngà, vương miện gai lăng kính): cả 6 bậc trùng dáng (0,89–0,93), bậc 4 và 5 gần như một màu.
+  GIỮ bậc 4. Sửa 1,2,3,5,6: số gai vương miện tăng dần (b1 3 gai ngắn → b3 5 gai → b5 7 gai dài tỏa như bình minh → b6 9 gai + hào quang lăng kính); lăng kính 1→1→3→3→5→7; b5 đèn hồng-tím rõ khác b4 tím.
+- Tàu 13 · Hư Không Đế Vương (đen gương + vàng): bậc 1–4 trùng dáng gần hoàn toàn (0,98–0,99), chỉ đổi màu.
+  GIỮ bậc 5, 6. Sửa 1,2,3,4: b1 thân gọn không lưỡi; b2 thêm cặp lưỡi liềm ngắn hai bên; b3 lưỡi dài hơn + giáp gương vai; b4 lưỡi cong lớn có rãnh tím (làm cầu nối sang b5).
+- Tàu 10 · Tinh Hà Thủ Vọng (hồng-tím nhạt, mắt chỉ huy, tàu con): bậc 3–6 trùng dáng (0,82–0,95), bậc 4–6 đều tím.
+  GIỮ bậc 1, 2, 3. Sửa 4,5,6: b4 thêm 1 tàu con rời bên mỗi cánh; b5 3 tàu con + giáp lục giác, đèn hồng-tím; b6 5 tàu con xếp tam giác, viền vàng, đèn vàng.
+- Tàu 11 · Thôn Tinh Chiến Cơ (tím đen, hố đen giữa thân): bậc 1–3 trùng dáng (0,93–0,94).
+  GIỮ bậc 4, 5, 6. Sửa 1,2,3: b1 thân nhỏ, lõi hố đen nhỏ không vòng; b2 thêm 1 cung từ trường ngắn quanh lõi, đèn lục; b3 2 cung xoáy lệch tâm, cánh dài hơn, đèn lam.
+- Tàu 6 · Siêu Nghiệm U Linh (xám-xanh đen, tàng hình): dáng ổn nhưng màu bậc lộn xộn (bậc 2 ô liu, bậc 6 lam).
+  GIỮ dáng mọi bậc, chỉ đổi màu ánh sáng / mạch theo bảng phẩm cấp ở trên; bậc 6 thêm viền vàng kim mảnh.
+
+- Tàu 5 và tàu 11: ngoài lỗi trên, bậc 4 và 5 phải khác nhau rõ về dáng (số gai / số cung), không chỉ đổi màu tím ↔ hồng-tím.
+
+TRẢ VỀ (mỗi tàu một lượt): tauN_6bac.png, 1 hàng 6 ô, nhãn 1–6, nền đen thuần, mỗi ô cùng tâm, không chữ trong tranh. Cuối câu trả lời ghi: (a) bậc nào giữ / sửa, thêm bộ phận gì; (b) màu thân + màu ánh sáng mỗi bậc; (c) chỗ nào bạn đoán.
