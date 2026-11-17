@@ -29,14 +29,23 @@ const NC307=(()=>{
  const items=()=>{try{return Progress.v70.items();}catch{return [];}};
  const isC=id=>typeof id==='string'&&id.startsWith('craft:');
  function craftObj(i){try{const v=Workshop.craftProgress(i);return {id:'craft:'+i,kind:'craft',idx:i,level:v.level|0||1,_v:v};}catch{return null;}}
- const get=id=>isC(id)?craftObj(+id.slice(6)):items().find(i=>i.id===id);
+ // V307 (18/11): bản sao/phôi từ phó bản, sự kiện, phần thưởng (kho Evo82) dùng làm vật liệu nâng cấp — chỉ CÙNG MẪU (tàu cùng chiếc). Tắt: window.CP307=false
+ const isCp=id=>typeof id==='string'&&id.startsWith('copy:');
+ const cpOn=()=>window.CP307!==false&&typeof Evo82!=='undefined';
+ function copyObj(u){let c=null;try{c=Evo82.list().find(x=>x.u===+u);}catch{}if(!c)return null;
+  if(c.k==='craft')return {id:'copy:'+c.u,copy:c,kind:'craft',idx:c.m|0,level:c.lv,_v:(()=>{try{return {...Workshop.craftProgress(c.m|0),level:c.lv};}catch{return {level:c.lv};}})()};
+  let kd='';try{kd=GearCatalog[c.m].kind;}catch{}return {id:'copy:'+c.u,copy:c,kind:kd,variant:c.m,level:c.lv,rarity:'normal',rank:'',grade:'',enhance:0};}
+ const copies=()=>{if(!cpOn())return [];try{return Evo82.list().map(c=>copyObj(c.u)).filter(Boolean);}catch{return [];}};
+ const get=id=>isC(id)?craftObj(+id.slice(6)):isCp(id)?copyObj(id.slice(5)):items().find(i=>i.id===id);
+ const shipName=i=>{try{return Fighters28.profiles[i].name;}catch{return 'Chiến cơ '+(i+1);}};
+ const ships=()=>{const L=[];for(let i=0;i<13;i++){try{if(Campaign36.ownsCraft(i)){const o=craftObj(i);if(o)L.push(o);}}catch{}}return L;};
  const eqIds=()=>{try{return Object.values(Progress.v70.equipped()||{});}catch{return [];}};
- const nOf=it=>{if(it&&it.kind==='craft'){try{return V70.craftN(it.idx);}catch{return 0;}}try{const t=V70T(it);const k=TIER70.name.indexOf(t);return k<0?0:k;}catch{return 0;}};
+ const nOf=it=>{if(it&&it.copy)return it.copy.t|0;if(it&&it.kind==='craft'){try{return V70.craftN(it.idx);}catch{return 0;}}try{const t=V70T(it);const k=TIER70.name.indexOf(t);return k<0?0:k;}catch{return 0;}};
  const capOf=it=>{try{return Workshop.cap(it&&it.kind==='craft'?it._v:it);}catch{return 100;}};
  const xpOf=id=>S.x[id]|0;
  function invested(it){let s=0;for(let L=1;L<(it.level|0||1);L++)s+=C.need(L);return s+xpOf(it.id);}
  const feedXp=it=>C.feed[Math.min(11,nOf(it))]+Math.floor(C.refund*invested(it));
- const usable=(it,tg)=>it&&tg&&tg.kind!=='craft'&&it.kind!=='craft'&&it.id!==tg.id&&(it.variant||null)===(tg.variant||null)&&it.kind===tg.kind&&!eqIds().includes(it.id)&&!it.super&&!it.key;
+ const usable=(it,tg)=>it&&tg&&it.copy?(!it.copy.lk&&!tg.copy&&(tg.kind==='craft'?it.copy.k==='craft'&&(it.copy.m|0)===tg.idx:it.copy.k==='gear'&&it.copy.m===tg.variant)):it&&tg&&tg.kind!=='craft'&&it.kind!=='craft'&&it.id!==tg.id&&(it.variant||null)===(tg.variant||null)&&it.kind===tg.kind&&!eqIds().includes(it.id)&&!it.super&&!it.key;
  const D=XPDA307,T4=D.types;
  const zero=()=>({1:0,2:0,3:0,4:0});
  const stXp=()=>T4.reduce((a,t)=>a+(st[t]|0)*D.XP[t],0),stN=()=>T4.reduce((a,t)=>a+(st[t]|0),0);
@@ -55,7 +64,7 @@ const NC307=(()=>{
  function stars(it){const n=nOf(it),fr=[0,1,2,2,2,2,3,3,3,3,3,3][n],plus=n<2?0:n<6?n-2:n-6;return '★'.repeat(fr+1)+'<span style="color:#ffd166">'+'✦'.repeat(plus)+'</span>';}
  const FORM=['thuong','luc','lam','lam','lam','lam','tim','tim','tim','tim','tim','tim5'];
  function artOf(it){if(it&&it.kind==='craft'){let src='';try{const S=SHIP118[it.idx];let f=FORM[nOf(it)];try{if(S.ss&&window.SS122!==false&&Workshop.craftGrade(it.idx)==='SS')f='ss';}catch{}src=S[f]||S.tim||S.lam||S.thuong;}catch{}return src?`<span class="nc307-ship"><img src="${src}" alt=""></span>`:'';}try{return String(Progress.art(it)).replace(/<b>[\s\S]*?<\/b>/g,'');}catch{return '';}}
- function colorOf(it){if(it&&it.kind==='craft'){try{return TIER70.fcol[TIER70.frame[nOf(it)]];}catch{return '#d6e0ea';}}try{return V70C(it);}catch{return '#d6e0ea';}}
+ function colorOf(it){if(it&&(it.kind==='craft'||it.copy)){try{return TIER70.fcol[TIER70.frame[nOf(it)]];}catch{return '#d6e0ea';}}try{return V70C(it);}catch{return '#d6e0ea';}}
  function card(it,cls){const art=artOf(it);return `<div class="${cls}" style="--c:${colorOf(it)}">${art}<b>Lv${it.level|0}</b></div>`;}
  function render(){if(!el)return;if(flash){const f=flash;setTimeout(()=>{if(flash===f)flash='';},1700);}if(cur&&!get(cur))cur=null;const it=cur?get(cur):null;
   if(it&&mode==='adv'){el.querySelector('.nc307-in').innerHTML=advHtml(it);return;}
@@ -65,12 +74,12 @@ const NC307=(()=>{
    <table class="nc307-tb"><tr><td>Cấp</td><td>—</td><td>➤</td><td>—</td></tr><tr><td>Chỉ số</td><td>—</td><td>➤</td><td>—</td></tr></table></div>
    <div class="nc307-mats">${Array.from({length:C.slots},()=>'<button class="e" disabled>+</button>').join('')}</div>
    <div class="nc307-bot"><button class="nc307-b2" disabled>TIẾN KHUNG</button><button class="nc307-go" disabled>NÂNG CẤP</button><button data-nc="x" class="nc307-b3">VỀ</button></div>${el.dataset.list?sheetHtml(null,el.dataset.list):''}`;return;}
-  const g=gainNow(),r=sim(it,g),r0=sim(it,0),rows=statRows(it,r.L),title=(()=>{if(it.kind==='craft'){try{return document.querySelector('#hb-info h3,#hb-info .hb-name')?.textContent||('Chiến cơ '+(it.idx+1));}catch{return 'Chiến cơ';}}try{return Progress.title(it);}catch{return it.id;}})();
+  const g=gainNow(),r=sim(it,g),r0=sim(it,0),rows=statRows(it,r.L),title=(()=>{if(it.kind==='craft')return shipName(it.idx);try{return Progress.title(it);}catch{return it.id;}})();
   const bag=items().slice().sort((a,b)=>(eqIds().includes(b.id)-eqIds().includes(a.id))||nOf(b)-nOf(a)||(b.level-a.level));
   const pct0=r0.need?Math.min(100,r0.x/r0.need*100):100,pct=r.need?Math.min(100,r.x/r.need*100):100;
   const toCap=(()=>{let t=-(r0.x|0);for(let L=(it.level|0);L<r0.cap;L++)t+=C.need(L);return Math.max(0,t);})();
   el.querySelector('.nc307-in').innerHTML=`
-  <div class="nc307-top"><b>NÂNG CẤP</b>${it.kind==='craft'?'':`<button class="nc307-swap" data-nc="bag">⇅ Đổi món</button>`}<button class="nc307-x" data-nc="x" aria-label="Đóng">✕</button></div>
+  <div class="nc307-top"><b>NÂNG CẤP</b><button class="nc307-swap" data-nc="bag">⇅ Đổi món</button><button class="nc307-x" data-nc="x" aria-label="Đóng">✕</button></div>
   <div class="nc307-pn" style="--c:${colorOf(it)}">
    <div class="nc307-pc" data-nc="${it.kind==='craft'?'':'bag'}"><b>${esc(String(title).split(' · ')[0])}</b><div class="nc307-art">${artOf(it)}</div><div class="nc307-st">${stars(it)}</div><small>${esc(it.kind==='craft'?TIER70.name[nOf(it)]:(()=>{try{return V70T(it);}catch{return '';}})())}</small></div>
    <table class="nc307-tb"><tr><td>Cấp</td><td>${it.level|0}/${r0.cap}</td><td>➤</td><td class="${r.L>(it.level|0)?'up':''}">${r.L}/${r.cap}</td></tr>
@@ -79,8 +88,8 @@ const NC307=(()=>{
   <div class="nc307-xp2"><div><span>XP cần lên cấp: <b>${r0.need?fmt(r0.need-r0.x):'—'}</b></span><span>XP tới trần: <b>${fmt(toCap)}</b></span></div>
    <div class="nc307-bar"><i style="width:${r.L>(it.level|0)?0:pct0}%"></i><u style="width:${pct}%"></u><em>XP nhận: ${fmt(g)}</em></div></div>
   ${r.over>C.overWarn?`<p class="nc307-w">Dư ${fmt(r.over)} XP sẽ mất do chạm trần Lv${r.cap}.</p>`:''}
-  <div class="nc307-row2"><span>${it.kind==='craft'?'Chiến cơ nâng bằng Đá XP':'Vật liệu: trang bị cùng mẫu'}</span><button data-nc="auto" class="nc307-auto">Tự chọn</button></div>
-  ${it.kind==='craft'?'':`<div class="nc307-mats">${Array.from({length:C.slots},(_,k)=>{const m=get(mats[k]);return m?`<button data-nc="un" data-id="${esc(m.id)}" class="f">${card(m,'nc307-mini')}<em>+${fmt(feedXp(m))}</em></button>`:`<button data-nc="slot" class="e">+</button>`;}).join('')}</div>`}
+  <div class="nc307-row2"><span>${it.kind==='craft'?'Vật liệu: bản sao cùng chiến cơ':'Vật liệu: trang bị / bản sao cùng mẫu'}</span><button data-nc="auto" class="nc307-auto">Tự chọn</button></div>
+  ${it.kind==='craft'&&!cpOn()?'':`<div class="nc307-mats">${Array.from({length:C.slots},(_,k)=>{const m=get(mats[k]);return m?`<button data-nc="un" data-id="${esc(m.id)}" class="f">${card(m,'nc307-mini')}<em>+${fmt(feedXp(m))}</em></button>`:`<button data-nc="slot" class="e">+</button>`;}).join('')}</div>`}
   <div class="nc307-stones">${T4.map(t=>`<div class="nc307-gem" style="--g:${D.COL[t]}" title="${esc(D.NAME[t])} · ${fmt(D.XP[t])} XP">${D.IMG(t)?`<img class="nc307-gi" src="${D.IMG(t)}" alt="">`:'<i></i>'}<small>${fmt(D.have(t))}</small><div class="nc307-gb"><button data-nc="s-" data-id="${t}">−</button><b>${st[t]|0}</b><button data-nc="s+" data-id="${t}">+</button></div></div>`).join('')}</div>
   <div class="nc307-bot"><button data-nc="adv" class="nc307-b2">TIẾN KHUNG</button><button data-nc="go" class="nc307-go" ${g&&r0.need?'':'disabled'}>NÂNG CẤP</button><button data-nc="x" class="nc307-b3">VỀ</button></div>
   ${msg?`<p class="nc307-m">${esc(msg)}</p>`:''}${flash?`<div class="nc307-ok" key="${Date.now()}">${esc(flash)}</div>`:''}
@@ -88,21 +97,22 @@ const NC307=(()=>{
   ${ask?`<div class="nc307-ask"><div><p>Trang bị ${esc(ask.why)} sẽ <b>biến mất vĩnh viễn</b>. Dùng làm nguyên liệu?</p><button data-nc="ok">Đồng ý</button><button data-nc="no">Thôi</button></div></div>`:''}
   ${el.dataset.list?sheetHtml(it,el.dataset.list):''}`;}
  let tab='all';
- const kname=k=>{try{return Progress.kindName(k);}catch{return k;}};
+ const kname=k=>{if(k==='craft')return 'Chiến cơ';try{return Progress.kindName(k);}catch{return k;}};
  function sheetHtml(it,mode){const isMat=mode==='mat'&&!!it;
-  let l=isMat?items().filter(m=>usable(m,it)&&!mats.includes(m.id)):items();
-  const kinds=[...new Set(items().map(m=>m.kind))];
+  let l=isMat?items().concat(copies()).filter(m=>usable(m,it)&&!mats.includes(m.id)):ships().concat(items());
+  const kinds=[...new Set((isMat?[]:ships()).concat(items()).map(m=>m.kind))];
   if(tab!=='all')l=l.filter(m=>m.kind===tab);
   l=l.slice().sort(isMat?((a,b)=>nOf(a)-nOf(b)||a.level-b.level):((a,b)=>(eqIds().includes(b.id)-eqIds().includes(a.id))||nOf(b)-nOf(a)||(b.level-a.level)));
   return `<div class="nc307-sh" data-nc="no"><div class="nc307-shp"><i class="nc307-grip"></i><div class="nc307-sht"><b>${isMat?'Chọn vật liệu · bị tiêu hao':'Chọn trang bị cần nâng'}</b><button data-nc="no">✕</button></div>
    <div class="nc307-tabs"><button data-nc="tab" data-id="all" class="${tab==='all'?'on':''}">Tất cả</button>${kinds.map(k=>`<button data-nc="tab" data-id="${esc(k)}" class="${tab===k?'on':''}">${esc(kname(k))}</button>`).join('')}</div>
-   <div class="nc307-rows">${l.length?l.map(m=>rowHtml(m,isMat)).join(''):(isMat?'<i>Không có trang bị cùng mẫu để làm vật liệu.</i>':'<i>Không có trang bị phù hợp.</i>')}</div></div></div>`;}
- function rowHtml(m,isMat){const t=(()=>{try{return Progress.title(m).split(' · ')[0];}catch{return m.id;}})(),lb=(()=>{try{return V70T(m);}catch{return '';}})();
-  let st='';try{const a=Progress.stat(m);st=m.kind==='armor'?`Giáp ${a.armor.toFixed(1)} · Máu ${a.hp.toFixed(1)}`:`ST ${a.auxDamage.toFixed(2)} · ${a.interval.toFixed(2)} s`;}catch{}
+   <div class="nc307-rows">${l.length?l.map(m=>rowHtml(m,isMat)).join(''):(isMat?'<i>Không có trang bị / bản sao cùng mẫu để làm vật liệu.</i>':'<i>Không có trang bị phù hợp.</i>')}</div></div></div>`;}
+ function rowHtml(m,isMat){const t=m.kind==='craft'?shipName(m.idx):(()=>{try{return Progress.title(m).split(' · ')[0];}catch{return m.id;}})(),lb=(m.copy||m.kind==='craft')?(()=>{try{return TIER70.name[nOf(m)];}catch{return '';}})():(()=>{try{return V70T(m);}catch{return '';}})();
+  let st='';if(m.kind==='craft'){try{st='Hệ số ×'+Workshop.levelFactor(m._v).toFixed(2);}catch{}}else try{const a=Progress.stat(m);st=m.kind==='armor'?`Giáp ${a.armor.toFixed(1)} · Máu ${a.hp.toFixed(1)}`:`ST ${a.auxDamage.toFixed(2)} · ${a.interval.toFixed(2)} s`;}catch{}
   const eq=eqIds().includes(m.id);
-  return `<button class="nc307-row ${m.id===cur?'on':''}" data-nc="${isMat?'add':'pick'}" data-id="${esc(m.id)}" style="--c:${colorOf(m)}">${card(m,'nc307-mini')}<div class="nc307-ri"><b>${esc(t)}</b><span class="nc307-rs">${stars(m)} <small>${esc(lb)}</small></span><small>${tab==='all'?esc(kname(m.kind))+' · ':''}${st}</small></div><div class="nc307-rr"><b>Lv${m.level|0}<small>/${capOf(m)}</small></b>${eq?'<s>Đang mặc</s>':''}${isMat?`<em>+${fmt(feedXp(m))} XP</em>`:''}${!isMat&&m.id===cur?'<s class="cur">Đang chọn</s>':''}</div></button>`;}
+  const fi=(()=>{try{return TIER70.frame[nOf(m)]|0;}catch{return 0;}})();
+  return `<button class="nc307-row ${m.id===cur?'on':''}${m.copy?' cp':''}" data-f="${fi}" data-nc="${isMat?'add':'pick'}" data-id="${esc(m.id)}" style="--c:${colorOf(m)}">${card(m,'nc307-mini')}<div class="nc307-ri"><b>${esc(t)}</b><span class="nc307-rs">${stars(m)} <small>${esc(lb)}</small></span><small>${tab==='all'?esc(kname(m.kind))+' · ':''}${st}</small></div><div class="nc307-rr"><b>Lv${m.level|0}${m.copy?'':`<small>/${capOf(m)}</small>`}</b>${m.copy?'<s class="cp">Bản sao</s>':''}${eq?'<s>Đang mặc</s>':''}${isMat?`<em>+${fmt(feedXp(m))} XP</em>`:''}${!isMat&&m.id===cur?'<s class="cur">Đang chọn</s>':''}</div></button>`;}
  function advHtml(it){const K=it.kind==='craft'?'craft':'gear',ref=it.kind==='craft'?it.idx:it.id;let p=null;try{p=Evo82.plan(K,ref);}catch{}
-  const n=nOf(it),title=(()=>{if(it.kind==='craft'){try{return document.querySelector('#hb-info h3,#hb-info .hb-name')?.textContent||('Chiến cơ '+(it.idx+1));}catch{return 'Chiến cơ';}}try{return Progress.title(it).split(' · ')[0];}catch{return '';}})();
+  const n=nOf(it),title=(()=>{if(it.kind==='craft')return shipName(it.idx);try{return Progress.title(it).split(' · ')[0];}catch{return '';}})();
   const nm=k=>{try{return TIER70.name[k];}catch{return '';}},capN=k=>{try{return TIER70.cap[k];}catch{return 100;}},tm=(()=>{try{return TIER70.tm;}catch{return .0364;}})();
   const fc=k=>{try{return TIER70.fcol[TIER70.frame[k]];}catch{return '#d6e0ea';}};
   const max=!p||p.max,k=(1+(n+1)*tm)/(1+n*tm);
@@ -126,16 +136,16 @@ const NC307=(()=>{
    ${max?`<p class="nc307-m">Đã đạt khung cao nhất: ${esc(nm(n))}.</p>`:`${need?`<p class="nc307-w">${esc(need)}</p>`:''}<div class="nc307-row2"><span>Chi phí <b class="cr">${fmt(cost)} ◈</b></span><span>${(p.rf&&p.rf.cr)?'hoàn '+fmt(p.rf.cr)+' ◈':''}</span></div><div class="nc307-mats nc307-nl">${slots}</div>`}
    ${msg?`<p class="nc307-m">${esc(msg)}</p>`:''}${flash?`<div class="nc307-ok">${esc(flash)}</div>`:''}
    <div class="nc307-bot"><button data-nc="upm" class="nc307-b2">NÂNG CẤP</button><button data-nc="brk" class="nc307-go" ${!max&&p.ok?'':'disabled'}>TIẾN KHUNG</button><button data-nc="x" class="nc307-b3">VỀ</button></div>`;}
- function needsAsk(m){return nOf(m)>=C.warnN?'khung '+(()=>{try{return V70T(m);}catch{return 'Tím';}})():(m.level|0)>=C.warnLv?'Lv'+m.level:'';}
+ function needsAsk(m){if(m&&m.copy&&nOf(m)>=2)return 'bản sao '+(()=>{try{return TIER70.name[nOf(m)];}catch{return 'Lam';}})()+' (dùng được cho tiến khung)';return nOf(m)>=C.warnN?'khung '+(()=>{try{return V70T(m);}catch{return 'Tím';}})():(m.level|0)>=C.warnLv?'Lv'+m.level:'';}
  function add(id){const m=get(id),it=get(cur);if(!usable(m,it)||mats.length>=C.slots||mats.includes(id))return;const w=needsAsk(m);if(w){ask={id,why:w};return;}mats.push(id);}
- function auto(){const it=get(cur);if(!it)return;if(it.kind==='craft')mats=[];st=zero();mats=mats.filter(id=>!needsAsk(get(id)||{}));
-  const pool=items().filter(m=>usable(m,it)&&!mats.includes(m.id)&&!needsAsk(m)).sort((a,b)=>feedXp(a)-feedXp(b));
+ function auto(){const it=get(cur);if(!it)return;st=zero();mats=mats.filter(id=>!needsAsk(get(id)||{}));
+  const pool=items().concat(copies()).filter(m=>usable(m,it)&&!mats.includes(m.id)&&!needsAsk(m)).sort((a,b)=>feedXp(a)-feedXp(b));
   for(const m of pool){if(mats.length>=C.slots)break;const r=sim(it,gainNow());if(r.L>=r.cap)break;if(sim(it,gainNow()+feedXp(m)).over>C.overWarn&&mats.length)break;mats.push(m.id);}
   st=zero();for(const t of T4){let r=sim(it,gainNow());while(r.L<r.cap&&st[t]<D.have(t)){st[t]++;r=sim(it,gainNow());if(r.over>C.overWarn){st[t]--;break;}}}
   if(!mats.length&&!stN())msg='Không có vật liệu phù hợp (món đang mặc, Tím trở lên và món từ Lv'+C.warnLv+' không tự chọn).';}
  function go(){const it=get(cur);if(!it)return;const g=gainNow();if(!g)return;const r=sim(it,g),old=it.level|0;
   if(stN()&&!D.spend(st)){msg='Không đủ Đá XP';return;}
-  for(const id of mats){Progress.v70.remove(id);delete S.x[id];}
+  for(const id of mats){if(isCp(id)){try{Evo82.take(+id.slice(5));}catch{}}else Progress.v70.remove(id);delete S.x[id];}
   if(it.kind==='craft')Workshop.set70(it.idx,{level:r.L});else Progress.v70.set(it.id,{level:r.L});S.x[it.id]=r.x;save();mats=[];st=zero();
   msg='';flash=r.L>old?'NÂNG CẤP THÀNH CÔNG · Lv'+r.L:'+'+fmt(g)+' XP';try{Progress.render();}catch{}try{if(it.kind==='craft')Hub40.render();}catch{}try{Audio393.sfx('pickup');}catch{}}
  function click(e){const b=e.target.closest('[data-nc]');if(!b||!el.contains(b))return;const a=b.dataset.nc,id=b.dataset.id;msg='';
@@ -167,6 +177,6 @@ const NC307=(()=>{
  const hitG=e=>{if(!on())return;const b=e.target.closest&&e.target.closest('[data-action="upgrade"][data-item],#upgrade392,#quote392');if(!b)return;e.stopImmediatePropagation();e.preventDefault();if(e.type==='click'&&b.dataset.item)open(b.dataset.item);};
  ['pointerdown','mousedown','touchstart','click'].forEach(t=>{document.addEventListener(t,hit,true);document.addEventListener(t,hitC,true);document.addEventListener(t,hitG,true);});
  // nút sh-up luôn bấm được (chỉ mở màn), đổi nhãn
- setInterval(()=>{try{if(!on())return;document.querySelectorAll('#upgrade392,#quote392').forEach(x=>x.style.display='none');const c=document.querySelector('#hb-lv');if(c&&!c.dataset.nc&&window.NC307C!==false){c.dataset.nc='1';c.disabled=false;c.innerHTML='NÂNG CẤP<small>Dùng Đá XP</small>';}const b=document.querySelector('.hb-sheet.open #sh-up');if(b&&get(b.closest('.hb-sheet').dataset.item)&&!b.dataset.nc){b.dataset.nc='1';b.disabled=false;b.innerHTML='NÂNG CẤP<small>Dùng trang bị khác / Đá XP</small>';}}catch{}},300);
+ setInterval(()=>{try{if(!on())return;document.querySelectorAll('#upgrade392,#quote392').forEach(x=>x.style.display='none');const c=document.querySelector('#hb-lv');if(c&&!c.dataset.nc&&window.NC307C!==false){c.dataset.nc='1';c.disabled=false;c.innerHTML='NÂNG CẤP<small>Bản sao cùng tàu / Đá XP</small>';}const b=document.querySelector('.hb-sheet.open #sh-up');if(b&&get(b.closest('.hb-sheet').dataset.item)&&!b.dataset.nc){b.dataset.nc='1';b.disabled=false;b.innerHTML='NÂNG CẤP<small>Dùng trang bị khác / Đá XP</small>';}}catch{}},300);
  return {open,close,sim,da:XPDA307,feedXp,cfg:C,state:()=>JSON.parse(JSON.stringify(S)),_m:()=>mats.slice()};
 })();

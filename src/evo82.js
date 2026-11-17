@@ -60,9 +60,12 @@ const Evo82=(()=>{
   let o=null;try{o=kind==='craft'?Workshop.craftProgress(ref|0):Progress.v70.get(ref);}catch{}if(!o)return null;const m=kind==='craft'?(ref|0):o.variant;
   let t=0;try{t=kind==='craft'?V70.craftN(ref|0):V70.nOf(o)|0;}catch{}let g=groupOf(kind,m);try{const gr=o.grade||o.rank;if(gr==='S'||gr==='SS')g=gr;}catch{}
   return {k:kind,m,ref,slot:slotOf(kind,m),t,lv:o.level|0,g};}
+ // V307 (18/11): trang bị cùng mẫu nằm trong túi (không mặc, không hợp thể) cũng tính là bản sao khi tiến khung — như game cùng thể loại. Tắt: window.TB307V=false
+ function virt(kind,ref){if(kind!=='gear'||window.TB307V===false)return [];let eq=[];try{eq=Object.values(Progress.v70.equipped()||{});}catch{}let L=[];try{L=Progress.v70.items();}catch{}
+  return L.filter(i=>i.id!==ref&&!eq.includes(i.id)&&!i.super&&!i.key&&!i.fusion&&!i.directFusion).map(i=>{let t=0;try{t=V70.nOf(i)|0;}catch{}return {u:'i:'+i.id,vi:i.id,k:'gear',m:i.variant,t,lv:i.level|0||1,lk:0,cr:0,st:0};});}
  const elig=(c,min,ex)=>!c.lk&&c.u!==ex&&c.t>=min.t&&c.lv>=min.lv;
  function plan(kind,ref){const x=tgt(kind,ref);if(!x)return null;if(x.t>=11)return {x,max:true};const st=EVO82.step[x.t],K=x.k==='craft'?0:1,ex=x.copy?x.copy.u:-1;
-  const same=S.c.filter(c=>c.k===x.k&&c.m==x.m&&elig(c,st.min,ex)).sort((a,b)=>a.t-b.t||a.lv-b.lv);
+  const same=S.c.concat(virt(x.k,ref)).filter(c=>c.k===x.k&&c.m==x.m&&elig(c,st.min,ex)).sort((a,b)=>a.t-b.t||(!!a.vi)-(!!b.vi)||a.lv-b.lv);
   // V307 (chủ dự án chốt 17/11): tiến khung CHỈ nhận bản sao CÙNG MẪU — phần 'cùng loại' cũ gộp vào số bản sao cùng mẫu. Tắt: window.CUNGMAU307=false
   const CM=window.CUNGMAU307!==false;const pick=[];let needSame=CM?st.same+st.any:st.same,needAny=CM?0:st.any;const useS=same.slice(0,needSame);pick.push(...useS);let miss=needSame-useS.length;
   let wild=0;if(!CM&&miss>0&&(x.g==='S'||x.g==='SS')){wild=miss;needAny+=miss*2;miss=0;}
@@ -78,7 +81,7 @@ const Evo82=(()=>{
   return {x,st,pick,needSame,needAny,miss,missA,wild,lowSame,lowAny,mats,cr,stone,rf,lacks:L,ok:!L.length};}
  function doBreak(kind,ref){const p=plan(kind,ref);if(!p||p.max)return false;if(!p.ok){try{toast(p.lacks[0].toUpperCase());}catch{}return false;}
   if(!Progress.spendCredits(p.cr))return false;if(!Workshop.exp70(-p.stone)){Progress.grantCredits(p.cr);return false;}
-  for(const q of p.mats)V70.add(q.id,-q.n);for(const c of p.pick)removeCopy(c.u);
+  for(const q of p.mats)V70.add(q.id,-q.n);for(const c of p.pick){if(c.vi){try{Progress.v70.remove(c.vi);}catch{}}else removeCopy(c.u);}
   try{if(p.rf.cr)Progress.grantCredits(p.rf.cr);if(p.rf.st)Workshop.exp70(p.rf.st);}catch{}
   const nt=p.x.t+1;if(p.x.copy){p.x.copy.t=nt;}else{try{V70.setTier(p.x.k,p.x.ref,nt);}catch{}}save();
   try{V70.sync&&V70.sync();}catch{}try{Progress.render();}catch{}

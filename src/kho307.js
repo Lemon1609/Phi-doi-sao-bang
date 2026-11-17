@@ -21,6 +21,9 @@ const KHO307=(()=>{
  const feed=it=>{try{return NC307.feedXp(it);}catch{return 0;}};
  const capOf=it=>{try{return Workshop.cap(it);}catch{return 100;}};
  let sel=null;
+ const B4=k=>(window.KHO307_IMG||{})[k]||'';
+ (function(){if(document.getElementById('k307b4'))return;const I=window.KHO307_IMG||{};if(!I.nen_kho)return;const u=k=>'url('+I[k]+')';const c=document.createElement('style');c.id='k307b4';
+  c.textContent=':root{--b4-nen:'+u('nen_kho')+';--b4-g:'+u('o_dang_mac_giap')+';--b4-t:'+u('o_dang_mac_ten_lua')+';--b4-p:'+u('o_dang_mac_vu_khi_phu')+';--b4-r0:'+u('hang_tui_trang')+';--b4-r1:'+u('hang_tui_luc')+';--b4-r2:'+u('hang_tui_lam')+';--b4-r3:'+u('hang_tui_tim')+';--b4-on:'+u('tab_day_bat')+';--b4-off:'+u('tab_day_tat')+'}';document.head.appendChild(c);document.documentElement.classList.add('b4307');})();
  // ---------- HỢP THÀNH 5 → 1 (chủ dự án chốt 17/11: 5 Trắng→Lục, 5 Lục→Lam, 5 Lam→Lam+1; trộn mẫu/loại tùy ý; không nhận đồ hợp thể)
  //  số theo Gemini lượt 5: ◈ 150 / 450 / 1.500 · 100 % thành công · Lam→Lam+1 tối đa 10 lượt/ngày · hoàn 85 % XP đã đầu tư bằng Đá XP
  const HOP={rec:[{inN:0,outN:1,cost:150,lim:0,name:'Trắng → Lục'},{inN:1,outN:2,cost:450,lim:0,name:'Lục → Lam'},{inN:2,outN:3,cost:1500,lim:10,name:'Lam → Lam +1'}],K:'saobang-hop307-v1'};
@@ -65,22 +68,43 @@ const KHO307=(()=>{
   if(!doll){body.classList.remove('k307');return;}
   body.classList.add('k307');
   const slots=[...doll.querySelectorAll('.hb-slot')],E=eq(),kinds=Object.keys(E);
-  if(!sel||!eqIds().includes(sel))sel=E[kinds[0]]||null;
-  slots.forEach((s,i)=>{const id=E[kinds[i]];s.classList.toggle('k307-on',!!id&&id===sel);if(!s.__k307){s.__k307=1;s.addEventListener('click',ev=>{if(!on())return;const k=Object.keys(eq())[[...doll.querySelectorAll('.hb-slot')].indexOf(s)];const id=eq()[k];if(!id)return;if(sel!==id){sel=id;ev.stopImmediatePropagation();ev.preventDefault();patch();}},true);}});
+  // V307 (18/11): chạm vào chiến cơ ở giữa để chọn tàu — nâng cấp / tiến khung tàu chung chỗ với trang bị (như game cùng thể loại)
+  const lc=(()=>{try{return typeof launchCraft==='number'?launchCraft:0;}catch{return 0;}})();
+  if(sel&&sel.startsWith&&sel.startsWith('craft:'))sel='craft:'+lc;
+  if(!sel||(!sel.startsWith('craft:')&&!eqIds().includes(sel)))sel=E[kinds[0]]||('craft:'+lc);
+  const sh=doll.querySelector('.hb-ship');if(sh){sh.classList.toggle('k307-on',sel.startsWith('craft:'));if(!sh.__k307){sh.__k307=1;sh.addEventListener('click',()=>{if(!on())return;sel='craft:'+lc;patch();},true);}
+   if(!sh.querySelector('.k307-sht')){const t=document.createElement('span');t.className='k307-sht';t.textContent='CHẠM ĐỂ CHỌN TÀU';sh.appendChild(t);}}
+  slots.forEach((s,i)=>{const id=E[kinds[i]];s.classList.toggle('k307-on',!!id&&id===sel);{const a=s.querySelector('[class*=gear25-]');const m=a&&String(a.className).match(/gear25-(armor|missiles|sidearm)/);if(m&&s.dataset.k307k!==m[1])s.dataset.k307k=m[1];}if(!s.__k307){s.__k307=1;s.addEventListener('click',ev=>{if(!on())return;const k=Object.keys(eq())[[...doll.querySelectorAll('.hb-slot')].indexOf(s)];const id=eq()[k];if(!id)return;if(sel!==id){sel=id;ev.stopImmediatePropagation();ev.preventDefault();patch();}},true);}});
   let bar=body.querySelector(':scope>.k307-bar');
-  if(!bar){bar=document.createElement('div');bar.className='k307-bar';bar.innerHTML='<div class="k307-two"><button data-k="up">NÂNG CẤP<small></small></button><button data-k="adv">TIẾN KHUNG<small></small></button></div><button data-k="bag" class="k307-bag">🎒 TÚI ĐỒ <small></small></button>';
+  if(!bar){bar=document.createElement('div');bar.className='k307-bar';bar.innerHTML='<div class="k307-two"><button data-k="up">NÂNG CẤP<small></small></button><button data-k="adv">TIẾN KHUNG<small></small></button></div><button data-k="bag" class="k307-bag">'+(B4('icon_tui_do')?'<img class="k307-bi" src="'+B4('icon_tui_do')+'" alt="">':'🎒')+' TÚI ĐỒ <small></small></button>';
    bar.addEventListener('click',e=>{const b=e.target.closest('[data-k]');if(!b)return;const k=b.dataset.k;if(k==='up'){if(sel)NC307.open(sel);}else if(k==='adv'){if(sel)NC307.open(sel,'adv');}else if(k==='bag')bag();});
    const m7=body.querySelector(':scope>.m7-card');(m7||doll).after(bar);}
-  const it=sel&&items().find(i=>i.id===sel);
+  if(sel.startsWith('craft:')){const i=+sel.slice(6);let v=null,nm='Chiến cơ',n=0;try{v=Workshop.craftProgress(i);}catch{}try{nm=Fighters28.profiles[i].name;}catch{}try{n=V70.craftN(i);}catch{}
+   bar.querySelector('[data-k=up] small').textContent=nm+(v?' · Lv'+(v.level|0)+'/'+capOf(v):'');bar.querySelector('[data-k=adv] small').textContent=TIER70.name[n]||'';}
+  else{const it=sel&&items().find(i=>i.id===sel);
   bar.querySelector('[data-k=up] small').textContent=it?title(it)+' · Lv'+(it.level|0)+'/'+capOf(it):'';
-  bar.querySelector('[data-k=adv] small').textContent=it?label(it):'';
+  bar.querySelector('[data-k=adv] small').textContent=it?label(it):'';}
   bar.querySelector('[data-k=bag] small').textContent=items().length+' món';}
  setInterval(()=>{try{patch();}catch{}},400);
  // ---------- Túi đồ ----------
  let el=null,tab='gear',kf='all',msg='';
  function rowHtml(it){const e=eqIds().includes(it.id);let st='';try{const a=Progress.stat(it);st=it.kind==='armor'?`Giáp ${a.armor.toFixed(1)} · Máu ${a.hp.toFixed(1)}`:`ST ${a.auxDamage.toFixed(2)} · ${a.interval.toFixed(2)} s`;}catch{}
   const n=nOf(it),fr=[0,1,2,2,2,2,3,3,3,3,3,3][n],plus=n<2?0:n<6?n-2:n-6;
-  return `<button class="k307-row" data-k="item" data-id="${esc(it.id)}" style="--c:${col(it)}"><div class="k307-ic">${art(it)}</div><div class="k307-ri"><b>${esc(title(it))}</b><span>${'★'.repeat(fr+1)}${'✦'.repeat(plus)} <small>${esc(label(it))}</small></span><small>${kf==='all'?esc(kname(it.kind))+' · ':''}${st}</small></div><div class="k307-rr"><b>Lv${it.level|0}<small>/${capOf(it)}</small></b>${e?'<s>Đang mặc</s>':`<em>cho ${fmt(feed(it))} XP</em>`}</div></button>`;}
+  return `<button class="k307-row" data-f="${fr}" data-k="item" data-id="${esc(it.id)}" style="--c:${col(it)}"><div class="k307-ic">${art(it)}</div><div class="k307-ri"><b>${esc(title(it))}</b><span>${'★'.repeat(fr+1)}${'✦'.repeat(plus)} <small>${esc(label(it))}</small></span><small>${kf==='all'?esc(kname(it.kind))+' · ':''}${st}</small></div><div class="k307-rr"><b>Lv${it.level|0}<small>/${capOf(it)}</small></b>${e?'<s>Đang mặc</s>':`<em>cho ${fmt(feed(it))} XP</em>`}</div></button>`;}
+ // V307 (18/11): túi gồm cả chiến cơ (tab Chiến cơ đầu tiên) và bản sao / phôi từ phó bản, sự kiện, phần thưởng (dùng làm vật liệu cùng mẫu)
+ const FR=n=>[0,1,2,2,2,2,3,3,3,3,3,3][n|0]|0,PL=n=>n<2?0:n<6?n-2:n-6;
+ const fcol=n=>{try{return TIER70.fcol[TIER70.frame[n]];}catch{return '#d6e0ea';}};
+ const shipNm=i=>{try{return Fighters28.profiles[i].name;}catch{return 'Chiến cơ '+(i+1);}};
+ const FORM=['thuong','luc','lam','lam','lam','lam','tim','tim','tim','tim','tim','tim5'];
+ const shipArt=(i,n)=>{try{const S=SHIP118[i];const src=S[FORM[n]]||S.tim||S.lam||S.thuong;return src?`<img src="${src}" alt="" style="width:50px;height:50px;object-fit:contain">`:'';}catch{return '';}};
+ function shipRows(){const out=[];for(let i=0;i<13;i++){let own=false;try{own=Campaign36.ownsCraft(i);}catch{}if(!own)continue;let v={level:1},n=0;try{v=Workshop.craftProgress(i);}catch{}try{n=V70.craftN(i);}catch{}
+   const cur=(()=>{try{return launchCraft===i;}catch{return false;}})();
+   out.push({s:(cur?1e6:0)+n*1000+(v.level|0),h:`<button class="k307-row" data-f="${FR(n)}" data-k="ship" data-id="${i}" style="--c:${fcol(n)}"><div class="k307-ic">${shipArt(i,n)}</div><div class="k307-ri"><b>${esc(shipNm(i))}</b><span>${'★'.repeat(FR(n)+1)}${'✦'.repeat(PL(n))} <small>${esc(TIER70.name[n]||'')}</small></span><small>${kf==='all'?'Chiến cơ · ':''}Hệ số ×${(()=>{try{return Workshop.levelFactor(v).toFixed(2);}catch{return '1.00';}})()}</small></div><div class="k307-rr"><b>Lv${v.level|0}<small>/${capOf(v)}</small></b>${cur?'<s>Đang dùng</s>':''}</div></button>`});}
+  return out.sort((a,b)=>b.s-a.s).map(x=>x.h);}
+ function copyRows(){let L=[];try{L=Evo82.list();}catch{}return L.filter(c=>{const kd=c.k==='craft'?'craft':(()=>{try{return GearCatalog[c.m].kind;}catch{return '';}})();return kf==='all'||kf===kd;}).sort((a,b)=>b.t-a.t||b.lv-a.lv).map(c=>{
+   const isS=c.k==='craft',nm=isS?shipNm(c.m|0):(()=>{try{return GearCatalog[c.m].name;}catch{return c.m;}})(),kd=isS?'Chiến cơ':(()=>{try{return kname(GearCatalog[c.m].kind);}catch{return '';}})();
+   const ic=isS?shipArt(c.m|0,c.t):(()=>{try{return art({id:'c',variant:c.m,kind:GearCatalog[c.m].kind,level:c.lv,rarity:'normal',rank:'',grade:'',enhance:0});}catch{return '';}})();
+   return `<button class="k307-row cp" data-f="${FR(c.t)}" data-k="copy" data-id="${c.u}" style="--c:${fcol(c.t)}"><div class="k307-ic">${ic}</div><div class="k307-ri"><b>${esc(nm)}</b><span>${'★'.repeat(FR(c.t)+1)}${'✦'.repeat(PL(c.t))} <small>${esc(TIER70.name[c.t]||'')}</small></span><small>${kf==='all'?esc(kd)+' · ':''}Bản sao · vật liệu cùng mẫu${c.lk?' · 🔒':''}</small></div><div class="k307-rr"><b>Lv${c.lv}</b><s class="cp">Bản sao</s></div></button>`;});}
  function resHtml(){const R=[];try{for(const t of XPDA307.types)R.push([XPDA307.NAME[t],XPDA307.have(t),fmt(XPDA307.XP[t])+' XP / viên',XPDA307.COL[t],'◆',XPDA307.IMG(t)]);}catch{}
   try{R.push(['Hợp kim',Progress.balance(),'Tiền tệ chính: nâng bậc, tiến khung, phi công','#ffd166','◈',(window.TN307_IMG||{}).hop_kim]);}catch{}
   try{R.push(['Lõi Siêu Hợp',Meta407.cores(),'Tiến bậc phi công Tím / Tím+5, cây tiềm năng','#c77dff','✪',(window.TN307_IMG||{}).loi_sieu_hop]);}catch{}
@@ -90,9 +114,10 @@ const KHO307=(()=>{
   return R.map(r=>`<div class="k307-row k307-res" style="--c:${r[3]}"><div class="k307-ic">${r[5]?`<img src="${r[5]}" alt="" style="width:46px;height:46px;object-fit:contain">`:`<i>${r[4]}</i>`}</div><div class="k307-ri"><b>${esc(r[0])}</b><small>${esc(r[2])}</small></div><div class="k307-rr"><b>${fmt(r[1])}</b></div></div>`).join('');}
  function render(){if(!el)return;const all=items(),kinds=[...new Set(all.map(i=>i.kind))];
   let l=tab==='gear'?all.filter(i=>kf==='all'||i.kind===kf).sort((a,b)=>(eqIds().includes(b.id)-eqIds().includes(a.id))||nOf(b)-nOf(a)||(b.level-a.level)):[];
-  el.querySelector('.k307-in').innerHTML=`<div class="k307-top"><b>TÚI ĐỒ</b><span>${tab==='gear'?all.length+' trang bị':tab==='hop'?'Hợp thành':'Tài nguyên'}</span><button data-k="x" aria-label="Đóng">✕</button></div>
-   ${tab==='gear'?`<div class="k307-tabs"><button data-k="kf" data-id="all" class="${kf==='all'?'on':''}">Tất cả</button>${kinds.map(k=>`<button data-k="kf" data-id="${esc(k)}" class="${kf===k?'on':''}">${esc(kname(k))}</button>`).join('')}</div>`:''}
-   ${tab==='hop'?hopHtml():`<div class="k307-list">${tab==='gear'?(l.length?l.map(rowHtml).join(''):'<i>Túi trống.</i>'):resHtml()}</div>`}
+  const rows=tab==='gear'?((kf==='all'||kf==='craft')?shipRows():[]).concat(l.map(rowHtml),copyRows()):[];const nCp=(()=>{try{return Evo82.list().length;}catch{return 0;}})();
+  el.querySelector('.k307-in').innerHTML=`<div class="k307-top"><b>TÚI ĐỒ</b><span>${tab==='gear'?all.length+' trang bị · '+nCp+' bản sao':tab==='hop'?'Hợp thành':'Tài nguyên'}</span><button data-k="x" aria-label="Đóng">✕</button></div>
+   ${tab==='gear'?`<div class="k307-tabs"><button data-k="kf" data-id="all" class="${kf==='all'?'on':''}">Tất cả</button><button data-k="kf" data-id="craft" class="${kf==='craft'?'on':''}">Chiến cơ</button>${kinds.map(k=>`<button data-k="kf" data-id="${esc(k)}" class="${kf===k?'on':''}">${esc(kname(k))}</button>`).join('')}</div>`:''}
+   ${tab==='hop'?hopHtml():`<div class="k307-list">${tab==='gear'?(rows.length?rows.join(''):'<i>Túi trống.</i>'):resHtml()}</div>`}
    ${msg?`<p class="k307-m">${esc(msg)}</p>`:''}
    ${tab==='gear'?`<div class="k307-acts"><button data-k="qadv">TIẾN KHUNG<br>NHANH</button><button data-k="qm">PHÂN GIẢI<br>NHANH</button><button data-k="best">MẶC TỐT<br>NHẤT</button></div>`:''}
    <div class="k307-foot"><button data-k="tab" data-id="gear" class="${tab==='gear'?'on':''}">TRANG BỊ</button><button data-k="tab" data-id="hop" class="${tab==='hop'?'on':''}">HỢP THÀNH</button><button data-k="tab" data-id="res" class="${tab==='res'?'on':''}">TÀI NGUYÊN</button></div>`;}
@@ -108,6 +133,8 @@ const KHO307=(()=>{
   else if(k==='hok'){hask=false;msg=hopRun();}
   else if(k==='hno'){hask=false;}
   else if(k==='item'){close();try{Hub40.openItem(id);}catch{}return;}
+  else if(k==='ship'){close();try{NC307.open('craft:'+id);}catch{}return;}
+  else if(k==='copy'){msg='Bản sao: đặt vào ô vật liệu khi NÂNG CẤP hoặc tự tính khi TIẾN KHUNG món / tàu cùng mẫu.';}
   else if(k==='qadv'){const n=quickAdv();msg=n?'Đã tiến khung '+n+' lần cho đồ đang mặc.':'Đồ đang mặc chưa đủ điều kiện tiến khung (trần cấp, bản sao, hợp kim).';}
   else if(k==='qm'){const q=document.getElementById('hb-qm');if(q){q.click();msg='Đã phân giải đồ Trắng/Lục thừa.';}}
   else if(k==='best'){const q=document.getElementById('hb-best');if(q){q.click();msg='Đã mặc bộ tốt nhất.';}}
