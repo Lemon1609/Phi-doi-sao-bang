@@ -1,5 +1,5 @@
 /* V307 · màn "Chúc mừng nhận được" (qua307.js) */
-#q307{position:fixed;inset:0;z-index:2147483400;display:none;background:radial-gradient(ellipse at 50% 30%,#123a6e 0%,#071328 55%,#030812 100%);color:#eaf6ff;font-family:"Be Vietnam Pro",sans-serif}
+#q307{position:fixed;inset:0;overflow:hidden;z-index:2147483400;display:none;background:radial-gradient(ellipse at 50% 30%,#123a6e 0%,#071328 55%,#030812 100%);color:#eaf6ff;font-family:"Be Vietnam Pro",sans-serif}
 #q307.open{display:flex;align-items:center;justify-content:center;animation:q307f .25s ease-out}
 @keyframes q307f{from{opacity:0}to{opacity:1}}
 #q307 .q307-in{width:min(94vw,440px);display:flex;flex-direction:column;align-items:center;gap:18px;position:relative}
@@ -33,3 +33,10 @@ html body #q307#q307#q307#q307#q307#q307#q307#q307#q307#q307#q307#q307#q307#q307
 #q307 .q307-card>p{grid-column:1/-1;margin:0;font-size:12.5px;line-height:1.45;color:#b9d2ea}
 html body #q307#q307#q307#q307#q307#q307#q307#q307#q307#q307#q307#q307#q307#q307#q307#q307#q307#q307#q307#q307 .q307-it{background:none!important;border:0!important;border-image:none!important;box-shadow:none!important;min-height:0!important;padding:0!important}
 html body #q307#q307#q307#q307#q307#q307#q307#q307#q307#q307#q307#q307#q307#q307#q307#q307#q307#q307#q307#q307 .q307-it::before,html body #q307#q307#q307#q307#q307#q307#q307#q307#q307#q307#q307#q307#q307#q307#q307#q307#q307#q307#q307#q307 .q307-it::after{display:none!important}
+#q307 .q307-ray{position:absolute;left:50%;top:32%;width:min(150vw,720px);transform:translate(-50%,-50%);opacity:.75;pointer-events:none;animation:q307r 14s linear infinite;mix-blend-mode:screen}
+@keyframes q307r{to{transform:translate(-50%,-50%) rotate(360deg)}}
+#q307 .q307-hh{width:min(92vw,400px);height:auto;filter:drop-shadow(0 0 16px rgba(80,180,255,.6));animation:q307e .5s cubic-bezier(.2,1.6,.4,1)}
+#q307 .q307-em b{margin-top:-6px}
+#q307 .q307-f.img{border:0;border-radius:0;background:center/100% 100% no-repeat;box-shadow:none}
+#q307 .q307-f.img::after{inset:8%;border-radius:8px}
+#q307 .q307-f.img>img,#q307 .q307-f.img>span.gear25-art{max-width:46px;max-height:46px;width:46px!important}

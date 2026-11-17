@@ -46,10 +46,14 @@ const QUA307=(()=>{
    ic=src?`<img src="${src}" alt="">`:(c.k==='gear'?(()=>{try{return String(Progress.art({kind:GearCatalog[c.m].kind,variant:c.m,grade:'',rank:'',level:1})).replace(/<b>[\s\S]*?<\/b>/g,'');}catch{return '<i class="c">❖</i>';}})():IMG('ban_sao_cc','❖'));}
   else if(x.type==='gear'){const it=x.it;try{nm=Progress.title(it).split(' · ')[0];ic=String(Progress.art(it)).replace(/<b>[\s\S]*?<\/b>/g,'');col=V70C(it);}catch{nm='Trang bị';}}
   x._nm=nm;x._col=col;
-  return `<button class="q307-it" data-q="i" data-i="${i}" style="--c:${col};--d:${(i*0.12).toFixed(2)}s"><span class="q307-f">${ic}<b>${x.n>1||['gem','cr','xp','tk','en','core'].includes(x.type)?fmt(x.n):''}</b></span><small>${esc(nm)}</small></button>`;}
+  const FR=(()=>{if(x.type==='xp')return ['','trang','luc','tim','vang'][x.t]||'lam';if(x.type==='cr')return 'vang';if(x.type==='core')return 'tim';if(x.type==='gem')return 'lam';if(x.type==='en')return 'luc';
+   if(x.type==='copy'){const f=frameOfCopy((x.c||{}).t|0);return ['trang','luc','lam','tim'][f];}if(x.type==='gear'){try{return ['trang','luc','lam','tim'][TIER70.frame[TIER70.name.indexOf(V70T(x.it))]]||'lam';}catch{return 'lam';}}return 'lam';})();
+  const QI=window.QUA307_IMG||{};x._fr=QI['khung_'+FR]||'';
+  return `<button class="q307-it" data-q="i" data-i="${i}" style="--c:${col};--d:${(i*0.12).toFixed(2)}s"><span class="q307-f${x._fr?' img':''}" ${x._fr?`style="background-image:url(${x._fr})"`:''}>${ic}<b>${x.n>1||['gem','cr','xp','tk','en','core'].includes(x.type)?fmt(x.n):''}</b></span><small>${esc(nm)}</small></button>`;}
  function show(items){if(!on())return;list=items;
   if(!el){el=document.createElement('div');el.id='q307';el.addEventListener('click',click);document.body.appendChild(el);}
-  el.innerHTML=`<div class="q307-in"><div class="q307-em"><i></i><b>CHÚC MỪNG NHẬN ĐƯỢC</b></div><div class="q307-grid">${items.map(cell).join('')}</div><button class="q307-ok" data-q="ok">NHẬN</button><div class="q307-pop" hidden></div></div>`;
+  const QI=window.QUA307_IMG||{};
+  el.innerHTML=`${QI.tia?`<img class="q307-ray" src="${QI.tia}" alt="">`:''}<div class="q307-in"><div class="q307-em">${QI.huy_hieu?`<img class="q307-hh" src="${QI.huy_hieu}" alt="">`:'<i></i>'}<b>CHÚC MỪNG NHẬN ĐƯỢC</b></div><div class="q307-grid">${items.map(cell).join('')}</div><button class="q307-ok" data-q="ok">NHẬN</button><div class="q307-pop" hidden></div></div>`;
   el.classList.add('open');try{Audio393.sfx('pickup');}catch{}}
  function click(e){const b=e.target.closest('[data-q]');if(!b)return;const q=b.dataset.q;const pop=el.querySelector('.q307-pop');
   if(q==='ok'){el.classList.remove('open');return;}
