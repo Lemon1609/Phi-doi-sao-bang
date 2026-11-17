@@ -1,0 +1,23 @@
+GỬI GPT · V307 · SỬA TỈ LỆ THÂN 6 BẬC (dán tiếp; GIỮ màu theo bậc và các bộ phận đặc trưng như bản vừa rồi)
+
+Màu thân theo bậc và việc thân giữa thay đổi đã đúng hướng. Còn lỗi tỉ lệ, chủ dự án nhận xét: bậc thấp QUÁ THON, bậc cao QUÁ CỤC MỊCH THÔ KỆCH. Mình đo:
+- Tàu 2: rộng/cao bậc 1–3 chỉ 0,35–0,41 rồi nhảy lên 0,65–0,71 ở bậc 4–6; bậc 6 "độ đặc" (diện tích tàu / khung bao) 72 % trong khi các bậc khác 44–53 % → thành một khối hộp.
+- Tàu 3: bậc 6 rộng bằng cao (1,00), độ đặc 57 %; bậc 5 rộng/cao 0,85 nhảy từ 0,52.
+(Một phần lỗi do tin trước của mình yêu cầu thân giữa phình 120 %; bỏ yêu cầu đó.)
+
+SỬA THEO SỐ ĐÍCH (mình sẽ đo lại)
+1) Tỉ lệ rộng/cao tăng ĐỀU, không nhảy bậc. Tàu 2 (dáng đứng): 0,48 · 0,52 · 0,57 · 0,62 · 0,67 · 0,72. Tàu 3 (dáng chữ X): 0,60 · 0,65 · 0,70 · 0,75 · 0,80 · 0,86.
+2) Chiều cao cũng tăng dần (bậc 1 ≈ 78 % chiều cao bậc 4, bậc 6 ≈ 110 %), để bậc thấp nhỏ hơn mà KHÔNG gầy nhom.
+3) Độ đặc 45–55 % ở MỌI bậc; bậc 6 tối đa 56 %. Bậc cao giàu chi tiết bằng LỚP GIÁP MỎNG XẾP TẦNG có KHE NỀN ĐEN giữa các lớp, không bằng cách đắp khối đặc.
+
+DÁNG BẬC THẤP (1–3): thân đầy đặn vừa phải, có vai giáp rõ hai bên buồng lái, cánh/ray ngắn nhưng bản rộng; không được là một que dài mảnh. Gọn, khỏe, dễ thương.
+
+DÁNG BẬC CAO (5–6): THANH LỊCH và QUÝ, không thô:
+- Mũi nhọn thanh, đường bao thuôn và vuốt cong; mép giáp vát chéo; các tấm giáp mỏng xếp lớp như vảy/cánh với khe hở để thấy nền đen.
+- CẤM khối hộp vuông lớn, mảng giáp phẳng to, viền dày bọc kín cả thân, các khối chữ nhật xếp chồng.
+- Vàng kim bậc 6 chỉ ở viền mảnh và điểm nhấn; thân trắng ngà phải có nhiều khe và đường gờ để không thành một tảng.
+- Lõi sáng nhỏ gọn, không chiếm cả giữa thân.
+
+GIỮ NGUYÊN: màu thân theo bậc (bạc · lục ngọc · lam cobalt · tím · đen ánh hồng-tím · trắng ngà viền vàng), màu nhận dạng ở chi tiết, kiểu lớn lên riêng (tàu 2 ray 2→4→6 và buồm pha lê dọc; tàu 3 cánh X → bông tuyết), bề rộng và diện tích tăng dần 1 < … < 6.
+
+Vẽ lại tàu 2 rồi tàu 3, mỗi tàu 1 ảnh 6 ô như cũ. Cuối câu trả lời ghi: tỉ lệ rộng/cao ước tính từng bậc.

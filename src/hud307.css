@@ -1,0 +1,4 @@
+/* V307 · số giây hồi chiêu trên nút trong trận */
+html body .cd307{position:absolute;left:50%;top:50%;transform:translate(-50%,-58%);z-index:5;pointer-events:none;font:900 20px/1 'Neo',sans-serif;color:#fff;letter-spacing:0;
+ text-shadow:0 0 2px #000,0 0 4px #000,0 1px 0 #000,1px 0 0 #000,-1px 0 0 #000,0 -1px 0 #000}
+html body .cd307[hidden]{display:none!important}
