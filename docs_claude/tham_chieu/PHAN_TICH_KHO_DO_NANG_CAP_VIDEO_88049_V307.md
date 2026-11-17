@@ -31,3 +31,7 @@ Chỉ ghi chú cách làm để học; không lưu khung hình, không chép bi�
 - Túi: danh sách "chọn trang bị tiến cấp nhanh" (mỗi hàng kèm icon nguyên liệu cần).
 - Quét nhanh: danh sách ải 3★ kèm icon vật liệu rơi, "hôm nay còn N lần", nút Quét ×10, lọc theo loại vật liệu.
 - Phó bản tài nguyên: thẻ từng phó bản, tab độ khó, thể lực, lượt còn, 2 nút Quét · Khiêu chiến.
+
+## Clip 88276 (bố cục nâng cấp / tiến cấp)
+- Nâng cấp: tên món trên cùng giữa → 1 hình món lớn giữa + sao → bảng 3 dòng giữa màn (Cấp / Công / Điểm cộng: trước ➤ sau xanh) → 2 dòng XP (cần lên cấp · max) + thanh "Nhận XP" → dòng tiền + nút Tự chọn → 5 ô → đáy 3 nút (Tiến cấp · NÂNG CẤP · Về). Chạm ô giữa khi trống mở túi (tab Chiến cơ / Giáp / Phụ / Hộ vệ).
+- Tiến cấp: 2 hình (tên trên mỗi hình, sao dưới) nối bằng dây sáng; bảng chỉ số 1 cột giữa màn (Cấp 30/30 ➤ 30/45…); tiền; 5 ô (nguyên liệu hoặc ô "thiếu"); đáy (Nâng cấp · TIẾN CẤP · Về). Thành công: thẻ phải hiện "+1", dải "Tiến cấp thành công".

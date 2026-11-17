@@ -177,3 +177,12 @@ html body #nc307#nc307#nc307#nc307#nc307#nc307#nc307#nc307#nc307#nc307#nc307#nc3
 #nc307.gpt .nc307-xp2 .nc307-bar{height:24px;border:0;border-radius:0;background:var(--k-xp_nen) center/100% 100% no-repeat;overflow:visible}
 #nc307.gpt .nc307-xp2 .nc307-bar i,#nc307.gpt .nc307-xp2 .nc307-bar u{top:7px;bottom:7px;left:5.5%;border-radius:3px;transform-origin:left center;transform:scaleX(.89)}
 #nc307.gpt .nc307-xp2 .nc307-bar u{background:linear-gradient(90deg,#2bd46d,#8dff6a);box-shadow:0 0 8px #5dff7a}
+
+/* ---- bố cục dọc giữa màn kiểu game gốc (clip 88276) ---- */
+#nc307 .nc307-pn{grid-template-columns:1fr;justify-items:center;gap:6px}
+#nc307 .nc307-pn .nc307-pc{width:min(52%,200px)}
+#nc307 .nc307-pn .nc307-tb,#nc307 .nc307-tc{width:100%}
+#nc307 .nc307-tb td:nth-child(2),#nc307 .nc307-tb td:nth-child(4){text-align:center}
+#nc307 .nc307-tb td:first-child{width:34%}
+#nc307 .nc307-cards{align-items:center}
+#nc307 .nc307-ac{flex:0 1 40%}

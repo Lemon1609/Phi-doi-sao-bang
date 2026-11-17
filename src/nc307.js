@@ -106,8 +106,9 @@ const NC307=(()=>{
   let S=[];if(it.kind==='craft'){let a=1;try{a=Workshop.levelFactor(it._v);}catch{}S.push(['Hệ số',a.toFixed(3),(a*k).toFixed(3)]);}
   else{let s0={};try{s0=Progress.stat(it);}catch{}const N={armor:'Giáp',hp:'Máu',auxDamage:'Sát thương'};for(const key of Object.keys(s0)){if(key==='interval')continue;const v=s0[key],d=key==='auxDamage'?2:1;S.push([N[key]||key,v.toFixed(d),(v*k).toFixed(d)]);}}
   const lv=it.level|0;
-  const cardA=`<div class="nc307-ac" style="--c:${fc(n)}"><b class="t">${esc(title)}</b><div class="nc307-art">${artOf(it)}</div><b class="f">${esc(nm(n))}</b><ul><li><span>Lv</span><b>${lv}/${capN(n)}</b></li>${S.map(x=>`<li><span>${x[0]}</span><b>${x[1]}</b></li>`).join('')}</ul></div>`;
-  const cardB=max?'':`<div class="nc307-ac" style="--c:${fc(n+1)}"><b class="t">${esc(title)}</b><div class="nc307-art">${artOf(it)}</div><b class="f">${esc(nm(n+1))}</b><ul><li><span>Lv</span><b class="up">${lv}/${capN(n+1)}</b></li>${S.map(x=>`<li><span>${x[0]}</span><b class="up">${x[2]}</b></li>`).join('')}</ul></div>`;
+  const cardA=`<div class="nc307-ac" style="--c:${fc(n)}"><b class="t">${esc(title)}</b><div class="nc307-art">${artOf(it)}</div><b class="f">${esc(nm(n))}</b></div>`;
+  const cardB=max?'':`<div class="nc307-ac" style="--c:${fc(n+1)}"><b class="t">${esc(title)}</b><div class="nc307-art">${artOf(it)}</div><b class="f">${esc(nm(n+1))}</b></div>`;
+  const tbl=max?'':`<table class="nc307-tb nc307-tc"><tr><td>Cấp</td><td>${lv}/${capN(n)}</td><td>➤</td><td class="up">${lv}/${capN(n+1)}</td></tr>${S.map(x=>`<tr><td>${x[0]}</td><td>${x[1]}</td><td>➤</td><td class="up">${x[2]}</td></tr>`).join('')}</table>`;
   let slots='',cost=0,need='';
   if(!max){const st=p.st||{};const L=[];
    if(p.needSame)L.push({im:(window.TN307_IMG||{})[it.kind==='craft'?'ban_sao_cc':'ban_sao_tb'],t:'Bản sao cùng mẫu',h:p.needSame-p.miss,n:p.needSame});
@@ -116,6 +117,7 @@ const NC307=(()=>{
    cost=(p.cr|0)+(p.stone|0)*15;if(st.mainLv&&lv<st.mainLv)need=`Cần món chính đạt Lv${st.mainLv} (đang Lv${lv})`;}
   return `<div class="nc307-top"><b>TIẾN KHUNG</b><button class="nc307-x" data-nc="x" aria-label="Đóng">✕</button></div>
    <div class="nc307-cards">${cardA}${max?'':'<i class="nc307-arr">'+((window.NC307_IMG||{}).ten?'<img src="'+window.NC307_IMG.ten+'" alt="">':'➤')+'</i>'+cardB}</div>
+   ${tbl}
    ${max?`<p class="nc307-m">Đã đạt khung cao nhất: ${esc(nm(n))}.</p>`:`${need?`<p class="nc307-w">${esc(need)}</p>`:''}<div class="nc307-row2"><span>Chi phí <b class="cr">${fmt(cost)} ◈</b></span><span>${(p.rf&&p.rf.cr)?'hoàn '+fmt(p.rf.cr)+' ◈':''}</span></div><div class="nc307-mats nc307-nl">${slots}</div>`}
    ${msg?`<p class="nc307-m">${esc(msg)}</p>`:''}${flash?`<div class="nc307-ok">${esc(flash)}</div>`:''}
    <div class="nc307-bot"><button data-nc="upm" class="nc307-b2">NÂNG CẤP</button><button data-nc="brk" class="nc307-go" ${!max&&p.ok?'':'disabled'}>TIẾN KHUNG</button><button data-nc="x" class="nc307-b3">VỀ</button></div>`;}
