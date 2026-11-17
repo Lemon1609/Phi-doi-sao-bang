@@ -36,7 +36,7 @@ const QUA307=(()=>{
  function cell(x,i){let ic='',nm='',col='#7fdcff';
   if(x.type==='gem'){ic='<i class="g">💎</i>';nm='Kim cương';col='#7fe6ff';}
   else if(x.type==='cr'){ic='<i class="c">◈</i>';nm='Hợp kim';col='#ffd166';}
-  else if(x.type==='xp'){let N='Đá XP',C='#8fd6ff';try{N=XPDA307.NAME[x.t];C=XPDA307.COL[x.t];}catch{}ic=`<i class="d" style="--g:${C}"></i>`;nm=N;col=C;}
+  else if(x.type==='xp'){let N='Đá XP',C='#8fd6ff';try{N=XPDA307.NAME[x.t];C=XPDA307.COL[x.t];}catch{}let I='';try{I=XPDA307.IMG(x.t);}catch{}ic=I?`<img src="${I}" alt="">`:`<i class="d" style="--g:${C}"></i>`;nm=N;col=C;}
   else if(x.type==='tk'){ic='<i class="c">🎫</i>';nm='Vé càn quét';}
   else if(x.type==='en'){ic='<i class="c">⚡</i>';nm='Thể lực';col='#5ce39a';}
   else if(x.type==='core'){ic='<i class="c">✪</i>';nm='Lõi Siêu Hợp';col='#c77dff';}

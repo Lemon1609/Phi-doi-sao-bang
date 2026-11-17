@@ -13,7 +13,7 @@ const XPDA307=(()=>{const KEY='saobang-daxp307-v1',XP={1:15,2:60,3:240,4:1000},N
  const have=t=>S.c[t]|0;
  function add(t,n){t=t|0;n=Math.floor(n||0);if(!XP[t]||n<=0)return false;S.c[t]+=n;save();return true;}
  function spend(m){for(const t in m)if((m[t]|0)>have(t))return false;for(const t in m)S.c[t]-=m[t]|0;save();return true;}
- return {XP,NAME,COL,have,add,spend,types:[1,2,3,4],total:()=>[1,2,3,4].reduce((a,t)=>a+have(t)*XP[t],0),state:()=>JSON.parse(JSON.stringify(S))};})();
+ return {XP,NAME,COL,IMG:t=>{try{return (window.DAXP307_IMG||{})[t]||'';}catch{return '';}},have,add,spend,types:[1,2,3,4],total:()=>[1,2,3,4].reduce((a,t)=>a+have(t)*XP[t],0),state:()=>JSON.parse(JSON.stringify(S))};})();
 const NC307CFG={
  need:L=>50+6*L,                     // XP từ L lên L+1
  feed:[15,40,100,180,280,400,750,1200,1800,2500,3400,4500],   // XP gốc theo 12 nấc khung (Trắng … Tím+5)
@@ -73,7 +73,7 @@ const NC307=(()=>{
   <div class="nc307-xp"><div class="nc307-bar"><i style="width:${r.L>(it.level|0)?0:pct0}%"></i><u style="width:${pct}%"></u></div><span>${r0.need?fmt(r0.x)+' / '+fmt(r0.need)+' XP':'Đạt trần cấp '+r0.cap}${g?` <em>+${fmt(g)} XP</em>`:''}</span></div>
   ${r.over>C.overWarn?`<p class="nc307-w">Dư ${fmt(r.over)} XP sẽ bị mất do chạm trần Lv${r.cap}. Hãy bỏ bớt vật liệu!</p>`:''}
   <div class="nc307-mats">${it.kind==='craft'?'':Array.from({length:C.slots},(_,k)=>{const m=get(mats[k]);return m?`<button data-nc="un" data-id="${esc(m.id)}" class="f">${card(m,'nc307-mini')}<em>+${fmt(feedXp(m))}</em></button>`:`<button data-nc="slot" class="e">+</button>`;}).join('')}
-   <div class="nc307-stones">${T4.map(t=>`<div class="nc307-gem" style="--g:${D.COL[t]}"><i></i><div><b>${D.NAME[t]}</b><small>${fmt(D.XP[t])} XP · có ${fmt(D.have(t))}</small></div><div class="nc307-gb"><button data-nc="s-" data-id="${t}">−</button><b>${st[t]|0}</b><button data-nc="s+" data-id="${t}">+</button></div></div>`).join('')}</div></div>
+   <div class="nc307-stones">${T4.map(t=>`<div class="nc307-gem" style="--g:${D.COL[t]}">${D.IMG(t)?`<img class="nc307-gi" src="${D.IMG(t)}" alt="">`:'<i></i>'}<div><b>${D.NAME[t]}</b><small>${fmt(D.XP[t])} XP · có ${fmt(D.have(t))}</small></div><div class="nc307-gb"><button data-nc="s-" data-id="${t}">−</button><b>${st[t]|0}</b><button data-nc="s+" data-id="${t}">+</button></div></div>`).join('')}</div></div>
   <div class="nc307-acts"><button data-nc="adv" class="nc307-adv">⇄ TIẾN KHUNG</button><button data-nc="auto" class="nc307-auto">TỰ CHỌN</button><button data-nc="go" class="nc307-go" ${g&&r0.need?'':'disabled'}>NÂNG CẤP</button></div>
   ${msg?`<p class="nc307-m">${esc(msg)}</p>`:''}${flash?`<div class="nc307-ok" key="${Date.now()}">${esc(flash)}</div>`:''}
   ${warnAsk?(()=>{const r=sim(it,gainNow());return `<div class="nc307-ask"><div><p>Lượt nâng này vượt trần <b>Lv${r.cap}</b>, dư <b>${fmt(r.over)} XP</b> sẽ mất (không hoàn). Vẫn nâng?</p><label class="nc307-nw"><input type="checkbox"> Hôm nay không nhắc lại</label><button data-nc="wno">Hủy</button><button data-nc="wok">Tiếp tục nâng</button></div></div>`;})():''}

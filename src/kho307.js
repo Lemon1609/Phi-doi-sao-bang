@@ -81,11 +81,11 @@ const KHO307=(()=>{
  function rowHtml(it){const e=eqIds().includes(it.id);let st='';try{const a=Progress.stat(it);st=it.kind==='armor'?`Giáp ${a.armor.toFixed(1)} · Máu ${a.hp.toFixed(1)}`:`ST ${a.auxDamage.toFixed(2)} · ${a.interval.toFixed(2)} s`;}catch{}
   const n=nOf(it),fr=[0,1,2,2,2,2,3,3,3,3,3,3][n],plus=n<2?0:n<6?n-2:n-6;
   return `<button class="k307-row" data-k="item" data-id="${esc(it.id)}" style="--c:${col(it)}"><div class="k307-ic">${art(it)}</div><div class="k307-ri"><b>${esc(title(it))}</b><span>${'★'.repeat(fr+1)}${'✦'.repeat(plus)} <small>${esc(label(it))}</small></span><small>${kf==='all'?esc(kname(it.kind))+' · ':''}${st}</small></div><div class="k307-rr"><b>Lv${it.level|0}<small>/${capOf(it)}</small></b>${e?'<s>Đang mặc</s>':`<em>cho ${fmt(feed(it))} XP</em>`}</div></button>`;}
- function resHtml(){const R=[];try{for(const t of XPDA307.types)R.push([XPDA307.NAME[t],XPDA307.have(t),fmt(XPDA307.XP[t])+' XP / viên',XPDA307.COL[t],'◆']);}catch{}
+ function resHtml(){const R=[];try{for(const t of XPDA307.types)R.push([XPDA307.NAME[t],XPDA307.have(t),fmt(XPDA307.XP[t])+' XP / viên',XPDA307.COL[t],'◆',XPDA307.IMG(t)]);}catch{}
   try{R.push(['Hợp kim',Progress.balance(),'Tiền tệ chính: nâng bậc, tiến khung, phi công','#ffd166','◈']);}catch{}
   try{R.push(['Lõi Siêu Hợp',Meta407.cores(),'Tiến bậc phi công Tím / Tím+5, cây tiềm năng','#c77dff','✪']);}catch{}
   try{R.push(['Bản sao (kho)',Evo82.list().length,'Nguyên liệu tiến khung','#7fdcff','❖']);}catch{}
-  return R.map(r=>`<div class="k307-row k307-res" style="--c:${r[3]}"><div class="k307-ic"><i>${r[4]}</i></div><div class="k307-ri"><b>${esc(r[0])}</b><small>${esc(r[2])}</small></div><div class="k307-rr"><b>${fmt(r[1])}</b></div></div>`).join('');}
+  return R.map(r=>`<div class="k307-row k307-res" style="--c:${r[3]}"><div class="k307-ic">${r[5]?`<img src="${r[5]}" alt="" style="width:46px;height:46px;object-fit:contain">`:`<i>${r[4]}</i>`}</div><div class="k307-ri"><b>${esc(r[0])}</b><small>${esc(r[2])}</small></div><div class="k307-rr"><b>${fmt(r[1])}</b></div></div>`).join('');}
  function render(){if(!el)return;const all=items(),kinds=[...new Set(all.map(i=>i.kind))];
   let l=tab==='gear'?all.filter(i=>kf==='all'||i.kind===kf).sort((a,b)=>(eqIds().includes(b.id)-eqIds().includes(a.id))||nOf(b)-nOf(a)||(b.level-a.level)):[];
   el.querySelector('.k307-in').innerHTML=`<div class="k307-top"><b>TÚI ĐỒ</b><span>${tab==='gear'?all.length+' trang bị':tab==='hop'?'Hợp thành':'Tài nguyên'}</span><button data-k="x" aria-label="Đóng">✕</button></div>
