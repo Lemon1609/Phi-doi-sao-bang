@@ -106,7 +106,7 @@ const S77=(()=>{
   el.innerHTML=`<div class="m63-card s77-card"><div class="s77-top"><b>MÙA GIẢI · CHIẾN DỊCH SAO BĂNG</b><button data-s77="x" class="s77-x">✕</button></div>
    ${susp?'<p class="s77-warn">Đồng hồ máy bị lùi · tạm khóa cho tới khi giờ máy vượt mốc đã lưu.</p>':''}
    <div class="s77-head"><div class="s77-lv"><b>${L}</b><small>/ ${C.MAX_LEVEL}</small></div><div class="s77-xp"><div><i style="width:${pct}%"></i></div><small>${fmt(Math.min(S.xp,C.MAX_LEVEL*C.XP_PER_LEVEL))} / ${fmt(C.MAX_LEVEL*C.XP_PER_LEVEL)} XP · còn ${daysLeft()} ngày${S.titles.length?' · 🏆 Quán Quân Mùa':''}</small></div></div>
-   <p class="s77-s">XP: 1/thể lực (≤${X.energyCap}/ngày) · năng động 60: +${X.ms60}, 100: +${X.ms100} · tầng Tháp mới +${X.towerFloor} · Vô tận >${X.endlessSec}s +${X.endless} (${X.endlessDaily}/ngày) · Thử thách ngày +${X.daily}</p>
+   <details class="s77-s"><summary style="cursor:pointer;color:#8fd4ff">ⓘ Cách nhận XP</summary>XP: 1/thể lực (≤${X.energyCap}/ngày) · năng động 60: +${X.ms60}, 100: +${X.ms100} · tầng Tháp mới +${X.towerFloor} · Vô tận >${X.endlessSec}s +${X.endless} (${X.endlessDaily}/ngày) · Thử thách ngày +${X.daily}</details>
    <div class="s77-btns">${S.elite?'<span class="s77-on">✦ LÀN TINH ANH ĐÃ MỞ</span>':`<button class="m63-go" data-s77="elite">MỞ LÀN TINH ANH · ${fmt(C.ELITE_PASS_PRICE_GEM)} 💎 (+${fmt(C.ELITE_INSTANT_XP)} XP)</button>`}<button class="m63-go s77-all" data-s77="all">NHẬN TẤT CẢ</button></div>
    <div class="s77-hd"><em>Cấp</em><b>MIỄN PHÍ</b><b class="e">TINH ANH</b></div><div class="s77-list">${rows}${overRow}</div></div>`;}
  setInterval(()=>{try{const b=document.querySelector('#hgr41 [data-n74=gifts] .n74d');if(b&&ready())b.hidden=false;}catch{}},2000);

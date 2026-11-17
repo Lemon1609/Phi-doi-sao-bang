@@ -591,7 +591,7 @@ rep("pending=true;warning=1.5;","pending=true;warning=3.0;")  # ROADMAP76 lặng
 rep("endlessWave++;endlessSpawned=0;endlessGap=.5;","endlessWave++;endlessSpawned=0;endlessGap=1.8;")  # ROADMAP76 nghỉ 1,8 s giữa đợt
 rep("const DAYS=[{credits:300},{stones:40},{credits:600,stones:20},{frag:4},{credits:1000},{stones:120},{credits:2000,stones:150,frag:6}];","const DAYS=[{credits:300},{stones:40},{credits:600,stones:20},{copy:[0,2]},{credits:1000},{stones:120},{credits:4000,stones:300,copy:[2,1]}];")  # V78 điểm danh: ngày 7 > tổng ngày 1–6 · V307: mảnh chiến cơ (đã bỏ từ V74, cộng ra 0) → bản sao theo bảng Frag74: 4 mảnh=2 Trắng, 10 mảnh=2 Lục; chủ dự án 17/11: ngày 7 = 1 bản sao Lam
 rep("if(r.frag)Workshop.grant({craft:launchCraft,fragments:r.frag});","if(r.copy){try{V70.phAdd('craft',launchCraft,r.copy[0],r.copy[1]);}catch{}}")  # V307: bản sao Lv1 qua Evo82
-rep("r.frag?r.frag+' mảnh chiến cơ đang dùng':''","r.copy?r.copy[1]+' bản sao '+['Trắng','Lục','Lam','Tím'][r.copy[0]]+' Lv1 · chiến cơ đang dùng':''")
+rep("r.frag?r.frag+' mảnh chiến cơ đang dùng':''","r.copy?r.copy[1]+' bản sao '+['Trắng','Lục','Lam','Tím'][r.copy[0]]+' Lv1':''")
 rep("clamp(Math.round(W*fh/Math.max(1,fw)),680,1100)","clamp(Math.round(W*fh/Math.max(1,fw)),680,1400)")  # V75 máy dài: phủ kín màn hình khi chơi
 rep("if(state.sweep.used>=10)return false;state.sweep.used++;save();const credits=missionFor(n).credits;","if(state.sweep.used>=10){if(!(typeof V75!=='undefined'&&V75.takeTk()))return false;}else state.sweep.used++;save();const credits=missionFor(n).credits;")  # V75 vé càn quét
 rep("if(e.guard>0&&!s.ignoreGuard){const blocked=Math.min(e.guard,s.damage);","if(typeof C76run!=='undefined'&&C76run.blocks(s,e)){}else if(e.guard>0&&!s.ignoreGuard){const blocked=Math.min(e.guard,s.damage);")  # V76 khiên từ tính
@@ -950,6 +950,7 @@ for _p in sorted(glob.glob('src/tranh307/*.png')+glob.glob('src/tranh307/*.jpg')
     _b=_io307.BytesIO();_im.save(_b,'WEBP',quality=86,method=6);_T307[_k]='data:image/webp;base64,'+base64.b64encode(_b.getvalue()).decode()
 print('tranh307:',sorted(_T307))
 rep("</body>","<script id=\"tranh307-art\">const TRANH307="+json.dumps(_T307)+";</script><style id=\"tranh307-css\">"+_ui306css(open('src/tranh307.css',encoding='utf-8').read())+"</style><script id=\"tranh307-js\">"+open('src/tranh307.js',encoding='utf-8').read()+"</script></body>")  # V307 tranh nửa trên
+rep("</body>","<style id=\"dd307-css\">"+_ui306css(open('src/dd307.css',encoding='utf-8').read())+"</style></body>")  # V307 điểm danh: ô ngày viền màu theo bậc
 rep("</body>","<style id=\"cot307-css\">"+_ui306css(open('src/cot307.css',encoding='utf-8').read())+"</style><script id=\"cot307-js\">"+open('src/cot307.js',encoding='utf-8').read()+"</script></body>")  # V307 sảnh: hàng ô vuông
 rep("</body>","<script id=\"hud307-js\">"+open('src/hud307.js',encoding='utf-8').read()+"</script></body>")  # V307 HUD: bật chữ nổi nhặt đồ
 open('Phi_Doi_Sao_Bang_V74_mau.html','w',encoding='utf-8').write(h);print(round(len(h)/1e6,2),'MB')
