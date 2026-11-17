@@ -116,3 +116,21 @@ const KHO307=(()=>{
  function close(){if(el)el.classList.remove('open');}
  return {bag,close,patch,sel:()=>sel,hop:{run:hopRun,set:(r,ids)=>{hr=r;hp=ids.slice();},used:hopUsed,cfg:HOP}};
 })();
+// V307 · thanh tài nguyên dùng biểu tượng GPT (hợp kim, lõi); ô "Đá nâng cấp" cũ ở sảnh thành tổng XP của Đá XP, ẩn ở đầu màn Kho; mảnh phi công có biểu tượng
+(function(){
+ const I=k=>(window.TN307_IMG||{})[k]||'',XI=()=>{try{return XPDA307.IMG(3);}catch{return '';}};
+ const fmt=n=>Math.round(n||0).toLocaleString('vi-VN'),xpTot=()=>{try{return XPDA307.total();}catch{return 0;}};
+ const img=(src,c)=>`<img class="r307i${c?' '+c:''}" src="${src}" alt="">`;
+ function tick(){if(window.KHO307===false)return;
+  // sảnh
+  const set=(chipSel,src,val,title)=>{const b=document.querySelector(chipSel);if(!b)return;const chip=b.closest('.h1-chip')||b.parentElement;const im=chip&&chip.querySelector('img');if(im&&src&&im.src!==src)im.src=src;if(val!=null){const t=fmt(val);if(b.textContent!==t)b.textContent=t;b.title=title||t;}if(title&&chip)chip.title=title;};
+  if(!document.getElementById('r307css')&&I('hop_kim')){const c=document.createElement('style');c.id='r307css';c.textContent='html body .h1-chip:has(#h1-cr) img{content:url('+I('hop_kim')+')!important;object-fit:contain}html body .h1-chip:has(#h1-core) img{content:url('+I('loi_sieu_hop')+')!important;object-fit:contain}html body .h1-chip:has(#h1-exp) img{content:url('+XI()+')!important;object-fit:contain}html body #hb-res button[data-r=e]{display:none!important}';document.head.appendChild(c);}
+  {const e=document.getElementById('h1-exp');if(e){const v=xpTot(),t=v>=1e6?(Math.floor(v/1e5)/10).toLocaleString('vi-VN')+'M':v>=1e4?Math.floor(v/1e3).toLocaleString('vi-VN')+'K':fmt(v);if(e.textContent!==t)e.textContent=t;e.title='Đá XP: '+fmt(v)+' XP';const ch=e.closest('.h1-chip');if(ch)ch.title='Đá XP (tổng XP)';}}
+  // đầu các màn Kho / Chiến cơ
+  document.querySelectorAll('#hb-res button[data-r]').forEach(b=>{const r=b.dataset.r;const src=r==='c'?I('hop_kim'):(r==='core'||r==='k')?I('loi_sieu_hop'):'';if(!src)return;
+   const i=b.querySelector('i');const val=r==='e'?fmt(xpTot()):(i?i.textContent:'');const key=src.slice(-20)+val;if(b.dataset.r307===key)return;b.dataset.r307=key;b.innerHTML=img(src)+'<i>'+val+'</i>';if(r==='e')b.title='Đá XP (tổng XP)';});
+  // mảnh phi công
+  document.querySelectorAll('.pl67-st').forEach(p=>{if(p.querySelector('.r307i'))return;const h=p.innerHTML;if(!/Mảnh: \d/.test(h)||!I('manh_pc'))return;p.innerHTML=h.replace(/Mảnh: (\d[\d.]*)/,img(I('manh_pc'),'pc')+' $1');});}
+ setInterval(()=>{try{tick();}catch{}},500);
+ const st=document.createElement('style');st.textContent='.r307i{width:18px;height:18px;object-fit:contain;vertical-align:-4px;margin-right:3px}.r307i.pc{width:20px;height:20px;margin:0 2px 0 4px}#hb-res button .r307i{width:20px;height:20px}';document.head.appendChild(st);
+})();
