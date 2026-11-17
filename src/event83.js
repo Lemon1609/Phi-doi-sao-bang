@@ -30,7 +30,7 @@ const EVENT83={
    shop:[{id:'s3_smart',n:'Bản sao Lam Lv1 · món đang mặc',cost:160,lim:1,it:{copyBlue:1}},{id:'s3_perk',n:'60 mảnh Ấn Chú',cost:75,lim:2,it:{perk:60}},{id:'s3_pack',n:'30 mảnh Ấn Chú + 15.000 ◈',cost:120,lim:1,it:{perk:30,alloy:15000}}]},
   {id:'EV_W4_ENDLESS_STORM',name:'Cơn Lốc Vô Tận',cur:'Mảnh Sao Cổ',ic:'💠',col:'#5fe6ff',
    tasks:[{id:'w4_t1',k:'eChest',desc:'Nhận 15 rương trong Vô tận',target:15,curr:70,alloy:6000},{id:'w4_t2',k:'eElite',desc:'Hạ 30 quái tinh anh ở Vô tận',target:30,curr:80,stone:40},{id:'w4_t3',k:'eWave',desc:'Vượt qua đợt 20 Vô tận',target:1,curr:100,gem:20}],
-   shop:[{id:'s4_purple',n:'Mảnh bản sao Tím (1/3)',cost:180,lim:1,it:{purpleShard:1}},{id:'s4_pilot',n:'10 mảnh phi công',cost:90,lim:2,it:{pilot:10}},{id:'s4_alloy',n:'40.000 ◈',cost:50,lim:3,it:{alloy:40000}}]}],
+   shop:[{id:'s4_purple',n:'Bản sao Lam Lv1 · món đang dùng',cost:180,lim:1,it:{copyBlue:1}}/* V307: bỏ mảnh bản sao Tím (chủ dự án 17/11); 1/3 Tím ≈ 1 Lam theo luật 3 Lam → 1 Tím; giá ×3 không mua được vì trần 350/tuần */,{id:'s4_pilot',n:'10 mảnh phi công',cost:90,lim:2,it:{pilot:10}},{id:'s4_alloy',n:'40.000 ◈',cost:50,lim:3,it:{alloy:40000}}]}],
  cap:350,
  raid:{days:[6,0],sec:90,free:3,paid:[30,50],weak:25,open:6,stun:5,mult:2,shard:5,K:1000,base:20,
   ms:[{dmg:1200000,alloy:15000,stone:30,curr:30},{dmg:3200000,gem:20,alloy:30000,pilot:5},{dmg:8500000,gem:30,stone:60,copyGreen:1},{dmg:18000000,gem:50,alloy:50000,copyBlue:1,curr:60},{dmg:38000000,aura:'AURA_STAR_DEVOURER',honor:10,stone71:2}]}};
@@ -45,6 +45,8 @@ const Event83=(()=>{
  const raidOpen=()=>window.RAID83_ALWAYS===true||R.days.includes(dow());
  let S={wk:-1,cur:0,earn:0,p:{},cl:{},shop:{},ps:0,done:0,doneWk:-1,raid:{wk:-1,total:0,att:{d:'',n:0,paid:0},ms:{}},life:0,base:{}};
  try{const v=JSON.parse(localStorage.getItem(KEY)||'null');if(v&&typeof v==='object')S=Object.assign(S,v);}catch{}
+ // V307: mảnh bản sao Tím đã bỏ → mỗi mảnh đang có đổi 1 bản sao Lam Lv1 (đợi Evo82 sẵn sàng)
+ setTimeout(()=>{try{const n=S.ps|0;if(n>0){S.ps=0;for(let i=0;i<n;i++)copyOf(2,'Bản sao Lam Lv1');save();try{toast('ĐỔI '+n+' MẢNH BẢN SAO TÍM → '+n+' BẢN SAO LAM LV1');}catch{}}}catch{}},4000);
  const save=()=>{try{localStorage.setItem(KEY,JSON.stringify(S));}catch{}};
  const fmt=n=>Math.round(n).toLocaleString('vi-VN'),esc=s=>String(s==null?'':s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
  const T=m=>{try{toast(m);}catch{}};
@@ -76,7 +78,7 @@ const Event83=(()=>{
   try{if(it.stone71){for(let i=0;i<it.stone71;i++){const pos=['ship','armor','missiles','sidearm'];Stone71.give(Stone71.make(2,pos[Math.floor(Math.random()*4)],{ty:'stat'}));}out.push(it.stone71+' đá khảm Lục');}}catch{}
   try{if(it.perk){const st=BK78.state();BK78._set({shards:(st.shards|0)+it.perk});out.push(it.perk+' mảnh Ấn Chú');}}catch{}
   try{if(it.honor){const st=V77.state();V77._set({tok:(st.tok|0)+it.honor});out.push(it.honor+' Xu Tinh Anh');}}catch{}
-  try{if(it.purpleShard){S.ps=(S.ps|0)+it.purpleShard;out.push('mảnh bản sao Tím '+Math.min(3,S.ps)+'/3');if(S.ps>=3){S.ps-=3;out.push(copyOf(6,'GHÉP ĐỦ → Bản sao Tím Lv1'));}save();}}catch{}
+  try{if(it.purpleShard){/* giữ cho lượt mua cũ */S.ps=(S.ps|0)+it.purpleShard;out.push('mảnh bản sao Tím '+Math.min(3,S.ps)+'/3');if(S.ps>=3){S.ps-=3;out.push(copyOf(6,'GHÉP ĐỦ → Bản sao Tím Lv1'));}save();}}catch{}
   try{if(it.aura&&window.Title84)out.push(Title84.grant(it.aura,7));}catch{}
   if(it.curr){const n=addCur(it.curr);if(n)out.push(n+' '+ev().cur);}
   try{Progress.render();}catch{}return out;}
