@@ -24,5 +24,17 @@
  W.expBalance=()=>Math.floor(bal()/K);
  W.getState=function(){const s=o.getState.call(W);try{s.exp=Math.floor(bal()/K);s.aux=0;}catch{}return s;};
  W.__da307={o,split,K};
- // ---- chữ trên giao diện: "⬢" (đá) giờ là ◈ ×15 → chú thích trong bảng chi phí khi mở ----
+ // ---- chữ trên giao diện: "⬢" cũ → ◈ ×15 (chi phí) hoặc XP (phần thưởng "+N ⬢"); "Thiếu đá" → "Thiếu hợp kim" ----
+ const num=t=>parseInt(String(t).replace(/[.,\s]/g,''),10)||0,f=n=>n.toLocaleString('vi-VN');
+ function fix(t){if(t.indexOf('⬢')<0&&t.indexOf('Thiếu đá')<0)return t;
+  return t.replace(/(\d[\d.,]*)\s?◈\s?(?:·\s?)?(\d[\d.,]*)\s?⬢/g,(m,a,b)=>f(num(a)+num(b)*K)+' ◈').replace(/\+\s?(\d[\d.,]*)\s?⬢/g,(m,a)=>'+'+f(num(a)*K)+' XP')
+   .replace(/(\d[\d.,]*)\s?\/\s?(\d[\d.,]*)\s?⬢/g,(m,a,b)=>f(num(a)*K)+' / '+f(num(b)*K)+' ◈')
+   .replace(/(\d[\d.,]*)\s?⬢/g,(m,a)=>f(num(a)*K)+' ◈')
+   .replace(/⬢\s?((?:\d[\d.,]*)(?:\s?\/\s?\d[\d.,]*)*)/g,(m,a)=>'◈ '+a.split('/').map(x=>f(num(x)*K)).join(' / '))
+   .replace(/⬢/g,'◈').replace(/Thiếu đá/g,'Thiếu hợp kim');}
+ function walk(n){if(!n)return;if(n.nodeType===3){const v=n.nodeValue,w=fix(v);if(w!==v)n.nodeValue=w;return;}if(n.nodeType!==1||/^(SCRIPT|STYLE|TEXTAREA|INPUT)$/.test(n.nodeName))return;for(const c of n.childNodes)walk(c);}
+ function hookUI(){if(!document.body)return setTimeout(hookUI,300);walk(document.body);try{new MutationObserver(ms=>{for(const m of ms){if(m.type==='characterData')walk(m.target);else for(const a of m.addedNodes)walk(a);}}).observe(document.body,{childList:true,subtree:true,characterData:true});}catch{}
+  const ot=window.toast;if(typeof ot==='function'&&!ot.__d307){const nt=function(x){return ot.call(this,typeof x==='string'?fix(x):x);};nt.__d307=1;try{toast=nt;}catch{}window.toast=nt;}}
+ if(window.DA307UI!==false)hookUI();
+ W.__da307.fix=fix;
 })();

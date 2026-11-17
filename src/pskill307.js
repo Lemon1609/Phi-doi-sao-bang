@@ -86,4 +86,4 @@ const PSK307=(()=>{
   8:['Hạ địch bằng bom / khi Bạo Tẩu: +15% nạp Bạo Tẩu','Có ≥ 3 món SSS: tàu con + tên lửa +12% sát thương','Vào Bạo Tẩu: thêm tàu con bóng tối 4 s']};
  return {rate,TXT,log:()=>log.slice(),open:id=>[2,6,11].map(n=>T(id)>=n),cfg:C};
 })();
-if(PSK307)window.PSK307=PSK307;
+if(PSK307){window.PSK307=PSK307;try{const st=document.createElement('style');st.id='psk307-css';st.textContent='.psk307{list-style:none;margin:6px 0 4px;padding:0;display:flex;flex-direction:column;gap:3px;font-size:11.5px;line-height:1.3}.psk307 li{padding:4px 7px;border-radius:7px;background:rgba(255,255,255,.04);border:1px solid rgba(160,200,255,.15);color:#8094ab}.psk307 li b{color:#9fb3c8;margin-right:4px}.psk307 li.on{color:#d8ecff;border-color:rgba(120,220,160,.45);background:rgba(60,200,120,.08)}.psk307 li.on b{color:#5ef0a0}';document.head.appendChild(st);}catch{}}
