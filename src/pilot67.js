@@ -82,7 +82,7 @@ const Pilot67=(()=>{
  // Bạo Tẩu: Hạ Vy + trần 12 s
  const oas=activateSuper;activateSuper=function(){const r=oas.apply(this,arguments);try{if(has('super'))superTime+=pv('super');superTime=Math.min(12,superTime);}catch{}return r;};
  // Kiều An hồi giáp, Bảo Long giảm sát thương khi nguy kịch, Giác Quan Thứ Sáu
- let lastHit=-99,regenT=0,last8=false;
+ let lastHit=-99,regenT=0,last8=false;window.__p67regen={get:()=>regenT,set:v=>{regenT=v;}};
  const odm=damage;damage=function(){const h0=hp,s0=shield;
   if(unlockedSys()&&tl(8)>=1&&!last8&&hp<=1&&shield<=0&&invuln<=0&&mode==='play'){last8=true;invuln=1;try{ring(player.x,player.y,'#ffe08a',70);toast('✦ GIÁC QUAN THỨ SÁU · ĐỠ ĐÒN CHÍ TỬ');}catch{}return;}
   const r=odm.apply(this,arguments);try{const loss=(h0-hp)+(s0-shield);if(loss>0){lastHit=time;if(has('tank')&&h0<=2&&hp>0){const back=Math.min(h0-hp,(h0-hp)*pv('tank')/100);hp+=back;}}}catch{}return r;};
@@ -93,14 +93,14 @@ const Pilot67=(()=>{
    if(has('pickup'))for(const d of drops){if(d.dead||d.type==='star'||d.type==='none')continue;const D=Math.hypot(d.x-player.x,d.y-player.y);if(D<150&&D>30){const a=Math.atan2(player.y-d.y,player.x-d.x);d.x+=Math.cos(a)*260*dt;d.y+=Math.sin(a)*260*dt;}}
   }catch{}return r;};
  try{const ocl=collect;collect=function(d){const r=ocl.apply(this,arguments);try{if(mode==='play'&&has('pickup')&&d&&d.type!=='star'&&time-pickCd>5&&Math.random()*100<pv('pickup')){pickCd=time;if(shield<maxShield)shield=Math.min(maxShield,shield+1);else hp=Math.min(maxHp,hp+1);}}catch{}return r;};}catch{}
- try{if(typeof CRIT66!=='undefined'){const base=CRIT66.chance,bm=CRIT66.mult;setInterval(()=>{try{CRIT66.chance=base+(has('boss')?(5+(pv('boss')-10)/15*5)/100:0)+(typeof CRIT77!=='undefined'&&CRIT77?CRIT77.crit:0);CRIT66.mult=bm+(typeof CRIT77!=='undefined'&&CRIT77?CRIT77.critMult:0);}catch{}},1000);}}catch{}
+ try{if(typeof CRIT66!=='undefined'){const base=CRIT66.chance,bm=CRIT66.mult;setInterval(()=>{try{CRIT66.chance=base+(has('boss')?(5+(pv('boss')-10)/15*5)/100:0)+(typeof CRIT77!=='undefined'&&CRIT77?CRIT77.crit:0);CRIT66.mult=bm+(typeof CRIT77!=='undefined'&&CRIT77?CRIT77.critMult:0)+(window.__crit307m&&window.__crit307m.until>time?window.__crit307m.v:0);}catch{}},1000);}}catch{}
  const odb=damageBoss;damageBoss=function(amount,source,part){try{if(has('boss')&&amount>0)amount*=1+pv('boss')/100;}catch{}return odb.call(this,amount,source,part);};
  // Tử Dạ: bom để lại trường bóng tối 3 s (150% ATK/giây trong 140 px)
  let fields=[];
  const obo=bomb;bomb=function(){const b0=bombs;const r=obo.apply(this,arguments);try{if(has('sss')&&bombs<b0)fields.push({x:player.x,y:player.y-60,t:0});}catch{}return r;};
  const oup2=update;update=function(dt){const r=oup2.apply(this,arguments);try{if(mode==='play'&&fields.length){let avg=0,n=0;for(const s of shots)if(s.main66&&!s.dead){avg+=s.damage;n++;}avg=n?avg/n:2;for(const f of fields){f.t+=dt;for(const e of enemies)if(!e.dead&&Math.hypot(e.x-f.x,e.y-f.y)<140){e.hp-=avg*1.5*dt;if(e.hp<=0)kill(e);}}fields=fields.filter(f=>f.t<3);}}catch{}return r;};
  // Hàn Sương + nút 5: tên lửa/tàu con
- const gearRate=k=>{let m=1;try{if(!unlockedSys())return 1;if(has('gear')){const v=pv('gear');m*=k==='missiles'?1-v/100:1/(1+(10+(v-12)/15*15)/100);}}catch{}return m;};
+ const gearRate=k=>{let m=1;try{if(!unlockedSys())return 1;if(has('gear')){const v=pv('gear');m*=k==='missiles'?1-v/100:1/(1+(10+(v-12)/15*15)/100);}try{if(window.PSK307)m*=PSK307.rate(k);}catch{}}catch{}return m;};
  const gearDmg=()=>unlockedSys()?1+tl(5)*.04:1;
  const oh=Arsenal30.hit;Arsenal30.hit=function(s,e){const r=oh.apply(this,arguments);try{const g=gearDmg();if(g>1&&s&&(s.gearKind==='missiles'||s.gearKind==='sidearm')&&e&&!e.dead){const x=s.damage*(g-1);if(e===boss||e.bossPart)damageBoss(x,'gear',e);else{e.hp-=x;if(e.hp<=0)kill(e);}}}catch{}return r;};
  // ---------- mảnh & mở người ----------

@@ -956,6 +956,7 @@ rep("</body>","<style id=\"nc307-css\">"+open('src/nc307.css',encoding='utf-8').
 rep("state:()=>({view,seg,hidden:root.hidden","cur307:()=>cur,state:()=>({view,seg,hidden:root.hidden")  # V307 nc307 đọc chiến cơ đang xem
 rep("</body>","<script id=\"xp307-js\">"+open('src/xp307.js',encoding='utf-8').read()+"</script></body>")  # V307 bảng rơi Đá XP
 rep("</body>","<script id=\"da307-js\">"+open('src/da307.js',encoding='utf-8').read()+"</script></body>")  # V307 bỏ đá ⬢: chi phí đá → ◈×15, nguồn đá → Đá XP
+rep("</body>","<script id=\"pskill307-js\">"+open('src/pskill307.js',encoding='utf-8').read()+"</script></body>")  # V307 24 mốc kỹ năng phi công
 rep("</body>","<script id=\"max307-js\">"+open('src/max307.js',encoding='utf-8').read()+"</script></body>")  # V307 Tím+5 không rơi bản sao mẫu đó
 rep("</body>","<style id=\"cot307-css\">"+_ui306css(open('src/cot307.css',encoding='utf-8').read())+"</style><script id=\"cot307-js\">"+open('src/cot307.js',encoding='utf-8').read()+"</script></body>")  # V307 sảnh: hàng ô vuông
 rep("</body>","<script id=\"hud307-js\">"+open('src/hud307.js',encoding='utf-8').read()+"</script></body>")  # V307 HUD: bật chữ nổi nhặt đồ
