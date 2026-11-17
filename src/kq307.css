@@ -1,0 +1,16 @@
+/* V307 · kết quả + hồi sinh (GPT B6) */
+html.kq307 body.res78 #overlay:not(#_q7):not(#_q7):not(#_q7):not(#_q7):not(#_q7):not(#_q7):not(#_q7):not(#_q7):not(#_q7):not(#_q7):not(#_q7):not(#_q7):not(#_q7):not(#_q7):not(#_q7):not(#_q7):not(#_q7):not(#_q7):not(#_q7):not(#_q7):not(#_q7):not(#_q7):not(#_q7):not(#_q7):not(#_q7):not(#_q7):not(#_q7):not(#_q7):not(#_q7):not(#_q7){background:linear-gradient(180deg,rgba(2,8,20,.25),rgba(2,8,20,.35) 55%,rgba(2,8,20,.15)),var(--q7-nen) center bottom/cover no-repeat,#020814!important}
+html.kq307 body #rs .rs-star svg{display:none!important}
+html.kq307 body #rs .rs-star{background:var(--q7-sr) center/contain no-repeat}
+html.kq307 body #rs .rs-star.on{background-image:var(--q7-sd);animation:q7star .55s cubic-bezier(.2,1.5,.4,1) both;animation-delay:var(--d)}
+html.kq307 body #rs .rs-star:nth-child(2){width:78px!important;height:78px!important}
+html.kq307 body #rs .rs-stars{height:80px!important}
+@keyframes q7star{0%{background-image:var(--q7-sr);transform:scale(1)}35%{background-image:var(--q7-sd);transform:scale(1.9) rotate(-20deg);filter:brightness(2)}100%{background-image:var(--q7-sd);transform:none;filter:none}}
+html.kq307 body #rs .q7tem{position:relative;width:200px;height:100px;margin:-6px auto -4px;background:var(--q7-tem) center/contain no-repeat;display:flex;align-items:center;justify-content:center;animation:q7tem .5s cubic-bezier(.2,1.6,.4,1) both;animation-delay:1.3s;z-index:2}
+html.kq307 body #rs .q7tem b{font:900 13px/1 "Be Vietnam Pro",sans-serif;letter-spacing:.12em;color:#ffe08a;text-shadow:0 0 8px rgba(255,190,60,.8),0 1px 2px #000;margin-top:4px}
+@keyframes q7tem{0%{opacity:0;transform:scale(2.2)}100%{opacity:1;transform:none}}
+@media (prefers-reduced-motion:reduce){html.kq307 body #rs .rs-star.on,html.kq307 body #rs .q7tem{animation:none}}
+html.kq307 body #overlay.q7hs[data-state=revive]{isolation:isolate}
+html.kq307 body #overlay.q7hs[data-state=revive]::before{content:'';position:absolute;left:3%;right:3%;top:var(--q7-t);height:var(--q7-h);z-index:-1;border-style:solid;border-width:58px 46px 58px 46px;border-image:var(--q7-hs) 90 75 90 75 fill;pointer-events:none;filter:drop-shadow(0 8px 22px rgba(0,0,0,.7))}
+html.kq307 body #overlay.q7hs[data-state=revive] #robot-launch,html.kq307 body #overlay.q7hs[data-state=revive] #pz66{display:none!important}
+html.kq307 body #overlay.q7hs[data-state=revive] #badge{color:#ff8a8a!important;border-color:rgba(255,120,120,.45)!important}
