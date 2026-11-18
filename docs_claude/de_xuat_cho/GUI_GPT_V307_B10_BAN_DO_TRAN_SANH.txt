@@ -1,0 +1,40 @@
+GỬI GPT · LƯỢT B10 · BẢN ĐỒ, ẢI, TRONG TRẬN, SẢNH (Phi Đội Sao Băng · V307 · 18/11/2026)
+
+Bộ B1–B9 đã vào game, chủ dự án rất thích. Lượt này vẽ tiếp cho bản đồ ải, giao diện trong trận và sảnh, để toàn bộ game cùng một họ thiết kế.
+
+PHONG CÁCH (giữ đúng như B4–B9):
+- Khung kim loại xám bạc vát góc, viền neon cyan, lòng xanh hải quân đậm; điểm nhấn tím/vàng như B5/B9.
+- PNG nền ngoài TRONG SUỐT, KHÔNG chữ, không số, không logo; không chép thiết kế game khác.
+- Tệp 9-slice: góc giữ nguyên, giữa cạnh trơn; ghi lề cắt đề xuất (trái, trên, phải, dưới) vào GHI_CHU_B10.txt.
+- Gửi kèm bang_tong_B10.png xếp tất cả tệp trên nền đen.
+- Ảnh đính kèm: các màn hiện tại (ban_do, the_ai, tran, sanh) và ảnh mẫu B5/B7/B9.
+
+A. BẢN ĐỒ ẢI (hiện ô ải là vòng tròn xanh lá kiểu cũ, lệch với B5/B9)
+ 1. do_ai_thuong.png · do_ai_hien_tai.png · do_ai_hoan_thanh.png · do_ai_khoa.png · mỗi tệp 160×160
+    Ô ải lục giác hoặc tròn có khung bạc vát. Lòng trống để game viết số ải.
+    Thường: viền cyan. Hiện tại: viền vàng sáng, có quầng tỏa. Hoàn thành: viền cyan đậm, lòng sáng hơn. Khóa: xám tối, có ổ khóa nhỏ ở góc dưới.
+ 2. do_ai_mini_boss.png · do_ai_boss.png · 200×200
+    To hơn ô thường. Mini-boss viền tím, boss viền đỏ cam có gai; lòng trống (game đặt hình boss vào).
+ 3. nhan_ai.png · 300×80, 9-slice: nhãn tên nhỏ cạnh ô ải (kiểu "Thôn Tinh Chiến Cơ"), khung bạc mảnh, lòng tối trong suốt 80 %.
+ 4. sao_nho_day.png · sao_nho_rong.png · 64×64: sao nhỏ dưới ô ải, cùng kiểu sao kết quả B6 nhưng đơn giản, nét rõ ở cỡ 16 px.
+
+B. GIAO DIỆN TRONG TRẬN (HUD)
+ 5. khung_diem.png · 600×120, 9-slice: bảng điểm góc trên.
+ 6. thanh_mau_khung.png · 600×60, 9-slice: khung thanh máu người chơi.
+    thanh_mau_lap.png · 600×60: lòng đổ đầy xanh lục → cyan, để game cắt theo %.
+ 7. thanh_bao_tau_khung.png · 600×60 và thanh_bao_tau_lap.png · 600×60: thanh nạp Bạo Tẩu, lòng tím → hồng sáng.
+ 8. thanh_boss_khung.png · 1080×90, 9-slice, có đầu lâu nhỏ hoặc gai ở đầu trái.
+    thanh_boss_lap.png · 1080×90: lòng đỏ cam.
+ 9. nut_tam_dung.png · 128×128: nút ‖ trong khung vuông vát, cùng họ với nut_dong B5.
+ 10. nut_ten_lua.png · nut_ky_nang.png · 192×192: nút tròn lớn có khung bạc và vòng neon. Lòng trống: game đặt biểu tượng và vẽ vòng hồi chiêu.
+     Kèm nut_tron_hoi.png · 192×192: lớp phủ tối hình quạt (đặt chồng lên khi đang hồi).
+
+C. SẢNH (giống tin B9 mục 6–7, lượt trước chưa vẽ)
+ 11. o_chuc_nang.png · 200×200: khung vuông vát lòng trống, cùng khung 11 biểu tượng B7.
+     Dùng cho hàng ô Nhiệm vụ / Mùa giải / Điểm danh / Vòng quay / Hệ thống và các nút hai bên sảnh.
+     o_chuc_nang_vang.png · 200×200: cùng khung, viền vàng cam nổi bật (ô QUÀ).
+ 12. o_tau_chon.png · o_tau_chon_bat.png · 160×160: ô chọn chiến cơ trong dải trên màn Chiến cơ (thường / đang chọn).
+ 13. tab_duoi_tat.png · tab_duoi_bat.png · 220×150, 9-slice: 5 tab đáy (Sảnh, Chiến đấu, Phi đội, Trang bị, Cửa hàng). Bật: sáng cyan và có vạch sáng dưới.
+     nen_thanh_duoi.png · 1080×170: dải nền chứa 5 tab.
+
+LƯU Ý: không vẽ nhân vật; không chữ; không thương hiệu.
