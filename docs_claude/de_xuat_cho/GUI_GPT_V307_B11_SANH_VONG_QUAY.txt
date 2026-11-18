@@ -1,0 +1,28 @@
+GỬI GPT · LƯỢT B11 · SẢNH + VÒNG QUAY (Phi Đội Sao Băng · V307 · 18/11/2026)
+
+B1–B10 đã vào game. Còn hai màn chưa cùng họ thiết kế: SẢNH (màn chính, có chiến cơ đứng giữa) và VÒNG QUAY MAY MẮN. Ảnh hiện tại đính kèm.
+
+PHONG CÁCH: giữ đúng họ B4–B10. Kim loại bạc vát góc, viền neon cyan, lòng xanh hải quân; nhấn tím / vàng như B5 / B9.
+PNG nền ngoài trong suốt (trừ ảnh nền), KHÔNG chữ, không số, không logo, không nhân vật; không chép game khác.
+Tệp 9-slice: ghi lề cắt (trái, trên, phải, dưới) vào GHI_CHU_B11.txt. Gửi kèm bang_tong_B11.png.
+
+A. SẢNH
+ 1. nen_sanh.png · 1080×1920, ảnh nền kín.
+    Nhà chứa phi thuyền nhìn thẳng, cùng không khí với nen_kho của B4 (giàn thép, đèn cyan, sàn kim loại bóng).
+    Giữa sàn có bệ tròn lớn phát sáng để chiến cơ đứng lên. Phía sau cao có ô cửa lớn nhìn ra vũ trụ, có một hố đen nhỏ với vành đĩa sáng cam.
+    Nửa trên tối và ít chi tiết, vì game đặt hàng ô chức năng lên đó. Hai bên mép trái / phải tối dần, vì có cột nút.
+ 2. be_tau_sanh.png · 900×360: bệ tròn phát sáng (nhìn chéo từ trên), vòng neon cyan, gờ kim loại bạc. Tách riêng để game đặt dưới chiến cơ và làm hiệu ứng xoay.
+ 3. bang_luc_chien.png · 520×150, 9-slice: bảng "TỔNG LỰC CHIẾN" góc trên trái.
+    Khung bạc vát, dải vàng mảnh bên trái, lòng tối trong suốt 70 %.
+ 4. nut_xuat_kich.png · 600×180 và nut_vo_tan.png · 480×180, mỗi nút có thêm bản _nhan.
+    Hai nút lớn dưới đáy sảnh. Xuất kích: vàng cam rực. Vô tận: tím. Cùng họ với nut_tim của B5 nhưng to và nổi khối hơn, góc vát mạnh.
+
+B. VÒNG QUAY MAY MẮN (hiện bánh xe chỉ là hình quạt màu phẳng)
+ 5. vanh_vong_quay.png · 900×900: vành tròn kim loại bạc dày, có đèn LED tròn nhỏ đều quanh vành (10 ô) và gờ neon cyan.
+    Lòng TRONG SUỐT: game tự vẽ 10 ô thưởng bên trong.
+ 6. kim_vong_quay.png · 160×220: kim chỉ hình mũi tên / giọt nước kim loại vàng, có viên ngọc cyan, đặt ở đỉnh vành.
+ 7. nut_quay_giua.png · 260×260 và nut_quay_giua_nhan.png: nút tròn ở tâm vành, vàng kim, vành bạc, lòng trống (game viết chữ QUAY).
+ 8. o_thuong_vong_quay.png · 300×300: một ô hình quạt 36° (1/10 vòng), khung bạc mảnh, lòng xanh hải quân.
+    Game xoay ô này 10 lần và đổi màu. Vẽ thêm bản o_thuong_vong_quay_jackpot.png viền vàng.
+
+LƯU Ý: không chữ; không nhân vật; không thương hiệu.

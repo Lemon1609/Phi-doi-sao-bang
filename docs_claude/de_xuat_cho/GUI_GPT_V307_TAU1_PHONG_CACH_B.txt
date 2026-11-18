@@ -1,0 +1,36 @@
+GỬI GPT · V307 · THỬ THIẾT KẾ LẠI TÀU 1 "NỘ HỎA PHƯỢNG HOÀNG" THEO PHONG CÁCH GIAO DIỆN MỚI (6 bậc, 1 ảnh)
+
+Chủ dự án rất thích phong cách bộ giao diện bạn vừa vẽ (B4–B10: kim loại bạc vát góc, viền neon cyan, lòng xanh hải quân, nhấn tím / vàng).
+Lần này thử vẽ lại TÀU 1 theo đúng tinh thần đó, để chiến cơ và giao diện cùng một họ thiết kế.
+
+ẢNH ĐÍNH KÈM
+- tau1_hien_tai.png: 6 bậc tàu 1 đang dùng (1 Thường → 6 SS). Đây là CHÍNH tàu này, dùng để giữ nhận dạng, không phải mẫu để chép y nguyên.
+- mau_B5.png, mau_B9.png, mau_B10.png: bảng giao diện. Chỉ học CHẤT LIỆU và ÁNH SÁNG từ đây (bạc vát góc, gờ kim loại, đèn neon mảnh, lòng tối); KHÔNG vẽ khung giao diện lên tàu.
+
+NHẬN DẠNG TÀU 1 (giữ)
+- Tên Nộ Hỏa Phượng Hoàng: chim lửa, cánh như lông phượng xếp lớp, đuôi dài, mũi nhọn, buồng lái dạng giọt.
+- Bậc 4 Tím là bậc đã chốt màu: tím + ánh vàng.
+
+PHONG CÁCH MỚI (đổi so với bản hiện tại)
+- Thân: mảng giáp kim loại BẠC sáng, vát góc lớn và sắc như các khung B5 / B9; gờ viền kim loại dày, rãnh khắc mảnh.
+- Đèn: dải LED neon mảnh chạy dọc mép giáp và mép cánh, cùng kiểu đường neon trên khung giao diện. Lõi năng lượng giữa thân là viên ngọc lục giác giống ô ải B10.
+- Màu nhấn theo bậc (mỗi bậc nhấn khác nhau rõ, phủ 25–30 % diện tích: tấm giáp lớn, viền LED, lõi, miệng ống xả):
+  1 Thường: bạc + cyan nhạt · 2 Lục: lục neon · 3 Lam: lam điện · 4 Tím: tím + vàng (đã chốt) · 5 Tím+5: hồng-tím magenta, lõi trắng · 6 SS: vàng kim + trắng, viền vàng dày.
+- Giáp bóng như sơn kim loại, có điểm sáng trắng ở mép. Màu bão hòa, không xỉn. Nổi rõ trên nền đen.
+
+TIẾN HÓA 6 BẬC (mỗi bậc thêm bộ phận, không bỏ bộ phận cũ; đổi cả đường viền ngoài)
+1 Thường: thân gọn, cánh trơn 2 lớp lông, 2 động cơ.
+2 Lục: thêm giáp hai bên thân, thêm cánh đuôi nhỏ, ống xả to hơn.
+3 Lam: thêm lớp lông cánh thứ 3, thêm 1 cặp động cơ, pod vũ khí dưới cánh.
+4 Tím: thân to hơn rõ, cánh dài chia nhiều mảnh lông, 4–5 ống xả, lõi lục giác lộ ra.
+5 Tím+5: thêm lông vũ năng lượng lơ lửng tách rời quanh cánh, lõi sáng lớn.
+6 SS: đầy đủ nhất, viền vàng dày, đuôi phượng dài nhiều dải, nhiều mảnh lơ lửng; nhìn "hàng hiếm" ngay.
+Xem ở cỡ 140 px vẫn phân biệt được từng bậc. Nhìn dạng bóng đen vẫn phân biệt được bậc 1, 3, 6.
+
+TRÌNH BÀY
+- 1 ảnh: 1 hàng 6 cột (bậc 1→6), cùng tỉ lệ, nhìn từ trên xuống, mũi hướng lên.
+- Nền đen thuần. Thân giữa cùng vị trí, cùng cỡ. Đối xứng trái-phải. Có nhãn nhỏ 1–6 dưới mỗi ô.
+- CHỈ trạng thái thường. Không cánh bung Bạo Tẩu, không tay máy.
+- Không vẽ lửa động cơ, khói, tia sáng ngoài thân. Vẽ rõ miệng ống xả.
+- Mảng giáp dày, cụm lớn; không dùng gai / tia mảnh như sợi chỉ, vì sẽ mất khi thu về 64 px.
+- Sáng tác riêng hoàn toàn; không chép tàu, cánh hay biểu tượng của game / phim nào. Không chữ, không logo.
