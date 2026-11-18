@@ -1,0 +1,22 @@
+GỬI GPT · TÀU 1 · CÁNH NĂNG LƯỢNG BẠO TẨU: MỖI BẬC MỘT HÌNH DÁNG (dán tiếp cùng cuộc trò chuyện; ĐÍNH KÈM canh_nang_luong_hien_tai_6bac.png = bản bạn vẽ lượt trước, đã ghép vào game)
+
+Bản cánh năng lượng lượt trước đã ghép vào game và đẹp: giữ chất liệu (phiến dày, lõi trắng sáng, mép vát, vân lục giác mảnh), giữ màu từng bậc. Vấn đề duy nhất: 6 bậc gần như CÙNG MỘT DÁNG (chỉ khác màu và to dần). Người chơi phải nhìn dáng là biết bậc mấy.
+Vẽ lại 1 ảnh: 1 hàng 6 cột (bậc 1→6, nhãn 1–6), nền đen thuần, KHÔNG vẽ tàu, tâm hiệu ứng = tâm ô (gốc cánh ở giữa ô, hơi dưới tâm một chút như bản cũ).
+
+Mỗi bậc một kiểu (cùng một dòng phượng hoàng, tiến hóa dần):
+1. Bậc 1: đôi cánh nhỏ gọn, 4–5 phiến mỗi bên, xòe ngang, chưa có đuôi.
+2. Bậc 2: thêm 2–3 phiến đuôi ngắn phía sau; phiến cánh dài và cong hơn bậc 1.
+3. Bậc 3: cánh chia 2 nhóm rõ: nhóm trên (vai) chĩa chéo lên-ra ngoài, nhóm dưới chĩa ngang-ra sau, có khe tối giữa hai nhóm.
+4. Bậc 4: cánh 2 TẦNG: tầng trước sáng đặc, tầng sau dài hơn và trong mờ; thêm 1 cặp phiến dài nhất ở đỉnh vai như lông chủ.
+5. Bậc 5: cánh 3 tầng + vầng lục giác mảnh (một nửa vòng phía sau lưng, không khép kín phía trước); vài mảnh lục giác nhỏ bay ra theo hướng phiến.
+6. Bậc 6: dáng "phượng hoàng hoàn chỉnh": cánh 3 tầng, đuôi dài xòe nan quạt 5–7 phiến phía sau, đỉnh vai có 2 lông chủ vút cao, viền trắng sáng quanh mọi phiến, tia lấp lánh nhỏ.
+
+Kích thước (QUAN TRỌNG, bản cũ bậc 4–6 quá to):
+- Sải ngang so với bề rộng thân tàu thường: bậc 1 ≈ 2,3 lần → bậc 6 ≈ 3 lần. Không bậc nào quá 3 lần.
+- Bậc cao đẹp hơn nhờ NHIỀU TẦNG, ĐẶC, SÁNG và DÁNG RIÊNG, không phải nhờ to hơn.
+- Phía sau (xuống dưới) dài tối đa khoảng 1,5 lần chiều dài thân.
+- Nón trước mũi tàu khoảng 60° (phía trên) phải TRỐNG để không che đạn.
+
+Màu giữ như lượt trước: 1 cyan+cam · 2 lục+vàng chanh · 3 lam+cam · 4 tím+vàng · 5 hồng-tím+cyan nhạt · 6 vàng kim+lam đậm; gốc phiến trắng sáng.
+Đối xứng trái-phải, không chữ / logo (trừ nhãn 1–6 nhỏ ở mép dưới ô).
+Cuối câu trả lời ghi: (a) dáng từng bậc trong 1 câu, (b) sải rộng ước tính từng bậc, (c) chỗ nào bạn đoán.
