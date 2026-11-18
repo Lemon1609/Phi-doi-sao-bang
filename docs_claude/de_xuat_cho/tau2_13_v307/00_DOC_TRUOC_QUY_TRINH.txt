@@ -22,3 +22,5 @@ CẬP NHẬT 18/11 12:27 (chủ dự án): bản 1B có màu riêng nhưng 6 b�
 → TIN 1C: mỗi bậc to hơn + thêm bộ phận (riêng từng tàu), màu chữ ký riêng tàu giữ ở mọi bậc (~30 %) + màu bậc đổi theo bảng 6 bậc riêng (~40–50 %) + ngọc phẩm cấp.
 
 CẬP NHẬT 18/11 13:12 (chủ dự án): bỏ vương miện; các tàu "gai gai na ná nhau" → TIN 1E: mỗi tàu một kiểu hình khối riêng (2 tháp buồm dọc · 3 ngôi sao chữ X băng · 4 khối tròn hữu cơ · 5 đóa hoa · 6 tàng hình phẳng · 7 lồng kiếm cong · 8 phượng ngọn lửa · 9 trạm radar · 10 khiên giọt nước · 11 tam giác + xoáy · 12 đồng hồ la bàn · 13 trăng khuyết); lên bậc bằng bộ phận lớn, không bằng gai.
+
+CẬP NHẬT 18/11 13:32 (chủ dự án): 1E quá xấu → TIN 1F: quay về bản 1C/1D làm gốc, giữ màu; mọi tàu là CHIẾN CƠ (mũi, buồng lái, cánh chính, động cơ đuôi), mảng giáp lớn phẳng gờ bạc như tàu 1, không gai/lông/móng phủ viền, không vương miện; mỗi tàu một dáng chiến cơ riêng theo bảng đối chiếu dòng tàu game gốc (docs_claude/tham_chieu/PHAN_TICH_11_VIDEO_GAME_GOC.md mục 4); bậc theo 4 hình thái như game gốc.

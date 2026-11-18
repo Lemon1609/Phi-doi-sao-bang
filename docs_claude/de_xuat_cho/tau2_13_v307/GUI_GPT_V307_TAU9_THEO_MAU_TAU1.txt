@@ -55,7 +55,7 @@ Giữ: chất liệu (gờ bạc vát, neon mảnh, bóng đổ sâu), đặc tr
 Trình bày như cũ: 1 ảnh, 1 hàng 6 cột (bậc 1→6), nền đen thuần, đối xứng, nhãn 1–6, không chữ / logo, không lửa.
 Mình sẽ đo: bóng hai bậc liền nhau trùng nhau dưới 75 %, bậc 1 với bậc 6 dưới 55 %; sắc màu chủ đạo hai bậc liền nhau lệch rõ.
 
-==================== TIN 1E · MỖI TÀU MỘT KIỂU HÌNH KHỐI (dán tiếp sau bản mới nhất; gửi TRƯỚC tin 2) ====================
+==================== TIN 1E · (ĐÃ GỬI 18/11, BỊ LOẠI: quá xấu, mất chất chiến cơ; giữ để tra) ====================
 Màu từng bậc của bản vừa rồi đạt: GIỮ bảng màu, ngọc phẩm cấp, chất liệu gờ bạc, độ sáng.
 Vấn đề: 12 tàu của bộ đang cùng một ngôn ngữ hình khối (gai, móng, lông nhọn chồng chất), nhìn na ná nhau. Mỗi tàu phải có MỘT kiểu hình khối riêng, nhận ra được chỉ bằng bóng đen.
 
@@ -69,6 +69,22 @@ Quy tắc chung:
 - Bóng tàu đọc rõ ở 64 px: mảng lớn, ít mũi nhọn lắt nhắt.
 
 Trình bày như cũ: 1 ảnh, 1 hàng 6 cột (bậc 1→6), nền đen thuần, đối xứng, nhãn 1–6, không chữ / logo.
+
+==================== TIN 1F · QUAY VỀ CHẤT CHIẾN CƠ (dán tiếp; gửi TRƯỚC tin 2) ====================
+Bỏ hướng của tin vừa rồi (1E): kết quả không đạt. Lấy bản TRƯỚC tin 1E (bản 1C / 1D) làm gốc: giữ bảng màu từng bậc, ngọc phẩm cấp, chất liệu.
+Bản 1C / 1D có 2 lỗi cần sửa: nhiều gai, móng, lông nhọn chồng chất làm mất dáng máy bay; vài bậc 6 có vương miện / vòng nổi trên mũi.
+
+Học cách các game bắn máy bay thương mại vẽ dòng tàu (không chép tàu nào):
+- Tàu là CHIẾN CƠ nhìn thẳng từ trên xuống: đọc rõ MŨI, BUỒNG LÁI kính, CÁNH CHÍNH, ĐỘNG CƠ ĐUÔI (miệng xả tròn nhỏ). Thân giữa luôn là một khối máy bay rõ ràng, bộ phận đặc trưng gắn vào cánh / vai, không phủ kín thân.
+- Mảng giáp LỚN, PHẲNG, có gờ bạc vát và rãnh khắc mảnh, sáng-tối rõ; mũi nhọn chỉ ở mũi tàu, đầu cánh, đầu vũ khí. Không phủ gai / lông / móng nhỏ quanh viền.
+- Mỗi bậc là một "hình thái" mới của cùng dòng tàu: bậc 1 bản thử nhỏ gọn → bậc 2, 3, 4 mỗi bậc đổi dáng rõ (cánh lớn hơn, thêm động cơ / vũ khí / tầng cánh) → bậc 5 là bậc 4 thêm chi tiết và viền sáng → bậc 6 bản hoàn chỉnh sang nhất. Bậc 6 rộng khoảng 1,6 lần bậc 1.
+- Bóng tàu gọn, tỉ lệ rộng / cao khoảng 0,8–1,3; đọc rõ ở 64 px.
+- Không vương miện, vòng gai hay vật trang trí nổi phía trên mũi.
+
+Dáng của tàu 9: chiến cơ QUAN SÁT: mái vòm pha lê ở buồng lái, 2 đĩa radar tròn trên vai, cánh 2 lớp tách rời (lớp trước và lớp sau có khe).
+Lên bậc bằng: đĩa radar to dần, thêm ăng-ten; lớp cánh sau rộng hơn; bậc 4–6 thêm 2 đĩa radar phụ ở mép cánh.
+
+Trình bày như cũ: 1 ảnh, 1 hàng 6 cột (bậc 1→6), nền đen thuần, đối xứng, nhãn 1–6, không chữ / logo, không lửa.
 
 ==================== TIN 2 · THÂN BẠO TẨU 6 BẬC (gửi sau khi tin 1 đạt) ====================
 Thân thường 6 bậc vừa rồi đã chốt. Giờ vẽ THÂN BẠO TẨU (chế độ cường hóa) cho từng bậc, 1 ảnh 1 hàng 6 cột, nền đen thuần, cùng tỉ lệ ảnh thân thường.
