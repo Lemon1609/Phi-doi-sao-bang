@@ -104,7 +104,7 @@ Sửa để thành CHIẾN CƠ, theo phong cách đồ họa hiện tại của 
 - Bóng tàu gọn, tỉ lệ rộng / cao khoảng 0,9–1,3, đọc rõ ở 64 px.
 Trình bày như cũ: 1 ảnh, 1 hàng 6 cột (bậc 1→6), nền đen thuần, đối xứng, nhãn 1–6, không chữ / logo, không lửa.
 
-==================== TIN 1I · TÀU 4 GIỮ FORM CŨ, BỎ SỪNG VÀ GAI NHỌN (dán tiếp; ĐÍNH KÈM LẠI tau4_ban_1G.png; gửi TRƯỚC tin 2) ====================
+==================== TIN 1I · TÀU 4 GIỮ FORM CŨ, BỎ SỪNG VÀ GAI NHỌN (ĐÃ GỬI 18/11: hướng đúng nhưng bo cong quá; giữ để tra) ====================
 Bản chiến cơ vừa rồi (1H) gọn nhưng mất hẳn vẻ riêng của tàu này. Quay về bản 1G đính kèm làm gốc: GIỮ form tổng thể (thân bầu rộng ngang, sống đỏ dọc giữa, cụm mắt tròn phát sáng 2 → 4 mắt, thân dày nhiều lớp giáp, bóng tàu tròn đầy), bảng màu từng bậc, ngọc phẩm cấp, mức tiến hóa giữa các bậc.
 Chỉ sửa:
 - BỎ hẳn sừng ở bậc 5–6.
@@ -115,8 +115,18 @@ Chỉ sửa:
 - Bậc 6 bản sang nhất (vàng kim + đỏ máu), không vương miện, không vật nổi trên mũi.
 Trình bày như cũ: 1 ảnh, 1 hàng 6 cột (bậc 1→6), nền đen thuần, đối xứng, nhãn 1–6, không chữ / logo, không lửa.
 
+==================== TIN 1J · TÀU 4 CÂN BẰNG GIỮA 1G VÀ 1I (dán tiếp ngay sau bản 1I; gửi TRƯỚC tin 2) ====================
+Bản vừa rồi (1I) đúng hướng: hết sừng, hết gai, giữ được thân bầu, cụm mắt, sống đỏ. Nhưng bo cong QUÁ: các tấm giáp thành vành tròn mềm, bóng tàu thành khối tròn như quả bóng, mất độ sắc và chất cơ khí.
+Giữ nguyên bản 1I về bố cục, cụm mắt, màu từng bậc, mức tiến hóa. Chỉ chỉnh độ cong:
+- Các tấm giáp cong (thay móng): giữ hướng cong như bản 1G nhưng mép là các đoạn THẲNG VÁT nối nhau (đa giác), đầu tấm vát xiên gọn, hơi nhọn vừa phải; KHÔNG bo tròn đều, KHÔNG nhọn hoắt như kim.
+- Bản tấm mỏng hơn bản 1I khoảng một phần ba, có khe hở rõ giữa các tấm (thấy nền đen qua khe).
+- Bóng tàu: rộng ngang, hơi thuôn về mũi (sống đỏ nhô thành mũi nhọn ở trên) và về đuôi, không tròn vo.
+- Thêm chi tiết cơ khí trên tấm giáp: đường ghép, rãnh khắc, gờ bạc vát, đèn nhỏ; mặt trên sáng, khe tối.
+- Vẫn không sừng, không gai mảnh, không vương miện; bậc 6 vàng kim + đỏ máu.
+Trình bày như cũ: 1 ảnh, 1 hàng 6 cột (bậc 1→6), nền đen thuần, đối xứng, nhãn 1–6, không chữ / logo, không lửa.
+
 ==================== TIN 2 · THÂN BẠO TẨU 6 BẬC (gửi sau khi tin 1 đạt) ====================
-Thân thường 6 bậc đã chốt là bản 1I vừa rồi. Giờ vẽ THÂN BẠO TẨU (chế độ cường hóa) cho từng bậc, 1 ảnh 1 hàng 6 cột, nền đen thuần, cùng tỉ lệ ảnh thân thường.
+Thân thường 6 bậc đã chốt là bản 1J vừa rồi. Giờ vẽ THÂN BẠO TẨU (chế độ cường hóa) cho từng bậc, 1 ảnh 1 hàng 6 cột, nền đen thuần, cùng tỉ lệ ảnh thân thường.
 - Dựa đúng thân thường từng bậc: cùng tâm, cùng cỡ thân giữa; mũi, buồng lái, lõi trùng vị trí (mình xếp chồng).
 - Bạo Tẩu = thân "mở khóa": giáp trượt ra, bộ phận đặc trưng (4 mắt tròn, gai cong hai bên, sừng ở bậc cao) dang rộng hơn, mở thêm khe sáng, lõi sáng rực và to hơn.
 - Rộng thêm theo bậc: bậc 1 khoảng +20 % → bậc 6 khoảng +35 % so với thân thường.
