@@ -1,0 +1,43 @@
+GỬI GPT · SỬA LẦN 1 · TÀU 1 PHONG CÁCH MỚI (dán tiếp trong cùng cuộc trò chuyện)
+
+Bản vừa rồi đi đúng hướng: tiến hóa cánh lông vũ rõ, màu nhấn theo bậc rõ. Nhưng chưa đẹp bằng bộ giao diện, cần sửa 7 điểm sau.
+Vẫn 1 ảnh, 1 hàng 6 cột, cùng tỉ lệ, nền đen, mũi hướng lên, có nhãn 1–6.
+
+1. CÁNH QUÁ NHIỀU LÁ MẢNH, NHÌN RỐI
+   Mỗi cánh đang là 6–8 lá lông mảnh song song, thu về cỡ 64 px sẽ thành vệt răng lược.
+   Gộp lại thành 2–4 MẢNG LÔNG LỚN, DÀY, mép vát sắc như tấm giáp B5 / B9.
+   Mỗi bậc thêm 1 mảng lớn, không thêm lá mảnh.
+
+2. THIẾU CHẤT "GIAO DIỆN MỚI"
+   Thân hiện chỉ là bạc bóng, chưa có điểm nào của bộ khung B5 / B9.
+   Thêm:
+   - viền LED neon mảnh màu nhấn chạy dọc mép mỗi mảng giáp và mép cánh;
+   - gờ kim loại vát ở mép giáp;
+   - rãnh khắc mảnh.
+   Lõi năng lượng giữa thân là viên ngọc LỤC GIÁC có khung bạc (như ô ải B10) ở CẢ 6 bậc. Bậc thấp ngọc nhỏ, bậc cao ngọc to và sáng hơn.
+
+3. THÂN GIỮA GẦN NHƯ GIỐNG NHAU Ở 6 BẬC
+   Hiện thân và buồng lái y hệt nhau; chỉ cánh thay đổi. Sửa:
+   - Bậc 1–2: thân gọn, mũi ngắn.
+   - Bậc 3–4: thân dài và to hơn khoảng 20 %, thêm tấm giáp vai.
+   - Bậc 5–6: thân to hơn nữa, có giáp ngực nhiều lớp và mũi có vương miện nhỏ.
+   Buồng lái đổi dáng theo bậc (giọt → giọt có gờ → giọt có khung vàng).
+
+4. BẬC 1 ĐANG QUÁ PHỨC TẠP
+   Bậc 1 phải đơn giản nhất: thân gọn, mỗi bên 1–2 mảng cánh trơn, 2 động cơ, gần như không có lông đuôi.
+   Bậc 1 và bậc 3 hiện quá giống nhau (cùng xanh, cùng số lá). Đổi bậc 1 sang BẠC + XÁM SÁNG, nhấn cyan rất nhẹ.
+
+5. MẢNH TINH THỂ LƠ LỬNG (BẬC 5–6) QUÁ MẢNH, QUÁ XA
+   Thu về cỡ game sẽ thành chấm lấm tấm và làm ảnh rộng ra rất nhiều.
+   Còn 4 mảnh (bậc 5) và 6 mảnh (bậc 6), TO và DÀY hơn, có viền neon, đặt sát mép cánh, không văng ra xa.
+
+6. ĐỘNG CƠ NHỎ, GIỐNG NHAU
+   Động cơ to hơn rõ. Miệng ống xả có vòng màu nhấn phát sáng (không vẽ lửa).
+   Số lượng tăng theo bậc: 2 → 2 → 4 → 4 → 4 to → 6.
+
+7. ĐỘ SÁNG
+   Bạc đang trắng lóa, thiếu khối. Cho bạc có sáng-tối rõ: mặt trên sáng, mặt nghiêng xám thép, rãnh tối.
+   Màu nhấn đậm, bão hòa như sơn ô tô.
+   Đuôi bậc 4–6 đang kéo dài xuống quá xa; rút ngắn khoảng 25 % để tàu cân đối, không quá dài.
+
+Giữ: nhận dạng phượng hoàng (cánh lông xếp lớp, đuôi), bảng màu bậc 4 tím + vàng, đối xứng trái-phải, không chữ / logo, không vẽ lửa.
