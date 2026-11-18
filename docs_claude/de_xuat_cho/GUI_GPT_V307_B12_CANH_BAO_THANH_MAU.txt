@@ -1,0 +1,14 @@
+[GỬI GPT · V307 B12 · Băng cảnh báo boss + thanh máu người chơi]
+
+Bối cảnh: game bắn máy bay dọc trên điện thoại "Phi Đội Sao Băng". Giao diện đã thống nhất theo bộ B5–B11 bạn vẽ trước đây: kim loại xám xanh, mép vát góc, đường neon xanh lơ, điểm nhấn vàng cho nút chính. Đính kèm: ảnh màn trận hiện tại (thanh trên cùng) và khung hộp thoại B5 để giữ cùng phong cách.
+
+Cần vẽ (mỗi món một ảnh PNG riêng, NỀN ĐEN thuần #000 để tôi tách nền, không chữ, không biểu tượng ✦, không chữ ký):
+
+1) bang_canh_bao.png — băng cảnh báo boss xuất hiện, ngang toàn màn (tỉ lệ 1080×220).
+   Hai dải viền kim loại trên/dưới có sọc vàng-đen chéo mảnh, giữa là vùng tối trong suốt để tôi đặt chữ "CẢNH BÁO". Hai đầu có tam giác cảnh báo đỏ phát sáng. Màu chủ đạo đỏ + vàng, kim loại cùng kiểu B5. Không vẽ chữ.
+
+2) thanh_mau_khung.png — khung thanh máu người chơi (tỉ lệ 600×80), cùng kiểu khung boss B10 nhưng KHÔNG có đầu lâu: đầu trái là ô tròn nhỏ chứa trái tim pha lê hồng, thân là ống kim loại xám xanh vát góc, lòng ống RỖNG (để trống, đen) để tôi tự vẽ phần máu.
+3) thanh_mau_lap.png — phần lấp máu (tỉ lệ 560×40): ống năng lượng xanh lục sáng, có vạch chia ô mờ, ánh bóng trên.
+4) thanh_bao_tau_lap.png — như (3) nhưng màu vàng cam rực (dùng khi Bạo Tẩu).
+
+Luật: mép sắc nét, không bóng đổ ra ngoài, chừa lề 4–8 px, phong cách đồng bộ B5–B11, không chép giao diện game khác.

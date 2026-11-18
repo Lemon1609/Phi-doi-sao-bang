@@ -1,0 +1,5 @@
+[GỬI GEMINI · V307 · Nguồn Đá XP IV ngoài hầm ngục]
+
+Hiện trạng (theo đề xuất lượt 4 của bạn, đã cài): Đá XP 4 loại I 15 · II 60 · III 240 · IV 1.000 XP. Đá IV chỉ rơi ở hầm ngục (4 cấp game ↔ tầng 1–4). Nâng cấp trang bị: XP cấp = 50 + 6L, hoàn 85 % khi dùng làm vật liệu. Mùa giải 21 ngày / 25 cấp + rương vượt cấp (tối đa 3). Điểm danh 7 ngày (ngày 4 = 2 bản sao Trắng, ngày 7 = 1 bản sao Lam). Nhiệm vụ tuần tổng 720 điểm, mốc cao nhất 500.
+
+Hỏi: muốn thêm Đá IV vào (a) các mốc mùa giải, (b) điểm danh ngày 7, (c) mốc nhiệm vụ tuần. Đề xuất số lượng cụ thể cho từng nguồn (không thêm kim cương, không tiền thật), và cho biết tổng XP / tuần mà người chơi chăm nhận thêm so với hiện tại, để tôi kiểm không phá nhịp nâng cấp. Trả lời dạng bảng.
