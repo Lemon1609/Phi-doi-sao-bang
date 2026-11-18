@@ -1,0 +1,26 @@
+GỬI GPT · TÀU 1 · CÂN BẰNG LẠI (dán tiếp trong cùng cuộc trò chuyện "phủ phong cách")
+
+Bản vừa rồi nổi rõ, khung đúng. Nhưng hơi "quá đà", trông như sticker phát sáng. Giữ nguyên khung, vị trí bộ phận, lõi lục giác. Chỉnh 4 điểm theo cách các game bắn máy bay thương mại hay làm:
+
+1. VIỀN NEON MẢNH LẠI: bớt khoảng một nửa độ dày và quầng sáng so với bản vừa rồi.
+   Chỉ giữ neon ở mép cánh trước, quanh lõi lục giác và miệng xả.
+   Thân tàu phải nổi nhờ SÁNG-TỐI của khối kim loại, không nhờ viền phát sáng bao quanh.
+   (Lý do: trong trận đạn và hiệu ứng đã rất sáng; tàu viền neon dày sẽ lẫn vào đạn.)
+
+2. THÊM MÀU TƯƠNG PHẢN: mỗi bậc có 1 màu chính và 1 màu tương phản nhỏ (khoảng 10 % diện tích) ở kính buồng lái, sọc mảnh trên cánh và lõi:
+   - bậc 1 cyan + cam hổ phách;
+   - bậc 2 lục + vàng chanh;
+   - bậc 3 lam + cam;
+   - bậc 4 tím + vàng (đã có);
+   - bậc 5 hồng-tím + trắng / cyan nhạt;
+   - bậc 6 vàng kim + lam đậm.
+   Kính buồng lái dùng màu tương phản, không cùng màu thân.
+
+3. BÓNG ĐỔ SÂU HƠN: màu hiện quá rực đều khắp (đo được độ bão hòa trung vị 0,8–0,93).
+   Mặt nghiêng và khe giữa các tấm giáp tối hẳn (xanh đen / tím đen), mặt trên mới sáng rực.
+   Mục tiêu: bão hòa trung vị khoảng 0,65–0,75, có vùng tối rõ.
+
+4. CHI TIẾT CƠ KHÍ NHỎ: thêm đường ghép tấm giáp, cửa hút gió, đèn báo tròn nhỏ, ốc / khớp ở gốc cánh.
+   Mảnh vừa phải, vẫn đọc được ở 64 px. Lớp giáp chồng tầng rõ hơn ở bậc 4–6.
+
+Giữ: màu nhấn theo bậc như bản vừa rồi (diện tích màu khoảng 40–50 %), đúng khung và tỉ lệ, 1 ảnh 1 hàng 6 cột, nền đen, đối xứng, nhãn 1–6, không chữ / logo, không vẽ lửa, không thêm bộ phận lớn mới.
