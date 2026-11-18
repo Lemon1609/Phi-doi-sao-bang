@@ -93,6 +93,23 @@ Chỉ sửa nhẹ:
 - Chung cho cả bộ: không có vương miện / vòng / vật trang trí nổi phía trên mũi; gai nhỏ lắt nhắt quanh viền bớt đi để bóng tàu gọn, đọc rõ ở 64 px.
 Trình bày như cũ: 1 ảnh, 1 hàng 6 cột (bậc 1→6), nền đen thuần, đối xứng, nhãn 1–6, không chữ / logo.
 
+==================== TIN 1K · ĐƯA KHUNG MÁY BAY VÀO BẢN ĐÃ CHỐT (đính kèm tau11_than_thuong_chot.png; gửi THỬ trước khi làm Bạo Tẩu) ====================
+Bản đính kèm đã duyệt về màu, chất liệu, chủ đề. Nhưng nhìn tổng thể nó không còn đọc ra là MÁY BAY / CHIẾN CƠ: thiếu buồng lái, thiếu động cơ, cánh bị thay bằng chùm phiến / móng / lông.
+Game bắn máy bay thương mại dù đồ họa cầu kỳ vẫn giữ một "bộ xương máy bay" ai nhìn cũng nhận ra. Hãy giữ nguyên màu từng bậc, chất liệu, chủ đề của tàu này, nhưng dựng lại trên bộ xương đó:
+
+Bộ xương bắt buộc ở MỌI bậc (đọc rõ ở 64 px):
+1. THÂN dọc giữa: mũi nhọn ở trên → buồng lái kính (giọt nước, có viền bạc) → thân → ĐUÔI có 1–2 (bậc cao 2–4) ĐỘNG CƠ, nhìn từ trên thấy thân trụ và miệng xả tròn nhỏ ở mép dưới.
+2. CÁNH CHÍNH: một cặp cánh rõ ràng gắn vào hai bên thân, là tấm giáp phẳng có mép trước thẳng hoặc cong đều, xuôi về sau.
+3. Chi tiết chủ đề CHỈ là phần gắn / ốp lên thân và cánh, chiếm không quá khoảng 30–40 % bóng tàu; KHÔNG thay thế cánh hay che kín thân.
+4. Lên bậc: cánh dài và rộng hơn, thêm cánh phụ / cánh đuôi, thêm động cơ, thêm vũ khí; bậc 6 bản sang nhất.
+
+Riêng tàu 11:
+- Cánh: cánh xếp tấm thành cánh delta 2 tầng, vòng xoáy nằm giữa thân như động cơ lõi.
+- Thân: thân có mũi kính xanh như hiện có.
+
+Giữ: tỉ lệ rộng / cao như bản đính kèm, màu từng bậc, ngọc phẩm cấp, chất liệu gờ bạc. Không sừng, không gai lắt nhắt, không vương miện, không lửa.
+Trình bày như cũ: 1 ảnh, 1 hàng 6 cột (bậc 1→6), nền đen thuần, đối xứng, nhãn 1–6, không chữ / logo.
+
 ==================== TIN 2 · THÂN BẠO TẨU 6 BẬC (đính kèm tau11_than_thuong_chot.png) ====================
 Thân thường 6 bậc đã chốt là bản đính kèm (bản 1G). Giờ vẽ THÂN BẠO TẨU (chế độ cường hóa) cho từng bậc, 1 ảnh 1 hàng 6 cột, nền đen thuần, cùng tỉ lệ ảnh thân thường.
 - Dựa đúng thân thường từng bậc: cùng tâm, cùng cỡ thân giữa; mũi, buồng lái, lõi trùng vị trí (mình xếp chồng).
