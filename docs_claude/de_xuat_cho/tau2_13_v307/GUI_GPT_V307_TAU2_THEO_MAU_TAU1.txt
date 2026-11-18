@@ -77,7 +77,7 @@ Quy tắc chung:
 
 Trình bày như cũ: 1 ảnh, 1 hàng 6 cột (bậc 1→6), nền đen thuần, đối xứng, nhãn 1–6, không chữ / logo.
 
-==================== TIN 1F · QUAY VỀ CHẤT CHIẾN CƠ (dán tiếp; gửi TRƯỚC tin 2) ====================
+==================== TIN 1F · (ĐÃ GỬI 18/11, BỊ LOẠI: không đẹp bằng 1D; giữ để tra) ====================
 Bỏ hướng của tin vừa rồi (1E): kết quả không đạt. Lấy bản TRƯỚC tin 1E (bản 1C / 1D) làm gốc: giữ bảng màu từng bậc, ngọc phẩm cấp, chất liệu.
 Bản 1C / 1D có 2 lỗi cần sửa: nhiều gai, móng, lông nhọn chồng chất làm mất dáng máy bay; vài bậc 6 có vương miện / vòng nổi trên mũi.
 
@@ -93,8 +93,15 @@ Lên bậc bằng: thanh ray dài và dày hơn; bậc 3 thêm cặp cánh phụ
 
 Trình bày như cũ: 1 ảnh, 1 hàng 6 cột (bậc 1→6), nền đen thuần, đối xứng, nhãn 1–6, không chữ / logo, không lửa.
 
+==================== TIN 1G · CẢI TIẾN NHẸ TỪ BẢN 1D (dán tiếp; ĐÍNH KÈM LẠI ảnh bản 1D của tàu này: tau2_ban_1D.png; gửi TRƯỚC tin 2) ====================
+Bỏ hai bản vừa rồi (1E, 1F). Bản đính kèm (1D) là bản đẹp nhất: lấy đúng bản này làm gốc, GIỮ khoảng 90 %: dáng từng bậc, màu từng bậc, ngọc, chất liệu, độ sáng.
+Chỉ sửa nhẹ:
+- Bản 1D đã tốt. Chỉ làm sạch: bớt gai nhỏ ở mép buồm, mép buồm thẳng gọn hơn.
+- Chung cho cả bộ: không có vương miện / vòng / vật trang trí nổi phía trên mũi; gai nhỏ lắt nhắt quanh viền bớt đi để bóng tàu gọn, đọc rõ ở 64 px.
+Trình bày như cũ: 1 ảnh, 1 hàng 6 cột (bậc 1→6), nền đen thuần, đối xứng, nhãn 1–6, không chữ / logo.
+
 ==================== TIN 2 · THÂN BẠO TẨU 6 BẬC (gửi sau khi tin 1 đạt) ====================
-Thân thường 6 bậc vừa rồi đã chốt. Giờ vẽ THÂN BẠO TẨU (chế độ cường hóa) cho từng bậc, 1 ảnh 1 hàng 6 cột, nền đen thuần, cùng tỉ lệ ảnh thân thường.
+Thân thường 6 bậc đã chốt là bản 1G vừa rồi (nếu 1G không đạt thì dùng bản 1D, đính kèm lại). Giờ vẽ THÂN BẠO TẨU (chế độ cường hóa) cho từng bậc, 1 ảnh 1 hàng 6 cột, nền đen thuần, cùng tỉ lệ ảnh thân thường.
 - Dựa đúng thân thường từng bậc: cùng tâm, cùng cỡ thân giữa; mũi, buồng lái, lõi trùng vị trí (mình xếp chồng).
 - Bạo Tẩu = thân "mở khóa": giáp trượt ra, bộ phận đặc trưng (2 buồm dọc dài hai bên và mũi kim giữa) dang rộng hơn, mở thêm khe sáng, lõi sáng rực và to hơn.
 - Rộng thêm theo bậc: bậc 1 khoảng +20 % → bậc 6 khoảng +35 % so với thân thường.
