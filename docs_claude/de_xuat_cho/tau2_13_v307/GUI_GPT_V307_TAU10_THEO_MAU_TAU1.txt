@@ -55,6 +55,21 @@ Giữ: chất liệu (gờ bạc vát, neon mảnh, bóng đổ sâu), đặc tr
 Trình bày như cũ: 1 ảnh, 1 hàng 6 cột (bậc 1→6), nền đen thuần, đối xứng, nhãn 1–6, không chữ / logo, không lửa.
 Mình sẽ đo: bóng hai bậc liền nhau trùng nhau dưới 75 %, bậc 1 với bậc 6 dưới 55 %; sắc màu chủ đạo hai bậc liền nhau lệch rõ.
 
+==================== TIN 1E · MỖI TÀU MỘT KIỂU HÌNH KHỐI (dán tiếp sau bản mới nhất; gửi TRƯỚC tin 2) ====================
+Màu từng bậc của bản vừa rồi đạt: GIỮ bảng màu, ngọc phẩm cấp, chất liệu gờ bạc, độ sáng.
+Vấn đề: 12 tàu của bộ đang cùng một ngôn ngữ hình khối (gai, móng, lông nhọn chồng chất), nhìn na ná nhau. Mỗi tàu phải có MỘT kiểu hình khối riêng, nhận ra được chỉ bằng bóng đen.
+
+Kiểu của tàu 10: KHIÊN GIỌT NƯỚC
+- Hình khối: thân hình giọt / khiên tròn mượt, mảng cong lớn trơn, con mắt ở lõi; tàu con tròn nhỏ.
+- Lên bậc bằng: khiên rộng hơn, thêm tấm khiên cong xếp lớp; tàu con 0 · 0 · 0 · 2 · 3 · 5.
+- CẤM: lông / gai nhọn quanh viền.
+Quy tắc chung:
+- Lên bậc bằng cách to ra và thêm BỘ PHẬN LỚN đặc trưng, KHÔNG bằng thêm gai nhỏ / lông nhọn / móng.
+- Không có vương miện, vòng gai hay vật trang trí nổi phía trên mũi tàu.
+- Bóng tàu đọc rõ ở 64 px: mảng lớn, ít mũi nhọn lắt nhắt.
+
+Trình bày như cũ: 1 ảnh, 1 hàng 6 cột (bậc 1→6), nền đen thuần, đối xứng, nhãn 1–6, không chữ / logo.
+
 ==================== TIN 2 · THÂN BẠO TẨU 6 BẬC (gửi sau khi tin 1 đạt) ====================
 Thân thường 6 bậc vừa rồi đã chốt. Giờ vẽ THÂN BẠO TẨU (chế độ cường hóa) cho từng bậc, 1 ảnh 1 hàng 6 cột, nền đen thuần, cùng tỉ lệ ảnh thân thường.
 - Dựa đúng thân thường từng bậc: cùng tâm, cùng cỡ thân giữa; mũi, buồng lái, lõi trùng vị trí (mình xếp chồng).

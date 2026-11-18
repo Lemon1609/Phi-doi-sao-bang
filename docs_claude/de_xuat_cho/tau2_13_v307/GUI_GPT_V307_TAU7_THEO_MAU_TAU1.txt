@@ -64,6 +64,21 @@ Dáng đạt. Còn 2 lỗi: tàu quá tối (độ sáng trung vị 0,35–0,40;
 - Bậc 6: thép đen bóng nhưng mép và gân vàng kim sáng, nhìn rõ trên nền tối.
 Trình bày như cũ: 1 ảnh, 1 hàng 6 cột, nền đen, nhãn 1–6, không chữ / logo.
 
+==================== TIN 1E · MỖI TÀU MỘT KIỂU HÌNH KHỐI (dán tiếp sau bản mới nhất; gửi TRƯỚC tin 2) ====================
+Màu từng bậc của bản vừa rồi đạt: GIỮ bảng màu, ngọc phẩm cấp, chất liệu gờ bạc, độ sáng.
+Vấn đề: 12 tàu của bộ đang cùng một ngôn ngữ hình khối (gai, móng, lông nhọn chồng chất), nhìn na ná nhau. Mỗi tàu phải có MỘT kiểu hình khối riêng, nhận ra được chỉ bằng bóng đen.
+
+Kiểu của tàu 7: LỒNG KIẾM CONG
+- Hình khối: thân thanh mảnh ở giữa; hai bên là các lưỡi kiếm cong dài, TRƠN, bản rộng, khoảng trống rõ giữa các lưỡi.
+- Lên bậc bằng: thêm lưỡi (2 → 6), lưỡi dài hơn.
+- CẤM: gai nhỏ bám trên lưỡi.
+Quy tắc chung:
+- Lên bậc bằng cách to ra và thêm BỘ PHẬN LỚN đặc trưng, KHÔNG bằng thêm gai nhỏ / lông nhọn / móng.
+- Không có vương miện, vòng gai hay vật trang trí nổi phía trên mũi tàu.
+- Bóng tàu đọc rõ ở 64 px: mảng lớn, ít mũi nhọn lắt nhắt.
+
+Trình bày như cũ: 1 ảnh, 1 hàng 6 cột (bậc 1→6), nền đen thuần, đối xứng, nhãn 1–6, không chữ / logo.
+
 ==================== TIN 2 · THÂN BẠO TẨU 6 BẬC (gửi sau khi tin 1 đạt) ====================
 Thân thường 6 bậc vừa rồi đã chốt. Giờ vẽ THÂN BẠO TẨU (chế độ cường hóa) cho từng bậc, 1 ảnh 1 hàng 6 cột, nền đen thuần, cùng tỉ lệ ảnh thân thường.
 - Dựa đúng thân thường từng bậc: cùng tâm, cùng cỡ thân giữa; mũi, buồng lái, lõi trùng vị trí (mình xếp chồng).

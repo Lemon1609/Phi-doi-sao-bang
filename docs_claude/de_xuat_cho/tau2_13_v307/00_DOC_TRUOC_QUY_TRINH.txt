@@ -20,3 +20,5 @@ Tàu 1 giữ như đã chốt (thân đổi màu theo bậc).
 CẬP NHẬT 18/11 12:27 (chủ dự án): bản 1B có màu riêng nhưng 6 bậc gần như giống hệt, các bậc phải tiến hóa dần và đổi màu, học game gốc và tàu 1.
 Đo bóng lượt 1 (tỉ lệ trùng bậc 1 với bậc 6): tàu 1 = 0,43 (bề ngang +66 %); tàu 9 = 0,90, tàu 5 = 0,83, tàu 6 = 0,80, tàu 12 = 0,80, tàu 13 = 0,75 (gần như không tiến hóa).
 → TIN 1C: mỗi bậc to hơn + thêm bộ phận (riêng từng tàu), màu chữ ký riêng tàu giữ ở mọi bậc (~30 %) + màu bậc đổi theo bảng 6 bậc riêng (~40–50 %) + ngọc phẩm cấp.
+
+CẬP NHẬT 18/11 13:12 (chủ dự án): bỏ vương miện; các tàu "gai gai na ná nhau" → TIN 1E: mỗi tàu một kiểu hình khối riêng (2 tháp buồm dọc · 3 ngôi sao chữ X băng · 4 khối tròn hữu cơ · 5 đóa hoa · 6 tàng hình phẳng · 7 lồng kiếm cong · 8 phượng ngọn lửa · 9 trạm radar · 10 khiên giọt nước · 11 tam giác + xoáy · 12 đồng hồ la bàn · 13 trăng khuyết); lên bậc bằng bộ phận lớn, không bằng gai.
