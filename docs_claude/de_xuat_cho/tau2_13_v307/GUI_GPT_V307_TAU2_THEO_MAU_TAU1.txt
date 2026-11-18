@@ -20,7 +20,7 @@ Mục tiêu đo: độ bão hòa trung vị khoảng 0,6–0,75, có vùng tối
 
 Trình bày: 1 ảnh, 1 hàng 6 cột (bậc 1→6), đúng tỉ lệ và vị trí như ảnh đính kèm, nền đen thuần, đối xứng, nhãn 1–6, không chữ / logo.
 
-==================== TIN 1B · SỬA PHỐI MÀU (dán tiếp ngay sau bản thân thường GPT vừa vẽ; gửi TRƯỚC tin 2) ====================
+==================== TIN 1B · SỬA PHỐI MÀU (ĐÃ GỬI 18/11; giữ để tra) ====================
 Bản vừa rồi đạt về khung và chất liệu: GIỮ NGUYÊN dáng, chi tiết, gờ bạc, độ sáng-tối. Chỉ đổi PHỐI MÀU.
 Vấn đề: 12 tàu đang dùng chung một kiểu màu theo bậc (bậc 2 lục, bậc 3 lam, bậc 6 vàng…), đặt cạnh nhau cùng bậc thì trùng màu. Mỗi tàu phải có bản sắc màu riêng.
 
@@ -31,12 +31,36 @@ Phối màu riêng của tàu 2 "Cực Quang Ảo Ảnh":
 - Không phủ màu bậc lên giáp, cánh, buồm.
 Trình bày như cũ: 1 ảnh, 1 hàng 6 cột, nền đen, nhãn 1–6, không chữ / logo.
 
+==================== TIN 1C · TIẾN HÓA THEO BẬC + MÀU TỪNG BẬC (dán tiếp sau bản 1B; gửi TRƯỚC tin 2) ====================
+Bản 1B có bản sắc màu riêng rồi, nhưng 6 bậc gần như giống hệt nhau, chỉ khác viên ngọc. Người chơi phải nhìn là thấy tàu "lên đời". Học cách các game bắn máy bay thương mại làm (không chép tàu nào): mỗi bậc tàu TO HƠN, NHIỀU BỘ PHẬN HƠN và ĐỔI MÀU rõ.
+Giữ: chất liệu (gờ bạc vát, neon mảnh, bóng đổ sâu), đặc trưng nhận diện, hướng nhìn từ trên xuống.
+
+1) TIẾN HÓA HÌNH DÁNG
+- Bậc 1 là bản gọn nhất. Mỗi bậc thêm bộ phận và rộng hơn: bề ngang bậc 6 khoảng 1,5–1,7 lần bậc 1.
+- Hai bậc liền nhau phải khác bóng rõ (không chỉ đổi màu). Bậc 4–6 giáp chồng nhiều tầng, chi tiết dày hơn.
+- Riêng tàu này: buồm dọc dài thêm và thêm dải cực quang mỗi bậc; bậc 4–6 thêm cặp buồm phụ, bậc 6 có đuôi cực quang.
+
+2) MÀU TỪNG BẬC (khác nhau rõ giữa các bậc, nhưng vẫn là của riêng tàu này)
+- Màu CHỮ KÝ giữ ở mọi bậc (khoảng 30 %, ở giáp nền / khung): ngà / trắng ngọc trai.
+- Màu BẬC đổi theo bậc (khoảng 40–50 %, ở mảng giáp lớn, cánh, sọc năng lượng) + màu tương phản nhỏ:
+   bậc 1: ngà + teal nhạt
+   bậc 2: ngà + lục ngọc bích
+   bậc 3: ngà + lam ngọc (teal-lam)
+   bậc 4: ngà ánh kim + tím oải hương
+   bậc 5: ngọc trai đen + cực quang hồng-tím
+   bậc 6: trắng ngọc trai + vàng kim + dải cực quang 3 màu
+- Viên ngọc / lõi vẫn theo phẩm cấp: 1 trắng · 2 lục · 3 lam · 4 tím · 5 hồng-tím · 6 vàng.
+- Bậc 6 là bản sang nhất: thêm viền vàng kim mảnh và điểm phản sáng.
+
+Trình bày như cũ: 1 ảnh, 1 hàng 6 cột (bậc 1→6), nền đen thuần, đối xứng, nhãn 1–6, không chữ / logo, không lửa.
+Mình sẽ đo: bóng hai bậc liền nhau trùng nhau dưới 75 %, bậc 1 với bậc 6 dưới 55 %; sắc màu chủ đạo hai bậc liền nhau lệch rõ.
+
 ==================== TIN 2 · THÂN BẠO TẨU 6 BẬC (gửi sau khi tin 1 đạt) ====================
 Thân thường 6 bậc vừa rồi đã chốt. Giờ vẽ THÂN BẠO TẨU (chế độ cường hóa) cho từng bậc, 1 ảnh 1 hàng 6 cột, nền đen thuần, cùng tỉ lệ ảnh thân thường.
 - Dựa đúng thân thường từng bậc: cùng tâm, cùng cỡ thân giữa; mũi, buồng lái, lõi trùng vị trí (mình xếp chồng).
 - Bạo Tẩu = thân "mở khóa": giáp trượt ra, bộ phận đặc trưng (2 buồm dọc dài hai bên và mũi kim giữa) dang rộng hơn, mở thêm khe sáng, lõi sáng rực và to hơn.
 - Rộng thêm theo bậc: bậc 1 khoảng +20 % → bậc 6 khoảng +35 % so với thân thường.
-- Giữ chất liệu và phối màu thân thường (thân ngà / trắng ngọc trai + xanh lục-teal cực quang; màu bậc chỉ ở lõi và neon mảnh), không tối hơn thân thường.
+- Giữ chất liệu và phối màu TỪNG BẬC của thân thường vừa chốt (màu chữ ký + màu bậc + ngọc phẩm cấp), không tối hơn thân thường.
 - CẤM tay máy, khớp mảnh như xương. Không lửa, không tia hay hiệu ứng ngoài thân (hiệu ứng vẽ riêng ở tin 3).
 
 ==================== TIN 3 · CÁNH NĂNG LƯỢNG BẠO TẨU · 6 ẢNH RIÊNG (gửi sau khi tin 2 đạt) ====================
@@ -55,7 +79,7 @@ Mỗi bậc một HÌNH DÁNG riêng (người chơi nhìn dáng là biết bậ
 5. Bậc 5: 3 tầng + chi tiết hình học mảnh (nửa vòng / ô lục giác) phía sau, vài mảnh nhỏ bay ra.
 6. Bậc 6: dạng hoàn chỉnh nhất: 3 tầng, đuôi xòe, viền trắng sáng quanh mọi phần tử, tia lấp lánh nhỏ.
 
-Màu: họ màu riêng của tàu (ngà / trắng ngọc trai / xanh lục-teal cực quang) ở phần lớn hiệu ứng; màu bậc (1 trắng · 2 lục · 3 lam · 4 tím · 5 hồng-tím · 6 vàng) ở lõi sáng và viền mảnh gần gốc. Đặt cạnh cánh năng lượng tàu khác cùng bậc phải khác màu rõ.
+Màu: theo đúng màu BẬC của thân bậc đó (bảng ở tin 1C) ở phần lớn hiệu ứng, màu chữ ký của tàu ở mép trong; màu bậc (1 trắng · 2 lục · 3 lam · 4 tím · 5 hồng-tím · 6 vàng) ở lõi sáng và viền mảnh gần gốc. Đặt cạnh cánh năng lượng tàu khác cùng bậc phải khác màu rõ.
 
 Kích thước và vị trí (QUAN TRỌNG):
 - Sải ngang so với bề rộng thân tàu thường: bậc 1 khoảng 2,3 lần → bậc 6 khoảng 3 lần, không bậc nào quá 3 lần. Bậc cao đẹp nhờ nhiều tầng, đặc, sáng và dáng riêng, không nhờ to hơn.

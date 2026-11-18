@@ -16,3 +16,7 @@ CẬP NHẬT 18/11 12:19 (chủ dự án): các tàu không được cùng một
 Lượt tin 1 đã vẽ xong 12 tàu nhưng đo sắc chủ đạo: bậc Lam 7/12 tàu cùng ~217°, bậc SS 9/12 tàu cùng vàng ~37°, bậc Lục 9/12 tàu trong 82–157°.
 → Gửi TIN 1B (sửa phối màu) trong cùng cuộc trò chuyện trước tin 2. Mỗi tàu một họ màu thân riêng giữ qua 6 bậc; màu bậc chỉ ở lõi + neon mảnh.
 Tàu 1 giữ như đã chốt (thân đổi màu theo bậc).
+
+CẬP NHẬT 18/11 12:27 (chủ dự án): bản 1B có màu riêng nhưng 6 bậc gần như giống hệt, các bậc phải tiến hóa dần và đổi màu, học game gốc và tàu 1.
+Đo bóng lượt 1 (tỉ lệ trùng bậc 1 với bậc 6): tàu 1 = 0,43 (bề ngang +66 %); tàu 9 = 0,90, tàu 5 = 0,83, tàu 6 = 0,80, tàu 12 = 0,80, tàu 13 = 0,75 (gần như không tiến hóa).
+→ TIN 1C: mỗi bậc to hơn + thêm bộ phận (riêng từng tàu), màu chữ ký riêng tàu giữ ở mọi bậc (~30 %) + màu bậc đổi theo bảng 6 bậc riêng (~40–50 %) + ngọc phẩm cấp.
