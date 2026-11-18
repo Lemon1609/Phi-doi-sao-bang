@@ -1,0 +1,39 @@
+GỬI GPT · LƯỢT B9 · ĐỒNG BỘ GIAO DIỆN (Phi Đội Sao Băng · V307 · 18/11/2026)
+
+Cảm ơn bạn: bộ B1–B8 đã ghép vào game và nhìn rất đẹp. Lượt này vẽ thêm vài mảnh còn thiếu để mọi màn cùng một họ thiết kế với B4/B5/B6.
+
+PHONG CÁCH (giữ đúng như B4–B8):
+- Khung kim loại xám bạc vát góc, viền neon xanh cyan, lòng xanh hải quân đậm; điểm nhấn tím/vàng như B5.
+- PNG nền ngoài TRONG SUỐT, KHÔNG có chữ (game tự viết chữ), không logo, không chép thiết kế của game khác.
+- Mỗi tệp đúng kích thước ghi dưới. Tệp 9-slice: các góc giữ nguyên, phần giữa mỗi cạnh trơn để kéo giãn được; ghi lề cắt đề xuất (trái, trên, phải, dưới) vào GHI_CHU_B9.txt.
+- Gửi kèm 1 ảnh bang_tong_B9.png xếp tất cả các tệp trên nền đen.
+
+DANH SÁCH:
+
+1. icon_cai_dat_tu_dien.png · 256×256 (VẼ LẠI)
+   "Tự diễn" nghĩa là màn bắn thử tự động ở sảnh (bật/tắt), KHÔNG phải "từ điển".
+   Hình: nút phát ▶ lớn, kèm một chiến cơ nhỏ đang bắn tia sáng lên trên.
+   Dùng ĐÚNG khung vuông vát góc của 10 biểu tượng B7 còn lại (xem ảnh mẫu B7 đính kèm), cùng cỡ, cùng độ sáng.
+
+2. nut_xanh.png · nut_xanh_nhan.png · nut_xanh_khoa.png · mỗi tệp 360×120, 9-slice
+   Nút phụ màu XANH LAM cùng họ với nut_tim của B5: cùng khung, cùng độ dày, cùng góc vát; chỉ đổi lòng nút sang xanh lam sáng.
+   Nhấn: tối hơn một chút, như nut_tim_nhan. Khóa: xám đen, như nut_tim_khoa.
+   Dùng cho: "KHO BẢN SAO", "MỞ TẤT CẢ RƯƠNG", các cấp phó bản, "ĐỔI" ở Chợ Đen, "‹ VŨ KHÍ". Hiện các nút này dùng khung trắng bạc kiểu cũ, lệch với B5.
+
+3. tab_ngang_bat.png · tab_ngang_tat.png · mỗi tệp 300×96, 9-slice
+   Tab nằm trong hộp thoại, mỗi hàng 2–4 tab: "NGÀY / TUẦN", "PHI CÔNG / CÂY TIỀM NĂNG", "Thể lực / Thẻ tháng / 7 ngày", "Đồ giám / Cộng hưởng / Bộ skin".
+   Bật: lòng xanh cyan sáng, có vạch sáng dưới. Tắt: lòng xanh hải quân tối, viền mờ.
+   Cùng họ với tab_day_bat/tat của B4, nhưng thấp và gọn hơn.
+
+4. thanh_tieu_de_man.png · 1080×140, 9-slice
+   Thanh tiêu đề trên cùng các màn phụ toàn màn hình (RƯƠNG, PHÓ BẢN, HỢP THỂ, CHIẾN CƠ, KHO TRANG BỊ).
+   Bên trái có ô trống cho nút quay lại; giữa trống cho chữ; bên phải chừa chỗ cho ô tài nguyên.
+   nut_quay_lai.png · 128×128: mũi tên ‹ trong khung vuông vát, cùng họ với nut_dong của B5.
+
+5. Màn RƯƠNG (hiện chỉ có chữ, chưa có tranh):
+   - bang_tranh_ruong.png · 1080×360: băng tranh đầu màn. Kho chứa rương trong xưởng phi thuyền, vài rương phát sáng; không có người.
+   - ruong_trang_bi.png · ruong_chien_co.png · ruong_boss.png · mỗi tệp 512×512: 3 rương kim loại khoa học viễn tưởng, nhìn 3/4 từ trên.
+     Trang bị: viền xanh cyan. Chiến cơ: viền tím. Boss: viền vàng cam, có gai.
+     Mỗi rương 2 trạng thái: đóng, và mở có tia sáng. Đặt tên thêm hậu tố _mo cho bản mở, tổng 6 tệp.
+
+LƯU Ý: không vẽ nhân vật nữ gợi cảm; không chữ; không thương hiệu.
