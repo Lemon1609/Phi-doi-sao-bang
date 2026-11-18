@@ -93,13 +93,14 @@ Chỉ sửa nhẹ:
 - Chung cho cả bộ: không có vương miện / vòng / vật trang trí nổi phía trên mũi; gai nhỏ lắt nhắt quanh viền bớt đi để bóng tàu gọn, đọc rõ ở 64 px.
 Trình bày như cũ: 1 ảnh, 1 hàng 6 cột (bậc 1→6), nền đen thuần, đối xứng, nhãn 1–6, không chữ / logo.
 
-==================== TIN 2 · THÂN BẠO TẨU 6 BẬC (gửi sau khi tin 1 đạt) ====================
-Thân thường 6 bậc đã chốt là bản 1G vừa rồi (nếu 1G không đạt thì dùng bản 1D, đính kèm lại). Giờ vẽ THÂN BẠO TẨU (chế độ cường hóa) cho từng bậc, 1 ảnh 1 hàng 6 cột, nền đen thuần, cùng tỉ lệ ảnh thân thường.
+==================== TIN 2 · THÂN BẠO TẨU 6 BẬC (đính kèm tau3_than_thuong_chot.png) ====================
+Thân thường 6 bậc đã chốt là bản đính kèm (bản 1G). Giờ vẽ THÂN BẠO TẨU (chế độ cường hóa) cho từng bậc, 1 ảnh 1 hàng 6 cột, nền đen thuần, cùng tỉ lệ ảnh thân thường.
 - Dựa đúng thân thường từng bậc: cùng tâm, cùng cỡ thân giữa; mũi, buồng lái, lõi trùng vị trí (mình xếp chồng).
 - Bạo Tẩu = thân "mở khóa": giáp trượt ra, bộ phận đặc trưng (thân chữ X 4 cánh, mũi kính giọt) dang rộng hơn, mở thêm khe sáng, lõi sáng rực và to hơn.
 - Rộng thêm theo bậc: bậc 1 khoảng +20 % → bậc 6 khoảng +35 % so với thân thường.
 - Giữ chất liệu và phối màu TỪNG BẬC của thân thường vừa chốt (màu chữ ký + màu bậc + ngọc phẩm cấp), không tối hơn thân thường.
 - CẤM tay máy, khớp mảnh như xương. Không lửa, không tia hay hiệu ứng ngoài thân (hiệu ứng vẽ riêng ở tin 3).
+- Không sừng, không gai mảnh lắt nhắt, không vương miện / vật nổi trên mũi (giữ đúng tinh thần bản thân thường đã chốt).
 
 ==================== TIN 3 · CÁNH NĂNG LƯỢNG BẠO TẨU · 6 ẢNH RIÊNG (gửi sau khi tin 2 đạt) ====================
 Giờ vẽ lớp HIỆU ỨNG NĂNG LƯỢNG bung sau lưng tàu lúc Bạo Tẩu. KHÔNG vẽ tàu. Mình chồng bằng cộng sáng sau thân.
