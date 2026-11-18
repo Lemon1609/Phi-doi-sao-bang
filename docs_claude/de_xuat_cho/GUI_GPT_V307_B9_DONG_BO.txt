@@ -36,4 +36,13 @@ DANH SÁCH:
      Trang bị: viền xanh cyan. Chiến cơ: viền tím. Boss: viền vàng cam, có gai.
      Mỗi rương 2 trạng thái: đóng, và mở có tia sáng. Đặt tên thêm hậu tố _mo cho bản mở, tổng 6 tệp.
 
+6. Khung ô vuông TRỐNG (để game đặt biểu tượng cũ vào giữa, đồng bộ với B7):
+   - o_chuc_nang.png · 200×200: khung vuông vát góc giống khung của 11 biểu tượng B7, lòng trống, xanh hải quân. Dùng cho hàng ô Nhiệm vụ / Mùa giải / Điểm danh / Vòng quay / Hệ thống ở sảnh và các nút tròn hai bên sảnh (Tuần tra, Viễn chinh, Cốt truyện, Thử thách, Tối thượng).
+   - o_chuc_nang_vang.png · 200×200: cùng khung, viền vàng cam nổi bật (cho ô QUÀ).
+   - o_tau_chon.png · o_tau_chon_bat.png · 160×160: ô chọn chiến cơ trong dải trên màn Chiến cơ (bản thường và bản đang chọn sáng viền).
+
+7. Thanh điều hướng đáy (5 tab: Sảnh, Chiến đấu, Phi đội, Trang bị, Cửa hàng):
+   - tab_duoi_tat.png · tab_duoi_bat.png · 220×150 9-slice, cùng họ B5 (khung bạc vát góc, viền cyan; bản bật sáng cyan + vạch sáng dưới). Hiện bản bật và bản tắt lệch nét với nhau.
+   - nen_thanh_duoi.png · 1080×170: dải nền chứa 5 tab.
+
 LƯU Ý: không vẽ nhân vật nữ gợi cảm; không chữ; không thương hiệu.
