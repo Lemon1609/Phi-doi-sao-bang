@@ -1,0 +1,39 @@
+GỬI GPT · SỬA LẦN 2 · TÀU 1 PHONG CÁCH MỚI (dán tiếp trong cùng cuộc trò chuyện)
+
+Bản này tốt hơn nhiều. Giữ nguyên các điểm sau:
+- viền LED neon dọc mép giáp;
+- lõi lục giác ở cả 6 bậc;
+- bậc 1 đơn giản;
+- động cơ có vòng sáng;
+- mảnh tinh thể bậc 5–6 to, đặt gần;
+- màu nhấn theo bậc.
+
+Nhưng lần này sửa hơi quá tay. Cần chỉnh 6 điểm, vẫn 1 ảnh, 1 hàng 6 cột, cùng tỉ lệ, nền đen, mũi hướng lên, nhãn 1–6.
+
+1. CÁNH QUÁ DÀY, NHƯ TẤM THÉP VUÔNG
+   Giữ số mảng lông như hiện tại, nhưng mỗi mảng chỉ dày khoảng 60 % bản này.
+   Đầu mảng vuốt NHỌN, hơi cong ra sau như lông vũ thật, không cắt vuông như lưỡi xẻng.
+   Giữa các mảng lông có khe hở nhỏ, để thấy được từng lông tách lớp.
+   Cánh xuôi ra sau khoảng 25–30°, không chĩa ngang.
+   Tàu phải toát lên vẻ "phượng hoàng thanh thoát", không phải khiên.
+
+2. ĐỘNG CƠ CHIẾM QUÁ NHIỀU CHỖ
+   Ở bậc 3–6, cụm động cơ to đang che gốc cánh và nửa dưới thân.
+   Thu nhỏ động cơ khoảng 25 %, giấu bớt dưới gốc cánh; vẫn giữ vòng sáng ở miệng ống xả và số lượng tăng theo bậc.
+
+3. ĐUÔI
+   Bậc 2–3 đuôi đang là các gai mảnh như kim; đổi thành 3 lông đuôi rộng bản, đầu nhọn.
+   Bậc 4–6 có 3–5 lông đuôi rộng, dài vừa phải (không dài hơn hiện tại).
+
+4. BẬC 5 CHƯA KHÁC BẬC 4 NGOÀI MÀU VÀ TINH THỂ
+   Thêm cho bậc 5 một lớp cánh năng lượng mờ trong suốt phía sau cánh chính (màu hồng-tím, viền sáng), hoặc thêm một cặp lông cánh phụ ở vai.
+
+5. BẬC 6 VÀNG CHƯA ĐỦ
+   Các mảng cánh bậc 6 đang xám bạc nhiều, vàng chỉ ở viền.
+   Cho ít nhất một nửa diện tích mỗi mảng lông là vàng kim bóng, viền trắng sáng. Nhìn phải "vàng rực" ngay.
+
+6. TỈ LỆ CHUNG
+   Bậc 4–6 đang gần như vuông (rộng ≈ dài).
+   Cho thân dài hơn một chút so với cánh: chiều rộng khoảng 0,8–0,85 lần chiều dài ở bậc 6. Thân giữa thanh, không bè.
+
+Giữ: nhận dạng phượng hoàng, tím + vàng ở bậc 4, đối xứng, không chữ / logo, không vẽ lửa, không chi tiết mảnh như sợi chỉ.
