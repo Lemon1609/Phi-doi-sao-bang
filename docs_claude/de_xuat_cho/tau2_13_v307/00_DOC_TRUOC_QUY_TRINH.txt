@@ -1,0 +1,13 @@
+QUY TRÌNH LÀM LẠI TÀU 2–13 THEO MẪU TÀU 1 (V307, 18/11) · đọc trước
+
+Rút kinh nghiệm từ tàu 1 (đã chốt):
+1. Vẽ mới từ đầu hay bị lệch (thành chim, lẫn phối cảnh) → chỉ PHỦ CHẤT LIỆU lên đúng khung tàu đang dùng. Tàu 1 đạt khi IoU bóng tàu với khung cũ 0,71–0,90.
+2. Tàu 1 mất 3 lượt (gốc → "nổi hơn" → "cân bằng"). Tin 1 của mỗi tàu đã gộp sẵn yêu cầu "cân bằng" (neon mảnh, bóng đổ sâu, màu tương phản, chi tiết cơ khí) để bớt lượt. Sau đó Claude còn tăng sáng nhẹ bằng mã nếu cần.
+3. Không gửi ảnh tàu 1 cho GPT làm "mẫu đạt": GPT sẽ chép dáng. Mỗi tàu giữ đặc trưng và chủ đề Bạo Tẩu riêng theo cốt truyện (story259).
+4. Cánh năng lượng tàu 1 lượt đầu: 6 bậc cùng một dáng, bậc cao quá to → tin 3 đã yêu cầu sẵn: mỗi bậc một dáng, tối đa 3 lần thân, nón trước trống.
+5. Ảnh 6 bậc chung một tấm quá nhỏ (mỗi ô 240–400 px), phải phóng to 2,5–3,8 lần, mép mềm → tin 3 xin 6 ảnh riêng cỡ lớn ngay từ đầu.
+6. Mỗi tàu một cuộc trò chuyện GPT riêng. Gửi tin 2 và 3 trong cùng cuộc đó để GPT nhớ thân đã chốt.
+
+Mỗi tàu: tệp GUI_GPT_V307_TAU<N>_THEO_MAU_TAU1.txt (3 tin) + ảnh tau<N>_hien_tai.png + mau_B9.png + mau_B10.png.
+Thứ tự gợi ý: 2 → 3 → … → 13 (có thể chạy song song nhiều cuộc trò chuyện).
+Claude ghép sau mỗi tin: tin 1 → src/ship118/tau<N>_<bậc>.png (đo IoU, bão hòa, độ sáng); tin 2 → tau<N>_<bậc>_bt.png (QBT, căn lõi); tin 3 → src/btfx218/tau<N>_fx_p307_<bậc>.png (RAMP keep307, PIV).
