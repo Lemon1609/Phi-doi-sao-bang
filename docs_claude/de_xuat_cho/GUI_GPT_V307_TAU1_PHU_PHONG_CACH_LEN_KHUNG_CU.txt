@@ -1,0 +1,18 @@
+GỬI GPT · TÀU 1 · PHỦ PHONG CÁCH MỚI LÊN ĐÚNG KHUNG TÀU ĐANG DÙNG (mở cuộc trò chuyện MỚI; đính kèm tau1_hien_tai.png + mau_B9.png + mau_B10.png)
+
+Mình muốn tàu 1 hợp với bộ giao diện mới nhưng KHÔNG đổi thiết kế tàu. Các lần thiết kế lại trước bị lệch: lúc thành chim, lúc lẫn phối cảnh. Lần này chỉ "sơn và ốp lại" đúng 6 tàu trong tau1_hien_tai.png.
+
+GIỮ NGUYÊN 100 % (so từng ô với ảnh đính kèm):
+- Đường viền ngoài (bóng đen) của từng bậc.
+- Vị trí, kích thước cánh, pod động cơ, mũi, buồng lái, số bộ phận.
+- Hướng nhìn: thẳng từ trên xuống, mũi hướng lên. Động cơ nhìn từ trên là thân trụ, miệng xả chỉ là một mép tròn nhỏ ở đuôi, KHÔNG vẽ thành vòng tròn nhìn thẳng.
+- Màu nhấn theo bậc như ảnh: 1 cyan · 2 lục · 3 lam · 4 tím + vàng · 5 hồng-tím · 6 vàng kim.
+
+CHỈ ĐỔI CHẤT LIỆU cho giống bộ giao diện B9 / B10:
+1. Tấm giáp có GỜ BẠC VÁT ở mép, mặt giáp phẳng có rãnh khắc mảnh, bóng sơn kim loại; sáng-tối rõ (mặt trên sáng, mặt nghiêng xám thép).
+2. Viền LED NEON mảnh màu nhấn chạy dọc mép cánh và mép giáp lớn (như viền khung B5 / B9).
+3. Lõi năng lượng giữa thân thay bằng viên ngọc LỤC GIÁC có khung bạc (như ô ải B10), màu nhấn của bậc; bậc cao to và sáng hơn.
+4. Buồng lái: kính giọt màu nhấn, có viền bạc vát.
+5. Không thêm bộ phận mới, không lông vũ, không vương miện, không cánh trong suốt.
+
+Trình bày: 1 ảnh, 1 hàng 6 cột (bậc 1→6), đúng tỉ lệ và vị trí như ảnh đính kèm, nền đen thuần, đối xứng, nhãn 1–6, không chữ / logo, không vẽ lửa.
