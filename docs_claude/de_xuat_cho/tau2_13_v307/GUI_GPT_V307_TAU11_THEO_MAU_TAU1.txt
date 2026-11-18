@@ -102,6 +102,7 @@ Bộ xương bắt buộc ở MỌI bậc (đọc rõ ở 64 px):
 2. CÁNH CHÍNH: một cặp cánh rõ ràng gắn vào hai bên thân, là tấm giáp phẳng có mép trước thẳng hoặc cong đều, xuôi về sau.
 3. Chi tiết chủ đề CHỈ là phần gắn / ốp lên thân và cánh, chiếm không quá khoảng 30–40 % bóng tàu; KHÔNG thay thế cánh hay che kín thân.
 4. Lên bậc: cánh dài và rộng hơn, thêm cánh phụ / cánh đuôi, thêm động cơ, thêm vũ khí; bậc 6 bản sang nhất.
+5. Hai bậc liền nhau phải khác BÓNG rõ, kể cả bậc 1 và bậc 2 (bậc 2 có thêm cánh đuôi hoặc cánh dài hơn rõ, thêm động cơ), không chỉ khác màu.
 
 Riêng tàu 11:
 - Cánh: cánh xếp tấm thành cánh delta 2 tầng, vòng xoáy nằm giữa thân như động cơ lõi.
