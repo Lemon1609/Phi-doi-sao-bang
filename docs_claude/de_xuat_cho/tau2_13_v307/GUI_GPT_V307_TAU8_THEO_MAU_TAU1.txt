@@ -107,7 +107,7 @@ Bản đính kèm đã duyệt về màu, chất liệu, chủ đề. Nhưng nh�
 Game bắn máy bay thương mại dù đồ họa cầu kỳ vẫn giữ một "bộ xương máy bay" ai nhìn cũng nhận ra. Hãy giữ nguyên màu từng bậc, chất liệu, chủ đề của tàu này, nhưng dựng lại trên bộ xương đó:
 
 Bộ xương bắt buộc ở MỌI bậc (đọc rõ ở 64 px):
-1. THÂN dọc giữa: mũi nhọn ở trên → buồng lái kính (giọt nước, có viền bạc) → thân → ĐUÔI có 1–2 (bậc cao 2–4) ĐỘNG CƠ, nhìn từ trên thấy thân trụ và miệng xả tròn nhỏ ở mép dưới.
+1. THÂN dọc giữa: mũi nhọn ở trên → buồng lái kính (giọt nước, có viền bạc) → thân → ĐUÔI có 1–2 (bậc cao 2–4) ĐỘNG CƠ, nhìn từ trên thấy thân trụ và miệng xả tròn nhỏ ở mép dưới (miệng xả là vòng kim loại tối viền bạc, KHÔNG phát sáng màu; game tự vẽ lửa).
 2. CÁNH CHÍNH: một cặp cánh rõ ràng gắn vào hai bên thân, là tấm giáp phẳng có mép trước thẳng hoặc cong đều, xuôi về sau.
 3. Chi tiết chủ đề CHỈ là phần gắn / ốp lên thân và cánh, chiếm không quá khoảng 30–40 % bóng tàu; KHÔNG thay thế cánh hay che kín thân.
 4. Lên bậc: cánh dài và rộng hơn, thêm cánh phụ / cánh đuôi, thêm động cơ, thêm vũ khí; bậc 6 bản sang nhất.
