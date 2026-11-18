@@ -1,0 +1,13 @@
+GỬI GPT · TÀU 1 · CHO NỔI HƠN (dán tiếp trong cùng cuộc trò chuyện "phủ phong cách")
+
+Bản vừa rồi rất đúng ý: giữ nguyên khung tàu, chất liệu mới đẹp. Lần này KHÔNG đổi dáng, KHÔNG đổi vị trí bộ phận, chỉ làm NỔI hơn để thấy rõ khi tàu thu nhỏ trong trận (64 px):
+
+1. VIỀN NEON: dày gấp khoảng 2 lần, sáng hơn (lõi trắng, quầng màu nhấn mềm 2–3 px), chạy liền mạch dọc mép cánh, mép giáp lớn, vây đuôi và quanh lõi lục giác. Hiện viền đang mảnh và mờ, thu nhỏ sẽ mất.
+2. MÀU NHẤN ĐẬM HƠN:
+   - Bậc 1: cyan phủ các tấm giáp cánh như bản gốc (đo được giảm từ 44 % xuống 33 %, cần ≈ 45 %).
+   - Bậc 6: vàng kim phủ lại gần hết cánh và giáp như bản gốc (giảm từ 48 % xuống 40 %, cần ≈ 50 %).
+   - Bậc 2–5: tăng thêm khoảng 5 % diện tích màu, màu bão hòa hơn.
+3. TƯƠNG PHẢN: mặt giáp sáng hơn, rãnh và khe tối hơn để khối rõ. Miệng xả động cơ có vòng màu nhấn sáng (nhìn từ trên, chỉ là mép tròn nhỏ ở đuôi).
+4. LÕI LỤC GIÁC sáng hơn, có tia sáng nhỏ ở tâm; bậc 4–6 to hơn một chút.
+
+Giữ: đúng khung, tỉ lệ và vị trí như bản vừa rồi (và như tau1_hien_tai.png), 1 ảnh 1 hàng 6 cột, nền đen thuần, đối xứng, nhãn 1–6, không chữ / logo, không vẽ lửa, không thêm bộ phận mới.
