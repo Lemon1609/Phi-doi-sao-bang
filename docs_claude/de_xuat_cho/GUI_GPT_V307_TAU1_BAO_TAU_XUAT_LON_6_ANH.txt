@@ -1,0 +1,10 @@
+GỬI GPT · TÀU 1 · CÁNH NĂNG LƯỢNG BẠO TẨU: XUẤT LẠI CỠ LỚN (dán tiếp ngay sau ảnh 6 bậc bạn vừa vẽ)
+
+Bản 6 bậc vừa rồi ĐÃ ĐẠT, mình đã ghép vào game. Không đổi thiết kế.
+Chỉ cần xuất lại ĐÚNG 6 cánh đó, mỗi bậc MỘT ẢNH RIÊNG để mép phiến sắc khi phóng lên trong game:
+- 6 ảnh vuông 1024 × 1024, nền đen thuần, không nhãn số, không chữ.
+- Giữ nguyên dáng, số phiến, màu, độ sáng, vầng lục giác (bậc 5), lông chủ và tia lấp lánh (bậc 6) như ảnh vừa rồi.
+- Điểm gốc nơi hai cánh gặp nhau (chỗ trắng sáng nhất) đặt ĐÚNG giữa ảnh theo chiều ngang, ở khoảng 55 % chiều cao (hơi dưới tâm).
+- Cánh chiếm khoảng 85–90 % bề ngang ảnh ở MỌI bậc (mình tự co về đúng cỡ từng bậc), không phiến nào chạm mép ảnh.
+- Đối xứng trái-phải tuyệt đối.
+Nếu chỉ xuất được 1 ảnh mỗi lượt, xuất lần lượt bậc 1 → 6, mỗi ảnh ghi tên "bac_1"… "bac_6".
