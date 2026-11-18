@@ -1,0 +1,6 @@
+GỬI GPT · SỬA LẦN 5 (NHỎ, TÙY CHỌN) · TÀU 1 (dán tiếp trong cùng cuộc trò chuyện)
+
+Bản này gần đạt rồi, giữ nguyên toàn bộ. Chỉ chỉnh 2 điểm nhỏ cho bậc thấp:
+1. BẬC 1 còn 3 lông mỗi bên + 3 lông đuôi; đổi thành 2 lông lớn mỗi bên + 2 lông đuôi, không có lông vai. Đây phải là bản đơn giản nhất, nhìn rõ là "tàu cơ bản".
+2. BẬC 2 chỉ hơn bậc 1 một lông; thêm cho bậc 2 cặp tấm giáp hông thân (bên dưới gốc cánh) màu lục để khác bậc 1 rõ ngay cả khi thu nhỏ 64 px.
+Bậc 3–6 giữ y nguyên. Vẫn 1 ảnh 1 hàng 6 cột, cùng tỉ lệ, nền đen, mũi hướng lên, nhãn 1–6.
