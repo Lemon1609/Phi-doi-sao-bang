@@ -26,7 +26,7 @@ const PSK307=(()=>{
  const clearR=r=>{try{const n=bullets.length;bullets=bullets.filter(b=>Math.hypot(b.x-player.x,b.y-player.y)>r);ring(player.x,player.y,'#ffe08a',r*.6);return n-bullets.length;}catch{return 0;}};
  const sssN=()=>{let n=0;try{for(const k of ['missiles','sidearm']){const d=Gear44.activeDef(k);if(d&&d.tier==='sss')n++;}if(activeRobot&&activeRobot.super)n++;}catch{}return n;};
  const isGear=s=>s==='gear'||s==='missiles'||s==='missile'||s==='sidearm'||s==='drone';
- let gzT=[],used5=false,tmp=null,prevSh=null,hs5=0,lastBomb=-9;
+ let gzT=[],used5=false,tmp=null,prevSh=null,prevRg=0,hs5=0,lastBomb=-9;
  // ---------- Graze ----------
  try{const og=Combat26.graze;Combat26.graze=function(){const r=og.apply(this,arguments);try{if(r){
    if(L(1)){Combat26.addCharge07(5*C.lp.gz);note('lp_l');}
@@ -45,7 +45,7 @@ const PSK307=(()=>{
  try{const od=allyDamageScale;allyDamageScale=function(){let m=od.apply(this,arguments);try{if(P5(2)&&superTime>0)m*=1+C.hv.dmg;}catch{}return m;};}catch{}
  try{const odb=damageBoss;damageBoss=function(amount,source,part){try{if(amount>0&&boss){
    if(L(4)&&Math.random()<C.tl.crit){let cm=2;try{cm=CRIT66.mult||2;}catch{}amount*=cm;note('tl_l');}
-   if(P5(4)&&isGear(source)&&boss.hp<boss.maxHp*C.tl.low){amount*=1+C.tl.gear;note('tl_5');}}}catch{}return odb.call(this,amount,source,part);};}catch{}
+   if(P5(4)&&isGear(source)&&boss.hp<(boss.max||boss.maxHp)*C.tl.low){amount*=1+C.tl.gear;note('tl_5');}}}catch{}return odb.call(this,amount,source,part);};}catch{}
  try{const oh=Arsenal30.hit;Arsenal30.hit=function(s,e){const r=oh.apply(this,arguments);try{if(s&&e&&!e.dead&&(s.gearKind==='missiles'||s.gearKind==='sidearm')){let x=0;
    if(s.gearKind==='missiles'){if(L(7)&&Math.random()<C.hs.crit){let cm=2;try{cm=CRIT66.mult||2;}catch{}x+=s.damage*(cm-1);note('hs_l');}
     if(P(7)){hs5++;if(hs5>=C.hs.every){hs5=0;x+=s.damage*C.hs.extra;note('hs_t');}}}
@@ -54,9 +54,9 @@ const PSK307=(()=>{
  // ---------- trúng đòn ----------
  try{const odm=damage;damage=function(){
    try{if(P5(5)&&!used5&&hp<=1&&shield<=0&&invuln<=0&&bulletShieldTime<=0){used5=true;invuln=C.bn.inv;hp=Math.max(hp,1);ring(player.x,player.y,'#ffd166',80);toast('✦ BẤT KHUẤT · miễn 1 đòn chí tử');note('bn_5');return;}}catch{}
-   const s0=shield;const r=odm.apply(this,arguments);
+   const s0=shield,b0=bulletShieldTime;const r=odm.apply(this,arguments);
    try{if(L(5)&&hp<=C.bn.hp&&hp>0&&ready('bn_l',C.bn.cd)){shieldOn(C.SHIELD);note('bn_l');}
-    if(P(3)&&s0>0&&shield<=0&&ready('ka_t',C.ka.cutCd)&&window.__p67regen){window.__p67regen.set(window.__p67regen.get()+C.ka.cut);note('ka_t');}}catch{}return r;};}catch{}
+    if(P(3)&&((s0>0&&shield<=0)||(b0>0&&bulletShieldTime<=0))&&ready('ka_t',C.ka.cutCd)&&window.__p67regen){window.__p67regen.set(window.__p67regen.get()+C.ka.cut);note('ka_t');}}catch{}return r;};}catch{}
  // ---------- nhặt đồ ----------
  try{const oc=collect;collect=function(d){const full=hp>=maxHp;const r=oc.apply(this,arguments);try{if(d&&d.type!=='star'&&d.type!=='none'){
    if(P(6)){window.__crit307m={v:C.mm.critM,until:now()+C.mm.dur};note('mm_t');}
@@ -66,7 +66,10 @@ const PSK307=(()=>{
    const pull=(R,sp)=>{for(const d of drops){if(d.dead||d.type==='star'||d.type==='none')continue;const D=Math.hypot(d.x-player.x,d.y-player.y);if(D<R&&D>30){const a=Math.atan2(player.y-d.y,player.x-d.x);d.x+=Math.cos(a)*sp*dt;d.y+=Math.sin(a)*sp*dt;}}};
    if(L(6))pull(150+C.mm.rad,300);
    if(P(5)&&hp<=C.bn.hp)pull(150*C.bn.mag,260);
-   if(L(3)&&prevSh!=null&&shield>prevSh&&ready('ka_l',1)){clearR(C.ka.r);note('ka_l');}
+   {const rg=window.__p67regen?window.__p67regen.get():0;let need=0;try{need=Pilot67.passive(3);}catch{}
+   // V307 C2: shield78 đổi giáp thành khiên nên shield luôn 0 → nhận biết 'hồi giáp' qua bộ đếm hồi của Kiều An (đủ ngưỡng rồi về 0)
+   if(L(3)&&((prevSh!=null&&shield>prevSh)||(prevRg>=need*.9&&need>0&&rg<prevRg-.5))&&ready('ka_l',1)){clearR(C.ka.r);note('ka_l');}
+   prevRg=rg;}
    prevSh=shield;
    if(tmp&&now()>tmp.until){shield=Math.max(0,Math.min(shield,maxShield));tmp=null;}
    if(P(4)&&boss&&boss.hp>0&&ready('tl_t',C.tl.iv)){let avg=0,n=0;try{for(const s of shots)if(s.main66&&!s.dead){avg+=s.damage;n++;}}catch{}const base=Math.max(1,n?avg:1);
@@ -74,11 +77,11 @@ const PSK307=(()=>{
   }catch{}return r;};}catch{}
  // ---------- đầu trận ----------
  try{const ors=reset;reset=function(){const r=ors.apply(this,arguments);used5=false;tmp=null;gzT=[];hs5=0;prevSh=null;return r;};}catch{}
- function rate(k){let m=1;try{if(k!=='missiles'&&P5(3)&&shield>0)m/=1+C.ka.drone;if(k==='missiles'&&P5(7)&&superTime>0)m/=1+C.hs.sup;}catch{}return m;}
+ function rate(k){let m=1;try{if(k!=='missiles'&&P5(3)&&(shield>0||bulletShieldTime>0))m/=1+C.ka.drone;if(k==='missiles'&&P5(7)&&superTime>0)m/=1+C.hs.sup;}catch{}return m;}
  // ---------- bảng mốc (cho giao diện) ----------
  const TXT={1:['Graze nạp thêm +10% thanh Bạo Tẩu','Vào Bạo Tẩu: bật Khiên Chắn Đạn (hồi 20 s)','3 lần Graze trong 4 s: bật Khiên Chắn Đạn (hồi 15 s)'],
   2:['Vào Bạo Tẩu: sóng xung kích xóa đạn bán kính 180','Hạ tinh anh/boss khi Bạo Tẩu: +0,8 s Bạo Tẩu (hồi 10 s)','Bạo Tẩu: sát thương +12%'],
-  3:['Hồi giáp: xóa đạn quanh tàu bán kính 150','Mất hết giáp: rút ngắn 3 s lần hồi giáp kế (hồi 25 s)','Còn giáp: tàu con bắn nhanh +15%'],
+  3:['Mỗi lần hồi khiên: xóa đạn quanh tàu bán kính 150','Khiên vỡ: rút ngắn 3 s lần hồi khiên kế (hồi 25 s)','Còn khiên: tàu con bắn nhanh +15%'],
   4:['Đánh boss: +8% chí mạng','Mỗi 8 s: phát xuyên phá 1,2% máu hiện tại của boss (trần 200% công)','Boss dưới 25% máu: tên lửa + tàu con +12% sát thương lên boss'],
   5:['Máu ≤ 2: bật Khiên Chắn Đạn (hồi 30 s)','Máu ≤ 2: hút vật phẩm xa hơn 25%','Bất Khuất: miễn 1 đòn chí tử mỗi trận, bất tử 1,5 s'],
   6:['Hút vật phẩm xa thêm 220 px','Nhặt buff: +10% sát thương chí mạng trong 5 s','Đầy máu nhặt hồi máu: thành giáp tạm (15% máu tối đa, 8 s)'],
