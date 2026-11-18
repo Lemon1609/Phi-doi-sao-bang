@@ -26,3 +26,5 @@ CẬP NHẬT 18/11 13:12 (chủ dự án): bỏ vương miện; các tàu "gai g
 CẬP NHẬT 18/11 13:32 (chủ dự án): 1E quá xấu → TIN 1F: quay về bản 1C/1D làm gốc, giữ màu; mọi tàu là CHIẾN CƠ (mũi, buồng lái, cánh chính, động cơ đuôi), mảng giáp lớn phẳng gờ bạc như tàu 1, không gai/lông/móng phủ viền, không vương miện; mỗi tàu một dáng chiến cơ riêng theo bảng đối chiếu dòng tàu game gốc (docs_claude/tham_chieu/PHAN_TICH_11_VIDEO_GAME_GOC.md mục 4); bậc theo 4 hình thái như game gốc.
 
 CẬP NHẬT 18/11 13:39 (chủ dự án): 1F không đẹp bằng 1D (cả 12 tàu) → TIN 1G: cải tiến nhẹ từ bản 1D (đính kèm lại ảnh 1D, giữ ~90 %): bỏ vương miện / vòng nổi, bớt gai nhỏ, vài sửa riêng từng tàu.
+
+CẬP NHẬT 18/11 13:48 (chủ dự án chọn cách 2): 10 tàu (2, 3, 5, 6, 7, 9, 10, 11, 12, 13) lấy bản 1G làm thân thường → gửi tin 2. Tàu 4 và 8 gửi TIN 1H trước (tàu 4: giữ động cơ, bố cục, bỏ sừng, bỏ gai, thành chiến cơ có cánh tấm phẳng; tàu 8: gom lông bậc 5–6, lộ thân), theo phong cách đồ họa hiện tại của game.
