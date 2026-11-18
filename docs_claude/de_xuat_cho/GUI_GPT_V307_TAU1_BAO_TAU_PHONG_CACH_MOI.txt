@@ -1,0 +1,34 @@
+GỬI GPT · TÀU 1 · BẠO TẨU THEO PHONG CÁCH MỚI (dán tiếp trong cùng cuộc trò chuyện "phủ phong cách"; ĐÍNH KÈM tau1_than_moi_6bac.png = 6 thân thường mới đã chốt, và anh_bao_tau_hien_tai.jpg = Bạo Tẩu đang dùng (chỉ để biết cái cũ; KHÔNG giữ kiểu tua rủ))
+
+Thân thường mới của tàu 1 đã được chốt (ảnh đính kèm). Giờ vẽ lại phần BẠO TẨU (chế độ cường hóa) cho cùng phong cách: gờ bạc vát, viền neon mảnh, lõi lục giác, màu chính + màu tương phản theo bậc.
+Bạo Tẩu gồm 2 lớp riêng để mình ghép và làm hoạt ảnh. Vẽ 2 ảnh, mỗi ảnh 1 hàng 6 cột (bậc 1→6, nhãn 1–6), nền đen thuần, cùng tỉ lệ với ảnh thân thường.
+
+ẢNH A · THÂN BẠO TẨU (6 bậc)
+- Dựa trên CHÍNH thân thường mới của từng bậc: cùng tâm, cùng cỡ thân giữa (mũi, buồng lái, lõi lục giác trùng vị trí để mình xếp chồng).
+- Bạo Tẩu = thân "mở khóa": tấm giáp cánh trượt ra / xòe như quạt phượng, pod động cơ dang rộng, mở thêm khe sáng trên thân, lõi lục giác sáng rực và to hơn.
+  Rộng thêm theo bậc: bậc 1 khoảng +20 % → bậc 6 khoảng +35 % so với thân thường.
+- Giáp dày, mép sắc, gờ bạc vát, viền neon mảnh như thân thường.
+  CẤM tay máy, khớp mảnh như xương, lưỡi dao dài mảnh.
+- Màu: giữ màu chính + màu tương phản của từng bậc như thân thường (1 cyan+cam · 2 lục+vàng chanh · 3 lam+cam · 4 tím+vàng · 5 hồng-tím+cyan nhạt · 6 vàng kim+lam đậm).
+  Đủ sáng: không tối hơn thân thường.
+- Động cơ nhìn từ trên (thân trụ, miệng xả là mép tròn nhỏ ở đuôi). Không lửa, không tia ngoài thân.
+
+ẢNH B · CHÙM LÔNG LỬA NĂNG LƯỢNG (6 bậc, KHÔNG vẽ tàu)
+Học NGUYÊN LÝ từ các game bắn máy bay thương mại (không sao chép hình): khi cường hóa, tàu dòng phượng hoàng bung ra một CHÙM LÔNG LỬA tỏa nan quạt ra hai bên và phía sau, bật ra rất nhanh. Lông dày, nhọn, lõi rất sáng; nhìn như một "vụ nổ lông vũ" rực rỡ quanh tàu, gọn và mạnh, không có tua rủ dài.
+- Chỉ vẽ hiệu ứng, nền đen thuần, sáng (mình chồng bằng cộng sáng sau lưng tàu). Tâm hiệu ứng = tâm ô (tâm thân tàu).
+- Dáng:
+  - 10–16 phiến lông năng lượng DÀY, nhọn, hơi cong ra sau, mọc từ vùng vai và lõi lục giác;
+  - tỏa từ ngang hông (90°) ra tới phía sau (180°), đối xứng hai bên;
+  - mỗi phiến có lõi trắng sáng chạy dọc giữa, mép vát sắc, vân tinh thể / lục giác mảnh bên trong (đúng ngôn ngữ thiết kế mới);
+  - 3–5 phiến đuôi ngắn hơn phía sau;
+  - KHÔNG có tua / sợi rủ dài như bản đang dùng, không vòng tròn khép kín.
+- Độ đặc: lõi gần như đặc và rất sáng, nửa ngoài phiến trong mờ dần. Đọc rõ ở cỡ nhỏ.
+- Màu: màu chính của bậc ở thân phiến, màu tương phản của bậc ở mép trong / lõi gần thân (1 cyan + cam · 2 lục + vàng chanh · 3 lam + cam · 4 tím + vàng · 5 hồng-tím + cyan nhạt · 6 vàng kim + lam đậm). Gốc phiến sáng trắng.
+- Tăng theo bậc:
+  - số phiến mỗi bên: 5 → 6 → 7 → 8 → 9 → 10 (+ đuôi); bậc 4–6 có 2 tầng chồng (tầng sau dài hơn, mờ hơn);
+  - sải rộng: bậc 1 ≈ 2,5 lần bề rộng thân → bậc 6 ≈ 3,5 lần;
+  - độ sáng tăng dần; bậc 5–6 thêm viền trắng sáng và vài mảnh lục giác nhỏ bay ra theo hướng phiến.
+- Nón trước mũi tàu khoảng 60° (phía trên) phải TRỐNG để không che đạn.
+
+Giữ cho cả 2 ảnh: nền đen thuần, đối xứng trái-phải, không chữ / logo.
+Cuối câu trả lời ghi 3 dòng: (a) mức rộng thêm của thân ở từng bậc, (b) số phiến và sải rộng cánh năng lượng ở từng bậc, (c) chỗ nào bạn đoán.
