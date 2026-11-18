@@ -126,14 +126,15 @@ Bản vừa rồi (1K) đạt: ra chiến cơ rõ, giữ buồm cực quang. GI�
 2. Miệng xả động cơ: KHÔNG phát sáng màu (game tự vẽ lửa động cơ đè lên). Vẽ miệng xả là vòng kim loại tối có viền bạc mảnh, lòng trong tối, ở mọi bậc.
 Trình bày như cũ: 1 ảnh, 1 hàng 6 cột (bậc 1→6), nền đen thuần, đối xứng, nhãn 1–6, không chữ / logo.
 
-==================== TIN 2 · THÂN BẠO TẨU 6 BẬC (đính kèm tau2_than_thuong_chot.png) ====================
+==================== TIN 2 · THÂN BẠO TẨU 6 BẬC (đính kèm tau2_than_thuong_chot.png = bản 1L) ====================
 Thân thường 6 bậc đã chốt là bản đính kèm (bản 1L). Giờ vẽ THÂN BẠO TẨU (chế độ cường hóa) cho từng bậc, 1 ảnh 1 hàng 6 cột, nền đen thuần, cùng tỉ lệ ảnh thân thường.
 - Dựa đúng thân thường từng bậc: cùng tâm, cùng cỡ thân giữa; mũi, buồng lái, lõi trùng vị trí (mình xếp chồng).
-- Bạo Tẩu = thân "mở khóa": giáp trượt ra, bộ phận đặc trưng (2 buồm dọc dài hai bên và mũi kim giữa) dang rộng hơn, mở thêm khe sáng, lõi sáng rực và to hơn.
-- Rộng thêm theo bậc: bậc 1 khoảng +20 % → bậc 6 khoảng +35 % so với thân thường.
-- Giữ chất liệu và phối màu TỪNG BẬC của thân thường vừa chốt (màu chữ ký + màu bậc + ngọc phẩm cấp), không tối hơn thân thường.
-- CẤM tay máy, khớp mảnh như xương. Không lửa, không tia hay hiệu ứng ngoài thân (hiệu ứng vẽ riêng ở tin 3).
-- Không sừng, không gai mảnh lắt nhắt, không vương miện / vật nổi trên mũi (giữ đúng tinh thần bản thân thường đã chốt).
+- Vẫn là CHIẾN CƠ: giữ đủ mũi, buồng lái kính, cặp cánh tam giác, động cơ đuôi như bản 1L.
+- Bạo Tẩu = thân "mở khóa": 2 buồm cực quang tách ra hai bên và cao hơn, cánh tam giác duỗi dài ra ngoài, giáp mở thêm khe sáng, dải cực quang trong buồm rực hơn, ngọc lõi to và sáng hơn.
+- Rộng thêm THẬT SỰ theo bậc (đo bề ngang bóng tàu): bậc 1 khoảng +20 % → bậc 6 khoảng +35 % so với thân thường. Lượt trước các tàu khác chỉ rộng thêm 0–5 %, chưa đạt, lần này phải thấy rõ.
+- Giữ chất liệu và phối màu từng bậc của bản 1L, không tối hơn thân thường. Miệng xả động cơ vẫn là vòng kim loại tối, không phát sáng.
+- CẤM tay máy, khớp mảnh như xương. Không lửa, không tia hay hiệu ứng ngoài thân (hiệu ứng vẽ riêng ở tin 3). Không sừng, không gai lắt nhắt, không vương miện.
+Trình bày: 1 ảnh, 1 hàng 6 cột (bậc 1→6), nền đen thuần, đối xứng, nhãn 1–6, không chữ / logo.
 
 ==================== TIN 3 · CÁNH NĂNG LƯỢNG BẠO TẨU · 6 ẢNH RIÊNG (gửi sau khi tin 2 đạt) ====================
 Giờ vẽ lớp HIỆU ỨNG NĂNG LƯỢNG bung sau lưng tàu lúc Bạo Tẩu. KHÔNG vẽ tàu. Mình chồng bằng cộng sáng sau thân.
