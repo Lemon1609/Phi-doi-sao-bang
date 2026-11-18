@@ -11,3 +11,8 @@ Rút kinh nghiệm từ tàu 1 (đã chốt):
 Mỗi tàu: tệp GUI_GPT_V307_TAU<N>_THEO_MAU_TAU1.txt (3 tin) + ảnh tau<N>_hien_tai.png + mau_B9.png + mau_B10.png.
 Thứ tự gợi ý: 2 → 3 → … → 13 (có thể chạy song song nhiều cuộc trò chuyện).
 Claude ghép sau mỗi tin: tin 1 → src/ship118/tau<N>_<bậc>.png (đo IoU, bão hòa, độ sáng); tin 2 → tau<N>_<bậc>_bt.png (QBT, căn lõi); tin 3 → src/btfx218/tau<N>_fx_p307_<bậc>.png (RAMP keep307, PIV).
+
+CẬP NHẬT 18/11 12:19 (chủ dự án): các tàu không được cùng một kiểu phối màu theo bậc.
+Lượt tin 1 đã vẽ xong 12 tàu nhưng đo sắc chủ đạo: bậc Lam 7/12 tàu cùng ~217°, bậc SS 9/12 tàu cùng vàng ~37°, bậc Lục 9/12 tàu trong 82–157°.
+→ Gửi TIN 1B (sửa phối màu) trong cùng cuộc trò chuyện trước tin 2. Mỗi tàu một họ màu thân riêng giữ qua 6 bậc; màu bậc chỉ ở lõi + neon mảnh.
+Tàu 1 giữ như đã chốt (thân đổi màu theo bậc).
