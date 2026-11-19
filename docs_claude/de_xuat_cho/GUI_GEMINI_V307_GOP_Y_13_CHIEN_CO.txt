@@ -1,0 +1,20 @@
+[GỬI GEMINI · V307 · GÓP Ý THIẾT KẾ 13 CHIẾN CƠ HIỆN TẠI]
+
+Đính kèm (trong zip):
+- 00_tong_quan_than_thuong.jpg — 13 tàu × 6 bậc (Thường, Lục, Lam, Tím, Tím+5, SS), thân thường.
+- 00_tong_quan_than_bao_tau.jpg — như trên, thân lúc Bạo Tẩu (trong trận còn thêm cánh năng lượng vẽ riêng, ảnh này chỉ có thân).
+- tau01…tau13_*.jpg — từng tàu phóng to: hàng trên thân thường, hàng dưới thân Bạo Tẩu.
+- 01_trong_tran_bac_tim_13_tau.jpg — 13 tàu trong trận ở bậc Tím (cỡ thật trên màn 393×852, tàu ~64 px).
+- 02_tham_chieu_game_goc_cac_bac.png, 03_tham_chieu_game_goc_trong_tran.jpg — tựa game gốc để học phong cách (KHÔNG chép tàu cụ thể).
+
+Bối cảnh: game bắn máy bay dọc trên điện thoại "Phi Đội Sao Băng". Mỗi tàu có tên + chủ đề riêng (1 Nộ Hỏa Phượng Hoàng · lửa; 2 Cực Quang Ảo Ảnh · laser cực quang; 3 X-Dực Băng Hà · băng; 4 Thần Ma Dị Hình · xuyên thấu; 5 Trí Tuệ Thự Quang · tán xạ ánh sáng; 6 Siêu Nghiệm U Linh · lượng tử; 7 Ma Vương Đao Phong · kiếm khí; 8 Phần Thiên Chiến Chuẩn · pháo nhiệt áp; 9 Thiên Khung Lược Ảnh · song vũ; 10 Tinh Hà Thủ Vọng · quân đoàn tàu con; 11 Thôn Tinh Chiến Cơ · hố đen; 12 Thời Không Lữ Khách · thời gian; 13 Hư Không Đế Vương · thứ nguyên). Màu bậc: Thường trắng bạc, Lục, Lam, Tím, Tím+5 hồng tím, SS vàng.
+
+Tình trạng: Tàu 1 vừa vẽ lại theo phong cách mới (chủ dự án đã chốt). Tàu 2–13 là bản cũ; một đợt vẽ lại bằng GPT ngày 18/11 bị loại (các tàu thành kiểu sinh vật gai / lông na ná nhau, hoặc thành chiến cơ chung chung mất nét riêng). Chủ dự án nhận xét: game gốc dù đổi đồ họa vẫn luôn ra hình MÁY BAY / CHIẾN CƠ.
+
+Nhờ bạn góp ý (trả lời dạng bảng, cụ thể, có thể đưa thẳng cho người vẽ):
+A. Đánh giá chung bộ 13 tàu so với game gốc và với tàu 1: độ đồng bộ phong cách, độ "ra máy bay", độ phân biệt giữa các tàu khi nhìn ở cỡ 64 px trong trận, độ sáng / bão hòa, tiến hóa qua 6 bậc.
+B. Từng tàu (13 dòng): điểm đạt, điểm chưa đạt, xếp hạng mức cần sửa (giữ nguyên / chỉnh nhẹ / vẽ lại), và hướng sửa cụ thể (bóng dáng, bộ phận máy bay cần có, chủ đề ốp bao nhiêu %, màu chữ ký riêng, cách tiến hóa từ bậc 1 → 6).
+C. Thân Bạo Tẩu: có nên khác thân thường không, khác ở đâu, bao nhiêu.
+D. Thứ tự ưu tiên sửa (tàu nào trước) và quy tắc chung cho bộ tàu (khung máy bay bắt buộc, tỉ lệ, chất liệu, nguồn sáng, màu) để mọi tàu đồng bộ với tàu 1.
+E. Nếu cần vẽ lại, viết sẵn prompt tiếng Anh cho từng tàu cần vẽ lại (6 bậc trên 1 ảnh, nhìn thẳng từ trên xuống, mũi hướng lên, nền đen #000000).
+Luật: không chép tàu cụ thể của game gốc; nhân vật / tàu ở mức game mobile phổ thông.

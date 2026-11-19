@@ -1,0 +1,18 @@
+[GỬI GEMINI · V307 · GÓP Ý ĐỒNG BỘ TOÀN BỘ GIAO DIỆN + ĐỒ HỌA GAME]
+
+Đính kèm (trong zip):
+- 00_man_hinh_1.jpg, 00_man_hinh_2.jpg — 28 màn giao diện hiện tại (sảnh, bản đồ ải, thẻ ải, chiến cơ, kho trang bị, túi đồ, nâng cấp, đột phá, phi công, cây tiềm năng, nhiệm vụ, mùa giải, điểm danh, quà, quà 7 ngày, vòng quay, rương, phó bản, tháp boss, thử thách, sự kiện tuần, Chợ Đen, tủ skin, hợp thể SSS, đồ giám, thể lực, hệ thống, cửa hàng).
+- 00_trong_tran.jpg — 12 khung trong trận (ải các chương, boss, Bạo Tẩu, tạm dừng, hồi sinh).
+- 00_chien_co_13_tau.jpg — 13 chiến cơ × 6 bậc (gói góp ý chiến cơ gửi riêng).
+- anh_rieng/ — từng màn cỡ gốc (393×852) để xem chi tiết.
+- tham_chieu_game_goc_giao_dien.jpg — giao diện tựa game gốc để học phong cách (KHÔNG chép nguyên).
+
+Bối cảnh: game bắn máy bay dọc trên điện thoại "Phi Đội Sao Băng" (HTML5, màn dọc 393×852). Giao diện đã thay dần bằng tranh GPT theo lô B4–B12 (khung kim loại xám xanh vát góc, viền neon xanh lơ, nút chính vàng cam, nút phụ xanh lam, nút tím cho tiến khung, khung hàng theo màu phẩm Trắng/Lục/Lam/Tím). Một số màn còn kiểu cũ (nhiều chữ, ô viền mảnh), nền chương trong trận là tranh tạm làm sáng bằng mã, đạn chính đang được thiết kế lại riêng.
+
+Nhờ bạn góp ý (dạng bảng, cụ thể, đưa thẳng cho người vẽ / lập trình được):
+A. Đánh giá tổng thể độ đồng bộ: màu, chất liệu khung, kiểu nút, kiểu chữ, biểu tượng, mật độ chữ, khoảng cách, phân cấp thông tin; so với game gốc thì chỗ nào còn "rẻ" / rối / lệch tông.
+B. Từng màn (28 màn + trong trận): điểm đạt, điểm lệch, mức cần sửa (giữ / chỉnh nhẹ / làm lại), sửa cụ thể (bố cục, bỏ bớt chữ, đổi thành biểu tượng, thêm tranh minh họa…).
+C. Bộ quy chuẩn giao diện chung (design system) đề xuất: bảng màu (mã hex), cỡ chữ các cấp, 4–5 kiểu nút và khi nào dùng, kiểu khung hộp / hàng / tab / thanh tiêu đề, biểu tượng tiền tệ, quy tắc chấm đỏ thông báo, hiệu ứng chuyển màn.
+D. Trong trận: HUD (thanh máu, Bạo Tẩu, nút kỹ năng / bom / tên lửa, tạm dừng), nền chương, độ nổi của đạn địch, chữ nổi; chỗ nào cần sửa để vừa đẹp vừa dễ nhìn.
+E. Thứ tự ưu tiên (làm gì trước được lợi nhất) và danh sách tranh cần vẽ thêm (để Claude soạn tin cho GPT).
+Luật: không chép nguyên giao diện game gốc; không thêm tiền thật / nguồn kim cương mới; nhân vật nữ ở mức game mobile phổ thông.
