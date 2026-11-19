@@ -342,7 +342,9 @@ if os.environ.get('CANDOI217','1')!='0':
 else:
     _S118={os.path.splitext(os.path.basename(_p))[0]:_I.open(_p).convert('RGBA') for _p in sorted(_g.glob('src/ship118/tau*.png'))}
 for _n in sorted(_S118):
-    _num,_f=_n[3:].split('_',1);_im=_S118[_n];_bf=_io.BytesIO();_im.save(_bf,'WEBP',quality=88)
+    _num,_f=_n[3:].split('_',1);_im=_S118[_n]
+    if os.environ.get('SHIP256','1')!='0' and _im.width>256:_im=_im.resize((256,256),_I.LANCZOS)  # V307 (19/11): thu ảnh tàu về 256 để nhẹ bản dựng; SHIP256=0 giữ 512
+    _bf=_io.BytesIO();_im.save(_bf,'WEBP',quality=88)
     SHIP118.setdefault(str(int(_num)-1),{})[_f]='data:image/webp;base64,'+_b64.b64encode(_bf.getvalue()).decode()
 print('V118 chien co thiet ke lai:',{k:len(v) for k,v in SHIP118.items()})
 BOSS78A={}
@@ -968,6 +970,7 @@ rep("</body>","<script id=\"b9307-img-js\">window.B9307_IMG="+json.dumps({os.pat
 rep("</body>","<script id=\"b10307-img-js\">window.B10307_IMG="+json.dumps({os.path.splitext(f)[0]:'data:image/webp;base64,'+base64.b64encode(open('src/b10img/'+f,'rb').read()).decode() for f in sorted(os.listdir('src/b10img'))})+";</script><style id=\"b10307-css\">"+open('src/b10307.css',encoding='utf-8').read()+"</style><script id=\"b10307-js\">"+open('src/b10307.js',encoding='utf-8').read()+"</script></body>")  # V307 tranh GPT B10 (bản thử)
 _a307img='window.AURA307_IMG={'+','.join("'%s':'data:image/webp;base64,%s'"%(__import__('os').path.basename(f)[:-5],__import__('base64').b64encode(open(f,'rb').read()).decode()) for f in sorted(__import__('glob').glob('src/aura307img/*.webp')))+'};'
 rep("</body>","<script id=\"aura307-js\">"+_a307img+open('src/aura307.js',encoding='utf-8').read()+"</script></body>")  # V307 cánh Bạo Tẩu 6 bậc
+rep("</body>","<style id=\"tran307-css\">"+open('src/tran307.css',encoding='utf-8').read()+"</style><script id=\"tran307-js\">"+open('src/tran307.js',encoding='utf-8').read()+"</script></body>")  # V307 bước 2 trong trận
 import base64 as _b64d,glob as _gd,os as _od
 _d307img='window.DAN307_IMG={'+','.join("'%s':'data:image/webp;base64,%s'"%(_od.path.basename(f)[:-5],_b64d.b64encode(open(f,'rb').read()).decode()) for f in sorted(_gd.glob('src/dan307img/*.webp')))+'};'
 rep("</body>","<script id=\"dan307-js\">"+_d307img+open('src/dan307.js',encoding='utf-8').read()+"</script></body>")  # V307 đạn chính kiểu mới (bản thử tàu 1)
