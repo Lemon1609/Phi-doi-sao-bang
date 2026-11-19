@@ -1,0 +1,136 @@
+Đã nhận trọn bộ 42 tệp đính kèm (28 màn giao diện chi tiết, 12 khung trong trận, bảng chiến cơ và ảnh tham chiếu). Dưới đây là bản phân tích, đánh giá đồng bộ và quy chuẩn kỹ thuật chi tiết cho toàn bộ dự án **Phi Đội Sao Băng** (393×852 px).
+
+---
+
+### A. Đánh giá tổng thể độ đồng bộ & Đối chiếu phong cách
+
+Bộ tài nguyên đồ họa từ các lô GPT (khung kim loại xám xanh vát góc, viền neon xanh lơ/tím, nút vàng cam) đã định hình được bản sắc khoa học viễn tưởng (Sci-Fi) rõ nét. Tuy nhiên, khi đặt cạnh tựa game tham chiếu (`tham_chieu_game_goc_giao_dien.jpg`), giao diện hiện tại vẫn còn cảm giác "web/app tiện ích" thay vì một game arcade cao cấp do 6 điểm lệch cốt lõi sau:
+
+| Tiêu chí | Hiện trạng ("Phi Đội Sao Băng") | So sánh với Game Gốc & Điểm còn "rẻ" / rối |
+| --- | --- | --- |
+| **1. Mật độ chữ (Text Density)** | Quá dày đặc văn bản giải thích dài dòng (3–7 dòng chữ nhỏ 10–11px) ngay giữa màn hình chính ở các mục: *Rương*, *Phó bản*, *Thể lực*, *Sự kiện tuần*, *Nhiệm vụ*. | Game gốc dùng **biểu tượng + con số + thanh tiến độ** trực quan. Giải thích luật chỉ nhét vào nút `[?]` hoặc `[i]` góc phải. Hiện tại nhìn như đang đọc tài liệu hướng dẫn thay vì chơi game. |
+| **2. Chất liệu khung & Viền** | Tồn tại song song 2 thế hệ UI: khung tranh GPT có độ khối 3D/kim loại vát góc (như *Sảnh*, *Vòng quay*, *Điểm danh*) xen lẫn các ô chữ nhật bo góc vẽ bằng CSS/Canvas viền mảnh 1px đơn điệu (như *Nâng cấp*, *Cây tiềm năng*, *Đồ giám*). | Ở game gốc, 100% thẻ bài, ô vật phẩm, thanh danh sách đều có **viền kim loại đúc nổi, đinh tán, vát góc và độ bóng (bevel)**. Sự pha trộn khung tranh GPT với khung CSS phẳng làm giảm giá trị thẩm mỹ của chính các bức tranh đẹp. |
+| **3. Phân cấp nút bấm** | Nút chính (Vàng cam), nút phụ (Xanh lam), nút tiến khung (Tím) có hướng đi đúng, nhưng ở nhiều màn lại dùng nút viền rỗng (`outline button` như nút `ĐI TỚI`, `MỞ >`, `1.875`) hoặc nút phẳng bo tròn kiểu Material Design (`NÂNG CẤP`, `VỀ` ở màn *Nâng cấp*). | Nút hành động trên mobile game cần có **độ dày đáy (3D lip/extrude)**, ánh sáng phản chiếu mặt trên và kích thước tối thiểu `44×44 px` để tạo cảm giác "bấm sướng tay". Nút viền rỗng nhìn rất chìm và yếu. |
+| **4. Kiểu chữ & Số liệu** | Toàn bộ tiêu đề, số lực chiến, giá tiền, mô tả đều dùng chung 1 họ font chữ không chân (Sans-serif) đều nhau; chữ bị cắt cụt dấu ba chấm `...` ở nhiều chỗ (*MÙA GIẢI · CHIẾN DỊCH ...*, *PHẦN THIÊN CHIẾN CHU...*). | Game gốc tách bạch rõ: **Font tiêu đề/số lực chiến** có độ nghiêng nhẹ, nét dày, đổ bóng/ánh kim; **Font số liệu** dùng `tabular-nums` (độ rộng chữ số bằng nhau) và rút gọn đơn vị (`104,5M` thay vì `104.543.399`) để không bao giờ tràn khung. |
+| **5. Biểu tượng tiền tệ & Vật phẩm** | Nhiều chỗ dùng ký tự Unicode/Emoji thay cho icon vẽ riêng (ví dụ: hình thoi trắng `◈`, tia sét vàng `⚡`, chiếc áo thun `👕` trong vòng quay, hộp quà vàng `🎁`, chữ `VÀO >`). | Icon Unicode/Emoji khi render trên HTML5 Canvas bị lệch tông hoàn toàn so với tranh vẽ AI chi tiết. Cần thay 100% bằng sprite icon 64×64 px đồng bộ chất liệu kim loại/pha lê. |
+| **6. Thừa dữ liệu & Trùng lặp UI** | Thanh tiền tệ trên cùng (`Top Bar`) hiện các con số ảo quá dài (`99.999.999`, `69.772,8M`), thậm chí ở *Chợ Đen* hiện 2 biểu tượng giống hệt nhau cạnh nhau (`◈ 104.543.399 · ◈ 104.543.385`). Màn *Cửa hàng* và *Chợ Đen* hiện tại bị trùng nội dung. | Cần khóa định dạng số ngắn gọn tối đa 5–6 ký tự (`99,9M`), phân biệt rõ màu sắc/hình khối từng loại tiền tệ và dọn sạch các nhãn text thừa. |
+
+---
+
+### B. Đánh giá & Phương án sửa từng màn (28 màn + Trong trận)
+
+| # | Màn hình | Điểm đạt | Điểm lệch / Lỗi hiện tại | Mức sửa | Hành động sửa cụ thể (Cho người vẽ & lập trình) |
+| --- | --- | --- | --- | --- | --- |
+| **1** | **Sảnh chính** (`man_sanh.jpg`) | Bố cục chuẩn mực, chiến cơ SSS trung tâm nổi bật, 2 nút `VÔ TẬN` & `XUẤT KÍCH` rất lực. | Thanh tiền tệ trên cùng bị tràn số ở một số màn; 2 hàng nút chức năng trên + 2 cột nút 2 bên hơi nhiều chữ; chữ `+2% MÁ...` bị cắt cụt. | **Chỉnh nhẹ** | Rút gọn text buff thành `[ĐẾ VƯƠNG HƯ KHÔNG] +3% Công · +2% Máu`. Thu gọn 4 nút 2 bên (`TUẦN TRA`, `VIỄN CHINH`, `CỐT TRUYỆN`, `THỬ THÁCH NGÀY`, `TỐI THƯỢNG`) thành icon tròn/lục giác có nhãn ngắn 1–2 từ, tăng khoảng thở quanh cánh tàu. |
+| **2** | **Bản đồ ải** (`man_ban_do.jpg`) | Đường nối vàng phát sáng đẹp, nút lục giác rõ ràng, thanh chọn chương trên cùng sắc nét. | Nút `TUẦN TRA 0%` góc trái dưới hơi dính vào cụm nút `Vũ khí phụ ✓`; thanh tab phụ (`BẢN ĐỒ / PHÓ BẢN...`) và thanh tab đáy (`SẢNH / CHIẾN ĐẤU...`) xếp chồng 2 tầng hơi dày. | **Chỉnh nhẹ** | Đẩy nút `TUẦN TRA` lên cao hơn `16 px` so với thanh tab phụ. Thu gọn chiều cao thanh tab phụ từ `48 px` xuống `38 px`. |
+| **3** | **Thẻ ải** (`man_the_ai.jpg`) | Đủ thông tin cần thiết (sao, lực chiến đề nghị, nút càn quét). | Nền thẻ là hình chữ nhật bo góc CSS phẳng màu xanh tối, lạc tông với khung kim loại của map; chữ giải thích thể lực/càn quét dài 3 dòng. | **Chỉnh nhẹ** | Thay nền thẻ ải bằng khung kim loại vát góc bán trong suốt (`alpha 0.92`). Gộp 2 dòng thể lực thành 1 dòng gọn: `Tiêu hao: 6 ⚡ · Càn quét miễn phí: 10/10`. |
+| **4** | **Chiến cơ** (`man_chien_co.jpg`) | Bố cục đẹp, thanh chỉ số 4 dòng phát sáng rõ, phân cấp nút `NÂNG CẤP` (xanh) và `NÂNG KHUNG` (vàng) tốt. | Thanh cuộn tàu trên cùng bị che nhẹ bởi chữ `LV 100`; dòng `Khung Tím +5 · Bản sao...` bị rớt số `250` xuống dòng; nút `NÂNG KHUNG` nên dùng màu **Tím** theo quy ước dự án. | **Chỉnh nhẹ** | Đổi nút `NÂNG KHUNG` sang màu **Tím** (đồng bộ màn *Kho trang bị*). Đặt badge `LV.100` gọn vào góc dưới phải ô icon tàu. Sửa dòng bản sao thành `Bản sao hiện có: 67/250`. |
+| **5** | **Kho trang bị** (`man_trang_bi.jpg`) | Có nền hangar 3D đẹp, 3 ô trang bị + tàu hiển thị trực quan, 3 nút hành động rõ ràng. | Phần `CỘNG HƯỞNG TRANG BỊ` và `ĐÁ KHẢM` đang là text thuần trên nền tối, thiếu khung chia ô; chữ tên trang bị trong 3 ô bị cắt dấu `...`. | **Chỉnh nhẹ** | Bỏ chữ lặp `· BẬC SS · TÍM...` trong tên ô (vì đã có badge `BẬC SS · TÍM +5` ngay phía trên). Đóng khung 2 khối `Cộng hưởng` và `Đá khảm` bằng thẻ nền tối viền mỏng `#2A4B6C`. |
+| **6** | **Túi đồ** (`man_tui.jpg`) | Danh sách thẻ hàng viền neon tím đẹp, rõ cấp độ và trạng thái `ĐANG DÙNG`. | Tab trên cùng bị cắt chữ `VŨ K...`; tên tàu dài bị cắt (`PHẦN THIÊN CHIẾN CHU...`); 3 nút đáy dùng chung 1 màu xanh lá tối khá đơn điệu. | **Chỉnh nhẹ** | Cho phép vuốt ngang mượt thanh tab trên cùng hoặc rút gọn nhãn (`TẤT CẢ`, `TÀU`, `GIÁP`, `TÊN LỬA`, `VŨ KHÍ`). Phân màu 3 nút đáy: `TIẾN KHUNG NHANH` (Tím), `PHÂN GIẢI` (Xám xanh), `MẶC TỐT NHẤT` (Vàng cam). |
+| **7** | **Nâng cấp** (`man_nang_cap.jpg`) | Bố cục trực quan, 4 ô đá XP bên dưới có nút `−` / `+` dễ thao tác. | **Lệch tông nặng nhất:** nền đen tuyền phẳng, không có khung cửa sổ chung, nút `NÂNG CẤP` và `VỀ` là hình chữ nhật bo góc phẳng kiểu web, không có viền kim loại. | **Làm lại** | Bọc toàn bộ trong khung cửa sổ chuẩn (viền kim loại vát góc, có thanh tiêu đề + nút `X` đóng). Thay nút `NÂNG CẤP` thành nút Vàng cam 3D chuẩn, nút `TIẾN KHUNG` thành nút Tím 3D. |
+| **8** | **Đột phá** (`man_dot_pha.jpg`) | Khung popup viền tím đẹp, nút rõ ràng. | Quá trống trải! Chỉ có đúng 2 dòng chữ to giữa khoảng không đen rộng lớn. | **Làm lại** | Hiển thị trực quan **Thẻ Trước → Thẻ Sau** (ví dụ: hình tàu Tím → hình tàu Tím+5, chỉ số Công/Máu tăng từ bao nhiêu lên bao nhiêu, và số lượng mảnh phôi cần tiêu hao `67/50`). |
+| **9** | **Phi công** (`man_phi_cong.jpg`) | Tranh nhân vật nữ đứng bục hologram rất đẹp và cuốn hút, phân cấp kỹ năng theo màu phẩm rõ. | Thanh chọn 5 phi công phía trên hơi chật (phi công thứ 5 bị cắt nửa); dòng cấp độ dưới cùng bị rớt số `0` xuống dòng. | **Chỉnh nhẹ** | Thu nhỏ chiều rộng mỗi ô avatar phi công xuống `64 px` để hiện đủ 5 người trên 1 hàng mà không bị cắt. Đưa icon tinh thể xanh + số lượng vào thẳng trong nút `LÊN CẤP` hoặc đặt ngang hàng gọn gàng. |
+| **10** | **Cây tiềm năng** (`man_cay_tiem_nang.jpg`) | Tên các nhánh kỹ năng hay, rõ chỉ số cộng thêm. | Nhìn như một danh sách cài đặt (Settings list) trên điện thoại, không giống "cây kỹ năng"; nút giá tiền `1.875 ◈` là viền mảnh phẳng. | **Làm lại** | Chuyển thành sơ đồ cây 2–3 cột có **đường mạch năng lượng (circuit lines)** nối từ trên xuống dưới, mỗi nút là một ô lục giác/tròn có icon riêng. Chạm vào nút nào thì hiện thanh nâng cấp ở đáy màn hình. |
+| **11** | **Nhiệm vụ** (`man_nhiem_vu.jpg`) | Banner nhân vật trên cùng đẹp, thanh mốc năng động 20–100 trực quan. | Phần liệt kê phần thưởng của 5 mốc chiếm tới 5 dòng chữ nhỏ li ti bên dưới thanh tiến độ, đẩy danh sách nhiệm vụ xuống quá sâu; nút `ĐI TỚI` viền rỗng hơi chìm. | **Chỉnh nhẹ** | Ẩn 5 dòng chữ liệt kê phần thưởng mốc (chỉ hiện tooltip khi chạm vào từng hộp quà trên thanh mốc). Đổi nút `ĐI TỚI` thành nút Xanh lam đặc chuẩn. |
+| **12** | **Mùa giải** (`man_mua_giai.jpg`) | Banner đẹp, phân chia 2 cột `MIỄN PHÍ` và `TINH ANH` dễ hiểu. | Tiêu đề trên cùng bị tràn chữ `MÙA GIẢI · CHIẾN DỊCH ...`; danh sách phần thưởng 25 cấp chỉ hiện chữ thuần (`5.000 ◈`, `2 đá Lục`) trong ô đen trống trải, nhìn rất "rẻ". | **Làm lại** | Sửa tiêu đề thành `MÙA GIẢI CHIẾN DỊCH`. Mỗi ô thưởng cấp 1–25 phải hiển thị **ô icon vật phẩm vuông `44×44 px` có viền màu phẩm chất + số lượng góc dưới** thay vì viết chữ mô tả. |
+| **13** | **Điểm danh** (`man_diem_danh.jpg`) | Bố cục 7 ngày (4 trên + 3 dưới, ô Ngày 7 to gấp đôi) rất chuẩn game mobile, viền vàng/tím sang trọng. | Trong ô Ngày 3, 4, 7 hiển thị icon quá nhỏ kèm chữ dài (`2 bản sao Trắng Lv1`) bị xuống dòng vụn vặt; nút `NHẬN QUÀ NGÀY 1` đang dùng khung viền rỗng. | **Chỉnh nhẹ** | Phóng to icon vật phẩm lên `48×48 px`, chỉ ghi số lượng ngắn gọn bên dưới (`×300`, `×2 Phôi Trắng`, `×1 Phôi Lam`). Đổi nút `NHẬN QUÀ` sang nút **Vàng cam đặc** phát sáng. |
+| **14** | **Quà (Trung tâm)** (`man_qua.jpg`) | Banner đẹp, phân mục rõ ràng, dễ tìm các nguồn nhận thưởng. | 8 hàng dọc giống hệt nhau từ trên xuống dưới, nút `MỞ >` chỉ là chữ vàng không có khung nút, thiếu điểm nhấn vào các mục đang có chấm đỏ. | **Chỉnh nhẹ** | Đổi chữ `MỞ >` thành nút Xanh lam nhỏ (`68×32 px`). Các hàng đang có quà nhận (có chấm đỏ) thì tô viền sáng vàng cam để người chơi biết bấm vào đâu trước. |
+| **15** | **Quà 7 ngày** (`man_qua7ngay.jpg`) | Nút `NHẬN QUÀ NGÀY 1` vàng cam nổi bật, khung thẻ ngày đồng bộ với *Điểm danh*. | **Lỗi tab trên cùng:** 3 tab bên trong popup *Quà 7 ngày đầu* lại ghi là `Thể lực | Thẻ tháng | 7 ngày !` (bị copy nhầm từ popup *Thể lực*). Text trong các thẻ ngày bị rớt dòng nhiều. |
+| **16** | **Vòng quay** (`man_vong_quay.jpg`) | Vòng quay kim loại 8 ô đẹp, sắc nét, 2 nút `QUAY FREE` và `QUAY ×10` cân đối. | Các ô trên vòng quay dùng icon phẳng/emoji (áo thun xám, bánh răng xám, ngôi sao trắng) nhìn đơn giản; đoạn chữ giải thích luật ở dưới dài 4 dòng. | **Chỉnh nhẹ** | Thay 8 hình trên vòng quay bằng sprite vật phẩm có ánh sáng/khối 3D (Kim cương xanh, Hộp Skin, Lõi chip, Vé quay). Rút gọn luật thành 1 dòng: `Chủ Nhật: ×2 mảnh skin · 50 lượt chắc trúng JACKPOT`. |
+| **17** | **Rương** (`man_ruong.jpg`) | Tranh minh họa kho rương phía trên và 3 icon rương rất đẹp, chi tiết. | **Quá nhiều chữ!** Một khối văn bản dài 10 dòng giải thích tỉ lệ và quy tắc đúc phôi chiếm hết nửa màn hình; nút `MỞ TẤT CẢ RƯƠNG` đang bị khóa màu xám tối. | **Làm lại** | Cắt bỏ đoạn văn 10 dòng, chuyển toàn bộ luật tỉ lệ vào nút `[?]` góc phải. Thay bằng **3 thẻ rương ngang** có nút `MỞ ×1` / `MỞ ×10` ngay trên từng loại rương để người chơi thao tác trực tiếp. |
+| **18** | **Phó bản** (`man_pho_ban.jpg`) | 4 thanh chọn độ khó phân màu phẩm chất (Trắng / Lục / Lam / Tím) dễ nhận biết. | Nửa trên màn hình là văn bản giải thích dài 6 dòng; các thanh chọn độ khó chỉ có chữ mà chưa hiện hình phần thưởng rơi ra (vàng, đá XP, mảnh) và thiếu nút `XUẤT KÍCH` / `CÀN QUÉT`. | **Làm lại** | Thu gọn mô tả thành 1 dòng trạng thái: `Lượt miễn phí: 3/3 · Vé thêm: 0/3 [+]`. Trên mỗi thanh độ khó (Cấp 1–4), thêm 2–3 icon phần thưởng bên phải và nút `VÀO` màu vàng cam. |
+| **19** | **Tháp Boss** (`man_thap.jpg`) | Bố cục cân đối, số kỷ lục `0/32` to rõ, 2 thẻ hiệu ứng tuần (`Pháo Kính`, `Đạn Lốc`) trực quan. | Nút `LEO TỪ TẦNG 1` dùng khung viền rỗng thay vì nút vàng cam đặc; phần chữ giải thích quy tắc ở trên hơi dài 3 dòng. | **Chỉnh nhẹ** | Đổi nút `LEO TỪ TẦNG 1` thành nút Vàng cam đặc chuẩn. Rút gọn mô tả đầu trang còn 1 dòng: `Đánh boss liên tiếp · Giữ nguyên máu qua từng tầng`. |
+| **20** | **Thử thách** (`man_thu_thach.jpg`) | Danh sách 8 chế độ chơi rõ ràng, icon đẹp, có chấm đỏ báo lượt chơi. | Nút `VÀO >` chỉ là chữ thuần không có khung nút; mô tả mỗi chế độ 2 dòng chữ hơi dài. | **Chỉnh nhẹ** | Đổi `VÀO >` thành nút Xanh lam nhỏ (`64×30 px`). Rút gọn mô tả mỗi dòng xuống tối đa 6–8 từ ngắn gọn. |
+| **21** | **Sự kiện tuần** (`man_su_kien.jpg`) | Phân chia rõ Luật tuần, Chiến cơ tuần, Tiếp tế cuối tuần và Nhiệm vụ tuần. | Tiêu đề trên cùng bị cắt chữ `SỰ KIỆN TUẦN 4/4 · còn 3...`; toàn bộ màn hình là chữ dày đặc từ trên xuống dưới, thiếu hình ảnh minh họa của 2 chiến cơ tuần và icon phần thưởng nhiệm vụ. | **Làm lại** | Sửa tiêu đề thành `SỰ KIỆN TUẦN (Còn 3 ngày)`. Thêm hình thu nhỏ của 2 chiến cơ được buff (`X-Dực Băng Hà`, `Hư Không Đế Vương`). Đổi phần thưởng nhiệm vụ từ chữ sang icon vuông có số lượng. |
+| **22** | **Chợ Đen** (`man_cho_den.jpg`) | Có nhân vật thương nhân bí ẩn góc phải tạo không khí, các nút `ĐỔI` màu xanh dương rõ ràng. | Dòng số dư tiền tệ phía trên hiện 2 icon hình thoi giống nhau (`◈ 104.543.399 · ◈ 104.543.385`) gây nhầm lẫn; các thẻ hàng hóa thiếu ô icon vật phẩm bên trái. | **Chỉnh nhẹ** | Thêm ô icon vật phẩm `48×48 px` bên trái mỗi hàng hóa. Phân biệt rõ icon và màu của 2 loại tiền tệ (ví dụ: Hợp kim màu bạc, Huy hiệu/Điểm chợ đen màu tím/vàng) và rút gọn số (`104,5M`). |
+| **23** | **Tủ Skin** (`man_skin.jpg`) | Lưới thẻ skin lớn, rõ trạng thái `ĐANG MẶC` và nút `MẶC`. | **Lệch tông & Trùng ảnh:** Bộ chọn 13 tàu dùng 13 nút chữ nhật bo góc CSS phẳng xếp lộn xộn 5 hàng; đặc biệt ở ảnh hiện tại, 5 ô skin bên dưới (*Màu đột phá, Ngọc Lam, Bạch Kim, Hoàng Kim*) đang hiện **cùng 1 hình tàu màu vàng tím giống hệt nhau**. | **Làm lại** | Thay 13 nút chữ nhật bằng **thanh cuộn ngang các icon tàu** (giống thanh trên cùng của màn *Chiến cơ*). Đảm bảo mỗi ô skin hiển thị đúng sprite màu sắc/hiệu ứng riêng của skin đó kèm chỉ số cộng thêm (`+5% Công`). |
+| **24** | **Hợp thể SSS** (`man_sss.jpg`) | Tranh nhân vật/chiến cơ thần thánh cực kỳ ấn tượng, công thức ghép `Ảo Ảnh +5 + Thự Quang +5 → SSS` rất dễ hiểu. | Nút `ĐANG XUẤT CHIẾN` màu xanh dương quá chói (saturation 100% neon), hơi gắt mắt so với tổng thể; thanh chọn các tàu SSS bên dưới bị cắt chữ `LĨN...`. | **Chỉnh nhẹ** | Hạ độ chói nút xanh dương xuống tông xanh lam kim loại trầm hơn (`#1565C0` → `#0D47A1`). Thu nhỏ khoảng cách giữa các thẻ SSS bên dưới để hiện trọn vẹn tên tàu. |
+| **25** | **Đồ giám** (`man_thu_vien.jpg`) | Thanh tiến độ tổng `87%` và 4 thanh tiến độ thành phần rõ ràng, dễ theo dõi. | 4 mốc thưởng (`25%`, `50%`, `75%`, `100%`) đang là 4 khung chữ nhật CSS viền vàng mảnh 1px đơn điệu; tab `Đồ giám` hiện tại chỉ là bảng thống kê chứ chưa cho xem bộ sưu tập từng tàu/trang bị. | **Chỉnh nhẹ** | Thay 4 khung mốc thưởng bằng thẻ kim loại có biểu tượng huy chương/ổ khóa bên trái. Bổ sung lưới icon bộ sưu tập tàu & trang bị ở tab `Đồ giám` (giống game gốc). |
+| **26** | **Thể lực** (`man_the_luc.jpg`) | Số `120/120` to rõ, nút mua vàng cam nổi bật. | Đoạn giải thích tiêu hao thể lực từng chế độ dài 5 dòng chữ; tab `7 ngày !` nằm chung ở đây hơi lẫn lộn chức năng. | **Chỉnh nhẹ** | Chuyển bảng giá thể lực thành 2 cột icon ngắn gọn (`Ải: 6 ⚡ |
+| **27** | **Hệ thống** (`man_he_thong.jpg`) | Bố cục lưới icon lục giác/vát góc 4 cột rất gọn gàng, sạch sẽ, dễ bấm. | Rất ổn. Chỉ cần đồng bộ trạng thái `BẬT / TẮT` cho cả 3 nút `ÂM THANH`, `HÌNH ẢNH`, `RUNG`. | **Giữ** | Thêm nhãn badge nhỏ màu xanh lá (`BẬT`) hoặc xám (`TẮT`) đồng đều cho cả 3 nút cài đặt đầu tiên. |
+| **28** | **Cửa hàng** (`man_cua_hang.jpg`) | Khung đẹp, đồng bộ với Trạm Giao Dịch. | **Trùng lặp:** Khi bấm tab `CỬA HÀNG` ở thanh đáy, nội dung bên trong đang mở y hệt màn *Chợ Đen* (`CHỢ ĐEN`). | **Chỉnh nhẹ** | Phân tách rõ: `CHỢ ĐEN` bán mảnh/nguyên liệu đổi bằng hợp kim/điểm; `TIỆM SKIN` bán skin chiến cơ/cánh; `DANH DỰ` (hoặc `QUẦY KIM CƯƠNG`) bán gói tài nguyên/vé quay đổi bằng Kim cương hiện có. |
+
+---
+
+### C. Bộ quy chuẩn giao diện chung (Design System)
+
+Đưa bảng quy chuẩn này cho lập trình viên (Claude) để áp dụng thống nhất toàn bộ CSS/Canvas UI, loại bỏ hoàn toàn các ô bo góc phẳng 1px:
+
+#### 1. Bảng màu chuẩn (Color Tokens)
+
+| Vai trò | Tên biến | Mã Hex | Ứng dụng |
+| --- | --- | --- | --- |
+| **Nền chính (Canvas/Modal)** | `--bg-deep-space` | `#070E1A` | Nền tối sâu của cửa sổ popup và danh sách. |
+| **Nền thẻ con (Card/Row)** | `--bg-panel-card` | `#0E1C33` *(alpha 0.90)* | Nền của từng hàng nhiệm vụ, thẻ chỉ số, ô thông tin. |
+| **Viền khung chuẩn** | `--border-cyan-neon` | `#18C8FF` → `#6B4CFF` | Viền phát sáng của cửa sổ popup chính (chuyển sắc xanh lơ sang tím). |
+| **Viền thẻ con** | `--border-steel` | `#26466D` | Viền kim loại trầm cho các ô nội dung bên trong. |
+| **Nút Chính (Primary CTA)** | `--btn-gold-grad` | `#FFB800` → `#E65100` *(đáy `#8A2E00`)* | `XUẤT KÍCH`, `NHẬN TẤT CẢ`, `MUA`, `QUAY FREE`, `LEO THÁP`. |
+| **Nút Phụ (Secondary)** | `--btn-blue-grad` | `#1E88E5` → `#0D47A1` *(đáy `#062454`)* | `ĐỔI`, `CÀN QUÉT`, `ĐI TỚI`, `MỞ`, `NÂNG CẤP`. |
+| **Nút Đặc biệt / Đột phá** | `--btn-purple-grad` | `#9C27B0` → `#4A148C` *(đáy `#280652`)* | `TIẾN KHUNG`, `VÔ TẬN`, `HỢP THỂ SSS`. |
+| **Phẩm chất (Rarity)** | Trắng / Lục / Lam / Tím / Vàng SS | `#B0BEC5` / `#00E676` / `#29B6F6` / `#D500F9` / `#FFD600` | Viền ô vật phẩm, màu tên trang bị, badge bậc tàu. |
+| **Chữ chính / Phụ / Nhấn** | `--text-primary` / `--text-muted` / `--text-gold` | `#F0F6FC` / `#8FA8C8` / `#FFD54F` | Tiêu đề trắng sáng; mô tả xanh xám nhạt; số lực chiến & giá tiền vàng kim. |
+
+#### 2. Cỡ chữ chuẩn (Typography — Màn 393×852)
+
+* **Font chữ:** Dùng 2 font đồng bộ: **Chakra Petch** hoặc **Rajdhani** (Bold/SemiBold) cho Tiêu đề, Nút bấm, Con số; **Be Vietnam Pro** hoặc **Inter** (Medium/Regular) cho mô tả ngắn tiếng Việt có dấu để không bị lỗi dấu thanh.
+* **Cấp 1 — Tiêu đề cửa sổ / Tên tàu lớn:** `18px – 20px` (Bold, Uppercase, letter-spacing `+0.5px`, đổ bóng đen `0 2px 4px #000`).
+* **Cấp 2 — Số lực chiến / Con số nổi bật:** `22px – 26px` (ExtraBold, `font-variant-numeric: tabular-nums`, màu `#FFD54F`).
+* **Cấp 3 — Tiêu đề thẻ / Nhãn nút chính:** `13px – 14px` (Bold, Uppercase).
+* **Cấp 4 — Nội dung thẻ / Chỉ số:** `11px – 12px` (Medium, line-height `1.35`, tối đa 2 dòng).
+* **Cấp 5 — Nhãn phụ / Badge / Tab đáy:** `9px – 10px` (SemiBold). **Tuyệt đối không dùng chữ nhỏ hơn 9px.**
+
+#### 3. Quy chuẩn 4 kiểu nút bấm (Button System)
+
+1. **Nút Vàng Cam 3D (Primary):** Cao `44–48 px`, bo vát góc 8 cạnh, có viền sáng vàng nhạt bên trên và phần đế tối dày `4 px` bên dưới. Chỉ dùng cho hành động quan trọng nhất trên màn hình (tối đa 1–2 nút/màn).
+2. **Nút Xanh Lam 3D (Secondary):** Cao `34–40 px`, dùng cho các thao tác xác nhận phụ, đổi đồ, đi tới nhiệm vụ.
+3. **Nút Tím 3D (Evolution/Special):** Cao `38–44 px`, chỉ dùng cho tính năng đột phá, tiến khung, hợp thể hoặc chế độ đặc biệt (*Vô tận*).
+4. **Nút Xám Kim Loại (Disabled/Neutral):** Cao `34–40 px`, nền `#1E293B`, viền `#475569`, chữ `#64748B` khi chưa đủ điều kiện hoặc đã nhận thưởng. **Loại bỏ hoàn toàn nút viền rỗng (transparent background).**
+
+#### 4. Quy chuẩn Khung, Tab, Tiền tệ, Chấm đỏ & Chuyển màn
+
+* **Khung hộp (Modal):** Sử dụng kỹ thuật **9-Slice Scaling** từ khung tranh GPT (viền kim loại vát góc, đỉnh có thanh tiêu đề nổi và nút đóng `[X]` vuông `32×32 px` góc phải trên).
+* **Khung hàng (List Item):** Cao `64–72 px`, nền `#0E1C33`, viền `1.5px solid #26466D`, bên trái luôn có ô icon vuông `48×48 px` (có viền phẩm chất), ở giữa là Tên + 1 dòng phụ, bên phải là Nút bấm.
+* **Thanh tiêu đề & Tiền tệ (Top Bar):** Cao `36 px`, tối đa **3 ô tiền tệ** (Hợp kim / Vàng / Kim cương). Số luôn rút gọn bằng hàm format: `< 100.000` hiện đủ (`95.400`), `≥ 100.000` hiện `104,5K`, `≥ 1.000.000` hiện `104,5M`. Tuyệt đối không hiện số 8–9 chữ số gây tràn.
+* **Chấm đỏ thông báo (Red Dot):** Hình tròn `10×10 px`, màu đỏ tươi `#FF1744`, viền trắng `1.5px #FFFFFF`, đặt đè lên góc trên bên phải (`top: -3px, right: -3px`) của icon/nút. Chỉ bật khi người chơi **có thể nhận thưởng miễn phí hoặc nâng cấp ngay lập tức** (không bật chấm đỏ cho các gói mua tốn kim cương).
+* **Hiệu ứng chuyển màn:** Popup mở ra dùng `scale(0.92) → scale(1.0)` kèm `opacity 0 → 1` trong `160ms` (`cubic-bezier(0.2, 0.8, 0.2, 1)`). Khi bấm nút luôn có hiệu ứng nhấn lún `translateY(2px)` trong `80ms`.
+
+---
+
+### D. Đánh giá & Nâng cấp giao diện Trong Trận (In-Game HUD & Visuals)
+
+Qua 12 khung trong trận (`00_trong_tran.jpg` và các ảnh lẻ `tran_tran_ai100.jpg`, `tran_tam_dung.jpg`, `tran_boss_ai10.jpg`), bố cục tổng thể đã thoáng và hợp lý, nhưng cần tinh chỉnh 6 điểm sau để đạt độ sắc nét và dễ né đạn tối đa:
+
+| Thành phần trong trận | Hiện trạng | Vấn đề & Cách khắc phục cụ thể |
+| --- | --- | --- |
+| **1. Thanh HUD trên cùng (Top HUD)** | Thanh máu xanh góc trái trên, ô `P 0/4`, ô điểm/vật phẩm và nút tạm dừng `||` góc phải trên. | Các ô đang nằm sát mép trên cùng (`top: 4px`), dễ bị tai thỏ/Dynamic Island của điện thoại che mất. **Sửa:** Hạ cụm HUD trên xuống `safe-area-inset-top + 12px`. Thu gọn ô `P 0/4` và ô điểm thành dạng viên nang (pill) trong suốt gọn gàng hơn. |
+| **2. Thanh trạng thái Bạo Tẩu** | Khi kích hoạt Bạo Tẩu (`tran_bao_tau.jpg`), thanh màu vàng `+ BẠO TẨU 7.1s` xuất hiện ở giữa mép trên. | Vị trí đặt ở mép trên cùng khiến mắt người chơi phải liếc lên tận đỉnh màn hình trong khi đang tập trung nhìn tàu ở đáy. **Sửa:** Đặt thêm một **vòng cung đếm ngược mỏng màu vàng kim ôm quanh vòng tròn hit-box của chiến cơ** để người chơi nhìn thấy thời gian Bạo Tẩu còn lại ngay tại vị trí ngón tay điều khiển. |
+| **3. Cụm nút Kỹ năng đáy màn hình** | Góc trái dưới: `TÊN LỬA`. Góc phải dưới: `TUYỆT KỸ` (hình lục giác tím) và nút Bom (hình tròn cam có số `3`). | Nút `TUYỆT KỸ` và nút Bom đặt dọc sát nhau ở góc phải dưới (`tran_tran_ai100.jpg`) hơi gần vùng ngón tay cái khi kéo tàu sang góc phải, dễ bấm nhầm. **Sửa:** Giữ khoảng cách tối thiểu `14 px` giữa 2 nút; làm mờ nhẹ (`alpha 0.75`) khi đang hồi chiêu và phát sáng viền khi sẵn sàng. |
+| **4. Độ nổi của đạn địch & Vật phẩm** | Đạn địch hồng/đỏ lõi trắng khá rõ, nhưng khi đạn vàng của tàu bắn thẳng 1 cột dày (`tran_tran_ai100.jpg`) thì đạn vàng đè lấp hoàn toàn đạn địch đi từ trên xuống. | Ngoài việc đổi đạn chính sang dạng tia mảnh xòe quạt như gói trước đã thiết kế, hãy thêm **viền ngoài tối màu mỏng (`1.5px #2B000E`)** cho đạn địch đỏ/hồng để đạn địch luôn tách bạch khỏi mọi loại nền sáng hay hiệu ứng nổ. |
+| **5. Cảnh báo Boss & Hội thoại** | Băng rôn `⚠ CẢNH BÁO NGUY HIỂM` sọc đỏ đen ở trên và hộp thoại phi công ở dưới (`tran_boss_ai10.jpg`) đẹp, rõ ràng. | Nút `BỎ QUA ⏭` nằm hơi sát mép phải hộp thoại; chữ `Lâm Phương` màu vàng hơi chìm nhẹ. **Sửa:** Thêm khung nền tối nhẹ sau nút `BỎ QUA` để dễ bấm trên màn hình cảm ứng; giữ nguyên bố cục cảnh báo này vì đã rất đạt chuẩn. |
+| **6. Nền chương (Stage Background)** | Nền vũ trụ, hành tinh, tàn tích trạm không gian có chiều sâu tốt nhưng độ tương phản hơi cao ở một số vùng sáng, làm lẫn với đạn/vật phẩm rơi. | Phủ thêm một lớp gradient tối nhẹ (`rgba(4, 9, 18, 0.35)`) lên toàn bộ ảnh nền chương và giảm độ bão hòa nền xuống khoảng `65%`. Chiến cơ, quái và đạn sẽ nổi bật hẳn lên trên nền không gian sâu thẳm. |
+
+---
+
+### E. Thứ tự ưu tiên triển khai & Danh sách tranh cần vẽ thêm
+
+#### 1. Thứ tự ưu tiên thực hiện (Làm theo 4 bước để lợi nhất)
+
+1. **Ưu tiên 1 (Trong trận — Ảnh hưởng trực tiếp trải nghiệm chơi):** Thay hệ thống đạn chính 13 tàu (theo bảng thiết kế trước) + làm tối nhẹ nền chương (`35%`) + chỉnh khoảng cách nút kỹ năng đáy màn hình.
+2. **Ưu tiên 2 (Chuẩn hóa CSS/Canvas Design System):** Thay toàn bộ các khung bo góc phẳng 1px và nút viền rỗng bằng bộ khung kim loại, nút 3D (Vàng/Lam/Tím) và chuẩn hóa font/rút gọn số liệu (`104,5M`) trên toàn bộ 28 màn.
+3. **Ưu tiên 3 (Sửa 6 màn lệch tông/nhiều chữ nhất):** Làm lại bố cục các màn *Nâng cấp*, *Đột phá*, *Cây tiềm năng*, *Mùa giải*, *Rương* và *Phó bản* (cắt bỏ các đoạn văn 6–10 dòng, chuyển sang icon + số lượng).
+4. **Ưu tiên 4 (Đồng bộ dữ liệu & Tinh chỉnh):** Sửa lỗi hiển thị 5 skin giống nhau ở *Tủ Skin*, sửa tab nhầm ở *Quà 7 ngày*, tách nội dung *Cửa hàng* khác với *Chợ Đen*.
+
+#### 2. Danh sách tranh / sprite mới cần đặt GPT vẽ bổ sung
+
+*(Toàn bộ xuất PNG nền trong suốt hoặc nền đen `#000000` dễ tách alpha, đồng bộ phong cách Sci-Fi kim loại/pha lê với các lô B4–B12 hiện tại).*
+
+| STT | Tên gói tài nguyên | Quy cách & Số lượng | Mô tả yêu cầu vẽ cho GPT | Dùng cho màn hình |
+| --- | --- | --- | --- | --- |
+| **1** | **Bộ Icon Tiền tệ & Vật phẩm chuẩn** | `64×64 px` (~15 icon) | Vẽ đồng bộ chất liệu 3D bóng bẩy (không dùng icon phẳng): Hợp kim bạc, Thỏi vàng, Kim cương xanh, Tinh thể XP (Trắng/Lục/Lam/Tím/Vàng), Vé càn quét, Vé vòng quay, Lõi siêu hợp, Mảnh phi công, Mảnh skin, Đá khảm, Huy hiệu Chợ Đen. | *Top Bar*, *Mùa giải*, *Vòng quay*, *Điểm danh*, *Chợ Đen*, *Kho* |
+| **2** | **Khung Thẻ & Ô Vật phẩm 9-Slice** | `128×128 px` (6 mẫu) | Khung ô vuông vát góc kim loại theo 5 màu phẩm chất (Trắng, Lục, Lam, Tím, Vàng SS) + 1 khung thẻ hàng ngang (`256×96 px`) nền xanh đêm viền neon xanh lơ có đinh tán. | *Mùa giải*, *Nâng cấp*, *Đột phá*, *Đồ giám*, *Sự kiện tuần* |
+| **3** | **Bộ Icon Nút Cây Tiềm Năng** | `64×64 px` (8 icon) | 8 biểu tượng công nghệ cao nằm trong khung lục giác phát sáng: Hỏa lực (nòng pháo), Giáp (khiên năng lượng), Máu (trái tim pha lê), Phản xạ Graze (tia chớp), Vũ khí phụ (tên lửa), Cộng hưởng (mạng nơ-ron), Bạo Tẩu (ngọn lửa), Chí mạng (tâm ngắm). | *Cây tiềm năng* |
+| **4** | **Tranh Nền Hầm Chứa / Nâng Cấp** | `393×852 px` (1 tranh) | Cảnh bên trong khoang bảo trì/nâng cấp vũ khí tương lai (tông xanh đậm tối `#070E1A` để không làm chói chữ), chính giữa có bệ phóng từ trường hologram tròn để đặt trang bị/chiến cơ lên nâng cấp. | *Nâng cấp*, *Đột phá* |
+| **5** | **Ảnh Preview Màu Skin Chiến Cơ** | `128×128 px` (4 biến thể màu cho mỗi tàu hoặc bộ 4 overlay màu) | Xuất đúng 4 biến thể màu sắc khác biệt rõ rệt cho *Tủ Skin*: **Màu đột phá +5** (Tím hồng neon), **Ngọc Lam** (Xanh ngọc lục bảo & Cyan), **Bạch Kim** (Trắng bạc & Xanh băng), **Hoàng Kim** (Vàng ròng & Cam lửa). | *Tủ Skin* |
+| **6** | **Banner Sự Kiện Tuần & Phó Bản** | `360×110 px` (4 banner ngang) | 4 banner mỏng phong cách Sci-Fi: (1) *Cơn Lốc Vô Tận* (xoáy năng lượng tím), (2) *Tiếp Tế & Săn Boss* (kho tiếp tế vũ trụ), (3) *Phó Bản Vàng* (khoang chứa thỏi vàng), (4) *Đấu Trường Thử Thách* (hai chiến cơ đối đầu). | *Phó bản*, *Sự kiện tuần* |
+
+Bạn có thể chuyển thẳng toàn bộ nội dung mục **A, B, C, D, E** này cho Claude để lập trình viên tiến hành tái cấu trúc giao diện theo đúng thứ tự ưu tiên trên. Nếu cần mình viết sẵn **bộ prompt tiếng Anh chi tiết cho 6 nhóm tranh ở Mục E.2** để gửi GPT vẽ ngay, hãy nhắn mình nhé!
