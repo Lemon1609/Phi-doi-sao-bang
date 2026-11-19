@@ -24,6 +24,8 @@
   const GT={};function glowCol(col){if(GT[col])return GT[col];const c=document.createElement('canvas');c.width=c.height=64;const g=c.getContext('2d');g.drawImage(glow,0,0);
     g.globalCompositeOperation='source-in';g.fillStyle=col;g.fillRect(0,0,64,64);return GT[col]=c;}
   let sup=false;
+  // V307 A4 (học video gốc: lõi trắng mảnh, quầng màu bão hòa; đo bản cũ: 20–70 % điểm sáng bị cháy trắng, bão hòa 0,07–0,47 so với gốc 0,5–0,8). Chỉ đổi hình. Tắt: window.DAN307=false
+  const K7=()=>window.DAN307!==false;
   // V302 · cấu hình đạn 13 tàu (id 0-based). k/kbt: tranh thường / Bạo Tẩu; L: dài (px) ; n: số khung; spin: xoay; mir: lật theo bên; fx: kiểu trúng đích
   const CFG={
     0:{k:'tau1_cau_lua',kbt:'tau1_cau_lua_bt',n:3,L:60,Lbt:62,fx:'hoa'},
@@ -44,16 +46,17 @@
   function hudArrow(g,L,col){g.save();g.globalCompositeOperation='lighter';g.strokeStyle=col;g.lineWidth=2.4;g.lineJoin='round';
     for(const [w,y,a] of [[.42,0,1],[.32,L*.28,.7],[.22,L*.52,.45]]){g.globalAlpha=a;g.beginPath();g.moveTo(-L*w,y+L*.22);g.lineTo(0,y-L*.18);g.lineTo(L*w,y+L*.22);g.stroke();}
     g.globalAlpha=1;g.fillStyle='#fff';g.beginPath();g.arc(0,-L*.18,2.2,0,6.283);g.fill();g.restore();}
-  function drawGen(id,g,s){const c=CFG[id],col=colorOf(id),bt=sup,L=(id===2&&s.__manh)?30:(bt?c.Lbt:c.L),ang=Math.atan2(s.vy,s.vx)+Math.PI/2,gc=glowCol(col),pul=1+.08*Math.sin((s.age||0)*28);
+  function drawGen(id,g,s){const c=CFG[id],col=colorOf(id),bt=sup,L=((id===2&&s.__manh)?30:(bt?c.Lbt:c.L))*(K7()&&c.dense?.78:1),ang=Math.atan2(s.vy,s.vx)+Math.PI/2,gc=glowCol(col),pul=1+.08*Math.sin((s.age||0)*28);
     if(c.hud){g.save();g.translate(s.x,s.y);g.rotate(ang);g.globalCompositeOperation='lighter';g.globalAlpha=bt?.16:.32;g.drawImage(gc,-L*.6,-L*.5,L*1.2,L*1.2);g.globalAlpha=bt?.08:.2;g.drawImage(gc,-L*.15,0,L*.3,L*1.6);g.restore();
       g.save();g.translate(s.x,s.y);g.rotate(ang);hudArrow(g,L,col);g.restore();return true;}
     const k=(id===2&&s.__manh)?'tau3_manh_bang':(bt&&c.kbt?c.kbt:c.k),f=(id===2&&s.__manh)?0:c.n>1?Math.floor((s.age||0)*12+((s.x|0)&3))%c.n:(c.f0||0),im=frame(k,f,col),wh=raw(k,f);if(!im)return false;
     const W=L*im.width/im.height;let ox=0;if(c.glitch&&Math.random()<.18)ox=(Math.random()<.5?-1:1)*L*.18;
     g.save();g.translate(s.x+ox,s.y);g.rotate(ang+(c.spin?(s.age||0)*c.spin*6.283:0));if(c.mir&&s.x<px())g.scale(-1,1);
-    g.globalCompositeOperation='lighter';g.globalAlpha=bt?(c.dense?.05:.14):.4;g.drawImage(gc,-L*.62*pul,-L*.55*pul,L*1.24*pul,L*1.24*pul);
-    if(!c.spin){g.globalAlpha=bt?.08:.26;g.drawImage(gc,-L*.2,-L*.1,L*.4,L*1.4);}
+    g.globalCompositeOperation='lighter';g.globalAlpha=(bt?(c.dense?.05:.14):.4)*(K7()?.75:1);g.drawImage(gc,-L*.62*pul,-L*.55*pul,L*1.24*pul,L*1.24*pul);
+    if(!c.spin){g.globalAlpha=(bt?.08:.26)*(K7()?.6:1);g.drawImage(gc,-L*.2,-L*.1,L*.4,L*1.4);}
     if(c.solid){g.globalCompositeOperation='source-over';g.globalAlpha=bt?.85:1;g.drawImage(im,-W/2,-L/2,W,L);g.globalCompositeOperation='lighter';g.globalAlpha=bt?.2:.35;g.drawImage(wh,-W/2,-L/2,W,L);}
-    else{g.globalAlpha=bt?(c.dense?.55:.8):1;g.drawImage(im,-W/2,-L/2,W,L);g.globalAlpha=bt?(c.dense?.12:.28):.5;g.drawImage(wh,-W*.36,-L*.36,W*.72,L*.72);}
+    else{if(K7()){g.globalCompositeOperation='source-over';g.globalAlpha=bt?(c.dense?.5:.8):.92;g.drawImage(im,-W/2,-L/2,W,L);g.globalCompositeOperation='lighter';g.globalAlpha=bt?.16:.32;g.drawImage(im,-W/2,-L/2,W,L);g.globalAlpha=bt?.08:.2;g.drawImage(wh,-W*.2,-L*.26,W*.4,L*.52);}
+     else{g.globalAlpha=bt?(c.dense?.55:.8):1;g.drawImage(im,-W/2,-L/2,W,L);g.globalAlpha=bt?(c.dense?.12:.28):.5;g.drawImage(wh,-W*.36,-L*.36,W*.72,L*.72);}}
     if(c.glitch&&ox){g.globalAlpha=.35;g.drawImage(frame(k,f,'#ff3df0')||im,-W/2-ox*.6,-L/2,W,L);}
     g.restore();return true;}
   // tàu 1 giữ hàm riêng V299 (bố cục tranh cầu lửa lệch tâm)
@@ -62,16 +65,16 @@
     const L=bt?62:60,W=L*im.width/im.height,ang=Math.atan2(s.vy,s.vx)+Math.PI/2;
     g.save();g.globalCompositeOperation='lighter';g.translate(s.x,s.y);g.rotate(ang);
     const gc=glowCol(col),pul=1+.08*Math.sin((s.age||0)*28);
-    g.globalAlpha=bt?.14:.42;g.drawImage(gc,-L*.62*pul,-L*.55*pul,L*1.24*pul,L*1.24*pul);
-    g.globalAlpha=bt?.08:.30;g.drawImage(gc,-L*.22,-L*.1,L*.44,L*1.5);
-    g.globalAlpha=bt?.8:1;g.drawImage(im,-W/2,-L*.36,W,L);
-    g.globalAlpha=bt?.28:.55;g.drawImage(wh,-W*.36,-L*.30,W*.72,L*.72);
+    const k7=K7();g.globalAlpha=(bt?.14:.42)*(k7?.7:1);g.drawImage(gc,-L*.62*pul,-L*.55*pul,L*1.24*pul,L*1.24*pul);
+    g.globalAlpha=(bt?.08:.30)*(k7?.55:1);g.drawImage(gc,-L*.22,-L*.1,L*.44,L*1.5);
+    if(k7)g.globalCompositeOperation='source-over';g.globalAlpha=bt?.8:(k7?.92:1);g.drawImage(im,-W/2,-L*.36,W,L);if(k7)g.globalCompositeOperation='lighter';
+    g.globalAlpha=(bt?.28:.55)*(k7?.4:1);g.drawImage(wh,-W*(k7?.2:.36),-L*(k7?.2:.30),W*(k7?.4:.72),L*(k7?.44:.72));
     g.restore();return true;}
   const DRAW={0:draw0};for(const id in CFG)if(+id)DRAW[id]=(g,s)=>drawGen(+id,g,s);
   // laser tàu 2 (ray28, art28 1): cột rộng màu bậc, lõi trắng, đầu cột sáng, gợn chạy dọc
-  function laser1(s){const g=ctx,col=colorOf(1),y=Math.max(0,s.y),r=Math.max(2,s.r||3),fade=s.life28>0?Math.max(0,Math.min(1,(s.life28-s.age)/.05)):1,w=r*(sup?3.2:4.2),gc=glowCol(col);
+  function laser1(s){const g=ctx,col=colorOf(1),y=Math.max(0,s.y),r=Math.max(2,s.r||3),fade=s.life28>0?Math.max(0,Math.min(1,(s.life28-s.age)/.05)):1,w=r*(sup?3.2:4.2)*(K7()?.62:1),gc=glowCol(col),k7=K7();
     g.save();g.globalCompositeOperation='lighter';
-    const gr=g.createLinearGradient(s.x-w,0,s.x+w,0);gr.addColorStop(0,col+'00');gr.addColorStop(.3,col+'88');gr.addColorStop(.5,'#ffffff');gr.addColorStop(.7,col+'88');gr.addColorStop(1,col+'00');
+    const gr=g.createLinearGradient(s.x-w,0,s.x+w,0);gr.addColorStop(0,col+'00');if(k7){gr.addColorStop(.25,col+'99');gr.addColorStop(.44,col+'ee');gr.addColorStop(.5,'#ffffff');gr.addColorStop(.56,col+'ee');gr.addColorStop(.75,col+'99');}else{gr.addColorStop(.3,col+'88');gr.addColorStop(.5,'#ffffff');gr.addColorStop(.7,col+'88');}gr.addColorStop(1,col+'00');
     g.globalAlpha=fade*(sup?.5:.8);g.fillStyle=gr;g.fillRect(s.x-w,0,w*2,y);
     g.globalAlpha=fade*.9;g.fillStyle='#fff';g.fillRect(s.x-1,0,2,y);
     const t=performance.now()/1000;g.strokeStyle=col;g.lineWidth=1.5;for(let yy=y-((t*600)%60);yy>0;yy-=60){g.globalAlpha=fade*.55*(yy/y);g.beginPath();g.ellipse(s.x,yy,w*.9,3,0,0,6.283);g.stroke();}

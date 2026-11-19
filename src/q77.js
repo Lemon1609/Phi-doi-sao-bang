@@ -10,7 +10,7 @@ const QUEST_CONFIG_V77={
  // V79B (Gemini REVIEW79B DAILY79, chủ dự án đồng ý): vẫn 50 💎/ngày · mốc 100 tặng phôi Lam đúng món đang dùng
  //  thay thế đồ chưa có trong game: "Vé phó bản vạn năng" → 2 đá khảm Lục · "2 Đá tẩy" → 5.000 ◈ (= 2 lần phí tẩy lẻ)
  DAILY_MILESTONES:[{points:20,gem:5,alloy:5000,energy:20},{points:40,gem:10,exp:30,extra:{type:'SWEEP_TICKET',amount:3}},{points:60,gem:10,alloy:5000,extra:[{type:'PH_LUC_RANDOM',amount:1},{type:'SEASON_XP',amount:100}]},{points:80,gem:10,alloy:5000,extra:{type:'SOCKET_BOX_LV1',amount:1}},{points:100,gem:15,extra:[{type:'BLUE_FODDER_SMART',amount:1},{type:'PILOT_BOX_RANDOM',amount:1},{type:'SEASON_XP',amount:150}]}],
- WEEKLY_MILESTONES:[{points:100,gem:25,alloy:10000},{points:200,gem:25,extra:{type:'SWEEP_TICKET',amount:5}},{points:300,gem:25,extra:{type:'ULT_BOSS_TICKET',amount:1}},{points:400,gem:25,extra:{type:'PILOT_SHARDS_SELECT',amount:15}},{points:500,gem:50,extra:{type:'BLUE_FODDER_BOX',amount:1},core:1}],
+ WEEKLY_MILESTONES:[{points:100,gem:25,alloy:10000},{points:200,gem:25,extra:[{type:'SWEEP_TICKET',amount:5},{type:'XP4',amount:1}]},{points:300,gem:25,extra:[{type:'ULT_BOSS_TICKET',amount:1},{type:'XP4',amount:1}]},{points:400,gem:25,extra:{type:'PILOT_SHARDS_SELECT',amount:15}},{points:500,gem:50,extra:[{type:'BLUE_FODDER_BOX',amount:1},{type:'XP4',amount:2}],core:1}],
  DAILY_TASKS:{
   D_LOGIN:{target:1,points:20,title:'Đăng nhập game',ev:'login',rw:{alloy:2000}},
   D_STAGES:{target:3,points:20,title:'Vượt 3 ải chiến dịch (tính cả càn quét)',ev:'stage',rw:{alloy:3000}},
@@ -43,7 +43,8 @@ const Q77=(()=>{
  function give(rw,why){if(!rw)return;try{if(rw.alloy)Progress.grantCredits(rw.alloy);if(rw.exp)Workshop.grant({exp:rw.exp});if(rw.tk)V75.addTk(rw.tk);if(rw.energy)V75.addEn(rw.energy,why);
   if(rw.ph||rw.phLuc){const ks=Object.keys(GearCatalog).filter(k=>!/36$/.test(k));V70.phAdd('gear',ks[Math.floor(Math.random()*ks.length)],rw.phLuc?1:0,1);}}catch(e){console.warn('Q77',e);}}
  function extra(x){if(!x)return;if(Array.isArray(x)){for(const y of x)extra(y);return;}try{const st=Pilot67.state();const owned=Object.keys(st.own).map(Number);const mainP=st.team[0]&&st.own[st.team[0]]?st.team[0]:owned[0];
-  if(x.type==='SWEEP_TICKET')V75.addTk(x.amount);
+  if(x.type==='XP4'){XPDA307.add(4,x.amount);}/* V307 Gemini: Đá XP IV mốc tuần */
+  else if(x.type==='SWEEP_TICKET')V75.addTk(x.amount);
   else if(x.type==='SOCKET_BOX_LV1'){const pos=['ship','armor','missiles','sidearm'];for(let i=0;i<2;i++)Stone71.give(Stone71.make(1,pos[Math.floor(Math.random()*4)],{ty:'stat'}));}
   else if(x.type==='PILOT_BOX_RANDOM'){if(owned.length)Pilot67._piece(owned[Math.floor(Math.random()*owned.length)],5);else Progress.grantCredits(3000);}
   else if(x.type==='PILOT_SHARDS_SELECT'){if(mainP)Pilot67._piece(mainP,x.amount);else Progress.grantCredits(9000);}
@@ -52,7 +53,7 @@ const Q77=(()=>{
   else if(x.type==='SEASON_XP'){S77.addXP(x.amount,'năng động');}
   else if(x.type==='BLUE_FODDER_SMART'){let done=false;try{if(Math.random()<.5){const eq=Progress.v70.equipped(),its=Object.values(eq).map(id=>Progress.v70.get(id)).filter(Boolean);if(its.length){V70.phAdd('gear',its[Math.floor(Math.random()*its.length)].variant,2,1);done=true;}}}catch{}if(!done){let c=0;try{c=launchCraft|0;}catch{}V70.phAdd('craft',c,2,1);}}
   else if(x.type==='BLUE_FODDER_BOX'){let c=0;try{c=launchCraft|0;}catch{}V70.phAdd('craft',c,2,1);}}catch(e){console.warn('Q77 extra',e);}}
- const exTxt=x=>!x?'':Array.isArray(x)?x.map(y=>exTxt(y)).filter(Boolean).join(' · '):x.type==='PH_LUC_RANDOM'?'1 phôi Lục':x.type==='SEASON_XP'?x.amount+' XP mùa giải':x.type==='BLUE_FODDER_SMART'?'1 phôi Lam món đang dùng':x.type==='SWEEP_TICKET'?x.amount+' vé càn quét':x.type==='SOCKET_BOX_LV1'?'2 đá khảm Lục':x.type==='PILOT_BOX_RANDOM'?'5 mảnh phi công':x.type==='PILOT_SHARDS_SELECT'?x.amount+' mảnh phi công chính':x.type==='ULT_BOSS_TICKET'?'1 vé Phó bản giới hạn':x.type==='BLUE_FODDER_BOX'?'1 phôi Lam chiến cơ':'';
+ const exTxt=x=>!x?'':Array.isArray(x)?x.map(y=>exTxt(y)).filter(Boolean).join(' · '):x.type==='XP4'?x.amount+' Đá XP IV':x.type==='PH_LUC_RANDOM'?'1 phôi Lục':x.type==='SEASON_XP'?x.amount+' XP mùa giải':x.type==='BLUE_FODDER_SMART'?'1 phôi Lam món đang dùng':x.type==='SWEEP_TICKET'?x.amount+' vé càn quét':x.type==='SOCKET_BOX_LV1'?'2 đá khảm Lục':x.type==='PILOT_BOX_RANDOM'?'5 mảnh phi công':x.type==='PILOT_SHARDS_SELECT'?x.amount+' mảnh phi công chính':x.type==='ULT_BOSS_TICKET'?'1 vé Phó bản giới hạn':x.type==='BLUE_FODDER_BOX'?'1 phôi Lam chiến cơ':'';
  const rwTxt=r=>[r.alloy?fmt(r.alloy)+' ◈':'',r.exp?r.exp+' ⬢':'',r.tk?r.tk+' 🎫':'',r.energy?r.energy+' 🔋':'',r.ph?'1 phôi Trắng':'',r.phLuc?'1 phôi Lục':''].filter(Boolean).join(' + ');
  function track(ev,n=1){roll();let changed=false;
   for(const [k,t] of Object.entries(C.DAILY_TASKS))if(t.ev===ev){const c=S.dpr[k]|0;if(c<t.target){S.dpr[k]=Math.min(t.target,c+n);changed=true;if(S.dpr[k]>=t.target){S.dp=Math.min(140,S.dp+t.points);give(t.rw,t.title);T('✔ NHIỆM VỤ NGÀY · '+t.title+' · +'+t.points+' năng động');setTimeout(()=>track('dpts',t.points),0);}}}

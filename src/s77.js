@@ -22,21 +22,21 @@ const REWARDS_V20=[
 // V307 (Gemini cân bằng, chủ dự án chốt 16/11): mùa 21 ngày · 25 cấp · rương vượt cấp 3 cái. Kim cương giữ 500 (miễn phí) + 700 (Tinh Anh).
 const SEASON_CONFIG_V77={CYCLE_DAYS:21,CYCLE_MS:21*864e5,ELITE_PASS_PRICE_GEM:1500,ELITE_INSTANT_XP:1000,XP_PER_LEVEL:500,MAX_LEVEL:25,
  XP:{energyCap:250,ms60:100,ms100:150,towerFloor:30,endless:40,endlessDaily:3,endlessSec:90,daily:80},
- OVER:{xp:1000,max:3,rw:{alloy:6000,upgradeStone:4,sweepTicket:1}},
+ OVER:{xp:1000,max:3,rw:{alloy:6000,upgradeStone:4,sweepTicket:1,xp4:1}},
  REWARDS_TRACK:[
   {level:1,free:{alloy:5000},elite:{gem:100,alloy:10000}},{level:2,free:{upgradeStone:5},elite:{sweepTicket:3}},
   {level:3,free:{alloy:10000},elite:{fodderGreenBox:1}},{level:4,free:{gem:50},elite:{rerollStone:5}},
-  {level:5,free:{luckyTicket:1},elite:{pilotShardSelect:10}},{level:6,free:{energy:50},elite:{alloy:10000}},
+  {level:5,free:{luckyTicket:1,xp4:1},elite:{pilotShardSelect:10}},{level:6,free:{energy:50},elite:{alloy:10000}},
   {level:7,free:{upgradeStone:10},elite:{gem:150}},{level:8,free:{socketBoxLv1:1},elite:{ultBossTicket:1}},
-  {level:9,free:{alloy:15000},elite:{pilotShardRandom:15}},{level:10,free:{gem:100},elite:{fodderBlueBox:1}},
+  {level:9,free:{alloy:15000},elite:{pilotShardRandom:15}},{level:10,free:{gem:100,xp4:1},elite:{fodderBlueBox:1}},
   {level:11,free:{fodderBlueBox:1},elite:{alloy:20000}},{level:12,free:{sweepTicket:5},elite:{socketBoxLv2:1}},
   {level:13,free:{upgradeStone:15},elite:{skinId:'SKIN_AO_ANH_THAN_CO'}},{level:14,free:{alloy:15000},elite:{gem:200}},
-  {level:15,free:{pilotShardSelect:10},elite:{energy:50}},{level:16,free:{gem:150},elite:{rerollStone:10}},
+  {level:15,free:{pilotShardSelect:10,xp4:2},elite:{energy:50}},{level:16,free:{gem:150},elite:{rerollStone:10}},
   {level:17,free:{socketBoxLv2:1},elite:{luckyTicket:2}},{level:18,free:{alloy:20000},elite:{alloy:20000}},
-  {level:19,free:{upgradeStone:20},elite:{ultBossTicket:2}},{level:20,free:{socketBoxLv1:1},elite:{gem:250}},
+  {level:19,free:{upgradeStone:20},elite:{ultBossTicket:2}},{level:20,free:{socketBoxLv1:1,xp4:2},elite:{gem:250}},
   {level:21,free:{upgradeStone:5},elite:{pilotShardRandom:10}},{level:22,free:{gem:200},elite:{fodderBlueBox:1}},
   {level:23,free:{upgradeStone:10},elite:{alloy:15000}},{level:24,free:{sweepTicket:2},elite:{rerollStone:5,luckyTicket:1,ultBossTicket:1}},
-  {level:25,free:{purpleEquipChest:1},elite:{sssCoreSelect:1,titleId:'TITLE_SEASON_CHAMPION'}}]};
+  {level:25,free:{purpleEquipChest:1,xp4:3},elite:{sssCoreSelect:1,titleId:'TITLE_SEASON_CHAMPION'}}]};
 const S77=(()=>{
  const KEY='PLAYER_SEASON_PASS_V77',C=SEASON_CONFIG_V77,X=C.XP;
  const sid=()=>Math.floor(Date.now()/C.CYCLE_MS);
@@ -72,12 +72,13 @@ const S77=(()=>{
   if(r.purpleEquipChest){const ks=Object.keys(GearCatalog).filter(k=>!/36$/.test(k)&&!(window.GEAR81_NODROP||{})[k]);V70.phAdd('gear',ks[Math.floor(Math.random()*ks.length)],3,1);}
   if(r.sssCoreSelect)Meta407.addCores(3*r.sssCoreSelect,'MÙA GIẢI');
   if(r.skinId){const own=Trade67.state().owned||[];const L=(typeof SKINS67!=='undefined'?SKINS67:[]).filter(s=>!own.includes(s.id)&&s.src!=='soon');if(L.length)Trade67._own(L[Math.floor(Math.random()*L.length)].id);else Econ74.add(500,'mùa giải · skin đã đủ');}
+  if(r.xp4){try{XPDA307.add(4,r.xp4);}catch{}}/* V307 Gemini: Đá XP IV mốc 5/10/15/20/25 + rương vượt cấp */
   if(r.titleId&&!S.titles.includes(r.titleId)){S.titles.push(r.titleId);save();}
  }catch(e){console.warn('S77',e);}}
  const rTxt=r=>{const o=[];if(r.gem)o.push(r.gem+' 💎');if(r.alloy)o.push(fmt(r.alloy)+' ◈');if(r.upgradeStone)o.push(r.upgradeStone+' ⬢');if(r.sweepTicket)o.push(r.sweepTicket+' 🎫');if(r.energy)o.push(r.energy+' 🔋');
   if(r.rerollStone)o.push(fmt(r.rerollStone*2500)+' ◈ (đá tẩy)');if(r.luckyTicket)o.push(r.luckyTicket+' vé vòng quay');if(r.ultBossTicket)o.push(r.ultBossTicket+' vé phó bản GH');if(r.fodderGreenBox)o.push('phôi Lục chiến cơ');if(r.fodderBlueBox)o.push('phôi Lam chiến cơ');
   if(r.socketBoxLv1)o.push('2 đá Lục');if(r.socketBoxLv2)o.push('2 đá Lam');if(r.pilotShardSelect)o.push(r.pilotShardSelect+' mảnh PC chính');if(r.pilotShardRandom)o.push(r.pilotShardRandom+' mảnh PC');if(r.purpleEquipChest)o.push('phôi Tím trang bị');
-  if(r.sssCoreSelect)o.push('3 Lõi Siêu Hợp');if(r.skinId)o.push('1 skin');if(r.titleId)o.push('danh hiệu Quán Quân Mùa');return o.join(' + ');};
+  if(r.sssCoreSelect)o.push('3 Lõi Siêu Hợp');if(r.xp4)o.push(r.xp4+' Đá XP IV');if(r.skinId)o.push('1 skin');if(r.titleId)o.push('danh hiệu Quán Quân Mùa');return o.join(' + ');};
  function claim(l,tr){if(!roll()){T('ĐỒNG HỒ MÁY BỊ LÙI · tạm khóa mùa giải');return false;}if(l>lvl())return false;if(tr==='e'&&!S.elite)return false;const L=tr==='e'?S.ce:S.cf;if(L.includes(l))return false;
   const r=C.REWARDS_TRACK[l-1];grant(tr==='e'?r.elite:r.free);L.push(l);save();T('🏁 MÙA GIẢI · CẤP '+l+' · '+rTxt(tr==='e'?r.elite:r.free));render();return true;}
  function claimOver(){if(!roll()){T('ĐỒNG HỒ MÁY BỊ LÙI · tạm khóa mùa giải');return false;}if(overAvail()<1)return false;grant(OV.rw);S.oc=(S.oc|0)+1;save();T('🏁 MÙA GIẢI · RƯƠNG VƯỢT CẤP · '+rTxt(OV.rw));render();return true;}
