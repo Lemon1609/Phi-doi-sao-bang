@@ -16,7 +16,10 @@ GỬI GEMINI · V307 · THIẾT KẾ LẠI ROBOT SIÊU HỢP THỂ (bậc, biế
 - Vấn đề: tên + đặc kỹ 7 robot đang dịch sát tên game gốc → cần đổi cho đúng luật "không chép".
 
 3. VIỆC CẦN BẠN LÀM
-A. HƯỚNG HÌNH ẢNH: so sánh 3 hướng (a) giữ chiến giáp nữ, (b) robot cơ khí như game gốc, (c) trộn; nêu ưu/nhược theo bản sắc game và độ đồng bộ với 13 chiến cơ mới. Đề xuất 1 hướng (chủ dự án sẽ chọn).
+A. HƯỚNG HÌNH ẢNH — CHỦ DỰ ÁN ĐÃ CHỐT (19/11 21:30): ROBOT CƠ KHÍ giống game gốc (người máy giáp kim loại, khớp cơ khí, cánh năng lượng), CÓ CẢ DÁNG NAM VÀ DÁNG NỮ. Bỏ kiểu chiến giáp nữ hiện tại.
+   - Bạn chia 7 robot thành dáng nam / dáng nữ (gợi ý 4 nam · 3 nữ hoặc ngược lại), mỗi robot 1 chủ đề rõ (lửa, băng, sấm, hư không, ánh sáng…), không trùng nhau, khớp màu với 2 chiến cơ thành phần.
+   - Robot dáng nữ: vẫn là người máy cơ khí (giáp kín, mặt nạ / mũ giáp), đường nét thanh hơn; ở mức game mobile phổ thông, không gợi dục, không hở da.
+   - Dạng máy bay của robot phải nhìn ra là chiến cơ (mũi, buồng lái, cánh, động cơ), cùng phong cách 13 chiến cơ mới.
 B. VÒNG HỆ ĐẠN RIÊNG: 8–9 hệ đạn của game mình (đặt tên Việt, không dịch từ game gốc), 7 robot lấy 2 hệ kề nhau; cộng hưởng khi đội hình (chiến cơ chính + phụ + robot) trùng hệ. Đặt lại TÊN + CHỦ ĐỀ + TUYỆT KỸ cho 7 robot (giữ được 2 chiến cơ thành phần hiện tại hoặc đề xuất đổi).
 C. HỆ BẬC ROBOT (nuôi được, mở dần):
   - Số bậc (gợi ý dùng chung thang chiến cơ: Thường · Lục · Lam · Tím · Tím+5 · SS/MAX, hoặc 5 sao + +1…+10 như game gốc — chọn 1 và nói lý do).

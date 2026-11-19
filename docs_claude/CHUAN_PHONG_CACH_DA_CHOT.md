@@ -1,6 +1,7 @@
 # CHUẨN PHONG CÁCH ĐÃ CHỐT · Phi Đội Sao Băng (cập nhật 12/11/2026, V232–V233)
 
 ## QUY ĐỊNH HIỆN HÀNH (tóm tắt 14/11/2026 · phần dưới là nhật ký theo thời gian, nhiều mục đã bị thay thế)
+- **Robot siêu hợp thể (chủ dự án chốt 19/11 21:30)**: làm lại thành ROBOT CƠ KHÍ giống game gốc, có cả dáng nam và dáng nữ (dáng nữ vẫn giáp kín, mức mobile phổ thông); bỏ kiểu chiến giáp nữ `src/hop131`. Robot nâng bậc càng cao càng đẹp như tàu / trang bị. Thiết kế chờ Gemini (`de_xuat_cho/GUI_GEMINI_V307_ROBOT_HOP_THE.txt`).
 - **Thân 13 tàu**: giữ thiết kế đang có (13/11 14:17 "không sửa nữa"); tàu 4 = thân chủ dự án + Gemini (đỏ, 4 mắt, sừng), 10 bậc khác GPT căn theo bóng Tím.
 - **Cánh bung đã chốt (V293)**: 1 phượng hoàng (Gemini), 2 quạt pha lê gai (GPT), 3 gai băng (GPT V289), 4 vuốt trăng khuyết (GPT), 5 tia bình minh (GPT V290), 6 bóng ma nhiễu số (GPT V289), 7 vệt chém kiếm khí (GPT), 8 cánh dơi lửa (Gemini), 9 quạt radar (GPT), 10 mạng lục giác (GPT V290), 11 hư không xoáy (GPT V290), 12 bánh răng mặt số (GPT V290), 13 lưỡi hái sét tím (GPT V290).
 - **Luật cánh bung**: neon trong mờ / vệt sáng, mọc theo hình dáng tàu (không nhất thiết là cánh); rộng **2,5–3,5 lần bề rộng thân (tính cả sải hình bung; chốt cân đối 17/11, thay cho cả "2–2,5×" và "3–6×")**, bậc cao dùng cận trên, không vượt khung 1024; nón 60° trước mũi trống; không vòng khép kín; đáy không quá y≈760/1024; mọi chi tiết phải sáng (vẽ cộng sáng, vùng tối biến mất); 13 tàu khác dáng khi che màu.
