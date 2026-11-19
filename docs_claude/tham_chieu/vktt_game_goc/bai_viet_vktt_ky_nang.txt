@@ -1,0 +1,17 @@
+Tính năng mới: Vũ khí tối thượng
+Trước hết: chúng ta cần biết là: mỗi 10lv sẽ lên đời 1 lần, thứ tự lên đời là: trắng-lục-lam-lam+1->3-tím-tím+1->3-cam(huyền thoại)-huyền thoại+1->5
+Kỹ năng như sau:
+*Pháo đài (ảnh 1):
+-Kỹ năng cơ bản (Mái vòm sắt): khi sử dụng bom tối thượng, triệu hồi 1/1/2/2/3 pháo đài, giúp chặn 3/4/5/5/5 đợt tấn công, khi pháo đài bị trúng đạn sẽ tự động triển khai lá chắn và khoá vào máy bay địch gần nhất để trấn áp hoả lực.
+-Kỹ năng tối thượng (mở khoá ở cấp huyền thoại - kích hoạt sau 8-5 lần dùng vũ khí tối thượng ở dạng cơ bản, tương đương việc sd 8 quả bom ở cấp đầu tiên cho đến 5 bom ở cấp cao nhất- +5, kỹ năng tối thượng có thể kích hoạt chủ động): gọi lực lượng không quân chiến thuật tham chiến(gồm 5 trụ pháo laser chắn ngang), mỗi pháo đài được trang bị giáp dày có thể chịu được 6-8 đợt tấn công, tất cả pháo đài sẽ phát động cuộc tấn công dồn dập bằng laser theo chiều thẳng đứng
+*"Thế giới" (ảnh 2):
+-Kỹ năng cơ bản (Rối loạn thời gian): tự động kích hoạt mỗi 40 giây, phóng ra 1 thiết bị gây ra vụ nổ rối loạn thời gian, khiến mục tiêu bị trúng đòn trên không thể tấn công hoặc di chuyển trong 2,5/3/3,5/4/5s và tiến hành tích lũy sát thương trong thời gian đối phương bị ảnh hưởng, sau thời gian bị ảnh hưởng thì đối phương chịu ảnh hưởng sẽ phải gánh chịu 20/20/25/25/30% sát thương từ đòn tích lũy trên.
+-Kỹ năng tối thượng (mở khoá ở cấp huyền thoại - kích hoạt sau 3 lần dùng kỹ năng cơ bản, tương đương 100s sau lần đầu, và kể từ lần 2 là 120s mỗi lần, có thể kích hoạt chủ động): sau 1 thời gian ngắn, trường rối loạn thời gian sẽ bao phủ chiến trường, khiến toàn bộ đạn địch bị "đứng lại", kẻ địch không thể tấn công hoặc di chuyển trong 7-10s và tiến hành tích lũy sát thương trong thời gian đối phương bị ảnh hưởng, sau thời gian bị ảnh hưởng thì đối phương chịu ảnh hưởng sẽ phải gánh chịu 35-60% sát thương từ đòn tích lũy trên.
+*Ngôi sao săn bắn (ảnh 3):
+-Kỹ năng cơ bản (Sự hỗn loạn của vòng sao): nhặt 10/9/8/8/8 item bất kỳ, triệu hồi 1 lưỡi cưa có thể tự động săn tìm máy bay địch gần đó trong 8/8/9/10/10 giây và tấn công mục tiêu, mỗi item nhặt được sẽ kéo dài thời gian duy trì của lưỡi cưa thêm 2/2/2/2/2,5 giây, với thời gian tối đa là 15/15/15/20/25 giây.
+-Kỹ năng tối thượng (mở khoá ở cấp huyền thoại - kích hoạt ngay sau khi nhặt từ 6-4 item sau khi lưỡi cưa thường được kích hoạt - 6 item ở cấp 0 đến 4 item ở cấp +5): sau khi nhặt được 4-2 item (4 item ở cấp 0 đến 2 item ở cấp +5), lưỡi cưa sẽ tiến hoá thành 1 hình dạng mới, tăng 6% sát thương, có thể tiến hoá 1-3 lần; nhặt 2-1 item (2 item ở cấp đầu và 1 item ở cấp +5) sẽ giúp lưỡi cưa tạo ra 1 vụ nổ gây sát thương tới các mục tiêu xung quanh, mỗi vụ nổ gây ra sẽ khiến đối phương phải chịu hiệu ứng "dễ tổn thương" trong 3 giây (hiệu ứng "dễ tổn thương": tăng sát thương đối phương phải gánh chịu)
+Kết luận chung: cả 3 vũ khí mới trên đều cực kỳ mạnh, có thể dùng trong các hoàn cảnh khác nhau, nếu chơi chì được thì nên nâng cả 3.
+Lưu ý:
+-Lên đời nhiều thì giá mảnh vũ khí mỗi lần lên sẽ càng cao.
+-Kỹ năng tối thượng chỉ có hiệu lực trên slot chính, các slot phụ không có hiệu lực.
+Update: post chỉnh sửa lại mô tả kỹ năng tối thượng và thêm ảnh mô tả kỹ năng tối thượng

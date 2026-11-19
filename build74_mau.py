@@ -986,6 +986,8 @@ rep("</body>","<style id=\"sss307-css\">"+open('src/sss307.css',encoding='utf-8'
 # V307 (19/11 chủ dự án: "chỗ này không ổn"): lúc vào Bạo Tẩu cả thân tàu bị phủ trắng (bóng silhouette alpha tới 1) + quả cầu sáng bán kính 100 → giảm còn .35 và 64
 rep("ctx.globalAlpha=clamp(flash);ctx.drawImage(sup?cells.silS:cells.silN","ctx.globalAlpha=clamp(flash)*(window.FLASH307===false?1:.35);ctx.drawImage(sup?cells.silS:cells.silN")
 rep("VisualFX.ultimate(player.x,player.y,'#ffe28c',100);ring(player.x,player.y,'#ffb97c',75);","VisualFX.ultimate(player.x,player.y,'#ffe28c',window.FLASH307===false?100:64);ring(player.x,player.y,'#ffb97c',75);")
+rep("</body>","<style id=\"tb307-css\"></style><script id=\"tb307-js\">"+open('src/tb307.js',encoding='utf-8').read()+"</script></body>")  # V307 hiệu ứng + cơ chế trang bị (Gemini)
+rep("</body>","<script id=\"vktt307-img-js\">window.VKTT307_IMG="+json.dumps({os.path.splitext(f)[0]:'data:image/webp;base64,'+base64.b64encode(open('src/vktt307img/'+f,'rb').read()).decode() for f in sorted(os.listdir('src/vktt307img'))})+";</script><style id=\"vktt307-css\">"+open('src/vktt307.css',encoding='utf-8').read()+"</style><script id=\"vktt307-js\">"+open('src/vktt307.js',encoding='utf-8').read()+"</script></body>")  # V307 VKTT 3 hệ
 import base64 as _b64d,glob as _gd,os as _od
 _d307img='window.DAN307_IMG={'+','.join("'%s':'data:image/webp;base64,%s'"%(_od.path.basename(f)[:-5],_b64d.b64encode(open(f,'rb').read()).decode()) for f in sorted(_gd.glob('src/dan307img/*.webp')))+'};'
 rep("</body>","<script id=\"dan307-js\">"+_d307img+open('src/dan307.js',encoding='utf-8').read()+"</script></body>")  # V307 đạn chính kiểu mới (bản thử tàu 1)

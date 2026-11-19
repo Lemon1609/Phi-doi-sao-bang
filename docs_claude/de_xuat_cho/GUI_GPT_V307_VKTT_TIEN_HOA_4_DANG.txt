@@ -1,0 +1,17 @@
+GỬI GPT · VẼ DẠNG TIẾN HÓA CHO 4 VŨ KHÍ TỐI THƯỢNG (Phi Đội Sao Băng V307)
+
+Đính kèm 4 ảnh bạn đã vẽ: void_greatsword.png, solar_orbital_laser.png, prism_bastion.png, chronos_astrolabe.png.
+Trong game, vũ khí lên đời qua 16 nấc: Trắng → Lục → Lam (+1..+3) → Tím (+1..+3) → Huyền thoại (+1..+5). Mỗi lần lên đời hình phải "lớn" thêm như game mobile bắn máy bay.
+
+Hãy vẽ cho MỖI vũ khí 4 dạng, giữ đúng thiết kế lõi của ảnh đính kèm (cùng góc nhìn chính diện, cùng bố cục, cùng chủ đề):
+  Dạng 1 · Trắng–Lục–Lam: đúng như ảnh đính kèm, chỉ làm sạch nét (đây là bản gốc).
+  Dạng 2 · Tím: thêm 1 lớp giáp / cánh phụ, lõi sáng hơn, điểm nhấn tím (#b45cff) ở viền, kích thước chiếm thêm ~10 % khung.
+  Dạng 3 · Huyền thoại: khung kim loại mạ vàng (#ffc44a), thêm 2 bộ phận đối xứng mới (cánh, nòng, vòng quỹ đạo… hợp chủ đề), lõi phát sáng mạnh, ~20 % lớn hơn dạng 1.
+  Dạng 4 · Huyền thoại +5: dạng 3 + vòng năng lượng / hào quang mảnh quanh vũ khí, chi tiết tinh xảo nhất, vẫn đọc rõ hình khi thu nhỏ 64 px.
+
+Yêu cầu kỹ thuật:
+  - Ảnh vuông 512×512, nền ĐEN tuyền #000000 (sẽ tách nền bằng mã), vật thể ở giữa, chừa lề 6 %.
+  - Không chữ, không số, không khung thẻ, không nền cảnh.
+  - Phong cách giống ảnh đính kèm (kim loại sci-fi, neon, bóng đổ mềm) và giống bộ chiến cơ trong game.
+  - Màu chủ đề giữ theo vũ khí: Thánh Kiếm Hư Không tím; Pháo Laser Mặt Trời đỏ–cam; Pháo Đài Phản Xạ Quang lục–bạc; Đồng Hồ Thời Không cyan–đồng.
+  - Có thể gộp mỗi vũ khí thành 1 tấm 2048×512 (4 dạng nằm ngang, mỗi ô 512) hoặc 16 ảnh rời đặt tên <ten>_d1..d4.png.
