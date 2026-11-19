@@ -1,2 +1,1 @@
-html body #tele07#tele07#tele07{top:calc(env(safe-area-inset-top,0px) + 12px)!important}
-html body #pause#pause#pause{top:calc(env(safe-area-inset-top,0px) + 12px)!important}
+/* V307 · đã bỏ dời HUD theo tai thỏ (19/11): trên máy thật WebView đã chừa vùng trạng thái nên bị dời 2 lần, để lại ô tối cũ của nút tạm dừng */

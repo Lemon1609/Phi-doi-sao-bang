@@ -5,7 +5,7 @@
 //  • Tắt: window.DAN307B=false · bật thêm tàu khác: window.DAN307IDS=[0,...]
 (function(){
  const CFG={0:{rays:[2,3,4,5,6,7],tot:[8,16,28,40,50,60],len:[70,80,90,102,115,130],rate:6.5,speed:1250,
-   col:{thuong:'#ffb347',luc:'#ff8f2e',lam:'#ff6a24',tim:'#ff4a1e',tim5:'#ff7a1a',ss:'#ffcf5a'},core:'#fff1c4',bt:{rays:9,tot:76,col:'#ffd36a',len:120}}};
+   col:{thuong:'#ffb347',luc:'#ff8f2e',lam:'#ff6a24',tim:'#ff4a1e',tim5:'#ff7a1a',ss:'#ffcf5a'},core:'#fff1c4',bt:{rays:9,tot:76,col:'#ffd36a',len:84}}};
  // Bảng Gemini (tia × góc tổng theo bậc, tốc độ, nhịp). Tốc độ Gemini tính theo px màn 393 → nhân ~0,8 và chặn 1.400 để không xuyên qua quái (va chạm theo khung hình).
  const G=(rays,tot,sp,rate,bt,base,core)=>{const f=[.7,.8,.9,1,1.12,1.25];return {rays,tot,len:f.map(x=>Math.round(base*x)),rate,speed:Math.min(1400,Math.round(sp*.8)),col:{},core:core||'#ffffff',bt:{rays:bt,tot:76,col:'#ffe6a0',len:Math.round(base*1.3)}};};
  Object.assign(CFG,{
@@ -35,7 +35,7 @@
    s.damage=dmg;s.vx=vx;s.vy=vy;s.d307=1;s.t307=T[ti];s.c307=col;s.L307=L;s.bt307=bt;s.k307=k;s.age=0;}}
  function hook(){if(typeof Arsenal30==='undefined'||typeof Fighters28==='undefined'||!Fighters28.__d299||Arsenal30.__d307)return false;
   // gom mọi viên đạn chính của tàu đang bay vừa sinh ra (kể cả viên các mô-đun khác thêm sau: co303, v87, ss90…) → ngân hàng sát thương → phát lại theo nhịp mới
-  function sweep(){const id=(typeof selected!=='undefined')?selected:-1;if(!on(id)||typeof shots==='undefined')return;try{if(typeof activeRobot!=='undefined'&&activeRobot)return;}catch{}
+  function sweep(){const id=(typeof selected!=='undefined')?selected:-1;if(!on(id)||typeof shots==='undefined')return;try{if(mode!=='play')return;}catch{return;}/* sảnh trưng bày không cập nhật đạn → không đổi */try{if(typeof activeRobot!=='undefined'&&activeRobot)return;}catch{}
    const nw=shots.filter(s=>s.art28===id&&!s.d307&&!s.ray28&&!s.gearItem&&!s.ally&&!s.escort40&&!s.dead&&(s.age||0)<.06&&!(s.hit&&(s.hit.size||s.hit.length)));
    if(nw.length){if(bankId!==id){bank=0;bankId=id;}for(const s of nw){bank+=s.damage||0;s.dead=true;}const keep=new Set(nw);shots=shots.filter(s=>!keep.has(s));tpl=Object.assign({},nw[0]);}
    const now=performance.now()/1000;if(bank>0&&tpl&&now-last>=1/CFG[id].rate){last=now;emit(id);}}
@@ -53,8 +53,9 @@
   try{const c=document.createElement('canvas');c.width=im.naturalWidth;c.height=im.naturalHeight;const g=c.getContext('2d');if(!('filter' in g))return TC[key]=im;g.filter=f;g.drawImage(im,0,0);return TC[key]=c;}catch{return TC[key]=im;}}
  function draw(g,s){const L=s.L307,a=Math.atan2(s.vy,s.vx)+Math.PI/2,sp=SPR[s.art28]||[],alt=s.art28===11&&(s.k307&1),im=s.bt307?(alt?tinted(11,sp[1],'ss',1):IM[sp[1]]):tinted(s.art28,sp[0],s.t307,alt);
   if(im&&(im.width||im.naturalWidth)){const iw=im.naturalWidth||im.width,ih=im.naturalHeight||im.height,h=L*(s.bt307?1.05:1),w=h*iw/ih;
-   g.save();g.translate(s.x,s.y);g.rotate(a);g.globalCompositeOperation='source-over';g.globalAlpha=.95;g.drawImage(im,-w/2,-h*.12,w,h);
-   g.globalCompositeOperation='lighter';g.globalAlpha=s.bt307?.35:.22;g.drawImage(im,-w*.3,-h*.1,w*.6,h*.5);g.restore();return;}
+   const fa=Math.min(1,(s.age||0)/.07);/* V307: hiện dần 0,07 s đầu để loạt đạn vừa bắn không chồng thành khối sát mũi tàu */
+   g.save();g.translate(s.x,s.y);g.rotate(a);g.globalCompositeOperation='source-over';g.globalAlpha=.95*fa;g.drawImage(im,-w/2,-h*.12,w,h);
+   g.globalCompositeOperation='lighter';g.globalAlpha=(s.bt307?.35:.22)*fa;g.drawImage(im,-w*.3,-h*.1,w*.6,h*.5);g.restore();return;}
   drawCode(g,s);}
  function drawCode(g,s){const L=s.L307,c=s.c307,w=s.bt307?6:4.5,a=Math.atan2(s.vy,s.vx)+Math.PI/2,fl=Math.sin((s.age||0)*40);
   g.save();g.translate(s.x,s.y);g.rotate(a);

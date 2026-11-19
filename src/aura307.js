@@ -15,7 +15,7 @@
  const CA={};function tint(k,f){const im=IM[k];if(!im||!im.complete||!im.naturalWidth)return null;if(!f)return im;const key=k+'|'+f;if(CA[key])return CA[key];
   try{const c=document.createElement('canvas');c.width=im.naturalWidth;c.height=im.naturalHeight;const g=c.getContext('2d');if(!('filter' in g))return CA[key]=im;g.filter=f;g.drawImage(im,0,0);return CA[key]=c;}catch{return CA[key]=im;}}
  const on=()=>window.AURA307!==false;
- const tierOf=(id,a)=>{try{return Dan299.tierOf(id)||(a&&a.__f)||'tim';}catch{return (a&&a.__f)||'tim';}};
+ const tierOf=(id,a)=>{if(a&&a.__f)return a.__f;try{return Dan299.tierOf(id)||'tim';}catch{return 'tim';}};
  const QB={};for(let i=0;i<13;i++)QB[i]={thuong:.893,luc:.893,lam:.893,tim:.893,tim5:.893,ss:.893};
  // tàu chỉ đổi bậc SS: các bậc khác giữ thân Bạo Tẩu cũ (để QBT cũ)
  for(const i of [1,2,3,5,6,7,10])QB[i]={ss:.893};
@@ -34,7 +34,7 @@
   ctx.save();ctx.globalCompositeOperation='source-over';ctx.globalAlpha=.9;ctx.strokeStyle='#ffd600';ctx.lineWidth=2.5;ctx.lineCap='round';ctx.beginPath();ctx.arc(0,0,38,-Math.PI/2,-Math.PI/2+6.283*(rem/tot));ctx.stroke();ctx.restore();}
  function hook(){if(!window.BtFx218||BtFx218.__a307)return false;const ob=BtFx218.back,of=BtFx218.front;
   BtFx218.back=function(ctx,a,cell,cw,ch,size,isOn,now,ta,id){if(!on())return ob.apply(this,arguments);if(isOn){try{wings(ctx,id,tierOf(id,a),size,ta);}catch{}}else window.__bt307max=0;};
-  BtFx218.front=function(ctx,a,cell,cw,ch,size,isOn,now,ta,id){if(!on())return of.apply(this,arguments);if(isOn){try{arc(ctx,size);}catch{}}};
+  BtFx218.front=function(ctx,a,cell,cw,ch,size,isOn,now,ta,id){if(!on())return of.apply(this,arguments);if(isOn&&typeof mode!=='undefined'&&mode==='play'){try{arc(ctx,size);}catch{}}};
   BtFx218.__a307=1;return true;}
  if(!hook()){const t=setInterval(()=>{if(hook())clearInterval(t);},250);}
 })();
