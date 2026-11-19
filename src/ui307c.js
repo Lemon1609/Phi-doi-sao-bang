@@ -19,7 +19,7 @@
  let tip=null,tipT=0;function showTip(el,html){if(!tip){tip=document.createElement('div');tip.className='u7c-tip';document.body.appendChild(tip);}tip.innerHTML=html;const r=el.getBoundingClientRect();tip.style.left=Math.max(8,Math.min(innerWidth-228,r.left+r.width/2-110))+'px';tip.style.top=(r.bottom+6)+'px';tip.hidden=false;clearTimeout(tipT);tipT=setTimeout(()=>{tip.hidden=true;},2600);}
  function quests(){const bar=document.querySelector('.q77-bar');const mrw=document.querySelector('.q77-mrw');if(!bar||!mrw)return;mrw.classList.add('u7c-hide');const ms=[...bar.querySelectorAll('.q77-ms')],sp=[...mrw.children];ms.forEach((m,i)=>{if(m.__u7c)return;m.__u7c=1;m.addEventListener('click',()=>{const s=[...document.querySelectorAll('.q77-mrw>*')][i];if(s)showTip(m,'<b>Mốc '+(m.textContent||'').trim()+'</b><br>'+s.innerHTML.replace(/<b>[^<]*<\/b>/,''));},true);});}
  // vòng quay
- const WH={'✸':'icon_crossed_swords','★':'icon_crossed_swords','⚙':'icon_fusion_core','👕':'icon_skin_shard'};
+ const WH={'✸':'icon_crossed_swords','★':'icon_crossed_swords','⚙':'icon_fusion_core','👕':'icon_manh_skin'};
  function wheel(){for(const i of document.querySelectorAll('.w74wheel>span>i')){if(i.querySelector('img,.u7i'))continue;const t=i.textContent.trim();const k=WH[t];if(k&&I[k]){i.innerHTML='<img class="u7c-wi'+(t==='★'?' jack':'')+'" src="'+I[k]+'" alt="'+t+'">';}}}
  // icon chế độ
  const MODE=[[/PHÁ VÂY/,'icon_roguelite'],[/HẠT GIỐNG/,'icon_daily_seed'],[/THỬ THÁCH NGÀY/,'icon_daily_challenge'],[/BOSS VƯỢT HẠN/,'icon_boss_rush'],[/THẺ THÁNG/,'icon_monthly_pass'],[/THỂ LỰC/,'icon_stamina'],[/TIỆM SKIN|KHO SKIN/,'icon_skin_token']];
@@ -48,8 +48,11 @@
  function stamina(){if(!I.icon_stamina)return;for(const box of document.querySelectorAll('.m63:not([hidden]),#nav74p:not([hidden])')){const h=box.querySelector('.m63-eye,h3,h2,.n74pc>b,.n74pc h2');if(!h||!/THỂ LỰC/i.test(box.textContent.slice(0,200)))continue;const w=document.createTreeWalker(box,NodeFilter.SHOW_TEXT,{acceptNode:n=>n.nodeValue.includes('⚡')&&!n.parentElement.closest('.u7c-st')?1:2});const L=[];let n;while((n=w.nextNode()))L.push(n);for(const t of L){const f=document.createDocumentFragment();t.nodeValue.split(/(⚡)/).forEach(x=>{if(!x)return;if(x==='⚡'){const e=document.createElement('span');e.className='u7c-st u7i';e.textContent='⚡';f.appendChild(e);}else f.appendChild(document.createTextNode(x));});t.replaceWith(f);}}}
  // kết quả: ẩn hội thoại
  function result(){let m='';try{m=mode;}catch{}if(['reward','win','over'].includes(m)||document.body.classList.contains('res78')){const st=document.getElementById('st80');if(st&&!st.hidden){st.hidden=true;}}}
+ // đá khảm + tẩy đá vẽ lại (GPT 19/11): thay ảnh STONE71_ART (cùng đối tượng stone71 đọc), biểu tượng tẩy đá ở hộp TẨY ĐÁ
+ let stOK=0;function stones(){if(!stOK&&typeof STONE71_ART!=='undefined'){for(const k of ['stone_c1','stone_c2','stone_c3','stone_c4','stone_c5','stone_x3','stone_x4','stone_x5'])if(I['da_'+k])STONE71_ART[k]=I['da_'+k];stOK=1;}
+  if(I.icon_tay_da)for(const e of document.querySelectorAll('.st71-card .m63-eye')){if(/TẨY/.test(e.textContent)&&!e.querySelector('.u7c-tay'))e.insertAdjacentHTML('afterbegin','<img class="u7c-tay" src="'+I.icon_tay_da+'" alt="">');}}
  function s(){const on=window.UI307C!==false;const r=document.documentElement;r.classList.toggle('ui307c',on);if(!on)return;
   if(I.icon_stamina&&!r.style.getPropertyValue('--u7c-sta')){r.style.setProperty('--u7c-sta','url('+I.icon_stamina+')');for(const [k,f] of [['trang','white'],['luc','green'],['lam','blue'],['tim','purple'],['vang','gold']])if(I['slot_rarity_'+f])r.style.setProperty('--u7c-s-'+k,'url('+I['slot_rarity_'+f]+')');}
-  try{result();}catch{}let m='';try{m=mode;}catch{}if(m==='play')return;
+  try{result();}catch{}try{stones();}catch{}let m='';try{m=mode;}catch{}if(m==='play')return;
   for(const f of [thumbs,fleet,quests,wheel,modes,season,skins,evo,stamina])try{f();}catch(e){}}
  s();setInterval(s,450);})();

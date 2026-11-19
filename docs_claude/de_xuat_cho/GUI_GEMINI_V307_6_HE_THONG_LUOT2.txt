@@ -1,0 +1,30 @@
+GỬI GEMINI · LƯỢT 2 — CHỈNH LẠI BẢN ĐỀ XUẤT 6 HỆ THỐNG (Phi Đội Sao Băng V307)
+
+Cảm ơn bản lượt 1. Chủ dự án đã đọc và có quyết định sau, nhờ bạn làm lại các phần liên quan:
+
+QUYẾT ĐỊNH CỦA CHỦ DỰ ÁN: KHÔNG GỘP NGUYÊN LIỆU / TÀI NGUYÊN.
+Lý do: các tính năng trong game mở dần theo tiến độ (ải 45, 90, 100, 110, 120…), mỗi tính năng có nguyên liệu riêng giúp người chơi thấy mục tiêu mới. Vì vậy:
+ a) VKTT dùng 4 loại LINH KIỆN riêng A / B / C / D (không giữ 1 loại chung).
+ b) VKTT có THẺ EXP VKTT riêng để tăng cấp (không dùng chung Đá XP I–IV của trang bị).
+ c) ĐÁ NỘI TẠI là một kho riêng, KHÔNG thay thế / gộp 14 đá hiệu ứng hiện có của hệ Đá khảm. Hai hệ tồn tại song song, mở ở mốc khác nhau.
+ d) Không bỏ, không gộp bất kỳ tiền tệ nào đang có (◈, 💎, Đá XP I–IV, bản sao, nguyên liệu tiến khung, đá khảm, Lõi Siêu Hợp, mảnh phi công, Tinh Hạch, mảnh/linh kiện VKTT, tinh thể/bộ mã hóa/lõi chip, Mảnh Sao Cổ, Danh dự, mảnh skin).
+
+SỬA SAI SỐ LIỆU GAME TRONG BẢN LƯỢT 1 (để bảng mới khớp game):
+ 1. Tên 8 phi công chính đúng là: Lâm Phương · Hạ Vy · Kiều An · Thiên Lam · Bảo Ngọc · Mộc Miên · Hàn Sương · Tử Dạ. (Bản lượt 1 có "Bảo Sơn", "Hàn Băng", "Minh Quang" không tồn tại.) Mỗi lõi nên bám đúng nghề sẵn có của phi công đó trong game: Lâm Phương sượt đạn / Bạo Tẩu; Hạ Vy hỏa lực vùng; Kiều An khiên / hồi phục; Thiên Lam chí mạng / boss; Bảo Ngọc máu / hút vật phẩm; Mộc Miên chí mạng tạm thời; Hàn Sương làm chậm / băng; Tử Dạ sát thương lên mục tiêu yếu máu.
+ 2. Game KHÔNG còn "điểm giáp" trong trận (từ V78): giáp = lớp KHIÊN chặn 1 đòn rồi hồi lại sau một khoảng thời gian; trúng đòn là mất máu (tim). Vì vậy các hiệu ứng "hồi X % giáp", "khiên ảo bằng 20 % giáp", "giáp tối đa +9 %" phải viết lại theo khiên: ví dụ "hồi khiên nhanh hơn X giây", "nhận thêm 1 lớp khiên chặn 1 đòn", "khiên chặn được 2 đòn".
+ 3. Quái trong game không có chỉ số kháng / giáp riêng → dòng "Xuyên giáp (bỏ qua kháng)" và đá "bỏ qua 18 % giáp của địch" không có tác dụng. Đề xuất dòng khác thay thế (ví dụ sát thương lên tinh anh, sát thương lên địch bị khống chế, sát thương đạn phụ…).
+ 4. Chí mạng: hiện chỉ có ở kỹ năng phi công (Thiên Lam, Mộc Miên). Nếu thêm "tỉ lệ / sát thương chí mạng" vào chip hay đá thì nói rõ chí mạng áp cho đạn nào (đạn chính / trang bị / kỹ năng) và trần tổng.
+ 5. Đá khảm hiện có (V71): 5 phẩm Trắng → Cam, 4 vị trí, 5 ô/món mở theo khung; ô 1 chỉ số, ô 2 chỉ số/hiệu ứng, ô 3 + Ω/Σ, ô 4–5 hiệu ứng/Ω/Σ. Đề xuất Đá nội tại lắp vào đâu (ô riêng mới? ô nào? mở khi nào?) để không chiếm ô của 14 đá hiệu ứng cũ.
+
+NHỜ BẠN LÀM LẠI (giữ nguyên các phần lượt 1 không bị nêu ở trên: 8 bộ chip, 8 dòng khuếch đại trừ dòng xuyên giáp, ép xung tuần, khe nứt hư không):
+ A. Bảng 2 — 8 Lõi phi công với đúng tên + hiệu ứng theo nghề ở mục 1, hiệu ứng khiên theo mục 2. Nguồn Mảnh Lõi Phi Công (giữ: Khe nứt tầng 15+, Mùa giải, đổi điểm Tháp Boss).
+ B. Bảng 3 — 20 Đá nội tại là KHO RIÊNG: tên, chỉ số mốc Cam + tỉ lệ phẩm thấp, ô lắp riêng & mốc mở, nguồn rơi riêng (không trùng nguồn đá khảm cũ nếu được), và danh sách viên nào trùng ý tưởng với 14 đá hiệu ứng cũ thì đổi hướng cho khác hẳn (không đề xuất gộp).
+ C. Bảng 6 — Kinh tế VKTT có 4 linh kiện A/B/C/D + Thẻ EXP VKTT:
+    - Mỗi linh kiện gắn với 1 VKTT hay chia theo giai đoạn nấc (ví dụ A dùng Trắng→Lam+3, B Tím→Tím+3, C Huyền thoại→HT+2, D HT+3→HT+5)? Chọn 1 cách và giải thích.
+    - Bảng chi phí lên đời 16 nấc: mảnh / từng loại linh kiện / ◈.
+    - Bảng tăng cấp 1–100: Thẻ EXP VKTT + ◈ mỗi cấp theo nấc (trần cấp 10/20/…/100).
+    - Nguồn của từng loại linh kiện và Thẻ EXP (vòng quay, boss hạn giờ, nhiệm vụ ngày/tuần, Nguyệt Thực, mùa giải, khe nứt, Chợ Đen…), số lượng / ngày cho người chơi thường và người cày (chỉ dùng 💎 kiếm được miễn phí).
+    - Số ngày để 1 VKTT đạt Huyền thoại và HT+5 cho 2 loại người chơi.
+ D. Kiểm tra lại các con số có cộng dồn làm vượt trần lực chiến ~33.000 CP không, ghi rõ tổng cộng tối đa của: lõi phi công, đá nội tại, chip (chính + khuếch đại + buff Tuyệt mật).
+
+Định dạng trả lời: bảng số cụ thể như lượt 1, ghi (Giữ) / (Sửa) / (Mới) cạnh từng dòng.
