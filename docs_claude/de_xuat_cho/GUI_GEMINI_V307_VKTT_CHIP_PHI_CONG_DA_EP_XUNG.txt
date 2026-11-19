@@ -1,0 +1,65 @@
+GỬI GEMINI · ĐỀ XUẤT HOÀN THIỆN 6 HỆ THỐNG (Phi Đội Sao Băng V307 · game HTML5 bắn máy bay dọc, offline, học cách làm của game gốc "Chiến Cơ Huyền Thoại")
+
+Bối cảnh: chủ dự án không có đủ tư liệu game gốc cho 6 mục dưới đây. Nhờ bạn ĐỀ XUẤT thiết kế + bảng số cân đối với kinh tế hiện có của game. Claude (lập trình) sẽ cài theo bảng của bạn.
+
+LUẬT BẮT BUỘC (không được vi phạm)
+- Không tiền thật. Không thêm nguồn kim cương 💎 mới. "Sự kiện nạp tiền" của game gốc phải thay bằng nguồn miễn phí trong game (điểm danh, mùa giải, nhiệm vụ tuần, sự kiện tuần, thẻ tháng hiện có…).
+- Không chép số / tên riêng của game gốc; chỉ học cơ chế.
+- Mọi chỉ số % phải có trần; nêu rõ tổng tối đa khi đầy đủ.
+- Trả lời bằng bảng số cụ thể (không chỉ mô tả), ghi rõ con số nào là đề xuất mới, con số nào giữ nguyên.
+
+========================================================================
+SỐ LIỆU HIỆN CÓ CỦA GAME (để bạn cân đối)
+========================================================================
+Tiền tệ: ◈ hợp kim (tiền chính), 💎 kim cương (hiếm), Đá XP I–IV (15/60/240/1.000 XP), thể lực 288/ngày (trần 120).
+Lực chiến tối đa toàn game ≈ 33.000 CP; đầy đá khảm Cam ≈ +19 % CP.
+
+A. Vũ khí tối thượng (VKTT) — đã có 4 món: Pháo Đài · Thế Giới · Săn Sao · Lưới Điện Laser
+- 16 nấc: Trắng → Lục → Lam → Lam+1..3 → Tím → Tím+1..3 → Huyền thoại → HT+1..5; cấp trần 10/20/…/100.
+- 1 ô Chủ chiến (100 % chỉ số + kỹ năng) + 2 ô Trợ chiến (25 %, mở ải 100/120). Chỉ số = % tấn công/máu/giáp, trần 12 %.
+- Lên đời mỗi nấc: [mảnh, linh kiện, ◈] = [40,8,200] [80,16,400] [40,10,450] [50,10,500] [50,12,550] [60,16,650] [70,18,700] [70,20,800] [80,22,900] [100,28,1100] [150,40,1500] [200,50,1800] [250,60,2200] [300,70,2600] [350,80,3000].
+- Mỗi cấp: ◈ 40→130 + đá ⬢ 2→11 (⬢ nay = ◈×15).
+- Nguồn mảnh / linh kiện hiện tại:
+  • Ngày: hạ 1 boss lớn chiến dịch 6 mảnh + 1 LK; Vô tận đợt 10: 4 mảnh + 1 LK; vượt 3 ải: 6 mảnh + 2 LK (mỗi mục +200 ◈).
+  • Một lần: quà làm quen 10 mảnh + 2 LK; phá đảo chương 9: 20 + 5; thành tích ải 120: 20 + 4.
+  • Tuần: thắng 1 ải Nguyệt Thực 12 mảnh + 4 LK.  Chợ: 400 ◈ → 4 mảnh.
+  • Vòng quay may mắn (2 lượt free/ngày, trả phí 40–120 💎, x10 = 810 💎, bảo hiểm 10/50 lượt): ô 1/2 mảnh ngẫu nhiên, 5/10 mảnh tự chọn, jackpot 20, 2/5 linh kiện, 2 mảnh skin, 3.000 ◈, 50 💎.
+  • Boss hạn giờ (Phó bản giới hạn, 60 giây, 1 lượt free + 2 lượt mua 30/60 💎): 4 cấp CP 3.200/5.800/9.500/14.000 → mảnh tự chọn 3/5/8/12, LK 2/4/6/10, ◈ 1.500/2.500/4.000/6.000.
+- Game gốc (tham khảo, không chép): lên đời 100–500 mảnh + 5–50 linh kiện A/B/C/D + vàng rất lớn; tăng cấp bằng "Thẻ EXP" riêng + vàng.
+
+B. Chip (mô-đun) cho VKTT — đã có
+- 6 ô/vũ khí: Hỏa lực (vuông) ×2 · Cấu trúc (lục giác) ×2 · Mạch liên kết (tròn) ×2. Chỉ chip trên VKTT Chủ chiến có tác dụng. Mở ải 110.
+- 7 phẩm: Chế thức · Cải lương · Nguyên mẫu · Giao ước Nguyên mẫu · Chiến lược · Giao ước Chiến lược · Tuyệt mật (chỉ bản Giao ước / Tuyệt mật tính bộ).
+- Tham số chủ: Hỏa lực +0,6 % tấn công; Cấu trúc +0,6 % máu & giáp; Mạch +0,4 % mỗi loại (× hệ số phẩm × cấp/50). Trần +6 %/chỉ số/chip, cả bộ +18 %.
+- Dòng khuếch đại hiện có (1–3 dòng ngẫu nhiên): Tấn công / Máu / Giáp 0,2–0,67 %; Sát thương kỹ năng VKTT 1–4 % (trần 15 %); Tốc sạc tối thượng 0,5–2 % (trần 12 %); Sát thương kỹ năng lên boss 1–4 % (trần 15 %).
+- 8 bộ (3 món / 6 món): Thiên Tiệm, Trấn Áp (Pháo Đài); Thời Luật, Vĩnh Kiếp (Thế Giới); Cuồng Liệp, Tài Quyết (Săn Sao); Huyền Ca, Thiên Võng (Lưới Điện) — mô tả hiện tại đính kèm cuối tin.
+- Sản xuất 100 tinh thể + 150 ◈ (bảo hiểm 10 lần), Luyện 20 lần, Tái tạo 30 lần (khóa 1 dòng), Ghép 5→1, Phân giải. Cấp rơi 1–5 theo XP chip (nhiệm vụ) + tiến độ ải 110/130/150/170.
+
+C. Phi công — đã có 4 ô đội hình (1 chính + 3 phụ) + "cộng hưởng" khi đủ 4 (+10 % sượt đạn). Có "lõi" dùng khi tiến bậc Tím / Tím+5. Mỗi phi công chính có 3 mốc kỹ năng (Lam/Tím/Tím+5). CHƯA có "Lõi phi công" kiểu ma trận cộng hưởng như game gốc (ảnh: 4 ô lục giác quanh tâm, mỗi lõi = "nhận 25 % chỉ số chiến đấu của phi công X" + 1 hiệu ứng thêm).
+
+D. Đá khảm — đã có (V71): 5 phẩm Trắng→Cam, 4 vị trí (Chiến cơ · Giáp · Tên lửa · Tàu con), 5 ô/món mở theo khung; đá chỉ số + 14 đá hiệu ứng trong trận + Ω/Σ chỉ đúng mẫu. CHƯA có bộ "đá nội tại" kiểu game gốc (ví dụ: chiến cơ "+12 % sát thương lên boss", "Bạo Tẩu kéo dài 1 giây", "Vô tận: phá đợt 24 cộng toàn đội"…).
+
+E. Ép xung trang bị theo tuần — CHƯA có. Game gốc: mỗi tuần một số món được "ép xung" cộng % điểm (ví dụ 3 món +60 % → tổng 180 %), tạo áp lực đầu trận, cuối trận yếu, buộc dùng bom.
+
+F. Khe nứt hư không — CHƯA có. Game gốc: chế độ leo, tiến độ quyết định "cấp rơi" chip (cấp 10/20/30/40/50 với tỉ lệ), mở rương Hư không cộng kinh nghiệm cấp rơi.
+
+========================================================================
+NHỜ BẠN ĐỀ XUẤT (mỗi mục 1 bảng + 3–5 dòng giải thích)
+========================================================================
+1. Chip: hoàn chỉnh 8 bộ (giữ tên, có thể sửa số), danh sách đầy đủ dòng khuếch đại (6–10 dòng) với khoảng % theo phẩm, dòng "buff tổng" của Tuyệt mật; xác nhận trần.
+2. Lõi phi công: số lõi (gợi ý 8 = 1 lõi/phi công chính), hiệu ứng lắp (nhận X % chỉ số phi công) + hiệu ứng thêm của từng lõi, 4 ô (ô 4 mở muộn), cách lên cấp lõi (Lv1–5) và nguồn lõi.
+3. Đá nội tại: 4 nhóm × 5–6 viên kèm số, cách nhận (rơi ở đâu), có trùng/chồng với 14 đá hiệu ứng hiện có không — nếu trùng thì đề xuất gộp.
+4. Ép xung tuần: luật chọn món, % cộng điểm Vô tận, ảnh hưởng sát thương theo thời gian trận (đầu mạnh → cuối yếu?), thưởng.
+5. Khe nứt hư không: cách chơi (gợi ý: leo tầng như Tháp Boss nhưng quái + chướng ngại), thang cấp rơi chip 1–5 (thay ngưỡng ải 110/130/150/170 hiện tại), rương Hư không, thưởng mỗi tầng.
+6. Kinh tế VKTT: có nên tăng mảnh/linh kiện lên gần game gốc (100–500 mảnh), tách linh kiện A/B/C/D, thêm "Thẻ EXP VKTT" không? Nếu có: bảng nguồn mỗi ngày (vòng quay, boss hạn giờ, sự kiện tuần, mùa giải…) và số ngày để 1 VKTT lên Huyền thoại / HT+5 với người chơi thường (không trả 💎) và người cày.
+
+Bối cảnh trong game của 8 bộ chip hiện tại:
+- Thiên Tiệm: 3 món mỗi pháo/trụ chặn thêm 1 đòn · 6 món sạc tối thượng cần ít hơn 1 lần dùng bom.
+- Trấn Áp: 3 món pháo/trụ tồn tại +1 giây (tối đa 7) · 6 món dùng bom: 1 pháo nhỏ thành trụ laser 3 giây.
+- Thời Luật: 3 món tiếng nổ +4 % (tối thượng +6 %) · 6 món tối thượng đầu trận: Bạo Tẩu + bất tử 2 giây (có boss 1 giây).
+- Vĩnh Kiếp: 3 món hồi bom thời gian −4 giây (tối thiểu 20) · 6 món dừng quái thường +0,5 giây (tối thượng +1).
+- Cuồng Liệp: 3 món gọi 2 lưỡi cưa, mỗi lưỡi 60 % sát thương · 6 món sạc tối thượng cần ít hơn 2 vật phẩm.
+- Tài Quyết: 3 món mỗi vật phẩm kéo cưa thêm 0,25 giây (tối đa 12) · 6 món dễ tổn thương +2 % (tối đa 5 %).
+- Huyền Ca: 3 món lưới gây sát thương: mỗi 2 giây +1 tinh thể (tối đa 3/trận) · 6 món sau tối thượng đầu trận sạc sẵn 20 % lượt kế.
+- Thiên Võng: 3 món dùng bom gọi lưới cơ bản (hồi 60 giây) · 6 món địch càng xa tâm lưới càng nhận thêm sát thương (tối đa +20 %).
+(Game gốc tham khảo, không chép: Pháo đài 3 món +1 lần chịu đòn thường / +2 tối thượng, 6 món −1 lần kích tối thượng; Thế giới 3 món +10 %/+15 % sát thương tích lũy, 6 món tối thượng đưa chiến cơ sang không gian khác không bị đánh + Bạo Tẩu suốt; Lưỡi cưa 3 món 2 lưỡi −30 % mỗi lưỡi, 6 món −4 item kích tối thượng; Lưới điện 3 món địch trúng lưới rơi ngọc, 6 món trả lại 1 lần kỹ năng phi công.)
