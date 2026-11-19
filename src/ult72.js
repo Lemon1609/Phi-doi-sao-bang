@@ -128,7 +128,7 @@ const Ult72=(()=>{
  // ---------- sạc tối thượng ----------
  const U=()=>{const id=mainW();return id?C.sk[id].u:null;};
  function charge(){const id=mainW();if(!id||!isLegend(WP(id).r))return 0;if(B.ready)return 1;const u=U(),i=uIdx(WP(id).r);return Math.min(1,B.t/u.T[i]+B.ev/evReq(id,i)+(B.credit||0));}
- function evReq(id,i){let n=C.sk[id].u.ev[i];if(id==='fortress'&&X.has('fortress_1',6))n=Math.max(1,n-1);if(id==='hunter'&&X.has('hunter_1',6))n=Math.max(2,n-2);return n;}
+ function evReq(id,i){let n=C.sk[id].u.ev[i];if(id==='fortress'&&X.has('fortress_1',6))n=Math.max(1,n-1);if(id==='hunter'&&X.has('hunter_1',6))n=Math.max(2,n-3);return n;}
  function addEv(n=1){const id=mainW();if(!id||!isLegend(WP(id).r)||B.ready)return;B.ev+=n;}
  function useUlt(){const id=mainW();if(!playing()||!id||!isLegend(WP(id).r))return false;if(charge()<1){toast('TỐI THƯỢNG CHƯA SẠC ĐỦ');return false;}if(time-B.useAt<C.ultCd){toast('HỒI '+Math.ceil(C.ultCd-(time-B.useAt))+' GIÂY');return false;}
   B.useAt=time;B.t=0;B.ev=0;B.ready=0;B.credit=0;B.ultN=(B.ultN|0)+1;const i=uIdx(WP(id).r);ULT[id](i);try{if(typeof Stone71!=='undefined')Stone71.onUlt();}catch{}try{tone(660,.25,'sawtooth',.05);}catch{}return true;}
@@ -136,22 +136,22 @@ const Ult72=(()=>{
  const img={};function I(k){if(!ART[k])return null;let im=img[k];if(!im){im=new Image();im.src=ART[k];img[k]=im;}return im.complete&&im.naturalWidth?im:null;}
  const near=(x,y,pred)=>{let best=null,bd=1e12;for(const e of live()){if(pred&&!pred(e))continue;const d=dist2(e,x,y);if(d<bd){bd=d;best=e;}}return best;};
  // Pháo Đài
- function turrets(n,blk,life,dps,big){const list=[];const ys=big?H*.8:player.y+10;for(let k=0;k<n;k++){const x=big?W*(k+1)/(n+1):clamp(player.x+(k-(n-1)/2)*58,30,W-30),y=big?ys:clamp(player.y-48-(k%2)*16,60,H-40);list.push({ty:big?'tower':'turret',x,y,blk:blk+(X.has('fortress_1',3)?1:0),life:Math.min(7,life+(X.has('fortress_2',3)?1:0)),t:0,dps:dps/n,fl:0,tk:0,tgt:null});}B.ents=B.ents.filter(e=>e.ty!=='turret'&&e.ty!=='tower').concat(list);}
+ function turrets(n,blk,life,dps,big){const list=[];const ys=big?H*.8:player.y+10;for(let k=0;k<n;k++){const x=big?W*(k+1)/(n+1):clamp(player.x+(k-(n-1)/2)*58,30,W-30),y=big?ys:clamp(player.y-48-(k%2)*16,60,H-40);list.push({ty:big?'tower':'turret',x,y,blk:blk+(X.has('fortress_1',3)?(big?2:1):0),life:Math.min(7,life+(X.has('fortress_2',3)?1:0)),t:0,dps:dps/n,fl:0,tk:0,tgt:null});}B.ents=B.ents.filter(e=>e.ty!=='turret'&&e.ty!=='tower').concat(list);}
  function onBomb(){const id=mainW();if(id==='fortress'){const k=skIdx(WP(id).r),s=C.sk.fortress;turrets(s.n[k],s.blk[k],s.life[k],s.dps[k],false);if(X.has('fortress_2',6)){const t0=B.ents.find(e=>e.ty==='turret');if(t0){t0.ty='tower';t0.life=Math.min(3,t0.life);}}}
-  if(id==='web'&&X.has('web_2',3)&&B.basicT<=0&&time-(B.tvAt||-99)>=60){B.tvAt=time;net(false);B.basicT=cdOf('web',skIdx(WP('web').r));}if(time-B.lastBomb>=8){B.lastBomb=time;if(id==='fortress')addEv();}}
+  if(id==='web'&&X.has('web_2',3)&&B.basicT<=0&&time-(B.tvAt||-99)>=45){B.tvAt=time;net(false);B.basicT=cdOf('web',skIdx(WP('web').r));}if(time-B.lastBomb>=8){B.lastBomb=time;if(id==='fortress')addEv();}}
  // Thế Giới
  function timeBomb(){const k=skIdx(WP('world').r),s=C.sk.world;const t=near(player.x,player.y-200,e=>e.elite||e.large)||near(player.x,player.y-200,e=>!(e===boss||e.bossPart))||near(player.x,player.y);if(!t)return false;
-  const ex=X.has('world_2',6)?.5:0;const R=90*sc(),f={ty:'tfield',x:t.x,y:t.y,R,life:s.stop[k]+ex,t:0,rate:s.rate[k]+(X.has('world_1',3)?.04:0),cap:s.capD[k],rec:new Map(),small:true};for(const e of live()){if(dist2(e,t.x,t.y)<R*R){const isB=e===boss||e.bossPart;stop(e,isB?s.bstop[k]:s.stop[k]+ex);f.rec.set(e,e.hp);}}B.ents.push(f);addEv();return true;}
+  const ex=X.has('world_2',6)?.6:0;const R=90*sc(),f={ty:'tfield',x:t.x,y:t.y,R,life:s.stop[k]+ex,t:0,rate:s.rate[k]+(X.has('world_1',3)?.08:0),cap:s.capD[k],rec:new Map(),small:true};for(const e of live()){if(dist2(e,t.x,t.y)<R*R){const isB=e===boss||e.bossPart;stop(e,isB?s.bstop[k]:s.stop[k]+ex);f.rec.set(e,e.hp);}}B.ents.push(f);addEv();return true;}
  function cdOf(id,k){let c=C.sk[id].cd[k];if(id==='world'&&X.has('world_2',3))c=Math.max(20,c-4);return c;}
  // Săn Sao
- function saw(ult,i,mul=1,keep=false){const s=C.sk.hunter,k=skIdx(WP('hunter').r);const a=Math.random()*Math.PI*2,sp=240*sc();const o=ult?{ty:'saw',ult:1,form:0,evoN:0,life:s.u.life[i],maxAge:s.u.life[i]+6,dps:s.u.dps[i],vul:s.u.vul[i],R:44*sc()}:{ty:'saw',ult:0,form:0,life:s.life[k],maxAge:X.has('hunter_2',3)?12:s.maxAge[k],add:s.add[k]+(X.has('hunter_2',3)?.25:0),dps:s.dps[k]*mul,R:32*sc()};if(ult)o.vul=Math.min(.05,o.vul+(X.has('hunter_2',6)?.02:0));
+ function saw(ult,i,mul=1,keep=false){const s=C.sk.hunter,k=skIdx(WP('hunter').r);const a=Math.random()*Math.PI*2,sp=240*sc();const o=ult?{ty:'saw',ult:1,form:0,evoN:0,life:s.u.life[i],maxAge:s.u.life[i]+6,dps:s.u.dps[i],vul:s.u.vul[i],R:44*sc()}:{ty:'saw',ult:0,form:0,life:s.life[k],maxAge:X.has('hunter_2',3)?12:s.maxAge[k],add:s.add[k]+(X.has('hunter_2',3)?.25:0),dps:s.dps[k]*mul,R:32*sc()};if(ult)o.vul=Math.min(.09,o.vul+(X.has('hunter_2',6)?.03:0));
   Object.assign(o,{x:player.x,y:player.y-30,vx:Math.cos(a)*sp,vy:-Math.abs(Math.sin(a))*sp,t:0,tk:0,rot:0});if(!keep)B.ents=B.ents.filter(e=>!(e.ty==='saw'&&(ult||!e.ult)));B.ents.push(o);return o;}
- function sawBasic(){if(X.has('hunter_1',3)){saw(false,0,.6);saw(false,0,.6,true);}else saw(false);}
+ function sawBasic(){if(X.has('hunter_1',3)){saw(false,0,.65);saw(false,0,.65,true);}else saw(false);}
  // Lưới Điện
  function net(ult,i){const s=C.sk.web,k=skIdx(WP('web').r);const d=(ult?s.u.diag[i]:s.diag[k])*sc();const o={ty:'net',x:clamp(player.x,d/2,W-d/2),y:clamp(player.y-d*.45,d/2,H-d/2),d,life:ult?s.u.life[i]:s.life[k],dps:ult?s.u.dps[i]:s.dps[k],slow:ult?s.u.slow[i]:s.slow[k],ult:!!ult,t:0,tk:0};B.ents=B.ents.filter(e=>e.ty!=='net');B.ents.push(o);if(!ult)addEv();return o;}
  const ULT={
   fortress(i){const u=C.sk.fortress.u;turrets(u.towers,u.blk[i],u.life[i],u.dps[i],true);flashText('MÁI VÒM SẮT');},
-  world(i){const u=C.sk.world.u;const ex=X.has('world_2',6)?1:0;if(X.has('world_1',6)&&!B.tl6){B.tl6=1;try{activateSuper();}catch{}invuln=Math.max(invuln,boss&&!boss.dead?1:2);}const f={ty:'tfield',x:W/2,y:H/2,R:Math.max(W,H),life:u.stop[i]+ex,t:0,rate:u.rate[i]+(X.has('world_1',3)?.06:0),cap:u.capD[i],rec:new Map(),big:true};
+  world(i){const u=C.sk.world.u;const ex=X.has('world_2',6)?1.2:0;if(X.has('world_1',6)&&!B.tl6){B.tl6=1;try{activateSuper();}catch{}invuln=Math.max(invuln,boss&&!boss.dead?1.5:2.5);}const f={ty:'tfield',x:W/2,y:H/2,R:Math.max(W,H),life:u.stop[i]+ex,t:0,rate:u.rate[i]+(X.has('world_1',3)?.12:0),cap:u.capD[i],rec:new Map(),big:true};
    for(const e of live()){const isB=e===boss||e.bossPart;stop(e,isB?u.bstop[i]:u.stop[i]+ex);f.rec.set(e,e.hp);}freezeBullets(u.bul);B.ents=B.ents.filter(e=>e.ty!=='tfield'||!e.big);B.ents.push(f);flashText('RỐI LOẠN THỜI GIAN');},
   hunter(i){saw(true,i);flashText('VÒNG SAO HỖN LOẠN');},
   web(i){net(true,i);flashText('BỐN NEO ĐIỆN');if(X.has('web_1',6)&&!B.hc6){B.hc6=1;B.credit=.2;}}};
@@ -180,7 +180,7 @@ const Ult72=(()=>{
    else if(o.ty==='saw'){o.x+=o.vx*dt;o.y+=o.vy*dt;o.rot+=dt*(8+o.form*2);if(o.x<o.R||o.x>W-o.R)o.vx*=-1;if(o.y<o.R||o.y>H*.85)o.vy*=-1;o.x=clamp(o.x,o.R,W-o.R);o.y=clamp(o.y,o.R,H*.85);
      o.tk-=dt;if(o.tk<=0){o.tk=.25;const hit=live().filter(e=>dist2(e,o.x,o.y)<(o.R+18)*(o.R+18));const amt=spend(o.dps*(o.ult?C.sk.hunter.u.form[o.form]:1)*d0*.25);for(const e of hit){hitE(e,amt/hit.length);if(o.ult&&(!e.vulAt||time-e.vulAt>=2)){e.vul72=time+2;e.vulV=o.vul;e.vulAt=time;}}}}
    else if(o.ty==='net'){o.tk-=dt;const inside=live().filter(e=>inDiamond(e,o));for(const e of inside){const isB=e===boss||e.bossPart;stop(e,.3,isB?(o.ult?Math.min(C.sk.web.u.bossSlow,o.slow/2):o.slow/2):o.slow);}
-     if(o.tk<=0){o.tk=.25;const amt=spend(o.dps*d0*.25);const tv=X.has('web_2',6);if(inside.length)for(const e of inside){let m=1;if(tv){const dd=Math.hypot(e.x-o.x,e.y-o.y)/sc();m+=.2*Math.max(0,Math.min(1,(dd-140)/60));}hitE(e,amt/inside.length*m);}
+     if(o.tk<=0){o.tk=.25;const amt=spend(o.dps*d0*.25);const tv=X.has('web_2',6);if(inside.length)for(const e of inside){let m=1;if(tv){const dd=Math.hypot(e.x-o.x,e.y-o.y)/sc();m+=.24*Math.max(0,Math.min(1,(dd-140)/60));}hitE(e,amt/inside.length*m);}
       if(inside.length&&X.has('web_1',3)&&(B.hc|0)<3){B.hcT=(B.hcT||0)+.25;if(B.hcT>=2){B.hcT=0;B.hc=(B.hc|0)+1;try{X.crystal(1);}catch{}}}}}}
   B.ents=B.ents.filter(o=>o.t<(o.ty==='tfield'?o.life+.6:o.life));
   applyStops();applyBullets();}

@@ -10,16 +10,20 @@ const CHIP72={unlock:110,cap:500,
  sh:{fire:{n:'Hỏa lực',slot:'square',main:{atk:.006}},frame:{n:'Cấu trúc',slot:'hex',main:{hp:.006,armor:.006}},link:{n:'Mạch liên kết',slot:'round',main:{atk:.004,hp:.004,armor:.004}}},
  slots:['fire','fire','frame','frame','link','link'],
  aff:[{id:'atk',n:'Tấn công',min:.002,max:.006667,w:20},{id:'hp',n:'Máu',min:.002,max:.006667,w:15},{id:'armor',n:'Giáp',min:.002,max:.006667,w:15},
-  {id:'skill',n:'Sát thương kỹ năng VKTT',min:.01,max:.04,w:15,cap:.15},{id:'charge',n:'Tốc sạc tối thượng (theo thời gian)',min:.005,max:.02,w:15,cap:.12},{id:'boss',n:'Sát thương kỹ năng lên boss',min:.01,max:.04,w:10,cap:.15}],
+  {id:'skill',n:'Sát thương kỹ năng VKTT',min:.01,max:.04,w:15,cap:.15},{id:'charge',n:'Tốc sạc tối thượng (theo thời gian)',min:.005,max:.02,w:15,cap:.12},{id:'boss',n:'Sát thương kỹ năng lên boss',min:.01,max:.04,w:10,cap:.15},
+  /* V307 Gemini lượt 2: dòng 7 chí mạng · dòng 8 quái tinh anh (khoảng theo phẩm, không nhân hệ số phẩm) */
+  {id:'crit',n:'Sát thương chí mạng',qr:[[.012,.018],[.012,.018],[.02,.028],[.02,.028],[.032,.042],[.032,.042],[.05,.05]],w:12,cap:.20},
+  {id:'elite',n:'Sát thương lên quái tinh anh',qr:[[.01,.015],[.01,.015],[.018,.024],[.018,.024],[.028,.035],[.028,.035],[.04,.04]],w:12,cap:.15}],
+ tm307:{v:.015,lv:50,cap:.09},/* V307: chip Tuyệt mật cấp 50 trên vũ khí chủ chiến: +1,5% sát thương chuẩn toàn đội mỗi chip (tối đa 9%) */
  band:[[.6,0,.25],[.3,.25,.5],[.09,.5,.75],[.01,.75,1]],statCap:.06,
- sets:{fortress_1:{w:'fortress',n:'Thiên Tiệm',s3:'Mỗi pháo/trụ chặn thêm 1 đòn',s6:'Sạc tối thượng cần ít hơn 1 lần dùng bom'},
+ sets:{fortress_1:{w:'fortress',n:'Thiên Tiệm',s3:'Mỗi pháo chặn thêm 1 đòn (trụ tối thượng +2)',s6:'Sạc tối thượng cần ít hơn 1 lần dùng bom'},
   fortress_2:{w:'fortress',n:'Trấn Áp',s3:'Pháo/trụ tồn tại +1 giây (tối đa 7)',s6:'Dùng bom: 1 pháo nhỏ thành trụ laser (3 giây)'},
-  world_1:{w:'world',n:'Thời Luật',s3:'Tiếng nổ +4% (tối thượng +6%)',s6:'Tối thượng đầu trận: Bạo Tẩu + bất tử 2 giây (có boss: 1 giây)'},
-  world_2:{w:'world',n:'Vĩnh Kiếp',s3:'Hồi bom thời gian −4 giây (tối thiểu 20)',s6:'Dừng quái thường +0,5 giây (tối thượng +1)'},
-  hunter_1:{w:'hunter',n:'Cuồng Liệp',s3:'Gọi 2 lưỡi cưa, mỗi lưỡi 60% sát thương',s6:'Sạc tối thượng cần ít hơn 2 vật phẩm'},
-  hunter_2:{w:'hunter',n:'Tài Quyết',s3:'Mỗi vật phẩm kéo cưa thêm 0,25 giây (tối đa 12)',s6:'Dễ tổn thương +2% (tối đa 5%)'},
+  world_1:{w:'world',n:'Thời Luật',s3:'Tiếng nổ +8% (tối thượng +12%)',s6:'Tối thượng đầu trận: Bạo Tẩu + bất tử 2,5 giây (có boss: 1,5 giây)'},
+  world_2:{w:'world',n:'Vĩnh Kiếp',s3:'Hồi bom thời gian −4 giây (tối thiểu 20)',s6:'Dừng quái thường +0,6 giây (tối thượng +1,2)'},
+  hunter_1:{w:'hunter',n:'Cuồng Liệp',s3:'Gọi 2 lưỡi cưa, mỗi lưỡi 65% sát thương',s6:'Sạc tối thượng cần ít hơn 3 vật phẩm'},
+  hunter_2:{w:'hunter',n:'Tài Quyết',s3:'Mỗi vật phẩm kéo cưa thêm 0,25 giây (tối đa 12)',s6:'Trọng thương +3% (tối đa 9%)'},
   web_1:{w:'web',n:'Huyền Ca',s3:'Lưới đang gây sát thương: mỗi 2 giây +1 Tinh thể (tối đa 3/trận)',s6:'Sau tối thượng đầu trận: sạc sẵn 20% lượt kế'},
-  web_2:{w:'web',n:'Thiên Võng',s3:'Dùng bom gọi lưới cơ bản (hồi 60 giây)',s6:'Địch càng xa tâm lưới càng nhận thêm sát thương (tối đa +20%)'}},
+  web_2:{w:'web',n:'Thiên Võng',s3:'Dùng bom gọi lưới cơ bản (hồi 45 giây)',s6:'Địch càng xa tâm lưới càng nhận thêm sát thương (tối đa +24%)'}},
  prod:{cry:100,cr:150,daily:50,pity:10},
  drop:[{xp:0,st:0,q:[.55,.30,.13,.02],mut:[.05,.10,0],lv:[.9,.1,0,0,0]},{xp:100,st:110,q:[.45,.33,.18,.04],mut:[.10,.15,0],lv:[.65,.30,.05,0,0]},{xp:300,st:130,q:[.35,.35,.23,.07],mut:[.20,.25,.01],lv:[.35,.40,.20,.05,0]},
   {xp:600,st:150,q:[.25,.35,.28,.12],mut:[.30,.40,.03],lv:[.15,.30,.35,.18,.02]},{xp:1000,st:170,q:[.15,.32,.33,.20],mut:[.40,.55,.05],lv:[.05,.15,.35,.30,.15]}],
@@ -90,14 +94,14 @@ const Chip72=(()=>{
   const c={id:'c'+Date.now().toString(36)+(++S.ser).toString(36),q,sh:o.sh||pick(SHAPES),set:null,lv:o.lv||10*(1+rnd(D.lv)),ln:[],eq:null,lock:0,ref:0,reb:0,rbi:null,spent:0,mod:0};
   if(C.q[q].set)c.set=o.set||pick(SETS);c.ln=lines(q);return c;}
  const A=id=>C.aff.find(a=>a.id===id);
- const lval=(c,l)=>{if(isNL(l)){const f=NL.f[l.a],A_=isA(l),r=f.cat?f.cat[l.t]:(A_?f.armor:String(l.t)[1]===':'?f.weapon:f.ship);return r?(r[0]+(r[1]-r[0])*l.u)/100*(A_?NL.rsA:NL.rs)[c.q]:0;}const a=A(l.a);return (a.min+(a.max-a.min)*l.u)*C.q[c.q].k;};
+ const lval=(c,l)=>{if(isNL(l)){const f=NL.f[l.a],A_=isA(l),r=f.cat?f.cat[l.t]:(A_?f.armor:String(l.t)[1]===':'?f.weapon:f.ship);return r?(r[0]+(r[1]-r[0])*l.u)/100*(A_?NL.rsA:NL.rs)[c.q]:0;}const a=A(l.a);if(a.qr){const r=a.qr[c.q];return r[0]+(r[1]-r[0])*l.u;}return (a.min+(a.max-a.min)*l.u)*C.q[c.q].k;};
  const mval=(c,st)=>(C.sh[c.sh].main[st]||0)*C.q[c.q].k*(c.lv/50);
  const room=()=>S.ch.length<C.cap;
  // ---------- tổng hợp trên vũ khí ----------
  const onW=w=>S.ch.filter(c=>c.eq&&c.eq.w===w);
- function agg(w){const T={atk:0,hp:0,armor:0,skill:0,charge:0,boss:0,set:{},nl:[]};for(const c of onW(w)){for(const st of ['atk','hp','armor'])T[st]+=mval(c,st);for(const l of c.ln){if(isNL(l))T.nl.push([l.a,l.t,lval(c,l)]);else T[l.a]+=lval(c,l);}if(C.q[c.q].set&&c.set&&C.sets[c.set].w===w)T.set[c.set]=(T.set[c.set]|0)+1;}
-  for(const st of ['atk','hp','armor'])T[st]=Math.min(C.statCap,T[st]);for(const a of C.aff)if(a.cap)T[a.id]=Math.min(a.cap,T[a.id]);return T;}
- let cache=null,cAt=0;const mainAgg=()=>{const now=performance.now();if(cache&&now-cAt<500)return cache;const m=Ult72.mainW();cache=m?agg(m):{atk:0,hp:0,armor:0,skill:0,charge:0,boss:0,set:{},nl:[]};cAt=now;return cache;};
+ function agg(w){const T={atk:0,hp:0,armor:0,skill:0,charge:0,boss:0,crit:0,elite:0,tm:0,set:{},nl:[]};for(const c of onW(w)){if(c.q===6&&c.lv>=C.tm307.lv)T.tm+=C.tm307.v;for(const st of ['atk','hp','armor'])T[st]+=mval(c,st);for(const l of c.ln){if(isNL(l))T.nl.push([l.a,l.t,lval(c,l)]);else T[l.a]+=lval(c,l);}if(C.q[c.q].set&&c.set&&C.sets[c.set].w===w)T.set[c.set]=(T.set[c.set]|0)+1;}
+  for(const st of ['atk','hp','armor'])T[st]=Math.min(C.statCap,T[st]);for(const a of C.aff)if(a.cap)T[a.id]=Math.min(a.cap,T[a.id]);T.tm=Math.min(C.tm307.cap,T.tm);return T;}
+ let cache=null,cAt=0;const mainAgg=()=>{const now=performance.now();if(cache&&now-cAt<500)return cache;const m=Ult72.mainW();cache=m?agg(m):{atk:0,hp:0,armor:0,skill:0,charge:0,boss:0,crit:0,elite:0,tm:0,set:{},nl:[]};cAt=now;return cache;};
  const bump=()=>{cache=null;try{Combat.render&&Combat.render();}catch{}};
  // ---- V193 · hệ số trong trận (chỉ chip của vũ khí CHỦ CHIẾN) ----
  const sup193=()=>{try{return superTime>0;}catch{return false;}};
@@ -124,8 +128,19 @@ const Chip72=(()=>{
   try{Object.defineProperty(it,'__c193',{value:1});Object.defineProperty(it,'auxDamage',{configurable:true,enumerable:true,get(){return inBattle()?base*gearM(it):base;},set(v){const m=inBattle()?gearM(it):1;base=m?v/m:v;}});}catch{}}
  try{const ost=Progress.stats;Progress.stats=function(){const r=ost.apply(this,arguments);try{if(V193()&&r){for(const it of (r.auxiliary||[]))inst193(it);for(const it of (r.equipment||[]))inst193(it);}}catch{}return r;};}catch{}
  // móc vào Ult72
- const X=Ult72.X;X.stat=st=>mainAgg()[st]||0;X.mod=k=>{const v=mainAgg()[k]||0;if(k==='skill'&&V193()){const a=nlMult([],'vktt',V195()?NL.capV:0);if(a!==1)return (1+v)*a-1;}return v;};X.has=(set,n)=>(mainAgg().set[set]|0)>=n;X.crystal=n=>{S.mat.cry+=n|0;save();};
+ const X=Ult72.X;X.stat=st=>mainAgg()[st]||0;X.mod=k=>{let v=mainAgg()[k]||0;if(k==='skill'&&ON307())v=(1+v)*(1+critEV())-1;if(k==='skill'&&V193()){const a=nlMult([],'vktt',V195()?NL.capV:0);if(a!==1)return (1+v)*a-1;}return v;};X.has=(set,n)=>(mainAgg().set[set]|0)>=n;X.crystal=n=>{S.mat.cry+=n|0;save();};
  X.onClaim=(kind,k)=>{if(!unlocked())return;const o=C.daily[kind]&&C.daily[kind][k];if(!o)return;for(const m of ['cry','coder','core'])if(o[m])S.mat[m]+=o[m];if(o.xp)S.xp+=o.xp;save();};
+ // ---- V307 · dòng chí mạng / tinh anh / Tuyệt mật (tắt: window.CHIP307=false) ----
+ const ON307=()=>window.CHIP307!==false;
+ // Chí mạng gốc (CRIT66) chuẩn hóa trung bình → dòng chip nhân riêng lên đòn chí mạng sau khi đã chuẩn hóa (tăng thật = tỉ lệ chí mạng × dòng)
+ try{const os=shot;shot=function(){const r=os.apply(this,arguments);try{const sh=shots.at(-1);if(ON307()&&sh&&sh.crit66&&!sh.c307){sh.c307=1;const v=mainAgg().crit||0;if(v>0)sh.damage*=1+v;}}catch{}return r;};}catch{}
+ const critEV=()=>{try{return (CRIT66.chance||0)*(mainAgg().crit||0);}catch{return 0;}};
+ // Tinh anh: giảm máu quái tinh anh lúc xuất hiện = +x% sát thương lên chúng (mọi nguồn)
+ try{const oa=addEnemy;const f=function(e){const r=oa.apply(this,arguments);try{if(ON307()&&e&&e.elite&&!e.bossPart&&e!==boss&&!e.__c307){e.__c307=1;const v=mainAgg().elite||0;if(v>0){e.hp/=1+v;e.maxHp=e.hp;if(e.guard)e.guard/=1+v;}}}catch{}return r;};window.addEnemy=f;try{addEnemy=f;}catch{}}catch{}
+ // Tuyệt mật: nhân sát thương toàn đội (ngoài trần khuếch đại)
+ const tm=()=>ON307()?(mainAgg().tm||0):0;
+ try{const of=Combat.factor;Combat.factor=function(){const v=of.apply(this,arguments);try{return v*(1+tm());}catch{return v;}};}catch{}
+ try{const ost=Combat.stats;Combat.stats=function(){const r=ost.apply(this,arguments);try{const b=tm();if(r&&b>0){const a0=r.attack;r.attack*=1+b;r.cp=Math.round(r.cp+(r.attack-a0)*24);}}catch{}return r;};}catch{}
  // ---------- thao tác ----------
  function equip(id,w,slot){const c=S.ch.find(x=>x.id===id);if(!c||C.slots[slot]!==c.sh)return false;for(const x of S.ch)if(x.eq&&x.eq.w===w&&x.eq.s===slot)x.eq=null;c.eq={w,s:slot};save();bump();return true;}
  function unequip(id){const c=S.ch.find(x=>x.id===id);if(!c||!c.eq)return false;c.eq=null;save();bump();return true;}
@@ -205,7 +220,7 @@ const Chip72=(()=>{
   const sets=SETS.filter(s=>C.sets[s].w===W).map(s=>{const n=T.set[s]|0,S_=C.sets[s];return `<div class="c72-set ${n>=3?'on':''}">${ART['chip_'+s]?`<img src="${ART['chip_'+s]}" alt="">`:''}<div><b>${S_.n} <em>${n}/6</em></b><small class="${n>=3?'on':''}">(3) ${esc(S_.s3)}</small><small class="${n>=6?'on':''}">(6) ${esc(S_.s6)}</small></div></div>`;}).join('');
   el.innerHTML=`<div class="m63-card adv-card u72-card"><div class="m63-eye">CHIP GIAO THỨC · ${esc(U.nm[W].toUpperCase())}</div><h3>${isMain?'':'<span class="c72-warn">Chỉ có tác dụng khi là CHỦ CHIẾN</span>'}</h3>${matRow()}
    <div class="c72-socks">${socks}</div>
-   <div class="adv-cmp"><div><i>CHỈ SỐ TỪ CHIP</i>Tấn công +${pc(T.atk)} · Máu +${pc(T.hp)} · Giáp +${pc(T.armor)} <small>(trần ${pc(C.statCap)})</small></div><div><i>KỸ NĂNG</i>ST +${pc(T.skill)} · Sạc +${pc(T.charge)} · Lên boss +${pc(T.boss)}</div></div>
+   <div class="adv-cmp"><div><i>CHỈ SỐ TỪ CHIP</i>Tấn công +${pc(T.atk)} · Máu +${pc(T.hp)} · Giáp +${pc(T.armor)} <small>(trần ${pc(C.statCap)})</small></div><div><i>KỸ NĂNG</i>ST +${pc(T.skill)} · Sạc +${pc(T.charge)} · Lên boss +${pc(T.boss)}${T.crit?' · Chí mạng +'+pc(T.crit):''}${T.elite?' · Tinh anh +'+pc(T.elite):''}${T.tm?' · <b style="color:#ffd23a">Tuyệt mật +'+pc(T.tm)+' toàn đội</b>':''}</div></div>
    ${typeof TapBan200!=='undefined'&&TapBan200.on()?TapBan200.btn:''}${nlBox193(T)}<div class="c72-sets">${sets}</div>
    <div class="adv-btns"><button class="adv-x" data-a="back">‹ VŨ KHÍ</button><button class="adv-x" data-a="inv" data-v="all">KHO CHIP · ${S.ch.length}</button><button class="m63-go" data-a="forge">LÒ SẢN XUẤT</button></div></div>`;el.hidden=false;}
  function nlBox193(T){if(!V193()||!T.nl||!T.nl.length)return '';const G={};for(const [a,t,v] of T.nl){const f=NL.f[a];const key=f.cat?'all:'+t:t;const g=G[key]=G[key]||{t,cat:!!f.cat,b:0,bs:0,f:0,fs:0};
@@ -228,7 +243,7 @@ const Chip72=(()=>{
  function detail(id){const c=S.ch.find(x=>x.id===id);if(!c)return inv();const up=c.lv<50?C.up[c.lv/10-1]:null;const adv=c.q>=2;
   el.innerHTML=`<div class="m63-card adv-card u72-card"><div class="m63-eye">CHIP · ${esc(C.sh[c.sh].n.toUpperCase())}</div><h3 style="color:${C.q[c.q].c}">${esc(C.q[c.q].n)} <span class="fr70" style="--fc:${C.q[c.q].c}">Lv ${c.lv}</span></h3>
    <div class="c72-big">${chipIc(c,'big')}</div>${c.set?`<p class="adv-cost">Bộ <b>${esc(C.sets[c.set].n)}</b> (${esc(U.nm[C.sets[c.set].w])})</p>`:'<p class="adv-cost">Không tính bộ</p>'}
-   <p class="u72-sk"><b>Tham số chủ</b>${mainTxt(c)}</p><ul class="c72-ln">${c.ln.map((l,j)=>lineTxt(c,l,j)).join('')}</ul>
+   <p class="u72-sk"><b>Tham số chủ</b>${mainTxt(c)}</p><ul class="c72-ln">${c.ln.map((l,j)=>lineTxt(c,l,j)).join('')}</ul>${c.q===6?`<p class="u72-sk" style="color:#ffd23a"><b>Tuyệt mật</b>+1,5% sát thương chuẩn toàn đội${c.lv>=C.tm307.lv?'':' · mở ở cấp '+C.tm307.lv}</p>`:''}
    ${adv?`<p class="adv-cost">Luyện ${c.ref}/${C.refine.max} (${C.refine.cry} tinh thể + ${C.refine.cr} ◈) · Tái tạo ${c.reb}/${C.rebuild.max} (${C.rebuild.coder} mã hóa + ${C.rebuild.core} lõi + ${C.rebuild.cr} ◈)</p>
     <div class="c72-rr">${c.ln.map((l,j)=>`<button data-a="ref" data-v="${c.id}|${j}">LUYỆN DÒNG ${j+1}</button>`).join('')}${c.ln.map((l,j)=>c.rbi==null||c.rbi===j?`<button class="gold" data-a="reb" data-v="${c.id}|${j}">TÁI TẠO DÒNG ${j+1}</button>`:'').join('')}</div>`.replace(/^[\s\S]*$/,m=>V191()?btn191(c):m):'<p class="adv-cost">Luyện / Tái tạo: chỉ chip từ Nguyên mẫu trở lên.</p>'}
    <div class="u72-acts"><button class="hb-btn cyan" data-a="up" data-v="${c.id}" ${up?'':'disabled'}>NÂNG CẤP<small>${up?up[0]+' lõi · '+up[1]+' ◈':'Lv 50 tối đa'}</small></button><button class="hb-btn" data-a="lock" data-v="${c.id}">${c.lock?'MỞ KHÓA':'KHÓA BẢO VỆ'}<small>chặn phân giải / luyện</small></button>
