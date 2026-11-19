@@ -13,7 +13,7 @@ with sync_playwright() as p:
   chk('Ải 132 dùng số Chương 7 (đá 2,5× · tháp 4,0× · 22 s · bắn 2,4 s)',c['c'] and c['c']['asteroidHpMult']==2.5 and c['c']['turretPairSec']==22 and c['c']['turretShotCd']==2.4,c)
   r=pg.evaluate("()=>{HAZ208X._T().length=0;HAZ208X._spawnTur();const t=HAZ208X._T();return {n:t.length,d:+(t[1].cd-t[0].cd).toFixed(2),pid:t[0].pid===t[1].pid}}")
   chk('Cặp tháp: tháp phải bắn lệch pha 1,2 s',r['n']==2 and abs(r['d']-1.2)<.01 and r['pid'],r)
-  r=pg.evaluate("""async()=>{invuln=99;const cr0=Progress.balance(),s0=drops.filter(d=>d.type==='star'&&d.big).length;const m0=(V77.run()||{}).medals||0;const t=HAZ208X._T();t.forEach(o=>{o.y=200;});t[0].hp=-1;await new Promise(r=>setTimeout(r,300));const mid=Progress.balance()-cr0;t[1].hp=-1;await new Promise(r=>setTimeout(r,300));
+  r=pg.evaluate("""async()=>{invuln=99;const cr0=Progress.balance(),s0=drops.filter(d=>d.type==='star'&&d.big).length;const m0=(V77.run()||{}).medals||0;const t=HAZ208X._T();t.forEach(o=>{o.y=200;});t[1].hp=1e9;t[0].hp=-1;await new Promise(r=>setTimeout(r,300));const mid=Progress.balance()-cr0;t[1].hp=-1;await new Promise(r=>setTimeout(r,300));
     const big=drops.filter(d=>d.type==='star'&&d.big);return {cr1:mid,cr:Progress.balance()-cr0,big:big.length-s0,val:big.map(d=>d.val),xs:big.map(d=>Math.round(d.x)),W,S9:HAZ208X.S9,med:((V77.run()||{}).medals||0)-m0}}""")
   chk('Phá 1 tháp: +25 ◈ và 1 sao lớn 140 điểm',r['cr1']==25 and 140 in r['val'],r)
   chk('Phá trọn cặp: tổng +110 ◈ (25+25+60), 2 sao lớn, rơi huy chương',r['cr']==110 and r['big']==2 and r['S9']['pairs']==1 and r['med']>=1,r)
