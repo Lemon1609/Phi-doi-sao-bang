@@ -971,6 +971,7 @@ rep("</body>","<script id=\"b10307-img-js\">window.B10307_IMG="+json.dumps({os.p
 _a307img='window.AURA307_IMG={'+','.join("'%s':'data:image/webp;base64,%s'"%(__import__('os').path.basename(f)[:-5],__import__('base64').b64encode(open(f,'rb').read()).decode()) for f in sorted(__import__('glob').glob('src/aura307img/*.webp')))+'};'
 rep("</body>","<script id=\"aura307-js\">"+_a307img+open('src/aura307.js',encoding='utf-8').read()+"</script></body>")  # V307 cánh Bạo Tẩu 6 bậc
 rep("</body>","<style id=\"tran307-css\">"+open('src/tran307.css',encoding='utf-8').read()+"</style><script id=\"tran307-js\">"+open('src/tran307.js',encoding='utf-8').read()+"</script></body>")  # V307 bước 2 trong trận
+rep("</body>","<script id=\"ui307-img-js\">window.UI307_IMG="+json.dumps({os.path.splitext(f)[0]:'data:image/webp;base64,'+base64.b64encode(open('src/ui307img/'+f,'rb').read()).decode() for f in sorted(os.listdir('src/ui307img'))})+";</script><style id=\"ui307-css\">"+_ui306css(open('src/ui307.css',encoding='utf-8').read())+"</style><script id=\"ui307-js\">"+open('src/ui307.js',encoding='utf-8').read()+"</script></body>")  # V307 bước 3 quy chuẩn giao diện
 import base64 as _b64d,glob as _gd,os as _od
 _d307img='window.DAN307_IMG={'+','.join("'%s':'data:image/webp;base64,%s'"%(_od.path.basename(f)[:-5],_b64d.b64encode(open(f,'rb').read()).decode()) for f in sorted(_gd.glob('src/dan307img/*.webp')))+'};'
 rep("</body>","<script id=\"dan307-js\">"+_d307img+open('src/dan307.js',encoding='utf-8').read()+"</script></body>")  # V307 đạn chính kiểu mới (bản thử tàu 1)

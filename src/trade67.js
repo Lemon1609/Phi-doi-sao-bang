@@ -151,7 +151,7 @@ const Trade67=(()=>{
      return `<div class="tr67-skin" style="--c:${s.col||'#8fb6d8'}">${s.art&&TRADE_ART[s.art]?(s.t==='bom'?`<span class="tr67-art bom" style="background-image:url(${TRADE_ART[s.art]})"></span>`:`<img class="tr67-art" src="${TRADE_ART[s.art]}" alt="">`):'<i></i>'}<b>${s.n}</b><small>Hạng ${s.r}</small><small class="tr81f">${FOR81[s.t]}</small>${btn}</div>`;}).join('')+'</div>').join('');}}
   el.innerHTML=`<div class="m63-card tr67-wrap">${tab==='bm'&&TRADE_ART.merchant?`<img class="tr67-merchant" src="${TRADE_ART.merchant}" alt="">`:''}<div class="m63-eye">TRẠM GIAO DỊCH</div><h3>${tab==='bm'?'CHỢ ĐEN':'KHO SKIN'}</h3>
    <div class="ex67-tabs tr67-tabs"><button data-x="tab" data-v="bm" aria-pressed="${tab==='bm'}">CHỢ ĐEN</button><button data-x="tab" data-v="skin" aria-pressed="${tab==='skin'}">KHO SKIN</button><button data-x="hull">THÂN TÀU ›</button></div>
-   <p class="pl67-sum">◈ ${fmt(Progress.balance())} · ⬢ ${fmt(Workshop.expBalance())} · Lõi ${fmt(cores())}</p>${msg?`<p class="pl67-msg">${msg}</p>`:''}${body}
+   <p class="pl67-sum">◈ ${fmt(Progress.balance())} · Lõi ${fmt(cores())}</p>${msg?`<p class="pl67-msg">${msg}</p>`:''}${body}
    <div class="m63-btns" style="display:flex;margin-top:12px"><button class="m63-go" data-x="close">ĐÓNG</button></div></div>`;}
  function openP(t){if(!open('market')&&!open('skins')){try{toast('MỞ KHÓA SAU KHI VƯỢT ẢI 18 · TRẠM GIAO DỊCH');}catch{}return;}if(t)tab=t;if(!el)build();el.hidden=false;render();}
  function close(){if(el)el.hidden=true;}
