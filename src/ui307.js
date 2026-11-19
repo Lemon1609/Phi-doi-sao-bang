@@ -3,7 +3,7 @@
 (()=>{const I=window.UI307_IMG||{},H=window.HOP307_IMG||{};let st=0;
  function sh(v){const f=(x,u)=>(Math.floor(x*10)/10).toLocaleString('vi-VN',{maximumFractionDigits:1})+u;return v>=1e9?f(v/1e9,'B'):v>=1e6?f(v/1e6,'M'):f(v/1e3,'K');}
  const NUM=['#q307 b','#q307 small','#q307 span','#q307 div','#h1-cr','#h1-core','.nc307-gem small','.h1-chip b','.hb-res b','#hb-res span','#hb-res i'];
- function nums(){for(const e of document.querySelectorAll(NUM.join(','))){for(const n of e.childNodes){if(n.nodeType!==3)continue;const t=n.nodeValue;const r=t.replace(/\d{1,3}(?:\.\d{3})+|\d{6,}/g,m=>{const v=+m.replace(/\./g,'');return v>=1e5?sh(v):m;});if(r!==t){n.nodeValue=r;e.title=t.trim();}}}}
+ function nums(){for(const e of document.querySelectorAll(NUM.join(','))){for(const n of e.childNodes){if(n.nodeType!==3)continue;const t=n.nodeValue;const r=t.replace(/(\d{1,3}(?:\.\d{3})+),(\d)M\b/g,(m0,a1,a2)=>{const v=(+a1.replace(/\./g,'')+ +a2/10)*1e6;return v>=1e9?sh(v):m0;}).replace(/\d{1,3}(?:\.\d{3})+|\d{6,}/g,m=>{const v=+m.replace(/\./g,'');return v>=1e5?sh(v):m;});if(r!==t){n.nodeValue=r;e.title=t.trim();}}}}
  function sums(){for(const e of document.querySelectorAll('.pl67-sum')){if(e.children.length)continue;const t=e.textContent,n=t.replace(/\d{1,3}(?:\.\d{3}){1,}/g,m=>{const v=+m.replace(/\./g,'');return v>=1e5?sh(v):m;});if(n!==t)e.textContent=n;}}
  // bước 4: ký tự tài nguyên → icon GPT; giữ nguyên ký tự trong DOM (chữ trong suốt) nên textContent không đổi
  const GL={'◈':'icon_alloy','💎':'icon_diamond','🎫':'icon_sweep_ticket'},RX=/[◈🎫]|💎/;

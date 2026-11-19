@@ -270,7 +270,7 @@ const Story80=(()=>{
  function render(){const L=Q[qi];const b=box.querySelector('b'),p=box.querySelector('p'),im=box.querySelector('img'),c=box.querySelector('.st80c');
   b.textContent=L.who;const boss=isBoss(L.who);c.classList.toggle('boss',boss);const src=portrait(L.who);if(src){im.src=src;im.style.display='';}else{im.removeAttribute('src');im.style.display='none';}
   c.querySelector('.st80p').dataset.ic=boss?'☠':'✦';
-  clearInterval(typing);clearTimeout(auto);let k=0;p.textContent='';typing=setInterval(()=>{k++;p.textContent=L.line.slice(0,k);if(k>=L.line.length){clearInterval(typing);typing=null;auto=setTimeout(next,3800);}},18);}
+  clearInterval(typing);clearTimeout(auto);let k=0;p.textContent='';typing=setInterval(()=>{k++;{const E=x=>x.replace(/[&<>]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;'}[c]));p.innerHTML=E(L.line.slice(0,k))+'<span style="visibility:hidden">'+E(L.line.slice(k))+'</span>';}/* V307: phần chưa chạy chữ giữ chỗ (ẩn) để không ngắt dòng lẻ 1 ký tự */if(k>=L.line.length){clearInterval(typing);typing=null;auto=setTimeout(next,3800);}},18);}
  function next(){if(!Q[qi]&&qi>=0&&qi<Q.length)return;if(typing&&Q[qi]){clearInterval(typing);typing=null;box.querySelector('p').textContent=Q[qi].line;clearTimeout(auto);auto=setTimeout(next,3800);return;}qi++;if(qi>=Q.length){close();return;}render();}
  function close(){clearInterval(typing);typing=null;clearTimeout(auto);if(box)box.hidden=true;window.__st80=false;const cb=done;done=null;cb&&cb();}
  function play(key,lines){if(S[key])return false;S[key]=1;save();show(lines);return true;}

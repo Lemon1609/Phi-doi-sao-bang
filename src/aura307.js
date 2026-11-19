@@ -30,7 +30,7 @@
   if(tier==='ss'){const gim=tint(c[0],GOLD);if(gim){ctx.globalAlpha=.35*close;ctx.drawImage(gim,-W*1.04/2,-H*1.04/2,W*1.04,H*1.04);}
    ctx.globalCompositeOperation='lighter';ctx.globalAlpha=.5*close;ctx.strokeStyle='#ffd600';ctx.lineWidth=1.5;ctx.save();ctx.rotate(ta*.6);ctx.setLineDash([size*.08,size*.05]);ctx.beginPath();ctx.arc(0,0,size*.62,0,6.283);ctx.stroke();ctx.rotate(-ta*1.3);ctx.setLineDash([size*.03,size*.06]);ctx.beginPath();ctx.arc(0,0,size*.74,0,6.283);ctx.stroke();ctx.restore();}
   ctx.restore();}
- function arc(ctx,size){let rem=0,tot=8;try{rem=superTime;tot=Math.max(rem,window.__bt307max||8);}catch{}if(!(rem>0))return;window.__bt307max=tot;
+ function arc(ctx,size){let rem=0,tot=8;try{rem=superTime;tot=Math.max(rem,window.__bt307max||0);}catch{}if(!(rem>0)){window.__bt307max=0;return;}window.__bt307max=tot;
   ctx.save();ctx.globalCompositeOperation='source-over';ctx.globalAlpha=.9;ctx.strokeStyle='#ffd600';ctx.lineWidth=2.5;ctx.lineCap='round';ctx.beginPath();ctx.arc(0,0,38,-Math.PI/2,-Math.PI/2+6.283*(rem/tot));ctx.stroke();ctx.restore();}
  function hook(){if(!window.BtFx218||BtFx218.__a307)return false;const ob=BtFx218.back,of=BtFx218.front;
   BtFx218.back=function(ctx,a,cell,cw,ch,size,isOn,now,ta,id){if(!on())return ob.apply(this,arguments);if(isOn){try{wings(ctx,id,tierOf(id,a),size,ta);}catch{}}else window.__bt307max=0;};

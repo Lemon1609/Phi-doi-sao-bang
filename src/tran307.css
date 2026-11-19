@@ -1,1 +1,3 @@
 /* V307 · đã bỏ dời HUD theo tai thỏ (19/11): trên máy thật WebView đã chừa vùng trạng thái nên bị dời 2 lần, để lại ô tối cũ của nút tạm dừng */
+/* V307 nhóm 4 (Gemini): nút TUYỆT KỸ cách nút BOM thêm 10 px (22 → 32 px) chống bấm nhầm; dùng thuộc tính translate để không đụng transform nhấn nút */
+html body #robot-skill:not(#_t7):not(#_t7):not(#_t7):not(#_t7),html body #robot-control:not(#_t7):not(#_t7):not(#_t7):not(#_t7){translate:0 -10px}

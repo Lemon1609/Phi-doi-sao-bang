@@ -973,6 +973,16 @@ rep("</body>","<script id=\"aura307-js\">"+_a307img+open('src/aura307.js',encodi
 rep("</body>","<style id=\"tran307-css\">"+open('src/tran307.css',encoding='utf-8').read()+"</style><script id=\"tran307-js\">"+open('src/tran307.js',encoding='utf-8').read()+"</script></body>")  # V307 bước 2 trong trận
 rep("</body>","<script id=\"ui307-img-js\">window.UI307_IMG="+json.dumps({os.path.splitext(f)[0]:'data:image/webp;base64,'+base64.b64encode(open('src/ui307img/'+f,'rb').read()).decode() for f in sorted(os.listdir('src/ui307img'))})+";</script><style id=\"ui307-css\">"+_ui306css(open('src/ui307.css',encoding='utf-8').read())+"</style><script id=\"ui307-js\">"+open('src/ui307.js',encoding='utf-8').read()+"</script></body>")  # V307 bước 3 quy chuẩn giao diện
 rep("</body>","<style id=\"ui307b-css\">"+open('src/ui307b.css',encoding='utf-8').read()+"</style><script id=\"ui307b-js\">"+open('src/ui307b.js',encoding='utf-8').read()+"</script></body>")  # V307 bước 4 gói UI GPT trên màn nhiều chữ
+# V307 nhóm 4 (Gemini): chớp trúng đạn nhẹ hơn (alpha .7/.6 → .32/.28, phủ trắng b0 → 59 ≈ .35, 55 ms → 35 ms) + tàu nhấp nháy bất tử không biến mất hẳn (alpha .35). Tắt nhấp nháy mới: window.BLINK307=false
+rep("ctx.globalCompositeOperation='lighter';ctx.globalAlpha=.7;ctx.drawImage(sil(","ctx.globalCompositeOperation='lighter';ctx.globalAlpha=.32;ctx.drawImage(sil(",2)
+rep("ctx.globalCompositeOperation='lighter';ctx.globalAlpha=.6;ctx.drawImage(sil(","ctx.globalCompositeOperation='lighter';ctx.globalAlpha=.28;ctx.drawImage(sil(")
+rep("sc.fillStyle=key?.hitFlashUntil>clock?'#ffffffb0':g","sc.fillStyle=key?.hitFlashUntil>clock?'#ffffff59':g")
+rep("g.addColorStop(.5,key?.hitFlashUntil>clock?'#ffffff':'#dcfaff88')","g.addColorStop(.5,key?.hitFlashUntil>clock?'#ffffffa0':'#dcfaff88')")
+rep("e.hitFlashTimer=.055;e.hitFlashUntil=clock+.055","e.hitFlashTimer=.035;e.hitFlashUntil=clock+.035")
+rep("if(mode!=='over'&&(invuln<=0||Math.floor(time*12)%2===0||mode==='menu'","if(mode!=='over'&&(window.BLINK307!==false||invuln<=0||Math.floor(time*12)%2===0||mode==='menu'")
+rep("(typeof SSSGame!=='undefined'&&SSSGame.state().ult>0))){flame(player.x,player.y+20);ctx.save();","(typeof SSSGame!=='undefined'&&SSSGame.state().ult>0))){flame(player.x,player.y+20);ctx.save();if(window.BLINK307!==false&&invuln>0&&Math.floor(time*12)%2!==0&&mode!=='menu'&&!(superTime>0))ctx.globalAlpha=.35;")
+rep("</body>","<style id=\"ui307c-css\">"+open('src/ui307c.css',encoding='utf-8').read()+"</style><script id=\"ui307c-js\">"+open('src/ui307c.js',encoding='utf-8').read()+"</script></body>")  # V307 chỉ thị cuối Gemini: giao diện ngoài trận
+rep("</body>","<style id=\"sss307-css\">"+open('src/sss307.css',encoding='utf-8').read()+"</style><script id=\"sss307-js\">"+open('src/sss307.js',encoding='utf-8').read()+"</script></body>")  # V307 màn Hợp thể SSS
 import base64 as _b64d,glob as _gd,os as _od
 _d307img='window.DAN307_IMG={'+','.join("'%s':'data:image/webp;base64,%s'"%(_od.path.basename(f)[:-5],_b64d.b64encode(open(f,'rb').read()).decode()) for f in sorted(_gd.glob('src/dan307img/*.webp')))+'};'
 rep("</body>","<script id=\"dan307-js\">"+_d307img+open('src/dan307.js',encoding='utf-8').read()+"</script></body>")  # V307 đạn chính kiểu mới (bản thử tàu 1)
