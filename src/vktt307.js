@@ -11,9 +11,12 @@
   world:{img:'chronos_astrolabe',g:'uti',nm:'Đồng Hồ Thời Không',act:'Ngưng đọng thời gian: địch và đạn địch đứng yên vài giây'}};
  const G={atk:['TẤN CÔNG','#FF5252'],def:['PHÒNG THỦ','#00E676'],uti:['ĐA DỤNG','#00E5FF']};
  const byName=n=>{try{const nm=ULT72.nm;return Object.keys(nm).find(k=>nm[k]===n.trim());}catch{return null;}};
- let filt='all';const src=id=>W[id]&&I[W[id].img];
+ let filt='all';
+ // dạng tranh theo nấc (GPT 19/11): Trắng–Lam+3 → d1 · Tím–Tím+3 → d2 · Huyền thoại–HT+4 → d3 · HT+5 → d4
+ const rOf=id=>{try{return (Ult72.state().w[id]||{}).r|0;}catch{return 0;}};const form=r=>r>=15?4:r>=10?3:r>=6?2:1;
+ const src=(id,r)=>{if(!W[id])return null;const k=W[id].img+'_d'+form(r==null?rOf(id):r);return I[k]||I[W[id].img];};
  const badge=g=>'<span class="vk7-b" style="--vk:'+G[g][1]+'">'+G[g][0]+'</span>';
- function picks(){for(const b of document.querySelectorAll('.u72-pick button')){const nb=b.querySelector('b');const id=nb&&byName(nb.textContent);if(!id||!W[id])continue;const im=b.querySelector('img');if(im&&src(id)&&im.getAttribute('src')!==src(id))im.src=src(id);if(!b.querySelector('.vk7-b'))b.insertAdjacentHTML('beforeend',badge(W[id].g));}}
+ function picks(){for(const b of document.querySelectorAll('.u72-pick button')){const nb=b.querySelector('b');const id=nb&&byName(nb.textContent);if(!id||!W[id])continue;const im=b.querySelector('img');const s0=src(id,0);if(im&&s0&&im.getAttribute('src')!==s0)im.src=s0;if(!b.querySelector('.vk7-b'))b.insertAdjacentHTML('beforeend',badge(W[id].g));}}
  function main(){const root=document.querySelector('.u72.srm .sr');if(!root)return;let id=null;try{id=Ult72.cur();}catch{}if(!id||!W[id]){const nb=root.querySelector('.sr-name b');id=nb&&byName(nb.textContent);}if(!id||!W[id])return;const w=W[id];
   const wi=root.querySelector('.sr-wpn img');if(wi&&src(id)&&wi.getAttribute('src')!==src(id))wi.src=src(id);
   let st={};try{st=Ult72.state();}catch{}for(const sl of root.querySelectorAll('.sr-slot')){const im=sl.querySelector('img');if(!im)continue;const k=sl.classList.contains('main')?st.main:null;if(k&&src(k)&&im.getAttribute('src')!==src(k))im.src=src(k);}

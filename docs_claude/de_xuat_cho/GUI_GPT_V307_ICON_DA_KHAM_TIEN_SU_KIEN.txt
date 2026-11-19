@@ -1,0 +1,29 @@
+GỬI GPT · VẼ BỘ ICON ĐỒNG BỘ (Phi Đội Sao Băng V307) — đá khảm, tẩy đá, tiền sự kiện
+
+Đính kèm (tham chiếu PHONG CÁCH, đây là bộ icon bạn đã vẽ trước): icon_socket_gem, icon_xp_crystal_white/green/purple/gold, icon_alloy, icon_diamond, icon_skin_shard, icon_blackmarket_token.
+Đính kèm (hình ĐANG dùng trong game, cần thay): stone_c1..c5, stone_x3..x5.
+Mọi icon mới phải cùng phong cách bộ tham chiếu: kim loại sci-fi + đá quý phát sáng, viền kim loại mảnh, ánh neon, bóng đổ mềm, nhìn chéo nhẹ 3/4, đọc rõ khi thu nhỏ 32 px.
+
+YÊU CẦU KỸ THUẬT CHUNG
+- Mỗi icon 1 ảnh vuông 256×256, nền ĐEN tuyền #000000 (sẽ tách nền bằng mã), vật thể ở giữa, chừa lề 8 %.
+- Không chữ, không số, không khung ô vuông phía sau.
+- Có thể gửi thêm 1 tấm ghép (bảng) để xem nhanh, nhưng BẮT BUỘC có ảnh rời đặt đúng tên tệp dưới đây.
+
+A. ĐÁ KHẢM 5 PHẨM (cùng 1 dáng đá, chỉ khác chất liệu / màu / độ phát sáng; phẩm càng cao càng lấp lánh, có thêm mặt cắt và tia sáng):
+  stone_c1.png  Trắng: pha lê bạc trong, ánh trắng nhẹ.
+  stone_c2.png  Lục: ngọc lục bảo #3ee08f, viền bạc.
+  stone_c3.png  Lam: lam ngọc #3aa8ff, viền bạc.
+  stone_c4.png  Tím: thạch anh tím #b45cff, viền vàng nhạt.
+  stone_c5.png  Cam: hổ phách / lửa #ffb347, viền vàng, hào quang mảnh.
+
+B. ĐÁ ĐẶC BIỆT (Ω Σ α β — chỉ lắp đúng mẫu trang bị), 3 phẩm Lam / Tím / Cam:
+  stone_x3.png  Lam · stone_x4.png  Tím · stone_x5.png  Cam
+  Dáng khác đá thường: đá lục giác nằm trong một khung kim loại hình kim cương có 4 mũi nhọn, giữa có rãnh trống (game sẽ in chữ Ω/Σ/α/β đè lên bằng mã, nên KHÔNG vẽ ký hiệu).
+
+C. TẨY ĐÁ (vật phẩm dùng để tẩy dòng chỉ số đá khảm):
+  tay_da.png  Một ống/bình dung dịch phát sáng cyan–tím có vòi phun tia năng lượng, hoặc chiếc đục laser nhỏ kề viên đá; nhìn là biết "công cụ tẩy / làm lại đá".
+
+D. TIỀN / ĐIỂM SỰ KIỆN:
+  manh_sao_co.png  Mảnh Sao Cổ (tiền sự kiện tuần): mảnh thiên thạch cổ hình ngôi sao 4 cánh vỡ, lõi cyan #5fe6ff phát sáng, vân khắc cổ.
+  diem_danh_du.png  Điểm Danh dự (tiệm Danh dự): huân chương quân công — đĩa kim loại vàng có đôi cánh và ngôi sao, dải ruy băng xanh ngọc #00f5d4.
+  manh_skin.png  Mảnh skin: giữ ý tưởng icon_skin_shard đã vẽ (mảnh ghép) nhưng thêm chi tiết lớp sơn / vân tàu để hiểu là "mảnh ngoại hình chiến cơ"; nếu thấy bản cũ đã đạt thì gửi lại đúng bản cũ.
