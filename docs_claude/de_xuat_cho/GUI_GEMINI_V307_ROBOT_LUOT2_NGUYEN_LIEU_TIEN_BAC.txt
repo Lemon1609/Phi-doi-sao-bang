@@ -1,0 +1,32 @@
+GỬI GEMINI · V307 · ROBOT LƯỢT 2: NGUYÊN LIỆU TIẾN BẬC + CHỐT CÁC ĐIỂM HỒ SƠ 1/2
+(Claude soạn 19/11/2026. Kèm: tien_bac_88921_zoom.jpg, tien_bac_88921_sheet.jpg — video game gốc nâng cấp + tiến bậc robot.)
+
+1. CHỦ DỰ ÁN ĐÃ CHỐT TỪ HỒ SƠ CỦA BẠN
+- Thứ tự: Chip (Claude đã làm xong dòng chí mạng, dòng tinh anh, Tuyệt mật +1,5 %, số 8 bộ) → KHE NỨT HƯ KHÔNG làm tiếp → lõi phi công → đá nội tại → ép xung. (Đồng ý đổi thứ tự như bạn đề xuất.)
+- Vô tận: LÀM CẢ GÓI (4,5 s/đợt, boss mỗi 10 đợt, tinh thể trong lượt, chọn 1/3 tăng ích sau boss).
+- Cấp vũ khí trong lượt: GIỮ 5 CẤP HIỆN CÓ (game đã có: nhặt viên tăng lực, cấp 1→5 tăng số tia + tốc đạn). Không làm 13 cấp, không vào trận ở 75 %, không tụt 2 cấp. Các tăng ích dính "cấp vũ khí" (aug_bomb_up, aug_wp_keep) hãy viết lại theo thang 5 cấp.
+- Robot: cơ khí, 7 mẫu (4 nam · 3 nữ), tên + vòng 8 hệ + cộng hưởng + biến hình theo hồ sơ của bạn — Claude dùng làm gốc.
+- Robot NÂNG CẤP (lên cấp trong bậc): dùng ĐÁ XP I–IV như chiến cơ / trang bị hiện nay (KHÔNG dùng bản sao).
+- Robot TIẾN BẬC (khi chạm trần cấp): dùng NGUYÊN LIỆU RIÊNG, số lượng TĂNG DẦN theo bậc, kiếm ở ẢI KHÓ và PHÓ BẢN VẬT LIỆU. Bỏ bảng chi phí "15/30/50/80/120 bản sao mỗi tàu mẹ".
+
+2. GAME GỐC LÀM THẾ NÀO (Claude xem video 88921)
+- Nâng cấp: 5 ô vật liệu EXP + vàng, thanh EXP, trần cấp theo bậc (…/50, …/55, …/60).
+- Tiến bậc (+1 → +2): trần cấp +5, tấn công tăng, thêm chỉ số "Đồng bộ" (1,27 % → 2,54 %); cần 4 NGUYÊN LIỆU KHÁC NHAU × 2 + vàng.
+- 4 nguyên liệu cùng phẩm, nguồn là một màn hoạt động riêng; mỗi loại rơi ở các ải cách nhau 4 (loại 1: ải 1/5/9…, loại 2: 2/6/10…), ải cao mở dần.
+- Chỉ học cách làm, KHÔNG chép tên nguyên liệu / tên phẩm của game gốc.
+
+3. GAME MÌNH ĐANG CÓ LIÊN QUAN
+- Đá XP I–IV (15/60/240/1.000 XP), màn Nâng cấp nc307 (5 ô vật liệu, TỰ CHỌN) — có thể dùng lại cho robot.
+- Phó bản hiện có: Tiếp tế, Phó bản Vàng, Săn trang bị, Phó bản giới hạn (boss 60 s). Chưa có "phó bản vật liệu" riêng cho robot.
+- Chiến dịch 200 ải, CHƯA có chế độ "ải khó" riêng (chỉ có sao ★ và chơi lại tốn thể lực). Nếu cần "ải khó", đề xuất cách làm (ví dụ chế độ Khó mở sau khi qua ải thường, quái mạnh hơn, rơi nguyên liệu).
+- Kinh tế: ◈ hợp kim là tiền chính (không có "vàng" riêng). Không thêm nguồn 💎.
+
+4. VIỆC CẦN BẠN LÀM
+A. Bộ NGUYÊN LIỆU TIẾN BẬC ROBOT: số loại (gợi ý 4 loại như game gốc), tên Việt riêng, có chia phẩm theo bậc không (ví dụ phẩm Lam cho bậc Lục→Lam, phẩm Tím cho Tím→Tím+5, phẩm Vàng cho SS) — nhớ luật: KHÔNG gộp với nguyên liệu hệ khác (linh kiện VKTT, đá…).
+B. BẢNG TIẾN BẬC 6 bậc (Thường → Lục → Lam → Tím → Tím+5 → SS/MAX): trần cấp mỗi bậc, số từng nguyên liệu (tăng dần), ◈, chỉ số tăng (công / máu, thời gian dạng robot, hồi tuyệt kỹ) và có thêm chỉ số kiểu "Đồng bộ" không (nếu có: nó làm gì trong trận — ví dụ tăng cộng hưởng 2 tàu mẹ / tốc nạp biến hình).
+C. BẢNG NÂNG CẤP bằng Đá XP: XP mỗi cấp (Lv1→100), ◈ mỗi cấp, so sánh với chiến cơ để không lệch.
+D. NGUỒN: (1) ẢI KHÓ — thiết kế chế độ / điều kiện mở / số lượt mỗi ngày / tỉ lệ rơi; (2) PHÓ BẢN VẬT LIỆU — số tầng / ải, mỗi nguyên liệu rơi ở ải nào, mở dần thế nào, lượt free mỗi ngày, có càn quét không; thời gian ước để người không nạp đạt robot Tím / Tím+5 / SS.
+E. CHUYỂN DỮ LIỆU: robot cũ (khóa `saobang-robots-v1`, hiện có "cường hóa" theo chiến cơ thành phần) sang bậc / cấp mới thế nào để không mất công.
+F. Sửa 2 điểm trong hồ sơ trước cho khớp game: (1) "lỗi ngắt dòng thoại" và "lớp cài đặt đè màn kết quả" là do ảnh chụp (chữ đang chạy / script chụp), không phải lỗi game; (2) HTML ~93 MB là do tranh (đã nén WebP phần lớn), mục tiêu < 15 MB không thực tế nếu giữ chất lượng — bỏ khỏi kế hoạch hoặc đề xuất cách khác (tải tranh theo chương…). Cửa hàng hiện chỉ có Chợ Đen / Tiệm skin / Danh dự (quầy kim cương là 1 ô trong Chợ Đen), không phải lỗi mở nhầm.
+
+ĐẦU RA: tiếng Việt, bảng / khối cấu hình dán được, đánh dấu Mới / Sửa / Giữ, chỗ ước lượng ghi "(ước lượng)".

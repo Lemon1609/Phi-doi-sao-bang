@@ -42,3 +42,10 @@ Nguồn: 9 clip chủ dự án gửi 19/11 tối (88766–88774, 1080×2652, 10�
 3. **Đặc kỹ 2 hệ đạn kề nhau** theo một vòng hệ riêng của game mình (ví dụ 8 hệ), ghép đội có cộng hưởng.
 4. Màn **Đồ giám robot**: lưới thẻ + hộp xem trước vòng lặp 4 pha + cốt truyện; dùng lại sân khấu sss307.
 5. Chọn hướng hình: giữ **chiến giáp nữ** (bản sắc riêng hiện có) hay chuyển sang **robot cơ khí** như game gốc, hoặc trộn (một số mẫu nữ, một số cơ khí). → hỏi chủ dự án.
+
+## 6. Video 88921 (19/11 21:54) · nâng cấp + tiến bậc robot (nhìn bằng mắt, `tien_bac_88921_*.jpg`)
+- **Nâng cấp (装备升级)**: chọn robot trong túi (Lv x/55, x/50…) → thẻ robot + "cấp 50/55 → 52/55", tấn công 2227 → 2269, thưởng điểm 74 % → 76 %; 5 ô vật liệu EXP (robot / vật phẩm kinh nghiệm), nút TỰ CHỌN, thanh "còn cần … EXP / đầy cần …", tốn vàng (900). Vượt EXP thì hộp hỏi xác nhận (EXP thừa mất).
+- **Tiến bậc (装备进阶)**: khi đủ trần cấp (55/55) → màn hai thẻ +1 → +2: trần cấp 55 → 60, tấn công 2331 → 2418, thưởng điểm giữ 79 %, **chỉ số mới "Đồng bộ" (同步率) 1,27 % → 2,54 %**; tốn 8.000 vàng + **4 nguyên liệu tiến bậc khác nhau**, mỗi loại cần 2 (ô hiện 1/2, 2/2…, thiếu thì "không đủ nguyên liệu").
+- 4 nguyên liệu (cùng phẩm "Siêu dây"): lõi phản vật chất · hợp kim ngưng tụ · mạch điều khiển · mô-đun AI bầy đàn. Ghi chú: "nguyên liệu bắt buộc để tiến bậc Chiến thần và Vũ khí tối thượng".
+- Nguồn: **màn hoạt động riêng (săn bắn đạn đạo)**, mỗi nguyên liệu rơi ở các ải cách 4 (1/5/9/13/17…, 2/6/10/14…, 3/7/11/15…, 4/8/12/16…), ải cao khóa tới khi mở. Tiến bậc xong: hoạt cảnh cúp sáng.
+- Chủ dự án chốt 19/11: robot **nâng cấp bằng Đá XP như hiện tại**; **nâng bậc dùng nguyên liệu riêng, tăng dần**, kiếm ở **ải khó** và **phó bản vật liệu**.
