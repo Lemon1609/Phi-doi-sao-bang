@@ -983,6 +983,9 @@ rep("if(mode!=='over'&&(invuln<=0||Math.floor(time*12)%2===0||mode==='menu'","if
 rep("(typeof SSSGame!=='undefined'&&SSSGame.state().ult>0))){flame(player.x,player.y+20);ctx.save();","(typeof SSSGame!=='undefined'&&SSSGame.state().ult>0))){flame(player.x,player.y+20);ctx.save();if(window.BLINK307!==false&&invuln>0&&Math.floor(time*12)%2!==0&&mode!=='menu'&&!(superTime>0))ctx.globalAlpha=.35;")
 rep("</body>","<style id=\"ui307c-css\">"+open('src/ui307c.css',encoding='utf-8').read()+"</style><script id=\"ui307c-js\">"+open('src/ui307c.js',encoding='utf-8').read()+"</script></body>")  # V307 chỉ thị cuối Gemini: giao diện ngoài trận
 rep("</body>","<style id=\"sss307-css\">"+open('src/sss307.css',encoding='utf-8').read()+"</style><script id=\"sss307-js\">"+open('src/sss307.js',encoding='utf-8').read()+"</script></body>")  # V307 màn Hợp thể SSS
+# V307 (19/11 chủ dự án: "chỗ này không ổn"): lúc vào Bạo Tẩu cả thân tàu bị phủ trắng (bóng silhouette alpha tới 1) + quả cầu sáng bán kính 100 → giảm còn .35 và 64
+rep("ctx.globalAlpha=clamp(flash);ctx.drawImage(sup?cells.silS:cells.silN","ctx.globalAlpha=clamp(flash)*(window.FLASH307===false?1:.35);ctx.drawImage(sup?cells.silS:cells.silN")
+rep("VisualFX.ultimate(player.x,player.y,'#ffe28c',100);ring(player.x,player.y,'#ffb97c',75);","VisualFX.ultimate(player.x,player.y,'#ffe28c',window.FLASH307===false?100:64);ring(player.x,player.y,'#ffb97c',75);")
 import base64 as _b64d,glob as _gd,os as _od
 _d307img='window.DAN307_IMG={'+','.join("'%s':'data:image/webp;base64,%s'"%(_od.path.basename(f)[:-5],_b64d.b64encode(open(f,'rb').read()).decode()) for f in sorted(_gd.glob('src/dan307img/*.webp')))+'};'
 rep("</body>","<script id=\"dan307-js\">"+_d307img+open('src/dan307.js',encoding='utf-8').read()+"</script></body>")  # V307 đạn chính kiểu mới (bản thử tàu 1)

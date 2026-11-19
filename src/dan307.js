@@ -32,15 +32,15 @@
   for(let k=0;k<n;k++){const a=n>1?-tot/2+tot*k/(n-1):0,vx=Math.sin(a)*c.speed,vy=-Math.cos(a)*c.speed,x=player.x+(k-(n-1)/2)*4;
    shot(x,player.y-30,vx,vy,tpl.type||'rapid',dmg,tpl.r||4);const s=shots.at(-1);if(!s)continue;
    for(const key in tpl){if(['x','y','vx','vy','damage','hit','age','dead'].includes(key))continue;s[key]=tpl[key];}
-   s.damage=dmg;s.vx=vx;s.vy=vy;s.d307=1;s.t307=T[ti];s.c307=col;s.L307=L;s.bt307=bt;s.k307=k;s.age=0;}}
+   if(window.HANGAR_DEMO&&typeof mode!=='undefined'&&mode!=='play'){s.type='rapid';for(const q of ['homing','target','turn','seek','rocket28','missile']){if(q in s)s[q]=0;}}/* sân khấu sảnh: bay thẳng, không bám mục tiêu */s.damage=dmg;s.vx=vx;s.vy=vy;s.d307=1;s.t307=T[ti];s.c307=col;s.L307=L;s.bt307=bt;s.k307=k;s.age=0;if(window.HANGAR_DEMO&&typeof mode!=='undefined'&&mode!=='play'){s.bt307=false;s.L307=Math.min(L,c.len[ti]||L);}/* sảnh: sóng cánh Bạo Tẩu phóng to bị cắt thành vệt trắng chữ V ở mép khung → dùng hình đạn thường */}}
  function hook(){if(typeof Arsenal30==='undefined'||typeof Fighters28==='undefined'||!Fighters28.__d299||Arsenal30.__d307)return false;
   // gom mọi viên đạn chính của tàu đang bay vừa sinh ra (kể cả viên các mô-đun khác thêm sau: co303, v87, ss90…) → ngân hàng sát thương → phát lại theo nhịp mới
-  function sweep(){const id=(typeof selected!=='undefined')?selected:-1;if(!on(id)||typeof shots==='undefined')return;try{if(mode!=='play')return;}catch{return;}/* sảnh trưng bày không cập nhật đạn → không đổi */try{if(typeof activeRobot!=='undefined'&&activeRobot)return;}catch{}
+  function sweep(){const id=(typeof selected!=='undefined')?selected:-1;if(!on(id)||typeof shots==='undefined')return;try{if(mode!=='play'&&!(window.HANGAR_DEMO&&window.DAN307SANH!==false))return;}catch{return;}/* V307 19/11: bật cả sân khấu sảnh (demo hangar-v41 có di chuyển đạn); tắt riêng: window.DAN307SANH=false */try{if(typeof activeRobot!=='undefined'&&activeRobot)return;}catch{}
    const nw=shots.filter(s=>s.art28===id&&!s.d307&&!s.ray28&&!s.gearItem&&!s.ally&&!s.escort40&&!s.dead&&(s.age||0)<.06&&!(s.hit&&(s.hit.size||s.hit.length)));
    if(nw.length){if(bankId!==id){bank=0;bankId=id;}for(const s of nw){bank+=s.damage||0;s.dead=true;}const keep=new Set(nw);shots=shots.filter(s=>!keep.has(s));tpl=Object.assign({},nw[0]);}
    const now=performance.now()/1000;if(bank>0&&tpl&&now-last>=1/CFG[id].rate){last=now;emit(id);}}
   const of=Arsenal30.fire;Arsenal30.fire=function(){const r=of.apply(this,arguments);try{sweep();}catch{}return r;};Arsenal30.__d307=1;
-  if(typeof PlayerFXB!=='undefined'){const ob=PlayerFXB.begin;PlayerFXB.begin=function(){const r=ob.apply(this,arguments);try{if(typeof mode==='undefined'||mode==='play')sweep();}catch{}return r;};}
+  if(typeof PlayerFXB!=='undefined'){const ob=PlayerFXB.begin;PlayerFXB.begin=function(){const r=ob.apply(this,arguments);try{if(typeof mode==='undefined'||mode==='play'||window.HANGAR_DEMO)sweep();}catch{}return r;};}
   const od=Fighters28.draw;Fighters28.draw=function(g,s){if(s&&s.d307&&window.DAN307B!==false){try{draw(g,s);return true;}catch{}}return od.apply(this,arguments);};
   return true;}
  const IM={};for(const k in (window.DAN307_IMG||{})){const im=new Image();im.src=DAN307_IMG[k];IM[k]=im;}
