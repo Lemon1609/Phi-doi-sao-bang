@@ -1,0 +1,27 @@
+GỬI GPT · V307 · 5 ICON NGUYÊN LIỆU VŨ KHÍ TỐI THƯỢNG (VKTT)
+
+Bối cảnh: game bắn máy bay dọc khoa học viễn tưởng "Phi Đội Sao Băng". Vũ khí tối thượng giờ dùng 4 loại linh kiện tách riêng theo chặng tiến hóa + 1 loại thẻ kinh nghiệm riêng. Cần 5 icon đồng bộ với bộ icon bạn đã vẽ trước đó (icon_alloy, icon_fusion_core, icon_xp_crystal_*, đá khảm): vật thể 3D bóng bẩy, kim loại tối + năng lượng neon, viền sáng mảnh, nhìn rõ ở cỡ 44 px.
+
+Yêu cầu chung cho cả 5 ảnh:
+- 1 vật thể đặt giữa, nền ĐEN TUYỀN (#000), không khung, không chữ, không số, không ký hiệu ✦.
+- Ảnh vuông 1024 × 1024, vật thể chiếm khoảng 70 % khung.
+- Góc nhìn 3/4 hơi từ trên, ánh sáng từ trên trái.
+- Không giống icon_fusion_core (lõi hợp thể) và không giống viên Đá XP, để người chơi không nhầm.
+
+1. icon_lk_a — LINH KIỆN A (chặng Trắng → Lam+3)
+   Một mô-đun cơ khí nhỏ: bảng mạch kim loại hình lục giác dẹt có 2 chân cắm, đường mạch phát sáng XANH LỤC (#3EE08F). Đơn giản nhất trong 4 loại.
+
+2. icon_lk_b — LINH KIỆN B (chặng Tím)
+   Cùng "họ" với A nhưng tinh xảo hơn: mô-đun hai tầng, thêm cuộn dây đồng nhỏ và tụ năng lượng, đường mạch phát sáng XANH LAM (#3AA8FF).
+
+3. icon_lk_c — LINH KIỆN C (chặng Huyền thoại → HT+2)
+   Mô-đun ba tầng có lõi tinh thể nhỏ ở giữa, cánh tản nhiệt hai bên, năng lượng TÍM (#B45CFF).
+
+4. icon_lk_d — LINH KIỆN D (chặng HT+3 → HT+5, hiếm nhất)
+   Mô-đun cao cấp nhất: khung vàng sẫm, lõi tinh thể sáng rực, vòng năng lượng nhỏ quay quanh, năng lượng VÀNG CAM (#FFC44A).
+   → A, B, C, D phải nhìn ra ngay là cùng một dòng linh kiện, nâng cấp dần (thêm tầng, thêm chi tiết), chỉ khác màu là chưa đủ.
+
+5. icon_the_exp_vktt — THẺ EXP VŨ KHÍ TỐI THƯỢNG
+   Một thẻ dữ liệu / chip thẻ mỏng hình chữ nhật bo góc, vỏ kim loại tối, mặt kính có vạch mạch và một biểu tượng mũi tên đi lên phát sáng XANH NGỌC (#00E5FF). Không có chữ "EXP" trên thẻ.
+
+Gửi lại: 5 ảnh PNG riêng, đặt tên đúng như trên.

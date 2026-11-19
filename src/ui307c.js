@@ -27,6 +27,7 @@
  // mùa giải: ô vật phẩm
  const short=n=>n>=1e6?(Math.floor(n/1e5)/10).toLocaleString('vi-VN')+'M':n>=1e3?(Math.floor(n/100)/10).toLocaleString('vi-VN')+'K':String(n);
  function tokIcon(t,html){const T=t.toLowerCase();
+  {const m=T.match(/linh kiện ([abcd])/);if(m){const k='lk_'+m[1];return [I['icon_'+k]?'icon_'+k:'icon_fusion_core',{a:'luc',b:'lam',c:'tim',d:'vang'}[m[1]]];}if(/thẻ exp vktt/.test(T))return [I.icon_the_exp_vktt?'icon_the_exp_vktt':null,'lam'];}/* V307: linh kiện A–D + Thẻ EXP VKTT (chờ icon GPT, tạm lõi hợp thể / chữ) */
   if(/đá xp iv/.test(T))return ['icon_xp_crystal_gold','vang'];if(/đá xp iii/.test(T))return ['icon_xp_crystal_purple','tim'];/* khớp màu Đá XP trong túi: I trắng · II lục · III tím · IV vàng */if(/đá xp ii/.test(T))return ['icon_xp_crystal_green','luc'];if(/đá xp/.test(T))return ['icon_xp_crystal_white','trang'];
   if(/vé vòng quay|vé quay/.test(T))return ['icon_spin_ticket','lam'];if(/🎫|vé càn quét/.test(T))return ['icon_sweep_ticket','trang'];if(/vé phó bản/.test(T))return ['icon_boss_rush','tim'];
   if(/mảnh pc|mảnh phi công/.test(T))return ['icon_pilot_shard','tim'];if(/mảnh skin/.test(T))return ['icon_skin_shard','tim'];if(/khung ảnh|skin/.test(T))return ['icon_skin_token','vang'];

@@ -62,6 +62,8 @@ const S77=(()=>{
  function addXP(n,why){if(!roll()||!(n>0))return;const l0=lvl();const o0=overAvail()+(S.oc|0);S.xp=Math.min(capXP(),S.xp+n);save();const l1=lvl();if(l1>l0)T('🏁 MÙA GIẢI · LÊN CẤP '+l1+(why?' · '+why:''));else if(overAvail()+(S.oc|0)>o0)T('🏁 MÙA GIẢI · RƯƠNG VƯỢT CẤP'+(why?' · '+why:''));if(el&&!el.hidden)render();}
  const daysLeft=()=>Math.max(0,Math.ceil(((S.id+1)*C.CYCLE_MS-Date.now())/864e5));
  // ---------- cấp phát ----------
+ // V307: thêm linh kiện C/D + Thẻ EXP VKTT vào hàng miễn phí (cấp 3/8/13/18/23 thẻ · 7/12/17/22 LK C · 19/24/25 LK D)
+ (()=>{const T=C.REWARDS_TRACK,add=(l,o)=>{const e=T.find(x=>x.level===l);if(e)Object.assign(e.free,o);};[3,8,13,18,23].forEach(l=>add(l,{vth:12}));[[7,3],[12,4],[17,4],[22,4]].forEach(([l,n])=>add(l,{lkC:n}));[[19,3],[24,3],[25,4]].forEach(([l,n])=>add(l,{lkD:n}));})();
  function grant(r){if(!r)return;try{
   if(r.gem)Econ74.add(r.gem,'mùa giải');if(r.alloy)Progress.grantCredits(r.alloy);if(r.upgradeStone)Workshop.grant({exp:r.upgradeStone});
   if(r.sweepTicket)V75.addTk(r.sweepTicket);if(r.energy)V75.addEn(r.energy,'mùa giải');if(r.rerollStone)Progress.grantCredits(r.rerollStone*2500);
@@ -72,13 +74,14 @@ const S77=(()=>{
   if(r.purpleEquipChest){const ks=Object.keys(GearCatalog).filter(k=>!/36$/.test(k)&&!(window.GEAR81_NODROP||{})[k]);V70.phAdd('gear',ks[Math.floor(Math.random()*ks.length)],3,1);}
   if(r.sssCoreSelect)Meta407.addCores(3*r.sssCoreSelect,'MÙA GIẢI');
   if(r.skinId){const own=Trade67.state().owned||[];const L=(typeof SKINS67!=='undefined'?SKINS67:[]).filter(s=>!own.includes(s.id)&&s.src!=='soon');if(L.length)Trade67._own(L[Math.floor(Math.random()*L.length)].id);else Econ74.add(500,'mùa giải · skin đã đủ');}
-  if(r.xp4){try{XPDA307.add(4,r.xp4);}catch{}}/* V307 Gemini: Đá XP IV mốc 5/10/15/20/25 + rương vượt cấp */
+  if(r.xp4){try{XPDA307.add(4,r.xp4);}catch{}}
+  if(r.lkC||r.lkD||r.vth){try{Ult72.give({lk:{C:r.lkC|0,D:r.lkD|0},th:r.vth|0});}catch{}}/* V307 Gemini lượt 2: mùa giải 15 LK C + 10 LK D + 60 Thẻ EXP VKTT *//* V307 Gemini: Đá XP IV mốc 5/10/15/20/25 + rương vượt cấp */
   if(r.titleId&&!S.titles.includes(r.titleId)){S.titles.push(r.titleId);save();}
  }catch(e){console.warn('S77',e);}}
  const rTxt=r=>{const o=[];if(r.gem)o.push(r.gem+' 💎');if(r.alloy)o.push(fmt(r.alloy)+' ◈');if(r.upgradeStone)o.push(r.upgradeStone+' ⬢');if(r.sweepTicket)o.push(r.sweepTicket+' 🎫');if(r.energy)o.push(r.energy+' 🔋');
   if(r.rerollStone)o.push(fmt(r.rerollStone*2500)+' ◈ (đá tẩy)');if(r.luckyTicket)o.push(r.luckyTicket+' vé vòng quay');if(r.ultBossTicket)o.push(r.ultBossTicket+' vé phó bản GH');if(r.fodderGreenBox)o.push('phôi Lục chiến cơ');if(r.fodderBlueBox)o.push('phôi Lam chiến cơ');
   if(r.socketBoxLv1)o.push('2 đá Lục');if(r.socketBoxLv2)o.push('2 đá Lam');if(r.pilotShardSelect)o.push(r.pilotShardSelect+' mảnh PC chính');if(r.pilotShardRandom)o.push(r.pilotShardRandom+' mảnh PC');if(r.purpleEquipChest)o.push('phôi Tím trang bị');
-  if(r.sssCoreSelect)o.push('3 Lõi Siêu Hợp');if(r.xp4)o.push(r.xp4+' Đá XP IV');if(r.skinId)o.push('1 skin');if(r.titleId)o.push('danh hiệu Quán Quân Mùa');return o.join(' + ');};
+  if(r.sssCoreSelect)o.push('3 Lõi Siêu Hợp');if(r.xp4)o.push(r.xp4+' Đá XP IV');if(r.lkC)o.push(r.lkC+' linh kiện C');if(r.lkD)o.push(r.lkD+' linh kiện D');if(r.vth)o.push(r.vth+' Thẻ EXP VKTT');if(r.skinId)o.push('1 skin');if(r.titleId)o.push('danh hiệu Quán Quân Mùa');return o.join(' + ');};
  function claim(l,tr){if(!roll()){T('ĐỒNG HỒ MÁY BỊ LÙI · tạm khóa mùa giải');return false;}if(l>lvl())return false;if(tr==='e'&&!S.elite)return false;const L=tr==='e'?S.ce:S.cf;if(L.includes(l))return false;
   const r=C.REWARDS_TRACK[l-1];grant(tr==='e'?r.elite:r.free);L.push(l);save();T('🏁 MÙA GIẢI · CẤP '+l+' · '+rTxt(tr==='e'?r.elite:r.free));render();return true;}
  function claimOver(){if(!roll()){T('ĐỒNG HỒ MÁY BỊ LÙI · tạm khóa mùa giải');return false;}if(overAvail()<1)return false;grant(OV.rw);S.oc=(S.oc|0)+1;save();T('🏁 MÙA GIẢI · RƯƠNG VƯỢT CẤP · '+rTxt(OV.rw));render();return true;}

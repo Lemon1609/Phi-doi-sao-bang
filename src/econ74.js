@@ -14,7 +14,7 @@ const WHEEL74={unlock:45,free:2,freeSecondNeedStages:3,paid:40,x10:810,tiers:[40
   {w:50,t:'part',n:5,name:'5 linh kiện VKTT',ic:'⚙',c:'#7fdcff'},{w:60,t:'skin',n:2,name:'2 mảnh skin',ic:'👕',c:'#90e0ef'},
   {w:120,t:'gold',n:3000,name:'3.000 hợp kim',ic:'◈',c:'#ffd166'},{w:50,t:'gem',n:50,name:'50 kim cương',ic:'💎',c:'#7df9ff'}]};
 const LIMITED74={unlock:45,free:1,buy:[30,60],time:60,hpMult:1.3,
- tiers:[{n:'DỄ',cp:3200,s:3,c:2,cr:1500},{n:'VỪA',cp:5800,s:5,c:4,cr:2500},{n:'KHÓ',cp:9500,s:8,c:6,cr:4000},{n:'ÁC MỘNG',cp:14000,s:12,c:10,cr:6000}]};
+ tiers:[{n:'DỄ',cp:3200,s:3,c:2,k:'A',th:3,cr:1500},{n:'VỪA',cp:5800,s:5,c:4,k:'B',th:5,cr:2500},{n:'KHÓ',cp:9500,s:8,c:6,k:'C',th:7,cr:4000},{n:'ÁC MỘNG',cp:14000,s:12,c:10,k:'CD',th:10,cr:6000}]/* V307 Gemini lượt 2: cấp 1 LK A · 2 B · 3 C · 4 C+D, thêm Thẻ EXP VKTT */};
 const SKINSET74=[{tier:2,lv:45,kind:'sh',n:5,title:'Chiến Binh Lam Ngọc'},{tier:5,lv:60,kind:'own',id:'evo1',title:'Hạm Trưởng Lam Ngọc'},{tier:6,lv:75,kind:'own',id:'evo2',title:'Bạch Ngân Tiên Phong'},
  {tier:9,lv:90,kind:'own',id:'evo3',title:'Hoàng Kim Hộ Vệ'},{tier:11,lv:100,kind:'own',id:'evo4',title:'Huyền Thoại Tinh Cầu'}];
 const Econ74=(()=>{
@@ -112,7 +112,7 @@ const Econ74=(()=>{
   if(mode!=='play'&&mode!=='pause'){if(!run.done){run.done=true;timer(null);}run=null;return;}
   if(mode==='pause')return;if(boss&&!run.boosted&&(boss.max||boss.maxHp)){boss.hp*=L.hpMult;if(boss.max)boss.max*=L.hpMult;if(boss.maxHp)boss.maxHp*=L.hpMult;run.boosted=true;run.t0=performance.now();}
   if(!run.t0)return;const left=Math.max(0,L.time-(performance.now()-run.t0)/1000);timer(left);
-  if(boss&&boss.defeatStarted&&!run.done){run.done=true;const t=L.tiers[run.i];try{Ult72.give({s:t.s,c:t.c});}catch{}try{Progress.grantCredits(t.cr);}catch{}S.l.best=Math.max(S.l.best,run.i+1);save();timer(null);const r=run;run=null;
+  if(boss&&boss.defeatStarted&&!run.done){run.done=true;const t=L.tiers[run.i];try{Ult72.give({s:t.s,c:t.c,k:t.k,th:t.th});}catch{}try{Progress.grantCredits(t.cr);}catch{}S.l.best=Math.max(S.l.best,run.i+1);save();timer(null);const r=run;run=null;
    setTimeout(()=>{try{end(false);}catch{}setTimeout(()=>result(true,r.i),500);},900);return;}
   if(left<=0&&!run.done){run.done=true;timer(null);const r=run;run=null;try{end(false);}catch{}setTimeout(()=>result(false,r.i),500);}}
  function timer(left){if(left==null){if(tEl)tEl.hidden=true;return;}if(!tEl){tEl=document.createElement('div');tEl.id='l74timer';document.body.appendChild(tEl);}tEl.hidden=false;tEl.textContent='⏱ '+Math.ceil(left)+'s';tEl.classList.toggle('hot',left<10);}

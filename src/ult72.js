@@ -14,8 +14,11 @@ const ULT72={
  col:{fortress:'#ff5a7a',world:'#b45cff',hunter:'#3aa8ff',web:'#3ee08f'},
  rn:['Trắng','Lục','Lam','Lam +1','Lam +2','Lam +3','Tím','Tím +1','Tím +2','Tím +3','Huyền thoại','Huyền thoại +1','Huyền thoại +2','Huyền thoại +3','Huyền thoại +4','Huyền thoại +5'],
  rf:[0,1,2,2,2,2,3,3,3,3,4,4,4,4,4,4],fcol:['#d6e0ea','#3ee08f','#3aa8ff','#b45cff','#ffc44a'],
- cap:[10,20,30,40,50,60,70,80,90,100,100,100,100,100,100,100],
- promo:[[40,8,200],[80,16,400],[40,10,450],[50,10,500],[50,12,550],[60,16,650],[70,18,700],[70,20,800],[80,22,900],[100,28,1100],[150,40,1500],[200,50,1800],[250,60,2200],[300,70,2600],[350,80,3000]],// [mảnh, linh kiện, ◈]
+ cap:[10,20,30,40,50,60,65,70,75,80,85,88,91,94,97,100],// V307 Gemini lượt 2: Huyền thoại trở đi vẫn lên cấp tới 100
+ promo:[[30,6,200],[50,10,400],[40,10,450],[50,12,500],[60,14,600],[70,14,700],[80,16,800],[90,18,900],[100,20,1100],[130,22,1500],[160,28,2000],[200,35,2500],[240,30,3000],[290,40,3800],[350,50,4500]],// [mảnh, linh kiện, ◈] V307 Gemini lượt 2
+ lk:r=>r<5?'A':r<9?'B':r<12?'C':'D',lkN:{A:'Linh kiện A',B:'Linh kiện B',C:'Linh kiện C',D:'Linh kiện D'},// loại linh kiện theo bước lên đời r→r+1
+ lvTh:[1,1,1,1,1,1,1,1,2,2,2,2,2,2,2,2,2,2,2,3,3,3,3,3,3,3,4,4,4,4,4,4,4,4,4,4,4,4,4,5,5,5,5,5,5,5,5,5,5,5,5,5,6,6,6,6,6,6,6,8,8,8,9,9,9,9,9,10,10,10,10,11,11,11,11,11,12,12,12,15,16,17,17,18,19,19,20,21,21,22,25,26,28,29,30,31,32,34,35],lvCr:[44,45,46,46,47,48,48,49,49,50,51,51,52,53,53,54,54,55,56,61,62,63,63,64,65,65,66,67,68,68,69,70,70,71,72,73,73,74,75,75,76,77,78,78,79,80,80,81,82,83,83,84,85,85,86,87,88,88,89,95,96,97,98,99,100,102,103,104,105,106,107,109,110,111,112,113,114,116,116,122,123,125,126,127,128,129,130,131,132,134,139,140,140,141,142,142,143,144,145],// V307: mỗi cấp lv→lv+1: Thẻ EXP VKTT · ◈ (tổng 885 thẻ · 8.750 ◈)
+ market2:{cr:150,th:3},
  lvCost:[[40,2],[50,3],[60,4],[70,5],[80,6],[90,7],[100,8],[110,9],[120,10],[130,11]],// mỗi cấp theo nấc đang ở: [◈, ⬢]
  B:[.002,.004,.007,.009,.011,.013,.016,.019,.022,.025,.03,.034,.038,.042,.046,.05],perLv:.0003,supK:.25,capAll:.12,
  activate:100,gift:100,
@@ -32,7 +35,7 @@ const ULT72={
    u:{ev:[3,3,3,3,2,2],T:[100,95,90,85,80,75],diag:[260,270,280,290,300,310],life:[4,4.4,4.8,5.2,5.6,6],dps:[.075,.08,.085,.09,.095,.10],slow:[.25,.27,.29,.31,.33,.35],bossSlow:.15}}},
  cc:{win:12,max:3},
  // nguồn mảnh / linh kiện (mảnh tự chọn → gắn vào vũ khí khi nhận)
- daily:{boss:{s:6,c:1,ex:6,cr:200,t:'Hạ 1 boss lớn trong Chiến dịch'},endless:{s:4,c:1,ex:6,cr:200,t:'Vô Tận: đạt đợt 10',wave:10},task:{s:6,c:2,ex:6,cr:200,t:'Vượt 3 ải Chiến dịch',need:3}},
+ daily:{boss:{s:6,c:1,th:2,cr:200,t:'Hạ 1 boss lớn trong Chiến dịch'},endless:{s:4,c:1,th:2,cr:200,t:'Vô Tận: đạt đợt 10',wave:10},task:{s:6,c:2,th:2,cr:200,t:'Vượt 3 ải Chiến dịch',need:3}},
  once:{newbie:{s:10,c:2,after:7,t:'Quà làm quen (sau 7 lần nhận thưởng ngày)'},ch9:{s:20,c:5,t:'Phá đảo Chương 9 (ải 180)'},ach120:{s:20,c:4,t:'Thành tích: vượt ải 120'}},
  weekly:{ecl:{s:12,c:4,t:'Thắng 1 ải Nguyệt Thực trong tuần'}},
  market:{cr:400,s:4}};
@@ -41,7 +44,12 @@ const Ult72=(()=>{
  const rd=()=>{try{const v=JSON.parse(localStorage.getItem(KEY)||'null');return v&&typeof v==='object'?v:{};}catch{return {};}};
  const S=Object.assign({v:1,w:{},comp:0,pool:0,main:null,sup:[null,null],gift:0,day:'',dl:{},wk:'',wl:{},claims:0,once:{},seen:0},rd());
  for(const id of C.ids)S.w[id]=Object.assign({own:0,r:0,lv:1,sh:0},S.w[id]||{});
- const save=()=>{try{localStorage.setItem(KEY,JSON.stringify(S));}catch{}};
+ // V307 (chủ dự án 19/11): linh kiện tách A/B/C/D + Thẻ EXP VKTT. Linh kiện cũ chia theo nấc VKTT đang có (bước lên đời kế tiếp).
+ S.lk=Object.assign({A:0,B:0,C:0,D:0},S.lk||{});S.th=S.th|0;
+ if(!S.m307){const old=S.comp|0;const ks=C.ids.filter(id=>S.w[id].own&&S.w[id].r<15).map(id=>C.lk(S.w[id].r));if(old>0){if(!ks.length)S.lk.A+=old;else{let left=old;ks.forEach((k,i)=>{const n=i===ks.length-1?left:Math.floor(old/ks.length);S.lk[k]+=n;left-=n;});}}S.m307=1;S.m307from=old;}
+ const lkSum=()=>S.lk.A+S.lk.B+S.lk.C+S.lk.D;S.comp=lkSum();
+ try{localStorage.setItem(KEY,JSON.stringify(S));}catch{}
+ const save=()=>{S.comp=S.lk.A+S.lk.B+S.lk.C+S.lk.D;try{localStorage.setItem(KEY,JSON.stringify(S));}catch{}};
  const esc=s=>String(s==null?'':s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
  const fmt=n=>Math.round(n).toLocaleString('vi-VN');
  const pct=v=>(Math.round(v*1000)/10).toLocaleString('vi-VN')+'%';
@@ -51,13 +59,16 @@ const Ult72=(()=>{
  const supOpen=k=>maxStage()>=C.sup[k];
  const today=()=>{const d=new Date(Date.now()+7*3600000);return d.toISOString().slice(0,10);};
  const week=()=>{const d=new Date(Date.now()+7*3600000);const j=new Date(Date.UTC(d.getUTCFullYear(),0,1));return d.getUTCFullYear()+'-'+Math.floor(((d-j)/864e5+j.getUTCDay())/7);};
- function roll(){if(S.day!==today()){S.day=today();S.dl={boss:0,endless:0,task:0,taskN:0,mk:0};save();}if(S.wk!==week()){S.wk=week();S.wl={ecl:0};save();}}
+ function roll(){if(S.day!==today()){S.day=today();S.dl={boss:0,endless:0,task:0,taskN:0,mk:0,mk2:0};save();}if(S.wk!==week()){S.wk=week();S.wl={ecl:0};save();}}
  roll();
  const WP=id=>S.w[id];
  const fi=r=>C.rf[r];
  const skIdx=r=>r<1?0:r<2?1:r<6?2:r<10?3:4;
  const uIdx=r=>Math.max(0,Math.min(5,r-10));
  const isLegend=r=>r>=10;
+
+ const needK=()=>{const L=[];const m=S.main&&WP(S.main).own?S.main:null;if(m&&WP(m).r<15)return C.lk(WP(m).r);for(const id of C.ids){const w=WP(id);if(w.own&&w.r<15)L.push(w.r);}return L.length?C.lk(Math.min(...L)):'A';};
+ const addLK=(n,k)=>{n=n|0;if(n<=0)return;if(k&&k.length>1){const a=k.split('');a.forEach((x,i)=>{S.lk[x]+=i===a.length-1?n-Math.floor(n/a.length)*(a.length-1):Math.floor(n/a.length);});return;}S.lk[k&&S.lk[k]!=null?k:needK()]+=n;};
  const P=id=>{const w=WP(id);if(!w||!w.own)return 0;return C.B[w.r]+w.lv*C.perLv;};
  // móc cho chip (V72b) — chip72.js ghi đè các hàm này
  const X={stat:()=>0,has:()=>false,mod:()=>0,crystal:()=>{}};
@@ -65,15 +76,15 @@ const Ult72=(()=>{
  const bonusOf=st=>Math.min(.18,wBonus()+Math.min(.06,X.stat(st)||0));const bonus=()=>bonusOf('atk');
  // ---------- tài nguyên ----------
  const stones=()=>{try{return Workshop.getState().exp|0;}catch{return 0;}};
- function grant(o,why){if(o.s)S.pool+=o.s;if(o.c)S.comp+=o.c;if(o.cr)try{Progress.grantCredits(o.cr);}catch{}if(o.ex)try{Workshop.exp70(o.ex);}catch{}save();}
- const gtxt=o=>[o.s?'+'+o.s+' mảnh tự chọn':'',o.c?'+'+o.c+' linh kiện':'',o.ex?'+'+o.ex+' ⬢':'',o.cr?'+'+fmt(o.cr)+' ◈':''].filter(Boolean).join(' · ');
+ function grant(o,why){if(o.s)S.pool+=o.s;if(o.c)addLK(o.c,o.k);if(o.th)S.th+=o.th|0;if(o.cr)try{Progress.grantCredits(o.cr);}catch{}if(o.ex)try{Workshop.exp70(o.ex);}catch{}save();}
+ const gtxt=o=>[o.s?'+'+o.s+' mảnh tự chọn':'',o.c?'+'+o.c+' linh kiện':'',o.th?'+'+o.th+' Thẻ EXP VKTT':'',o.ex?'+'+o.ex+' ⬢':'',o.cr?'+'+fmt(o.cr)+' ◈':''].filter(Boolean).join(' · ');
  function assign(id,n){n=Math.min(n|0,S.pool);if(n<=0)return false;S.pool-=n;WP(id).sh+=n;save();return true;}
  function activate(id){const w=WP(id);if(w.own)return false;if(w.sh<C.activate){toast('CẦN '+C.activate+' MẢNH '+C.nm[id].toUpperCase());return false;}w.sh-=C.activate;w.own=1;w.r=0;w.lv=1;if(!S.main)S.main=id;save();bump();return true;}
- function lvCost(w){if(w.r>=10||w.lv>=C.cap[w.r])return null;const c=C.lvCost[w.r];return {cr:c[0],ex:c[1]};}
- function levelUp(id){const w=WP(id);if(!w.own)return false;const c=lvCost(w);if(!c)return false;if(Progress.balance()<c.cr||stones()<c.ex)return false;if(!Progress.spendCredits(c.cr))return false;if(!Workshop.exp70(-c.ex)){Progress.grantCredits(c.cr);return false;}w.lv++;save();bump();return true;}
- function promoReq(w){if(w.r>=15)return null;const p=C.promo[w.r];return {s:p[0],c:p[1],cr:p[2],atCap:w.lv>=C.cap[w.r]};}
- function promote(id){const w=WP(id);const q=promoReq(w);if(!w.own||!q)return false;if(!q.atCap){toast('CẦN ĐẠT CẤP '+C.cap[w.r]);return false;}if(w.sh<q.s){toast('THIẾU MẢNH · '+w.sh+'/'+q.s);return false;}if(S.comp<q.c){toast('THIẾU LINH KIỆN · '+S.comp+'/'+q.c);return false;}if(Progress.balance()<q.cr){toast('THIẾU HỢP KIM');return false;}
-  if(!Progress.spendCredits(q.cr))return false;w.sh-=q.s;S.comp-=q.c;w.r++;save();bump();return true;}
+ function lvCost(w){if(w.lv>=C.cap[w.r]||w.lv>=100)return null;const i=Math.max(0,w.lv-1);return {cr:C.lvCr[i],th:C.lvTh[i]};}
+ function levelUp(id){const w=WP(id);if(!w.own)return false;const c=lvCost(w);if(!c)return false;if(Progress.balance()<c.cr||S.th<c.th)return false;if(!Progress.spendCredits(c.cr))return false;S.th-=c.th;w.lv++;save();bump();return true;}
+ function promoReq(w){if(w.r>=15)return null;const p=C.promo[w.r];return {s:p[0],c:p[1],k:C.lk(w.r),cr:p[2],atCap:w.lv>=C.cap[w.r]};}
+ function promote(id){const w=WP(id);const q=promoReq(w);if(!w.own||!q)return false;if(!q.atCap){toast('CẦN ĐẠT CẤP '+C.cap[w.r]);return false;}if(w.sh<q.s){toast('THIẾU MẢNH · '+w.sh+'/'+q.s);return false;}if(S.lk[q.k]<q.c){toast('THIẾU LINH KIỆN '+q.k+' · '+S.lk[q.k]+'/'+q.c);return false;}if(Progress.balance()<q.cr){toast('THIẾU HỢP KIM');return false;}
+  if(!Progress.spendCredits(q.cr))return false;w.sh-=q.s;S.lk[q.k]-=q.c;w.r++;save();bump();return true;}
  function setMain(id){if(!WP(id).own)return false;S.sup=S.sup.map(x=>x===id?null:x);S.main=id;save();bump();return true;}
  function setSup(k,id){if(!supOpen(k)||(id&&!WP(id).own))return false;if(id===S.main)return false;S.sup=S.sup.map((x,j)=>j===k?id:(x===id?null:x));save();bump();return true;}
  // ---------- chỉ số → lõi game (cộng cùng gốc với các hệ khác) ----------
@@ -90,6 +101,7 @@ const Ult72=(()=>{
  function claim(kind,k){roll();let o=null;if(kind==='d'&&S.dl[k]===1){o=C.daily[k];S.dl[k]=2;S.claims++;}else if(kind==='w'&&S.wl[k]===1){o=C.weekly[k];S.wl[k]=2;}else if(kind==='o'&&onceReady(k)){o=C.once[k];S.once[k]=1;}
   if(!o)return null;grant(o);try{X.onClaim&&X.onClaim(kind,k);}catch{}return o;}
  function buyMarket(){roll();if(S.dl.mk){toast('HÔM NAY ĐÃ ĐỔI');return false;}if(Progress.balance()<C.market.cr){toast('THIẾU HỢP KIM');return false;}if(!Progress.spendCredits(C.market.cr))return false;S.dl.mk=1;S.pool+=C.market.s;save();return true;}
+ function buyMarket2(){roll();if(S.dl.mk2){toast('HÔM NAY ĐÃ ĐỔI');return false;}if(Progress.balance()<C.market2.cr){toast('THIẾU HỢP KIM');return false;}if(!Progress.spendCredits(C.market2.cr))return false;S.dl.mk2=1;S.th+=C.market2.th;save();return true;}
  function giftPick(id){if(S.gift||maxStage()<C.unlock)return false;S.gift=1;const w=WP(id);w.sh+=C.gift;activate(id);S.main=id;save();bump();return true;}
  // ================= TRẬN ĐẤU =================
  const B={on:false,d0:0,tok:0,last:-1,ev:0,t:0,cd:0,ready:0,useAt:-99,ents:[],cc:[],basicT:0,picks:0,lastPick:-9,lastBomb:-99,stopE:new Map(),slowE:new Map(),frozenB:null,frozenUntil:0,graceUntil:0};
@@ -238,7 +250,7 @@ const Ult72=(()=>{
   el.addEventListener('click',e=>{const t=e.target.closest('[data-a]');if(!t){if(e.target===el)close();return;}const a=t.dataset.a,v=t.dataset.v;
    if(a==='close')close();else if(a==='sel'){cur=v;render();}else if(a==='gift'){if(giftPick(v)){cur=v;band('NHẬN '+C.nm[v].toUpperCase());}render();}
    else if(a==='act'){if(activate(v))band('KÍCH HOẠT '+C.nm[v].toUpperCase());render();}
-   else if(a==='lv'){if(levelUp(cur))render();else toast('THIẾU HỢP KIM / ĐÁ NÂNG CẤP');}
+   else if(a==='lv'){if(levelUp(cur))render();else toast('THIẾU HỢP KIM / THẺ EXP VKTT');}
    else if(a==='lv10'){let n=0;while(n<10&&levelUp(cur))n++;if(!n)toast('THIẾU HỢP KIM / ĐÁ NÂNG CẤP');render();}
    else if(a==='pro'){if(promote(cur))band('LÊN ĐỜI · '+C.rn[WP(cur).r].toUpperCase());render();}
    else if(a==='main'){setMain(cur);render();}else if(a==='sup'){if(!setSup(+v,cur))toast(supOpen(+v)?'KHÔNG ĐẶT ĐƯỢC':'Ô TRỢ CHIẾN MỞ Ở ẢI '+C.sup[+v]);render();}
@@ -246,7 +258,7 @@ const Ult72=(()=>{
    else if(a==='chip'){try{Chip72.open(cur);}catch(e){}}else if(a==='tasks')tasks();else if(a==='back')render();
    else if(a==='nav'){const L=C.ids,i=L.indexOf(cur);cur=L[(i+(+v)+L.length)%L.length];render();}else if(a==='det'){srDet=!srDet;render();}
    else if(a==='cl'){const [kd,k]=v.split('|');const o=claim(kd,k);if(o)band('NHẬN · '+gtxt(o));tasks();}
-   else if(a==='mk'){if(buyMarket())band('+'+C.market.s+' MẢNH TỰ CHỌN');tasks();}});}
+   else if(a==='mk'){if(buyMarket())band('+'+C.market.s+' MẢNH TỰ CHỌN');tasks();}else if(a==='mk2'){if(buyMarket2())band('+'+C.market2.th+' THẺ EXP VKTT');tasks();}});}
  function close(){if(el)el.hidden=true;}
  function band(t){const b=document.createElement('div');b.className='adv-band';b.textContent=t;document.body.appendChild(b);setTimeout(()=>b.remove(),1600);try{tone(880,.18,'triangle',.06);}catch{}}
  const tag=r=>`<span class="fr70" style="--fc:${C.fcol[fi(r)]}">${C.rn[r]}</span>`;
@@ -266,16 +278,16 @@ const Ult72=(()=>{
   const same=C.rn.map((_,i)=>i).filter(i=>fi(i)===fi(r)),pip=same.map(i=>`<i class="${i<=r&&own?'on':''}"></i>`).join('');
   const sl=(k)=>{const id=k?S.sup[k-1]:S.main,op=k?supOpen(k-1):true;return `<button class="sr-slot ${k?'sup':'main'} ${id===cur?'cur':''} ${op?'':'lock'}" ${id?`data-a="sel" data-v="${id}"`:''} style="--uc:${id?C.col[id]:'#5fc8ff'}">${id&&ART['ult_icon_'+id]?`<img src="${ART['ult_icon_'+id]}" alt="">`:'<em>'+(op?'+':'🔒')+'</em>'}<small>${k?(op?'TRỢ CHIẾN '+k:'ẢI '+C.sup[k-1]):'CHỦ CHIẾN'}</small></button>`;};
   const lc=own?lvCost(w):null,pr=own?promoReq(w):null;
-  const stat=own?`<div class="sr-st"><div><i>Cấp</i><b>${w.lv}/${C.cap[r]}</b></div><div><i>Chỉ số chủ chiến</i><b class="up">+${pct(P(cur))}</b></div><div><i>Cộng cho đội</i><b>+${pct(b)}</b><small>trần ${pct(C.capAll)}</small></div><div><i>Mảnh</i><b>${w.sh}</b></div></div>`:`<div class="sr-st"><div><i>Mảnh</i><b>${w.sh}/${C.activate}</b></div><div><i>Kỹ năng</i><b>${esc(C.sub[cur])}</b></div></div>`;
+  const stat=own?`<div class="sr-st"><div><i>Cấp</i><b>${w.lv}/${C.cap[r]}</b></div><div><i>Chỉ số chủ chiến</i><b class="up">+${pct(P(cur))}</b></div><div><i>Cộng cho đội</i><b>+${pct(b)}</b><small>trần ${pct(C.capAll)}</small></div><div><i>Mảnh</i><b>${w.sh}</b></div><div><i>Thẻ EXP VKTT</i><b>${S.th}</b></div><div><i>Linh kiện ${pr?pr.k:'D'}</i><b>${S.lk[pr?pr.k:'D']}</b></div></div>`:`<div class="sr-st"><div><i>Mảnh</i><b>${w.sh}/${C.activate}</b></div><div><i>Kỹ năng</i><b>${esc(C.sub[cur])}</b></div></div>`;
   const sk=`<button class="sr-sk" data-a="det" style="--uc:${col}">${ART['ult_icon_'+cur]?`<img src="${ART['ult_icon_'+cur]}" alt="">`:''}<small>${srDet?'THU GỌN':'KỸ NĂNG'}</small></button>`;
-  const det=srDet?`<div class="sr-det"><p class="u72-sk"><b>Kỹ năng cơ bản</b>${esc(T.base)}</p><p class="u72-sk ${isLegend(r)?'':'lk'}"><b>Tối thượng ${isLegend(r)?'':'· mở ở Huyền thoại'}</b>${esc(T.ult)}<br><small>${esc(T.ch)}</small></p>${own?`<div class="u72-res"><span>Linh kiện <b>${S.comp}</b></span><span>Mảnh tự chọn <b>${S.pool}</b></span>${S.pool?`<button data-a="asg" data-v="all">GẮN HẾT VÀO ${C.nm[cur].toUpperCase()}</button>`:''}</div><div class="u72-acts"><button class="hb-btn" data-a="lv10" ${lc?'':'disabled'}>NÂNG 10 CẤP<small>${lc?'tối đa 10 lần':'—'}</small></button><button class="hb-btn ${S.main===cur?'':'gold'}" data-a="main" ${S.main===cur?'disabled':''}>${S.main===cur?'✓ CHỦ CHIẾN':'ĐẶT CHỦ CHIẾN'}<small>kỹ năng + 100% chỉ số</small></button><button class="hb-btn" data-a="sup" data-v="0" ${S.main===cur?'disabled':''}>TRỢ CHIẾN 1<small>${supOpen(0)?'25% chỉ số':'mở ở ải '+C.sup[0]}</small></button><button class="hb-btn" data-a="sup" data-v="1" ${S.main===cur?'disabled':''}>TRỢ CHIẾN 2<small>${supOpen(1)?'25% chỉ số':'mở ở ải '+C.sup[1]}</small></button></div>`:''}</div>`:'';
-  const main=own?`<button class="sr-go" data-a="lv" ${lc?'':'disabled'}>NÂNG CẤP<small>${lc?lc.cr+' ◈ · '+lc.ex+' ⬢':'Đạt trần cấp'}</small></button>`:`<button class="sr-go ${w.sh>=C.activate?'':'off'}" data-a="act" data-v="${cur}">KÍCH HOẠT<small>${w.sh}/${C.activate} mảnh</small></button>`;
+  const det=srDet?`<div class="sr-det"><p class="u72-sk"><b>Kỹ năng cơ bản</b>${esc(T.base)}</p><p class="u72-sk ${isLegend(r)?'':'lk'}"><b>Tối thượng ${isLegend(r)?'':'· mở ở Huyền thoại'}</b>${esc(T.ult)}<br><small>${esc(T.ch)}</small></p>${own?`<div class="u72-res"><span>Linh kiện <b>A ${S.lk.A} · B ${S.lk.B} · C ${S.lk.C} · D ${S.lk.D}</b></span><span>Thẻ EXP VKTT <b>${S.th}</b></span><span>Mảnh tự chọn <b>${S.pool}</b></span>${S.pool?`<button data-a="asg" data-v="all">GẮN HẾT VÀO ${C.nm[cur].toUpperCase()}</button>`:''}</div><div class="u72-acts"><button class="hb-btn" data-a="lv10" ${lc?'':'disabled'}>NÂNG 10 CẤP<small>${lc?'tối đa 10 lần':'—'}</small></button><button class="hb-btn ${S.main===cur?'':'gold'}" data-a="main" ${S.main===cur?'disabled':''}>${S.main===cur?'✓ CHỦ CHIẾN':'ĐẶT CHỦ CHIẾN'}<small>kỹ năng + 100% chỉ số</small></button><button class="hb-btn" data-a="sup" data-v="0" ${S.main===cur?'disabled':''}>TRỢ CHIẾN 1<small>${supOpen(0)?'25% chỉ số':'mở ở ải '+C.sup[0]}</small></button><button class="hb-btn" data-a="sup" data-v="1" ${S.main===cur?'disabled':''}>TRỢ CHIẾN 2<small>${supOpen(1)?'25% chỉ số':'mở ở ải '+C.sup[1]}</small></button></div>`:''}</div>`:'';
+  const main=own?`<button class="sr-go" data-a="lv" ${lc?'':'disabled'}>NÂNG CẤP<small>${lc?lc.th+' Thẻ EXP · '+lc.cr+' ◈':'Đạt trần cấp'}</small></button>`:`<button class="sr-go ${w.sh>=C.activate?'':'off'}" data-a="act" data-v="${cur}">KÍCH HOẠT<small>${w.sh}/${C.activate} mảnh</small></button>`;
   return `<div class="sr" style="--uc:${col};--fc:${fc}"><div class="sr-top"><b class="sr-title">VŨ KHÍ TỐI THƯỢNG</b><button class="sr-tk ${nTask?'hot':''}" data-a="tasks">NHIỆM VỤ${nTask?'<i>'+nTask+'</i>':''}</button></div>
    <div class="sr-slots">${sl(1)}${sl(0)}${sl(2)}</div>
    <div class="sr-stage ${own?'':'dim'}" data-w="${cur}"><div class="sr-dome"></div><div class="sr-ring"></div><div class="sr-pt">${'<i></i>'.repeat(14)}</div><div class="sr-wpn"><div class="sr-spin">${model(cur,r)}</div></div><div class="sr-plat"><div class="sr-pips">${pip}</div></div>
     <button class="sr-nav l" data-a="nav" data-v="-1">‹</button><button class="sr-nav r" data-a="nav" data-v="1">›</button>${sk}${typeof Chip72!=='undefined'&&own?`<button class="sr-chip" data-a="chip"><b>CHIP</b><small>${Chip72.summary(cur)}</small></button>`:''}</div>
    <div class="sr-name"><b>${C.nm[cur]}</b><span class="sr-rk">${own?C.rn[r]:'CHƯA KÍCH HOẠT'}</span></div>${stat}${det}
-   <div class="sr-bot"><button class="sr-sd" data-a="${own&&pr?'pro':'det'}" ${own&&!pr?'disabled':''}>${own?(pr?'LÊN '+C.rn[r+1].toUpperCase():'TỐI ĐA'):'CHI TIẾT'}<small>${own&&pr?pr.s+' mảnh · '+pr.c+' LK':''}</small></button>${main}<button class="sr-sd" data-a="close">QUAY LẠI</button></div></div>`;}
+   <div class="sr-bot"><button class="sr-sd" data-a="${own&&pr?'pro':'det'}" ${own&&!pr?'disabled':''}>${own?(pr?'LÊN '+C.rn[r+1].toUpperCase():'TỐI ĐA'):'CHI TIẾT'}<small>${own&&pr?pr.s+' mảnh · '+pr.c+' LK '+pr.k:''}</small></button>${main}<button class="sr-sd" data-a="close">QUAY LẠI</button></div></div>`;}
  function render(){if(!el)build();el.classList.remove('srm');if(!unlocked()){el.innerHTML=`<div class="m63-card adv-card u72-card"><div class="m63-eye">VŨ KHÍ TỐI THƯỢNG</div><h3>Mở khóa ở ải ${C.unlock}</h3><p class="adv-max">Vượt ải ${C.unlock} để nhận vũ khí tối thượng đầu tiên.</p><div class="adv-btns"><button class="adv-x" data-a="close">ĐÓNG</button></div></div>`;el.hidden=false;return;}
   if(!S.gift&&maxStage()>=C.unlock&&!Object.values(S.w).some(w=>w.own))return giftPanel();
   roll();if(!cur)cur=S.main||C.ids[0];const w=WP(cur),b=bonus();
@@ -288,9 +300,9 @@ const Ult72=(()=>{
    det=`<div class="u72-det"><div class="u72-big">${model(cur,w.r)}</div><h4>${C.nm[cur]} ${tag(w.r)} <small>Cấp ${w.lv}/${C.cap[w.r]}</small></h4>
     <div class="adv-cmp"><div><i>CHỈ SỐ (Ô CHỦ CHIẾN)</i>+${pct(P(cur))} tấn công · máu · giáp</div><div><i>ĐANG CỘNG CHO ĐỘI</i><span class="up">+${pct(b)}</span> (trần ${pct(C.capAll)})</div></div>
     <p class="u72-sk"><b>Kỹ năng cơ bản</b>${esc(T.base)}</p><p class="u72-sk ${isLegend(w.r)?'':'lk'}"><b>Tối thượng ${isLegend(w.r)?'':'· mở ở Huyền thoại'}</b>${esc(T.ult)}<br><small>${esc(T.ch)}</small></p>
-    <div class="u72-res"><span>Mảnh <b>${w.sh}</b></span><span>Linh kiện <b>${S.comp}</b></span><span>Mảnh tự chọn <b>${S.pool}</b></span>${S.pool?`<button data-a="asg" data-v="all">GẮN HẾT VÀO ${C.nm[cur].toUpperCase()}</button>`:''}</div>
-    <div class="u72-acts"><button class="hb-btn cyan" data-a="lv" ${lc?'':'disabled'}>NÂNG CẤP<small>${lc?lc.cr+' ◈ · '+lc.ex+' ⬢':'Đạt trần cấp'}</small></button><button class="hb-btn cyan" data-a="lv10" ${lc?'':'disabled'}>NÂNG 10 CẤP<small>${lc?'tối đa 10 lần':'—'}</small></button>
-     <button class="hb-btn gold" data-a="pro" ${pr?'':'disabled'}>${pr?'LÊN '+C.rn[w.r+1].toUpperCase():'TỐI ĐA'}<small>${pr?(pr.atCap?'':'cần cấp '+C.cap[w.r]+' · ')+pr.s+' mảnh · '+pr.c+' linh kiện · '+fmt(pr.cr)+' ◈':'Huyền thoại +5'}</small></button>
+    <div class="u72-res"><span>Mảnh <b>${w.sh}</b></span><span>Linh kiện <b>A ${S.lk.A} · B ${S.lk.B} · C ${S.lk.C} · D ${S.lk.D}</b></span><span>Thẻ EXP VKTT <b>${S.th}</b></span><span>Mảnh tự chọn <b>${S.pool}</b></span>${S.pool?`<button data-a="asg" data-v="all">GẮN HẾT VÀO ${C.nm[cur].toUpperCase()}</button>`:''}</div>
+    <div class="u72-acts"><button class="hb-btn cyan" data-a="lv" ${lc?'':'disabled'}>NÂNG CẤP<small>${lc?lc.th+' Thẻ EXP · '+lc.cr+' ◈':'Đạt trần cấp'}</small></button><button class="hb-btn cyan" data-a="lv10" ${lc?'':'disabled'}>NÂNG 10 CẤP<small>${lc?'tối đa 10 lần':'—'}</small></button>
+     <button class="hb-btn gold" data-a="pro" ${pr?'':'disabled'}>${pr?'LÊN '+C.rn[w.r+1].toUpperCase():'TỐI ĐA'}<small>${pr?(pr.atCap?'':'cần cấp '+C.cap[w.r]+' · ')+pr.s+' mảnh · '+pr.c+' linh kiện '+pr.k+' · '+fmt(pr.cr)+' ◈':'Huyền thoại +5'}</small></button>
      <button class="hb-btn ${S.main===cur?'':'gold'}" data-a="main" ${S.main===cur?'disabled':''}>${S.main===cur?'✓ CHỦ CHIẾN':'ĐẶT CHỦ CHIẾN'}<small>kỹ năng + 100% chỉ số</small></button>
      <button class="hb-btn" data-a="sup" data-v="0" ${S.main===cur?'disabled':''}>TRỢ CHIẾN 1<small>${supOpen(0)?'25% chỉ số':'mở ở ải '+C.sup[0]}</small></button>${typeof Chip72!=='undefined'?`<button class="hb-btn wide u72-chipb" data-a="chip">CHIP GIAO THỨC<small>${Chip72.summary(cur)}</small></button>`:''}<button class="hb-btn" data-a="sup" data-v="1" ${S.main===cur?'disabled':''}>TRỢ CHIẾN 2<small>${supOpen(1)?'25% chỉ số':'mở ở ải '+C.sup[1]}</small></button></div></div>`;}
   const nTask=countReady();
@@ -300,9 +312,10 @@ const Ult72=(()=>{
  function countReady(){roll();let n=0;for(const k in C.daily)if(S.dl[k]===1)n++;for(const k in C.weekly)if(S.wl[k]===1)n++;for(const k in C.once)if(onceReady(k))n++;return n;}
  function tasks(){if(!el)build();el.classList.remove('srm');roll();const st=(v)=>v===2?'<em>ĐÃ NHẬN</em>':v===1?'':'<em class="no">CHƯA XONG</em>';
   const row=(kd,k,o,v,extra='')=>`<div class="adv-s"><div><b>${esc(o.t)}${extra}</b><small>${esc(gtxt(o))}</small></div>${v===1?`<button data-a="cl" data-v="${kd}|${k}">NHẬN</button>`:st(v)}</div>`;
-  el.innerHTML=`<div class="m63-card adv-card u72-card"><div class="m63-eye">NHIỆM VỤ VŨ KHÍ TỐI THƯỢNG</div><h3>Mảnh tự chọn: <span style="color:#ffd56a">${S.pool}</span> · Linh kiện: <span style="color:#ffd56a">${S.comp}</span></h3>
+  el.innerHTML=`<div class="m63-card adv-card u72-card"><div class="m63-eye">NHIỆM VỤ VŨ KHÍ TỐI THƯỢNG</div><h3>Mảnh tự chọn: <span style="color:#ffd56a">${S.pool}</span></h3><p class="adv-sub" style="margin:2px 0 8px;font-size:12px;opacity:.9">Linh kiện A <b>${S.lk.A}</b> · B <b>${S.lk.B}</b> · C <b>${S.lk.C}</b> · D <b>${S.lk.D}</b> · Thẻ EXP VKTT <b>${S.th}</b></p><h3 hidden></h3>
    <div class="adv-req-t">HẰNG NGÀY</div><div class="adv-src">${Object.entries(C.daily).map(([k,o])=>row('d',k,o,S.dl[k]|0,k==='task'?' ('+Math.min(o.need,S.dl.taskN|0)+'/'+o.need+')':'')).join('')}
-    <div class="adv-s"><div><b>Chợ mảnh</b><small>${fmt(C.market.cr)} ◈ → ${C.market.s} mảnh tự chọn · 1 lần/ngày</small></div>${S.dl.mk?'<em>ĐÃ ĐỔI</em>':'<button data-a="mk">ĐỔI</button>'}</div></div>
+    <div class="adv-s"><div><b>Chợ mảnh</b><small>${fmt(C.market.cr)} ◈ → ${C.market.s} mảnh tự chọn · 1 lần/ngày</small></div>${S.dl.mk?'<em>ĐÃ ĐỔI</em>':'<button data-a="mk">ĐỔI</button>'}</div>
+    <div class="adv-s"><div><b>Chợ thẻ EXP</b><small>${fmt(C.market2.cr)} ◈ → ${C.market2.th} Thẻ EXP VKTT · 1 lần/ngày</small></div>${S.dl.mk2?'<em>ĐÃ ĐỔI</em>':'<button data-a="mk2">ĐỔI</button>'}</div></div>
    <div class="adv-req-t">HẰNG TUẦN</div><div class="adv-src">${Object.entries(C.weekly).map(([k,o])=>row('w',k,o,S.wl[k]|0)).join('')}</div>
    <div class="adv-req-t">MỘT LẦN</div><div class="adv-src">${Object.entries(C.once).map(([k,o])=>row('o',k,o,S.once[k]?2:onceReady(k))).join('')}</div>
    <p class="adv-cost">Mảnh tự chọn gắn vào vũ khí nào cũng được (nút GẮN ở màn vũ khí).</p><div class="adv-btns"><button class="adv-x" data-a="back">‹ QUAY LẠI</button><button class="adv-x" data-a="close">ĐÓNG</button></div></div>`;el.hidden=false;}
@@ -311,5 +324,5 @@ const Ult72=(()=>{
  setInterval(()=>{try{const fx=document.querySelector('#hgr41 .h1-fx');if(fx&&!fx.querySelector('[data-u72]')){const b=document.createElement('button');b.dataset.u72=1;b.className='adv69b';b.textContent='VŨ KHÍ TT';b.addEventListener('click',e=>{e.stopPropagation();open();});fx.appendChild(b);}
    const b=document.querySelector('#hgr41 [data-u72]');if(b){const hot=(!S.gift&&maxStage()>=C.unlock)||countReady()>0;b.classList.toggle('hot',hot);}}catch{}},1000);
  return {X,bonusOf,mainW,cur:()=>cur,render:()=>render(),C,state:()=>JSON.parse(JSON.stringify(S)),open,tasks,giftPick,activate,assign,levelUp,promote,setMain,setSup,bonus,P,claim,buyMarket,useUlt,charge,
-  give:o=>{if(!o)return;if(o.s)S.pool+=o.s|0;if(o.c)S.comp+=o.c|0;if(o.w)for(const id in o.w){try{WP(id).sh+=o.w[id]|0;}catch{}}save();bump();},_B:B,_set:o=>{for(const k in o){if(k==='w'){for(const id in o.w)Object.assign(S.w[id],o.w[id]);}else S[k]=o[k];}save();bump();},_D0:D0,_spend:spend};
+  buyMarket2,give:o=>{if(!o)return;if(o.s)S.pool+=o.s|0;if(o.c)addLK(o.c,o.k);if(o.lk)for(const k in o.lk)if(S.lk[k]!=null)S.lk[k]+=o.lk[k]|0;if(o.th)S.th+=o.th|0;if(o.w)for(const id in o.w){try{WP(id).sh+=o.w[id]|0;}catch{}}save();bump();},_B:B,_set:o=>{for(const k in o){if(k==='w'){for(const id in o.w)Object.assign(S.w[id],o.w[id]);}else S[k]=o[k];}save();bump();},_D0:D0,_spend:spend};
 })();
