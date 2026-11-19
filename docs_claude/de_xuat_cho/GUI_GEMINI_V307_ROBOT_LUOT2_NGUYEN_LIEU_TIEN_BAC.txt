@@ -7,7 +7,12 @@ GỬI GEMINI · V307 · ROBOT LƯỢT 2: NGUYÊN LIỆU TIẾN BẬC + CHỐT C�
 - Cấp vũ khí trong lượt: GIỮ 5 CẤP HIỆN CÓ (game đã có: nhặt viên tăng lực, cấp 1→5 tăng số tia + tốc đạn). Không làm 13 cấp, không vào trận ở 75 %, không tụt 2 cấp. Các tăng ích dính "cấp vũ khí" (aug_bomb_up, aug_wp_keep) hãy viết lại theo thang 5 cấp.
 - Robot: cơ khí, 7 mẫu (4 nam · 3 nữ), tên + vòng 8 hệ + cộng hưởng + biến hình theo hồ sơ của bạn — Claude dùng làm gốc.
 - Robot NÂNG CẤP (lên cấp trong bậc): dùng ĐÁ XP I–IV như chiến cơ / trang bị hiện nay (KHÔNG dùng bản sao).
-- Robot TIẾN BẬC (khi chạm trần cấp): dùng NGUYÊN LIỆU RIÊNG, số lượng TĂNG DẦN theo bậc, kiếm ở ẢI KHÓ và PHÓ BẢN VẬT LIỆU. Bỏ bảng chi phí "15/30/50/80/120 bản sao mỗi tàu mẹ".
+- TIẾN BẬC (khi chạm trần cấp) — CHỦ DỰ ÁN CHỐT 19/11 22:00:
+  • Áp dụng CHUNG cho 3 loại đồ hợp thể: ROBOT hợp thể, CHIẾN CƠ hợp thể (SSS), TRANG BỊ hợp thể (SSS).
+  • Chỉ dùng MỘT LOẠI NGUYÊN LIỆU: 1 BỘ = 4 nguyên liệu khác nhau (như game gốc). KHÔNG chia phẩm Lục / Lam / Tím.
+  • Bậc tiến từ +1 đến +10 (tối đa). Số bộ TĂNG DẦN theo bậc, bước lên +10 tốn 20 BỘ; mỗi bước tốn thêm ◈ hợp kim.
+  • Kiếm ở ẢI KHÓ và PHÓ BẢN VẬT LIỆU. Bỏ bảng chi phí "15/30/50/80/120 bản sao mỗi tàu mẹ" và thang 6 bậc Thường → SS cho tiến bậc.
+  • Hình ảnh vẫn phải "nâng bậc càng cao càng đẹp": bạn chọn các mốc đổi hình trong +1…+10 (ví dụ +3 / +6 / +10) khớp 3 mốc tranh máy bay và 2 mốc robot đứng.
 
 2. GAME GỐC LÀM THẾ NÀO (Claude xem video 88921)
 - Nâng cấp: 5 ô vật liệu EXP + vàng, thanh EXP, trần cấp theo bậc (…/50, …/55, …/60).
@@ -22,11 +27,11 @@ GỬI GEMINI · V307 · ROBOT LƯỢT 2: NGUYÊN LIỆU TIẾN BẬC + CHỐT C�
 - Kinh tế: ◈ hợp kim là tiền chính (không có "vàng" riêng). Không thêm nguồn 💎.
 
 4. VIỆC CẦN BẠN LÀM
-A. Bộ NGUYÊN LIỆU TIẾN BẬC ROBOT: số loại (gợi ý 4 loại như game gốc), tên Việt riêng, có chia phẩm theo bậc không (ví dụ phẩm Lam cho bậc Lục→Lam, phẩm Tím cho Tím→Tím+5, phẩm Vàng cho SS) — nhớ luật: KHÔNG gộp với nguyên liệu hệ khác (linh kiện VKTT, đá…).
-B. BẢNG TIẾN BẬC 6 bậc (Thường → Lục → Lam → Tím → Tím+5 → SS/MAX): trần cấp mỗi bậc, số từng nguyên liệu (tăng dần), ◈, chỉ số tăng (công / máu, thời gian dạng robot, hồi tuyệt kỹ) và có thêm chỉ số kiểu "Đồng bộ" không (nếu có: nó làm gì trong trận — ví dụ tăng cộng hưởng 2 tàu mẹ / tốc nạp biến hình).
+A. BỘ NGUYÊN LIỆU TIẾN BẬC (4 món, 1 phẩm duy nhất, dùng chung robot / chiến cơ hợp thể / trang bị hợp thể): đặt tên Việt riêng + mô tả hình để GPT vẽ icon. Không gộp với nguyên liệu hệ khác (linh kiện VKTT, đá…).
+B. BẢNG TIẾN BẬC +1 → +10 (bước +10 = 20 bộ), RIÊNG cho từng loại nếu cần (robot / chiến cơ hợp thể / trang bị hợp thể): trần cấp mỗi bậc, số bộ (tăng dần), ◈, chỉ số tăng (công / máu, thời gian dạng robot, hồi tuyệt kỹ) và có thêm chỉ số kiểu "Đồng bộ" không (nếu có: nó làm gì trong trận — ví dụ tăng cộng hưởng 2 tàu mẹ / tốc nạp biến hình).
 C. BẢNG NÂNG CẤP bằng Đá XP: XP mỗi cấp (Lv1→100), ◈ mỗi cấp, so sánh với chiến cơ để không lệch.
-D. NGUỒN: (1) ẢI KHÓ — thiết kế chế độ / điều kiện mở / số lượt mỗi ngày / tỉ lệ rơi; (2) PHÓ BẢN VẬT LIỆU — số tầng / ải, mỗi nguyên liệu rơi ở ải nào, mở dần thế nào, lượt free mỗi ngày, có càn quét không; thời gian ước để người không nạp đạt robot Tím / Tím+5 / SS.
-E. CHUYỂN DỮ LIỆU: robot cũ (khóa `saobang-robots-v1`, hiện có "cường hóa" theo chiến cơ thành phần) sang bậc / cấp mới thế nào để không mất công.
+D. NGUỒN: (1) ẢI KHÓ — thiết kế chế độ / điều kiện mở / số lượt mỗi ngày / tỉ lệ rơi; (2) PHÓ BẢN VẬT LIỆU — số tầng / ải, mỗi nguyên liệu rơi ở ải nào, mở dần thế nào, lượt free mỗi ngày, có càn quét không; thời gian ước để người không nạp đạt +3 / +6 / +10. Lưu ý 3 loại đồ hợp thể cùng tranh một nguồn nguyên liệu → cân lượng rơi.
+E. CHUYỂN DỮ LIỆU: robot cũ (khóa `saobang-robots-v1`), chiến cơ SSS hợp thể và trang bị SSS đang có (đều có cường hóa / cấp riêng hiện nay) sang hệ +1…+10 mới thế nào để không mất công.
 F. Sửa 2 điểm trong hồ sơ trước cho khớp game: (1) "lỗi ngắt dòng thoại" và "lớp cài đặt đè màn kết quả" là do ảnh chụp (chữ đang chạy / script chụp), không phải lỗi game; (2) HTML ~93 MB là do tranh (đã nén WebP phần lớn), mục tiêu < 15 MB không thực tế nếu giữ chất lượng — bỏ khỏi kế hoạch hoặc đề xuất cách khác (tải tranh theo chương…). Cửa hàng hiện chỉ có Chợ Đen / Tiệm skin / Danh dự (quầy kim cương là 1 ô trong Chợ Đen), không phải lỗi mở nhầm.
 
 ĐẦU RA: tiếng Việt, bảng / khối cấu hình dán được, đánh dấu Mới / Sửa / Giữ, chỗ ước lượng ghi "(ước lượng)".
