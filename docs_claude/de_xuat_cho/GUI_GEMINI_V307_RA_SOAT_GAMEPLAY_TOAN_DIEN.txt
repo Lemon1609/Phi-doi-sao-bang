@@ -1,0 +1,98 @@
+GỬI GEMINI · V307 · RÀ SOÁT TOÀN DIỆN CƠ CHẾ GAMEPLAY + ĐỊNH HƯỚNG LỐI CHƠI + KẾ HOẠCH CẬP NHẬT
+(Claude soạn 19/11/2026 theo yêu cầu chủ dự án. Kèm theo: ảnh chụp ~30 màn từ sảnh tới trong trận, bản phân tích gameplay game gốc, câu trả lời lượt 2 của bạn về 6 hệ thống.)
+
+=====================================================================
+0. BỐI CẢNH VÀ LUẬT KHÓA (không đề xuất trái các điểm này)
+=====================================================================
+- "Phi Đội Sao Băng": game bắn máy bay dọc HTML5 chạy offline, đóng gói APK. Một người chơi, không máy chủ, không nạp tiền thật.
+- Học phong cách / cách làm của một game bắn máy bay mobile nổi tiếng (gọi là "game gốc"), KHÔNG chép tàu, cánh, đạn cụ thể.
+- Không thêm nguồn kim cương 💎 mới. Không đổi tên khóa lưu `saobang-*`.
+- KHÔNG gộp tiền tệ / nguyên liệu: chủ dự án giữ nguyên vì các tính năng mở dần theo tiến độ. (Bạn có thể đề xuất cách TRÌNH BÀY cho dễ hiểu, nhưng không gộp.)
+- Tăng số đạn theo bậc phải giữ nguyên tổng sát thương.
+- Nhân vật nữ phi công ở mức game mobile phổ thông.
+- Giáp trong trận = KHIÊN chặn 1 đòn (từ V78, không có thanh giáp). Quái không có hệ kháng.
+- Trần lực chiến toàn game khoảng 33.000 CP (con số này là ước lượng, Claude chưa đo đủ mọi hệ).
+
+=====================================================================
+1. KIỂM KÊ HIỆN TRẠNG (Claude tổng hợp từ mã nguồn)
+=====================================================================
+A. TRẬN ĐẤU
+- 13 chiến cơ (tàu 1–13). Bậc tàu: Thường · Lục · Lam · Tím · Tím+5 · SS (khung hình), và phẩm chất 12 nấc Trắng → Tím+5 (trần cấp 25…100). Hợp thể SSS: 2 tàu → "Chiến Thần" (Meta407, lõi siêu hợp).
+- Đạn chính mới V307: quạt N tia theo bậc, sprite riêng từng tàu (tổng sát thương giữ như cũ, tàu 2 là laser). Tàu 11 (Thôn Tinh) đo sát thương dao động quá lớn, chưa cân.
+- Nhặt đồ trong trận: tăng lực (power), siêu (super), hồi máu, khiên, bom, tàu con (drone), nam châm, sao.
+- Bạo Tẩu: thanh nộ nạp từ sượt đạn (graze, bán kính 24) + nhặt đồ; khi đầy, tàu bung cánh năng lượng, đạn mạnh hơn. Có combo sượt đạn (V76).
+- Nút trong trận: Tên lửa (hồi 8 s), Bom (theo số lượng), Tuyệt kỹ VKTT (từ Huyền thoại), tạm dừng.
+- Công bằng (FAIR76): đệm bom 180 ms cứu nguy, bất tử ≥1,5 s sau khi trúng, xóa đạn quanh tàu.
+- 3 ô trang bị: Giáp (khiên, 6 dòng), Tên lửa, Tàu con (vũ khí phụ). 18 món SSS. Hiệu ứng mới V307: khiên lục giác theo dòng giáp, vỡ khiên xóa đạn + đẩy quái, sét nhảy (Pháo Điện Từ), băng giá.
+- Quái tinh anh có ấn tố (4 loại), đội hình bay PINCER / VORTEX / SINE. Boss cuối chương 3 pha; boss CH5–CH10 thêm 4 đòn (cột có khe, cột đôi, chéo X, cung có khe), báo laser ⚠ + vạch đỏ.
+- Chướng ngại chương 6–10 (thiên thạch…).
+
+B. CHẾ ĐỘ CHƠI
+- Chiến dịch: 10 chương × 20 = 200 ải, sao ★, boss mỗi 10 ải. Kết thúc ải bắt buộc về sảnh. Thể lực chỉ tốn khi chơi lại ải đã qua (5) + càn quét bằng vé.
+- Vô tận: đợt liên tục, boss mỗi 5 đợt, hạng Vô tận theo mùa, thẻ "mục tiêu kế tiếp". Rương trong lượt tự mở cuối lượt (≤30/ngày).
+- Tháp Boss: leo tầng.
+- Phá Vây (BK78): roguelite 12 chặng có Ấn Chú, 0 thể lực.
+- Phó bản: Tiếp tế, Phó bản Vàng, Săn trang bị; Phó bản giới hạn (boss 60 s, 4 cấp, 1 lượt free/ngày + 2 lượt mua bằng 💎) — đây chính là "Boss Hạn Giờ" bạn đề xuất.
+- Sự kiện tuần xoay 4 tuần (Cuộc Đua Tinh Vân / Đột Kích Lõi Thép / Mê Cung Phá Vây / Cơn Lốc Vô Tận) có luật riêng; boss cuối tuần = đua sát thương 3 tàu × 30 s + MVP. Thứ Bảy ngày Tiếp Tế Chip, Chủ Nhật ngày Siêu Hợp Thể.
+- Nguyệt Thực (ải biến thể), Thử thách Hạt giống / Thử thách ngày.
+- Chưa có: Khe Nứt Hư Không 50 tầng (đã thiết kế ở lượt 2).
+
+C. NUÔI LỰC CHIẾN (mở dần)
+1. Nâng cấp trang bị bằng XP (Đá XP I–IV 15/60/240/1.000 XP + trang bị cùng mẫu làm vật liệu, hoàn 85 %).
+2. Tiến khung (Evo82): dùng bản sao cùng mẫu / cùng tàu, khung Trắng → Tím+5.
+3. Hợp thành: 5 Trắng → Lục, 5 Lục → Lam, 5 Lam → Lam+1.
+4. Đá khảm (V71): 5 phẩm, 4 vị trí, 5 ô/món; tẩy đá; đá đặc biệt.
+5. Phi công: 8 người, đội 1 chính + 3 phụ, ◈ 3 dải, nội tại 12 bậc, 24 mốc kỹ năng, Cây tiềm năng.
+6. Vũ khí tối thượng VKTT (mở ải 90): 4 món, 16 nấc, 4 dạng hình; VỪA ĐỔI theo lượt 2 của bạn (linh kiện A/B/C/D + Thẻ EXP VKTT, trần cấp mới).
+7. Chip giao thức VKTT: 6 ô (sắp cập nhật theo lượt 2: dòng chí mạng, dòng tinh anh, 8 bộ, Tuyệt mật).
+8. Hợp thể SSS, Vượt giới hạn (overlimit), Tủ đồ giám + cộng hưởng bộ SSS, Thành tựu.
+9. Sắp làm theo lượt 2: lõi phi công 8×Lv1–5, kho đá nội tại riêng (ải 95), ép xung tuần.
+10. Skin: chỉ đổi hình (0 chỉ số).
+
+D. TIỀN TỆ / TÀI NGUYÊN (giữ riêng)
+◈ hợp kim · 💎 kim cương · 🔋 thể lực (120, +1/6 phút) · 🎫 vé càn quét · vé vòng quay · Đá XP I–IV · bản sao chiến cơ / trang bị · mảnh VKTT riêng + mảnh tự chọn · linh kiện A/B/C/D · Thẻ EXP VKTT · mảnh phi công · mảnh skin · đá khảm / đá tẩy · lõi siêu hợp · Mảnh Sao Cổ (tiền sự kiện) · Danh dự / Xu Tinh Anh · tiền Chợ Đen.
+
+E. GIỮ CHÂN
+Nhiệm vụ ngày (8 việc, 140 điểm, 50 💎) / tuần (720 điểm, 150 💎) · Mùa giải 21 ngày / 25 cấp + làn Tinh Anh 1.500 💎 · Điểm danh 7 ngày · Quà 7 ngày đầu (3.400 💎) · Thẻ tháng · Vòng quay (2 free/ngày) · Rương · Chợ Đen · Cốt truyện (Story80) · Mã quà.
+
+=====================================================================
+2. CLAUDE TỰ THẤY (để bạn xác nhận hoặc bác)
+=====================================================================
+1. Quá nhiều hệ nuôi chồng nhau (≥12 hệ). Thiếu một LỘ TRÌNH MỞ rõ: ải nào mở hệ nào, mỗi giai đoạn người chơi nên tập trung vào gì.
+2. Tài nguyên nhiều (≥18 loại). Không gộp, nhưng người chơi khó biết món nào dùng ở đâu, kiếm ở đâu.
+3. Vòng lặp trong trận: game gốc có "cấp vũ khí trong lượt" (Lv1 → Lv13 nhờ nhặt), chọn tăng ích sau mỗi boss ở Vô tận, tinh thể trong lượt. Game mình có tăng lực nhặt được nhưng Vô tận chưa có chọn tăng ích (chỉ Phá Vây có Ấn Chú).
+4. Nhịp Vô tận: boss mỗi 5 đợt; game gốc khoảng 4–4,5 s/đợt, boss mỗi ~10 đợt (30–35 s).
+5. Cân bằng 13 tàu sau khi đổi đạn (quạt N tia): mới đo bia cố định, chưa có bảng DPS / sống sót theo vai trò. Tàu 11 chưa cân.
+6. Chế độ nhiều nhưng phần thưởng chồng chéo; chưa rõ chế độ nào là "chính" mỗi ngày, thời lượng một phiên chơi bao lâu.
+7. Kinh tế 💎: nguồn cố định; cần kiểm lại tiêu 💎 (làn Tinh Anh, lượt phó bản giới hạn, vòng quay, càn quét) có tạo áp lực hợp lý không, khi không có nạp.
+8. Trải nghiệm 30 phút đầu (FTUE): hướng dẫn, mở khóa từng tab, quà.
+
+=====================================================================
+3. VIỆC CẦN BẠN LÀM (trả lời theo đúng khung này)
+=====================================================================
+PHẦN A · CHẤM ĐIỂM HIỆN TRẠNG
+Bảng 1 dòng / hạng mục (Trận đấu · Từng chế độ · Từng hệ nuôi · Kinh tế · Giữ chân · FTUE): điểm 1–10, vấn đề chính, so với game gốc, mức ưu tiên (Cao / Vừa / Thấp).
+
+PHẦN B · ĐỊNH HƯỚNG LỐI CHƠI
+1. Viết "vòng lặp cốt lõi" của game trong 3 tầng: một trận (30 s – 5 phút) · một ngày (15–40 phút chơi) · một mùa giải 21 ngày.
+2. Bản sắc riêng của Phi Đội Sao Băng (khác game gốc ở đâu) — đề xuất 2–3 trụ cột.
+3. Lộ trình mở khóa: bảng "ải / ngày chơi → hệ mở → mục tiêu người chơi", từ ải 1 đến ải 200 và sau phá đảo (endgame).
+
+PHẦN C · ĐỀ XUẤT CẢI TIẾN (có số liệu, dạng cấu hình dán được)
+Ưu tiên trong trận và vòng lặp:
+- Có nên thêm chọn tăng ích sau boss ở Vô tận (tái dùng Ấn Chú của Phá Vây)? Nếu có: danh sách tăng ích, bậc, tỉ lệ, số lượt làm mới.
+- Có nên thêm cấp vũ khí trong lượt và tinh thể trong lượt (chỉ trong lượt, không ra ngoài kinh tế)? Thiết kế cụ thể.
+- Nhịp Vô tận (đợt, boss), độ khó theo đợt.
+- Vai trò 13 tàu (ví dụ: phá boss / dọn quái / sống sót / Bạo Tẩu) + chỉ tiêu cân bằng để Claude đo (DPS bia cố định, thời gian giết boss chuẩn, số lần trúng đạn).
+- Đánh giá các chế độ: giữ / gộp / đổi luật / bỏ, và thứ tự ưu tiên hằng ngày.
+- Bảng "nguồn → tài nguyên → nơi dùng" cho mọi tài nguyên ở mục 1D, chỉ ra tài nguyên thừa / thiếu.
+Mỗi đề xuất ghi rõ: Mới / Sửa / Giữ, ảnh hưởng tới lực chiến (CP), ảnh hưởng tới dữ liệu lưu đang có.
+
+PHẦN D · KẾ HOẠCH CẬP NHẬT
+Chia 3–4 đợt (V307 đang làm, V308, V309…), mỗi đợt ≤ 6 việc, có mục tiêu đo được và tiêu chí xong. Ghi rõ việc nào cần tranh GPT (mô tả ngắn để Claude soạn tin vẽ).
+Sáu hệ của lượt 2 (VKTT đã làm → chip → lõi phi công → Khe Nứt → đá nội tại → ép xung) đang làm theo thứ tự này; nếu bạn thấy nên đổi thứ tự hoặc hoãn hệ nào thì nói rõ lý do.
+
+LƯU Ý ĐẦU RA
+- Viết tiếng Việt. Số liệu ở dạng bảng hoặc khối cấu hình.
+- Không dùng tên phi công / tàu / vật phẩm ngoài danh sách Claude gửi (Claude sẽ gửi kèm danh sách tên nếu bạn cần).
+- Chỗ nào bạn chỉ ước lượng, ghi "(ước lượng)".
