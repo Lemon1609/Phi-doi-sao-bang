@@ -1,0 +1,47 @@
+[GỬI GEMINI · V307 · TƯ VẤN THIẾT KẾ LẠI CƠ CHẾ + HÌNH ẢNH ĐẠN CHÍNH 13 CHIẾN CƠ]
+
+Đính kèm:
+ (1) dan_trong_tran_game_goc_10_khung.jpg — 10 khung trong trận của tựa game gốc (học cách làm, không chép hình).
+ (2) A4_dan_truoc_sau.jpg — đạn 13 tàu của game mình ở bậc Tím (hàng dưới là bản hiện tại). Chủ dự án đánh giá: XẤU.
+
+Bối cảnh: game bắn máy bay dọc trên điện thoại, HTML5 canvas, màn 393×852. Mỗi tàu có 6 bậc (Thường, Lục, Lam, Tím, Tím+5, SS), bậc càng cao càng nhiều đạn. Có trạng thái Bạo Tẩu (~8 s, đạn mạnh hơn). Đạn địch quy ước đỏ / cam / hồng lõi trắng; đạn ta xanh / tím / vàng.
+
+LUẬT KHÓA (phải giữ):
+- Tổng sát thương mỗi giây (DPS) của mỗi tàu ở mỗi bậc GIỮ NGUYÊN; muốn đổi số đạn / tốc độ bắn thì chia lại sát thương mỗi viên.
+- Không chép đạn cụ thể của game gốc; chỉ học cách làm.
+- Đạn ta không được che đạn địch.
+
+ĐIỀU CLAUDE THẤY TRONG VIDEO GAME GỐC (nhìn bằng mắt):
+1. Bắn thường THƯA: khoảng 8–15 viên trên màn, mỗi viên tách rời, giữa các viên là khoảng trống; quái và đạn địch luôn nhìn rõ.
+2. Viên đạn là VỆT DÀI MẢNH (mũi giáo / sao chổi / lông vũ): đầu trắng gắt nhỏ, thân màu bão hòa, đuôi mờ dần dài 1–2 lần thân; trông như đang lao rất nhanh.
+3. Xòe QUẠT rộng (khoảng ±25–40°) thay vì xếp 1 cột dọc; tàu phụ bắn viên hình lá nhỏ theo cung.
+4. Laser là cột trong mờ mềm, nhìn xuyên được ra quái phía sau; chỉ lõi giữa trắng.
+5. Màn hình "bùng" trắng vàng dày đặc CHỈ khi Bạo Tẩu / kỹ năng; lúc thường giữ thoáng.
+
+ĐO GAME MÌNH (bậc Tím, hỏa lực tối đa, 1 tàu, không tàu phụ):
+- Đạn xếp thành CHUỖI HẠT 1–2 cột dọc sát nhau (khối băng, lục giác, bánh răng, lưỡi hái…) → nhìn như cột biểu tượng chứ không phải đạn đang bay.
+- 20–140 viên cùng lúc trên màn (game gốc ~8–15).
+- Trước lần chỉnh 19/11: độ bão hòa 0,07–0,47 (gốc 0,5–0,8), 20–70 % điểm sáng bị cháy trắng.
+
+DANH SÁCH TÀU HIỆN TẠI:
+| # | Tên | Hệ vũ khí | Chủ đề | Hình đạn hiện tại | Số viên trên màn (đo) |
+|---|---|---|---|---|---|
+| 1 | Nộ Hỏa Phượng Hoàng | LIÊN THANH | Thiêu Đốt | cầu lửa (2 dòng chụm hình chữ V hẹp) | 69 |
+| 2 | Cực Quang Ảo Ảnh | LASER XUYÊN | Laser | 1 cột laser liền | 5 |
+| 3 | X-Dực Băng Hà | CẦU PLASMA | Đóng Băng | khối băng xếp 1 cột | 64 |
+| 4 | Thần Ma Dị Hình | TÊN LỬA TỰ TÌM | Xuyên Thấu | vuốt / trăng khuyết 2 cột sát nhau | 20 |
+| 5 | Trí Tuệ Thự Quang | LIÊN THANH | Tán Xạ | quang tiễn 5 tia tỏa hẹp | 60 |
+| 6 | Siêu Nghiệm U Linh | ĐẠN TỎA | Lượng Tử Khúc Xạ | khối pixel 1–2 cột | 32 |
+| 7 | Ma Vương Đao Phong | LASER XUYÊN | Trảm Kích | kiếm khí – 4 vệt sáng dài | 56 |
+| 8 | Phần Thiên Chiến Chuẩn | CẦU PLASMA | Pháo Nhiệt Áp | tên lửa nhiệt nhỏ, 3 cột | 35 |
+| 9 | Thiên Khung Lược Ảnh | TÊN LỬA TỰ TÌM | Song Vũ | mũi tên HUD, 2 dải chữ V | 64 |
+| 10 | Tinh Hà Thủ Vọng | CẦU PLASMA | Quân Đoàn | cầu lục giác chồng thành 1 cột dày | 140 |
+| 11 | Thôn Tinh Chiến Cơ | CẦU PLASMA | Trọng Lực Thôn Phệ | cầu hố đen nhỏ, 2 cột | 48 |
+| 12 | Thời Không Lữ Khách | LASER XUYÊN | Lưỡng Cực Thời Gian | đĩa bánh răng xoay, 1 cột | 48 |
+| 13 | Hư Không Đế Vương | ĐẠN TỎA | Phán Quyết Thứ Nguyên | lưỡi hái cong, nhiều tầng 1 cột | 42 |
+
+YÊU CẦU TƯ VẤN (trả lời dạng bảng, có số cụ thể):
+A. Quy tắc chung cho đạn chính: số viên trên màn mục tiêu, tốc độ bay (px/s trên màn cao 852), chiều dài vệt so với thân tàu (~64 px), độ xòe, nhịp bắn, cách tăng đạn theo 6 bậc (thêm tia / xòe rộng / dài hơn…) mà vẫn giữ DPS; cách đạn khác đi khi Bạo Tẩu.
+B. Cho TỪNG tàu (13 dòng): kiểu đạn mới hợp chủ đề và hệ vũ khí (giữ tinh thần tên tàu), hình dạng viên (mô tả để vẽ), bố cục bắn (số tia × góc theo bậc 1→6), tốc độ, nhịp bắn, sát thương/viên tương đối (để DPS không đổi), màu theo bậc, hiệu ứng trúng đích, đạn Bạo Tẩu. Tránh 2 tàu trùng kiểu.
+C. 3 lớp hiển thị (lõi / thân màu / quầng): tỉ lệ kích thước và độ trong suốt đề xuất để không cháy trắng khi nhiều viên chồng nhau.
+D. Nếu cần tranh mới, liệt kê ảnh cần vẽ cho mỗi tàu (để Claude soạn tin cho GPT).
