@@ -1,0 +1,30 @@
+GỬI GEMINI · V307 · THIẾT KẾ LẠI ROBOT SIÊU HỢP THỂ (bậc, biến hình, đặc kỹ, đồ giám)
+(Claude soạn 19/11/2026. Kèm theo: bảng khung 9 video robot của game gốc + bản phân tích của Claude (00_PHAN_TICH_9_VIDEO_ROBOT_V307.md), ảnh 7 mẫu robot hiện tại, ảnh màn Hợp thể hiện tại. Luật khóa của tin "RÀ SOÁT GAMEPLAY TOÀN DIỆN" áp dụng y nguyên.)
+
+1. GAME GỐC LÀM GÌ (Claude nhìn video)
+- Mỗi robot có 2 dạng: MÁY BAY (bắn đạn thường) → biến hình 0,5–1 s → ROBOT ĐỨNG (người máy, cánh năng lượng khổng lồ, tung chiêu toàn khung) → trở về máy bay.
+- Mỗi robot mang 2 "đặc kỹ" là 2 hệ đạn kề nhau trong một vòng hệ (Thường→Xuyên→Tỏa→Trảm→Băng→Quân đoàn→Thiêu→Phân giải→Cộng vũ).
+- Đồ giám: lưới thẻ (5 sao, +1…+10, MAX), hộp xem trước chạy vòng lặp 4 pha + cốt truyện + Tấn công "gốc + cộng thêm" + "Thưởng điểm %".
+- Robot có sao / mức cường hóa như chiến cơ. CHỦ DỰ ÁN CHỐT: robot giống tàu và trang bị, NÂNG BẬC CÀNG CAO CÀNG ĐẸP.
+
+2. GAME MÌNH ĐANG CÓ
+- 7 robot SSS (khóa `saobang-robots-v1`), mỗi robot = 2 chiến cơ thành phần +1, hợp thể miễn phí:
+  Ảo Vũ Thiên Ảnh (Phân Giải + Song Vũ) · Du Tinh Hách Khách (Thiêu Đốt + Phân Giải) · Vĩnh Tẫn Hoang Viêm (Quân Đoàn + Thiêu Đốt) · Quần Tinh Ý Chí (Đóng Băng + Quân Đoàn) · Băng Hà Lĩnh Chủ (Trảm Kích + Đóng Băng) · Phượng Viêm Thương Đế (Thiêu Đốt + Xuyên Thấu) · Tử Diệu Quang Hoàng (Laser + Tán Xạ).
+- Trong trận: dạng chiến cơ; Bạo Tẩu → "dạng MAX" (tia MAX ≈ +50 % DPS robot); Tuyệt kỹ E: tụ 0,6 s bất tử → 2,4 s đòn toàn màn, xóa đạn, hồi 18 s.
+- Tranh hiện tại là CHIẾN GIÁP NỮ (nữ chiến binh mặc giáp cánh), mỗi mẫu có chân dung (sảnh) + dạng bay (trong trận). Chưa có: bậc robot, hình đổi theo bậc, dạng robot đứng riêng, đồ giám xem trước.
+- Ngoài ra có 3 chiến cơ "Thần hóa" SSS (#11–#13, mỗi chiếc ghép với 1 chiếc phụ) — hệ khác, không đụng trong tin này.
+- Vấn đề: tên + đặc kỹ 7 robot đang dịch sát tên game gốc → cần đổi cho đúng luật "không chép".
+
+3. VIỆC CẦN BẠN LÀM
+A. HƯỚNG HÌNH ẢNH: so sánh 3 hướng (a) giữ chiến giáp nữ, (b) robot cơ khí như game gốc, (c) trộn; nêu ưu/nhược theo bản sắc game và độ đồng bộ với 13 chiến cơ mới. Đề xuất 1 hướng (chủ dự án sẽ chọn).
+B. VÒNG HỆ ĐẠN RIÊNG: 8–9 hệ đạn của game mình (đặt tên Việt, không dịch từ game gốc), 7 robot lấy 2 hệ kề nhau; cộng hưởng khi đội hình (chiến cơ chính + phụ + robot) trùng hệ. Đặt lại TÊN + CHỦ ĐỀ + TUYỆT KỸ cho 7 robot (giữ được 2 chiến cơ thành phần hiện tại hoặc đề xuất đổi).
+C. HỆ BẬC ROBOT (nuôi được, mở dần):
+  - Số bậc (gợi ý dùng chung thang chiến cơ: Thường · Lục · Lam · Tím · Tím+5 · SS/MAX, hoặc 5 sao + +1…+10 như game gốc — chọn 1 và nói lý do).
+  - Mỗi bậc: chỉ số (% tấn công / máu, sát thương Tuyệt kỹ, thời gian dạng robot, hồi chiêu), mở thêm gì về hình (phiến cánh, hào quang, vũ khí phụ, chiêu MAX).
+  - Chi phí bằng tài nguyên ĐANG CÓ (bản sao 2 chiến cơ thành phần, ◈, đá, lõi siêu hợp…) — không gộp tài nguyên; nếu thật cần tài nguyên mới (ví dụ "lõi robot"), nêu nguồn rơi và lý do. Không thêm nguồn 💎.
+  - Ảnh hưởng CP (giữ trần ~33.000) và cách đổi dữ liệu cho người đã có robot.
+D. BIẾN HÌNH TRONG TRẬN: khi nào máy bay ↔ robot đứng (Bạo Tẩu? Tuyệt kỹ? cả hai?), dạng robot kéo dài bao lâu, robot đứng có đạn / chiêu gì khác máy bay, có bất tử lúc biến hình không; số liệu.
+E. ĐỒ GIÁM ROBOT: bố cục màn (lưới, hộp xem trước vòng lặp 4 pha, chỉ số, cốt truyện), thưởng sưu tầm (nếu có), cách xem trước bậc chưa đạt.
+F. DANH SÁCH TRANH CẦN GPT VẼ: mỗi robot gồm những hình nào (máy bay × số bậc, robot đứng × số mốc, chân dung đồ giám, cánh năng lượng, chiêu). Đề xuất cách GIẢM số tranh (ví dụ robot đứng chỉ 3 mốc Lam / Tím+5 / MAX, bậc giữa tô màu bằng mã). Viết mô tả ngắn từng tranh để Claude soạn tin vẽ.
+
+ĐẦU RA: tiếng Việt, bảng / khối cấu hình dán được; đánh dấu Mới / Sửa / Giữ; chỗ nào ước lượng ghi "(ước lượng)".

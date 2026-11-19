@@ -96,3 +96,11 @@ LƯU Ý ĐẦU RA
 - Viết tiếng Việt. Số liệu ở dạng bảng hoặc khối cấu hình.
 - Không dùng tên phi công / tàu / vật phẩm ngoài danh sách Claude gửi (Claude sẽ gửi kèm danh sách tên nếu bạn cần).
 - Chỗ nào bạn chỉ ước lượng, ghi "(ước lượng)".
+
+=====================================================================
+4. DANH SÁCH TÊN DÙNG TRONG GAME (chỉ dùng các tên này)
+=====================================================================
+Chiến cơ (số · tên · hệ đạn): 1 Nộ Hỏa Phượng Hoàng · Thiêu Đốt | 2 Cực Quang Ảo Ảnh · Laser | 3 X-Dực Băng Hà · Đóng Băng | 4 Thần Ma Dị Hình · Xuyên Thấu | 5 Trí Tuệ Thự Quang · Tán Xạ | 6 Siêu Nghiệm U Linh · Laser | 7 Ma Vương Đao Phong · Trảm Kích | 8 Phần Thiên Chiến Chuẩn · Thiêu Đốt | 9 Thiên Khung Lược Ảnh · Song Vũ | 10 Tinh Hà Thủ Vọng · Quân Đoàn | 11 Thôn Tinh Chiến Cơ · Trọng Lực Thôn Phệ (SSS) | 12 Thời Không Lữ Khách · Lưỡng Cực Thời Gian (SSS) | 13 Hư Không Đế Vương · Phán Quyết Thứ Nguyên (SSS).
+Phi công (hạng · vai): Lâm Phương (A · Át Chủ Bài) · Hạ Vy (A · Chỉ Huy) · Kiều An (A · Kỹ Sư) · Thiên Lam (S · Xạ Thủ) · Bảo Ngọc (A · Cựu Binh) · Mộc Miên (S · Cứu Thương) · Hàn Sương (S · Băng Tiễn) · Tử Dạ (SS · Bóng Đêm).
+Vũ khí tối thượng: Pháo Đài (phòng thủ) · Thế Giới (đa dụng) · Săn Sao (tấn công) · Lưới Điện Laser (tấn công).
+Robot siêu hợp thể (7): xem tin "ROBOT HỢP THỂ" gửi cùng lúc.
