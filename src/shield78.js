@@ -10,7 +10,7 @@ const Shield78=(()=>{
  const tnow=()=>performance.now()/1000;
  const on=()=>window.SHIELD78!==false;
  const playing=()=>typeof mode!=='undefined'&&mode==='play';
- function grant(kind){kind=kind||'passive';if(kind==='passive'&&!bub&&tnow()-endAt<GAP)return false;bulletShieldTime=Math.max(bulletShieldTime||0,DUR[kind]||6);bub=true;src=kind;if(kind==='pick')window.__shLock78=performance.now()+LOCK*1000;return true;}
+ function grant(kind){kind=kind||'passive';if(kind==='passive'&&!bub&&tnow()-endAt<Math.max(2,GAP-(+window.__core307gap||0)))return false;/* V307 lõi Kiều An */bulletShieldTime=Math.max(bulletShieldTime||0,DUR[kind]||6);bub=true;src=kind;if(kind==='pick')window.__shLock78=performance.now()+LOCK*1000;return true;}
  function install(){
   if(!on())return;
   try{const r0=reset;reset=function(){const r=r0.apply(this,arguments);extraDone=false;extra=0;bub=false;startDone=false;endAt=-1e9;return r;};}catch{}

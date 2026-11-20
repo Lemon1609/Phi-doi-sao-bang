@@ -63,7 +63,7 @@ const Pilot67=(()=>{
   S.mig75=1;save();})();
  const tl=k=>S.tree[k]||0;
  function treeStats(){let atk=0,hp=0,sh=0;for(const n of PTREE67){const l=tl(n.k);if(n.atk)atk+=n.atk*l;if(n.hp)hp+=n.hp*l;if(n.sh)sh+=n.sh*l;}return {atk,hp,sh};}
- function teamStats(){const main=S.team[0];const o={atk:0,hp:0,sh:0};if(main){const b=base(main);o.atk+=b.atk;o.hp+=b.hp;o.sh+=b.sh;}for(let i=1;i<4;i++){const id=S.team[i];if(!id)continue;const b=base(id);o.atk+=b.atk*.05;o.hp+=b.hp*.05;o.sh+=b.sh*.05;}const t=treeStats();o.atk+=t.atk;o.hp+=t.hp;o.sh+=t.sh;return o;}
+ function teamStats(){const main=S.team[0];const o={atk:0,hp:0,sh:0};if(main){const b=base(main);o.atk+=b.atk;o.hp+=b.hp;o.sh+=b.sh;}for(let i=1;i<4;i++){const id=S.team[i];if(!id)continue;const b=base(id);o.atk+=b.atk*.05;o.hp+=b.hp*.05;o.sh+=b.sh*.05;}const t=treeStats();o.atk+=t.atk;o.hp+=t.hp;o.sh+=t.sh;try{if(main&&typeof Core307!=='undefined'){const c=Core307.add(main,base);o.atk+=c.atk;o.hp+=c.hp;o.sh+=c.sh;}}catch{}/* V307 lõi phi công */return o;}
  const unlockedSys=()=>{try{return Onboard66.open('pilot');}catch{return false;}};
  const main=()=>unlockedSys()&&S.team[0]&&S.own[S.team[0]]?S.team[0]:null;
  const has=kind=>{const m=main();return m&&P(m).kind===kind;};
