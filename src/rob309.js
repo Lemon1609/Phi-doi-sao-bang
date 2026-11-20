@@ -60,7 +60,7 @@ const RobUlt309=(()=>{
  // thời gian đứng: cộng thêm (bảng − 5 s) lúc vừa biến hình
  setInterval(()=>{try{const r=robot(),on=!!r&&superTime>0;if(on&&!was&&window.ROBDUR309!==false&&mode==='play'){const e=Math.max(0,Math.min(10,r.enhance|0));superTime+=DUR[e]-5;}was=on;}catch{}},50);
  // +45 % sát thương khi đang ở dạng robot
- try{if(typeof Combat!=='undefined'&&Combat.factor&&!Combat.factor.__r309){const of=Combat.factor;const f=function(){const v=of.apply(this,arguments);try{if(window.ROBDPS309!==false&&robot()&&superTime>0&&mode==='play')return v*1.45;}catch{}return v;};f.__r309=1;Combat.factor=f;}}catch{}
+ try{if(typeof Combat!=='undefined'&&Combat.factor&&!Combat.factor.__r309){const of=Combat.factor;const f=function(){const v=of.apply(this,arguments);try{if(window.ROBDPS309!==false&&robot()&&superTime>0&&mode==='play')return v*(window.ROBGUN309===false?1.45:1.35);}catch{}return v;};f.__r309=1;Combat.factor=f;}}catch{}
  function glow(g,x,y,r,c,a){const gr=g.createRadialGradient(x,y,0,x,y,r);gr.addColorStop(0,'rgba(255,255,255,'+a+')');gr.addColorStop(.35,c);gr.addColorStop(1,'rgba(0,0,0,0)');g.fillStyle=gr;g.fillRect(x-r,y-r,r*2,r*2);}
  function col(g,x,w,c1,c2,a){const gr=g.createLinearGradient(x-w,0,x+w,0);gr.addColorStop(0,'rgba(0,0,0,0)');gr.addColorStop(.3,c1);gr.addColorStop(.5,'#ffffff');gr.addColorStop(.7,c2);gr.addColorStop(1,'rgba(0,0,0,0)');g.globalAlpha=a;g.fillStyle=gr;g.fillRect(x-w,0,w*2,H);}
  function draw(i,u,t){const g=ctx,[c1,c2]=COL[i]||COL[0],px=player.x,py=player.y,fade=Math.min(1,u*6,(1-u)*5);
@@ -87,4 +87,58 @@ const RobUlt309=(()=>{
   SSSGame.draw=function(r){const res=od.apply(this,arguments);try{if(window.ROBULT309!==false){const U=SSSGame.state().ult;const i=idx(r);if(i>=0&&U>0&&U<=2.4){const u=1-U/2.4;draw(i,u,typeof time==='number'?time:performance.now()/1000);}else if(P.length&&!(U>0))P=[];}}catch{}return res;};}
  setTimeout(install,0);
  return {DUR,install};
+})();
+
+// ---------- V309 bước 3: đạn riêng dạng ROBOT đứng của 7 robot (chỉ thị Gemini mục 3). Tắt: window.ROBGUN309=false ----------
+//  Đạn thật (trúng quái / boss), cộng thêm vào tia MAX sẵn có. Tổng sát thương đạn riêng ≈ 3 × unit/giây (tia MAX 9 × unit/giây);
+//  để giữ mức "+45 % dạng robot", hệ số Combat.factor dạng robot hạ 1,45 → 1,35 khi bật đạn riêng (ước lượng, chưa đo bia).
+const RobGun309=(()=>{
+ const TAU=Math.PI*2,DPS=3,MAX=160,COL=[['#e879f9','#22d3ee'],['#fb923c','#22d3ee'],['#fde047','#ef4444'],['#93c5fd','#c084fc'],['#bae6fd','#ffffff'],['#f87171','#fbbf24'],['#fde047','#a855f7']];
+ let P=[],acc=0,acc2=0,ang=0,last=-1;
+ const robot=()=>{try{return activeRobot&&activeRobot.super?activeRobot:null;}catch{return null;}};
+ const unit=r=>{try{return allyDamageScale()*gear.damage*1.25*Workshop.factor(r.grade)*Workshop.levelFactor(r)*(typeof Meta407!=='undefined'?Meta407.sssMult():1);}catch{return 1;}};
+ function near(x,y){let b=null,bd=1e9;for(const e of enemies){if(e.dead||e.rescue28||e.y<-30)continue;const d=(e.x-x)**2+(e.y-y)**2;if(d<bd){bd=d;b=e;}}if(boss&&!boss.defeatStarted){const d=(boss.x-x)**2+(boss.y-y)**2;if(d<bd)b=boss;}return b;}
+ function shoot(x,y,a,v,o){if(P.length>=MAX)return;P.push(Object.assign({x,y,vx:Math.sin(a)*v,vy:-Math.cos(a)*v,a,t:0,life:1.6,r:6,hit:new Set()},o));}
+ function hurt(e,d,q){try{if(e===boss||e.bossPart){damageBoss(d,'sss',e);return;}if(e.dead||!Number.isFinite(e.hp))return;try{Report392.hit(Math.min(e.hp,d),'skill');}catch{}e.hp-=d;if(q&&q.freeze)e.frozen=Math.max(e.frozen||0,q.freeze);if(e.hp<=0)kill(e);}catch{}}
+ // nhịp bắn từng mẫu: [chu kỳ s, số viên mỗi loạt] → sát thương mỗi viên = DPS·unit·chu kỳ / số viên
+ const PAT=[[.12,6],[.14,7],[.16,5],[.2,6],[.42,2],[.13,9],[.18,9]];
+ function fire(i,r,px,py,t){const [cd,n]=PAT[i],d=DPS*unit(r)*cd/n,[c1,c2]=COL[i];
+  if(i===0){for(let k=0;k<6;k++){const a=(-50+20*k)*Math.PI/180+Math.sin(t*3+k)*.18;shoot(px,py-30,a,620,{d,k:'feather',c:k%2?c1:c2,curl:Math.sin(t*2+k)*1.2});}}
+  else if(i===1){for(let k=0;k<n;k++){const a=(-30+60*k/(n-1))*Math.PI/180;shoot(px,py-34,a,700,{d,k:'heat',c:c1,split:1});}}
+  else if(i===2){shoot(px,py-40,0,760,{d:d*1.2,k:'plasma',c:c1,r:10,pierce:3});for(let k=0;k<4;k++){const sx=px+(k<2?-1:1)*(54+(k%2)*30),sy=py-10+(k%2)*24,e=near(sx,sy),a=e?Math.atan2(e.x-sx,-(e.y-sy)):0;shoot(sx,sy,a,820,{d:d*.95,k:'bolt',c:c2});}}
+  else if(i===3){for(let k=0;k<6;k++){const aa=ang+k*TAU/6,sx=px+Math.cos(aa)*70,sy=py-20+Math.sin(aa)*34,e=near(sx,sy),a=e?Math.atan2(e.x-sx,-(e.y-sy)):0;shoot(sx,sy,a,900,{d,k:'laser',c:k%2?c1:c2,slow:1});}}
+  else if(i===4){for(const sd of [-1,1])shoot(px+sd*46,py-20,sd*.06,560,{d,k:'slash',c:c1,r:30,pierce:6,freeze:1.5,life:1.4});}
+  else if(i===5){for(let k=0;k<8;k++){const a=(-60+120*k/7)*Math.PI/180;shoot(px,py-30,a,640,{d:d*.9,k:'fire',c:k%2?c1:c2});}shoot(px,py-44,0,980,{d:d*1.8,k:'lance',c:c2,r:9,pierce:8});}
+  else{for(let k=0;k<9;k++){const a=(-40+80*k/8)*Math.PI/180;shoot(px,py-34,a,860,{d,k:'prism',c:['#ff5d5d','#ffb347','#fff35c','#5dff8a','#5dc8ff','#9d6bff','#ff6bd6','#fde047','#a855f7'][k]});}}}
+ function step(dt,i,r){const px=player.x,py=player.y;ang+=dt*2.2;
+  for(const q of P){q.t+=dt;if(q.curl){const s=Math.hypot(q.vx,q.vy),a=Math.atan2(q.vx,-q.vy)+q.curl*dt;q.vx=Math.sin(a)*s;q.vy=-Math.cos(a)*s;}q.x+=q.vx*dt;q.y+=q.vy*dt;
+   if(q.dead)continue;const list=enemies;for(const e of list){if(e.dead||e.rescue28||q.hit.has(e))continue;const rr=(e.hitW||(e.large?40:24))/2+q.r;if((e.x-q.x)**2+(e.y-q.y)**2<rr*rr){q.hit.add(e);hurt(e,q.d,q);
+     if(q.split){q.split=0;for(let k=0;k<4;k++)shoot(q.x,q.y,k*TAU/4+.4,460,{d:q.d*.35,k:'shard',c:'#67e8f9',life:.5,r:4});}
+     if(!q.pierce||--q.pierce<=0){q.dead=true;break;}}}
+   if(!q.dead&&boss&&!boss.defeatStarted&&!q.hit.has(boss)){const parts=(boss.parts||[]).filter(p=>!p.dead);let tgt=null;for(const p2 of parts)if((p2.x-q.x)**2+(p2.y-q.y)**2<((p2.hitW||30)/2+q.r)**2){tgt=p2;break;}if(!tgt&&(boss.x-q.x)**2+(boss.y-q.y)**2<((boss.hitW||70)/2+q.r)**2)tgt=boss;
+    if(tgt){q.hit.add(boss);hurt(tgt,q.d,q);if(!q.pierce||--q.pierce<=0)q.dead=true;}}}
+  P=P.filter(q=>!q.dead&&q.t<q.life&&q.y>-60&&q.y<H+60&&q.x>-60&&q.x<W+60);
+  // Thiên Vũ: mỗi 1,2 s sóng xung kích xóa đạn địch gần thân
+  if(i===0){acc2+=dt;if(acc2>=1.2){acc2=0;try{bullets=bullets.filter(b=>Math.hypot(b.x-px,b.y-py)>130);}catch{}P.push({x:px,y:py,vx:0,vy:0,t:0,life:.35,k:'ring',c:COL[0][1],r:0,hit:new Set(),dead:false,d:0,nohit:1});}}}
+ function draw(g){if(!P.length)return;g.save();g.globalCompositeOperation='lighter';
+  for(const q of P){const a=Math.atan2(q.vx,-q.vy);g.save();g.translate(q.x,q.y);g.rotate(a);g.fillStyle=q.c;g.strokeStyle=q.c;g.globalAlpha=Math.min(1,(q.life-q.t)*4);
+   switch(q.k){case 'feather':g.beginPath();g.moveTo(0,-14);g.quadraticCurveTo(5,0,0,12);g.quadraticCurveTo(-5,0,0,-14);g.fill();g.fillStyle='#fff';g.fillRect(-1,-10,2,16);break;
+    case 'heat':g.beginPath();g.ellipse(0,0,4,11,0,0,TAU);g.fill();g.fillStyle='#fff7d6';g.beginPath();g.ellipse(0,-2,2,6,0,0,TAU);g.fill();break;
+    case 'shard':g.beginPath();g.moveTo(0,-6);g.lineTo(3,0);g.lineTo(0,6);g.lineTo(-3,0);g.closePath();g.fill();break;
+    case 'plasma':{const gr=g.createRadialGradient(0,0,0,0,0,14);gr.addColorStop(0,'#fff');gr.addColorStop(.4,q.c);gr.addColorStop(1,'rgba(0,0,0,0)');g.fillStyle=gr;g.beginPath();g.ellipse(0,0,10,20,0,0,TAU);g.fill();break;}
+    case 'bolt':case 'fire':g.beginPath();g.ellipse(0,0,3.5,9,0,0,TAU);g.fill();g.fillStyle='#fff';g.beginPath();g.ellipse(0,-1,1.6,5,0,0,TAU);g.fill();break;
+    case 'laser':g.lineWidth=2.2;g.beginPath();g.moveTo(0,-18);g.lineTo(0,14);g.stroke();g.strokeStyle='#fff';g.lineWidth=.9;g.stroke();break;
+    case 'slash':g.lineWidth=5;g.beginPath();g.arc(0,16,30,-Math.PI*.85,-Math.PI*.15);g.stroke();g.strokeStyle='#fff';g.lineWidth=2;g.stroke();break;
+    case 'lance':g.fillRect(-3.5,-30,7,48);g.fillStyle='#fff';g.fillRect(-1.5,-30,3,48);break;
+    case 'prism':g.lineWidth=2;g.beginPath();g.moveTo(0,-16);g.lineTo(0,12);g.stroke();g.fillStyle='#fff';g.fillRect(-1,-14,2,6);break;
+    case 'ring':g.rotate(-a);g.lineWidth=3;g.globalAlpha=1-q.t/q.life;g.beginPath();g.arc(0,0,20+q.t/q.life*110,0,TAU);g.stroke();break;}
+   g.restore();}
+  g.restore();}
+ function install(){if(typeof SSSGame==='undefined'||SSSGame.__g309)return;SSSGame.__g309=1;const od=SSSGame.draw;
+  SSSGame.draw=function(r){const res=od.apply(this,arguments);try{if(window.ROBGUN309!==false){const now=typeof time==='number'?time:performance.now()/1000,dt=last<0?0:Math.max(0,Math.min(.05,now-last));last=now;
+    let i=-1;try{i=SSSGame.indexFor(r);}catch{}const on=i>=0&&robot()&&superTime>0&&mode==='play';
+    if(on&&dt>0){acc+=dt;const cd=PAT[i][0];let n=0;while(acc>=cd&&n<3){acc-=cd;n++;fire(i,r,player.x,player.y,now);}}else acc=0;
+    if(mode==='play'&&dt>0)step(dt,i,r);if(mode!=='play'&&mode!=='pause')P=[];draw(ctx);}}catch(e){}return res;};}
+ setTimeout(install,0);
+ return {install,_n:()=>P.length};
 })();
