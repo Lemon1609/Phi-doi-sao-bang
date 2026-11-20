@@ -5,8 +5,8 @@
  function im(k){const A=window.FX309_IMG;if(!A||!A[k])return null;let i=IMG[k];if(!i){i=new Image();i.src=A[k];IMG[k]=i;}return i.complete&&i.naturalWidth?i:null;}
  const on=()=>window.FX309!==false;
  // màu [lõi, thân, viền] theo bậc — trùng bảng dan307 (MAU309); Tím = tím hoàng gia (cột 4 GPT)
- const PAL={thuong:['#d8f3ff','#5bc0eb','#1d4ed8'],luc:['#bbf7d0','#10b981','#047857'],lam:['#bae6fd','#0284c7','#1e3a8a'],tim:['#e9d5ff','#9333ea','#581c87'],tim5:['#f5d0fe','#d946ef','#86198f'],ss:['#fef08a','#f59e0b','#b45309']};
- const tk=t=>T.includes(t)?t:'lam';
+ const PAL={thuong:['#d8f3ff','#5bc0eb','#1d4ed8'],luc:['#bbf7d0','#10b981','#047857'],lam:['#bae6fd','#0284c7','#1e3a8a'],tim:['#e9d5ff','#9333ea','#581c87'],tim5:['#f5d0fe','#d946ef','#86198f'],ss:['#fef08a','#f59e0b','#b45309'],e1:['#fff1f2','#ff002b','#99001a'],e2:['#ffedd5','#ff4d00','#c2410c'],e3:['#fce7f3','#e11d74','#7e1248']};/* e1..e3 = laser địch (V309d) */
+ const tk=t=>PAL[t]?t:'lam';
  // Bạc Thép Xanh cho bậc Thường: cột 1 GPT giảm bão hòa (Gemini: saturate 55 %, brightness 108 %) để tách khỏi bậc Lam
  const SAT={};function tex(k,t){const i=im(k+'_'+t);if(!i)return null;if(t!=='thuong')return i;if(SAT[k])return SAT[k];try{const c=document.createElement('canvas');c.width=i.naturalWidth;c.height=i.naturalHeight;const g=c.getContext('2d');g.filter='saturate(55%) brightness(108%)';g.drawImage(i,0,0);return SAT[k]=c;}catch{return i;}}
  const now=()=>performance.now()/1000;
