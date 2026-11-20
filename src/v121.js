@@ -46,7 +46,7 @@
   let cur=null,cool=0,slowOn=null;
   function start(){const i=shipId(),g=gradeOf();if(i<0||!g||!SK[i])return false;if(mode!=='play'||cool>0||cur)return false;const S=SK[i],ss=g==='SS';
     const total=S.m[ss?1:0]*(ss?K_SS:K_S)*baseDPS(),dur=S.d[ss?1:0];
-    const tc309=(()=>{if(window.KN309===false)return null;let t='tim';try{t=Dan299.tierOf(i)||'tim';}catch{}if(window.MAU309B!==false)return {thuong:'#5bc0eb',luc:'#10b981',lam:'#0284c7',tim:null,tim5:'#d946ef',ss:'#f59e0b'}[t];/* V309b: bảng chống lóa Gemini */return {thuong:'#dce8ff',luc:'#1ee155',lam:'#2378ff',tim:null,tim5:'#ff37cd',ss:'#ffb919'}[t];})(),t309=(()=>{try{return Dan299.tierOf(i)||'tim';}catch{return 'tim';}})();/* V309: màu kỹ năng theo bậc (Tím = màu riêng tàu) */
+    const tc309=(()=>{if(window.KN309===false)return null;if(window.MAUA309!==false)return null;/* V309 Phương án A: kỹ năng giữ màu riêng tàu ở mọi bậc */let t='tim';try{t=Dan299.tierOf(i)||'tim';}catch{}if(window.MAU309B!==false)return {thuong:'#5bc0eb',luc:'#10b981',lam:'#0284c7',tim:null,tim5:'#d946ef',ss:'#f59e0b'}[t];/* V309b: bảng chống lóa Gemini */return {thuong:'#dce8ff',luc:'#1ee155',lam:'#2378ff',tim:null,tim5:'#ff37cd',ss:'#ffb919'}[t];})(),t309=(()=>{try{return Dan299.tierOf(i)||'tim';}catch{return 'tim';}})();/* V309: màu kỹ năng theo bậc (Tím = màu riêng tàu) */
     cur={i,ss,tc309,t309,t0:now(),dur,total,done:0,col:tc309||(ss?'#ffd700':S.col),c2:S.col,x:player.x,y:player.y,seed:Math.random()*9,ticks:ss?14:10,tk:0,data:{}};cool=S.cd;
     try{toast((ss?'TUYỆT KỸ · ':'KỸ NĂNG · ')+(ss?S.ss:S.s).toUpperCase());}catch{}
     if(S.fx==='chrono')slow(ss?.85:.7,dur);

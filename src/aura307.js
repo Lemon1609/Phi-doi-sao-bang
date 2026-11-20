@@ -23,7 +23,7 @@
  function wings(ctx,id,tier,size,ta){const c=C[id];if(!c)return;const s=(tier in TS)?TS[tier]:1,A=(tier in TA)?TA[tier]:1;const T=Math.min(1,ta/.25),open=.2+.8*(1-Math.pow(1-T,3)),br=1+.05*Math.sin(ta*Math.PI*2/.8);
   let rem=8;try{rem=superTime;}catch{}const close=rem<.5?Math.max(0,rem/.5):1;
   if(s<=0){ctx.save();ctx.globalCompositeOperation='lighter';ctx.globalAlpha=.55*close;ctx.strokeStyle='#bfefff';ctx.lineWidth=2;ctx.beginPath();ctx.arc(0,0,size*.42*br,0,6.283);ctx.stroke();ctx.restore();return;}
-  const f=TF[tier]||c[1],im=tint(c[0],f);if(!im)return;const W=size*1.75*s*c[2]*open*br*close,H=size*1.75*s*c[3]*open*br*close;
+  const f=(window.MAUA309!==false?null:TF[tier])||c[1],im=tint(c[0],f);if(!im)return;const W=size*1.75*s*c[2]*open*br*close,H=size*1.75*s*c[3]*open*br*close;
   ctx.save();ctx.globalCompositeOperation='screen';
   if(tier==='tim5'||tier==='ss'){ctx.globalAlpha=.45*close;const k=1.18*(1+.04*Math.sin(ta*7.5+1.6));ctx.drawImage(im,-W*k/2,-H*k/2,W*k,H*k);}
   ctx.globalAlpha=.85*A*close;ctx.drawImage(im,-W/2,-H/2,W,H);

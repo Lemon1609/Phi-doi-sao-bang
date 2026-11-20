@@ -42,7 +42,7 @@
    for(let j=0;j<p.length;j+=4){if(!p[j+3])continue;const v=Math.max(p[j],p[j+1],p[j+2])/255*p[j+3]/255,q=v<.25?mx(B[2].map(x=>x*.6),B[2],v/.25):v<.55?mx(B[2],B[1],(v-.25)/.3):v<.85?B[1]:mx(B[1],B[0],Math.min(1,(v-.85)/.15));p[j]=q[0];p[j+1]=q[1];p[j+2]=q[2];p[j+3]=Math.min(255,p[j+3]*1.25);}
    g.putImageData(d,0,0);return TN[key]=c;}catch{return i;}}
  function tierOf(i){try{return Dan299.tierOf(i)||'tim';}catch{return 'tim';}}
- function shipTier(){try{return tierOf(selected);}catch{return 'tim';}}
+ function shipTier(){if(window.MAUA309!==false)return 'tim';try{return tierOf(selected);}catch{return 'tim';}}
  const GT=['thuong','luc','lam','tim','tim5'];
  function gearTier(lv){return GT[Math.max(0,Math.min(4,(lv|0)-1))]||'lam';}
  setTimeout(()=>{try{const vd=VisualFX.draw;if(vd.__f309)return;const nd=function(){const r=vd.apply(this,arguments);try{if(on())drawSparks(ctx);}catch{}return r;};nd.__f309=1;VisualFX.draw=nd;}catch{}},0);
