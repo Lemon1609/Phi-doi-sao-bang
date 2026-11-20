@@ -29,6 +29,8 @@
     const oc=GEAR_FX.create,od=GEAR_FX.draw;
     GEAR_FX.create=function(){const st=oc.apply(this,arguments);try{ST.push(st);if(ST.length>12)ST.shift();}catch{}return st;};
     GEAR_FX.draw=function(c,st,layer){
+      if(layer==='projectiles'&&st&&st.assets&&window.TB309&&TB309.on()&&window.TB309DAN!==false&&TB309.has(st.id)){/* V309 trang bị đồng bộ */const A=st.assets,ks=[st.id+'_projectile_normal',st.id+'_projectile_super',st.id+'_trail'],bak=ks.map(x=>A[x]);
+        ks.forEach(x=>A[x]=null);let r;try{r=od.apply(this,arguments);}finally{ks.forEach((x,i)=>A[x]=bak[i]);}try{TB309.pool(c,st);}catch{}return r;}
       if(window.GEARVK304===false||layer!=='projectiles'||!st||!st.assets||!(MIS[st.id]||SIDE[st.id]))return od.apply(this,arguments);
       const A=st.assets,ks=[st.id+'_projectile_normal',st.id+'_projectile_super'],bak=ks.map(x=>A[x]);
       if(!frames(st.id,MIS[st.id]||SIDE[st.id],!!MIS[st.id]))return od.apply(this,arguments);   // tranh chưa nạp → vẽ hình cũ
@@ -37,7 +39,7 @@
     GEAR_FX.__vk304=1;return true;}
   if(!hook()){const t=setInterval(()=>{if(hook())clearInterval(t);},200);}
   // Bộ 9 / 36 / 10–12 không chạy qua GEAR_FX: là đạn thường (shots, có gearItem) do art82 vẽ qua Equipment25.drawShot → bọc ngoài cùng.
-  function one(s,c0){if(window.GEARVK304===false||!s||!s.gearItem)return false;const v=s.gearItem.variant,mis=!!MIS[v],k=MIS[v]||SIDE[v];if(!k)return false;
+  function one(s,c0){if(window.GEARVK304===false||!s||!s.gearItem)return false;if(window.TB309&&TB309.on()){try{if(TB309.shot(c0||ctx,s))return true;}catch{}}const v=s.gearItem.variant,mis=!!MIS[v],k=MIS[v]||SIDE[v];if(!k)return false;
     try{if(typeof Gear44!=='undefined'&&Gear44.activeId(s.gearItem.kind)!==v)return false;}catch{}   // đang lắp SSS → giữ hình SSS
     const F=frames(v,k,mis);if(!F)return false;const b={x:s.x,y:s.y,vx:s.vx||0,vy:s.vy||-1,age:s.age||0,id:v,variant:(s.superShot||(typeof superTime!=='undefined'&&superTime>0))?'super':'normal'};
     put(c0||ctx,b,F,mis);return true;}
@@ -51,7 +53,7 @@
   [400,1800,4000].forEach(t=>setTimeout(()=>{wrapShot();wrapF();},t));   // sau các lần art82 tự cài (0 / 300 / 1600 ms)
   // Bộ 36 (Thiên Kiếm / Diệt Tinh / Phán Quyết) bắn qua skill81: đọc GEAR44_ASSETS[id_projectile_*] (dải 4 khung, cỡ vẽ 40–66 px) → thay ảnh nguồn.
   const SK=['comet36','nova36','judgement36'];
-  function strip(){if(window.GEARVK304===false||typeof GEAR44_ASSETS==='undefined')return;
+  function strip(){if(window.TB309&&TB309.on()&&window.TB309DAN!==false)return;if(window.GEARVK304===false||typeof GEAR44_ASSETS==='undefined')return;
     for(const id of SK){const F=frames(id,MIS[id],true);if(!F){setTimeout(strip,300);return;}
       const fh=96,fw=Math.round(fh*F.ar),c=document.createElement('canvas');c.width=fw*4;c.height=fh;const g=c.getContext('2d');
       for(let i=0;i<4;i++)g.drawImage(F.f[i%F.f.length],i*fw,0,fw,fh);
@@ -62,7 +64,7 @@
   function img1(F,p,x,y,w,rot,al){const im=F.f[Math.min(F.f.length-1,Math.floor(p*F.f.length))],h=w/F.ar;
     g0.save();try{g0.globalAlpha*=al;g0.translate(x,y);if(rot)g0.rotate(rot);g0.drawImage(im,-w/2,-h/2,w,h);}finally{g0.restore();}}
   let g0=null;
-  function fx81(g,v,a){if(window.GEARVK304===false)return false;g0=g;
+  function fx81(g,v,a){if(window.TB309&&TB309.on()){try{if(TB309.fx81(g,v,a))return true;}catch{}}if(window.GEARVK304===false)return false;g0=g;
     if(v.k==='orb'&&on('devour10_s')){const F=frames('devour10_s','vp_loi_thon_phe',false);if(!F)return false;const t=.5-v.life;
       g.save();try{g.globalCompositeOperation='lighter';const r=40,q=g.createRadialGradient(v.x,v.y,0,v.x,v.y,r);q.addColorStop(0,F.g0);q.addColorStop(1,F.g1);g.fillStyle=q;g.globalAlpha=a;g.fillRect(v.x-r,v.y-r,r*2,r*2);}finally{g.restore();}
       img1(F,(t*6)%1,v.x,v.y,40*(1+t*.3),-t*7,Math.min(1,v.life*4));return true;}
