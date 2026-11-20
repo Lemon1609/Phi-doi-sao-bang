@@ -1,0 +1,30 @@
+GỬI GEMINI · V309 · TƯ VẤN LÀM LẠI HIỆU ỨNG ĐẠN + KỸ NĂNG (đạn chiến cơ, kỹ năng S/SS, tia vũ khí phụ, Bạo Tẩu)
+(Claude soạn 20/11/2026 theo yêu cầu chủ dự án. Kèm zip ảnh chụp trong trận của bản hiện tại.)
+
+0. CHỦ DỰ ÁN NHẬN XÉT (nguyên ý)
+- "Các phần tia tia mảnh này sửa lại nhé, tham khảo tựa game gốc, làm hiệu ứng ngầu hơn."
+- "Các đạn màu trắng / vàng nhìn lóa không rõ, làm cho có tí màu khác đi, đừng để màu đó."
+- Trước đó: "Đạn, kỹ năng của chiến cơ nên làm sáng hơn, dày hơn, đổi màu theo bậc" (đã làm bản thử, xem ảnh).
+
+1. HIỆN TRẠNG KỸ THUẬT (để Gemini đề xuất trong khả năng làm được)
+- Game HTML5 canvas 2D, màn dọc 480 × ~1040 logic. Hiệu ứng vẽ bằng: (a) sprite ảnh (GPT vẽ, nền đen → tách alpha), (b) mã canvas (gradient, cộng sáng 'lighter', đường nét).
+- ĐẠN CHÍNH 13 chiến cơ: mỗi tàu 1 sprite đạn GPT (lông vũ lửa, kim, thương, cầu…), bắn quạt N tia theo bậc. Bản thử V309: tô lại sprite theo MÀU BẬC — Thường bạc trắng · Lục xanh lục · Lam xanh lam · Tím = màu riêng tàu · Tím+5 hồng tím · SS vàng kim; rộng ×1,4 (đạn mảnh ×1,9), thêm quầng sáng. → Thường (trắng) và SS (vàng) bị chủ dự án chê LÓA, KHÔNG RÕ.
+- KỸ NĂNG S/SS (nút KỸ NĂNG / TUYỆT KỸ): 13 kỹ năng riêng (phượng hoàng lửa, bão cực quang, thập tự băng, thương xuyên giáp, lăng kính vạn hoa, lưới lượng tử, trảm kích, mưa pháo, mưa lông vũ, hạm đội…). Nhiều kỹ năng vẽ bằng ĐƯỜNG NÉT MẢNH (lineWidth 2) → nhìn như "tia mảnh" yếu (ảnh tàu 5: lăng kính bắn các đường thẳng mảnh chéo màn hình).
+- TIA VŨ KHÍ PHỤ "Pháo Điện Từ" (2 tàu con hai bên): tia xanh dài, mảnh (texture 12–22 px nhưng phần sáng chỉ 2–3 px) → là các vệt chéo xanh trong ảnh.
+- SÉT NHẢY (Pháo Điện Từ trúng quái nhảy sang 2 quái gần): đường zigzag mảnh 1,6 px.
+- BẠO TẨU: cánh năng lượng GPT (5 mẫu) + đạn sóng; robot hợp thể có đạn riêng (đã làm mới, không cần xem lại).
+
+2. ẢNH ĐÍNH KÈM (zip)
+- 01_dan_<tàu>_6bac.jpg: 13 tàu × 6 bậc (Thường → SS), mỗi ô = đạn thường; hàng dưới = khi Bạo Tẩu.
+- 02_ky_nang_<tàu>_6bac.jpg: kỹ năng S/SS của 13 tàu ở 6 bậc (chụp 0,8 s sau khi bấm).
+- 03_tia_mau.jpg: các ảnh chủ dự án khoanh (tia mảnh, đạn trắng/vàng lóa).
+- 00_tham_chieu_game_goc/ (nếu chủ dự án gửi kèm).
+
+3. VIỆC CẦN GEMINI
+A. Chấm nhanh từng nhóm (đạn chính, kỹ năng, tia phụ, sét) — chỗ nào yếu / rối / lóa so với game bắn máy bay mobile hàng đầu (học cách làm, không chép).
+B. BẢNG MÀU BẬC MỚI cho đạn + kỹ năng thay Thường-trắng và SS-vàng (gợi ý: Thường = ? (không trắng) · SS = ? (không vàng chói, có thể vàng-cam-đỏ hoặc cầu vồng/plasma)), mỗi bậc: màu lõi, màu thân, màu viền/quầng (mã hex), và quy tắc độ sáng để KHÔNG LÓA (tỉ lệ lõi trắng tối đa, độ bão hòa tối thiểu, độ tương phản với nền tối và với đạn địch đỏ/hồng).
+C. CÔNG THỨC "TIA NGẦU" thay đường nét mảnh (áp dụng chung cho tia lăng kính, tia Pháo Điện Từ, sét nhảy, các vệt kỹ năng): độ dày từng lớp (lõi / thân / quầng ngoài, px ở màn 480), gradient, chớp nháy / nhiễu sóng theo thời gian, đầu tia (đốm sáng nòng), điểm chạm (tia lửa, vòng nổ), độ dài tồn tại; nếu cần ảnh mới thì liệt kê sprite / texture cho GPT vẽ (tên tệp, cỡ, nền đen).
+D. Đề xuất riêng cho 13 kỹ năng: giữ / sửa gì để "ngầu hơn" (mỗi kỹ năng 2–4 dòng), ưu tiên những kỹ năng đang dùng đường mảnh (lăng kính tàu 5, lưới lượng tử tàu 6, trảm kích tàu 7…).
+E. Giới hạn hiệu năng: số lớp cộng sáng tối đa / số hạt mỗi khung để máy điện thoại tầm trung vẫn ≥ 50 FPS.
+F. Nếu cần GPT vẽ: viết PROMPT TIẾNG ANH dán thẳng cho GPT (nền #000000, không chữ, cỡ ảnh, bố cục lưới).
+Trả lời tiếng Việt (prompt GPT tiếng Anh), có mã hex và con số cụ thể để Claude lập trình; chỗ ước lượng ghi "(ước lượng)".

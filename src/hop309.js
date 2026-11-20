@@ -92,7 +92,8 @@ div.h309-adv.h309-adv .row button.g{flex:0 0 auto;padding:0 12px;background:#2a2
   el=document.createElement('div');el.className='m63 adv69 h309';el.hidden=true;document.body.appendChild(el);
   el.addEventListener('click',e=>{const b=e.target.closest('[data-h]');if(!b){if(e.target===el)close();return;}const [a,t]=b.dataset.h.split(':');
    if(a==='x')close();else if(a==='go')start(+t);else if(a==='sw'){sweep(+t);resMsg='';render();}});}
- const matRow=()=>`<div class="h309-m">${C.mats.map((n,k)=>`<div><i>${C.ic[k]}</i><b>${fmt(S.m[k]|0)}</b>${n}</div>`).join('')}</div>`;
+ const MK=['mat_m1_phan_vat_chat','mat_m2_hop_kim_sieu_ket','mat_m3_mach_dong_bo','mat_m4_chip_ai'];const micon=k=>{try{const u=HOP309_IMG[MK[k]];if(u)return `<img src="${u}" style="width:34px;height:34px;display:block;margin:0 auto 2px" alt="">`;}catch{}return C.ic[k];};
+ const matRow=()=>`<div class="h309-m">${C.mats.map((n,k)=>`<div><i>${micon(k)}</i><b>${fmt(S.m[k]|0)}</b>${n}</div>`).join('')}</div>`;
  function render(){roll();const left=Math.max(0,D.free-S.used);
   const rows=D.names.map((n,t)=>{const op=tierOpen(t);return `<div class="adv-s"><div><b>${n} · ải ${D.stage[t]}</b><small>${op?'+'+D.drop[t]+' nguyên liệu (chia đều 4 loại)'+(S.clr[t]?' · đã thắng':''):'🔒 mở ở ải '+D.stage[t]}</small></div>${op?`<button data-h="go:${t}" ${left?'':'disabled'}>ĐÁNH</button>${S.clr[t]?`<button data-h="sw:${t}" ${left?'':'disabled'}>CÀN QUÉT</button>`:''}`:'<em class="no">🔒</em>'}</div>`;}).join('');
   el.innerHTML=`<div class="m63-card adv-card"><div class="m63-eye">PHÓ BẢN VẬT LIỆU HỢP THỂ</div>

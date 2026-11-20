@@ -1037,6 +1037,12 @@ rep("normal:'Tiêm kích trắng-vàng mở cánh nguyệt và cánh tinh thể 
 rep("max:'Quang hoàng giáp trắng-vàng triển khai quang hoàn lăng kính, hai đại pháo laser và vòng cầu tím tán xạ.'","max:'Nữ cơ khí giáp vàng kim–tím, mũ giáp vương miện, bốn cánh lăng kính pha lê; chín tia tán xạ + hai lưỡi liềm ánh sáng.'")
 # ---- V309 · ảnh nhỏ chiến cơ ở Hub (Hợp thể: 2 chiến cơ thành phần…) dùng thân MỚI SHIP118 theo bậc thay atlas cũ fighters-v28. Tắt: window.THUMB309=false ----
 rep("function thumb(i){if(i>=10&&window.Ship83)return Ship83.thumb(i);if(thumbs[i])return thumbs[i];const im=fighterAtlasV22;","function thumb(i){try{if(window.THUMB309!==false&&typeof SHIP118!=='undefined'&&SHIP118[i]){const S=SHIP118[i];let n=0;try{n=V70.craftN(i);}catch{}const k=['thuong','luc','lam','lam','lam','lam','tim','tim','tim','tim','tim','tim5'][Math.min(11,n|0)];const u=S[k]||S.tim||S.thuong;if(u)return u;}}catch{}if(i>=10&&window.Ship83)return Ship83.thumb(i);if(thumbs[i])return thumbs[i];const im=fighterAtlasV22;")
+# ---- V309 · 18 quái mới (GPT, atlas 6 phe × 3 cỡ, ô 256×432) thay FOES_V2_ASSET cũ; bản cũ /home/claude/v309bk/foes_atlas_cu.png ----
+if os.path.exists('src/foes309/atlas.png'):
+    import io as _io9
+    _fb=_io9.BytesIO();_I.open('src/foes309/atlas.png').save(_fb,'WEBP',quality=88);_fu='data:image/webp;base64,'+base64.b64encode(_fb.getvalue()).decode()
+    _fi=h.find('const FOES_V2_ASSET={src:"');assert _fi>0 and h.count('const FOES_V2_ASSET={src:"')==1
+    _fj=h.find('"',_fi+26);h=h[:_fi+26]+_fu+h[_fj:]
 # ---- V309 · va chạm thân quái/boss tính theo TÂM tàu (chủ dự án 20/11): bán kính thân quái + 4,5 px (trước 27 / 55 px). Tắt: window.TAM309=false ----
 rep("if(!e.rescue28&&!e.dead&&dist(e,player)<27)","if(!e.rescue28&&!e.dead&&dist(e,player)<(window.TAM309===false?27:(e.hitW||(e.large?40:24))/2+4.5))")
 rep("if(dist(player,b)<55)damage();","if(dist(player,b)<(window.TAM309===false?55:(b.hitW||70)/2+4.5))damage();")
