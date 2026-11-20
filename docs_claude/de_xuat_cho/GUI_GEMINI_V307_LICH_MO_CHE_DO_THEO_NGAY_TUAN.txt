@@ -1,0 +1,39 @@
+GỬI GEMINI · V307 · LỊCH MỞ SỰ KIỆN / PHÓ BẢN XEN KẼ THEO NGÀY & TUẦN (giảm áp lực cho người chơi)
+(Claude soạn 20/11/2026 theo yêu cầu chủ dự án. Luật khóa như các tin trước: offline, không tiền thật, không thêm nguồn 💎, không gộp tài nguyên, khóa lưu `saobang-*` giữ nguyên.)
+
+1. YÊU CẦU CỦA CHỦ DỰ ÁN
+"Mỗi loại sự kiện, phó bản sẽ đan xen mở theo ngày, theo tuần, tránh gây áp lực, nhiều việc cho người chơi." Hãy lên kế hoạch + lộ trình mở.
+
+2. CÁC NỘI DUNG ĐANG CÓ / SẮP CÓ (Claude kiểm kê)
+Mỗi ngày (hiện mở cùng lúc, gây quá tải):
+- Chiến dịch 200 ải (chơi lại ải đã qua tốn thể lực; càn quét bằng vé).
+- Vô tận (đợt liên tục, sắp đổi: 4,5 s/đợt, boss mỗi 10 đợt, chọn 1/3 tăng ích).
+- Phó bản tài nguyên: Tiếp tế · Phó bản Vàng · Săn trang bị.
+- Phó bản giới hạn (boss 60 s, 4 cấp, 1 lượt free/ngày + 2 lượt mua 💎) → linh kiện VKTT A–D + Thẻ EXP VKTT.
+- Khe Nứt Hư Không (50 tầng, 3 lượt THẮNG/ngày + càn quét 1 lần/ngày) → tinh thể chip, mảnh lõi phi công, Rương Hư Không, linh kiện + thẻ.
+- Thử thách ngày (luật đặc biệt, chuỗi ngày) · Thử thách Hạt giống (cùng 1 ải mỗi ngày).
+- Tháp Boss (leo tầng) · Phá Vây (roguelite 12 chặng, 0 thể lực) · Boss Vượt Hạn (10 bậc, từ tố xoay tuần, mở ải 90).
+- Nhiệm vụ ngày (8 việc) / tuần · Vòng quay 2 lượt free · Điểm danh · Chợ Đen.
+Theo tuần:
+- Sự kiện tuần xoay 4 tuần (Cuộc Đua Tinh Vân / Đột Kích Lõi Thép / Mê Cung Phá Vây / Cơn Lốc Vô Tận).
+- Boss cuối tuần (Thứ Bảy & Chủ Nhật): đua sát thương 3 tàu × 30 s + MVP.
+- Thứ Bảy: ngày Tiếp Tế Chip · Chủ Nhật: ngày Siêu Hợp Thể.
+- Nguyệt Thực (ải biến thể).
+Sắp làm:
+- Phó bản VẬT LIỆU HỢP THỂ (4 cấp, mở ải 60/90/120/150; 2 lượt free/ngày) → 4 nguyên liệu tiến bậc đồ hợp thể (robot / chiến cơ hợp thể / trang bị hợp thể +1→+10).
+- ẢI KHÓ (chiến dịch khó; 2 lượt/ngày/ải; 10 thể lực) → cùng 4 nguyên liệu.
+- Ép xung tuần (Vô tận +điểm theo 4 món, biến thiên theo tuần).
+- Kho đá nội tại (rơi ở Khe Nứt / Boss Vượt Hạn / mùa giải).
+Mùa giải 21 ngày / 25 cấp chạy song song.
+
+3. VIỆC CẦN BẠN LÀM
+A. LỊCH TUẦN 7 NGÀY (Thứ Hai → Chủ Nhật): mỗi ngày nội dung nào MỞ, nội dung nào NGHỈ. Mục tiêu: mỗi ngày người chơi chỉ cần ~20–35 phút cho phần "nên làm"; tối đa 3–4 nội dung chính / ngày (ngoài Chiến dịch + Vô tận luôn mở).
+   - Gợi ý cách làm game gốc / game mobile: phó bản tài nguyên luân phiên theo thứ (ví dụ Thứ 2-4-6 Vàng, Thứ 3-5-7 Đá XP…), Chủ Nhật mở tất cả.
+   - Nội dung nào nên luôn mở (vì là tiến độ chính), nội dung nào chỉ mở vài ngày.
+B. LỊCH THEO TUẦN / CHU KỲ (4 tuần ~ 1 mùa giải 21 ngày + tuần nghỉ?): sự kiện tuần, Boss cuối tuần, Nguyệt Thực, Ép xung, Boss Vượt Hạn xoay vòng thế nào để không chồng lên nhau; tuần nào là "tuần nghỉ nhẹ".
+C. CÁCH BÙ KHI NỘI DUNG ĐÓNG: lượt có cộng dồn không (ví dụ phó bản đóng hôm nay thì mai được 2 lượt, tối đa N), hay càn quét bù; để người bận không bị thiệt.
+D. LỘ TRÌNH MỞ THEO TIẾN ĐỘ (người mới): ải / ngày chơi nào mới bắt đầu thấy từng nội dung (khớp bảng lộ trình mở khóa bạn đã gửi ở Hồ sơ 1, nhưng chú ý KHÔNG mở dồn nhiều thứ cùng ngày).
+E. GIAO DIỆN: cách báo cho người chơi "hôm nay mở gì / ngày mai mở gì" (lịch nhỏ trên sảnh hoặc trang Thử thách, chấm đỏ chỉ cho nội dung đang mở và còn lượt).
+F. Đánh giá lại số lượt/ngày hiện tại (3 lượt Khe Nứt, 1+2 Phó bản giới hạn, 2 lượt Phó bản vật liệu, 2 lượt/ải khó…) khi áp lịch mới: tổng lượng tài nguyên/tuần có giữ nguyên không (bù lượt vào ngày mở).
+
+ĐẦU RA: tiếng Việt; bảng lịch 7 ngày + bảng chu kỳ tuần + khối cấu hình JSON dán được (khóa nội dung → danh sách thứ mở, số lượt, cộng dồn tối đa); chỗ ước lượng ghi "(ước lượng)".
