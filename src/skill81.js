@@ -120,15 +120,15 @@ const Skill81=(()=>{
    const O={x:player.x,y:player.y-100};let got=0;try{const bs=bullets.filter(b=>!b.dead&&dist(b,O)<60).sort((a,b)=>dist(a,O)-dist(b,O)).slice(0,D.cap[t]);for(const b of bs){b.dead=true;got++;}}catch{}
    const e=pickTop();fx({k:'orb',x:O.x,y:O.y,life:.5});if(e){hurtV(i,e,B*(1+(t>=3?.05*got:0)+got*.08));fx({k:'beam',a:O,b:{x:e.x,y:e.y},life:.25,c:'#ff4a7a',v:'devour10_s'});}return true;}
   if(i.variant==='chrono11_m'){// nổ rồi để lại bóng thời gian nổ lại sau 1 giây
-   const n=Math.max(1,(i.spec&&i.spec.count)||1),ec=G149(i,.45,.9,D.echo[t]),f1=B/(1+ec);for(let k=0;k<n;k++){const e0=T.length?T[Math.floor(Math.random()*T.length)]:null;if(!e0)break;const px=e0.x,py=e0.y;fx({k:'dive',x:o.x,y:o.y,life:.3,v:'chrono11_m'});
-    later(.35,()=>{for(const m of alive())if(Math.hypot(m.x-px,m.y-py)<50)hurtV(i,m,f1/n);fx({k:'echo',x:px,y:py,life:1});ring(px,py,'#7fe8ff',50);});
-    later(1.35,()=>{for(const m of alive())if(Math.hypot(m.x-px,m.y-py)<50){hurtV(i,m,f1*ec/n);if(window.LV149!==false&&lv149(i)>=5)slow149(m,.3,1);}ring(px,py,'#c9f6ff',50);if(t>=3){try{for(const b of bullets)if(!b.dead&&Math.hypot(b.x-px,b.y-py)<50)b.dead=true;}catch{}}});}
+   const n0=Math.max(1,(i.spec&&i.spec.count)||1),n=window.TB309QD===false?n0:Math.max(3,n0)/* V309 loạt ≥3 viên, chia đều sát thương */,ec=G149(i,.45,.9,D.echo[t]),f1=B/(1+ec);for(let k=0;k<n;k++){const e0=T.length?T[Math.floor(Math.random()*T.length)]:null;if(!e0)break;const px=e0.x,py=e0.y,dl=window.TB309QD===false?0:k*.12;later(dl,()=>fx({k:'dive',x:o.x,y:o.y,life:.35,v:'chrono11_m',tx:px,ty:py,sd:k%2?1:-1}));
+    later(.35+dl,()=>{for(const m of alive())if(Math.hypot(m.x-px,m.y-py)<50)hurtV(i,m,f1/n);fx({k:'echo',x:px,y:py,life:1});ring(px,py,'#7fe8ff',50);});
+    later(1.35+dl,()=>{for(const m of alive())if(Math.hypot(m.x-px,m.y-py)<50){hurtV(i,m,f1*ec/n);if(window.LV149!==false&&lv149(i)>=5)slow149(m,.3,1);}ring(px,py,'#c9f6ff',50);if(t>=3){try{for(const b of bullets)if(!b.dead&&Math.hypot(b.x-px,b.y-py)<50)b.dead=true;}catch{}}});}
    return true;}
   if(i.variant==='chrono11_s'){// trường lực thời gian: chậm đạn địch, gây sát thương quái bên trong
    const R=G149(i,75,120,D.r[t]),iv=Math.max(.4,i.interval||1);fx({k:'hg',x:player.x,y:player.y-150,r:R,life:iv*1.2,d:B/iv/1.2,sl:G149(i,.2,.45,D.slow[t])});return true;}
   if(i.variant==='monarch12_m'){// lưỡi đao bán nguyệt bay lên cắt xuyên
-   const n=D.n[t],w=G149(i,65,100,D.w[t]);for(let k=0;k<n;k++){const cx=player.x+(n>1?(k?1:-1)*30:0),hit=new Set(),y0=player.y-30;fx({k:'cleave',x:cx,y0,w,life:.55,x2:t>=3&&n>1?(k?-1:1):0});
-     for(let j=1;j<=6;j++)later(j*.09,()=>{const y=y0-(y0+20)*j/6;for(const e of alive()){if(hit.has(e))continue;if(Math.abs(e.x-cx)<w/2+(e===boss?40:10)&&Math.abs(e.y-y)<30){hit.add(e);hurtV(i,e,B*.7/n);}}
+   const n=D.n[t],w=G149(i,65,100,D.w[t]),WV=window.TB309QD===false?1:2/* V309: mỗi cột 2 đợt cách 0,22 s, mỗi đợt 1/2 sát thương */;for(let k=0;k<n*WV;k++){const wv=Math.floor(k/n),kk=k%n,dl=wv*.22,cx=player.x+(n>1?(kk?1:-1)*30:0),hit=new Set(),y0=player.y-30;later(dl,()=>fx({k:'cleave',x:cx,y0,w,life:.55,x2:t>=3&&n>1?(kk?-1:1):0}));
+     for(let j=1;j<=6;j++)later(dl+j*.09,()=>{const y=y0-(y0+20)*j/6;for(const e of alive()){if(hit.has(e))continue;if(Math.abs(e.x-cx)<w/2+(e===boss?40:10)&&Math.abs(e.y-y)<30){hit.add(e);hurtV(i,e,B*.7/n/WV);if(hit.size===1&&window.TB309)try{TB309.ring(e.x,e.y,'monarch12_m',46)}catch{}}}
       if(t>=3){try{for(const b of bullets)if(!b.dead&&Math.abs(b.x-cx)<w/2&&Math.abs(b.y-y)<30&&(b.needle||b.type==='needle'))b.dead=true;}catch{}}});}
    return true;}
   if(i.variant==='monarch12_s'){// ấn triện bắn chùm tia laze đen xuyên giáp

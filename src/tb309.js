@@ -68,27 +68,30 @@
   c.save();try{c.translate(o.x,o.y);c.rotate(ang);
    const h=ref&&mis?(ref.__h9||(ref.__h9=[])):null;const TR=TRAIL[I.tier]||TRAIL.lam;if(h){const n=h.length;if(!n||Math.hypot(h[n-2]-o.x,h[n-1]-o.y)>2){h.push(o.x,o.y);if(h.length>TR[0]*2)h.splice(0,2);}}
    if(h&&h.length>=6){c.restore();c.save();c.globalCompositeOperation='lighter';c.lineCap='round';const n=h.length/2;/* đuôi cong 8 điểm: rộng 5→0, α .65→0 (Gemini) */
-    for(let k=1;k<n;k++){const q=k/(n-1);c.strokeStyle=rgba(I.pal[3],.65*q);c.lineWidth=Math.max(.5,5*(sup?1.25:1)*q);c.beginPath();c.moveTo(h[k*2-2],h[k*2-1]);c.lineTo(k===n-1?o.x:h[k*2],k===n-1?o.y:h[k*2+1]);c.stroke();}
+    const ss=!!I.sss,W0=5*(sup?1.25:1)*(ss?1.5:1);for(let k=1;k<n;k++){const q=k/(n-1),x1=k===n-1?o.x:h[k*2],y1=k===n-1?o.y:h[k*2+1];c.strokeStyle=rgba(I.pal[3],(ss?.85:.65)*q);c.lineWidth=Math.max(.5,W0*q);c.beginPath();c.moveTo(h[k*2-2],h[k*2-1]);c.lineTo(x1,y1);c.stroke();
+     if(ss){c.strokeStyle=rgba(I.pal[1],.9*q);c.lineWidth=Math.max(.4,W0*.38*q);c.stroke();}}/* SSS: đuôi song sắc — viền mẹ B, lõi mẹ A */
     if((I.tier==='ss'||I.tier==='sss')&&Math.random()<.35){c.fillStyle=rgba('#fde047',.8);c.beginPath();c.arc(h[0]+(Math.random()-.5)*6,h[1]+(Math.random()-.5)*6,1.4,0,6.283);c.fill();}
     c.restore();c.save();c.translate(o.x,o.y);c.rotate(ang);}
    if(mis&&!(h&&h.length>=6)){const tl=TR[1]*(sup?1.2:1),y0=L*.32,gr=c.createLinearGradient(0,y0,0,y0+tl);gr.addColorStop(0,rgba(I.pal[3],.55));gr.addColorStop(1,rgba(I.pal[3],0));
     c.globalCompositeOperation='lighter';c.fillStyle=gr;c.beginPath();c.moveTo(-W*.22,y0);c.lineTo(W*.22,y0);c.lineTo(0,y0+tl);c.closePath();c.fill();}
    c.globalCompositeOperation='lighter';const r=Math.max(W,L)*.62,q=c.createRadialGradient(0,0,0,0,0,r);q.addColorStop(0,rgba(I.pal[1],.30));q.addColorStop(1,rgba(I.pal[1],0));c.fillStyle=q;c.fillRect(-r,-r,r*2,r*2);
-   if(I.sss){c.strokeStyle=rgba(I.pal[3],.5);c.lineWidth=1.5;c.beginPath();c.arc(0,0,r*.62,0,6.283);c.stroke();}
    c.globalCompositeOperation='source-over';c.globalAlpha=mis?1:.9;if(spin)c.rotate((age||0)*spin);c.drawImage(im,-W/2,-L/2,W,L);}finally{c.restore();}return true;}
  const supNow=()=>{try{return superTime>0;}catch{return false;}};
  const VKIND=v=>/_m$|^(inferno|cryo|thunder|singularity|spiral|stellar|comet36|nova36|judgement36|swarm9)$/.test(v)?'missiles':'sidearm';
  // GEAR_FX (12 món gốc + SSS): vẽ cả hồ đạn của 1 st
  function has(id){if(SPR[id])return true;try{const d=Gear44.defs().find(x=>x.id===id);return !!(d&&d.parents&&SPR[d.parents[0]]);}catch{return false;}}
  function pool(c,st){const kind=VKIND(SPR[st.id]?st.id:((Gear44.defs().find(x=>x.id===st.id)||{}).parents||['x'])[0]);let n=0;
-  for(const b of st.pool){if(!b.on||(b.type!=='shot'&&b.type!=='return'))continue;const I=info(SPR[b.id]?b.id:st.id,kind);if(put(c,b,I,kind==='missiles',b.variant==='super',b.age,b))n++;}return n;}
+  for(const b of st.pool){if(!b.on||(b.type!=='shot'&&b.type!=='return'))continue;const I=info(SPR[b.id]?b.id:st.id,kind);if(put(c,b,I,kind==='missiles',b.variant==='super',b.age,b))n++;}if(kind==='missiles')fxDraw(c);return n;}
  // đạn thường bộ 9–12 / bộ 36 (shots có gearItem)
- function shot(c,s){if(!on('TB309DAN')||!s||!s.gearItem)return false;const v=s.gearItem.variant;if(!SPR[v])return false;const I=info(v,s.gearItem.kind);
+ function shot(c,s){if(!on('TB309DAN')||!s||!s.gearItem)return false;const v=s.gearItem.variant;if(!SPR[v])return false;try{weave(s);}catch{}const I=info(v,s.gearItem.kind);
   return put(c,{x:s.x,y:s.y,vx:s.vx,vy:s.vy},I,s.gearItem.kind==='missiles',s.superShot||supNow(),s.age||0,s);}
  // hiệu ứng skill81: dive (Diệt Tinh / Quá Khứ), cleave (Trảm Không), halo (Thiên Hoàn)
  function fx81(g,v,a){if(!on('TB309DAN'))return false;
+  if(v.k==='dive'&&v.tx!=null){const id=v.v||'chrono11_m';const L0=v.L0??(v.L0=v.life),q=1-v.life/L0,mx=v.x+(v.sd||1)*46,my=v.y-70;let x,y,vx,vy;
+   if(q<.3){const u=q/.3;x=v.x+(mx-v.x)*u;y=v.y+(my-v.y)*u;vx=mx-v.x;vy=my-v.y;}else{const u=(q-.3)/.7;x=mx+(v.tx-mx)*u;y=my+(v.ty-my)*u;vx=v.tx-mx;vy=v.ty-my;}
+   v.__ref=v.__ref||{};g.save();const r=put(g,{x,y,vx,vy},info(id,'missiles'),true,supNow(),0,v.__ref);g.restore();if(q>=.3&&!v.__b){v.__b=1;BEND.push({x:mx,y:my,t:performance.now()/1000,id});}fxDraw(g);return r;}   // V309: bẻ góc 90° rồi lao vào mục tiêu
   if(v.k==='dive'){const id=v.v||'nova36';if(!SPR[id])return false;const y=v.y-(.3-v.life)*500;g.save();g.globalAlpha=Math.min(1,v.life*4);const r=put(g,{x:v.x,y,vx:0,vy:-1},info(id,'missiles'),true,supNow(),0);g.restore();return r;}
-  if(v.k==='cleave'){const prog=1-v.life/.55,y=v.y0-(v.y0+20)*prog,I=info('monarch12_m','missiles');put(g,{x:v.x,y,vx:0,vy:-1},I,true,supNow(),0);
+  if(v.k==='cleave'){fxDraw(g);const prog=1-v.life/.55,y=v.y0-(v.y0+20)*prog,I=info('monarch12_m','missiles');put(g,{x:v.x,y,vx:0,vy:-1},I,true,supNow(),0);
    g.save();g.globalCompositeOperation='lighter';g.globalAlpha=Math.min(1,v.life*3);g.strokeStyle=rgba(I.pal[1],.85);g.lineWidth=3;g.beginPath();g.ellipse(v.x,y,v.w/2,10,0,Math.PI,2*Math.PI);g.stroke();g.strokeStyle=rgba(I.pal[3],.6);g.lineWidth=1.2;g.stroke();g.restore();return true;}
   if(v.k==='halo'){const p=1-v.life/.9,out=p<.5,q=out?p*2:(p-.5)*2;const px=out?v.sx+(v.tx-v.sx)*q:v.tx+(player.x+v.side*20-v.tx)*q,py=out?v.sy+(v.ty-v.sy)*q:v.ty+(player.y-60-v.ty)*q;
    const I=info('halo36','sidearm'),im=tint('s_halo',I.pal);if(!im)return false;const R=Math.max(16,v.r*1.1);g.save();g.translate(px,py);g.rotate(p*18);g.drawImage(im,-R,-R,R*2,R*2);g.restore();return true;}
@@ -97,9 +100,27 @@
  let stripKey='';function strip(){if(!on('TB309DAN')||typeof GEAR44_ASSETS==='undefined')return;const ids=['comet36','nova36','judgement36'],k=ids.map(i=>info(i,'missiles').pal.join()).join('|');if(k===stripKey)return;
   for(const id of ids){const I=info(id,'missiles'),im=tint(SPR[id],I.pal);if(!im)return;const fh=96,fw=Math.round(fh*im.width/im.height),c=document.createElement('canvas');c.width=fw*4;c.height=fh;const g=c.getContext('2d');
    for(let i=0;i<4;i++){g.globalAlpha=.85+.15*(i%2);g.drawImage(im,i*fw,0,fw,fh);}const u=c.toDataURL('image/png');GEAR44_ASSETS[id+'_projectile_normal']=u;GEAR44_ASSETS[id+'_projectile_super']=u;}stripKey=k;}
+ // ---- đường bay tên lửa 4 nhóm (Gemini + phụ lục video). Tắt: window.TB309QD=false ----
+ const QG={inferno:'fan',cryo:'fan',swarm9:'fan',thunder:'bend',chrono11_m:'bend',spiral:'spiral',devour10_m:'spiral',singularity:'straight',stellar:'straight',comet36:'straight',nova36:'straight',judgement36:'straight',monarch12_m:'straight'};
+ function qd(p,q,dt,speed,a){if(window.TB309QD===false||!on())return;const g=QG[p.id];if(!g)return;if(!p.__sd)p.__sd=((p.phase||Math.random())*1e3|0)%2?1:-1;const sd=p.__sd;
+  if(g==='fan'){if(!p.__qd){p.__qd=1;const sp=Math.hypot(p.vx,p.vy)||speed,an=Math.atan2(p.vy||-1,p.vx||0)+sd*.95;p.vx=Math.cos(an)*sp;p.vy=Math.sin(an)*sp;}}   // tỏa vòng cung rồi bám lại
+  else if(g==='bend'){if(p.age<.18){p.vx=sd*speed*.72;p.vy=-speed*.72;}else if(!p.__qd){p.__qd=1;p.vx=Math.cos(a)*speed*1.15;p.vy=Math.sin(a)*speed*1.15;BEND.push({x:p.x,y:p.y,t:performance.now()/1000,id:p.id});}}   // chéo 0,18 s rồi gập góc lao thẳng
+  else if(g==='straight'){if(p.age<.22){p.vx*=.6;p.vy=-speed;}if(!p.__qd){p.__qd=1;LIVE.set(p,{x:p.x,y:p.y,id:p.id});}}}
+ const BEND=[],LIVE=new Map(),RINGS=[];
+ function ring(x,y,id,r){RINGS.push({x,y,r:r||60,t:performance.now()/1000,I:info(id,VKIND(id))});if(RINGS.length>12)RINGS.shift();}
+ function fxDraw(c){const t=performance.now()/1000;
+  for(const [p,v] of LIVE){if(p.on&&p.id===v.id){v.x=p.x;v.y=p.y;continue;}LIVE.delete(p);if(v.y>-20&&v.y<900)ring(v.x,v.y,v.id,60);}   // phóng thẳng → vòng xung kích nổ rộng
+  c.save();c.globalCompositeOperation='lighter';
+  for(let k=RINGS.length-1;k>=0;k--){const R=RINGS[k],q=(t-R.t)/.3;if(q>1){RINGS.splice(k,1);continue;}c.globalAlpha=.85*(1-q);c.strokeStyle=R.I.pal[3];c.lineWidth=4*(1-q)+1;c.beginPath();c.arc(R.x,R.y,R.r*(.3+.7*q),0,6.283);c.stroke();c.strokeStyle=R.I.pal[0];c.lineWidth=1.2;c.beginPath();c.arc(R.x,R.y,R.r*(.22+.6*q),0,6.283);c.stroke();}
+  for(let k=BEND.length-1;k>=0;k--){const B=BEND[k],q=(t-B.t)/.18;if(q>1){BEND.splice(k,1);continue;}const I=info(B.id,'missiles');c.globalAlpha=.9*(1-q);c.fillStyle=I.pal[0];c.beginPath();c.arc(B.x,B.y,5*(1-q)+2,0,6.283);c.fill();}   // chớp điểm gập góc
+  c.restore();}
+ // đạn thường xoắn ốc (Huyết Tinh): lệch ngang hình sin quanh đường bay, trung bình 0 → vẫn bám mục tiêu
+ function weave(s){if(window.TB309QD===false||!s||!s.gearItem||QG[s.gearItem.variant]!=='spiral')return;const t=s.age||0;if(t>1.2)return;const v=Math.hypot(s.vx||0,s.vy||0)||1,px=-(s.vy||-1)/v,py=(s.vx||0)/v,ph=(s.phase||0)+(s.__ph9??(s.__ph9=Math.random()*6.283)),
+   d=22*(Math.sin(t*9+ph)-Math.sin((s.__t9??t)*9+ph));s.__t9=t;s.x+=px*d;s.y+=py*d;}
  // ---- tàu con ----
- function pod(c,i,p,sp){if(!on('TB309POD')||!i)return false;const sss=sssOf('sidearm');const v=sss?sss.parents[0]:i.variant,key=POD[v];if(!key)return false;
-  const I=info(v,'sidearm'),im=tint(key,I.pal,true);if(!im)return false;const w=sp?40:32,t=performance.now()/1000;
+ function pod(c,i,p,sp){if(!on('TB309POD')||!i)return false;const sss=sssOf('sidearm');const v=sss?sss.parents[0]:i.variant,own=ok(IM['pod_'+v])?IM['pod_'+v]:null,key=POD[v];if(!key&&!own)return false;
+  const I=info(v,'sidearm'),im=own||tint(key,I.pal,true);if(!im)return false;const w=own?(sp?42:36):(sp?40:32),t=performance.now()/1000;
+  if(own){/* lửa động cơ nhỏ sau đuôi (tranh riêng đã đa sắc, không nhuộm) */c.save();c.globalCompositeOperation='lighter';const fl=7+Math.sin(t*31+p.x)*2,gr=c.createLinearGradient(p.x,p.y+w*.32,p.x,p.y+w*.32+fl*1.6);gr.addColorStop(0,rgba(I.pal[0],.9));gr.addColorStop(.4,rgba(I.pal[3],.6));gr.addColorStop(1,rgba(I.pal[3],0));c.fillStyle=gr;c.beginPath();c.moveTo(p.x-4,p.y+w*.32);c.lineTo(p.x+4,p.y+w*.32);c.lineTo(p.x,p.y+w*.32+fl*1.6);c.closePath();c.fill();c.restore();}
   c.save();try{c.globalCompositeOperation='lighter';c.lineWidth=1.6;const lo=/^(thuong|luc|lam)$/.test(I.tier);c.strokeStyle=rgba(I.pal[3],(lo?.20:.30)+(sp?.15:0));c.beginPath();c.arc(p.x,p.y+3,16,0,6.283);c.stroke();if(I.tier==='ss'){c.strokeStyle=rgba('#fde047',.35);c.beginPath();c.arc(p.x,p.y+3,19,0,6.283);c.stroke();}
    if(sss){for(const [r,d,col] of [[18,1,I.pal[1]],[21,-1,I.pal[3]]]){c.strokeStyle=rgba(col,.45);c.setLineDash([6,5]);c.lineDashOffset=d*t*20;c.beginPath();c.arc(p.x,p.y+3,r,0,6.283);c.stroke();}c.setLineDash([]);}
    if(sss){const bob=Math.sin(t*3+p.x*.05)*2;c.lineWidth=2;for(const sd of [-1,1]){c.strokeStyle=rgba(sd<0?I.pal[1]:I.pal[3],.40);c.beginPath();c.arc(p.x+sd*(w*.38),p.y+bob,w*.55,sd<0?Math.PI*.6:-Math.PI*.4,sd<0?Math.PI*1.4:Math.PI*.4);c.stroke();}}/* 2 cánh năng lượng bán nguyệt cho tàu con SSS */
@@ -133,5 +154,5 @@
  // quả cầu khiên cũ (FX40.shieldBubble, r 56 xanh lam chung mọi giáp) → nhường vành khiên theo dòng giáp
  function hookBubble(){try{if(typeof FX40==='undefined'||!FX40.shieldBubble||FX40.shieldBubble.__tb309)return;const o=FX40.shieldBubble;const f=function(){if(on('TB309SH'))return true;return o.apply(this,arguments);};f.__tb309=1;FX40.shieldBubble=f;}catch{}}
  setInterval(()=>{hookBubble();try{if(typeof mode!=='undefined'&&mode==='play')strip();}catch{}},1000);setTimeout(strip,600);
- window.TB309={on:()=>on(),palOf,FAM,SPR,POD,SHF,SIG,info,tint,put,pool,has,shot,fx81,pod,armor,railKey,sig,strip,tierOf};
+ window.TB309={on:()=>on(),qd,ring,QG,palOf,FAM,SPR,POD,SHF,SIG,info,tint,put,pool,has,shot,fx81,pod,armor,railKey,sig,strip,tierOf};
 })();
