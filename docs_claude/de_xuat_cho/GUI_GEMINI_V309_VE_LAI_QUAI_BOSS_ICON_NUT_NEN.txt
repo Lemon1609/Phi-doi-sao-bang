@@ -1,0 +1,46 @@
+GỬI GEMINI · V309 · TƯ VẤN + VIẾT PROMPT CHO GPT VẼ LẠI 5 NHÓM HÌNH CŨ
+(Claude soạn 20/11/2026 theo yêu cầu chủ dự án: "toàn bộ nhé, nhờ Gemini tư vấn, tạo prompt cho GPT thiết kế". Kèm zip ảnh.)
+
+0. BỐI CẢNH
+Game bắn máy bay dọc (màn hình đứng 9:19,5, khung logic 480 × ~1040), phong cách "neon sci-fi mobile" giống dòng game bắn máy bay di động nổi tiếng (chỉ học phong cách, KHÔNG chép tàu/boss/biểu tượng cụ thể của game gốc).
+Đợt vừa rồi đã thay toàn bộ chiến cơ người chơi (13 tàu × 6 bậc), 7 robot hợp thể cơ khí, khung giao diện B1–B12, biểu tượng tài nguyên mới. Rà soát bằng đo đạc cho thấy 5 nhóm hình dưới đây VẪN ĐANG HIỆN nhưng là bản vẽ đợt cũ, lệch tông so với hình mới → chủ dự án muốn vẽ lại TOÀN BỘ.
+Thư mục zip:
+- 0_mau_phong_cach_moi/: tàu mới (tau1_tim, tau5_tim5, tau9_ss, tau12_lam), robot mới (robot1_max, robot3_max), biểu tượng mới GPT (icon_*), khung giao diện mới (nut_ten_lua, nut_ky_nang = VÒNG KHUNG nút trong trận, o_chuc_nang, tab_duoi_bat, card_row_frame, slot_rarity_purple), nền mới (nen_sanh, nen_kho, bg_upgrade_bay), ảnh chụp màn (man_*.png). ĐÂY LÀ CHUẨN PHONG CÁCH cần khớp.
+- 1_quai_hien_tai/ 2_boss_hien_tai/ 3_bieu_tuong_hien_tai/ 4_nut_tran_hien_tai/ 5_nen_hien_tai/: hình CŨ đang dùng (để biết vai trò, bố cục, cỡ).
+
+1. NHÓM 1 · QUÁI THƯỜNG (18 mẫu = 6 phe × 3 cỡ)
+- Mỗi phe một chương chính: chương 1 Huyết Giác, 2 Lò Rèn, 3 Nhật Thực, 4 Giáp Trùng, 5 Thánh Đường, 6 Hư Không, 7 Nhật Thực, 8 Huyết Giác, 9 Hư Không, 10 Thánh Đường.
+- Tên hiện tại (cỡ nhỏ / vừa / lớn):
+  Huyết Giác (#ff7458): Tiêm kích Huyết Tiễn · Pháo hạm Sừng Đỏ · Pháo Đài Huyết Giác
+  Lò Rèn (#ffb257): Pháo thuyền Đồng Đen · Thiết giáp Oanh Kích · Dreadnought Lò Rèn
+  Nhật Thực (#ba97ff): Drone Nguyệt Liềm · Đĩa bay Tam Nguyệt · Mẫu Hạm Nhật Thực
+  Giáp Trùng (#82f79c): Bọ Giáp Độc · Mẫu hạm Bọ Cạp · Chúa Tể Giáp Trùng
+  Thánh Đường (#ff97d9): Xạ thủ Hồng Châm · Tuần dương Xuyên Tâm · Thánh Đường Hủy Diệt
+  Hư Không (#9d95ff): Hộ vệ Gai Đen · Hộ vệ Kìm Sắt · Bạo Chúa Hư Không
+- Kỹ thuật: nhìn từ trên xuống, MŨI HƯỚNG XUỐNG (bay về phía người chơi), đối xứng trái–phải, nền ĐEN tuyền #000000 (Claude tách nền), mỗi mẫu 1 ảnh vuông 1024 (Claude co về ô 256×432). Cỡ nhỏ gọn, cỡ lớn nhiều chi tiết + có ụ pháo thấy rõ. Đọc rõ ở cỡ nhỏ (bóng tối đậm + viền sáng màu phe). Quái phải KHÁC RÕ chiến cơ người chơi (người chơi: kim loại sáng, mũi hướng lên; quái: tông tối/hữu cơ/gai theo phe, đèn màu phe).
+
+2. NHÓM 2 · BOSS CHƯƠNG (10 boss × 3 pha + chân dung)
+- Ải 20 U Ảnh · 40 Thiết Giáp · 60 Lôi Đức · 80 Tinh Vân · 100 Băng Giá · 120 Dung Nham · 140 Săn Mồi · 160 Omega · 180 Hoàng Đế · 200 Thái Cổ (tên trong game, có thể đề xuất tên hay hơn).
+- 3 pha (p1 → p2 → p3): CÙNG một con boss, cùng tâm, cùng khung hình; pha sau hư hại / bộc lộ lõi / giáp bung, sáng hơn, hung hơn (game đổi pha tại chỗ bằng mờ chéo).
+- 7 boss (Thiết Giáp, Dung Nham, Săn Mồi, Omega, Hoàng Đế, Thái Cổ + có thể thêm) có 2 CÁNH PHÁ ĐƯỢC hai bên: cánh tách rõ khỏi thân, đối xứng, ngang tâm hơi trên (game có hitbox riêng cho cánh, Claude đo lại vị trí).
+- Kỹ thuật: nhìn từ trên xuống, hướng xuống, nền đen, vuông 1536 (Claude co về 640–768), thân chiếm ~65–75 % bề ngang. Chân dung: mặt/khối đầu boss trong khung tròn hoặc lục giác, 512 vuông (hiện trên bản đồ + băng cảnh báo boss).
+
+3. NHÓM 3 · BỘ BIỂU TƯỢNG CHỨC NĂNG (45 icon)
+- Danh sách (tên tệp → ý nghĩa): ic_ban_do bản đồ · ic_cai_dat cài đặt · ic_cot_truyen cốt truyện · ic_cuong_hoa cường hóa · ic_da_kham đá khảm · ic_diem_danh điểm danh · ic_dot_pha_sss đột phá SSS · ic_giao_dich chợ đen/giao dịch · ic_hop_the hợp thể · ic_kho_bau kho báu/rương · ic_khoe khoe ảnh · ic_nguyen_lieu nguyên liệu · ic_nhiem_vu nhiệm vụ · ic_phan_giai phân giải · ic_phi_cong phi công · ic_pho_ban_gh phó bản giới hạn · ic_phu_tro phụ trợ · ic_qua quà · ic_sanh_sss sảnh SSS · ic_sao_luu sao lưu · ic_skin skin · ic_thanh_tuu thành tựu · ic_thap_boss tháp boss · ic_thu_thach thử thách · ic_trang_bi_sss trang bị SSS · ic_tuan_tra tuần tra · ic_vien_chinh viễn chinh · ic_vo_tan vô tận · ic_vong_quay vòng quay · ic_vu_khi_tt vũ khí tối thượng · res_da_nang_cap đá nâng cấp · res_hop_kim hợp kim ◈ · res_kim_cuong kim cương 💎 · res_loi lõi · res_manh mảnh · res_tinh_hach tinh hạch · res_xu xu · tab_ban_do · tab_chien_co · tab_chien_dau · tab_cua_hang · tab_hop_the · tab_kho · tab_ruong · tab_sanh (biểu tượng tab đáy).
+- THÊM icon mới đang thiếu: Khe Nứt Hư Không (đang dùng emoji 🌀), Phó bản Vật liệu Hợp thể (đang là ⬣), Lõi Phi Công, Lịch tuần (sắp làm), 4 nguyên liệu tiến bậc hợp thể M1 Lõi Phản Vật Chất · M2 Hợp Kim Siêu Kết · M3 Mạch Đồng Bộ · M4 Chip Điều Phối AI (mô tả trong `GEMINI_TRA_LOI_ROBOT_LUOT2_TIEN_BAC_V307.md` mục A).
+- Kỹ thuật: khớp bộ icon_* mới trong 0_mau_phong_cach_moi (khối 3D kim loại bạc + điểm sáng neon cyan/màu chức năng, góc nhìn 3/4 nhẹ, bóng đổ mềm), nền đen, 512 vuông, vật thể ~80 % khung, đọc rõ khi thu còn 48–64 px. Nên vẽ theo LƯỚI (ví dụ 3×3 hoặc 4×4 trong 1 ảnh 2048, mỗi ô cách đều, có lề) để GPT giữ đồng bộ — Claude cắt ô.
+
+4. NHÓM 4 · NÚT TRONG TRẬN (biểu tượng đặt TRONG vòng khung nut_ten_lua / nut_ky_nang đã có)
+- Tên lửa · Bom · Kỹ năng (Tuyệt kỹ) · Mở rộng/phóng to (u15-expand). Có thể thêm trạng thái "đang hồi" (tối) — game tự vẽ lớp hồi chiêu.
+- Kỹ thuật: chỉ phần RUỘT tròn (không vẽ vành khung), 512 vuông, nền đen, khớp màu: tên lửa xanh lam, bom cam đỏ, kỹ năng tím; đọc rõ ở 56–64 px.
+
+5. NHÓM 5 · NỀN
+- Nền KHO / chiến cơ (720×1280 dọc): khoang chứa máy bay sci-fi, sàn bệ ở 1/3 dưới, giữa tối để chừa chỗ hiện tàu + bảng chữ. (Đã có `nen_kho` mới cho màn Kho — Gemini cân nhắc dùng lại cho các màn Chiến cơ / Hợp thể / Rương hay vẽ bản riêng cùng bộ.)
+- Nền BẢN ĐỒ CHIẾN DỊCH (720×1280 dọc, nên nối liền khi cuộn dọc): không gian sâu, tinh vân mờ, độ sáng thấp để đường ải lục giác + chữ nổi rõ; có thể 10 biến thể tông theo 10 chương (tham khảo nền trận theo chương).
+
+6. YÊU CẦU ĐỐI VỚI GEMINI (đầu ra)
+A. Hướng phong cách chung (bảng màu, ánh sáng, độ chi tiết, góc nhìn) cho 5 nhóm để đồng bộ với tàu/robot/khung mới; chỉ ra hình cũ đang lệch ở đâu (xem ảnh hiện tại).
+B. Đề xuất cách chia lượt gửi GPT (mỗi lượt bao nhiêu ảnh, vẽ lưới hay từng ảnh) để GPT giữ đồng bộ, ít phải vẽ lại.
+C. PROMPT TIẾNG ANH DÁN THẲNG CHO GPT cho từng lượt (kèm câu tiếng Việt ngắn giải thích), ghi rõ: cỡ ảnh, nền #000000, hướng nhìn, bố cục lưới, ảnh nào trong zip cần đính kèm làm mẫu, điều cấm (không chữ, không logo, không watermark, không viền khung, không chép game gốc, không gợi dục).
+D. Tên tệp đầu ra cho từng ảnh (khớp tên khóa ở trên) + danh sách kiểm (checklist) để chủ dự án duyệt trước khi chuyển Claude ghép.
+Trả lời tiếng Việt (prompt GPT bằng tiếng Anh). Chỗ ước lượng ghi "(ước lượng)".
