@@ -1,0 +1,25 @@
+GỬI GEMINI · V309 · TƯ VẤN LÀM LẠI ĐẠN QUÁI + ĐẠN BOSS (sau khi đã làm lại đạn / kỹ năng chiến cơ theo bạn)
+(Claude soạn 20/11/2026 theo yêu cầu chủ dự án. Kèm zip ảnh chụp trong trận, đã TẮT đạn chính của tàu để nhìn rõ đạn địch; tia xanh lục dài còn lại là vũ khí phụ Pháo Điện Từ của người chơi.)
+
+1. HIỆN TRẠNG
+- Game bắn máy bay dọc HTML5 canvas, màn 480 × ~1040. Nền tối (đã phủ lớp tối 25 %). Đạn tàu người chơi giờ theo bảng màu bậc bạn đề xuất (thép xanh / lục bảo / cobalt / màu tàu / hồng tím / hổ phách) + tia 3 lớp.
+- Đạn quái/boss vẽ bằng 18 sprite (ảnh 00): 6 màu (đỏ, cam, tím, lam, lục, trắng) × 3 dạng (tròn, thoi, kim); lõi trắng lớn, viền màu mảnh; có viền tối #2B000E phía dưới mỗi viên (để tách khỏi nền). Màu chọn theo bảng màu chương (thực tế hầu như mọi chương ra HỒNG/ĐỎ — xem ảnh 01, 02).
+- Kích thước vẽ ≈ 2,3 × bán kính va chạm (r 3–10 px) ; hitbox giữ nguyên.
+- Boss: 10 boss × 3 pha, ~30 đòn có tên (AIMED_BURST, FAN_BURST, RING_PULSE, DOUBLE_HELIX, ROSETTE_BLOOM, GEAR_SPIRAL, CHECKERBOARD_GRID, PURGE_WALL, TRIPLE_LASER, PARTITION_LASERS, TWIN_PILLAR, X_CROSS, GAP_COLUMNS, GAP_ARC, TIMED_BOMB, RICOCHET_ORBS…); laser có báo trước ⚠ + vạch đỏ.
+- Quái thường: 6 phe × 3 cỡ (đã có tranh GPT mới), bắn tròn/kim theo đợt.
+
+2. ẢNH ĐÍNH KÈM
+- 00_sprite_dan_quai_18.png: 18 sprite đang dùng.
+- 01_quai_10_chuong.jpg: đạn quái thường 10 chương (2 khung mỗi chương).
+- 02_boss_chXX_3pha.jpg: đạn boss 10 chương × 3 pha (2 khung mỗi pha).
+- 03_zoom_chX.jpg: phóng to vùng đạn chương 1 / 5 / 9.
+
+3. NHỜ BẠN
+A. Chấm nhanh: đạn địch hiện đọc rõ không (so với đạn tàu mới), có lẫn với đạn tàu / nền / hiệu ứng nổ không; chương nào rối.
+B. BẢNG MÀU ĐẠN ĐỊCH mới (hex lõi / thân / viền) theo phe hoặc chương, quy tắc: không trùng 6 màu bậc của đạn người chơi, luôn tương phản trên nền tối, có màu "nguy hiểm" cho đạn nhanh / đạn lớn / laser.
+C. HÌNH DẠNG: có cần thêm dạng (cầu năng lượng lớn, đạn hình thoi xoay, sóng cung, tia ngắn, mìn hẹn giờ…) — mỗi dạng 1 dòng mô tả + cỡ so với hitbox; dạng nào cho đòn nào.
+D. Quy tắc DỄ NÉ chuẩn game mobile: tỉ lệ lõi sáng / viền, có cần viền tối hay quầng, chớp báo trước khi bắn (muzzle telegraph), tốc độ tối đa so với cỡ, mật độ tối đa trên màn.
+E. Laser / tia của boss: công thức báo trước (thời gian, độ dày vạch) + tia 3 lớp bản địch (màu, độ dày).
+F. Hiệu năng: ngân sách số viên đạn địch tối đa / khung (máy tầm trung ≥ 50 FPS).
+G. Nếu cần GPT vẽ: PROMPT TIẾNG ANH (nền #000000, lưới, tên tệp, cỡ ảnh), giống 2 lượt sprite bạn viết lần trước (đã vẽ rất đạt).
+Trả lời tiếng Việt (prompt GPT tiếng Anh), có mã hex và con số cụ thể; chỗ ước lượng ghi "(ước lượng)".
