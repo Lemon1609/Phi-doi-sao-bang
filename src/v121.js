@@ -46,7 +46,8 @@
   let cur=null,cool=0,slowOn=null;
   function start(){const i=shipId(),g=gradeOf();if(i<0||!g||!SK[i])return false;if(mode!=='play'||cool>0||cur)return false;const S=SK[i],ss=g==='SS';
     const total=S.m[ss?1:0]*(ss?K_SS:K_S)*baseDPS(),dur=S.d[ss?1:0];
-    cur={i,ss,t0:now(),dur,total,done:0,col:ss?'#ffd700':S.col,c2:S.col,x:player.x,y:player.y,seed:Math.random()*9,ticks:ss?14:10,tk:0,data:{}};cool=S.cd;
+    const tc309=(()=>{if(window.KN309===false)return null;let t='tim';try{t=Dan299.tierOf(i)||'tim';}catch{}return {thuong:'#dce8ff',luc:'#1ee155',lam:'#2378ff',tim:null,tim5:'#ff37cd',ss:'#ffb919'}[t];})();/* V309: màu kỹ năng theo bậc (Tím = màu riêng tàu) */
+    cur={i,ss,tc309,t0:now(),dur,total,done:0,col:tc309||(ss?'#ffd700':S.col),c2:S.col,x:player.x,y:player.y,seed:Math.random()*9,ticks:ss?14:10,tk:0,data:{}};cool=S.cd;
     try{toast((ss?'TUYỆT KỸ · ':'KỸ NĂNG · ')+(ss?S.ss:S.s).toUpperCase());}catch{}
     if(S.fx==='chrono')slow(ss?.85:.7,dur);
     if(S.fx==='phoenix'&&ss)cur.data.shield=now()+2.5;
@@ -75,9 +76,16 @@
   function finish(){cur=null;}
   // ---------- vẽ kỹ năng (tạm bằng code; GPT sẽ vẽ ult_*.png) ----------
   const ART=()=>typeof SK121_ART!=='undefined'?SK121_ART:null;const IMG={};
-  function art(k){const A=ART();if(!A||!A[k])return null;let im=IMG[k];if(!im){im=new Image();im.src=A[k];IMG[k]=im;}return im.complete&&im.naturalWidth?im:null;}
+  function art0(k){const A=ART();if(!A||!A[k])return null;let im=IMG[k];if(!im){im=new Image();im.src=A[k];IMG[k]=im;}return im.complete&&im.naturalWidth?im:null;}
+  // V309: tranh kỹ năng (vd phượng hoàng tàu 1) tô lại theo màu bậc như đạn (tối → màu bậc → trắng lõi); Tím giữ màu riêng tàu
+  const RC9={},RGB9=h=>[1,3,5].map(i=>parseInt(h.slice(i,i+2),16));
+  function art(k){const im=art0(k);if(!im||window.KN309===false||!cur||!cur.tc309)return im;const key=k+'|'+cur.tc309;if(RC9[key])return RC9[key];
+   try{const c=RGB9(cur.tc309),W=im.naturalWidth,H=im.naturalHeight,cv=document.createElement('canvas');cv.width=W;cv.height=H;const g=cv.getContext('2d');g.drawImage(im,0,0);const d=g.getImageData(0,0,W,H),p=d.data;
+    for(let i=0;i<p.length;i+=4){if(!p[i+3])continue;const L=Math.max(p[i],p[i+1],p[i+2])/255;let f,w=0;if(L<.4)f=.25+L/.4*.75;else{f=1;if(L>.88)w=(L-.88)/.12*.6;}p[i]=c[0]*f+(255-c[0])*w;p[i+1]=c[1]*f+(255-c[1])*w;p[i+2]=c[2]*f+(255-c[2])*w;}
+    g.putImageData(d,0,0);return RC9[key]=cv;}catch{return im;}}
   function rgba(h,a){const n=parseInt(h.slice(1,7),16);return `rgba(${n>>16&255},${n>>8&255},${n&255},${a})`;}
-  function drawSkill(){if(!cur)return;const t=now(),u=Math.min(1,(t-cur.t0)/cur.dur),S=SK[cur.i],c=cur.col,c2=cur.c2,sc=cur.ss?1.25:1,fade=u<.1?u/.1:u>.85?(1-u)/.15:1,few=lite();
+  function drawSkill(){if(!cur)return;if(window.KN309===false)return drawSkill0();ctx.save();try{ctx.filter='brightness(1.22) saturate(1.2)';}catch{}try{drawSkill0();}finally{ctx.restore();}}/* V309: kỹ năng sáng hơn, dày hơn (×1,2), màu theo bậc. Tắt: window.KN309=false */
+  function drawSkill0(){if(!cur)return;const t=now(),u=Math.min(1,(t-cur.t0)/cur.dur),S=SK[cur.i],c=cur.col,c2=cur.c2,sc=(cur.ss?1.25:1)*(window.KN309===false?1:1.2),fade=u<.1?u/.1:u>.85?(1-u)/.15:1,few=lite();
     ctx.save();ctx.globalCompositeOperation='lighter';const A=art('ult_'+String(cur.i+1).padStart(2,'0'));
     switch(S.fx){
      case 'phoenix':{const x=W/2+Math.sin(u*TAU)*W*.28,y=player.y-180-Math.sin(u*TAU*2)*90-u*120,s=210*sc;ctx.globalAlpha=fade;if(A)ctx.drawImage(A,x-s/2,y-s/2,s,s);else{ctx.fillStyle=rgba(c2,.55);for(const sd of [-1,1]){ctx.beginPath();ctx.moveTo(x,y);ctx.quadraticCurveTo(x+sd*s*.6,y-s*.5,x+sd*s*.55,y+s*.05);ctx.quadraticCurveTo(x+sd*s*.3,y-s*.05,x,y+s*.2);ctx.fill();}ctx.fillStyle=rgba(c,.9);ctx.beginPath();ctx.ellipse(x,y,10*sc,26*sc,0,0,TAU);ctx.fill();}break;}

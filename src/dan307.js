@@ -49,13 +49,20 @@
  // màu nhẹ theo bậc (Gemini: vàng cam → cam đỏ → đỏ thẫm → … → vàng trắng rực): lọc màu 1 lần rồi giữ trong bộ đệm
  const TINT={0:{thuong:'hue-rotate(18deg) brightness(1.08)',luc:'hue-rotate(6deg)',lam:'none',tim:'hue-rotate(-12deg) saturate(1.2) brightness(.95)',tim5:'hue-rotate(-26deg) saturate(1.25)',ss:'hue-rotate(28deg) saturate(.8) brightness(1.3)'}};
  const TG={thuong:'saturate(.55) brightness(1.15)',luc:'saturate(.8)',lam:'none',tim:'saturate(1.25) brightness(.95)',tim5:'saturate(1.35) hue-rotate(-12deg)',ss:'saturate(.85) brightness(1.3)'};
- const TC={};function tinted(id,k,tier,alt){const im=IM[k];if(!im||!im.complete||!im.naturalWidth)return null;let f=(TINT[id]||TG)[tier]||'none';if(alt)f=(f==='none'?'':f+' ')+'hue-rotate(165deg)';tier=tier+(alt?'_alt':'');if(!f||f==='none')return im;const key=k+'|'+tier;if(TC[key])return TC[key];
+ // V309 (chủ dự án 20/11 10:40): đạn sáng hơn, dày hơn, ĐỔI MÀU THEO BẬC — Thường bạc trắng · Lục · Lam · Tím = màu riêng tàu · Tím+5 hồng tím · SS vàng kim.
+ //  Tô lại theo độ sáng: tối → màu bậc → gần trắng ở lõi (giữ hình sprite). Tắt: window.DAN309=false
+ const RC={thuong:[220,232,255],luc:[30,225,85],lam:[35,120,255],tim5:[255,55,205],ss:[255,185,25]};
+ const RCC={};function recolor(im,k,tier){const c=RC[tier];if(!c||window.DAN309===false)return null;const key=k+'|'+tier;if(RCC[key])return RCC[key];
+  try{const W=im.naturalWidth||im.width,H=im.naturalHeight||im.height,cv=document.createElement('canvas');cv.width=W;cv.height=H;const g=cv.getContext('2d');g.drawImage(im,0,0);const d=g.getImageData(0,0,W,H),p=d.data;
+   for(let i=0;i<p.length;i+=4){if(!p[i+3])continue;const L=Math.max(p[i],p[i+1],p[i+2])/255;let r,gg,b;if(L<.4){const f=.25+L/.4*.75;r=c[0]*f;gg=c[1]*f;b=c[2]*f;}else if(L<.88){r=c[0];gg=c[1];b=c[2];}else{const f=(L-.88)/.12*.6;r=c[0]+(255-c[0])*f;gg=c[1]+(255-c[1])*f;b=c[2]+(255-c[2])*f;}p[i]=r;p[i+1]=gg;p[i+2]=b;}
+   g.putImageData(d,0,0);return RCC[key]=cv;}catch{return null;}}
+ const TC={};function tinted(id,k,tier,alt){const im=IM[k];if(!im||!im.complete||!im.naturalWidth)return null;if(!alt&&tier!=='tim'){const rc=recolor(im,k,tier);if(rc)return rc;}let f=(TINT[id]||TG)[tier]||'none';if(alt)f=(f==='none'?'':f+' ')+'hue-rotate(165deg)';tier=tier+(alt?'_alt':'');if(!f||f==='none')return im;const key=k+'|'+tier;if(TC[key])return TC[key];
   try{const c=document.createElement('canvas');c.width=im.naturalWidth;c.height=im.naturalHeight;const g=c.getContext('2d');if(!('filter' in g))return TC[key]=im;g.filter=f;g.drawImage(im,0,0);return TC[key]=c;}catch{return TC[key]=im;}}
- function draw(g,s){const L=s.L307,a=Math.atan2(s.vy,s.vx)+Math.PI/2,sp=SPR[s.art28]||[],alt=s.art28===11&&(s.k307&1),im=s.bt307?(alt?tinted(11,sp[1],'ss',1):IM[sp[1]]):tinted(s.art28,sp[0],s.t307,alt);
-  if(im&&(im.width||im.naturalWidth)){const iw=im.naturalWidth||im.width,ih=im.naturalHeight||im.height,h=L*(s.bt307?1.05:1),w=h*iw/ih;
+ function draw(g,s){const L=s.L307,a=Math.atan2(s.vy,s.vx)+Math.PI/2,sp=SPR[s.art28]||[],alt=s.art28===11&&(s.k307&1),im=s.bt307?(alt?tinted(11,sp[1],'ss',1):(window.DAN309!==false&&s.t307!=='tim'&&IM[sp[1]]&&IM[sp[1]].complete?(recolor(IM[sp[1]],sp[1],s.t307)||IM[sp[1]]):IM[sp[1]])):tinted(s.art28,sp[0],s.t307,alt);
+  if(im&&(im.width||im.naturalWidth)){const iw=im.naturalWidth||im.width,ih=im.naturalHeight||im.height,h=L*(s.bt307?1.05:1),w=h*iw/ih*(window.DAN309===false?1:(iw/ih<.22?1.9:1.4));
    const fa=Math.min(1,(s.age||0)/.07);/* V307: hiện dần 0,07 s đầu để loạt đạn vừa bắn không chồng thành khối sát mũi tàu */
    g.save();g.translate(s.x,s.y);g.rotate(a);g.globalCompositeOperation='source-over';g.globalAlpha=.95*fa;g.drawImage(im,-w/2,-h*.12,w,h);
-   g.globalCompositeOperation='lighter';g.globalAlpha=(s.bt307?.35:.22)*fa;g.drawImage(im,-w*.3,-h*.1,w*.6,h*.5);g.restore();return;}
+   g.globalCompositeOperation='lighter';g.globalAlpha=(s.bt307?.35:.22)*fa*(window.DAN309===false?1:2);g.drawImage(im,-w*.3,-h*.1,w*.6,h*.5);if(window.DAN309!==false){g.globalAlpha=.3*fa;g.drawImage(im,-w*.62,-h*.18,w*1.24,h*1.08);}g.restore();return;}
   drawCode(g,s);}
  function drawCode(g,s){const L=s.L307,c=s.c307,w=s.bt307?6:4.5,a=Math.atan2(s.vy,s.vx)+Math.PI/2,fl=Math.sin((s.age||0)*40);
   g.save();g.translate(s.x,s.y);g.rotate(a);
