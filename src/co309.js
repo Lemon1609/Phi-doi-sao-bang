@@ -7,9 +7,10 @@
  const off=id=>window.CO309B===false||(window.CO309OFF||[]).includes(id);
  // id 0-based: 0 lông vũ nổ lan · 2 băng vỡ 3 mảnh · 3 thương xuyên 3 quái · 4 khúc xạ nảy · 5 khóa mục tiêu · 6 trăng khuyết chém đạn · 7 hạt nhân mini
  //  8 tên lửa truy đuổi · 9 hạm đội hộ tống · 10 cầu hấp dẫn · 11 đĩa cưa thời gian · 12 lốc hình sin. Tàu 2 (id 1) giữ laser liền.
- const C={splashR:34,splashK:.35, shardN:3,shardK:.25, pierceN:3, bounceN:2,bounceR:150,bounceK:.4, lockCone:30,lockTurn:5.5, crescentR:1.5,
-  nukeR:48,nukeK:.5, homeTurn:7, droneX:62, gravR:95,gravPull:70, sawT:.6,sawK:.6,sawPre:.625, waveCurve:240};
- const DK={2:.83,4:.75,5:.76,12:.86};// hệ số bù (đo bia cố định 15 bia, bậc Tím, 20/11): khúc xạ 1,10 · khóa mục tiêu 1,36 · lốc sin 1,17 so với không cơ chế
+ // Tham số theo Gemini cân bằng (de_xuat_cho/GEMINI_TRA_LOI_CAN_BANG_13_CO_CHE_V309.md, 20/11 15:53): ưu tiên boss đơn 92–100 %, bia 15 98–106 %
+ const C={splashR:34,splashK:.30, shardN:3,shardK:.08,shardLife:.24, pierceN:3,pierceF:[1,.7,.45], bounceN:2,bounceR:120,bounceK:.22, lockCone:22,lockTurn:4.0, crescentR:1.5,
+  nukeR:48,nukeK:.35, homeTurn:6.0, droneX:48,droneA:5.5,droneConv:500, gravR:80,gravPull:55,gravT:.22,gravICD:.4,gravStop:18, sawT:.6,sawPre:.625, waveCurve:150};
+ const DK={0:.96,1:1,2:.90,3:.98,4:.90,5:.85,6:.96,7:.96,8:.94,9:1.03,10:.96,11:1,12:.92};// hệ số bù (đo bia cố định 15 bia, bậc Tím, 20/11): khúc xạ 1,10 · khóa mục tiêu 1,36 · lốc sin 1,17 so với không cơ chế
  window.CO309={C,DK};
  const T=s=>s.t307||'tim';
  const isBossT=e=>{try{return e===boss||!!e.bossPart;}catch{return false;}};
@@ -19,21 +20,21 @@
  const fx=(o)=>{if(FXL.length>60)FXL.shift();FXL.push(Object.assign({t:0},o));};
  // ---------- gắn hành vi lúc phát đạn (gọi từ dan307 emit) ----------
  function decor(id,s,k,n,bt){if(off(id))return;s.co309=id;const dk=DK[id]||1;if(dk!==1)s.damage*=dk;
-  if(id===3){s.piercing=true;s.p309=0;}
+  if(id===3){s.piercing=true;s.p309=0;s.d309=s.damage;}
   else if(id===6){s.r=(s.r||4)*C.crescentR;}
   else if(id===11){s.damage*=C.sawPre;s.saw309=s.damage*(1-C.sawPre)/C.sawPre;}
   else if(id===12){if(n>1){s.pathStyle=2;s.pathCurve=C.waveCurve*(k%2?1:-1);s.pathPhase=k%2?0:Math.PI;}}
-  else if(id===9){if(n>=3&&(k===0||k===n-1)){const sd=k===0?-1:1;let px=player.x+sd*C.droneX,py=player.y+4;try{const S=Battle28.support();const q=S&&S.find(z=>z&&(z.x-player.x)*sd>0);if(q){px=q.x;py=q.y-8;}}catch{}s.x=px;s.y=py;const sp=Math.hypot(s.vx,s.vy),a=sd*-.26;s.vx=Math.sin(a)*sp;s.vy=-Math.cos(a)*sp;s.drone309=sd;}}
+  else if(id===9){if(n>=3&&(k===0||k===n-1)){const sd=k===0?-1:1;let px=player.x+sd*C.droneX,py=player.y+4;try{const S=Battle28.support();const q=S&&S.find(z=>z&&(z.x-player.x)*sd>0);if(q){px=q.x;py=q.y-8;}}catch{}s.x=px;s.y=py;const sp=Math.hypot(s.vx,s.vy),a=-Math.atan2(px-player.x,C.droneConv);/* hội tụ cách tàu ~500 px (Gemini mục C) dù tàu con đứng ở đâu */s.vx=Math.sin(a)*sp;s.vy=-Math.cos(a)*sp;s.drone309=sd;}}
   else if(id===8){if(n>=2){const sd=k%2?1:-1;s.x=player.x+sd*24;s.y=player.y-6;}s.home309=1;}
   else if(id===5){s.lock309=1;}}
  // ---------- khi trúng (bọc Equipment25.hit) ----------
  function onHit(s,e){const id=s.co309;if(id==null||off(id)||!e)return;const t=T(s),B=isBossT(e);
   if(id===0){const L=near(e.x,e.y,C.splashR+ (e.large?14:0),new Set([e]));for(const n of L)hurt(n,s.damage*C.splashK,s);fx({k:'ring',x:e.x,y:e.y,life:.22,tt:t,s:46});}
-  else if(id===2){if(!B&&!s.shard309){for(let q=0;q<C.shardN;q++){const a=(-.5+q/(C.shardN-1))*.9+Math.atan2(s.vy,s.vx);const sp=900;try{shot(e.x,e.y-6,Math.cos(a)*sp,Math.sin(a)*sp,'rapid',s.damage*C.shardK,3);const z=shots.at(-1);if(z){z.d307=1;z.art28=s.art28;z.t307=s.t307;z.c307=s.c307;z.L307=(s.L307||80)*.42;z.bt307=false;z.k307=0;z.age=.1;z.shard309=1;z.co309=2;z.life309=.28;z.damage=s.damage*C.shardK;z.hit=new Set([e]);}}catch{}}}}
-  else if(id===3){if(B){s.piercing=false;}else{s.p309=(s.p309||0)+1;if(s.p309>=C.pierceN)s.piercing=false;}fx({k:'spark',x:e.x,y:e.y,tt:t,n:3});}
+  else if(id===2){if(!B&&!s.shard309){for(let q=0;q<C.shardN;q++){const a=(-.5+q/(C.shardN-1))*.9+Math.atan2(s.vy,s.vx);const sp=900;try{shot(e.x,e.y-6,Math.cos(a)*sp,Math.sin(a)*sp,'rapid',s.damage*C.shardK,3);const z=shots.at(-1);if(z){z.d307=1;z.art28=s.art28;z.t307=s.t307;z.c307=s.c307;z.L307=(s.L307||80)*.42;z.bt307=false;z.k307=0;z.age=.1;z.shard309=1;z.co309=2;z.life309=C.shardLife;z.damage=s.damage*C.shardK;z.hit=new Set([e]);}}catch{}}}}
+  else if(id===3){if(B){s.piercing=false;}else{s.p309=(s.p309||0)+1;if(s.p309>=C.pierceN)s.piercing=false;else s.damage=(s.d309||s.damage)*C.pierceF[s.p309];/* suy hao theo lần xuyên 100/70/45 % */}fx({k:'spark',x:e.x,y:e.y,tt:t,n:3});}
   else if(id===4){const ex=new Set([e]);let from=e;for(let q=0;q<C.bounceN;q++){const n=near(from.x,from.y,C.bounceR,ex)[0];if(!n)break;ex.add(n);hurt(n,s.damage*C.bounceK,s);fx({k:'beam',x:from.x,y:from.y,x2:n.x,y2:n.y,life:.14,tt:t});from=n;}}
   else if(id===7){const L=near(e.x,e.y,C.nukeR+(e.large?14:0),new Set([e]));for(const n of L)hurt(n,s.damage*C.nukeK,s);fx({k:'nuke',x:s.x,y:s.y-4,life:.32,tt:t});}
-  else if(id===10){if(!B)for(const n of near(e.x,e.y,C.gravR,new Set([e])))if(!n.large&&!n.rescue28){n.pull309={x:e.x,y:e.y,t:.3};}fx({k:'grav',x:e.x,y:e.y,life:.34,tt:t});}
+  else if(id===10){if(!B)for(const n of near(e.x,e.y,C.gravR,new Set([e])))if(!n.large&&!n.rescue28&&!n.immovable&&!n.bia304&&!n.pull309&&!((n.pullICD309||0)>performance.now()/1000)){n.pull309={x:e.x,y:e.y,t:C.gravT};}/* 1 lực hút / quái, ICD 0,4 s, không hút boss / bia đo */fx({k:'grav',x:e.x,y:e.y,life:.34,tt:t});}
   else if(id===11){if(s.saw309)fx({k:'saw',e,x:e.x,y:e.y,dx:s.x-e.x,dy:s.y-e.y,life:C.sawT,tt:t,d:s.saw309,acc:0,src:s});}
   if(id!==3&&id!==2)fx({k:'spark',x:s.x,y:s.y,tt:t,n:2});}
  // ---------- mỗi khung: lái đạn, chém đạn địch, hút quái, cưa ----------
@@ -45,7 +46,7 @@
     else{const a0=Math.atan2(s.vy,s.vx);let bd=1e9;for(const n of enemies){if(n.dead||n.y<0)continue;const dx=n.x-s.x,dy=n.y-s.y,d=Math.hypot(dx,dy);let da=Math.atan2(dy,dx)-a0;da=Math.atan2(Math.sin(da),Math.cos(da));if(Math.abs(da)<C.lockCone*Math.PI/180&&d<bd){bd=d;tg=n;}}if(!tg)try{if(boss&&!boss.dead){const da=Math.atan2(boss.y-s.y,boss.x-s.x)-a0;if(Math.abs(Math.atan2(Math.sin(da),Math.cos(da)))<C.lockCone*Math.PI/180)tg=boss;}}catch{}}
     if(tg){const sp=Math.hypot(s.vx,s.vy),a=Math.atan2(s.vy,s.vx);let da=Math.atan2(tg.y-s.y,tg.x-s.x)-a;da=Math.atan2(Math.sin(da),Math.cos(da));const tr=(s.home309?C.homeTurn:C.lockTurn)*dt,na=a+Math.max(-tr,Math.min(tr,da));s.vx=Math.cos(na)*sp;s.vy=Math.sin(na)*sp;}}
    if(s.co309===6&&typeof bullets!=='undefined'){const R=(s.r||6)+10;for(const b of bullets){if(b.dead||(b.r||5)>7||b.laser||b.beam)continue;if(Math.abs(b.x-s.x)<R&&Math.abs(b.y-s.y)<R+8){b.dead=true;b.x=-999;fx({k:'spark',x:s.x,y:s.y,tt:T(s),n:2});}}}}
-  for(const e of enemies){const p=e.pull309;if(!p)continue;p.t-=dt;if(p.t<=0||e.dead){e.pull309=null;continue;}const dx=p.x-e.x,dy=p.y-e.y,d=Math.hypot(dx,dy);if(d>6){e.x+=dx/d*C.gravPull*dt;e.y+=dy/d*C.gravPull*dt;}}
+  for(const e of enemies){const p=e.pull309;if(!p)continue;p.t-=dt;if(p.t<=0||e.dead){e.pull309=null;e.pullICD309=performance.now()/1000+C.gravICD;continue;}const dx=p.x-e.x,dy=p.y-e.y,d=Math.hypot(dx,dy);if(d>C.gravStop){e.x+=dx/d*C.gravPull*dt;e.y+=dy/d*C.gravPull*dt;}}
   for(const f of FXL){if(f.k!=='saw')continue;const e=f.e;if(!e||e.dead){f.t=f.life;continue;}f.x=e.x+f.dx*.3;f.y=e.y+f.dy*.3;const want=f.d*Math.min(1,(f.t+dt)/f.life)-f.acc;if(want>0&&Math.floor((f.t+dt)/.1)>Math.floor(f.t/.1)){hurt(e,want,f.src);f.acc+=want;}}}
  // ---------- vẽ ----------
  function hull10(){try{return Evo53.hull(9);}catch{return null;}}
