@@ -1004,6 +1004,35 @@ rep("</body>","<style id=\"qua307-css\">"+open('src/qua307.css',encoding='utf-8'
 rep("</body>","<script id=\"max307-js\">"+open('src/max307.js',encoding='utf-8').read()+"</script></body>")  # V307 Tím+5 không rơi bản sao mẫu đó
 rep("</body>","<style id=\"cot307-css\">"+_ui306css(open('src/cot307.css',encoding='utf-8').read())+"</style><script id=\"cot307-js\">"+open('src/cot307.js',encoding='utf-8').read()+"</script></body>")  # V307 sảnh: hàng ô vuông
 rep("</body>","<script id=\"hud307-js\">"+open('src/hud307.js',encoding='utf-8').read()+"</script></body>")  # V307 HUD: bật chữ nổi nhặt đồ
+# ---- V307 · 7 robot siêu hợp thể CƠ KHÍ (tranh GPT chốt 20/11, tên/đặc kỹ theo Gemini; atlas đã thay ở src/hop129 tau + src/hop131) ----
+rep("const skills=['Phân Giải + Song Vũ','Thiêu Đốt + Phân Giải','Quân Đoàn + Thiêu Đốt','Đóng Băng + Quân Đoàn','Trảm Kích + Đóng Băng','Thiêu Đốt + Xuyên Thấu','Laser + Tán Xạ'];","const skills=['Phân Giải + Xung Kích','Thiêu Đốt + Phân Giải','Quân Đoàn + Thiêu Đốt','Hàn Băng + Quân Đoàn','Trảm Kích + Hàn Băng','Xuyên Phá + Tán Xạ','Tán Xạ + Trảm Kích'];")
+rep("{name:'Ảo Vũ Thiên Ảnh',skills:'Phân Giải + Song Vũ'","{name:'Thiên Vũ Cơ Hoàng',skills:'Phân Giải + Xung Kích'")
+rep("normal:'Chiến cơ lông vũ hồng-trắng kèm phân thân cyan; hai tia lăng kính uốn lượn và lông vũ quang.'","normal:'Dạng chiến cơ lông vũ quang tử tím–cyan; đạn phân tách thành lông vũ tự tìm mục tiêu.'")
+rep("max:'Valkyrie hồng-vàng; sáu cánh quang vũ xòe rộng, mưa lông vũ và ba tia lăng kính.'","max:'Nữ cơ khí giáp bạc–titan, sáu cánh lông vũ quang tử xòe rộng; mưa mũi tên phân thân + sóng xung kích đẩy đạn địch.'")
+rep('Ảo Vũ Thiên Ảnh','Thiên Vũ Cơ Hoàng')
+rep("{name:'Du Tinh Hách Khách',skills:'Thiêu Đốt + Phân Giải'","{name:'Hắc Tinh Đột Kích',skills:'Thiêu Đốt + Phân Giải'")
+rep("normal:'Phi cơ cyber đen-trắng-cyan; hai luồng khối dữ liệu nhiệt đỏ-cam.'","normal:'Chiến cơ đột kích đen cacbon sọc cam lửa và cyan; hai luồng nhiệt hạch.'")
+rep("max:'Robot hacker giáp đen-tím; nón tia đỏ từ trời, cánh pha lê hồng-cyan, bảy luồng data-flame.'","max:'Nam cơ khí giáp đen nhám, cánh phản lực gập góc, vai gắn pháo hạt nhân; nón tia nhiệt đỏ từ trên đỉnh.'")
+rep('Du Tinh Hách Khách','Hắc Tinh Đột Kích')
+rep("{name:'Vĩnh Tẫn Hoang Viêm',skills:'Quân Đoàn + Thiêu Đốt'","{name:'Thái Dương Chiến Thần',skills:'Quân Đoàn + Thiêu Đốt'")
+rep("normal:'Chiến cơ công kích đỏ-vàng-bạc, ba phù du pháo; cột lửa chính và ba tia nhiệt.'","normal:'Pháo hạm đỏ thẫm–vàng kim với lõi mặt trời và ụ pháo vệ tinh; cột lửa chính.'")
+rep("max:'Chiến thần mặt trời; nhật miện xoay, hào quang tia sáng bùng nổ, sấm hồng và cột lửa khổng lồ.'","max:'Nam cơ khí giáp đỏ–vàng hoàng gia, ụ pháo vệ tinh quanh vai, hào quang mặt trời bùng nổ chữ X lửa.'")
+rep('Vĩnh Tẫn Hoang Viêm','Thái Dương Chiến Thần')
+rep("{name:'Quần Tinh Ý Chí',skills:'Đóng Băng + Quân Đoàn'","{name:'Tinh Vân Phán Quan',skills:'Hàn Băng + Quân Đoàn'")
+rep("normal:'Mẫu hạm bạc-tím-cyan; phù du phía trên, interceptor phía dưới, tia băng hội tụ.'","normal:'Chiến cơ pha lê bạch kim–lam với đội tiêm kích vệ tinh; tia băng hội tụ.'")
+rep("max:'Robot phán quan; khung sao pha lê bốn hướng, phù du quay quanh, sấm tím và hai đại pháo băng.'","max:'Nữ cơ khí giáp bạch kim–lam vũ trụ, vòng vệ tinh pha lê sau lưng; cột băng và đội tiêm kích tự động.'")
+rep('Quần Tinh Ý Chí','Tinh Vân Phán Quan')
+rep("{name:'Băng Hà Lĩnh Chủ',skills:'Trảm Kích + Đóng Băng'","{name:'Hàn Phong Kỵ Sĩ',skills:'Trảm Kích + Hàn Băng'")
+rep("normal:'Tiêm kích băng trắng-cyan-tím; tia không độ và nhát chém băng.'","normal:'Tiêm kích băng xanh–thép trắng sắc nhọn; tia không độ và nhát chém băng.'")
+rep("max:'Kỵ sĩ băng; tám đại cánh tinh thể xòe xuống, trụ băng trời, bán nguyệt trảm và mưa mảnh băng.'","max:'Nam cơ khí giáp băng sắc nhọn, tám phiến cánh tinh thể xòe như áo choàng; đại kiếm băng trảm dọc.'")
+rep('Băng Hà Lĩnh Chủ','Hàn Phong Kỵ Sĩ')
+rep("{name:'Phượng Viêm Thương Đế',skills:'Thiêu Đốt + Xuyên Thấu'","{name:'Xích Diễm Long Thương',skills:'Xuyên Phá + Tán Xạ'")
+rep("normal:'Tiêm kích phượng hoàng giáp đỏ-trắng mang đôi lõi cyan; đạn lửa bao quanh thương quang xuyên thấu.'","normal:'Tiêm kích rồng lửa đỏ–đen; mũi thương xuyên thẳng và quạt đạn lửa.'")
+rep("max:'Chiến thần phượng viêm mở đại cánh lửa, đôi vai lõi cyan dẫn hai cột thương quang xuyên tâm.'","max:'Nam cơ khí giáp đỏ rực–đen, đôi cánh phượng cơ khí ba tầng lửa; đại thương xuyên phá + quạt lửa tán xạ 120°.'")
+rep('Phượng Viêm Thương Đế','Xích Diễm Long Thương')
+rep("{name:'Tử Diệu Quang Hoàng',skills:'Laser + Tán Xạ'","{name:'Tử Diệu Quang Hoàng',skills:'Tán Xạ + Trảm Kích'")
+rep("normal:'Tiêm kích trắng-vàng mở cánh nguyệt và cánh tinh thể tím; tia laser vàng dẫn chùm cầu tán xạ.'","normal:'Tiêm kích vàng kim–tím hoàng gia; chùm laser lăng kính tán xạ.'")
+rep("max:'Quang hoàng giáp trắng-vàng triển khai quang hoàn lăng kính, hai đại pháo laser và vòng cầu tím tán xạ.'","max:'Nữ cơ khí giáp vàng kim–tím, mũ giáp vương miện, bốn cánh lăng kính pha lê; chín tia tán xạ + hai lưỡi liềm ánh sáng.'")
 open('Phi_Doi_Sao_Bang_V74_mau.html','w',encoding='utf-8').write(h);print(round(len(h)/1e6,2),'MB')
 # ---- V100 · BẢN THỬ cho chủ dự án: dữ liệu tách riêng (tiền tố thu100:) + bảng nạp tài khoản mẫu ----
 # V301: chỉ dựng khi cần (BAN_THU=1 hoặc khi xuất bản) để mỗi lần dựng nhanh hơn, bớt một tệp 81 MB
