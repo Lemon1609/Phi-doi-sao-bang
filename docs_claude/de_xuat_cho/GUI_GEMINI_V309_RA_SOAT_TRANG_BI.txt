@@ -1,0 +1,40 @@
+GỬI GEMINI · V309 · RÀ SOÁT TRANG BỊ (TÀU CON / VŨ KHÍ PHỤ, TÊN LỬA, GIÁP) ĐỂ THIẾT KẾ LẠI ĐỒNG BỘ
+
+Bối cảnh: game bắn máy bay dọc (HTML5/canvas, màn 393×852). Đạn tàu chính, kỹ năng, đạn quái/boss vừa làm lại theo bảng màu 6 bậc chống lóa
+(Thường Bạc Thép Xanh #5bc0eb · Lục #10b981 · Lam #0284c7 · Tím màu riêng tàu · Tím+5 #d946ef · SS Hổ Phách #f59e0b; tia 3 lớp lõi/thân/viền,
+chỉ quầng ngoài cộng sáng α .35). Giờ cần làm trang bị cho khớp bộ mới. Ảnh kèm trong zip (chụp từ bản dựng hiện tại, bậc SS, tàu 13, màn 62).
+
+1. KIỂM KÊ HIỆN CÓ
+- 3 ô trang bị: Giáp · Tên lửa · Vũ khí phụ (vũ khí phụ = 2 tàu con hai bên tàu chính bắn đạn riêng).
+- Món gốc 6+6+6 (bộ trắng sứ + ngọc): Giáp Thành Trì, Kính Phản, Quỹ Đạo, Dịch Pha, Long Viêm, Nano · Tên lửa Hỏa Ngục, Hàn Sương, Lôi Kích,
+  Ngư Lôi Hư Không, Xoắn Ốc, Thiên Tinh · Vũ khí phụ Pháo Điện Từ, Đĩa Nguyệt Nhận, Pháo Thái Dương, Cầu Trọng Lực, Pháo Lục Lăng, Quang Pháo Hàn Băng.
+- Bộ "36" (vàng kim, chữ α): giáp Cực Quang/Hư Không/Thiên Sứ (aurora36, void36, seraph36) · tên lửa Thiên Kiếm, Diệt Tinh, Phán Quyết · phụ Quang Thương, Chân Trời, Thiên Hoàn.
+- Bộ 9–12 (tối/tím/xanh thép): Bầy Đàn (aegis9 / swarm9 / Tàu Mẹ Hộ Vệ carrier9) · Huyết Tinh–Thôn Phệ (devour10) · Quá Khứ–Đồng Hồ Cát (chrono11) · Trảm Không–Ấn Triện (monarch12).
+- Hợp thể SSS: 18 món (ghép 2 món gốc kề nhau, vd Băng Hỏa Song Long, Nguyệt Lôi Thiên Nhận, Thành Kính Thiên Vệ), cường hóa = 2×min(hai món mẹ).
+- Đường vẽ trong mã: (a) 12 món gốc + SSS qua GEAR_FX (sprite đạn/bệ riêng), (b) bộ 9–12 là đạn thường có ảnh riêng, (c) bộ 36 bắn qua hệ kỹ năng riêng,
+  (d) lớp hiệu ứng thêm V307: khiên lục giác theo dòng giáp, sóng vỡ khiên, đuôi + vòng nổ tên lửa, sét nhảy Pháo Điện Từ, sương băng.
+
+2. VẤN ĐỀ ĐO / NHÌN THẤY (ảnh bang_*.jpg)
+ a) Icon 3 phong cách không cùng họ: món gốc trắng sứ + ngọc; bộ 36 vàng kim; bộ 9–12 tối tím/xanh thép (bang_icon.jpg). Không thấy bậc trên icon (chỉ khung).
+ b) Tên lửa gần như không thấy trong trận: đạn nhỏ 8–15 px, mờ; Quá Khứ và Trảm Không đo được chỉ 1 viên trên màn trong 6 s (bang_mis.jpg).
+ c) Pháo Điện Từ (2 tia xanh lục dài hết màn) lấn át mọi thứ, kể cả khi nhìn tên lửa; tia không theo màu bậc tàu.
+ d) Tàu con rất nhỏ (~20 px), mỗi bộ một kiểu: món gốc không bệ, bộ 36/9–12 có đĩa bóng xám/xanh dưới chân; nhìn như 2 chấm (bang_side.jpg).
+ e) Đạn phụ mỗi món một kiểu riêng lẻ (cầu tím, giọt cam, kim trắng, đĩa trăng tím…), không có quy luật màu theo bậc như đạn tàu chính.
+ f) Giáp: khiên trong trận là cùng một quả cầu xanh lam cho mọi giáp (bang_giap.jpg); 7 giáp bộ 36/9–12 khiên không vỡ/không có sóng vỡ; nét riêng
+    từng dòng giáp (Kính Phản phản tia, Nano hồi, Quỹ Đạo vệ tinh…) gần như không đọc được.
+ g) Hợp thể SSS dùng hiệu ứng món mẹ + ×1,35, không có hình riêng trong trận.
+
+3. RÀNG BUỘC (khóa của chủ dự án)
+- Không chép tàu/đạn/cánh cụ thể của game gốc, chỉ học cách làm. Không tiền thật, không thêm nguồn kim cương.
+- Tăng số viên theo bậc thì giữ nguyên tổng sát thương. Không đổi số sát thương trong lượt này (chỉ hình + đường đạn + hiệu ứng), trừ khi bạn đề xuất kèm số đo.
+- Hiệu năng mobile: trần ~140 đạn địch; trang bị nên ≤ 30 hạt/khung, tránh ctx.filter mỗi khung.
+- Tranh do GPT vẽ (sprite trắng/xám nền đen hoặc màu nền đen, tách alpha theo độ sáng), màu theo bậc tô bằng mã.
+
+4. XIN BẠN TRẢ LỜI THEO KHUNG
+ A. Chấm nhanh từng mục 2a–2g (giữ / sửa / làm lại) và thứ tự ưu tiên.
+ B. Một ngôn ngữ thiết kế chung cho trang bị: họ hình icon (1 phong cách cho cả 3 bộ? hay giữ 3 bộ nhưng thống nhất khung/ánh sáng/ngọc bậc), cách hiện bậc trên icon và trong trận.
+ C. Vai trò thị giác từng ô so với đạn tàu chính (độ sáng, cỡ, độ ưu tiên lớp vẽ): tàu con, đạn phụ, tên lửa, khiên. Tia Pháo Điện Từ nên rộng/dài/độ mờ bao nhiêu.
+ D. Bảng từng món (36 món + 18 SSS gọn theo nhóm): hình tàu con/bệ, hình đạn, đường đạn (thẳng/cong/truy đuổi/quỹ đạo), hiệu ứng trúng, màu chữ ký riêng món (kết hợp màu bậc ra sao).
+ E. Khiên 13 giáp: hình khiên theo dòng (lục giác, vòng vệ tinh, gương…), lúc chặn đòn, lúc vỡ, lúc hồi; tách rõ khiên giáp với khiên bất tử/biến hình.
+ F. Hợp thể SSS: dấu hiệu nhận biết trong trận (hai màu món mẹ, vòng, hình đạn lai).
+ G. Danh sách sprite cần GPT vẽ (số lượng, cỡ, nền) + prompt mẫu ngắn cho 1 nhóm; ưu tiên ít ảnh, tô màu bằng mã.
