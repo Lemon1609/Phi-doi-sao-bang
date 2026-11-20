@@ -78,6 +78,7 @@ const B75=(()=>{
  function shot(x,y,a,s,o={}){if(S&&S.sc&&S.sc!==1)s=Math.min(230,s*S.sc);const n0=bullets.length;try{emit(x,y,a,s/Math.max(.01,enemyScale()),o.needle?'needle':'orb',{boss75:1,fix75:o.fix||s>258?1:0,...(o.r?{r:o.r}:{}),...(o.x||{})});}catch{return null;}return bullets.length>n0?bullets[bullets.length-1]:null;}
  const aim=(x,y)=>Math.atan2(player.y-y,player.x-x);
  function beam(x,width,warn,dur,o={}){try{Safety31.push(beams,24,{x,y:o.y||0,width,age:0,warn,duration:dur,angle28:o.a===undefined?Math.PI/2:o.a,length28:o.len||((typeof H==='number'?H:1100)+40),color:o.col||'#ff4d6d'});}catch{}}
+ const TELE309=new Set(['AIMED_BURST','AIMED_FAN','RICOCHET_ORBS','FAN_BURST','CROSS_NEEDLES','TIMED_BOMB','CLUSTER_SPLIT','SPLIT_FAN']);
  function every(key,sec,dt){const t=S.acc;t[key]=(t[key]||0)+dt;if(t[key]>=sec){t[key]-=sec;return true;}return false;}
  const later=(t,fn)=>S.q.push({t,fn});
  function fan(x,y,a0,ways,spread,sp,o){const out=[];for(let i=0;i<ways;i++){const a=ways>1?a0-spread/2+spread*i/(ways-1):a0;out.push(shot(x,y,a,sp,o));}return out;}
@@ -86,6 +87,7 @@ const B75=(()=>{
  function row(y,xs,sp){for(const x of xs)shot(x,y,Math.PI/2,sp);}
  // ---------------- các đòn ----------------
  function run(m,key,dt,b){const bx=b.x,by=b.y+22,K=ky();
+  /* V309d · chớp tụ nòng 0,32 s trước loạt bắn nhanh / nguy hiểm (Gemini). Tắt: window.TELE309=false */try{if(window.TELE309!==false&&TELE309.has(m.type)&&m.cd>=.6){const left=m.cd-(S.acc[key]||0);if(left>0&&left<.32)(window.__tele75||(window.__tele75=[])).push({x:bx,y:by,l:left,t:performance.now()});}}catch{}
   switch(m.type){
    case 'PARALLEL_STREAM':if(every(key,m.cd,dt)){const sp=m.laneGap*.6;for(let r=0;r<3;r++)later(r*.12,()=>{for(let j=0;j<m.lanes;j++)shot(b.x+(j-(m.lanes-1)/2)*sp,b.y+22,Math.PI/2,m.speed);});}break;
    case 'FAN_BURST':if(every(key,m.cd,dt))fan(bx,by,aim(bx,by),m.ways,m.spreadDeg*D,m.speed);break;

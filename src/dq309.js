@@ -19,7 +19,11 @@
   if(b.splitter)return ['e_diamond_red',4.0,'dir'];
   if(b.aimed30&&g==='o')return ['e_round_orange',3.3,'none'];
   return ['e_round_red',3.3,'none'];}
- function draw(b){if(b.dead||!Number.isFinite(b.r))return false;const g=grp(),p=pick(b,g),i=im(p[0]);if(!i)return false;
+ // mìn hẹn giờ (TIMED_BOMB: b.sp75.k==='timer'): mìn đen gai, ≤1,2 s cuối nháy đỏ nhanh dần + vòng đếm ngược thu nhỏ
+ function mine(b){const o=b.sp75;if(!o||o.k!=='timer')return false;const t=Math.max(0,o.t||0),r=Math.max(6,b.r||9),d=r*4.2,hot=t<=1.2,fq=hot?6+(1.2-t)*14:0,on=hot&&Math.sin(now()*fq*6.283)>0;
+  const i=im(on?'e_mine_arming':'e_mine_idle');if(!i)return false;ctx.save();ctx.translate(b.x,b.y);ctx.rotate(now()*1.2);ctx.drawImage(i,-d/2,-d/2,d,d);ctx.restore();
+  const T0=o.t0||(o.t0=Math.max(t,.01)),u=Math.max(0,Math.min(1,t/T0));ctx.save();ctx.globalCompositeOperation='lighter';ctx.strokeStyle='#ff1e42';ctx.globalAlpha=hot?.85:.45;ctx.lineWidth=2.2;ctx.beginPath();ctx.arc(b.x,b.y,r*2.4,-Math.PI/2,-Math.PI/2+u*6.283);ctx.stroke();ctx.restore();return true;}
+ function draw(b){if(b.dead||!Number.isFinite(b.r))return false;if(b.sp75&&b.sp75.k==='timer')return mine(b);const g=grp(),p=pick(b,g),i=im(p[0]);if(!i)return false;
   const r=Math.max(3,b.r),d=Math.max(p[0].startsWith('e_round')?16:13,r*p[1])*(window.DQ309K||1);ctx.save();ctx.translate(b.x,b.y);
   if(p[2]==='dir')ctx.rotate(Math.atan2(b.vy||1,b.vx||0)-Math.PI/2);else if(p[2]==='spin')ctx.rotate(now()*p[3]+(b.x*.01));
   ctx.globalCompositeOperation='source-over';ctx.globalAlpha=1;ctx.drawImage(i,-d/2,-d/2,d,d);ctx.restore();return true;}
@@ -32,7 +36,12 @@
   const ang=b.angle28!==undefined?b.angle28+(b.sweep28||0):Math.PI/2,L=b.length28||((typeof H==='number'?H:1100)-(b.y||0)),x1=b.x,y1=b.y||0,x2=x1+Math.cos(ang)*L,y2=y1+Math.sin(ang)*L;
   const fin=u<.08?u/.08:u>.9?(1-u)/.1:1,w=Math.max(14,(b.width||18))*1.9*(.55+.45*fin);
   FX309.beam(ctx,x1,y1,x2,y2,lcol(b),w,1,{fs:Math.max(34,w*1.3),rs:30,ring:false});return true;}
+ // chớp tụ nòng: vòng thu nhỏ 24 → 6 px + sao năng lượng (b75 đẩy vào window.__tele75)
+ function tele(){const L=window.__tele75;if(!L||!L.length)return;const tn=performance.now(),i=im('e_muzzle_flash');ctx.save();ctx.globalCompositeOperation='lighter';
+  for(const e of L){if(tn-e.t>60)continue;const u=1-Math.max(0,Math.min(1,e.l/.32)),R=24-18*u;ctx.globalAlpha=.55+.45*u;ctx.strokeStyle='#ff1e42';ctx.lineWidth=2.5;ctx.beginPath();ctx.arc(e.x,e.y,R,0,6.283);ctx.stroke();if(i){const d=14+22*u;ctx.globalAlpha=.5+.5*u;ctx.drawImage(i,e.x-d/2,e.y-d/2,d,d);}}
+  ctx.restore();window.__tele75=L.filter(e=>tn-e.t<=60);}
+ function hookT(){try{const vd=VisualFX.draw;if(vd.__dq309)return;const nd=function(){const r=vd.apply(this,arguments);try{if(window.TELE309!==false&&(mode==='play'||mode==='pause'))tele();}catch{}return r;};nd.__dq309=1;VisualFX.draw=nd;}catch{}}
  function hookL(){try{const db=Bosses28.drawBeam;if(db.__dq309)return true;const nd=function(b){try{if(beamDraw(b))return true;}catch{}return db.apply(this,arguments);};nd.__dq309=1;Bosses28.drawBeam=nd;return true;}catch{return false;}}
- setInterval(()=>{hookB();hookL();},1500);/* kiểm định kỳ: mô-đun khác bọc lại sau thì bọc lại lên trên */
+ setInterval(()=>{hookB();hookL();hookT();},1500);/* kiểm định kỳ: mô-đun khác bọc lại sau thì bọc lại lên trên */
  window.DQ309S={pick,grp,state:()=>{try{return {b:!!Threat30.draw.__dq309,l:!!Bosses28.drawBeam.__dq309};}catch{return {};}}};
 })();
