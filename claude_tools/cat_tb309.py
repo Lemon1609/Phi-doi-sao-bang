@@ -39,7 +39,14 @@ def tach_mau(a,thr=16,kin=1500):
     im=tach(a,thr,kin);return im
 PODN=['rail','disc','solar','gravity','prism','ricochet','lance36','orbit36','halo36','carrier9','devour10_s','chrono11_s','monarch12_s']
 D=cells(S+'V309_gpt_fx_aux_pods_13_4x4.png',4,4)
-for k,v in enumerate(PODN):fit(tach_mau(D[k//4][k%4]),160).save(O+'pod_'+v+'.webp',quality=90)
+from PIL import ImageEnhance
+def tang(im,k=1.12):
+    a=im.getchannel('A');rgb=ImageEnhance.Color(ImageEnhance.Brightness(im.convert('RGB')).enhance(k)).enhance(k);rgb.putalpha(a);return rgb
+def tach_pod(a):  # flood-fill nền đen từ 4 mép (R,G,B<18), thân đục 100 %, viền mềm 1 px; KHÔNG xóa vùng tối kín bên trong
+    L=a.max(2).astype(int);dark=L<18;lab,n=ndimage.label(dark);edge=set(np.unique(np.r_[lab[0],lab[-1],lab[:,0],lab[:,-1]]))-{0}
+    bg=np.isin(lab,list(edge));alpha=np.where(bg,0,255).astype(float);alpha=ndimage.gaussian_filter(alpha,.5);alpha[~bg]=255
+    return Image.fromarray(np.dstack([a,alpha]).astype('uint8'),'RGBA')
+for k,v in enumerate(PODN):fit(tang(tach_pod(D[k//4][k%4])),192,sqr=False).save(O+'pod_'+v+'.webp',quality=92)
 CK=[['c_m_inferno','c_m_cryo','c_m_thunder','c_m_singularity'],['c_m_spiral','c_m_stellar','c_m_sword_gold','c_m_chrono'],['c_s_disc','c_s_orb_gravity','c_s_prism','c_s_ricochet'],['c_s_lance36','c_s_halo36','c_s_sigil_monarch','c_s_mini_drone']]
 D=cells(S+'V309_gpt_fx_gear_projectiles_color_4x4.png',4,4)
 for r in range(4):

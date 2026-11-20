@@ -1056,6 +1056,8 @@ rep("const enhance=Math.max(2*Math.min(...parts.map(p=>p.enhance)),old?.enhance|
 rep("hull:im});","hull:(window.__hop309bay||im)});")
 rep("hull:(imL.complete&&imL.naturalWidth?imL:im)","hull:(window.__hop309atlas||(imL.complete&&imL.naturalWidth?imL:im))")
 rep("if(o.hull)hullIm=o.hull;prepareHull();","if(o.hull){if(o.hull!==hullIm&&(o.hull.__h309||(hullIm&&hullIm.__h309)))cells=null;hullIm=o.hull;}prepareHull();")
+rep("core.addColorStop(.46,'rgba(255,255,255,.95)');core.addColorStop(.54,'rgba(255,255,255,.95)')","core.addColorStop(window.LOI309===false?.46:.485,'rgba(255,255,255,.95)');core.addColorStop(window.LOI309===false?.54:.515,'rgba(255,255,255,.95)')")  # V309 lõi trắng tia SSS hẹp ~25 % (mẫu 2 hết lóa). Tắt: window.LOI309=false
+rep("const hot=mix(col,'#ffffff',VIVID68.on?.28:.6);","const hot=mix(col,'#ffffff',VIVID68.on?(window.LOI309===false?.28:.12):.6);")  # V309 đạn SSS bão hòa hơn
 open('Phi_Doi_Sao_Bang_V74_mau.html','w',encoding='utf-8').write(h);print(round(len(h)/1e6,2),'MB')
 # ---- V100 · BẢN THỬ cho chủ dự án: dữ liệu tách riêng (tiền tố thu100:) + bảng nạp tài khoản mẫu ----
 # V301: chỉ dựng khi cần (BAN_THU=1 hoặc khi xuất bản) để mỗi lần dựng nhanh hơn, bớt một tệp 81 MB

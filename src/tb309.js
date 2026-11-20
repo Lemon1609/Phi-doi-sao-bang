@@ -70,12 +70,12 @@
  const SZ={mis:[46,54],side:[30,36],trail:34};
  function put(c,o,I,mis,sup,age,ref){const key0=SPR[I.v];if(!key0)return false;const ck=window.TB309MAU!==false&&CSPR[I.v],own=ck&&ok(IM[ck])?IM[ck]:null,key=own?ck:key0,im=own||tint(key0,I.pal);if(!im)return false;
   if(own){const tc=I.sss?(CTAIL[I.sss.parents[1]]||I.pal[3]):(CTAIL[I.v]||I.pal[3]);if(tc!==I.pal[3])I={...I,pal:[I.pal[0],I.pal[1],I.pal[2],tc,I.pal[4]]};}
-  const iw=im.naturalWidth||im.width,ih=im.naturalHeight||im.height,ar=iw/ih,sq=ar>.8;let L=(mis?SZ.mis:SZ.side)[sup?1:0];if(!mis&&sq)L*=.85;if(I.v==='swarm9')L*=.72;if(I.sss)L*=1.15;
+  const iw=im.naturalWidth||im.width,ih=im.naturalHeight||im.height,ar=iw/ih,sq=ar>.8;let L=(mis?SZ.mis:SZ.side)[sup?1:0];if(!mis&&sq)L*=.85;if(I.v==='swarm9')L*=.72;const BIG=I.v==='devour10_m'||I.v==='chrono11_m'||I.v==='monarch12_m';if(BIG)L*=1.15;if(I.sss)L*=1.15;
   const W=L*ar,ang=Math.atan2(o.vy||-1,o.vx||0)+Math.PI/2,spin=SPIN[key]||0;
   c.save();try{c.translate(o.x,o.y);c.rotate(ang);
    const h=ref&&mis?(ref.__h9||(ref.__h9=[])):null;const TR=TRAIL[I.tier]||TRAIL.lam;if(h){const n=h.length;if(!n||Math.hypot(h[n-2]-o.x,h[n-1]-o.y)>2){h.push(o.x,o.y);if(h.length>TR[0]*2)h.splice(0,2);}}
    if(h&&h.length>=6){c.restore();c.save();c.globalCompositeOperation='lighter';c.lineCap='round';const n=h.length/2;/* đuôi cong 8 điểm: rộng 5→0, α .65→0 (Gemini) */
-    const ss=!!I.sss,W0=5*(sup?1.25:1)*(ss?1.5:1);for(let k=1;k<n;k++){const q=k/(n-1),x1=k===n-1?o.x:h[k*2],y1=k===n-1?o.y:h[k*2+1];c.strokeStyle=rgba(I.pal[3],(ss?.85:.65)*q);c.lineWidth=Math.max(.5,W0*q);c.beginPath();c.moveTo(h[k*2-2],h[k*2-1]);c.lineTo(x1,y1);c.stroke();
+    const ss=!!I.sss||(I.v==='devour10_m'||I.v==='chrono11_m'||I.v==='monarch12_m'),W0=5*(sup?1.25:1)*(ss?1.5:1);for(let k=1;k<n;k++){const q=k/(n-1),x1=k===n-1?o.x:h[k*2],y1=k===n-1?o.y:h[k*2+1];c.strokeStyle=rgba(I.pal[3],(ss?.85:.65)*q);c.lineWidth=Math.max(.5,W0*q);c.beginPath();c.moveTo(h[k*2-2],h[k*2-1]);c.lineTo(x1,y1);c.stroke();
      if(ss){c.strokeStyle=rgba(I.pal[1],.9*q);c.lineWidth=Math.max(.4,W0*.38*q);c.stroke();}}/* SSS: đuôi song sắc — viền mẹ B, lõi mẹ A */
     if((I.tier==='ss'||I.tier==='sss')&&Math.random()<.35){c.fillStyle=rgba('#fde047',.8);c.beginPath();c.arc(h[0]+(Math.random()-.5)*6,h[1]+(Math.random()-.5)*6,1.4,0,6.283);c.fill();}
     c.restore();c.save();c.translate(o.x,o.y);c.rotate(ang);}
@@ -98,6 +98,7 @@
    if(q<.3){const u=q/.3;x=v.x+(mx-v.x)*u;y=v.y+(my-v.y)*u;vx=mx-v.x;vy=my-v.y;}else{const u=(q-.3)/.7;x=mx+(v.tx-mx)*u;y=my+(v.ty-my)*u;vx=v.tx-mx;vy=v.ty-my;}
    v.__ref=v.__ref||{};g.save();const r=put(g,{x,y,vx,vy},info(id,'missiles'),true,supNow(),0,v.__ref);g.restore();if(q>=.3&&!v.__b){v.__b=1;BEND.push({x:mx,y:my,t:performance.now()/1000,id});}fxDraw(g);return r;}   // V309: bẻ góc 90° rồi lao vào mục tiêu
   if(v.k==='dive'){const id=v.v||'nova36';if(!SPR[id])return false;const y=v.y-(.3-v.life)*500;g.save();g.globalAlpha=Math.min(1,v.life*4);const r=put(g,{x:v.x,y,vx:0,vy:-1},info(id,'missiles'),true,supNow(),0);g.restore();return r;}
+  if(v.k==='beam'&&v.v==='devour10_s'&&window.FX309){/* V309: tia Thôn Phệ đỏ tía #e11d74, lõi #fce7f3 (khớp tàu con) */try{FX309.beam(g,v.a.x,v.a.y,v.b.x,v.b.y,'e3',14,Math.min(1,v.life*5)*.9,{fs:16,rs:18});}catch{}return true;}
   if(v.k==='cleave'){fxDraw(g);const prog=1-v.life/.55,y=v.y0-(v.y0+20)*prog,I=info('monarch12_m','missiles');put(g,{x:v.x,y,vx:0,vy:-1},I,true,supNow(),0);
    g.save();g.globalCompositeOperation='lighter';g.globalAlpha=Math.min(1,v.life*3);g.strokeStyle=rgba(I.pal[1],.85);g.lineWidth=3;g.beginPath();g.ellipse(v.x,y,v.w/2,10,0,Math.PI,2*Math.PI);g.stroke();g.strokeStyle=rgba(I.pal[3],.6);g.lineWidth=1.2;g.stroke();g.restore();return true;}
   if(v.k==='halo'){const p=1-v.life/.9,out=p<.5,q=out?p*2:(p-.5)*2;const px=out?v.sx+(v.tx-v.sx)*q:v.tx+(player.x+v.side*20-v.tx)*q,py=out?v.sy+(v.ty-v.sy)*q:v.ty+(player.y-60-v.ty)*q;
@@ -126,13 +127,13 @@
    d=22*(Math.sin(t*9+ph)-Math.sin((s.__t9??t)*9+ph));s.__t9=t;s.x+=px*d;s.y+=py*d;}
  // ---- tàu con ----
  function pod(c,i,p,sp){if(!on('TB309POD')||!i)return false;const sss=sssOf('sidearm');const v=sss?sss.parents[0]:i.variant,own=ok(IM['pod_'+v])?IM['pod_'+v]:null,key=POD[v];if(!key&&!own)return false;
-  const I=info(v,'sidearm'),im=own||tint(key,I.pal,true);if(!im)return false;const w=own?(sp?42:36):(sp?40:32),t=performance.now()/1000;
+  const I=info(v,'sidearm'),im=own||tint(key,I.pal,true);if(!im)return false;const w=own?(sp?46:40):(sp?40:32),t=performance.now()/1000;
   if(own){/* lửa động cơ nhỏ sau đuôi (tranh riêng đã đa sắc, không nhuộm) */c.save();c.globalCompositeOperation='lighter';for(const dx of [-w*.16,w*.16]){const fl=7+Math.sin(t*31+p.x+dx)*2,y0=p.y+w*.36,gr=c.createLinearGradient(0,y0,0,y0+fl*1.6);gr.addColorStop(0,'rgba(255,255,255,.9)');gr.addColorStop(.35,rgba(I.pal[3],.65));gr.addColorStop(1,rgba(I.pal[3],0));c.fillStyle=gr;c.beginPath();c.moveTo(p.x+dx-3,y0);c.lineTo(p.x+dx+3,y0);c.lineTo(p.x+dx,y0+fl*1.6);c.closePath();c.fill();}c.restore();}
   c.save();try{c.globalCompositeOperation='lighter';c.lineWidth=1.6;const lo=/^(thuong|luc|lam)$/.test(I.tier);c.strokeStyle=rgba(I.pal[3],(lo?.20:.30)+(sp?.15:0));c.beginPath();c.arc(p.x,p.y+3,16,0,6.283);c.stroke();if(I.tier==='ss'){c.strokeStyle=rgba('#fde047',.35);c.beginPath();c.arc(p.x,p.y+3,19,0,6.283);c.stroke();}
    if(sss){for(const [r,d,col] of [[18,1,I.pal[1]],[21,-1,I.pal[3]]]){c.strokeStyle=rgba(col,.45);c.setLineDash([6,5]);c.lineDashOffset=d*t*20;c.beginPath();c.arc(p.x,p.y+3,r,0,6.283);c.stroke();}c.setLineDash([]);}
    if(sss){const bob=Math.sin(t*3+p.x*.05)*2;c.lineWidth=2;for(const sd of [-1,1]){c.strokeStyle=rgba(sd<0?I.pal[1]:I.pal[3],.40);c.beginPath();c.arc(p.x+sd*(w*.38),p.y+bob,w*.55,sd<0?Math.PI*.6:-Math.PI*.4,sd<0?Math.PI*1.4:Math.PI*.4);c.stroke();}}/* 2 cánh năng lượng bán nguyệt cho tàu con SSS */
    const q=c.createRadialGradient(p.x,p.y,0,p.x,p.y,w*.7);q.addColorStop(0,rgba(I.pal[1],sp?.35:.18));q.addColorStop(1,rgba(I.pal[1],0));c.fillStyle=q;c.fillRect(p.x-w,p.y-w,w*2,w*2);
-   c.globalCompositeOperation='source-over';c.drawImage(im,p.x-w/2,p.y-w/2,w,w);}finally{c.restore();}return true;}
+   c.globalCompositeOperation='source-over';c.globalAlpha=1;{const iw=im.naturalWidth||im.width,ih=im.naturalHeight||im.height,k=w/Math.max(iw,ih);c.drawImage(im,p.x-iw*k/2,p.y-ih*k/2,iw*k,ih*k);}}finally{c.restore();}return true;}
  // ---- khiên ----
  let wasOn=false,regenT=-9,brk=null,hitArc=null,shards=[];
  function nearDir(){let best=null,bd=1e9;try{for(const b of bullets){const d=Math.hypot(b.x-player.x,b.y-player.y);if(d<bd){bd=d;best=b;}}}catch{}return best?Math.atan2(best.y-player.y,best.x-player.x):-Math.PI/2;}
@@ -161,5 +162,5 @@
  // quả cầu khiên cũ (FX40.shieldBubble, r 56 xanh lam chung mọi giáp) → nhường vành khiên theo dòng giáp
  function hookBubble(){try{if(typeof FX40==='undefined'||!FX40.shieldBubble||FX40.shieldBubble.__tb309)return;const o=FX40.shieldBubble;const f=function(){if(on('TB309SH'))return true;return o.apply(this,arguments);};f.__tb309=1;FX40.shieldBubble=f;}catch{}}
  setInterval(()=>{hookBubble();try{if(typeof mode!=='undefined'&&mode==='play')strip();}catch{}},1000);setTimeout(strip,600);
- window.TB309={on:()=>on(),qd,ring,QG,palOf,FAM,SPR,POD,SHF,SIG,info,tint,put,pool,has,shot,fx81,pod,armor,railKey,sig,strip,tierOf};
+ window.TB309={on:()=>on(),img:k=>ok(IM[k])?IM[k]:null,qd,ring,QG,palOf,FAM,SPR,POD,SHF,SIG,info,tint,put,pool,has,shot,fx81,pod,armor,railKey,sig,strip,tierOf};
 })();

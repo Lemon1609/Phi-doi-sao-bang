@@ -124,8 +124,9 @@ const RobGun309=(()=>{
   P=P.filter(q=>!q.dead&&q.t<q.life&&q.y>-60&&q.y<H+60&&q.x>-60&&q.x<W+60);
   // Thiên Vũ: mỗi 1,2 s sóng xung kích xóa đạn địch gần thân
   if(i===0){acc2+=dt;if(acc2>=1.2){acc2=0;try{bullets=bullets.filter(b=>Math.hypot(b.x-px,b.y-py)>130);}catch{}P.push({x:px,y:py,vx:0,vy:0,t:0,life:.35,k:'ring',c:COL[0][1],r:0,hit:new Set(),dead:false,d:0,nohit:1});}}}
- function draw(g){if(!P.length)return;g.save();g.globalCompositeOperation='lighter';
+ function draw(g){if(!P.length)return;g.save();g.globalCompositeOperation='lighter';const S9=window.ROBDAN309===false?1:1.6;/* V309: đạn robot dày khối, bão hòa (chủ dự án 20/11 23:47). Tắt: window.ROBDAN309=false */
   for(const q of P){const a=Math.atan2(q.vx,-q.vy);g.save();g.translate(q.x,q.y);g.rotate(a);g.fillStyle=q.c;g.strokeStyle=q.c;g.globalAlpha=Math.min(1,(q.life-q.t)*4);
+   if(S9>1&&q.k!=='ring'){const rr=(q.k==='slash'?44:q.k==='plasma'||q.k==='lance'?30:20);const gr=g.createRadialGradient(0,0,0,0,0,rr);gr.addColorStop(0,q.c);gr.addColorStop(1,'rgba(0,0,0,0)');const al=g.globalAlpha;g.globalAlpha=al*.45;g.fillStyle=gr;g.fillRect(-rr,-rr,rr*2,rr*2);g.globalAlpha=al;g.fillStyle=q.c;g.globalCompositeOperation='source-over';g.scale(S9,S9);if(q.k==='laser'||q.k==='prism')g.scale(1.6,1);}
    switch(q.k){case 'feather':g.beginPath();g.moveTo(0,-14);g.quadraticCurveTo(5,0,0,12);g.quadraticCurveTo(-5,0,0,-14);g.fill();g.fillStyle='#fff';g.fillRect(-1,-10,2,16);break;
     case 'heat':g.beginPath();g.ellipse(0,0,4,11,0,0,TAU);g.fill();g.fillStyle='#fff7d6';g.beginPath();g.ellipse(0,-2,2,6,0,0,TAU);g.fill();break;
     case 'shard':g.beginPath();g.moveTo(0,-6);g.lineTo(3,0);g.lineTo(0,6);g.lineTo(-3,0);g.closePath();g.fill();break;
@@ -136,12 +137,13 @@ const RobGun309=(()=>{
     case 'lance':g.fillRect(-3.5,-30,7,48);g.fillStyle='#fff';g.fillRect(-1.5,-30,3,48);break;
     case 'prism':g.lineWidth=2;g.beginPath();g.moveTo(0,-16);g.lineTo(0,12);g.stroke();g.fillStyle='#fff';g.fillRect(-1,-14,2,6);break;
     case 'ring':g.rotate(-a);g.lineWidth=3;g.globalAlpha=1-q.t/q.life;g.beginPath();g.arc(0,0,20+q.t/q.life*110,0,TAU);g.stroke();break;}
-   g.restore();}
+   g.restore();g.globalCompositeOperation='lighter';}
   g.restore();}
  function install(){if(typeof SSSGame==='undefined'||SSSGame.__g309)return;SSSGame.__g309=1;const od=SSSGame.draw;
   try{if(typeof SSSGun!=='undefined'&&SSSGun.beams&&!SSSGun.__g309){const ob=SSSGun.beams;SSSGun.beams=function(){if(window.ROBGUN309!==false)return [];return ob.apply(this,arguments);};SSSGun.__g309=1;}}catch{}
   SSSGame.draw=function(r){const res=od.apply(this,arguments);try{if(window.ROBGUN309!==false){const now=typeof time==='number'?time:performance.now()/1000,dt=last<0?0:Math.max(0,Math.min(.05,now-last));last=now;
     let i=-1;try{i=SSSGame.indexFor(r);}catch{}const demo=!!window.HANGAR_DEMO&&mode!=='play',on=i>=0&&superTime>0&&(mode==='play'&&robot()||demo);
+    if(on&&mode==='play'&&dt>0&&window.ROBPOS309!==false){/* V309: robot đứng cao hơn mép đáy ≥150 (≈120 px màn) để không bị cắt chân */const lim=H-260;if(player.y>lim)player.y=Math.max(lim,player.y-900*dt);}
     if(on&&dt>0){acc+=dt;const cd=PAT[i][0];let n=0;while(acc>=cd&&n<3){acc-=cd;n++;fire(i,r,player.x,player.y,now);}}else acc=0;
     if((mode==='play'||demo)&&dt>0)step(dt,i,r);if(mode!=='play'&&mode!=='pause'&&!demo)P=[];draw(ctx);}}catch(e){}return res;};}
  setTimeout(install,0);
