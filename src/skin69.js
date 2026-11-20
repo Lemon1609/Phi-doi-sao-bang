@@ -62,7 +62,13 @@ const Skin69=(()=>{
   a.naturalWidth=W0;a.naturalHeight=H0;a.complete=true;a.__b=base;a.__f=ff;/* V218: bậc tranh */AT118.set(k,a);return a;}
  window.ART118S={form:form118};
  let oh=null;
- function hookHull(){if(typeof Evo53==='undefined'||!Evo53.hull||oh)return;oh=Evo53.hull;Evo53.hull=function(id){const h=oh.apply(this,arguments);try{if(!Number.isInteger(id)||id<0||id>(window.ART239===false?9:12))return h;if(id<=9&&evoE(id))return h;const e=realE(id);/* V118: tranh thiết kế lại (GPT) — 5 dạng × thường/Bạo Tẩu */if(window.ART118!==false&&typeof SHIP118!=='undefined'&&SHIP118[id]&&h&&(h.naturalWidth||h.width)){const a=atlas118(id,form118(id,e),h);if(a)return a;}if(!e)return h;if(!h||!(h.naturalWidth||h.width))return h;return enhancedAtlas(id,Math.min(5,e),h);}catch{return h;}};}
+ // V309 · skin mặc = thân hiện tại + bộ lọc màu (thay hình tiến hóa cũ). Tắt: window.SKIN309=false
+ const SKF309={evo1:'hue-rotate(155deg) saturate(1.25) brightness(1.05)',evo2:'saturate(.25) brightness(1.35) contrast(1.1)',evo3:'hue-rotate(38deg) saturate(1.5) brightness(1.15)',evo4:'hue-rotate(270deg) saturate(1.6) brightness(1.1)'};
+ function skinKey309(id){if(preview&&preview.id===id)return preview.skin;return S.eq[id];}
+ const T309=new WeakMap();
+ function tint309(a,k){const f=SKF309[k];if(!f)return a;let m=T309.get(a);if(!m){m={};T309.set(a,m);}if(m[k])return m[k];const W=a.naturalWidth||a.width,H=a.naturalHeight||a.height;if(!W)return a;
+  const c=document.createElement('canvas');c.width=W;c.height=H;const g=c.getContext('2d');g.filter=f;g.drawImage(a,0,0);c.naturalWidth=W;c.naturalHeight=H;c.complete=true;c.__f=a.__f;m[k]=c;return c;}
+ function hookHull(){if(typeof Evo53==='undefined'||!Evo53.hull||oh)return;oh=Evo53.hull;Evo53.hull=function(id){const h=oh.apply(this,arguments);try{if(!Number.isInteger(id)||id<0||id>(window.ART239===false?9:12))return h;if(id<=9&&evoE(id)){if(window.SKIN309===false)return h;/* V309: skin = thân MỚI (SHIP118) + đổi màu, bỏ hình tiến hóa cũ */const k=skinKey309(id),e0=realE(id);if(window.ART118!==false&&typeof SHIP118!=='undefined'&&SHIP118[id]&&h&&(h.naturalWidth||h.width)){const a=atlas118(id,form118(id,e0),h);if(a)return (preview&&preview.id===id)?a:tint309(a,k);/* tủ skin: ui307c tô màu bằng CSS */}return h;}const e=realE(id);/* V118: tranh thiết kế lại (GPT) — 5 dạng × thường/Bạo Tẩu */if(window.ART118!==false&&typeof SHIP118!=='undefined'&&SHIP118[id]&&h&&(h.naturalWidth||h.width)){const a=atlas118(id,form118(id,e),h);if(a)return a;}if(!e)return h;if(!h||!(h.naturalWidth||h.width))return h;return enhancedAtlas(id,Math.min(5,e),h);}catch{return h;}};}
  // ---------- đạn theo bậc đột phá: vệt đuôi bằng chính màu đạn từ +2, dài dần ----------
  function trails(){if(!(mode==='play'||mode==='pause'))return;let e=0;try{if(activeRobot)return;e=realE(selected);}catch{return;}if(e<2||evoE(selected))return;
   // V117 (REVIEW117): bỏ vệt khi có boss hoặc >16 đạn chính; ngoài ra tối đa 24 vệt, độ đậm .28

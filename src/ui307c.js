@@ -41,7 +41,7 @@
    c.innerHTML=(lock?lock.outerHTML:'')+out.join('');c.__u7h=c.innerHTML;c.classList.add('u7c-cell');}}
  // tủ skin
  const SKF={'Màu đột phá':'none','Ngọc Lam':'hue-rotate(155deg) saturate(1.25) brightness(1.05)','Bạch Kim':'saturate(.25) brightness(1.35) contrast(1.1)','Hoàng Kim':'hue-rotate(38deg) saturate(1.5) brightness(1.15)','Cầu Vồng':'hue-rotate(270deg) saturate(1.6) brightness(1.1)'};
- function skins(){for(const it of document.querySelectorAll('.sk-grid .sk-it')){const b=it.querySelector('b');const t=b?b.textContent.trim():'';if(!t){it.classList.add('u7c-hide');continue;}/* ô thứ 5 là Cầu Vồng Pha Lê (có nhãn, bị cắt dưới mép ảnh chụp) nên giữ */const k=Object.keys(SKF).find(x=>t.startsWith(x));const cv=it.querySelector('canvas');if(cv&&k)cv.style.filter=SKF[k];}}
+ function skins(){for(const it of document.querySelectorAll('.sk-grid .sk-it')){const b=it.querySelector('b');const t=b?b.textContent.trim():'';if(!t){it.classList.add('u7c-hide');continue;}/* ô thứ 5 là Cầu Vồng Pha Lê (có nhãn, bị cắt dưới mép ảnh chụp) nên giữ */const k=Object.keys(SKF).find(x=>t.startsWith(x));const cv=it.querySelector('canvas');if(cv&&k)cv.style.filter=SKF[k];/* V309: tủ skin = thân mới (skin69) + lọc màu CSS */}}
  // đột phá đạt tối đa
  function evo(){const k=document.querySelector('.ev82k');if(!k)return;const mx=k.querySelector('.adv-max');if(!mx||k.querySelector('.u7c-max'))return;let id=0;try{id=launchCraft|0;}catch{}const nm=(k.querySelector('h3')||{}).firstChild;const src=shipSrc(id);
   const d=document.createElement('div');d.className='u7c-max';d.innerHTML=(src?'<img src="'+src+'" alt="">':'')+'<span class="u7c-badge">ĐẠT KHUNG TỐI ĐA</span>';mx.insertAdjacentElement('beforebegin',d);}

@@ -6,6 +6,7 @@
   const SP=[];let lastT=0;
   function star(g,x,y,r,a){g.save();g.translate(x,y);g.rotate(a);g.beginPath();g.moveTo(0,-r);g.lineTo(r*.22,-r*.22);g.lineTo(r,0);g.lineTo(r*.22,r*.22);g.lineTo(0,r);g.lineTo(-r*.22,r*.22);g.lineTo(-r,0);g.lineTo(-r*.22,-r*.22);g.closePath();g.fill();g.restore();}
   window.__wing132=function(g,i,x,y,S,bloom,phase,t){
+    if(window.WING309!==true)return;/* V309: robot cơ khí mới đã có cánh trong tranh → bỏ lớp cánh chiến giáp cũ (bật lại: window.WING309=true) */
     if(window.WING132===false||!(bloom>.02))return;const im=art('canh_hop'+(i+1)),gl=art('canh_hop'+(i+1)+'_sang');if(!im)return;
     const lite=(()=>{try{return VisualFX.counts().quality==='light';}catch{return false;}})(),quiet=(()=>{try{return VisualFX.reduced();}catch{return false;}})();
     // bung: 0 → 1 theo bloom, vượt nhẹ rồi về
