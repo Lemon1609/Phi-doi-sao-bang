@@ -996,6 +996,7 @@ rep("</body>","<script id=\"vktt307-img-js\">window.VKTT307_IMG="+json.dumps({os
 import base64 as _b64d,glob as _gd,os as _od
 _d307img='window.DAN307_IMG={'+','.join("'%s':'data:image/webp;base64,%s'"%(_od.path.basename(f)[:-5],_b64d.b64encode(open(f,'rb').read()).decode()) for f in sorted(_gd.glob('src/dan307img/*.webp')))+'};'
 rep("</body>","<script id=\"dan307-js\">"+_d307img+open('src/dan307.js',encoding='utf-8').read()+"</script></body>")  # V307 đạn chính kiểu mới (bản thử tàu 1)
+rep("</body>","<script id=\"co309-js\">"+open('src/co309.js',encoding='utf-8').read()+"</script></body>")  # V309c 13 cơ chế đạn riêng (Gemini mục D)
 rep("</body>","<style id=\"b2307-css\">"+open('src/b2307.css',encoding='utf-8').read()+"</style><script id=\"b2307-js\">"+open('src/b2307.js',encoding='utf-8').read()+"</script></body>")  # V307 B2 đồng bộ Chợ Đen / thẻ ải / sự kiện
 rep("</body>","<style id=\"hud307b-css\">"+open('src/hud307b.css',encoding='utf-8').read()+"</style><script id=\"hud307b-js\">"+open('src/hud307b.js',encoding='utf-8').read()+"</script></body>")  # V307 A2 thanh máu/Bạo Tẩu neon
 rep("</body>","<style id=\"tut307-css\">"+open('src/tut307.css',encoding='utf-8').read()+"</style><script id=\"tut307-js\">"+open('src/tut307.js',encoding='utf-8').read()+"</script></body>")  # V307 bong bóng hướng dẫn chỉ ở sảnh

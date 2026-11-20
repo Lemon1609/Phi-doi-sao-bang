@@ -1,0 +1,47 @@
+GỬI GEMINI · V309c · NHỜ TÍNH CÂN BẰNG SÁT THƯƠNG 13 CƠ CHẾ ĐẠN MỚI (theo mục D bạn đề xuất)
+(Claude soạn 20/11/2026; chủ dự án nhờ bạn tính hệ số.)
+
+LUẬT DỰ ÁN: thêm cơ chế / tăng số đạn phải GIỮ NGUYÊN TỔNG SÁT THƯƠNG, trừ khi chủ dự án quyết khác.
+
+1. CÁCH GAME TÍNH
+- Mỗi tàu: sát thương/giây gốc D (theo bậc, cường hóa) được gom lại, bắn ra theo nhịp `rate` (5–7 loạt/giây), mỗi loạt N viên, mỗi viên = D/rate/N × DK_cũ × DK_mới.
+- Bia đo: 15 bia cố định (3 hàng × 5 cột, cách nhau ~70 px ngang / ~80 px dọc, máu vô hạn), tàu đứng giữa dưới, bắn 25 s, bậc Tím. Đo lặp dao động ±6 %; tàu 11 (Thôn Tinh, cầu hấp dẫn) dao động rất lớn (2.700–11.700) nên số tàu 11 không dùng được.
+- Boss: thân + các phần (cánh). Quái thường bán kính va chạm 20 px (to 34 px).
+
+2. CƠ CHẾ ĐÃ CÀI (tham số đang dùng)
+- Tàu 1 Lông Vũ Lửa Lan: trúng → nổ lan bán kính 34 px (+14 nếu quái to), quái xung quanh nhận 35 % sát thương viên.
+- Tàu 2: giữ laser liền cũ (chưa đổi).
+- Tàu 3 Mảnh Băng Vỡ: trúng quái thường → 3 mảnh văng chữ V phía trước, mỗi mảnh 25 %, sống 0,28 s, không trúng lại quái vừa trúng; không tách khi trúng boss.
+- Tàu 4 Thương Xuyên Giáp: xuyên tối đa 3 quái thường; trúng boss/phần boss thì dừng.
+- Tàu 5 Khúc Xạ Nảy: trúng → nảy sang tối đa 2 quái gần nhất trong 150 px, mỗi lần 40 %.
+- Tàu 6 Khóa Mục Tiêu: đạn tự bẻ lái về quái gần nhất trong nón 30°, tốc độ quay 5,5 rad/s.
+- Tàu 7 Trăng Khuyết: bán kính va chạm ×1,5; chém đạn địch nhỏ (bán kính ≤ 7 px) chạm vào.
+- Tàu 8 Hạt Nhân Mini: trúng → nổ 48 px (+14 quái to), quái xung quanh nhận 50 %.
+- Tàu 9 Tên Lửa Truy Đuổi: mọi viên tự bám mục tiêu máu cao nhất (boss nếu có), quay 7 rad/s, phóng từ 2 cánh.
+- Tàu 10 Hạm Đội Hộ Tống: 2 viên ngoài cùng của loạt bắn ra từ 2 chiến cơ hộ tống cách tàu ±62 px, chéo vào trong 15°.
+- Tàu 11 Cầu Hấp Dẫn: trúng → hút quái thường trong 95 px về điểm trúng 70 px/s trong 0,3 s (không thêm sát thương).
+- Tàu 12 Đĩa Cưa: viên còn 62,5 % sát thương khi trúng + cưa bám 0,6 s gây thêm 37,5 % (chia nhịp 0,1 s) → tổng 100 %.
+- Tàu 13 Lốc Cắt Gió: đạn bay hình sin đan chéo, biên độ 240.
+
+3. SỐ ĐO (bia 15, bậc Tím, 25 s, chạy lần lượt; "không cơ chế" = cùng bản dựng tắt cơ chế mới)
+Tàu | có cơ chế | không cơ chế | tỉ lệ | DK_mới đang dùng khi đo
+1  |  932 |   882 | 1,06 | 1
+3  | 1743 | 1456 | 1,20 | 1
+4  | 1150 | 1101 | 1,04 | 1
+5  | 1125 |   929 | 1,21 | 0,91   (lần đo song song trước, không DK: 1,10 — không tin cậy)
+6  | 1042 | 1083 | 0,96 | 0,76   (không DK ≈ 1,26–1,36)
+7  | 1572 | 1518 | 1,04 | 1
+8  |  837 |   822 | 1,02 | 1
+9  | 1002 |   965 | 1,04 | 1
+10 | 4209 | 4607 | 0,91 | 1
+11 | — (dao động quá lớn)
+12 | 1265 | 1242 | 1,02 | 1 (sau khi sửa tổng cưa = 100 %)
+13 | 1021 | 1048 | 0,97 | 0,86   (không DK: 1,17, đo song song)
+Hệ số tạm Claude đặt trong khi chờ bạn: tàu 3 = 0,83 · tàu 5 = 0,75 · tàu 6 = 0,76 · tàu 13 = 0,86, các tàu khác 1.
+
+4. NHỜ BẠN
+A. Tính DK_mới cho 13 tàu để tổng sát thương giữ nguyên, có xét: (a) bia 15 (nhiều mục tiêu), (b) 1 boss đứng yên (1 mục tiêu lớn), (c) bầy quái thường dày đặc. Nếu không thể giữ cả 3, đề xuất mốc ưu tiên (ví dụ giữ boss = 100 %, nhiều mục tiêu ±10 %).
+B. Tham số cơ chế nào nên chỉnh thay vì nhân DK (vd giảm % nổ lan, số mảnh, góc khóa) để cảm giác mạnh mà không lệch cân bằng.
+C. Tàu 10: lệch 0,91 có phải do 2 viên chéo trượt bia không, có nên đổi góc / vị trí hộ tống.
+D. Tàu 11: cách đo/tham số an toàn cho cầu hấp dẫn (hút có thể làm quái dồn và trúng nhiều hơn).
+Trả lời tiếng Việt, bảng số cụ thể (DK từng tàu + tham số đề xuất), chỗ ước lượng ghi "(ước lượng)".
