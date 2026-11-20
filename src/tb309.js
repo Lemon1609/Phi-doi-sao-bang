@@ -19,7 +19,12 @@
  const SPR={inferno:'m_standard',nova36:'m_standard',cryo:'m_crystal',thunder:'m_lightning',devour10_m:'m_lightning',singularity:'m_torpedo',spiral:'m_slim',swarm9:'m_slim',
   stellar:'m_comet',comet36:'m_sword',judgement36:'m_sword',monarch12_m:'m_sword',chrono11_m:'m_chrono',
   disc:'s_crescent',gravity:'s_orb',solar:'s_orb',ricochet:'s_prism',prism:'s_shard',lance36:'s_lance',halo36:'s_halo',orbit36:'s_halo',chrono11_s:'s_halo',monarch12_s:'s_sigil',carrier9:'s_mini_drone'};
- const SPIN={s_crescent:9,s_orb:3,s_halo:6,s_sigil:2};
+ const SPIN={s_crescent:9,s_orb:3,s_halo:6,s_sigil:2,c_s_orb_gravity:3,c_s_halo36:3};
+ // V309 lượt 2: tranh ĐA SẮC vẽ thẳng, không nhuộm (Gemini 22:57). Theo tên game: prism = Hàn Băng → mảnh băng (ô s_ricochet), ricochet = Pháo Lục Lăng → kim lục giác (ô s_prism)
+ const CSPR={inferno:'c_m_inferno',nova36:'c_m_inferno',cryo:'c_m_cryo',thunder:'c_m_thunder',singularity:'c_m_singularity',devour10_m:'c_m_singularity',spiral:'c_m_spiral',swarm9:'c_m_spiral',
+  stellar:'c_m_stellar',comet36:'c_m_sword_gold',judgement36:'c_m_sword_gold',monarch12_m:'c_m_sword_gold',chrono11_m:'c_m_chrono',disc:'c_s_disc',gravity:'c_s_orb_gravity',prism:'c_s_ricochet',ricochet:'c_s_prism',
+  lance36:'c_s_lance36',halo36:'c_s_halo36',orbit36:'c_s_halo36',chrono11_s:'c_s_halo36',monarch12_s:'c_s_sigil_monarch',carrier9:'c_s_mini_drone'};
+ const CTAIL={inferno:'#f97316',nova36:'#f59e0b',cryo:'#38bdf8',thunder:'#facc15',singularity:'#a855f7',devour10_m:'#e11d74',spiral:'#10b981',swarm9:'#38bdf8',stellar:'#38bdf8',comet36:'#fde047',judgement36:'#fde047',monarch12_m:'#c084fc',chrono11_m:'#2dd4bf'};
  const POD={rail:'pod_cannon',solar:'pod_cannon',prism:'pod_cannon',ricochet:'pod_cannon',disc:'pod_disc',gravity:'pod_disc',halo36:'pod_disc',chrono11_s:'pod_disc',
   lance36:'pod_wing',orbit36:'pod_wing',monarch12_s:'pod_wing',carrier9:'pod_void',devour10_s:'pod_void'};
  const SHF={aegis:'shield_hex',aegis9:'shield_hex',mirror:'shield_mirror',aurora36:'shield_mirror',seraph36:'shield_mirror',orbital:'shield_orbital',chrono11_a:'shield_orbital',monarch12_a:'shield_orbital',
@@ -63,8 +68,10 @@
   g.putImageData(d,0,0);const keys=Object.keys(C);if(keys.length>160)delete C[keys[0]];return C[ck]=c;}
  // ---- đạn / tên lửa ----
  const SZ={mis:[46,54],side:[30,36],trail:34};
- function put(c,o,I,mis,sup,age,ref){const key=SPR[I.v];if(!key)return false;const im=tint(key,I.pal);if(!im)return false;
-  const L=(mis?SZ.mis:SZ.side)[sup?1:0],ar=im.width/im.height,W=L*ar,ang=Math.atan2(o.vy||-1,o.vx||0)+Math.PI/2,spin=SPIN[key]||0;
+ function put(c,o,I,mis,sup,age,ref){const key0=SPR[I.v];if(!key0)return false;const ck=window.TB309MAU!==false&&CSPR[I.v],own=ck&&ok(IM[ck])?IM[ck]:null,key=own?ck:key0,im=own||tint(key0,I.pal);if(!im)return false;
+  if(own){const tc=I.sss?(CTAIL[I.sss.parents[1]]||I.pal[3]):(CTAIL[I.v]||I.pal[3]);if(tc!==I.pal[3])I={...I,pal:[I.pal[0],I.pal[1],I.pal[2],tc,I.pal[4]]};}
+  const iw=im.naturalWidth||im.width,ih=im.naturalHeight||im.height,ar=iw/ih,sq=ar>.8;let L=(mis?SZ.mis:SZ.side)[sup?1:0];if(!mis&&sq)L*=.85;if(I.v==='swarm9')L*=.72;if(I.sss)L*=1.15;
+  const W=L*ar,ang=Math.atan2(o.vy||-1,o.vx||0)+Math.PI/2,spin=SPIN[key]||0;
   c.save();try{c.translate(o.x,o.y);c.rotate(ang);
    const h=ref&&mis?(ref.__h9||(ref.__h9=[])):null;const TR=TRAIL[I.tier]||TRAIL.lam;if(h){const n=h.length;if(!n||Math.hypot(h[n-2]-o.x,h[n-1]-o.y)>2){h.push(o.x,o.y);if(h.length>TR[0]*2)h.splice(0,2);}}
    if(h&&h.length>=6){c.restore();c.save();c.globalCompositeOperation='lighter';c.lineCap='round';const n=h.length/2;/* đuôi cong 8 điểm: rộng 5→0, α .65→0 (Gemini) */
@@ -74,8 +81,8 @@
     c.restore();c.save();c.translate(o.x,o.y);c.rotate(ang);}
    if(mis&&!(h&&h.length>=6)){const tl=TR[1]*(sup?1.2:1),y0=L*.32,gr=c.createLinearGradient(0,y0,0,y0+tl);gr.addColorStop(0,rgba(I.pal[3],.55));gr.addColorStop(1,rgba(I.pal[3],0));
     c.globalCompositeOperation='lighter';c.fillStyle=gr;c.beginPath();c.moveTo(-W*.22,y0);c.lineTo(W*.22,y0);c.lineTo(0,y0+tl);c.closePath();c.fill();}
-   c.globalCompositeOperation='lighter';const r=Math.max(W,L)*.62,q=c.createRadialGradient(0,0,0,0,0,r);q.addColorStop(0,rgba(I.pal[1],.30));q.addColorStop(1,rgba(I.pal[1],0));c.fillStyle=q;c.fillRect(-r,-r,r*2,r*2);
-   c.globalCompositeOperation='source-over';c.globalAlpha=mis?1:.9;if(spin)c.rotate((age||0)*spin);c.drawImage(im,-W/2,-L/2,W,L);}finally{c.restore();}return true;}
+   c.globalCompositeOperation='lighter';const r=Math.max(W,L)*.62,q=c.createRadialGradient(0,0,0,0,0,r);const hc=own?I.pal[3]:I.pal[1];q.addColorStop(0,rgba(hc,own?.22:.30));q.addColorStop(1,rgba(hc,0));c.fillStyle=q;c.fillRect(-r,-r,r*2,r*2);
+   c.globalCompositeOperation='source-over';c.globalAlpha=mis?1:(own?.85:.9);if(spin)c.rotate((age||0)*spin);c.drawImage(im,-W/2,-L/2,W,L);}finally{c.restore();}return true;}
  const supNow=()=>{try{return superTime>0;}catch{return false;}};
  const VKIND=v=>/_m$|^(inferno|cryo|thunder|singularity|spiral|stellar|comet36|nova36|judgement36|swarm9)$/.test(v)?'missiles':'sidearm';
  // GEAR_FX (12 món gốc + SSS): vẽ cả hồ đạn của 1 st
@@ -94,7 +101,7 @@
   if(v.k==='cleave'){fxDraw(g);const prog=1-v.life/.55,y=v.y0-(v.y0+20)*prog,I=info('monarch12_m','missiles');put(g,{x:v.x,y,vx:0,vy:-1},I,true,supNow(),0);
    g.save();g.globalCompositeOperation='lighter';g.globalAlpha=Math.min(1,v.life*3);g.strokeStyle=rgba(I.pal[1],.85);g.lineWidth=3;g.beginPath();g.ellipse(v.x,y,v.w/2,10,0,Math.PI,2*Math.PI);g.stroke();g.strokeStyle=rgba(I.pal[3],.6);g.lineWidth=1.2;g.stroke();g.restore();return true;}
   if(v.k==='halo'){const p=1-v.life/.9,out=p<.5,q=out?p*2:(p-.5)*2;const px=out?v.sx+(v.tx-v.sx)*q:v.tx+(player.x+v.side*20-v.tx)*q,py=out?v.sy+(v.ty-v.sy)*q:v.ty+(player.y-60-v.ty)*q;
-   const I=info('halo36','sidearm'),im=tint('s_halo',I.pal);if(!im)return false;const R=Math.max(16,v.r*1.1);g.save();g.translate(px,py);g.rotate(p*18);g.drawImage(im,-R,-R,R*2,R*2);g.restore();return true;}
+   const I=info('halo36','sidearm'),im=(window.TB309MAU!==false&&ok(IM.c_s_halo36))?IM.c_s_halo36:tint('s_halo',I.pal);if(!im)return false;const R=Math.max(16,v.r*1.1);g.save();g.translate(px,py);g.rotate(p*18);g.drawImage(im,-R,-R,R*2,R*2);g.restore();return true;}
   return false;}
  // dải 4 khung cho bộ 36 bắn qua skill81 (GEAR44_ASSETS[id_projectile_*])
  let stripKey='';function strip(){if(!on('TB309DAN')||typeof GEAR44_ASSETS==='undefined')return;const ids=['comet36','nova36','judgement36'],k=ids.map(i=>info(i,'missiles').pal.join()).join('|');if(k===stripKey)return;
@@ -120,7 +127,7 @@
  // ---- tàu con ----
  function pod(c,i,p,sp){if(!on('TB309POD')||!i)return false;const sss=sssOf('sidearm');const v=sss?sss.parents[0]:i.variant,own=ok(IM['pod_'+v])?IM['pod_'+v]:null,key=POD[v];if(!key&&!own)return false;
   const I=info(v,'sidearm'),im=own||tint(key,I.pal,true);if(!im)return false;const w=own?(sp?42:36):(sp?40:32),t=performance.now()/1000;
-  if(own){/* lửa động cơ nhỏ sau đuôi (tranh riêng đã đa sắc, không nhuộm) */c.save();c.globalCompositeOperation='lighter';const fl=7+Math.sin(t*31+p.x)*2,gr=c.createLinearGradient(p.x,p.y+w*.32,p.x,p.y+w*.32+fl*1.6);gr.addColorStop(0,rgba(I.pal[0],.9));gr.addColorStop(.4,rgba(I.pal[3],.6));gr.addColorStop(1,rgba(I.pal[3],0));c.fillStyle=gr;c.beginPath();c.moveTo(p.x-4,p.y+w*.32);c.lineTo(p.x+4,p.y+w*.32);c.lineTo(p.x,p.y+w*.32+fl*1.6);c.closePath();c.fill();c.restore();}
+  if(own){/* lửa động cơ nhỏ sau đuôi (tranh riêng đã đa sắc, không nhuộm) */c.save();c.globalCompositeOperation='lighter';for(const dx of [-w*.16,w*.16]){const fl=7+Math.sin(t*31+p.x+dx)*2,y0=p.y+w*.36,gr=c.createLinearGradient(0,y0,0,y0+fl*1.6);gr.addColorStop(0,'rgba(255,255,255,.9)');gr.addColorStop(.35,rgba(I.pal[3],.65));gr.addColorStop(1,rgba(I.pal[3],0));c.fillStyle=gr;c.beginPath();c.moveTo(p.x+dx-3,y0);c.lineTo(p.x+dx+3,y0);c.lineTo(p.x+dx,y0+fl*1.6);c.closePath();c.fill();}c.restore();}
   c.save();try{c.globalCompositeOperation='lighter';c.lineWidth=1.6;const lo=/^(thuong|luc|lam)$/.test(I.tier);c.strokeStyle=rgba(I.pal[3],(lo?.20:.30)+(sp?.15:0));c.beginPath();c.arc(p.x,p.y+3,16,0,6.283);c.stroke();if(I.tier==='ss'){c.strokeStyle=rgba('#fde047',.35);c.beginPath();c.arc(p.x,p.y+3,19,0,6.283);c.stroke();}
    if(sss){for(const [r,d,col] of [[18,1,I.pal[1]],[21,-1,I.pal[3]]]){c.strokeStyle=rgba(col,.45);c.setLineDash([6,5]);c.lineDashOffset=d*t*20;c.beginPath();c.arc(p.x,p.y+3,r,0,6.283);c.stroke();}c.setLineDash([]);}
    if(sss){const bob=Math.sin(t*3+p.x*.05)*2;c.lineWidth=2;for(const sd of [-1,1]){c.strokeStyle=rgba(sd<0?I.pal[1]:I.pal[3],.40);c.beginPath();c.arc(p.x+sd*(w*.38),p.y+bob,w*.55,sd<0?Math.PI*.6:-Math.PI*.4,sd<0?Math.PI*1.4:Math.PI*.4);c.stroke();}}/* 2 cánh năng lượng bán nguyệt cho tàu con SSS */
