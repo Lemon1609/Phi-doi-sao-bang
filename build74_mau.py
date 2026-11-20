@@ -64,7 +64,7 @@ if len(_gh.glob('src/hop129/hop*_*.png'))>=14:
         for _i in range(7):
             _A.paste((0,0,0,0),(_i*512,512,_i*512+512,1024));_B.paste((0,0,0,0),(_i*512,512,_i*512+512,1024))
             _A.alpha_composite(_IH.open('src/hop131/hop%d_chandung.png'%(_i+1)).convert('RGBA').resize((512,512),_IH.LANCZOS),(_i*512,512))
-            _bi=_IH.open('src/hop131/hop%d_bay.png'%(_i+1)).convert('RGBA');_bb=_bi.getchannel('A').getbbox();_bi=_bi.crop(_bb);_fr=.44;_hh=int(254/max(_fr,1-_fr));_k=min(_hh/_bi.height,500/_bi.width);_bi=_bi.resize((round(_bi.width*_k),round(_bi.height*_k)),_IH.LANCZOS)  # V196: tranh GPT mới (nữ chiến giáp kín), tâm lưng ≈ 44% chiều cao
+            _bi=_IH.open('src/hop131/hop%d_bay.png'%(_i+1)).convert('RGBA');_bb=_bi.getchannel('A').getbbox();_bi=_bi.crop(_bb);_fr=[.31,.33,.32,.30,.30,.32,.29][_i];_hh=int(254/.71);_k=min(_hh/_bi.height,500/_bi.width);_bi=_bi.resize((round(_bi.width*_k),round(_bi.height*_k)),_IH.LANCZOS)  # V196: tranh GPT mới (nữ chiến giáp kín), tâm lưng ≈ 44% chiều cao  # V309 (chủ dự án 20/11): tâm = LƯNG robot (đo 7 tranh robot_max: 29–33 % chiều cao), cùng cỡ 7 mẫu, cỡ vẽ bù ở SSSGame .16→.36
             _B.alpha_composite(_bi,(_i*512+(512-_bi.width)//2,512+256-round(_fr*_bi.height)))  # V132: giữa lưng = tâm ô = tâm chiến cơ
         _bf=_ih.BytesIO();_B.save(_bf,'WEBP',quality=88);_bay='data:image/webp;base64,'+_bh.b64encode(_bf.getvalue()).decode()
     _bf=_ih.BytesIO();_A.save(_bf,'WEBP',quality=88);_new='data:image/webp;base64,'+_bh.b64encode(_bf.getvalue()).decode()
@@ -791,7 +791,7 @@ rep("for(const s of shock){const u=s.t/.7,r=30+u*(s.big?260:120);","for(const s 
 rep("ctx.globalAlpha=a*.28;ctx.save();ctx.translate(player.x,player.y-40);ctx.rotate(s*.25);ctx.drawImage(r,-230,-230,460,460);if(!lt){ctx.rotate(-s*.6);ctx.globalAlpha=a*.18;ctx.drawImage(r,-130,-130,260,260);}ctx.restore();","if(window.RING122===true){ctx.globalAlpha=a*.28;ctx.save();ctx.translate(player.x,player.y-40);ctx.rotate(s*.25);ctx.drawImage(r,-230,-230,460,460);if(!lt){ctx.rotate(-s*.6);ctx.globalAlpha=a*.18;ctx.drawImage(r,-130,-130,260,260);}ctx.restore();}")  # V131: bỏ pháp trận tròn quanh robot SSS
 rep("const eng=makeSuperV2(100+i,{theme:T,hullSize:250,","const eng=makeSuperV2(100+i,{theme:((window.RIG131===false||(typeof CANH132_ART!=='undefined'&&window.WING132!==false&&window.RIG131!==true))?{...T,rig:T.rig.map(p=>({...p,l:0})),wing:null}:{...T,rig:T.rig.map(p=>({...p,l:p.l*1.45,w:(p.w||.5)*1.25,ox:(p.ox||0)*1.2}))}),hullSize:250,")  # V131: cánh robot SSS bung to hơn ×1,45 (chờ tranh cánh GPT)
 rep("f.draw(ctx,W,H,time,on,{...opts(),cx:player.x,cy:player.y,S,rot:(bank||0)*.5,duration:.9,","try{window.__wing132&&window.__wing132(ctx,i,player.x,player.y,S,f.bloom(),phase,time);}catch(e){}f.draw(ctx,W,H,time,on,{...opts(),cx:player.x,cy:player.y,S,rot:(bank||0)*.5,duration:.9,")  # V132: cánh tranh GPT sau robot
-rep("const f=get(i),uon=ultOn(),on=superTime>0||uon,S=S_GAME+.04*f.bloom(),","const f=get(i),uon=ultOn(),on=superTime>0||uon,S=S_GAME+.04*f.bloom()+(typeof SSS_ATLAS_BAY!=='undefined'?(window.ROB134===false?.08:.16)*f.bloom():0),")  # V132: bù cỡ robot sau khi đặt tâm giữa lưng
+rep("const f=get(i),uon=ultOn(),on=superTime>0||uon,S=S_GAME+.04*f.bloom(),","const f=get(i),uon=ultOn(),on=superTime>0||uon,S=S_GAME+.04*f.bloom()+(typeof SSS_ATLAS_BAY!=='undefined'?(window.ROB134===false?.08:.36)*f.bloom():0),")  # V132: bù cỡ robot sau khi đặt tâm giữa lưng
 rep("if(rescueTimer<=0){rescueTimer+=45;","if(window.RESCUE134===true&&rescueTimer<=0){rescueTimer+=45;")  # V134: bỏ kén giải cứu đồng minh
 rep("const upper=player.y<H/2,space=upper?29:59,","const upper=player.y<H/2,space=window.SPREAD134===false?(upper?29:59):(upper?46:(window.SIDE138===false?86:100)),")  # V134: tàu con hộ tống tách xa hơn
 # V139/V140 · chủ dự án: trong trận không hiện hình tên lửa và giáp (như game gốc; tắt: MIS139=false / ARM140=false); đạn + kỹ năng tên lửa bắn ra từ thân chiến cơ (tắt: window.MIS139=false)
@@ -987,6 +987,8 @@ rep("</body>","<style id=\"sss307-css\">"+open('src/sss307.css',encoding='utf-8'
 rep("ctx.globalAlpha=clamp(flash);ctx.drawImage(sup?cells.silS:cells.silN","ctx.globalAlpha=clamp(flash)*(window.FLASH307===false?1:.35);ctx.drawImage(sup?cells.silS:cells.silN")
 rep("VisualFX.ultimate(player.x,player.y,'#ffe28c',100);ring(player.x,player.y,'#ffb97c',75);","VisualFX.ultimate(player.x,player.y,'#ffe28c',window.FLASH307===false?100:64);ring(player.x,player.y,'#ffb97c',75);")
 rep("</body>","<script id=\"core307-js\">"+open('src/core307.js',encoding='utf-8').read()+"</script></body>")  # V307 Lõi phi công
+rep("</body>","<script id=\"hop309-img-js\">window.HOP309_IMG="+json.dumps({os.path.splitext(f)[0]:'data:image/webp;base64,'+base64.b64encode(open('src/hop309img/'+f,'rb').read()).decode() for f in sorted(os.listdir('src/hop309img'))})+";</script><script id=\"hop309-js\">"+open('src/hop309.js',encoding='utf-8').read()+"</script></body>")  # V309 tiến bậc robot hợp thể + phó bản vật liệu
+rep("</body>","<script id=\"rob309-js\">"+open('src/rob309.js',encoding='utf-8').read()+"</script></body>")  # V309 biến hình robot: sóng xung kích + vòng ma trận +6/+10
 rep("</body>","<script id=\"rift307-js\">"+open('src/rift307.js',encoding='utf-8').read()+"</script></body>")  # V307 Khe Nứt Hư Không (Gemini 6 hệ thống)
 rep("</body>","<style id=\"tb307-css\"></style><script id=\"tb307-js\">"+open('src/tb307.js',encoding='utf-8').read()+"</script></body>")  # V307 hiệu ứng + cơ chế trang bị (Gemini)
 rep("</body>","<script id=\"vktt307-img-js\">window.VKTT307_IMG="+json.dumps({os.path.splitext(f)[0]:'data:image/webp;base64,'+base64.b64encode(open('src/vktt307img/'+f,'rb').read()).decode() for f in sorted(os.listdir('src/vktt307img'))})+";</script><style id=\"vktt307-css\">"+open('src/vktt307.css',encoding='utf-8').read()+"</style><script id=\"vktt307-js\">"+open('src/vktt307.js',encoding='utf-8').read()+"</script></body>")  # V307 VKTT 3 hệ
@@ -1033,6 +1035,11 @@ rep('Phượng Viêm Thương Đế','Xích Diễm Long Thương')
 rep("{name:'Tử Diệu Quang Hoàng',skills:'Laser + Tán Xạ'","{name:'Tử Diệu Quang Hoàng',skills:'Tán Xạ + Trảm Kích'")
 rep("normal:'Tiêm kích trắng-vàng mở cánh nguyệt và cánh tinh thể tím; tia laser vàng dẫn chùm cầu tán xạ.'","normal:'Tiêm kích vàng kim–tím hoàng gia; chùm laser lăng kính tán xạ.'")
 rep("max:'Quang hoàng giáp trắng-vàng triển khai quang hoàn lăng kính, hai đại pháo laser và vòng cầu tím tán xạ.'","max:'Nữ cơ khí giáp vàng kim–tím, mũ giáp vương miện, bốn cánh lăng kính pha lê; chín tia tán xạ + hai lưỡi liềm ánh sáng.'")
+# ---- V309 · tiến bậc robot hợp thể bằng nguyên liệu riêng (Hop309), hình chiến cơ theo mốc ----
+rep("const enhance=Math.max(2*Math.min(...parts.map(p=>p.enhance)),old?.enhance||0);","const enhance0=Math.max(2*Math.min(...parts.map(p=>p.enhance)),old?.enhance||0),enhance=(window.Hop309&&Hop309.enh)?Hop309.enh(i,enhance0):enhance0;")
+rep("hull:im});","hull:(window.__hop309bay||im)});")
+rep("hull:(imL.complete&&imL.naturalWidth?imL:im)","hull:(window.__hop309atlas||(imL.complete&&imL.naturalWidth?imL:im))")
+rep("if(o.hull)hullIm=o.hull;prepareHull();","if(o.hull){if(o.hull!==hullIm&&(o.hull.__h309||(hullIm&&hullIm.__h309)))cells=null;hullIm=o.hull;}prepareHull();")
 open('Phi_Doi_Sao_Bang_V74_mau.html','w',encoding='utf-8').write(h);print(round(len(h)/1e6,2),'MB')
 # ---- V100 · BẢN THỬ cho chủ dự án: dữ liệu tách riêng (tiền tố thu100:) + bảng nạp tài khoản mẫu ----
 # V301: chỉ dựng khi cần (BAN_THU=1 hoặc khi xuất bản) để mỗi lần dựng nhanh hơn, bớt một tệp 81 MB

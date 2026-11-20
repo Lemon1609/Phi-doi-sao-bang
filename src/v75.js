@@ -35,7 +35,7 @@ const V75=(()=>{
  function buyEn(){const d=day();if(S.buy.d!==d)S.buy={d,n:0};if(S.buy.n>=E.BUY.DAILY_LIMIT){T('ĐÃ MUA ĐỦ '+E.BUY.DAILY_LIMIT+' LẦN HÔM NAY');return false;}const c=E.BUY.COSTS[S.buy.n];if(!Econ74.spend(c))return false;S.buy.n++;addEn(E.BUY.AMOUNT,'mua bằng '+c+' 💎');return true;}
  // ải chiến dịch nào đang được chơi lại?
  function replayStage(){if(window.__m78)return 0;try{if(document.getElementById('gamemode')?.value!=='campaign')return 0;if(Meta40.state().run)return 0;if(Dungeons.active())return -1;}catch{}
-  try{if(Econ74._run())return 0;}catch{}try{if(typeof Rift307!=='undefined'&&Rift307._run())return 0;}catch{}/* V307 Khe Nứt: 0 thể lực */try{if(O78.run())return 0;}catch{}try{if(Eclipse67.active())return 0;}catch{}try{if(Play63.active())return 0;}catch{}try{if(Expedition67.active&&Expedition67.active())return 0;}catch{}
+  try{if(Econ74._run())return 0;}catch{}try{if(typeof Rift307!=='undefined'&&Rift307._run())return 0;}catch{}try{if(window.Hop309&&Hop309._run())return 0;}catch{}/* V307 Khe Nứt: 0 thể lực */try{if(O78.run())return 0;}catch{}try{if(Eclipse67.active())return 0;}catch{}try{if(Play63.active())return 0;}catch{}try{if(Expedition67.active&&Expedition67.active())return 0;}catch{}
   const n=+document.getElementById('mission-select')?.value||0;try{return Progress.getState().cleared.includes(n)?n:0;}catch{return 0;}}
  let stN=0;const baseCost=()=>stN===-1?E.DUNGEON_COST:(stN%5===0?E.BOSS_COST:E.REPLAY_COST);
  const rc=()=>Math.round(baseCost()*(typeof window.ENERGY77==='function'?window.ENERGY77():1)*10)/10;
