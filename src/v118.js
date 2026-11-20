@@ -19,14 +19,14 @@
     if(on&&!st.on)st.tOn=now;if(!on&&st.on)st.tOff=now;st.on=on;
     const tgt=(on||force)?1:0;st.b+=(tgt-st.b)*Math.min(1,dt/.22*2.2);
     // nghiêng nhẹ theo hướng bay
-    try{if(st.px===null)st.px=player.x;const vx=dt>0?(player.x-st.px)/dt:0;st.px=player.x;st.bank+=((Math.max(-.22,Math.min(.22,-vx/1400)))-st.bank)*Math.min(1,dt*10);}catch{}
+    try{if(st.px===null)st.px=player.x;const vx=dt>0?(player.x-st.px)/dt:0;st.px=player.x;{const B9=window.BANK309!==false,M=B9?.15:.22;st.bank+=((Math.max(-M,Math.min(M,-vx/(B9?1100:1400))))-st.bank)*Math.min(1,dt*(B9?8:10));}}catch{}
     const W0=a.naturalWidth||a.width,H0=a.naturalHeight||a.height,cw=W0/5,ch=H0/4,size=(76+12*st.b)*1.4,hs=(()=>{try{return window.BtFx218&&BtFx218.scale?BtFx218.scale(id,a):1;}catch{return 1;}})(),hsB=(()=>{try{return window.BtFx218&&BtFx218.scaleBT?BtFx218.scaleBT(id,a):hs;}catch{return hs;}})(),x=player.x,y=player.y;
     const q=(()=>{try{return VisualFX.reduced();}catch{return false;}})(),lite=(()=>{try{return VisualFX.counts().quality==='light';}catch{return false;}})();
     const lift=(()=>{try{return on&&window.BtFx218&&BtFx218.lift?BtFx218.lift(id,a,now-st.tOn,size):0;}catch{return 0;}})();/* V233: tàu lấy đà trước khi bung (học từ video) */
     ctx.save();ctx.translate(x,y+lift);
     // quầng màu mềm sau lưng khi Bạo Tẩu
     if(on&&!q){const al=.32*st.b*(lite?.8:1)*(.85+.15*Math.sin(now*3.1)),R=size*.62;ctx.globalCompositeOperation='lighter';ctx.globalAlpha=al;ctx.drawImage(glow(colorOf(id)),-R,-R-4,R*2,R*2);ctx.globalAlpha=1;ctx.globalCompositeOperation='source-over';}
-    ctx.rotate((rot||0)*.6+st.bank);
+    ctx.rotate((rot||0)*.6+st.bank);if(window.BANK309!==false)ctx.scale(1-Math.min(.12,Math.abs(st.bank)*.8),1);/* V309: lách trái/phải co scaleX tới .88 (Gemini Lượt 2). Tắt: window.BANK309=false */
     const cellN=id%10,cellB=id%10+10,u=st.b,B218=(!q&&window.BtFx218)||null;
     if(B218)try{B218.back(ctx,a,cellB,cw,ch,size,on,now,now-st.tOn,id,lite);}catch{}/* V218: ánh sáng + lửa (mảnh rời GPT) sau thân */
     const put=(cell,al)=>{if(al<=.01)return;const h=cell>=10?hsB:hs;ctx.globalAlpha=al;ctx.drawImage(a,cell%5*cw,Math.floor(cell/5)*ch,cw,ch,-size*h/2,-size*h/2,size*h,size*h);};/* V240: ô Bạo Tẩu vẽ to 1/q *//* V233B: hs = cỡ thân riêng từng bậc */
