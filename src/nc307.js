@@ -131,8 +131,8 @@ const NC307=(()=>{
   let slots='',cost=0,need='';
   if(!max){const st=p.st||{};const L=[];
    if(p.needSame)L.push({im:(window.TN307_IMG||{})[it.kind==='craft'?'ban_sao_cc':'ban_sao_tb'],t:'Bản sao cùng mẫu',h:p.needSame-p.miss,n:p.needSame});
-   for(const q of p.mats||[]){let N=q.id;try{N=V70.matName(q.id);}catch{}L.push({im:(typeof MAT69_ART!=='undefined'&&MAT69_ART[q.id])||'',t:N,h:q.have,n:q.n});}
-   slots=Array.from({length:5},(_,i)=>{const x=L[i];if(!x)return '<div class="nc307-ns e"></div>';const ok=x.h>=x.n;return `<div class="nc307-ns ${ok?'':'no'}" title="${esc(x.t)}">${x.im?`<img src="${x.im}" alt="">`:''}<small>${Math.min(x.h,999)}/${x.n}</small>${ok?'':'<em>Thiếu</em>'}</div>`;}).join('');
+   for(const q of p.mats||[]){let N=q.id;try{N=V70.matName(q.id);}catch{}L.push({id:q.id,im:(typeof MAT69_ART!=='undefined'&&MAT69_ART[q.id])||'',t:N,h:q.have,n:q.n});}
+   slots=Array.from({length:5},(_,i)=>{const x=L[i];if(!x)return '<div class="nc307-ns e"></div>';const ok=x.h>=x.n;return `<div class="nc307-ns ${ok?'':'no'}" title="${esc(x.t)}"${x.id?` data-mat="${esc(x.id)}"`:''}>${x.im?`<img src="${x.im}" alt="">`:''}<small>${Math.min(x.h,999)}/${x.n}</small>${ok?'':'<em>Thiếu</em>'}</div>`;}).join('');
    cost=(p.cr|0)+(p.stone|0)*15;if(st.mainLv&&lv<st.mainLv)need=`Cần món chính đạt Lv${st.mainLv} (đang Lv${lv})`;}
   return `<div class="nc307-top"><b>${window.UX9!==false?'CƯỜNG HÓA · TIẾN BẬC':'TIẾN KHUNG'}</b>${window.UX9!==false?'<button class="nc307-swap" data-nc="bag">⇅ Đổi món</button><button class="nc307-swap nc307-vl" data-nc="vl">Vật liệu ▶</button>':''}<button class="nc307-x" data-nc="x" aria-label="Đóng">✕</button></div>
    <div class="nc307-cards">${cardA}${max?'':'<i class="nc307-arr nc307-link"><span></span>'+((window.NC307_IMG||{}).ten?'<img src="'+window.NC307_IMG.ten+'" alt="">':'➤')+'</i>'+cardB}</div>
@@ -151,13 +151,13 @@ const NC307=(()=>{
   if(stN()&&!D.spend(st)){msg='Không đủ Đá XP';return;}
   for(const id of mats){if(isCp(id)){try{Evo82.take(+id.slice(5));}catch{}}else Progress.v70.remove(id);delete S.x[id];}
   if(it.kind==='craft')Workshop.set70(it.idx,{level:r.L});else Progress.v70.set(it.id,{level:r.L});S.x[it.id]=r.x;save();mats=[];st=zero();
-  msg='';flash=r.L>old?'NÂNG CẤP THÀNH CÔNG · Lv'+r.L:'+'+fmt(g)+' XP';try{Progress.render();}catch{}try{if(it.kind==='craft')Hub40.render();}catch{}try{Audio393.sfx('pickup');}catch{}}
+  msg='';flash=r.L>old?'NÂNG CẤP THÀNH CÔNG · Lv'+r.L:'+'+fmt(g)+' XP';try{window.dispatchEvent(new CustomEvent('nc10',{detail:r.L>old?'up':'xp'}));}catch{}try{Progress.render();}catch{}try{if(it.kind==='craft')Hub40.render();}catch{}try{Audio393.sfx('pickup');}catch{}}
  function click(e){const b=e.target.closest('[data-nc]');if(!b||!el.contains(b))return;const a=b.dataset.nc,id=b.dataset.id;msg='';
   if(a==='x'){close();return;}
   if(a==='vl'){try{KHO307.bagRes();}catch{}return;}
   if(a==='adv'){mode='adv';flash='';}
   else if(a==='upm'){mode='up';flash='';}
-  else if(a==='brk'){const it=get(cur);if(it){const K=it.kind==='craft'?'craft':'gear',ref=it.kind==='craft'?it.idx:it.id;let ok=false;try{ok=Evo82.doBreak(K,ref);}catch{}if(ok){flash='TIẾN KHUNG THÀNH CÔNG';upPop=Date.now();try{Audio393.sfx('pickup');}catch{}}else{let p=null;try{p=Evo82.plan(K,ref);}catch{}msg=p&&p.lacks&&p.lacks[0]||'Chưa đủ điều kiện';}}}
+  else if(a==='brk'){const it=get(cur);if(it){const K=it.kind==='craft'?'craft':'gear',ref=it.kind==='craft'?it.idx:it.id;let ok=false;try{ok=Evo82.doBreak(K,ref);}catch{}if(ok){flash='TIẾN KHUNG THÀNH CÔNG';try{window.dispatchEvent(new CustomEvent('nc10',{detail:'adv'}));}catch{}upPop=Date.now();try{Audio393.sfx('pickup');}catch{}}else{let p=null;try{p=Evo82.plan(K,ref);}catch{}msg=p&&p.lacks&&p.lacks[0]||'Chưa đủ điều kiện';}}}
   else if(a==='wok'){warnAsk=false;if(b.closest('.nc307-ask').querySelector('input:checked'))try{localStorage.setItem(WK,new Date().toDateString());}catch{}go();}
   else if(a==='wno'){warnAsk=false;}
   if(a==='bag'){el.dataset.list='bag';}

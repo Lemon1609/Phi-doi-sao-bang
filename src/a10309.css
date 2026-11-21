@@ -1,0 +1,7 @@
+/* V309 Lượt 10 · ánh kim quét icon trang bị Tím+ / SSS (tắt window.ANIM10=false) */
+html.anim10 .gl10{position:absolute;inset:0;border-radius:inherit;overflow:hidden;pointer-events:none;z-index:3}
+html.anim10 .gl10::after{content:'';position:absolute;top:-40%;bottom:-40%;left:-60%;width:40%;background:linear-gradient(105deg,transparent 0,rgba(255,255,255,0) 30%,rgba(255,255,255,.65) 50%,rgba(255,255,255,0) 70%,transparent 100%);transform:translateX(-100%) skewX(-12deg);animation:gl10s 2.8s linear infinite}
+html.anim10 .gl10::before{content:'';position:absolute;width:6px;height:6px;margin:-3px 0 0 -3px;border-radius:50%;background:radial-gradient(circle,#fff 0,#fde68a 45%,rgba(253,230,138,0) 70%);animation:gl10d 2.8s linear infinite}
+@keyframes gl10s{0%{transform:translateX(0) skewX(-12deg)}55%,100%{transform:translateX(420%) skewX(-12deg)}}
+@keyframes gl10d{0%{left:0;top:0}25%{left:100%;top:0}50%{left:100%;top:100%}75%{left:0;top:100%}100%{left:0;top:0}}
+html.anim10 :is(#hb-body.k307 .hb-slot [class*=gear25-],#hb-body.k307 .c9art,#k307 .k307-ic,#nc307 .nc307-mini):has(>.gl10){position:relative!important}

@@ -1154,6 +1154,10 @@ rep("</body>","<style id=\"l9309-css\">"+_c9+"</style><script id=\"l9309-js\">"+
 # V309 Lượt 9B: bỏ thanh 5 tab, đầu trang 2 tầng, buồng lái Sảnh, Kho rộng (tắt lúc chạy: window.UX9B=false)
 _cb9=open('src/l9b309.css',encoding='utf-8').read().replace('@B9','html.ux9b body'+':not(#_b9)'*36)
 rep("</body>","<style id=\"l9b309-css\">"+_cb9+"</style><script id=\"l9b309-js\">"+open('src/l9b309.js',encoding='utf-8').read()+"</script></body>")
+# V309 Lượt 10: Khối A chuyển động (a10309, tắt window.ANIM10=false) + Khối B cày nhàn / chòm sao / polish (q10309, tắt window.QOL10=false)
+rep("</body>","<style id=\"a10309-css\">"+open('src/a10309.css',encoding='utf-8').read()+"</style><script id=\"a10309-js\">"+open('src/a10309.js',encoding='utf-8').read()+"</script></body>")
+_cq=open('src/q10309.css',encoding='utf-8').read().replace('@Q10','html.qol10 body'+':not(#_q10)'*38)
+rep("</body>","<style id=\"q10309-css\">"+_cq+"</style><script id=\"q10309-js\">"+open('src/q10309.js',encoding='utf-8').read()+"</script></body>")
 # V309 Lượt 9B: đổi tên hiển thị Vũ khí phụ → Tàu con, Tiến khung → Tiến bậc (dựng RENAME9=0 để giữ tên cũ)
 if os.environ.get('RENAME9','1')!='0':
     for _a,_b in [('Vũ khí phụ','Tàu con'),('VŨ KHÍ PHỤ','TÀU CON'),('vũ khí phụ','tàu con'),('Vũ Khí Phụ','Tàu Con'),('TIẾN KHUNG','TIẾN BẬC'),('Tiến khung','Tiến bậc'),('tiến khung','tiến bậc'),('Tiến Khung','Tiến Bậc')]:

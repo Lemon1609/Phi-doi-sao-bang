@@ -16,7 +16,7 @@ const Boss82=(()=>{
   try{if(m.wings&&b.parts&&b.parts.length>=2){const dx=Math.abs(b.parts[b.parts.length-1].x-b.parts[0].x)/2,aw=Math.abs(m.wings[1][0]-m.wings[0][0])/2;if(dx>20&&aw>20)S=Math.max(150,Math.min(420,dx*768/aw));const wy=(m.wings[0][1]+m.wings[1][1])/2-383.5,py=(b.parts[0].y+b.parts[b.parts.length-1].y)/2-b.y;y=b.y+py-wy*S/768;}}catch{}
   ctx.save();
   if(f.shown<1&&f.prev!=null&&ok(m.id+'_p'+(f.prev+1))){ctx.globalAlpha=1-f.shown;ctx.drawImage(pre107(m.id+'_p'+(f.prev+1),S),x-S/2,y-S/2,S,S);}
-  ctx.globalAlpha=f.shown<1?f.shown:1;ctx.drawImage(pre107(k,S),x-S/2,y-S/2,S,S);ctx.restore();return true;}
+  ctx.globalAlpha=f.shown<1?f.shown:1;if(window.WING10&&window.ANIM10!==false)WING10.bossDraw(ctx,pre107(k,S),x-S/2,y-S/2,S,b);else ctx.drawImage(pre107(k,S),x-S/2,y-S/2,S,S);ctx.restore();return true;}
  // V107: thu nhỏ tranh boss sẵn đúng cỡ hiển thị (không bắt máy thu nhỏ ảnh lớn mỗi khung)
  const PRE107=new Map();function pre107(key,S){const im=IM[key];if(window.PRE107===false||!im||!im.naturalWidth)return im;let sx=2;try{sx=ctx.canvas.width/W;}catch{}const px=Math.max(32,Math.ceil(S*sx/16)*16);if(px>=im.naturalWidth*.9)return im;const id=key+'|'+px;let c=PRE107.get(id);if(c)return c;
   c=document.createElement('canvas');c.width=c.height=px;const g=c.getContext('2d');g.imageSmoothingEnabled=true;g.imageSmoothingQuality='high';g.drawImage(im,0,0,px,px);if(PRE107.size>12)PRE107.clear();PRE107.set(id,c);return c;}

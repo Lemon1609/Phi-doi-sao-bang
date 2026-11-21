@@ -53,7 +53,7 @@ const L9B309=(()=>{
      ck.addEventListener('click',e=>{const b=e.target.closest('[data-ck9]');if(!b)return;e.stopPropagation();const k=b.dataset.ck9;
        if(k==='codex'){try{L7309.open();}catch{}}else if(k==='pilot')fgo('pilot');else if(k==='kho'){try{Nav74.tab('equip');}catch{}}else if(k==='gear'){try{Nav74.page('gear');}catch{}}});
      const cta=lb.querySelector('.lb68-cta');lb.insertBefore(ck,cta||null);}
-   const cc=lb.querySelector('.lb68-cta .cta.c');if(cc&&!cc.dataset.b9){cc.dataset.b9=1;cc.addEventListener('click',e=>{if(pass||!on())return;e.stopPropagation();e.stopImmediatePropagation();e.preventDefault();chooser();},true);}}
+   const cc=lb.querySelector('.lb68-cta .cta.c');if(cc&&!cc.dataset.b9){cc.dataset.b9=1;cc.addEventListener('click',e=>{if(pass||!on())return;e.stopPropagation();e.stopImmediatePropagation();e.preventDefault();if(window.QOL10!==false){try{Nav74.tab('combat');}catch{}return;}chooser();},true);}}
  // ---------- bảng chọn CHIẾN ĐẤU ----------
  let cd=null;
  function chooser(){if(!cd){cd=document.createElement('div');cd.id='cd9';cd.hidden=true;document.body.appendChild(cd);
@@ -109,7 +109,8 @@ const L9B309=(()=>{
      sg.addEventListener('click',e=>{const b=e.target.closest('[data-ar9]');if(b){e.stopPropagation();switchShip(+b.dataset.ar9);}});
      doll.addEventListener('click',e=>{const s=e.target.closest('.hb-slot');if(!s||!on())return;const cs=s.classList.contains('c9ship'),k=s.dataset.k307k;setTimeout(()=>{try{if(cs)NC307.open('craft:'+lcOf());else{const id=(Progress.v70.equipped()||{})[k];if(id)NC307.open(id);}}catch{}},30);});}
    for(const c of ['.c9st','.c9tp'])if(doll.querySelector(':scope>'+c))sg.appendChild(doll.querySelector(':scope>'+c));
-   if(!K.raf&&vis($('#hub40')))K.raf=requestAnimationFrame(loop);
+   if(window.WING10&&window.ANIM10!==false){if(!K.s10||K.s10.c!==K.c){const pod={},gi=k=>{const i=gearIm(k);return i;};K.s10=WING10.Stage(K.c,{visible:()=>vis($('#hub40'))&&on()&&window.ANIM10!==false,get:()=>{const lc=lcOf();return {src:shipSrc(lc),col:shipCol(lc),pod:gi('sidearm'),mis:gi('missiles'),bb:WING10.bbOf(lc),arc:!!window.__arc10||(performance.now()%4200)<1300,key:'kho'};}});}if(vis($('#hub40')))K.s10.start();}
+   else if(!K.raf&&vis($('#hub40')))K.raf=requestAnimationFrame(loop);
    let tn='';try{tn=TIER70.name[V70.craftN(lcOf())|0]||'';}catch{}let nm='';try{nm=Fighters28.profiles[lcOf()].name;}catch{}const np=sg.querySelector('.np9'),nt=`${nm}${tn?' · '+tn:''}`;if(np.textContent!==nt)np.textContent=nt;
    const st=sg.querySelector('.c9st');if(st&&!st.dataset.b9){st.dataset.b9=1;}
    if(st){let cp=0;try{cp=Combat.stats().cp;}catch{}const ics=['tab_chien_co','ic_trang_bi_sss','hud_missile','ic_phu_tro'];let h=st.querySelector('.cp9');if(!h){h=document.createElement('div');h.className='cp9';st.insertBefore(h,st.firstChild);}const ht=`<small>TỔNG LỰC CHIẾN</small><b>${Math.round(cp).toLocaleString('vi-VN')}</b>`;if(h.innerHTML!==ht)h.innerHTML=ht;
@@ -122,5 +123,6 @@ const L9B309=(()=>{
    // ô đang mặc: nhãn Lv.XX/YY
    doll.querySelectorAll('.hb-slot small').forEach(s=>{const t=s.textContent;if(/^Lv \d/.test(t))s.textContent=t.replace(/^Lv (\d+)(\/\d+)?/,(m,a,b)=>'Lv.'+a+(b||''));});}
  setInterval(()=>{try{header();lobby();kho();}catch(e){}},300);
- return {header,lobby,kho,chooser,switchShip,badgePop};
+ function quick(){const c=$('#lb68 .lb68-cta .cta.c');pass=true;try{c&&c.click();}finally{pass=false;}}
+ return {header,lobby,kho,chooser,switchShip,badgePop,quick};
 })();
