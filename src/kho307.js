@@ -56,13 +56,13 @@ const KHO307=(()=>{
   return 'HỢP THÀNH: '+title(made)+' · '+TIER70.name[r.outN]+(st?' · hoàn '+st:'');}
  function hopHtml(){const r=HOP.rec[hr],pool=items().filter(i=>hopOk(i,r)&&!hp.includes(i.id)).sort((a,b)=>(a.level-b.level));
   const sl=hp.map(id=>items().find(i=>i.id===id)).filter(Boolean);
-  return `<div class="k307-tabs">${HOP.rec.map((x,i)=>`<button data-k="hr" data-id="${i}" class="${i===hr?'on':''}">${x.name}</button>`).join('')}</div>
+  return `<div class="k307-tabs">${HOP.rec.map((x,i)=>`<button data-k="hr" data-id="${i}" class="${i===hr?'on':''}">${u9()?['TRẮNG','LỤC','LAM'][i]:x.name}</button>`).join('')}</div>
   <div class="k307-hop"><p>5 món <b>${TIER70.name[r.inN]}</b> bất kỳ (khác mẫu, khác loại đều được) → 1 món <b>${TIER70.name[r.outN]}</b> ngẫu nhiên. Đồ đang mặc và đồ hợp thể không dùng được.</p>
    <div class="k307-slots">${Array.from({length:5},(_,k)=>{const it=sl[k];return it?`<button data-k="hun" data-id="${esc(it.id)}" style="--c:${col(it)}"><div class="k307-ic">${art(it)}</div><small>Lv${it.level|0}</small></button>`:'<button class="e" disabled>+</button>';}).join('')}</div>
    <div class="k307-hc">Chi phí <b>${fmt(r.cost)} ◈</b>${r.lim?` · hôm nay ${hopUsed()}/${r.lim}`:''}${refundXp(sl)>0?` · <em>hoàn ${fmt(refundXp(sl))} XP bằng Đá XP</em>`:''}</div></div>
   <div class="k307-list">${pool.length?pool.map(it=>`<button class="k307-row" data-k="hadd" data-id="${esc(it.id)}" style="--c:${col(it)}"><div class="k307-ic">${art(it)}</div><div class="k307-ri"><b>${esc(title(it))}</b><small>${esc(kname(it.kind))} · ${esc(label(it))}</small></div><div class="k307-rr"><b>Lv${it.level|0}</b>${it.level>1?'<em>hoàn XP</em>':''}</div></button>`).join(''):'<i>Không còn món '+TIER70.name[r.inN]+' dùng được.</i>'}</div>
   ${hask?`<div class="k307-ask"><div><p>Có món đã nâng Level: phần XP đã đầu tư hoàn <b>85%</b> bằng Đá XP. 5 món sẽ mất hẳn. Tiếp tục?</p><button data-k="hok">Hợp thành</button><button data-k="hno">Thôi</button></div></div>`:''}
-  <div class="k307-acts k307-acts2"><button data-k="hauto">TỰ CHỌN</button><button data-k="hgo" class="go" ${sl.length===5?'':'disabled'}>HỢP THÀNH</button></div>`;}               // id món đang chọn trên màn kho
+  <div class="k307-acts k307-acts2 ${u9()?'k9h':''}"><button data-k="hauto">${u9()?'TỰ ĐỘNG CHỌN':'TỰ CHỌN'}</button>${u9()?'<button data-k="qhop" class="k9ah">TỰ ĐỘNG<br>HỢP THÀNH</button>':''}<button data-k="hgo" class="go" ${sl.length===5?'':'disabled'}>HỢP THÀNH</button></div>`;}               // id món đang chọn trên màn kho
  // ---------- màn Kho ----------
  function patch(){if(!on())return;const body=document.getElementById('hb-body');if(!body)return;const doll=body.querySelector(':scope>.hb-doll');
   if(!doll){body.classList.remove('k307');return;}
@@ -87,10 +87,17 @@ const KHO307=(()=>{
   bar.querySelector('[data-k=bag] small').textContent=items().length+' món';}
  setInterval(()=>{try{patch();}catch{}},400);
  // ---------- Túi đồ ----------
- let el=null,tab='gear',kf='all',msg='';
+ let el=null,tab='gear',kf='all',msg='',bm='bag';
+ const u9=()=>window.UX9!==false;
+ // V309 Lượt 9: nút hành động thông minh cho mỗi dòng (TIẾN KHUNG / CƯỜNG HÓA / Đã đầy cấp / TRANG BỊ)
+ function smart(K,ref,isEq,lv,cap){if(!isEq)return K==='craft'?`<span class="k9a" data-k="sup" data-id="craft:${ref}">CƯỜNG HÓA</span>`:`<span class="k9a b" data-k="seq" data-id="${esc(ref)}">TRANG BỊ</span>`;let p=null;try{p=Evo82.plan(K,ref);}catch{}const id=K==='craft'?'craft:'+ref:ref;
+  if(p&&!p.max&&(p.ok||lv>=cap))return `<span class="k9a" data-k="sadv" data-id="${esc(id)}">TIẾN BẬC</span>`;if(lv<cap)return `<span class="k9a" data-k="sup" data-id="${esc(id)}">CƯỜNG HÓA</span>`;return '<span class="k9a m">Đã đầy cấp</span>';}
+ function mergeXp(){let a=0,b=0;try{const D=XPDA307;while(D.have(1)>=4){if(!D.spend({1:4}))break;D.add(2,1);a++;}while(D.have(2)>=4){if(!D.spend({2:4}))break;D.add(3,1);b++;}}catch{}return a||b?'Gộp kinh nghiệm: '+(a?a+' '+XPDA307.NAME[2]:'')+(a&&b?', ':'')+(b?b+' '+XPDA307.NAME[3]:'')+' (4 viên → 1 viên lớn, giữ nguyên tổng XP).':'Chưa đủ 4 viên Đá XP cùng loại để gộp.';}
+ function resetIt(id){const it=items().find(i=>i.id===id);if(!it||eqIds().includes(id)||(it.level|0)<=1)return 'Món này không hoàn nguyên được.';const rx=Math.floor(refundXp([it]));try{Progress.v70.set(id,{level:1});}catch{return 'Lỗi hoàn nguyên.';}try{NC307.clearX(id);}catch{}const st=giveStones(rx);try{Progress.render();}catch{}return 'HOÀN NGUYÊN: '+title(it)+' về Lv1'+(st?' · nhận '+st:'');}
+ function quickHop(){let n=0,last='';for(let r=0;r<HOP.rec.length;r++){for(let g=0;g<30;g++){const rec=HOP.rec[r];const pool=items().filter(i=>hopOk(i,rec)&&(i.level|0)<=1);if(pool.length<5)break;hr=r;hp=pool.slice(0,5).map(i=>i.id);const m=hopRun();if(!/^HỢP THÀNH/.test(m)){last=m;hp=[];break;}n++;}}return n?'Đã hợp thành '+n+' lần (chỉ dùng đồ Lv1 chưa mặc).':(last||'Không đủ 5 món Lv1 chưa mặc cùng khung để hợp thành.');}
  function rowHtml(it){const e=eqIds().includes(it.id);let st='';try{const a=Progress.stat(it);st=it.kind==='armor'?`Giáp ${a.armor.toFixed(1)} · Máu ${a.hp.toFixed(1)}`:`ST ${a.auxDamage.toFixed(2)} · ${a.interval.toFixed(2)} s`;}catch{}
   const n=nOf(it),fr=[0,1,2,2,2,2,3,3,3,3,3,3][n],plus=n<2?0:n<6?n-2:n-6;
-  return `<button class="k307-row" data-f="${fr}" data-k="item" data-id="${esc(it.id)}" style="--c:${col(it)}"><div class="k307-ic">${art(it)}</div><div class="k307-ri"><b>${esc(title(it))}</b><span>${'★'.repeat(fr+1)}${'✦'.repeat(plus)} <small>${esc(label(it))}</small></span><small>${kf==='all'?esc(kname(it.kind))+' · ':''}${st}</small></div><div class="k307-rr"><b>Lv${it.level|0}<small>/${capOf(it)}</small></b>${e?'<s>Đang mặc</s>':`<em>cho ${fmt(feed(it))} XP</em>`}</div></button>`;}
+  return `<button class="k307-row" data-f="${fr}" data-k="item" data-id="${esc(it.id)}" style="--c:${col(it)}"><div class="k307-ic">${art(it)}</div><div class="k307-ri"><b>${esc(title(it))}</b><span>${'★'.repeat(fr+1)}${'✦'.repeat(plus)} <small>${esc(label(it))}</small></span><small>${kf==='all'?esc(kname(it.kind))+' · ':''}${st}</small></div><div class="k307-rr"><b>Lv${it.level|0}<small>/${capOf(it)}</small></b>${u9()?(e?'<s>Đang mặc</s>':'')+smart('gear',it.id,e,it.level|0,capOf(it)):(e?'<s>Đang mặc</s>':`<em>cho ${fmt(feed(it))} XP</em>`)}</div></button>`;}
  // V307 (18/11): túi gồm cả chiến cơ (tab Chiến cơ đầu tiên) và bản sao / phôi từ phó bản, sự kiện, phần thưởng (dùng làm vật liệu cùng mẫu)
  const FR=n=>[0,1,2,2,2,2,3,3,3,3,3,3][n|0]|0,PL=n=>n<2?0:n<6?n-2:n-6;
  const fcol=n=>{try{return TIER70.fcol[TIER70.frame[n]];}catch{return '#d6e0ea';}};
@@ -99,7 +106,7 @@ const KHO307=(()=>{
  const shipArt=(i,n)=>{try{const S=SHIP118[i];const src=S[FORM[n]]||S.tim||S.lam||S.thuong;return src?`<img src="${src}" alt="" style="width:50px;height:50px;object-fit:contain">`:'';}catch{return '';}};
  function shipRows(){const out=[];for(let i=0;i<13;i++){let own=false;try{own=Campaign36.ownsCraft(i);}catch{}if(!own)continue;let v={level:1},n=0;try{v=Workshop.craftProgress(i);}catch{}try{n=V70.craftN(i);}catch{}
    const cur=(()=>{try{return launchCraft===i;}catch{return false;}})();
-   out.push({s:(cur?1e6:0)+n*1000+(v.level|0),h:`<button class="k307-row" data-f="${FR(n)}" data-k="ship" data-id="${i}" style="--c:${fcol(n)}"><div class="k307-ic">${shipArt(i,n)}</div><div class="k307-ri"><b>${esc(shipNm(i))}</b><span>${'★'.repeat(FR(n)+1)}${'✦'.repeat(PL(n))} <small>${esc(TIER70.name[n]||'')}</small></span><small>${kf==='all'?'Chiến cơ · ':''}Hệ số ×${(()=>{try{return Workshop.levelFactor(v).toFixed(2);}catch{return '1.00';}})()}</small></div><div class="k307-rr"><b>Lv${v.level|0}<small>/${capOf(v)}</small></b>${cur?'<s>Đang dùng</s>':''}</div></button>`});}
+   out.push({s:(cur?1e6:0)+n*1000+(v.level|0),h:`<button class="k307-row" data-f="${FR(n)}" data-k="ship" data-id="${i}" style="--c:${fcol(n)}"><div class="k307-ic">${shipArt(i,n)}</div><div class="k307-ri"><b>${esc(shipNm(i))}</b><span>${'★'.repeat(FR(n)+1)}${'✦'.repeat(PL(n))} <small>${esc(TIER70.name[n]||'')}</small></span><small>${kf==='all'?'Chiến cơ · ':''}Hệ số ×${(()=>{try{return Workshop.levelFactor(v).toFixed(2);}catch{return '1.00';}})()}</small></div><div class="k307-rr"><b>Lv${v.level|0}<small>/${capOf(v)}</small></b>${cur?'<s>Đang dùng</s>':''}${u9()?smart('craft',i,true,v.level|0,capOf(v)):''}</div></button>`});}
   return out.sort((a,b)=>b.s-a.s).map(x=>x.h);}
  function copyRows(){let L=[];try{L=Evo82.list();}catch{}return L.filter(c=>{const kd=c.k==='craft'?'craft':(()=>{try{return GearCatalog[c.m].kind;}catch{return '';}})();return kf==='all'||kf===kd;}).sort((a,b)=>b.t-a.t||b.lv-a.lv).map(c=>{
    const isS=c.k==='craft',nm=isS?shipNm(c.m|0):(()=>{try{return GearCatalog[c.m].name;}catch{return c.m;}})(),kd=isS?'Chiến cơ':(()=>{try{return kname(GearCatalog[c.m].kind);}catch{return '';}})();
@@ -114,13 +121,14 @@ const KHO307=(()=>{
   return R.map(r=>`<div class="k307-row k307-res" style="--c:${r[3]}"><div class="k307-ic">${r[5]?`<img src="${r[5]}" alt="" style="width:46px;height:46px;object-fit:contain">`:`<i>${r[4]}</i>`}</div><div class="k307-ri"><b>${esc(r[0])}</b><small>${esc(r[2])}</small></div><div class="k307-rr"><b>${fmt(r[1])}</b></div></div>`).join('');}
  function render(){if(!el)return;const all=items(),kinds=[...new Set(all.map(i=>i.kind))];
   let l=tab==='gear'?all.filter(i=>kf==='all'||i.kind===kf).sort((a,b)=>(eqIds().includes(b.id)-eqIds().includes(a.id))||nOf(b)-nOf(a)||(b.level-a.level)):[];
-  const rows=tab==='gear'?((kf==='all'||kf==='craft')?shipRows():[]).concat(l.map(rowHtml),copyRows()):[];const nCp=(()=>{try{return Evo82.list().length;}catch{return 0;}})();
-  el.querySelector('.k307-in').innerHTML=`<div class="k307-top"><b>TÚI ĐỒ</b><span>${tab==='gear'?all.length+' trang bị · '+nCp+' bản sao':tab==='hop'?'Hợp thành':'Tài nguyên'}</span><button data-k="x" aria-label="Đóng">✕</button></div>
+  let rows=tab==='gear'?((kf==='all'||kf==='craft')?shipRows():[]).concat(l.map(rowHtml),copyRows()):[];
+  if(u9()&&tab==='gear'&&kf==='all'){const sr=shipRows(),cs=(()=>{try{return Campaign36.ownsCraft(launchCraft);}catch{return true;}})()?sr.slice(0,1):[],eqL=l.filter(i=>eqIds().includes(i.id)),otL=l.filter(i=>!eqIds().includes(i.id));rows=cs.concat(eqL.map(rowHtml),sr.slice(cs.length),otL.map(rowHtml),copyRows());}const nCp=(()=>{try{return Evo82.list().length;}catch{return 0;}})();
+  const C9=u9()&&bm==='cai';el.querySelector('.k307-in').innerHTML=`<div class="k307-top"><b>${C9?'CẢI TẠO':'TÚI ĐỒ'}</b><span>${tab==='gear'?all.length+' trang bị · '+nCp+' bản sao':tab==='hop'?'Hợp thành':tab==='mel'?'Tách / Hoàn nguyên':'Tài nguyên'}</span>${u9()&&tab==='gear'?'<button data-k="best" class="k9best">MẶC TỐT NHẤT</button>':''}<button data-k="x" aria-label="Đóng">✕</button></div>
    ${tab==='gear'?`<div class="k307-tabs"><button data-k="kf" data-id="all" class="${kf==='all'?'on':''}">Tất cả</button><button data-k="kf" data-id="craft" class="${kf==='craft'?'on':''}">Chiến cơ</button>${kinds.map(k=>`<button data-k="kf" data-id="${esc(k)}" class="${kf===k?'on':''}">${esc(kname(k))}</button>`).join('')}</div>`:''}
-   ${tab==='hop'?hopHtml():`<div class="k307-list">${tab==='gear'?(rows.length?rows.join(''):'<i>Túi trống.</i>'):resHtml()}</div>`}
+   ${tab==='mel'?`<div class="k307-hop"><p><b>TÁCH / HOÀN NGUYÊN</b>: đưa món chưa mặc đã nâng cấp về <b>Lv1</b>, hoàn <b>85 %</b> XP đã đầu tư bằng Đá XP. Khung (tiến bậc) giữ nguyên.</p></div><div class="k307-list">${(()=>{const L=items().filter(i=>!eqIds().includes(i.id)&&(i.level|0)>1&&!i.super&&!i.fusion).sort((a,b)=>b.level-a.level);return L.length?L.map(it=>`<div class="k307-row" style="--c:${col(it)}"><div class="k307-ic">${art(it)}</div><div class="k307-ri"><b>${esc(title(it))}</b><small>${esc(kname(it.kind))} · ${esc(label(it))}</small></div><div class="k307-rr"><b>Lv${it.level|0}</b><span class="k9a" data-k="rst" data-id="${esc(it.id)}">HOÀN NGUYÊN</span><em>+${fmt(Math.floor(refundXp([it])))} XP</em></div></div>`).join(''):'<i>Không có món chưa mặc nào đã nâng cấp.</i>';})()}</div>`:tab==='hop'?hopHtml():`<div class="k307-list">${tab==='gear'?(rows.length?rows.join(''):'<i>Túi trống.</i>'):resHtml()}</div>`}
    ${msg?`<p class="k307-m">${esc(msg)}</p>`:''}
-   ${tab==='gear'?`<div class="k307-acts"><button data-k="qadv">TIẾN KHUNG<br>NHANH</button><button data-k="qm">PHÂN GIẢI<br>NHANH</button><button data-k="best">MẶC TỐT<br>NHẤT</button></div>`:''}
-   <div class="k307-foot"><button data-k="tab" data-id="gear" class="${tab==='gear'?'on':''}">TRANG BỊ</button><button data-k="tab" data-id="hop" class="${tab==='hop'?'on':''}">HỢP THÀNH</button><button data-k="tab" data-id="res" class="${tab==='res'?'on':''}">TÀI NGUYÊN</button></div>`;}
+   ${tab==='gear'?`${u9()?'<div class="k307-acts k9acts"><button data-k="qadv">TIẾN BẬC<br>NHANH</button><button data-k="qxp">GỘP KINH<br>NGHIỆM</button><button data-k="qm">BÁN /<br>PHÂN GIẢI</button></div>':'<div class="k307-acts"><button data-k="qadv">TIẾN KHUNG<br>NHANH</button><button data-k="qm">PHÂN GIẢI<br>NHANH</button><button data-k="best">MẶC TỐT<br>NHẤT</button></div>'}`:''}
+   <div class="k307-foot">${C9?(tab==='mel'?'<button data-k="tab" data-id="hop" class="k9sw">⇄ HỢP THÀNH</button>':'<button data-k="tab" data-id="mel" class="k9sw">⇄ TÁCH / HOÀN NGUYÊN</button>'):u9()?`<button data-k="tab" data-id="gear" class="${tab==='gear'?'on':''}">TRANG BỊ</button><button data-k="tab" data-id="res" class="${tab==='res'?'on':''}">TÀI NGUYÊN</button>`:`<button data-k="tab" data-id="gear" class="${tab==='gear'?'on':''}">TRANG BỊ</button><button data-k="tab" data-id="hop" class="${tab==='hop'?'on':''}">HỢP THÀNH</button><button data-k="tab" data-id="res" class="${tab==='res'?'on':''}">TÀI NGUYÊN</button>`}</div>`;}
  function quickAdv(){let n=0;for(const id of eqIds()){try{for(let g=0;g<11;g++){const p=Evo82.plan('gear',id);if(!p||p.max||!p.ok)break;if(!Evo82.doBreak('gear',id))break;n++;}}catch{break;}}return n;}
  function click(e){const b=e.target.closest('[data-k]');if(!b||!el.contains(b))return;const k=b.dataset.k,id=b.dataset.id;msg='';
   if(k==='x'){close();return;}
@@ -132,16 +140,23 @@ const KHO307=(()=>{
   else if(k==='hgo'){const sl=hp.map(x=>items().find(i=>i.id===x)).filter(Boolean);if(sl.some(i=>i.level>1)&&!hask){hask=true;}else{hask=false;msg=hopRun();}}
   else if(k==='hok'){hask=false;msg=hopRun();}
   else if(k==='hno'){hask=false;}
-  else if(k==='item'){close();try{Hub40.openItem(id);}catch{}return;}
+  else if(k==='sup'){close();try{NC307.open(id);}catch{}return;}
+  else if(k==='sadv'){close();try{NC307.open(id,'adv');}catch{}return;}
+  else if(k==='seq'){try{Progress.equip(id);msg='Đã trang bị.';}catch{msg='Không trang bị được.';}}
+  else if(k==='qhop'){msg=quickHop();}
+  else if(k==='qxp'){msg=mergeXp();}
+  else if(k==='rst'){msg=resetIt(id);}
+  else if(k==='mel'){const q=document.getElementById('hb-qm');if(q){q.click();msg='Đã phân giải đồ Trắng/Lục thừa (không mặc).';}else msg='Chưa có món để phân giải.';}
+  else if(k==='item'){close();if(u9()){try{NC307.open(id);}catch{}return;}try{Hub40.openItem(id);}catch{}return;}
   else if(k==='ship'){close();try{NC307.open('craft:'+id);}catch{}return;}
   else if(k==='copy'){msg='Bản sao: đặt vào ô vật liệu khi NÂNG CẤP hoặc tự tính khi TIẾN KHUNG món / tàu cùng mẫu.';}
   else if(k==='qadv'){const n=quickAdv();msg=n?'Đã tiến khung '+n+' lần cho đồ đang mặc.':'Đồ đang mặc chưa đủ điều kiện tiến khung (trần cấp, bản sao, hợp kim).';}
   else if(k==='qm'){const q=document.getElementById('hb-qm');if(q){q.click();msg='Đã phân giải đồ Trắng/Lục thừa.';}}
   else if(k==='best'){const q=document.getElementById('hb-best');if(q){q.click();msg='Đã mặc bộ tốt nhất.';}}
   render();}
- function bag(){if(!on())return;if(!el){el=document.createElement('div');el.id='k307';el.innerHTML='<div class="k307-in"></div>';el.addEventListener('click',click);document.body.appendChild(el);}el.classList.add('open');render();}
- function close(){if(el)el.classList.remove('open');}
- return {bag,close,patch,sel:()=>sel,hop:{run:hopRun,set:(r,ids)=>{hr=r;hp=ids.slice();},used:hopUsed,cfg:HOP}};
+ function bag(md){if(!on())return;bm=md==='cai'?'cai':'bag';if(bm==='cai'){if(tab!=='hop'&&tab!=='mel')tab='hop';}else if(u9()&&(tab==='hop'||tab==='mel'))tab='gear';if(!el){el=document.createElement('div');el.id='k307';el.innerHTML='<div class="k307-in"></div>';el.addEventListener('click',click);document.body.appendChild(el);}el.classList.add('open');render();}
+ function close(){if(el)el.classList.remove('open','k9top');}
+ return {bagRes:()=>{bag();tab='res';if(el)el.classList.add('k9top');render();},bag,close,patch,sel:()=>sel,hop:{run:hopRun,set:(r,ids)=>{hr=r;hp=ids.slice();},used:hopUsed,cfg:HOP}};
 })();
 // V307 · thanh tài nguyên dùng biểu tượng GPT (hợp kim, lõi); ô "Đá nâng cấp" cũ ở sảnh thành tổng XP của Đá XP, ẩn ở đầu màn Kho; mảnh phi công có biểu tượng
 (function(){

@@ -79,38 +79,39 @@ const NC307=(()=>{
   const pct0=r0.need?Math.min(100,r0.x/r0.need*100):100,pct=r.need?Math.min(100,r.x/r.need*100):100;
   const toCap=(()=>{let t=-(r0.x|0);for(let L=(it.level|0);L<r0.cap;L++)t+=C.need(L);return Math.max(0,t);})();
   el.querySelector('.nc307-in').innerHTML=`
-  <div class="nc307-top"><b>NÂNG CẤP</b><button class="nc307-swap" data-nc="bag">⇅ Đổi món</button><button class="nc307-x" data-nc="x" aria-label="Đóng">✕</button></div>
+  <div class="nc307-top"><b>${window.UX9!==false?'CƯỜNG HÓA · NÂNG CẤP':'NÂNG CẤP'}</b><button class="nc307-swap" data-nc="bag">⇅ Đổi món</button><button class="nc307-x" data-nc="x" aria-label="Đóng">✕</button></div>
   <div class="nc307-pn" style="--c:${colorOf(it)}">
    <div class="nc307-pc" data-nc="${it.kind==='craft'?'':'bag'}"><b>${esc(String(title).split(' · ')[0])}</b><div class="nc307-art">${artOf(it)}</div><div class="nc307-st">${stars(it)}</div><small>${esc(it.kind==='craft'?TIER70.name[nOf(it)]:(()=>{try{return V70T(it);}catch{return '';}})())}</small></div>
    <table class="nc307-tb"><tr><td>Cấp</td><td>${it.level|0}/${r0.cap}</td><td>➤</td><td class="${r.L>(it.level|0)?'up':''}">${r.L}/${r.cap}</td></tr>
     ${rows.map(x=>`<tr><td>${x[0]}</td><td>${x[1]}</td><td>➤</td><td class="${x[3]?'up':''}">${x[2]}</td></tr>`).join('')}</table>
   </div>
-  <div class="nc307-xp2"><div><span>XP cần lên cấp: <b>${r0.need?fmt(r0.need-r0.x):'—'}</b></span><span>XP tới trần: <b>${fmt(toCap)}</b></span></div>
+  <div class="nc307-xp2"><div><span>${window.UX9!==false?'XP cần lên 1 cấp':'XP cần lên cấp'}: <b>${r0.need?fmt(r0.need-r0.x):'—'}</b></span><span>${window.UX9!==false?'XP cần lên đầy cấp':'XP tới trần'}: <b>${fmt(toCap)}</b></span></div>
    <div class="nc307-bar"><i style="width:${r.L>(it.level|0)?0:pct0}%"></i><u style="width:${pct}%"></u><em>XP nhận: ${fmt(g)}</em></div></div>
   ${r.over>C.overWarn?`<p class="nc307-w">Dư ${fmt(r.over)} XP sẽ mất do chạm trần Lv${r.cap}.</p>`:''}
-  <div class="nc307-row2"><span>${it.kind==='craft'?'Vật liệu: bản sao cùng chiến cơ':'Vật liệu: trang bị / bản sao cùng mẫu'}</span><button data-nc="auto" class="nc307-auto">Tự chọn</button></div>
+  <div class="nc307-row2"><span>${it.kind==='craft'?'Vật liệu: bản sao cùng chiến cơ':'Vật liệu: trang bị / bản sao cùng mẫu'}</span><button data-nc="auto" class="nc307-auto">${window.UX9!==false?'Tự động chọn':'Tự chọn'}</button></div>
   ${it.kind==='craft'&&!cpOn()?'':`<div class="nc307-mats">${Array.from({length:C.slots},(_,k)=>{const m=get(mats[k]);return m?`<button data-nc="un" data-id="${esc(m.id)}" class="f">${card(m,'nc307-mini')}<em>+${fmt(feedXp(m))}</em></button>`:`<button data-nc="slot" class="e">+</button>`;}).join('')}</div>`}
   <div class="nc307-stones">${T4.map(t=>`<div class="nc307-gem" style="--g:${D.COL[t]}" title="${esc(D.NAME[t])} · ${fmt(D.XP[t])} XP">${D.IMG(t)?`<img class="nc307-gi" src="${D.IMG(t)}" alt="">`:'<i></i>'}<small>${fmt(D.have(t))}</small><div class="nc307-gb"><button data-nc="s-" data-id="${t}">−</button><b>${st[t]|0}</b><button data-nc="s+" data-id="${t}">+</button></div></div>`).join('')}</div>
-  <div class="nc307-bot"><button data-nc="adv" class="nc307-b2">TIẾN KHUNG</button><button data-nc="go" class="nc307-go" ${g&&r0.need?'':'disabled'}>NÂNG CẤP</button><button data-nc="x" class="nc307-b3">VỀ</button></div>
+  <div class="nc307-bot"><button data-nc="adv" class="nc307-b2">${window.UX9!==false?'⇄ TIẾN BẬC':'TIẾN KHUNG'}</button><button data-nc="go" class="nc307-go" ${g&&r0.need?'':'disabled'}>NÂNG CẤP</button><button data-nc="x" class="nc307-b3">VỀ</button></div>
   ${msg?`<p class="nc307-m">${esc(msg)}</p>`:''}${flash?`<div class="nc307-ok" key="${Date.now()}">${esc(flash)}</div>`:''}
   ${warnAsk?(()=>{const r=sim(it,gainNow());return `<div class="nc307-ask"><div><p>Lượt nâng này vượt trần <b>Lv${r.cap}</b>, dư <b>${fmt(r.over)} XP</b> sẽ mất (không hoàn). Vẫn nâng?</p><label class="nc307-nw"><input type="checkbox"> Hôm nay không nhắc lại</label><button data-nc="wno">Hủy</button><button data-nc="wok">Tiếp tục nâng</button></div></div>`;})():''}
   ${ask?`<div class="nc307-ask"><div><p>${/^bản sao/.test(ask.why)?'':'Trang bị '}${esc(ask.why.replace(/^bản sao/,'Bản sao'))} sẽ <b>biến mất vĩnh viễn</b>. Dùng làm nguyên liệu?</p><button data-nc="ok">Đồng ý</button><button data-nc="no">Thôi</button></div></div>`:''}
   ${el.dataset.list?sheetHtml(it,el.dataset.list):''}`;}
  let tab='all';
  const kname=k=>{if(k==='craft')return 'Chiến cơ';try{return Progress.kindName(k);}catch{return k;}};
- function sheetHtml(it,mode){const isMat=mode==='mat'&&!!it;
+ function sheetHtml(it,mode){const isMat=mode==='mat'&&!!it;const u9=window.UX9!==false&&!isMat;if(u9&&tab==='all')tab=it?it.kind:'craft';
   let l=isMat?items().concat(copies()).filter(m=>usable(m,it)&&!mats.includes(m.id)):ships().concat(items());
   const kinds=[...new Set((isMat?[]:ships()).concat(items()).map(m=>m.kind))];
   if(tab!=='all')l=l.filter(m=>m.kind===tab);
   l=l.slice().sort(isMat?((a,b)=>nOf(a)-nOf(b)||a.level-b.level):((a,b)=>(eqIds().includes(b.id)-eqIds().includes(a.id))||nOf(b)-nOf(a)||(b.level-a.level)));
   return `<div class="nc307-sh" data-nc="no"><div class="nc307-shp"><i class="nc307-grip"></i><div class="nc307-sht"><b>${isMat?'Chọn vật liệu · bị tiêu hao':'Chọn trang bị cần nâng'}</b><button data-nc="no">✕</button></div>
-   <div class="nc307-tabs"><button data-nc="tab" data-id="all" class="${tab==='all'?'on':''}">Tất cả</button>${kinds.map(k=>`<button data-nc="tab" data-id="${esc(k)}" class="${tab===k?'on':''}">${esc(kname(k))}</button>`).join('')}</div>
+   <div class="nc307-tabs ${u9?'t9':''}">${u9?'':`<button data-nc="tab" data-id="all" class="${tab==='all'?'on':''}">Tất cả</button>`}${kinds.map(k=>`<button data-nc="tab" data-id="${esc(k)}" class="${tab===k?'on':''}">${esc(kname(k))}</button>`).join('')}</div>
    <div class="nc307-rows">${l.length?l.map(m=>rowHtml(m,isMat)).join(''):(isMat?'<i>Không có trang bị / bản sao cùng mẫu để làm vật liệu.</i>':'<i>Không có trang bị phù hợp.</i>')}</div></div></div>`;}
  function rowHtml(m,isMat){const t=m.kind==='craft'?shipName(m.idx):(()=>{try{return Progress.title(m).split(' · ')[0];}catch{return m.id;}})(),lb=(m.copy||m.kind==='craft')?(()=>{try{return TIER70.name[nOf(m)];}catch{return '';}})():(()=>{try{return V70T(m);}catch{return '';}})();
   let st='';if(m.kind==='craft'){try{st='Hệ số ×'+Workshop.levelFactor(m._v).toFixed(2);}catch{}}else try{const a=Progress.stat(m);st=m.kind==='armor'?`Giáp ${a.armor.toFixed(1)} · Máu ${a.hp.toFixed(1)}`:`ST ${a.auxDamage.toFixed(2)} · ${a.interval.toFixed(2)} s`;}catch{}
   const eq=eqIds().includes(m.id);
   const fi=(()=>{try{return TIER70.frame[nOf(m)]|0;}catch{return 0;}})();
-  return `<button class="nc307-row ${m.id===cur?'on':''}${m.copy?' cp':''}" data-f="${fi}" data-nc="${isMat?'add':'pick'}" data-id="${esc(m.id)}" style="--c:${colorOf(m)}">${card(m,'nc307-mini')}<div class="nc307-ri"><b>${esc(t)}</b><span class="nc307-rs">${stars(m)} <small>${esc(lb)}</small></span><small>${tab==='all'?esc(kname(m.kind))+' · ':''}${st}</small></div><div class="nc307-rr"><b>Lv${m.level|0}${m.copy?'':`<small>/${capOf(m)}</small>`}</b>${m.copy?'<s class="cp">Bản sao</s>':''}${eq?'<s>Đang mặc</s>':''}${isMat?`<em>+${fmt(feedXp(m))} XP</em>`:''}${!isMat&&m.id===cur?'<s class="cur">Đang chọn</s>':''}</div></button>`;}
+  return `<button class="nc307-row ${m.id===cur?'on':''}${m.copy?' cp':''}" data-f="${fi}" data-nc="${isMat?'add':'pick'}" data-id="${esc(m.id)}" style="--c:${colorOf(m)}">${card(m,'nc307-mini')}<div class="nc307-ri"><b>${esc(t)}</b><span class="nc307-rs">${stars(m)} <small>${esc(lb)}</small></span><small>${tab==='all'?esc(kname(m.kind))+' · ':''}${st}</small></div><div class="nc307-rr"><b>Lv${m.level|0}${m.copy?'':`<small>/${capOf(m)}</small>`}</b>${m.copy?'<s class="cp">Bản sao</s>':''}${eq?'<s>Đang mặc</s>':''}${isMat?`<em>+${fmt(feedXp(m))} XP</em>`:''}${!isMat&&m.id===cur?'<s class="cur">Đang chọn</s>':''}${!isMat&&mode==='adv'&&lowLv(m)?'<s class="lo">Cấp chưa đủ</s>':''}</div>${!isMat&&window.UX9!==false?`<i class="tk9 ${m.id===cur?'on':''}">${m.id===cur?'✓':''}</i>`:''}</button>`;}
+ function lowLv(m){try{const K=m.kind==='craft'?'craft':'gear',ref=m.kind==='craft'?m.idx:m.id;const p=Evo82.plan(K,ref);return !!(p&&!p.max&&p.st&&p.st.mainLv&&(m.level|0)<p.st.mainLv);}catch{return false;}}
  function advHtml(it){const K=it.kind==='craft'?'craft':'gear',ref=it.kind==='craft'?it.idx:it.id;let p=null;try{p=Evo82.plan(K,ref);}catch{}
   const n=nOf(it),title=(()=>{if(it.kind==='craft')return shipName(it.idx);try{return Progress.title(it).split(' · ')[0];}catch{return '';}})();
   const nm=k=>{try{return TIER70.name[k];}catch{return '';}},capN=k=>{try{return TIER70.cap[k];}catch{return 100;}},tm=(()=>{try{return TIER70.tm;}catch{return .0364;}})();
@@ -130,12 +131,12 @@ const NC307=(()=>{
    for(const q of p.mats||[]){let N=q.id;try{N=V70.matName(q.id);}catch{}L.push({im:(typeof MAT69_ART!=='undefined'&&MAT69_ART[q.id])||'',t:N,h:q.have,n:q.n});}
    slots=Array.from({length:5},(_,i)=>{const x=L[i];if(!x)return '<div class="nc307-ns e"></div>';const ok=x.h>=x.n;return `<div class="nc307-ns ${ok?'':'no'}" title="${esc(x.t)}">${x.im?`<img src="${x.im}" alt="">`:''}<small>${Math.min(x.h,999)}/${x.n}</small>${ok?'':'<em>Thiếu</em>'}</div>`;}).join('');
    cost=(p.cr|0)+(p.stone|0)*15;if(st.mainLv&&lv<st.mainLv)need=`Cần món chính đạt Lv${st.mainLv} (đang Lv${lv})`;}
-  return `<div class="nc307-top"><b>TIẾN KHUNG</b><button class="nc307-x" data-nc="x" aria-label="Đóng">✕</button></div>
+  return `<div class="nc307-top"><b>${window.UX9!==false?'CƯỜNG HÓA · TIẾN BẬC':'TIẾN KHUNG'}</b>${window.UX9!==false?'<button class="nc307-swap" data-nc="bag">⇅ Đổi món</button><button class="nc307-swap nc307-vl" data-nc="vl">Vật liệu ▶</button>':''}<button class="nc307-x" data-nc="x" aria-label="Đóng">✕</button></div>
    <div class="nc307-cards">${cardA}${max?'':'<i class="nc307-arr nc307-link"><span></span>'+((window.NC307_IMG||{}).ten?'<img src="'+window.NC307_IMG.ten+'" alt="">':'➤')+'</i>'+cardB}</div>
    ${tbl}
    ${max?`<p class="nc307-m">Đã đạt khung cao nhất: ${esc(nm(n))}.</p>`:`${need?`<p class="nc307-w">${esc(need)}</p>`:''}<div class="nc307-row2"><span>Chi phí <b class="cr">${fmt(cost)} ◈</b></span><span>${(p.rf&&p.rf.cr)?'hoàn '+fmt(p.rf.cr)+' ◈':''}</span></div><div class="nc307-mats nc307-nl">${slots}</div>`}
    ${msg?`<p class="nc307-m">${esc(msg)}</p>`:''}${flash?`<div class="nc307-ok">${esc(flash)}</div>`:''}
-   <div class="nc307-bot"><button data-nc="upm" class="nc307-b2">NÂNG CẤP</button><button data-nc="brk" class="nc307-go" ${!max&&p.ok?'':'disabled'}>TIẾN KHUNG</button><button data-nc="x" class="nc307-b3">VỀ</button></div>`;}
+   <div class="nc307-bot"><button data-nc="upm" class="nc307-b2">${window.UX9!==false?'⇄ NÂNG CẤP':'NÂNG CẤP'}</button><button data-nc="brk" class="nc307-go" ${!max&&p.ok?'':'disabled'}>${window.UX9!==false?'TIẾN BẬC':'TIẾN KHUNG'}</button><button data-nc="x" class="nc307-b3">VỀ</button></div>${el.dataset.list?sheetHtml(it,el.dataset.list):''}`;}
  function needsAsk(m){if(m&&m.copy&&nOf(m)>=2)return 'bản sao '+(()=>{try{return TIER70.name[nOf(m)];}catch{return 'Lam';}})()+' (dùng được cho tiến khung)';return nOf(m)>=C.warnN?'khung '+(()=>{try{return V70T(m);}catch{return 'Tím';}})():(m.level|0)>=C.warnLv?'Lv'+m.level:'';}
  function add(id){const m=get(id),it=get(cur);if(!usable(m,it)||mats.length>=C.slots||mats.includes(id))return;const w=needsAsk(m);if(w){ask={id,why:w};return;}mats.push(id);}
  function auto(){const it=get(cur);if(!it)return;st=zero();mats=mats.filter(id=>!needsAsk(get(id)||{}));
@@ -150,6 +151,7 @@ const NC307=(()=>{
   msg='';flash=r.L>old?'NÂNG CẤP THÀNH CÔNG · Lv'+r.L:'+'+fmt(g)+' XP';try{Progress.render();}catch{}try{if(it.kind==='craft')Hub40.render();}catch{}try{Audio393.sfx('pickup');}catch{}}
  function click(e){const b=e.target.closest('[data-nc]');if(!b||!el.contains(b))return;const a=b.dataset.nc,id=b.dataset.id;msg='';
   if(a==='x'){close();return;}
+  if(a==='vl'){try{KHO307.bagRes();}catch{}return;}
   if(a==='adv'){mode='adv';flash='';}
   else if(a==='upm'){mode='up';flash='';}
   else if(a==='brk'){const it=get(cur);if(it){const K=it.kind==='craft'?'craft':'gear',ref=it.kind==='craft'?it.idx:it.id;let ok=false;try{ok=Evo82.doBreak(K,ref);}catch{}if(ok){flash='TIẾN KHUNG THÀNH CÔNG';upPop=Date.now();try{Audio393.sfx('pickup');}catch{}}else{let p=null;try{p=Evo82.plan(K,ref);}catch{}msg=p&&p.lacks&&p.lacks[0]||'Chưa đủ điều kiện';}}}
@@ -178,5 +180,5 @@ const NC307=(()=>{
  ['pointerdown','mousedown','touchstart','click'].forEach(t=>{document.addEventListener(t,hit,true);document.addEventListener(t,hitC,true);document.addEventListener(t,hitG,true);});
  // nút sh-up luôn bấm được (chỉ mở màn), đổi nhãn
  setInterval(()=>{try{if(!on())return;document.querySelectorAll('#upgrade392,#quote392').forEach(x=>x.style.display='none');const c=document.querySelector('#hb-lv');if(c&&!c.dataset.nc&&window.NC307C!==false){c.dataset.nc='1';c.disabled=false;c.innerHTML='NÂNG CẤP<small>Bản sao cùng tàu / Đá XP</small>';}const b=document.querySelector('.hb-sheet.open #sh-up');if(b&&get(b.closest('.hb-sheet').dataset.item)&&!b.dataset.nc){b.dataset.nc='1';b.disabled=false;b.innerHTML='NÂNG CẤP<small>Dùng trang bị khác / Đá XP</small>';}}catch{}},300);
- return {open,close,sim,da:XPDA307,feedXp,cfg:C,state:()=>JSON.parse(JSON.stringify(S)),_m:()=>mats.slice()};
+ return {clearX:id=>{delete S.x[id];save();},open,close,sim,da:XPDA307,feedXp,cfg:C,state:()=>JSON.parse(JSON.stringify(S)),_m:()=>mats.slice()};
 })();

@@ -1,0 +1,119 @@
+/* V309 Lượt 9 · UX9 (bố cục) + THEME9 (bảng màu Royal Blue). @U9 / @T9 được build thay bằng tiền tố độ ưu tiên cao */
+/* ---------- Sảnh: 4 cụm ---------- */
+@U9 #hgr41 .c307{display:none!important}
+@U9 #hgr41 .h1-stage .n74-l,@U9 #hgr41 .h1-stage .n74-r,@U9 #hgr41 .h1-stage .l74{display:none!important}
+@U9 #hgr41 .c9r{display:grid!important;grid-template-columns:repeat(4,1fr)!important;gap:6px!important;margin:4px 6px 2px!important;position:relative!important;z-index:3!important}
+@U9 #hgr41 .c9b{position:relative!important;display:flex!important;flex-direction:column!important;align-items:center!important;justify-content:center!important;gap:2px!important;height:56px!important;border-radius:10px!important;border:1.5px solid #cbd5e1!important;background:linear-gradient(180deg,#1d5bbf,#0d2f6e)!important;box-shadow:inset 0 0 0 1px #64748b,inset 0 0 0 2.5px rgba(56,189,248,.5),0 3px 8px rgba(0,0,0,.45)!important;color:#fff!important;padding:0!important;cursor:pointer!important}
+@U9 #hgr41 .c9b i{display:block!important;width:30px!important;height:30px!important;background:none!important;border:0!important}
+@U9 #hgr41 .c9b i img{width:100%!important;height:100%!important;object-fit:contain!important}
+@U9 #hgr41 .c9b i b{font-size:20px!important;line-height:30px!important}
+@U9 #hgr41 .c9b small{font:900 9px/1 sans-serif!important;letter-spacing:.02em!important;color:#e0f2fe!important;text-shadow:0 1px 2px #000!important;white-space:nowrap!important}
+@U9 #hgr41 .c9b em{position:absolute!important;top:3px!important;right:5px!important;width:9px!important;height:9px!important;border-radius:50%!important;background:#ef4444!important;box-shadow:0 0 0 1.5px #fff!important}
+@U9 #hgr41 .c9b.gold{border-color:#fde68a!important;background:linear-gradient(180deg,#fbbf24,#d97706)!important;box-shadow:inset 0 0 0 1px #92400e,inset 0 1px 0 #fff7d6,0 0 10px rgba(251,191,36,.45)!important}
+@U9 #hgr41 .c9b.gold small{color:#1a1200!important;text-shadow:0 1px 0 rgba(255,255,255,.35)!important}
+@U9 #hgr41 .c9b:active{transform:translateY(1px)!important}
+/* ---------- thanh tab nổi của 2 cụm ---------- */
+#hub9{position:fixed;left:0;right:0;top:0;z-index:2147483390;display:flex;align-items:center;gap:6px;height:42px;padding:0 6px;box-sizing:border-box;background:linear-gradient(180deg,#184fa8,#0d2f6e);border-bottom:2px solid #cbd5e1;box-shadow:inset 0 -3px 0 rgba(56,189,248,.45),0 3px 10px rgba(0,0,0,.5)}
+#hub9[hidden]{display:none!important}
+#hub9 .h9t{font:900 11px/1 sans-serif;color:#fde68a;white-space:nowrap;letter-spacing:.04em}
+#hub9 .h9tabs{flex:1;display:flex;gap:4px;min-width:0}
+#hub9 .h9tabs button{position:relative;flex:1;min-width:0;height:30px;border-radius:7px;border:1px solid #64748b;background:rgba(8,24,60,.85);color:#bfdbfe;font:900 9px/1 sans-serif;padding:0 2px;white-space:nowrap}
+#hub9 .h9tabs button.on{background:linear-gradient(180deg,#38bdf8,#0284c7);border-color:#e0f2fe;color:#fff;text-shadow:0 1px 1px #0c4a6e}
+#hub9 .h9tabs button.lk{opacity:.5}
+#hub9 .h9tabs button em{position:absolute;top:2px;right:3px;width:7px;height:7px;border-radius:50%;background:#ef4444}
+#hub9 .h9x{width:30px;height:30px;border-radius:7px;border:1px solid #cbd5e1;background:#0b2152;color:#fff;font:900 14px/1 sans-serif;padding:0}
+/* ---------- Kho: tàu trên · chỉ số trái · Trang phục phải · 3 lối tắt · hàng 4 ô · CƯỜNG HÓA / CẢI TẠO / TÚI ĐỒ ---------- */
+@U9 #hb-body.k307 .hb-doll.d9{position:relative!important;display:grid!important;grid-template-columns:repeat(4,1fr)!important;grid-template-rows:auto auto auto!important;gap:6px 5px!important;align-items:stretch!important;justify-items:stretch!important;padding:6px 4px!important}
+@U9 #hb-body.k307 .hb-doll.d9 > .hb-ship{grid-row:1!important;grid-column:1/-1!important;justify-self:center!important;width:58%!important;min-width:0!important;margin:0!important}
+@U9 #hb-body.k307 .hb-doll.d9 > .hb-ship canvas{width:100%!important;height:auto!important}
+@U9 #hb-body.k307 .hb-doll.d9 > .hb-ship .k307-sht{font-size:8.5px!important}
+@U9 #hb-body.k307 .hb-doll.d9 > .c9sc{grid-row:2!important;grid-column:1/-1!important}
+@U9 #hb-body.k307 .hb-doll.d9 > .c9ship{grid-area:3/1!important}
+@U9 #hb-body.k307 .hb-doll.d9 > [data-k307k=armor]{grid-area:3/2!important}
+@U9 #hb-body.k307 .hb-doll.d9 > [data-k307k=missiles]{grid-area:3/3!important}
+@U9 #hb-body.k307 .hb-doll.d9 > [data-k307k=sidearm]{grid-area:3/4!important}
+@U9 #hb-body.k307 .hb-doll.d9 > .hb-slot{width:auto!important;min-width:0!important;max-width:none!important;min-height:112px!important;margin:0!important;padding-left:2px!important;padding-right:2px!important}
+@U9 #hb-body.k307 .hb-doll.d9 > .hb-slot > b{font-size:8px!important;line-height:1.1!important}
+@U9 #hb-body.k307 > .k307-bar{display:none!important}
+.c9ship{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;color:#fff;cursor:pointer}
+.c9ship .c9art{display:flex;align-items:center;justify-content:center;width:56px;height:52px}
+.c9ship .c9art img{max-width:100%;max-height:100%;object-fit:contain}
+.c9ship b{font:800 8px/1.1 sans-serif;text-align:center;color:#fff}
+.c9ship small{font:800 8px/1 sans-serif;color:#bae6fd}
+.c9sc{display:grid;grid-template-columns:repeat(3,1fr);gap:5px}
+.c9sc button{display:flex;align-items:center;justify-content:center;gap:4px;height:32px;border-radius:8px;border:1px solid #94a3b8;background:linear-gradient(180deg,#1d5bbf,#0d2f6e);box-shadow:inset 0 0 0 1px rgba(56,189,248,.4);color:#e0f2fe;padding:0 3px}
+.c9sc i{width:22px;height:22px;flex:0 0 auto}.c9sc i img{width:100%;height:100%;object-fit:contain}.c9sc i b{font-size:14px}
+.c9sc small{font:900 8px/1.05 sans-serif;text-align:left}
+.c9tp{position:absolute;right:6px;top:6px;z-index:3;height:26px;padding:0 10px;border-radius:13px;border:1.5px solid #fed7aa;background:linear-gradient(180deg,#fb923c,#ea580c);box-shadow:inset 0 1px 0 #ffedd5,0 2px 6px rgba(0,0,0,.45);color:#fff;font:900 10px/1 sans-serif;white-space:nowrap;text-shadow:0 1px 1px #7c2d12}
+.c9tp i{width:28px;height:28px}.c9tp i img{width:100%;height:100%;object-fit:contain}.c9tp small{font:900 7.5px/1 sans-serif}
+.c9st{position:absolute;left:6px;top:6px;z-index:3;display:flex;flex-direction:column;gap:3px;pointer-events:none}
+.c9st span{display:flex;flex-direction:column;min-width:64px;padding:2px 6px;border-radius:6px;border:1px solid #64748b;background:rgba(9,30,74,.78);font:800 7.5px/1.2 sans-serif;color:#93c5fd}
+.c9st b{font:900 11px/1.1 sans-serif;color:#fde68a}
+@U9 .c9bar{display:grid!important;grid-template-columns:58px 1fr 1fr 58px!important;gap:6px!important;margin:4px 8px 6px!important}
+@U9 .c9bar button{display:flex!important;flex-direction:column!important;align-items:center!important;justify-content:center!important;height:52px!important;border-radius:10px!important;padding:0 4px!important;font:900 15px/1.1 sans-serif!important;letter-spacing:.04em!important}
+@U9 .c9bar button small{font:800 8.5px/1.1 sans-serif!important;letter-spacing:0!important;opacity:.9!important}
+@U9 .c9bar .up{background:linear-gradient(180deg,#fbbf24,#f59e0b)!important;border:1.5px solid #fde68a!important;color:#1a1200!important;box-shadow:inset 0 1px 0 #fff7d6,0 3px 8px rgba(0,0,0,.45)!important}
+@U9 .c9bar .cai{background:linear-gradient(180deg,#4ade80,#10b981)!important;border:1.5px solid #bbf7d0!important;color:#052e16!important;box-shadow:inset 0 1px 0 #dcfce7,0 3px 8px rgba(0,0,0,.45)!important}
+@U9 .c9bar .bag{background:linear-gradient(180deg,#38bdf8,#0284c7)!important;border:1.5px solid #e0f2fe!important;color:#fff!important;font-size:9px!important}
+@U9 .c9bar .bag i{width:26px!important;height:26px!important;font-style:normal!important;font-size:20px}.c9bar .bag i img{width:100%!important;height:100%!important;object-fit:contain!important}
+/* ---------- Túi đồ: nút hành động thông minh ---------- */
+.k9a{display:inline-block;margin-top:3px;padding:4px 8px;border-radius:6px;background:linear-gradient(180deg,#fbbf24,#f59e0b);border:1px solid #fde68a;color:#1a1200;font:900 9px/1 sans-serif;white-space:nowrap;cursor:pointer;pointer-events:auto}
+.k9a.b{background:linear-gradient(180deg,#38bdf8,#0284c7);border-color:#e0f2fe;color:#fff}
+.k9a.m{background:none;border:0;color:#86efac;padding:4px 0;cursor:default}
+#k307.k9top{z-index:2147483350!important}
+@U9 #nc307 .nc307-row s.lo{color:#fff!important;background:#dc2626!important;border-color:#fca5a5!important}
+@U9 #nc307 .nc307-vl{margin-left:4px!important}
+/* ---------- THEME9: nền Royal Blue + viền chrome + đường cyan ---------- */
+@T9 .m63 > .m63-card::before{border-width:2px!important;border-style:solid!important;border-color:#cbd5e1!important;border-image:none!important;border-radius:12px!important;
+ background:linear-gradient(180deg,#0f3a88 0,#0a2a66 46px,#38bdf8 46px,#38bdf8 47px,transparent 47px),repeating-linear-gradient(0deg,rgba(125,211,252,.07) 0 1px,transparent 1px 22px),repeating-linear-gradient(90deg,rgba(125,211,252,.07) 0 1px,transparent 1px 22px),linear-gradient(180deg,#184fa8,#0d2f6e)!important;
+ box-shadow:inset 0 0 0 1px #64748b,inset 0 0 0 3px rgba(56,189,248,.45)!important}
+@T9 #nav74p .n74pc,@T9 #m40 .mm,@T9 .e74p .e74c,@T9 #k307 .k307-in{border:2px solid #cbd5e1!important;border-image:none!important;border-radius:12px!important;
+ background:repeating-linear-gradient(0deg,rgba(125,211,252,.07) 0 1px,transparent 1px 22px),repeating-linear-gradient(90deg,rgba(125,211,252,.07) 0 1px,transparent 1px 22px),linear-gradient(180deg,#184fa8,#0d2f6e)!important;
+ box-shadow:inset 0 0 0 1px #64748b,inset 0 0 0 3px rgba(56,189,248,.45),0 8px 24px rgba(0,0,0,.6)!important}
+@T9 #nav74p .n74pc::before,@T9 #nav74p .n74pc::after,@T9 #m40 .mm::before,@T9 #k307 .k307-in::before{display:none!important}
+@T9 #hub40{background-color:#0d2f6e!important}
+/* thẻ / hàng trong bảng */
+@T9 #nav74p .n74card,@T9 .m63 .it8,@T9 .m63 .mid8,@T9 .m63 .oc8{background:linear-gradient(180deg,rgba(29,91,191,.55),rgba(10,36,92,.85))!important;border:1px solid #94a3b8!important;border-image:none!important;box-shadow:inset 0 0 0 1px rgba(56,189,248,.3)!important}
+@T9 .m63 .oc8.sel{box-shadow:0 0 0 2px #fde68a,0 0 10px rgba(253,230,138,.5)!important}
+/* 3 tông nút */
+@T9 .wr8:not(.use),@T9 #hb-body .k307-bar [data-k=up],@T9 #hb-body .k307-bar [data-k=adv],@T9 #r-claim,@T9 #chest-open-all,@T9 .m63 button.big{background:linear-gradient(180deg,#fbbf24,#f59e0b)!important;border:1.5px solid #fde68a!important;border-image:none!important;color:#1a1200!important;-webkit-text-fill-color:#1a1200!important;text-shadow:0 1px 0 rgba(255,255,255,.35)!important;font-weight:900!important;box-shadow:inset 0 1px 0 #fff7d6,0 3px 8px rgba(0,0,0,.4)!important}
+@T9 #hb-body .k307-bar [data-k=up] small,@T9 #hb-body .k307-bar [data-k=adv] small{color:#3b2500!important;-webkit-text-fill-color:#3b2500!important}
+@T9 #k307 .k307-tabs .on,@T9 #k307 .k307-foot .on,@T9 .sk8 .tb8 button[aria-pressed=true],@T9 #hb-body .k307-bag{background:linear-gradient(180deg,#38bdf8,#0284c7)!important;border:1.5px solid #e0f2fe!important;border-image:none!important;color:#fff!important;-webkit-text-fill-color:#fff!important;text-shadow:0 1px 1px #0c4a6e!important}
+@T9 #k307 .k307-tabs button:not(.on),@T9 #k307 .k307-foot button:not(.on):not(.k9sw),@T9 .sk8 .tb8 button:not([aria-pressed=true]){background:rgba(8,28,70,.85)!important;border:1px solid #64748b!important;border-image:none!important;color:#bfdbfe!important;-webkit-text-fill-color:#bfdbfe!important}
+@T9 #k307 .k307-acts button{background:linear-gradient(180deg,#4ade80,#10b981)!important;border:1.5px solid #bbf7d0!important;border-image:none!important;color:#052e16!important;-webkit-text-fill-color:#052e16!important;font-weight:900!important;text-shadow:0 1px 0 rgba(255,255,255,.3)!important}
+@T9 .at8{color:#4ade80!important}
+
+/* khi thanh tab nổi đang mở: đẩy nội dung các màn xuống dưới thanh */
+html.hub9on body .m63:not([hidden]),html.hub9on body #nav74p,html.hub9on body #w74,html.hub9on body #m40{padding-top:46px!important;box-sizing:border-box!important}
+@U9 .c9bar .back{background:linear-gradient(180deg,#38bdf8,#0284c7)!important;border:1.5px solid #e0f2fe!important;color:#fff!important;font-size:9px!important}
+@U9 .c9bar .back i{font-style:normal!important;font-size:18px!important;line-height:1!important}
+.c9st span{min-width:78px}
+/* túi: 3 nút xanh lá + mặc tốt nhất trên thanh đầu */
+@U9 #k307 .k9acts{grid-template-columns:repeat(3,1fr)!important}
+@U9 #k307 .k9best{margin-left:auto!important;margin-right:6px!important;height:24px!important;padding:0 8px!important;border-radius:6px!important;border:1px solid #e0f2fe!important;background:linear-gradient(180deg,#38bdf8,#0284c7)!important;color:#fff!important;font:900 9px/1 sans-serif!important}
+@U9 #k307 .k9sw{background:linear-gradient(180deg,#fbbf24,#f59e0b)!important;border:1.5px solid #fde68a!important;color:#1a1200!important;-webkit-text-fill-color:#1a1200!important;font-weight:900!important;flex:0 0 auto!important;padding:0 12px!important}
+@U9 #k307 .k9h{display:grid!important;grid-template-columns:1fr 1fr 1fr!important;gap:6px!important}
+@U9 #k307 .k9h [data-k=hauto]{background:linear-gradient(180deg,#38bdf8,#0284c7)!important;color:#fff!important;-webkit-text-fill-color:#fff!important;border:1.5px solid #e0f2fe!important}
+@U9 #k307 .k9h .k9ah{background:linear-gradient(180deg,#4ade80,#10b981)!important;color:#052e16!important;-webkit-text-fill-color:#052e16!important;border:1.5px solid #bbf7d0!important}
+@U9 #k307 .k9h .go{background:linear-gradient(180deg,#fbbf24,#f59e0b)!important;color:#1a1200!important;-webkit-text-fill-color:#1a1200!important;border:1.5px solid #fde68a!important}
+@U9 #k307 .k307-rr .k9a{display:block!important;margin:3px 0 0 auto!important;width:max-content!important}
+/* Cường hóa: nút chuyển chế độ vàng góc dưới trái, bảng chọn 4 tab ở đáy + dấu tick */
+@U9 #nc307 .nc307-bot .nc307-b2{background:linear-gradient(180deg,#fbbf24,#f59e0b)!important;border:1.5px solid #fde68a!important;color:#1a1200!important;-webkit-text-fill-color:#1a1200!important;font-weight:900!important}
+@U9 #nc307 .nc307-auto{background:linear-gradient(180deg,#38bdf8,#0284c7)!important;border:1.5px solid #e0f2fe!important;color:#fff!important;-webkit-text-fill-color:#fff!important}
+@U9 #nc307 .nc307-shp{display:flex!important;flex-direction:column!important}
+@U9 #nc307 .nc307-tabs.t9{order:9!important;margin:6px 0 0!important}
+@U9 #nc307 .nc307-row{position:relative!important}
+@U9 #nc307 .nc307-row .tk9{flex:0 0 auto!important;width:20px!important;height:20px!important;margin-left:6px!important;border-radius:50%!important;border:2px solid #94a3b8!important;font:900 13px/16px sans-serif!important;font-style:normal!important;text-align:center!important;color:#052e16!important;align-self:center!important}
+@U9 #nc307 .nc307-row .tk9.on{background:#4ade80!important;border-color:#bbf7d0!important}
+
+@T9 #nc307{background:repeating-linear-gradient(0deg,rgba(125,211,252,.06) 0 1px,transparent 1px 22px),repeating-linear-gradient(90deg,rgba(125,211,252,.06) 0 1px,transparent 1px 22px),linear-gradient(180deg,#184fa8,#0d2f6e)!important}
+@U9 #nc307 .nc307-top b{white-space:nowrap!important;font-size:13px!important;letter-spacing:.02em!important}
+@U9 #nc307 .nc307-bot .nc307-go{background:linear-gradient(180deg,#fbbf24,#f59e0b)!important;border:1.5px solid #fde68a!important;border-image:none!important;color:#1a1200!important;-webkit-text-fill-color:#1a1200!important;font-weight:900!important;box-shadow:inset 0 1px 0 #fff7d6,0 3px 8px rgba(0,0,0,.4)!important}
+@U9 #nc307 .nc307-bot .nc307-go:disabled{filter:saturate(.35) brightness(.8)!important}
+@U9 #nc307 .nc307-bot .nc307-b2{border-image:none!important;background-image:linear-gradient(180deg,#fbbf24,#f59e0b)!important;min-width:96px!important;white-space:nowrap!important}
+@U9 #nc307 .nc307-bot .nc307-b3{background:linear-gradient(180deg,#38bdf8,#0284c7)!important;border:1.5px solid #e0f2fe!important;border-image:none!important;color:#fff!important;-webkit-text-fill-color:#fff!important}
+@U9 #k307 .k9best{flex:0 0 auto!important;white-space:nowrap!important;width:auto!important;min-width:0!important}
+@U9 #k307 .k9sw{white-space:nowrap!important;min-width:0!important;width:auto!important;max-width:none!important;font-size:10px!important;padding:0 10px!important}
+@U9 #hb-body .c9bar button{border-image:none!important;background-image:none}
+@U9 #k307 .k307-foot .k9sw{grid-column:1/-1!important;flex:0 0 auto!important;justify-self:start!important}
+@U9 #k307 .k307-foot .k9sw{background:linear-gradient(180deg,#fbbf24,#f59e0b)!important;border:1.5px solid #fde68a!important;border-image:none!important;color:#1a1200!important;-webkit-text-fill-color:#1a1200!important;font-weight:900!important}
