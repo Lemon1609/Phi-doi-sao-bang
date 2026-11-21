@@ -1136,6 +1136,16 @@ rep("if(shake>0&&mode==='play'&&!VisualFX.reduced()){const A=typeof FX16S==='fun
 rep("{const k78=(window.Bal787&&Bal787.bossDrop)?Bal787.bossDrop(p.x,p.y,'wing'):(Safety31.push(drops,100,{x:p.x,y:p.y,type:'power',t:0}),'power');toast((p.side<0?'CÁNH TRÁI':'CÁNH PHẢI')+' ĐÃ PHÁ'+(k78==='heal'?' · HỒI MÁU':k78==='power'?' · W':''));}",
     "{const k78=typeof L6309!=='undefined'?L6309.wingDrop(p.x,p.y):(window.Bal787&&Bal787.bossDrop)?Bal787.bossDrop(p.x,p.y,'wing'):(Safety31.push(drops,100,{x:p.x,y:p.y,type:'power',t:0}),'power');toast((p.side<0?'CÁNH TRÁI':'CÁNH PHẢI')+' ĐÃ PHÁ'+(k78==='heal'?' · HỒI MÁU':k78==='power'?' · W':k78==='shield'?' · HỒI KHIÊN':k78==='super'?' · SIÊU CẤP':''));}")
 rep("</body>","<style id=\"l6309-css\">#auto6{position:absolute;z-index:30;white-space:nowrap;display:flex;align-items:center;gap:4px;height:24px;padding:0 9px 0 7px;border-radius:12px;border:1px solid rgba(125,211,252,.55);background:linear-gradient(180deg,rgba(15,30,52,.88),rgba(8,16,30,.88));color:#bfe6ff;font:800 10px/1 sans-serif;letter-spacing:.06em;pointer-events:auto;touch-action:none}#auto6 i{width:10px;height:10px;border-radius:50%;background:#334155;box-shadow:inset 0 0 0 1.5px #64748b}#auto6.on{border-color:#fbbf24;color:#ffe9a8;background:linear-gradient(180deg,rgba(66,42,6,.9),rgba(28,16,2,.9))}#auto6.on i{background:#fbbf24;box-shadow:0 0 6px #fbbf24}#auto6[hidden]{display:none}</style><script id=\"l6309-js\">"+open('src/l6309.js',encoding='utf-8').read()+"</script></body>")
+# ---- V309 Lượt 7 · môi trường động, bộ trang bị nhanh, Bách Khoa, nhiệm vụ mới ----
+CODEX7={}
+for _i in range(7):
+    for _s,_f in (('f','chandung'),('b','bay')):
+        _pp='src/hop4309/hop%d_%s.png'%(_i+1,_f)
+        if os.path.exists(_pp):CODEX7['r%d%s'%(_i,_s)]=_w8(_pp,224)
+for _pp in sorted(_g.glob('src/sss309/*.png')):CODEX7['x_'+os.path.splitext(os.path.basename(_pp))[0]]=_w8(_pp,112)
+print('codex7:',len(CODEX7))
+L7CSS=open('src/l7309.css',encoding='utf-8').read()
+rep("</body>","<style id=\"l7309-css\">"+L7CSS+"</style><script>const CODEX7_IMG="+json.dumps(CODEX7)+";</script><script id=\"l7309-js\">"+open('src/l7309.js',encoding='utf-8').read()+"</script></body>")
 open('Phi_Doi_Sao_Bang_V74_mau.html','w',encoding='utf-8').write(h);print(round(len(h)/1e6,2),'MB')
 # ---- V100 · BẢN THỬ cho chủ dự án: dữ liệu tách riêng (tiền tố thu100:) + bảng nạp tài khoản mẫu ----
 # V301: chỉ dựng khi cần (BAN_THU=1 hoặc khi xuất bản) để mỗi lần dựng nhanh hơn, bớt một tệp 81 MB

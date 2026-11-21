@@ -1,0 +1,44 @@
+/* V309 Lượt 7 · hàng BỘ 1–3 ở Sảnh + Bách Khoa + nhãn nhiệm vụ MỚI */
+.ld7{display:flex;gap:5px;margin:0 0 5px;padding:0 2px;position:relative;z-index:3}
+.ld7[hidden]{display:none}
+.ld7 button{flex:1;min-width:0;height:30px;padding:2px 4px;border-radius:7px;border:1px solid rgba(125,211,252,.4);background:linear-gradient(180deg,rgba(18,36,62,.92),rgba(8,16,30,.92));color:#cfe9ff;display:flex;flex-direction:column;align-items:center;justify-content:center;line-height:1.05;cursor:pointer}
+.ld7 button b{font:800 10.5px/1 sans-serif;letter-spacing:.06em}
+.ld7 button small{font:600 8.5px/1.1 sans-serif;color:#8fb3d1;max-width:100%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.ld7 button.em{border-style:dashed;opacity:.85}
+.ld7 button.on{border-color:#fbbf24;background:linear-gradient(180deg,rgba(80,52,8,.95),rgba(30,18,2,.95));color:#ffe9a8;box-shadow:0 0 8px rgba(251,191,36,.35)}
+.ld7 button.on small{color:#fcd77f}
+.ld7 button.sv{flex:.62;border-color:rgba(52,211,153,.55);color:#a7f3d0;font:800 10.5px/1 sans-serif}
+.cx7 .m63-card{max-width:440px;width:calc(100vw - 20px);max-height:calc(100vh - 40px);overflow:auto}
+.cx7-bonus{display:flex;flex-wrap:wrap;align-items:center;gap:6px 12px;margin:6px 0 8px;padding:8px 10px;border-radius:9px;background:linear-gradient(90deg,rgba(251,191,36,.16),rgba(56,189,248,.1));border:1px solid rgba(251,191,36,.45);color:#fde9b0;font:700 12px/1.2 sans-serif}
+.cx7-bonus b{color:#fbbf24;letter-spacing:.08em;font-size:11px}
+.cx7-bonus span i{font-style:normal;color:#fff;font-size:15px;font-weight:900}
+.cx7-bonus small{flex-basis:100%;color:#a8c4dc;font-weight:600}
+.cx7-tabs{display:flex;gap:4px;margin-bottom:8px}
+.cx7-tabs button{flex:1;height:30px;border-radius:7px;border:1px solid rgba(125,211,252,.35);background:rgba(10,22,40,.85);color:#9fc4e0;font:800 10.5px/1 sans-serif}
+.cx7-tabs button[aria-pressed=true]{border-color:#38bdf8;background:linear-gradient(180deg,#0e4a72,#0a2a44);color:#fff}
+.cx7-detail{display:flex;gap:10px;align-items:center;min-height:118px;margin-bottom:8px;padding:8px;border-radius:9px;background:rgba(6,14,26,.7);border:1px solid rgba(125,211,252,.22)}
+.cx7-big{display:flex;gap:4px;flex:0 0 auto}
+.cx7-big img{width:104px;height:104px;object-fit:contain}
+.cx7-big img+img{margin-left:-6px}
+.cx7-big:has(img+img) img{width:78px;height:96px}
+.cx7-dt{min-width:140px}
+.cx7-big.lk img{filter:brightness(0) drop-shadow(0 0 4px rgba(120,160,200,.5))}
+.cx7-dt{flex:1;min-width:0;color:#d6e8f7;font:600 11.5px/1.35 sans-serif}
+.cx7-dt h4{margin:0 0 4px;font:900 13px/1.2 sans-serif;color:#fff}
+.cx7-dt h4 em{font-style:normal;color:#f87171;font-size:10px;margin-left:4px}
+.cx7-dt ul{margin:0;padding-left:15px}
+.cx7-dt b{color:#7dd3fc}
+.cx7-hint{color:#8fb3d1;font:600 12px/1.3 sans-serif;margin:0}
+.cx7-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:6px}
+.cx7-grid.t-rob{grid-template-columns:repeat(3,1fr)}
+.cx7-c{position:relative;padding:4px 2px 3px;border-radius:8px;border:1px solid rgba(125,211,252,.35);background:radial-gradient(circle at 50% 40%,rgba(56,189,248,.22),rgba(6,12,24,.92) 70%);color:#e6f3ff;display:flex;flex-direction:column;align-items:center;gap:2px;min-width:0}
+.cx7-c span{display:flex;justify-content:center;width:100%}
+.cx7-c img{width:62px;height:62px;object-fit:contain}
+.t-rob .cx7-c img{width:52px;height:68px}
+.cx7-c small{font:700 9px/1.15 sans-serif;text-align:center;max-width:100%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.cx7-c.lk{background:rgba(6,10,18,.9);border-color:rgba(100,116,139,.35)}
+.cx7-c.lk img{filter:brightness(0) drop-shadow(0 0 3px rgba(120,160,200,.45))}
+.cx7-c.lk small{color:#64748b}
+.cx7-c.sel{border-color:#fbbf24;box-shadow:0 0 8px rgba(251,191,36,.45)}
+.cx7-note{margin:8px 0 0;color:#8fb3d1;font:600 10.5px/1.3 sans-serif}
+.q7n{font-style:normal;color:#fbbf24;font-weight:800}

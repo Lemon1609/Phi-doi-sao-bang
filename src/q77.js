@@ -31,6 +31,16 @@ const QUEST_CONFIG_V77={
   // V307 (Gemini cân bằng): 2 nhiệm vụ tuần mới, tổng điểm tuần 600 → 720, mốc cao nhất vẫn 500
   W_ENDLESS_RUN:{target:5,points:60,title:'Chơi 5 trận Vô Tận',ev:'endless',rw:{alloy:8000,exp:2}},
   W_SWEEP_OPS:{target:15,points:60,title:'Càn quét ải 15 lần',ev:'sweep',rw:{phLuc:1,tk:2}}}};
+// V309 Lượt 7 (QUEST7): nhiệm vụ mới gắn vào hệ cũ, 0 điểm năng động (không đổi đường tới mốc 💎), thưởng thẳng hợp kim / mảnh phi công chính (psh) / nguyên liệu Hợp thể M1–M4 (m). Tắt: window.QUEST7=false
+if(window.QUEST7!==false){Object.assign(QUEST_CONFIG_V77.DAILY_TASKS,{
+  D_KILL7:{target:150,points:0,title:'Hạ 150 quái',ev:'kill7',rw:{alloy:2000}},
+  D_BOSS7:{target:1,points:0,title:'Hạ 1 Boss',ev:'boss',rw:{m:1}},
+  D_SUPER7:{target:3,points:0,title:'Kích hoạt Bạo Tẩu 3 lần',ev:'super7',rw:{psh:2}},
+  D_PART7:{target:2,points:0,title:'Phá 2 cánh Boss',ev:'part7',rw:{m:1,alloy:1000}}});
+ Object.assign(QUEST_CONFIG_V77.WEEKLY_TASKS,{
+  W_BOSS7:{target:15,points:0,title:'Hạ 15 Boss',ev:'boss',rw:{m:4,alloy:5000}},
+  W_ESCORE7:{target:1,points:0,title:'Đạt hạng Bạc Vô Tận (60.000 điểm) trong 1 trận',ev:'escore7',rw:{psh:10,m:2}},
+  W_GEAR7:{target:10,points:0,title:'Nâng cấp / đột phá / khảm trang bị 10 lần',ev:'upgrade',rw:{alloy:8000,m:2}}});}
 const Q77=(()=>{
  const KEY='PLAYER_QUESTS_V77',C=QUEST_CONFIG_V77;
  const dayK=()=>new Date(Date.now()+7*3600000).toISOString().slice(0,10);
@@ -41,6 +51,7 @@ const Q77=(()=>{
  function roll(){const d=dayK(),w=weekK();let ch=false;if(d>S.d){S.d=d;S.dp=0;S.dc=[];S.dpr={};ch=true;}if(w>S.w){S.w=w;S.wp=0;S.wc=[];S.wpr={};ch=true;}if(ch){save();setTimeout(()=>track('login',1),0);}}
  const unlocked=()=>{try{return Onboard66.cleared()>=2;}catch{return true;}};
  function give(rw,why){if(!rw)return;try{if(rw.alloy)Progress.grantCredits(rw.alloy);if(rw.exp)Workshop.grant({exp:rw.exp});if(rw.tk)V75.addTk(rw.tk);if(rw.energy)V75.addEn(rw.energy,why);
+  if(rw.m&&typeof Hop309!=='undefined')Hop309.add(rw.m);if(rw.psh){try{const st=Pilot67.state(),own=Object.keys(st.own).map(Number),mp=st.team[0]&&st.own[st.team[0]]?st.team[0]:own[0];if(mp)Pilot67._piece(mp,rw.psh);else Progress.grantCredits(rw.psh*900);}catch{}}
   if(rw.ph||rw.phLuc){const ks=Object.keys(GearCatalog).filter(k=>!/36$/.test(k));V70.phAdd('gear',ks[Math.floor(Math.random()*ks.length)],rw.phLuc?1:0,1);}}catch(e){console.warn('Q77',e);}}
  function extra(x){if(!x)return;if(Array.isArray(x)){for(const y of x)extra(y);return;}try{const st=Pilot67.state();const owned=Object.keys(st.own).map(Number);const mainP=st.team[0]&&st.own[st.team[0]]?st.team[0]:owned[0];
   if(x.type==='XP4'){XPDA307.add(4,x.amount);}/* V307 Gemini: Đá XP IV mốc tuần */
@@ -54,10 +65,10 @@ const Q77=(()=>{
   else if(x.type==='BLUE_FODDER_SMART'){let done=false;try{if(Math.random()<.5){const eq=Progress.v70.equipped(),its=Object.values(eq).map(id=>Progress.v70.get(id)).filter(Boolean);if(its.length){V70.phAdd('gear',its[Math.floor(Math.random()*its.length)].variant,2,1);done=true;}}}catch{}if(!done){let c=0;try{c=launchCraft|0;}catch{}V70.phAdd('craft',c,2,1);}}
   else if(x.type==='BLUE_FODDER_BOX'){let c=0;try{c=launchCraft|0;}catch{}V70.phAdd('craft',c,2,1);}}catch(e){console.warn('Q77 extra',e);}}
  const exTxt=x=>!x?'':Array.isArray(x)?x.map(y=>exTxt(y)).filter(Boolean).join(' · '):x.type==='XP4'?x.amount+' Đá XP IV':x.type==='PH_LUC_RANDOM'?'1 phôi Lục':x.type==='SEASON_XP'?x.amount+' XP mùa giải':x.type==='BLUE_FODDER_SMART'?'1 phôi Lam món đang dùng':x.type==='SWEEP_TICKET'?x.amount+' vé càn quét':x.type==='SOCKET_BOX_LV1'?'2 đá khảm Lục':x.type==='PILOT_BOX_RANDOM'?'5 mảnh phi công':x.type==='PILOT_SHARDS_SELECT'?x.amount+' mảnh phi công chính':x.type==='ULT_BOSS_TICKET'?'1 vé Phó bản giới hạn':x.type==='BLUE_FODDER_BOX'?'1 phôi Lam chiến cơ':'';
- const rwTxt=r=>[r.alloy?fmt(r.alloy)+' ◈':'',r.exp?r.exp+' ⬢':'',r.tk?r.tk+' 🎫':'',r.energy?r.energy+' 🔋':'',r.ph?'1 phôi Trắng':'',r.phLuc?'1 phôi Lục':''].filter(Boolean).join(' + ');
+ const rwTxt=r=>[r.alloy?fmt(r.alloy)+' ◈':'',r.exp?r.exp+' ⬢':'',r.tk?r.tk+' 🎫':'',r.energy?r.energy+' 🔋':'',r.ph?'1 phôi Trắng':'',r.phLuc?'1 phôi Lục':'',r.m?r.m+' nguyên liệu Hợp thể':'',r.psh?r.psh+' mảnh phi công':''].filter(Boolean).join(' + ');
  function track(ev,n=1){roll();let changed=false;
-  for(const [k,t] of Object.entries(C.DAILY_TASKS))if(t.ev===ev){const c=S.dpr[k]|0;if(c<t.target){S.dpr[k]=Math.min(t.target,c+n);changed=true;if(S.dpr[k]>=t.target){S.dp=Math.min(140,S.dp+t.points);give(t.rw,t.title);T('✔ NHIỆM VỤ NGÀY · '+t.title+' · +'+t.points+' năng động');setTimeout(()=>track('dpts',t.points),0);}}}
-  for(const [k,t] of Object.entries(C.WEEKLY_TASKS))if(t.ev===ev){const c=S.wpr[k]|0;if(c<t.target){S.wpr[k]=Math.min(t.target,c+n);changed=true;if(S.wpr[k]>=t.target){S.wp=Math.min(720,S.wp+t.points);give(t.rw,t.title);T('✔ NHIỆM VỤ TUẦN · '+t.title+' · +'+t.points+' điểm tuần');}}}
+  for(const [k,t] of Object.entries(C.DAILY_TASKS))if(t.ev===ev){const c=S.dpr[k]|0;if(c<t.target){S.dpr[k]=Math.min(t.target,c+n);changed=true;if(S.dpr[k]>=t.target){S.dp=Math.min(140,S.dp+t.points);give(t.rw,t.title);T('✔ NHIỆM VỤ NGÀY · '+t.title+(t.points?' · +'+t.points+' năng động':''));setTimeout(()=>track('dpts',t.points),0);}}}
+  for(const [k,t] of Object.entries(C.WEEKLY_TASKS))if(t.ev===ev){const c=S.wpr[k]|0;if(c<t.target){S.wpr[k]=Math.min(t.target,c+n);changed=true;if(S.wpr[k]>=t.target){S.wp=Math.min(720,S.wp+t.points);give(t.rw,t.title);T('✔ NHIỆM VỤ TUẦN · '+t.title+(t.points?' · +'+t.points+' điểm tuần':''));}}}
   if(changed){save();paintDot();if(el&&!el.hidden)render();}}
  function claim(kind,pts){roll();const L=kind==='d'?C.DAILY_MILESTONES:C.WEEKLY_MILESTONES,m=L.find(x=>x.points===pts),have=kind==='d'?S.dp:S.wp,got=kind==='d'?S.dc:S.wc;
   if(!m||got.includes(pts)||have<pts)return false;got.push(pts);save();try{if(m.gem)Econ74.add(m.gem,(kind==='d'?'năng động ngày ':'năng động tuần ')+pts);}catch{}try{if(m.alloy)Progress.grantCredits(m.alloy);if(m.energy)V75.addEn(m.energy,'mốc năng động');if(m.exp)Workshop.grant({exp:m.exp});if(m.core)Meta407.addCores(m.core,'NHIỆM VỤ TUẦN');}catch{}extra(m.extra);render();paintDot();return true;}
@@ -84,7 +95,7 @@ const Q77=(()=>{
  function render(){if(!el)return;const D=tab==='d',L=D?C.DAILY_MILESTONES:C.WEEKLY_MILESTONES,tasks=D?C.DAILY_TASKS:C.WEEKLY_TASKS,pr=D?S.dpr:S.wpr,have=D?S.dp:S.wp,got=D?S.dc:S.wc,max=L[L.length-1].points;
   const bar=`<div class="q77-bar"><div class="q77-fill" style="width:${Math.min(100,have/max*100)}%"></div>${L.map(m=>{const ok=have>=m.points,g=got.includes(m.points);return `<button class="q77-ms ${ok?'ok':''} ${g?'got':''}" style="left:${m.points/max*100}%" data-q77="cl" data-k="${tab}" data-p="${m.points}" title="${m.gem} 💎"><i>${g?'✓':'🎁'}</i><small>${m.points}</small></button>`;}).join('')}</div>
    <div class="q77-mrw">${L.map(m=>`<span class="${got.includes(m.points)?'got':have>=m.points?'ok':''}"><b>${m.points}</b> ${m.gem} 💎${m.alloy?' · '+fmt(m.alloy)+' ◈':''}${m.energy?' · '+m.energy+' 🔋':''}${m.exp?' · '+m.exp+' ⬢':''}${m.core?' · 1 lõi':''}${m.extra?' · '+exTxt(m.extra):''}</span>`).join('')}</div>`;
-  const rows=Object.entries(tasks).map(([k,t])=>{const c=pr[k]|0,done=c>=t.target;return `<div class="q77-t ${done?'done':''}"><div><b>${t.title}</b><small>${rwTxt(t.rw)} · +${t.points} ${D?'năng động':'điểm tuần'}</small><div class="q77-pb"><i style="width:${Math.min(100,c/t.target*100)}%"></i></div></div><em>${done?'✓':fmt(c)+'/'+fmt(t.target)}</em></div>`;}).join('');
+  const rows=Object.entries(tasks).map(([k,t])=>{const c=pr[k]|0,done=c>=t.target;return `<div class="q77-t ${done?'done':''}"><div><b>${t.title}</b><small>${rwTxt(t.rw)}${t.points?` · +${t.points} ${D?'năng động':'điểm tuần'}`:' · <i class="q7n">MỚI</i>'}</small><div class="q77-pb"><i style="width:${Math.min(100,c/t.target*100)}%"></i></div></div><em>${done?'✓':fmt(c)+'/'+fmt(t.target)}</em></div>`;}).join('');
   el.innerHTML=`<div class="m63-card q77-card"><div class="q77-top"><b>NHIỆM VỤ</b><button data-q77="x" class="q77-x">✕</button></div>
    <div class="q77-tabs"><button data-q77="tab" data-t="d" aria-pressed="${D}">NGÀY · ${S.dp}/140</button><button data-q77="tab" data-t="w" aria-pressed="${!D}">TUẦN · ${S.wp}/600</button></div>
    <p class="q77-s">${D?'Đủ 100 năng động là nhận hết mốc ngày. Làm mới lúc 0 giờ (giờ VN).':'Đủ 500 điểm là nhận hết mốc tuần. Làm mới sáng thứ Hai.'}</p>${bar}<button class="m63-go q77-all ${ready()?'':'off'}" data-q77="all">NHẬN TẤT CẢ${ready()?' ✦':''}</button><div class="q77-list">${rows}</div></div>`;}
