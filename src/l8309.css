@@ -50,3 +50,12 @@
 /* Sảnh gọn (16:42): 3 ô tài nguyên + bỏ dòng 💎/🔋 dưới lực chiến + danh hiệu 1 dòng */
 html.sanh8 #hgr41 .h1-res .h1-chip.stone:not(.en8),html.sanh8 #hgr41 .h1-res .h1-chip.gem:not(.dm8),html.sanh8 #hgr41 .h1-power .gem74{display:none!important}
 #lb68 .lb68-pn .tt8{white-space:nowrap;font-size:7.5px;letter-spacing:0;line-height:1;margin:1px 0}
+
+/* sanh8: mỗi ô tài nguyên một khung riêng (cắt 9 ô từ thanh_tai_nguyen: vòng icon trái · rãnh số · ô + phải) */
+html.sanh8 body #hgr41#hgr41#hgr41#hgr41 .h1-res{background:none!important;gap:4px!important;padding:0 2px!important;height:40px!important;align-items:center!important}
+html.sanh8 body #hgr41#hgr41#hgr41#hgr41 .h1-res :is(.h1-chip.en8,.h1-chip.coin,.h1-chip.dm8){flex:1 1 0!important;min-width:0!important;height:34px!important;padding:0!important;margin:0!important;box-sizing:border-box!important;border-style:solid!important;border-width:0 36px!important;border-color:transparent!important;border-image:var(--res8) 0 110 fill / 0 36px stretch!important;background:none!important;box-shadow:none!important;border-radius:0!important;display:flex!important;align-items:center!important;justify-content:center!important;position:relative!important;overflow:visible!important}
+html.sanh8 body #hgr41#hgr41#hgr41#hgr41 .h1-res .h1-chip.h1-chip::before{content:none!important}
+html.sanh8 body #hgr41#hgr41#hgr41#hgr41 .h1-res .h1-chip.h1-chip>i{position:absolute!important;left:-25px!important;top:50%!important;width:20px!important;height:20px!important;margin:0!important;transform:translateY(-50%)!important}
+html.sanh8 body #hgr41#hgr41#hgr41#hgr41 .h1-res .h1-chip.h1-chip>i img{width:20px!important;height:20px!important}
+html.sanh8 body #hgr41#hgr41#hgr41#hgr41 .h1-res .h1-chip.h1-chip>b{flex:1 1 auto!important;min-width:0!important;text-align:center!important;font-size:11.5px!important;white-space:nowrap!important;overflow:hidden!important;text-overflow:clip!important;padding:0 1px!important;margin:0!important}
+html.sanh8 body #hgr41#hgr41#hgr41#hgr41 .h1-res .h1-chip.h1-chip>button{position:absolute!important;right:-24px!important;top:50%!important;width:20px!important;height:20px!important;min-width:0!important;margin:0!important;padding:0!important;transform:translateY(-50%)!important;background:transparent none!important;border:0!important;box-shadow:none!important;color:#7fe3ff!important;font:900 16px/20px system-ui,sans-serif!important;text-shadow:0 0 4px #29b6ff!important;visibility:visible!important;display:block!important}
