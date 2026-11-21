@@ -98,7 +98,7 @@ const L8309=(()=>{
    const fr=on()?cur('frame').id:'',tt=on()?cur('title'):null;
    pp.classList.forEach(c=>{if(/^fr8/.test(c)&&c!=='fr8'&&c!=='fr8-'+fr)pp.classList.remove(c);});if(fr){pp.classList.add('fr8','fr8-'+fr);}else pp.classList.remove('fr8');
    let el=nm.parentNode.querySelector('.tt8');if(!tt||tt.id==='none'){if(el)el.remove();return;}
-   if(!el){el=document.createElement('i');el.className='tt8';nm.insertAdjacentElement('afterend',el);}if(el.dataset.id!==tt.id){el.dataset.id=tt.id;el.className='tt8 tt8-'+tt.id;el.textContent='« '+tt.n.toUpperCase()+' »';}}
+   if(!el){el=document.createElement('i');el.className='tt8';nm.insertAdjacentElement('afterend',el);}if(el.dataset.id!==tt.id){el.dataset.id=tt.id;el.className='tt8 tt8-'+tt.id;el.textContent='★ '+tt.n.toUpperCase();}}
  // ---------- màn Ngoại trang ----------
  let el=null,tab='trail',pv=null,raf=0,origOpen=null,pick={};
  function progTxt(x){return x.req.map(([q,v])=>{const h=Math.min(P[q](),v);return `<span><em style="width:${Math.round(h/v*100)}%"></em><b>${fmt(h)}/${fmt(v)} ${U[q]}</b></span>`;}).join('');}
@@ -137,6 +137,18 @@ const L8309=(()=>{
  hookOpen();setTimeout(hookOpen,0);setTimeout(hookOpen,1500);
  // nút TỦ SKIN cũ (data-sk69, kể cả lối tắt SKIN ở Sảnh / tab Phi đội) gọi open() nội bộ của Skin69 → chặn ở pha bắt để mở màn mới
  document.addEventListener('click',e=>{if(!on())return;const b=e.target&&e.target.closest&&e.target.closest('[data-sk69]');if(!b)return;e.stopImmediatePropagation();e.preventDefault();open();},true);
- setInterval(()=>{try{lobby();}catch{}},600);
+ // ---------- Sảnh gọn (chủ dự án 21/11 16:42). Tắt: window.SANH8=false ----------
+ //  (1) hàng tài nguyên trên cùng chỉ 3 ô: Thể lực · Hợp kim · Kim cương (ẩn ô Đá XP + Lõi Siêu Hợp; bỏ dòng 💎/🔋 dưới TỔNG LỰC CHIẾN)
+ //  (2) bỏ hình viền bậc cũ (RankArt: cánh nét + elip hồng–tím) quanh chiến cơ khi KHÔNG trong trận (sân khấu sảnh)
+ const sOn=()=>window.SANH8!==false;
+ function res8(){const r=document.querySelector('#hgr41 .h1-res');if(!r)return;document.documentElement.classList.toggle('sanh8',sOn());if(!sOn())return;
+   const U=window.UI307_IMG||{};const ic=(k)=>U[k]?`<i data-ic74="1"><img class="ic74r" src="${U[k]}" alt=""></i>`:'<i></i>';
+   if(!r.querySelector('.en8')){const d=document.createElement('div');d.className='h1-chip stone en8';d.title='Thể lực';d.innerHTML=ic('icon_stamina')+'<b data-en75>0</b><button type="button" aria-label="Thể lực">+</button>';d.addEventListener('click',e=>{e.stopPropagation();const b=document.querySelector('.en75');if(b)b.click();},true);r.insertBefore(d,r.firstChild);}
+   if(!r.querySelector('.dm8')){const d=document.createElement('div');d.className='h1-chip gem dm8';d.title='Kim cương';d.innerHTML=ic('icon_diamond')+'<b data-gem74>0</b><button type="button" aria-hidden="true" tabindex="-1" style="visibility:hidden">+</button>';r.appendChild(d);}
+   const coin=r.querySelector('.h1-chip.coin');if(coin&&coin.previousElementSibling!==r.querySelector('.en8'))r.insertBefore(coin,r.querySelector('.dm8'));
+   try{const g=document.querySelector('#hgr41 .gem74 [data-gem74]');if(g)r.querySelector('.dm8 b').textContent=g.textContent;const e=document.querySelector('#hgr41 .gem74 [data-en75]');if(e)r.querySelector('.en8 b').textContent=e.textContent+'/120';}catch{}}
+ function rankHook(){try{if(typeof RankArt==='undefined'||RankArt.__l8)return;RankArt.__l8=1;const od=RankArt.draw;RankArt.draw=function(c,i){try{if(sOn()&&typeof mode!=='undefined'&&mode!=='play'&&mode!=='pause'&&i&&!i.kind)return;}catch{}return od.apply(this,arguments);};}catch{}}
+ rankHook();setTimeout(rankHook,0);setTimeout(rankHook,1500);setTimeout(rankHook,4000);
+ setInterval(()=>{try{lobby();res8();}catch{}},600);
  return {S,P,D,open,close,owned,cur,save,lobby,render};
 })();

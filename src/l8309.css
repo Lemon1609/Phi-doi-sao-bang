@@ -46,3 +46,7 @@
 .tt8-lord,.tt8-emperor{background:linear-gradient(100deg,#b8860b 0%,#fde68a 30%,#fff 45%,#fbbf24 60%,#b8860b 100%);background-size:250% 100%;-webkit-background-clip:text;background-clip:text;color:transparent;animation:sw8 2.6s linear infinite}
 .tt8-emperor{background-image:linear-gradient(100deg,#a855f7 0%,#fde68a 30%,#fff 45%,#38bdf8 60%,#a855f7 100%)}
 .sw8.tt8{background:#0b1626;font-size:16px}
+
+/* Sảnh gọn (16:42): 3 ô tài nguyên + bỏ dòng 💎/🔋 dưới lực chiến + danh hiệu 1 dòng */
+html.sanh8 #hgr41 .h1-res .h1-chip.stone:not(.en8),html.sanh8 #hgr41 .h1-res .h1-chip.gem:not(.dm8),html.sanh8 #hgr41 .h1-power .gem74{display:none!important}
+#lb68 .lb68-pn .tt8{white-space:nowrap;font-size:7.5px;letter-spacing:0;line-height:1;margin:1px 0}
