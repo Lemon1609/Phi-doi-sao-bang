@@ -1146,6 +1146,8 @@ for _pp in sorted(_g.glob('src/sss309/*.png')):CODEX7['x_'+os.path.splitext(os.p
 print('codex7:',len(CODEX7))
 L7CSS=open('src/l7309.css',encoding='utf-8').read()
 rep("</body>","<style id=\"l7309-css\">"+L7CSS+"</style><script>const CODEX7_IMG="+json.dumps(CODEX7)+";</script><script id=\"l7309-js\">"+open('src/l7309.js',encoding='utf-8').read()+"</script></body>")
+# ---- V309 Lượt 8 · Ngoại trang: xem trước + vệt phản lực + hiệu ứng đạn + khung avatar + danh hiệu ----
+rep("</body>","<style id=\"l8309-css\">"+open('src/l8309.css',encoding='utf-8').read()+"</style><script id=\"l8309-js\">"+open('src/l8309.js',encoding='utf-8').read()+"</script></body>")
 open('Phi_Doi_Sao_Bang_V74_mau.html','w',encoding='utf-8').write(h);print(round(len(h)/1e6,2),'MB')
 # ---- V100 · BẢN THỬ cho chủ dự án: dữ liệu tách riêng (tiền tố thu100:) + bảng nạp tài khoản mẫu ----
 # V301: chỉ dựng khi cần (BAN_THU=1 hoặc khi xuất bản) để mỗi lần dựng nhanh hơn, bớt một tệp 81 MB

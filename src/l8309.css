@@ -1,0 +1,48 @@
+/* V309 Lượt 8 · Ngoại trang: màn xem trước + 4 tab, khung avatar + danh hiệu ở Sảnh */
+.sk8 .m63-card{max-width:440px;width:calc(100vw - 20px);max-height:calc(100vh - 30px);overflow:auto}
+.pv8{position:relative;border-radius:10px;overflow:hidden;border:1px solid rgba(125,211,252,.45);box-shadow:inset 0 0 0 1px rgba(255,255,255,.04);margin:6px 0 4px}
+.pv8 canvas{display:block;width:100%;height:auto;aspect-ratio:360/190}
+.hd8{position:absolute;left:8px;top:8px;display:flex;align-items:center;gap:7px;pointer-events:none}
+.av8{width:38px;height:38px;border-radius:9px;overflow:hidden;display:flex;align-items:center;justify-content:center;background:#0b1626;font:800 14px/1 sans-serif;color:#cfe9ff}
+.av8 img{width:100%;height:100%;object-fit:cover}
+.nm8{display:flex;flex-direction:column;gap:2px}
+.nm8 b{font:900 12px/1 sans-serif;color:#fff;text-shadow:0 1px 2px #000}
+.sum8{margin:2px 0 6px;color:#9fc4e0;font:600 11px/1.3 sans-serif}
+.tb8{display:flex;gap:4px;margin-bottom:6px}
+.tb8 button{flex:1;min-width:0;height:32px;border-radius:7px;border:1px solid rgba(125,211,252,.35);background:rgba(10,22,40,.85);color:#9fc4e0;font:800 9.5px/1.1 sans-serif;padding:0 2px}
+.tb8 button[aria-pressed=true]{border-color:#38bdf8;background:linear-gradient(180deg,#0e4a72,#0a2a44);color:#fff}
+.ls8{display:flex;flex-direction:column;gap:5px}
+.it8{display:flex;align-items:center;gap:8px;padding:7px 8px;border-radius:9px;border:1px solid rgba(125,211,252,.3);background:linear-gradient(90deg,rgba(14,30,52,.95),rgba(8,16,30,.95));color:#dbeafe;text-align:left}
+.it8.sel{border-color:#fbbf24;box-shadow:0 0 8px rgba(251,191,36,.35)}
+.it8.use{border-color:#34d399}
+.it8.lk{opacity:.92;background:rgba(8,12,22,.95)}
+.it8 .nm{flex:1;min-width:0;display:flex;flex-direction:column;gap:2px}
+.it8 .nm b{font:800 12px/1.15 sans-serif;color:#fff}
+.it8 .nm small{font:600 10px/1.25 sans-serif;color:#8fb3d1}
+.it8 .st8{font:900 9.5px/1 sans-serif;font-style:normal;color:#a7f3d0;white-space:nowrap}
+.it8.use .st8{color:#34d399}
+.it8.lk .st8{color:#94a3b8}
+.pg8{display:flex;flex-direction:column;gap:3px;margin-top:2px}
+.pg8>span{position:relative;display:block;height:14px;border-radius:7px;background:#0b1422;border:1px solid rgba(148,163,184,.35);overflow:hidden}
+.pg8 em{position:absolute;left:0;top:0;bottom:0;background:linear-gradient(90deg,#0ea5e9,#22d3ee)}
+.pg8 b{position:relative;display:block;text-align:center;font:800 9px/14px sans-serif;color:#e2e8f0;text-shadow:0 1px 1px #000}
+.sw8{flex:0 0 auto;width:34px;height:34px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-style:normal;font-size:14px}
+.sw8.def{background:repeating-linear-gradient(45deg,#1e293b,#1e293b 4px,#334155 4px,#334155 8px)}
+.old8{display:block;width:100%;margin-top:8px;height:32px;border-radius:8px;border:1px solid rgba(167,139,250,.5);background:rgba(30,16,52,.85);color:#ddd6fe;font:800 11px/1 sans-serif}
+/* khung avatar: viền kim loại vát cạnh + vệt sáng quét (CSS, ngoài vòng lặp trận) */
+.fr8{position:relative;isolation:isolate}
+.fr8::before{content:"";position:absolute;inset:-3px;border-radius:inherit;padding:3px;background:var(--f8,linear-gradient(135deg,#5b7a99,#cfe3f7 30%,#3b5674 55%,#9fb8d3 80%,#2c4058));-webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask-composite:exclude;z-index:2;pointer-events:none}
+.fr8::after{content:"";position:absolute;inset:-3px;border-radius:inherit;background:linear-gradient(115deg,transparent 35%,rgba(255,255,255,.75) 48%,transparent 60%);background-size:260% 100%;animation:sw8 3.2s linear infinite;-webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask-composite:exclude;padding:3px;z-index:3;pointer-events:none}
+@keyframes sw8{0%{background-position:130% 0}60%,100%{background-position:-130% 0}}
+.fr8-silver{--f8:linear-gradient(135deg,#9fb6d0,#f8fbff 28%,#6b86a6 52%,#dbe7f5 78%,#56708f)}
+.fr8-gold{--f8:linear-gradient(135deg,#8a5a12,#ffe9a3 28%,#c98a1b 52%,#fff3c4 76%,#7a4b0c)}
+.fr8-void{--f8:linear-gradient(135deg,#3b0764,#e9d5ff 28%,#7e22ce 52%,#fde68a 72%,#2e1065)}
+.fr8-cosmic{--f8:linear-gradient(135deg,#f43f5e,#fbbf24 20%,#34d399 40%,#38bdf8 60%,#a855f7 80%,#f43f5e)}
+#lb68-pp.fr8{overflow:visible}
+/* danh hiệu */
+.tt8{display:inline-block;font:900 9px/1.1 sans-serif;font-style:normal;letter-spacing:.06em;color:#7dd3fc;margin-top:1px}
+.tt8-boss{color:#fca5a5}
+.tt8-fuse{color:#d8b4fe}
+.tt8-lord,.tt8-emperor{background:linear-gradient(100deg,#b8860b 0%,#fde68a 30%,#fff 45%,#fbbf24 60%,#b8860b 100%);background-size:250% 100%;-webkit-background-clip:text;background-clip:text;color:transparent;animation:sw8 2.6s linear infinite}
+.tt8-emperor{background-image:linear-gradient(100deg,#a855f7 0%,#fde68a 30%,#fff 45%,#38bdf8 60%,#a855f7 100%)}
+.sw8.tt8{background:#0b1626;font-size:16px}
