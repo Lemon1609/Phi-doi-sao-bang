@@ -53,7 +53,7 @@ const Rob309=(()=>{
 // ---------- V309 bước 2: thời gian đứng theo bậc · +45 % sát thương dạng robot · tuyệt kỹ riêng 7 robot (vẽ canvas) ----------
 //  Tắt: window.ROBDUR309=false · window.ROBDPS309=false · window.ROBULT309=false
 const RobUlt309=(()=>{
- const TAU=Math.PI*2,DUR=[5,5.2,5.5,5.8,6.2,6.6,7,7.4,7.8,8.1,8.5],COL=[['#c026d3','#22d3ee'],['#f97316','#06b6d4'],['#facc15','#ef4444'],['#3b82f6','#a855f7'],['#38bdf8','#f8fafc'],['#dc2626','#fbbf24'],['#eab308','#9333ea']];
+ const TAU=Math.PI*2,DUR=[5,5.2,5.5,5.8,6.2,6.6,7,7.4,7.8,8.1,8.5],COL=[['#c026d3','#22d3ee'],['#f97316','#06b6d4'],['#facc15','#ef4444'],['#3b82f6','#a855f7'],['#38bdf8','#f8fafc'],['#dc2626','#fbbf24'],['#eab308','#9333ea']];if(window.HOP4309!==false){COL[1]=['#a855f7','#2dd4bf'];COL[3]=['#a855f7','#facc15'];}/* V309 Lượt 4: mẫu 1 Thời Không Thôn Tinh tím–ngọc, mẫu 3 Hư Không Đế Vương tím–vàng */
  let was=false,P=[];
  const robot=()=>{try{return activeRobot&&activeRobot.super?activeRobot:null;}catch{return null;}};
  const idx=r=>{try{return SSSGame.indexFor(r);}catch{return -1;}};
@@ -67,7 +67,7 @@ const RobUlt309=(()=>{
   g.save();g.globalCompositeOperation='lighter';
   if(i===0){for(const x of [W*.12,W*.88])col(g,x,34+10*Math.sin(t*20),c1,c2,.75*fade);
    if(P.length<70)for(let k=0;k<4;k++)P.push({x:Math.random()*W,y:H+10,vx:(Math.random()-.5)*160,vy:-500-Math.random()*300,r:Math.random()*TAU,c:Math.random()<.5?c1:c2});}
-  else if(i===1){const top=-20,wd=W*.42*Math.min(1,u*4);g.globalAlpha=.55*fade;const gr=g.createLinearGradient(0,py,0,top);gr.addColorStop(0,'#ffffff');gr.addColorStop(.2,c1);gr.addColorStop(1,'rgba(249,115,22,0)');g.fillStyle=gr;g.beginPath();g.moveTo(px-18,py-20);g.lineTo(px-wd,top);g.lineTo(px+wd,top);g.lineTo(px+18,py-20);g.closePath();g.fill();
+  else if(i===1){const top=-20,wd=W*.42*Math.min(1,u*4);g.globalAlpha=.55*fade;const gr=g.createLinearGradient(0,py,0,top);gr.addColorStop(0,'#ffffff');gr.addColorStop(.2,c1);gr.addColorStop(1,window.HOP4309!==false?'rgba(168,85,247,0)':'rgba(249,115,22,0)');g.fillStyle=gr;g.beginPath();g.moveTo(px-18,py-20);g.lineTo(px-wd,top);g.lineTo(px+wd,top);g.lineTo(px+18,py-20);g.closePath();g.fill();
    g.globalAlpha=.5*fade;g.strokeStyle=c2;g.lineWidth=1.2;for(let k=-6;k<=6;k++){const x=px+k*wd/6;g.beginPath();g.moveTo(x,top);g.lineTo(px+k*3,py-20);g.stroke();}for(let y=(t*400)%40;y<py;y+=40){g.beginPath();g.moveTo(px-wd*(1-y/py)-18,y);g.lineTo(px+wd*(1-y/py)+18,y);g.stroke();}}
   else if(i===2){/* chủ dự án 20/11 10:00: bỏ chữ X → hào quang mặt trời nở + 3 cột lửa dọc */const s=Math.min(1,u*4),cx=W/2,cy=H*.42,R=Math.max(W,H)*.75*s;
    const gr=g.createRadialGradient(cx,cy,R*.05,cx,cy,R);gr.addColorStop(0,'rgba(255,250,210,'+(.55*fade)+')');gr.addColorStop(.3,'rgba(250,204,21,'+(.35*fade)+')');gr.addColorStop(.7,'rgba(239,68,68,'+(.18*fade)+')');gr.addColorStop(1,'rgba(239,68,68,0)');g.fillStyle=gr;g.fillRect(0,0,W,H);
@@ -97,7 +97,7 @@ const RobUlt309=(()=>{
 //  Đạn thật (trúng quái / boss). Chủ dự án 20/11 09:57: BỎ tia MAX cũ (vệt trắng tỏa quạt, SSSGun.beams) → dồn sát thương tia (9 × unit/giây) vào đạn riêng: tổng ≈ 12 × unit/giây;
 //  để giữ mức "+45 % dạng robot", hệ số Combat.factor dạng robot hạ 1,45 → 1,35 khi bật đạn riêng (ước lượng, chưa đo bia).
 const RobGun309=(()=>{
- const TAU=Math.PI*2,DPS=12,MAX=180,COL=[['#e879f9','#22d3ee'],['#fb923c','#22d3ee'],['#fde047','#ef4444'],['#93c5fd','#c084fc'],['#bae6fd','#ffffff'],['#f87171','#fbbf24'],['#fde047','#a855f7']];
+ const TAU=Math.PI*2,DPS=12,MAX=180,COL=[['#e879f9','#22d3ee'],['#fb923c','#22d3ee'],['#fde047','#ef4444'],['#93c5fd','#c084fc'],['#bae6fd','#ffffff'],['#f87171','#fbbf24'],['#fde047','#a855f7']];if(window.HOP4309!==false){COL[1]=['#c084fc','#5eead4'];COL[3]=['#c084fc','#fde047'];}
  let P=[],acc=0,acc2=0,ang=0,last=-1;
  const robot=()=>{try{return activeRobot&&activeRobot.super?activeRobot:null;}catch{return null;}};
  const unit=r=>{try{return allyDamageScale()*gear.damage*1.25*Workshop.factor(r.grade)*Workshop.levelFactor(r)*(typeof Meta407!=='undefined'?Meta407.sssMult():1);}catch{return 1;}};

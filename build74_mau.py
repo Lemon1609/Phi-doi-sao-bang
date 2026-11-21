@@ -51,20 +51,21 @@ import json
 h=open('base/Phi_Doi_Sao_Bang_V42.html',encoding='utf-8').read()
 # ---- V129 · Đợt H: atlas chiến cơ hợp thể SSS mới (7 cột × 2 hàng, ô 512) từ src/hop129 ----
 import glob as _gh,re as _rh,io as _ih,base64 as _bh
+_H4=os.environ.get('HOP4','1')!='0' and os.path.isdir('src/hop4309')  # V309 Lượt 4: 7 chiến thần mới (claude_tools/cat_l4309.py)
 if len(_gh.glob('src/hop129/hop*_*.png'))>=14:
     from PIL import Image as _IH
     _A=_IH.new('RGBA',(7*512,1024),(0,0,0,0))
     for _i in range(7):
         for _r,_f in enumerate(['tau','toida']):
-            _im=_IH.open('src/hop129/hop%d_%s.png'%(_i+1,_f)).convert('RGBA').resize((512,512),_IH.LANCZOS);_A.alpha_composite(_im,(_i*512,_r*512))
+            _im=_IH.open(('src/hop4309/hop%d_tau.png'%(_i+1)) if _H4 else ('src/hop129/hop%d_%s.png'%(_i+1,_f))).convert('RGBA').resize((512,512),_IH.LANCZOS);_A.alpha_composite(_im,(_i*512,_r*512))
     _bay=None
     if len(_gh.glob('src/hop131/hop*_*.png'))>=14:
         # V131 (H3): menu = chân dung ngửa mặt · trong trận = bay úp mặt
         _B=_A.copy()
         for _i in range(7):
             _A.paste((0,0,0,0),(_i*512,512,_i*512+512,1024));_B.paste((0,0,0,0),(_i*512,512,_i*512+512,1024))
-            _A.alpha_composite(_IH.open('src/hop131/hop%d_chandung.png'%(_i+1)).convert('RGBA').resize((512,512),_IH.LANCZOS),(_i*512,512))
-            _bi=_IH.open('src/hop131/hop%d_bay.png'%(_i+1)).convert('RGBA');_bb=_bi.getchannel('A').getbbox();_bi=_bi.crop(_bb);_fr=[.31,.33,.32,.30,.30,.32,.29][_i];_hh=int(254/.71);_k=min(_hh/_bi.height,500/_bi.width);_bi=_bi.resize((round(_bi.width*_k),round(_bi.height*_k)),_IH.LANCZOS)  # V196: tranh GPT mới (nữ chiến giáp kín), tâm lưng ≈ 44% chiều cao  # V309 (chủ dự án 20/11): tâm = LƯNG robot (đo 7 tranh robot_max: 29–33 % chiều cao), cùng cỡ 7 mẫu, cỡ vẽ bù ở SSSGame .16→.36
+            _A.alpha_composite(_IH.open(('src/hop4309/' if _H4 else 'src/hop131/')+'hop%d_chandung.png'%(_i+1)).convert('RGBA').resize((512,512),_IH.LANCZOS),(_i*512,512))
+            _bi=_IH.open(('src/hop4309/' if _H4 else 'src/hop131/')+'hop%d_bay.png'%(_i+1)).convert('RGBA');_bb=_bi.getchannel('A').getbbox();_bi=_bi.crop(_bb);_fr=([.30,.46,.32,.32,.28,.32,.30] if _H4 else [.31,.33,.32,.30,.30,.32,.29])[_i];_hh=int(254/.71);_k=min(_hh/_bi.height,500/_bi.width);_bi=_bi.resize((round(_bi.width*_k),round(_bi.height*_k)),_IH.LANCZOS)  # V196: tranh GPT mới (nữ chiến giáp kín), tâm lưng ≈ 44% chiều cao  # V309 (chủ dự án 20/11): tâm = LƯNG robot (đo 7 tranh robot_max: 29–33 % chiều cao), cùng cỡ 7 mẫu, cỡ vẽ bù ở SSSGame .16→.36
             _B.alpha_composite(_bi,(_i*512+(512-_bi.width)//2,512+256-round(_fr*_bi.height)))  # V132: giữa lưng = tâm ô = tâm chiến cơ
         _bf=_ih.BytesIO();_B.save(_bf,'WEBP',quality=88);_bay='data:image/webp;base64,'+_bh.b64encode(_bf.getvalue()).decode()
     _bf=_ih.BytesIO();_A.save(_bf,'WEBP',quality=88);_new='data:image/webp;base64,'+_bh.b64encode(_bf.getvalue()).decode()
@@ -293,7 +294,7 @@ def _armor133(p,big=False):
 for _ic in sorted(_gl2.glob('src/tb133/*_icon1.png')):
     _m=os.path.basename(_ic)[:-10];_d='src/tb133/'+_m;TB133[_m]=1
     for _n,_key in [('icon1',_m+'_icon'),('icon2','g:'+_m+'_icon_evo1'),('icon3','g:'+_m+'_icon_evo2')]:
-        _v=_u133(_icon208(_d+'_'+_n+'.png'))  # V208 · D1: icon dài/mảnh xoay chéo 45° để hiện to, đều cỡ (không vẽ lại tranh)
+        _v=_u133(_icon208(('src/icon309/'+_m+'.png') if (os.environ.get('ICON4','1')!='0' and os.path.exists('src/icon309/'+_m+'.png')) else (_d+'_'+_n+'.png')))  # V309 Lượt 4: 26 icon giáp/tên lửa mới (cùng 1 hình mọi bậc). Tắt: ICON4=0  # V208 · D1: icon dài/mảnh xoay chéo 45° để hiện to, đều cỡ (không vẽ lại tranh)
         if _key.startswith('g:'):EVO[_key]=_v
         else:A[_key]=_v
     _MIS139={'inferno','cryo','thunder','singularity','spiral','stellar','comet36','nova36','judgement36','swarm9','devour10_m','chrono11_m','monarch12_m'}
@@ -319,7 +320,7 @@ G36={}
 for _p in sorted(_gl2.glob('src/gear15/*36_icon.png')):
     _k=os.path.splitext(os.path.basename(_p))[0][:-5]
     # V208: dòng cũ để chú thích '# V148…' nuốt mất đoạn cắt/dựng ảnh → cả 9 icon dòng 36 dùng chung 1 ảnh cũ (_sq sót lại). Tách dòng + dùng _icon208.
-    _sq=_icon208('src/tb133/'+_k+'_icon1.png' if os.path.exists('src/tb133/'+_k+'_icon1.png') else _p)
+    _sq=_icon208(('src/icon309/'+_k+'.png') if (os.environ.get('ICON4','1')!='0' and os.path.exists('src/icon309/'+_k+'.png')) else ('src/tb133/'+_k+'_icon1.png' if os.path.exists('src/tb133/'+_k+'_icon1.png') else _p))
     _bf=_io.BytesIO();_sq.save(_bf,'WEBP',quality=88);G36[_k]='data:image/webp;base64,'+_b64.b64encode(_bf.getvalue()).decode()
 print('icon bo 36:',len(G36))
 G36JS='<script id="g36">const G36_ICONS='+json.dumps(G36)+';setTimeout(()=>{try{const st=document.createElement("style");st.textContent=Object.entries(G36_ICONS).map(([k,v])=>`.gear25-art.g44-${k}{background-image:url(${v})!important;background-size:82% auto!important;background-position:center!important;background-repeat:no-repeat!important}`).join("");document.head.appendChild(st);const oa=Progress.art;Progress.art=function(i){const h=oa.apply(this,arguments);return i&&G36_ICONS[i.variant]&&!h.includes("g44-"+i.variant)?h.replace(\'class="gear25-art\',\'class="gear25-art g44-ic g44-\'+i.variant):h;};}catch(e){}},0);</script>'
@@ -394,7 +395,7 @@ if os.path.isdir('src/sss_art'):
     for _sid in sorted(os.listdir('src/sss_art')):
         for _fn in sorted(os.listdir('src/sss_art/'+_sid)):
             if _fn.endswith('.png'):
-                _k=_fn[:-4];A[_sid+'_'+_k]=_w82('src/sss_art/'+_sid+'/'+_fn,4096 if _k not in ('icon1','icon2','icon3') else 256,q=90)
+                _k=_fn[:-4];_pp=('src/sss309/'+_sid+'.png') if (_k in ('icon1','icon2','icon3') and os.environ.get('SSS4','1')!='0' and os.path.exists('src/sss309/'+_sid+'.png')) else ('src/sss_art/'+_sid+'/'+_fn);A[_sid+'_'+_k]=_w82(_pp,4096 if _k not in ('icon1','icon2','icon3') else 256,q=90)  # V309 Lượt 4: 21 icon SSS mới. Tắt: SSS4=0
 for _v,_gg in _A82.items():
     _d='src/gear81art/'+_gg+'/'+_gg
     _tbj=os.path.exists('src/tb133/'+_v+'_icon1.png')  # V151: đã có tranh GPT Phần J → không ghi đè icon / tàu con bằng tranh V82
@@ -1015,7 +1016,15 @@ rep("</body>","<style id=\"sss307-css\">"+open('src/sss307.css',encoding='utf-8'
 rep("ctx.globalAlpha=clamp(flash);ctx.drawImage(sup?cells.silS:cells.silN","ctx.globalAlpha=clamp(flash)*(window.FLASH307===false?1:.35);ctx.drawImage(sup?cells.silS:cells.silN")
 rep("VisualFX.ultimate(player.x,player.y,'#ffe28c',100);ring(player.x,player.y,'#ffb97c',75);","VisualFX.ultimate(player.x,player.y,'#ffe28c',window.FLASH307===false?100:64);ring(player.x,player.y,'#ffb97c',75);")
 rep("</body>","<script id=\"core307-js\">"+open('src/core307.js',encoding='utf-8').read()+"</script></body>")  # V307 Lõi phi công
-rep("</body>","<script id=\"hop309-img-js\">window.HOP309_IMG="+json.dumps({os.path.splitext(f)[0]:'data:image/webp;base64,'+base64.b64encode(open('src/hop309img/'+f,'rb').read()).decode() for f in sorted(os.listdir('src/hop309img'))})+";</script><script id=\"hop309-js\">"+open('src/hop309.js',encoding='utf-8').read()+"</script></body>")  # V309 tiến bậc robot hợp thể + phó bản vật liệu
+def _hop309img():
+    o={os.path.splitext(f)[0]:'data:image/webp;base64,'+base64.b64encode(open('src/hop309img/'+f,'rb').read()).decode() for f in sorted(os.listdir('src/hop309img'))}
+    if os.environ.get('HOP4','1')!='0' and os.path.isdir('src/hop4309'):  # V309 Lượt 4: mốc +3–9 / +10 dùng chung tranh chiến cơ mới
+        from PIL import Image as _I4
+        for f in sorted(os.listdir('src/hop4309')):
+            if f.startswith('f') and f.endswith('.png'):
+                _b=io.BytesIO() if 'io' in globals() else __import__('io').BytesIO();_I4.open('src/hop4309/'+f).convert('RGBA').resize((512,512),_I4.LANCZOS).save(_b,'WEBP',quality=90);o[f[:-4]]='data:image/webp;base64,'+base64.b64encode(_b.getvalue()).decode()
+    return o
+rep("</body>","<script id=\"hop309-img-js\">window.HOP309_IMG="+json.dumps(_hop309img())+";</script><script id=\"hop309-js\">"+open('src/hop309.js',encoding='utf-8').read()+"</script></body>")  # V309 tiến bậc robot hợp thể + phó bản vật liệu
 rep("</body>","<script id=\"fx309-img-js\">window.FX309_IMG="+json.dumps({os.path.splitext(f)[0]:'data:image/webp;base64,'+base64.b64encode(open('src/fx309img/'+f,'rb').read()).decode() for f in sorted(os.listdir('src/fx309img'))})+";</script><script id=\"fx309-js\">"+open('src/fx309.js',encoding='utf-8').read()+"</script></body>")  # V309b tia 3 lớp + sprite hiệu ứng GPT (Gemini)
 rep("Safety31.push(bullets,180","Safety31.push(bullets,(window.CAP309||140)",3)  # V309d trần 140 viên đạn địch cùng lúc (Gemini; bỏ viên cũ nhất). Đặt lại: window.CAP309=180
 rep("</body>","<script id=\"dq309-img-js\">window.DQ309_IMG="+json.dumps({os.path.splitext(f)[0]:'data:image/webp;base64,'+base64.b64encode(open('src/dq309img/'+f,'rb').read()).decode() for f in sorted(os.listdir('src/dq309img'))})+";</script><script id=\"dq309-js\">"+open('src/dq309.js',encoding='utf-8').read()+"</script></body>")  # V309d đạn địch + laser boss mới (Gemini/GPT)
@@ -1023,6 +1032,7 @@ rep("</body>","<script id=\"tb309-img-js\">window.TB309_IMG="+json.dumps({os.pat
 rep("</body>","<script id=\"wing309-img-js\">window.WING309_IMG="+json.dumps({os.path.splitext(f)[0]:'data:image/webp;base64,'+base64.b64encode(open('src/wing309img/'+f,'rb').read()).decode() for f in sorted(os.listdir('src/wing309img')) if f.endswith('.webp')})+";window.WING309_PIV="+open('src/wing309img/piv.json').read()+";</script><script id=\"wing309-js\">"+open('src/wing309.js',encoding='utf-8').read()+"</script></body>")  # V309 Lượt 2 cánh năng lượng 6 mẫu (GPT)
 rep("</body>","<script id=\"ui309-js\">"+open('src/ui309.js',encoding='utf-8').read()+"</script></body>")  # V309 Lượt 2 khung thẻ icon + khung bắn thử
 rep("flame(player.x,player.y+20);","if(!(window.SHIP309V4&&window.L3309!==false))flame(player.x,player.y+20);")  # V309 Lượt 3: tàu v4 có 2 luồng phản lực riêng (l3309) → bỏ ngọn lửa xanh chung cũ
+rep("</body>","<script id=\"hop4309-js\">"+open('src/hop4309.js',encoding='utf-8').read()+"</script></body>")  # V309 Lượt 4 chiến thần hợp thể: cỡ, hào quang, biến hình 3 pha, cut-in
 rep("</body>","<script id=\"l3309-js\">window.SHIP309V4="+('true' if SHIP309BB else 'false')+";window.SHIP309BB="+json.dumps(SHIP309BB,separators=(',',':'))+";window.SHIP309COL="+json.dumps(SHIP309COL)+";"+open('src/l3309.js',encoding='utf-8').read()+"</script></body>")  # V309 Lượt 3 chiến cơ v4: hiệu ứng bậc + biến hình Bạo Tẩu
 rep("</body>","<script id=\"rob309-js\">"+open('src/rob309.js',encoding='utf-8').read()+"</script></body>")  # V309 biến hình robot: sóng xung kích + vòng ma trận +6/+10
 rep("</body>","<script id=\"rift307-js\">"+open('src/rift307.js',encoding='utf-8').read()+"</script></body>")  # V307 Khe Nứt Hư Không (Gemini 6 hệ thống)
@@ -1090,6 +1100,21 @@ rep("hull:(imL.complete&&imL.naturalWidth?imL:im)","hull:(window.__hop309atlas||
 rep("if(o.hull)hullIm=o.hull;prepareHull();","if(o.hull){if(o.hull!==hullIm&&(o.hull.__h309||(hullIm&&hullIm.__h309)))cells=null;hullIm=o.hull;}prepareHull();")
 rep("core.addColorStop(.46,'rgba(255,255,255,.95)');core.addColorStop(.54,'rgba(255,255,255,.95)')","core.addColorStop(window.LOI309===false?.46:.485,'rgba(255,255,255,.95)');core.addColorStop(window.LOI309===false?.54:.515,'rgba(255,255,255,.95)')")  # V309 lõi trắng tia SSS hẹp ~25 % (mẫu 2 hết lóa). Tắt: window.LOI309=false
 rep("const hot=mix(col,'#ffffff',VIVID68.on?.28:.6);","const hot=mix(col,'#ffffff',VIVID68.on?(window.LOI309===false?.28:.12):.6);")  # V309 đạn SSS bão hòa hơn
+# ---- V309 Lượt 4 · công thức hợp thể 1–1 (chủ dự án 21/11): mẫu 1 Hắc Tinh → Thời Không Thôn Tinh (tàu 11 + 12), mẫu 3 Tinh Vân → Hư Không Đế Vương (tàu 13 tự thức tỉnh). Tắt: HOP4=0 khi dựng ----
+if os.environ.get('HOP4','1')!='0':
+    rep("const pairs=[[5,8],[5,7],[7,9],[2,9],[2,6],[0,3],[1,4]];","const pairs=[[5,8],[10,11],[7,9],[12,12],[2,6],[0,3],[1,4]];")
+    rep("const find=(a,b)=>pairs.findIndex(p=>p.includes(a)&&p.includes(b)&&a!==b);","const find=(a,b)=>pairs.findIndex(p=>p.includes(a)&&p.includes(b)&&(a!==b||p[0]===p[1]));")
+    rep("const names=['Thiên Vũ Cơ Hoàng','Hắc Tinh Đột Kích','Thái Dương Chiến Thần','Tinh Vân Phán Quan',","const names=['Thiên Vũ Cơ Hoàng','Thời Không Thôn Tinh','Thái Dương Chiến Thần','Hư Không Đế Vương',")
+    rep("const skills=['Phân Giải + Xung Kích','Thiêu Đốt + Phân Giải','Quân Đoàn + Thiêu Đốt','Hàn Băng + Quân Đoàn',","const skills=['Phân Giải + Xung Kích','Hố Đen + Nghịch Thời','Quân Đoàn + Thiêu Đốt','Đế Vương Độc Tôn',")
+    rep("colors=['#ff79e7','#ff8c52','#ffb34c','#bb9aff',","colors=['#ff79e7','#a78bfa','#ffb34c','#c084fc',")
+    rep("{name:'Hắc Tinh Đột Kích',skills:'Thiêu Đốt + Phân Giải',color:'#ff8c52',second:'#56efff',pair:[7,5],ult:'MA TRẬN XÂM NHẬP',","{name:'Thời Không Thôn Tinh',skills:'Hố Đen + Nghịch Thời',color:'#a78bfa',second:'#2dd4bf',pair:[10,11],ult:'THÔN TINH NGHỊCH THỜI',")
+    rep("normal:'Chiến cơ đột kích đen cacbon sọc cam lửa và cyan; hai luồng nhiệt hạch.'","normal:'Chiến cơ vòng khuyết hố đen, bánh răng thiên văn vàng cổ và lõi hố đen tím.'")
+    rep("max:'Nam cơ khí giáp đen nhám, cánh phản lực gập góc, vai gắn pháo hạt nhân; nón tia nhiệt đỏ từ trên đỉnh.'","max:'Cơ thể vũ trụ: đồng hồ thiên văn khổng lồ quanh lõi hố đen, hai lưỡi liềm thời gian.'")
+    rep("{name:'Tinh Vân Phán Quan',skills:'Hàn Băng + Quân Đoàn',color:'#bb9aff',second:'#7feeff',pair:[2,9],ult:'PHÁN QUYẾT TINH HÀ',","{name:'Hư Không Đế Vương',skills:'Đế Vương Độc Tôn',color:'#c084fc',second:'#fde047',pair:[12,12],ult:'ĐẾ VƯƠNG HƯ KHÔNG',")
+    rep("normal:'Chiến cơ pha lê bạch kim–lam với đội tiêm kích vệ tinh; tia băng hội tụ.'","normal:'Hư Không Đế Vương tự thức tỉnh: chiến cơ tím–vàng hoàng gia.'")
+    rep("max:'Nữ cơ khí giáp bạch kim–lam vũ trụ, vòng vệ tinh pha lê sau lưng; cột băng và đội tiêm kích tự động.'","max:'Nam cơ khí giáp đen–vàng, vương miện, áo choàng hoàng kỳ và cánh pha lê tím.'")
+    rep("state=FusionBlueprints.sanitize(JSON.parse(localStorage.getItem(KEY)||'{}'),JSON.parse(localStorage.getItem('saobang-workshop-v1')||'{}'));","state=FusionBlueprints.sanitize(JSON.parse(localStorage.getItem(KEY)||'{}'),JSON.parse(localStorage.getItem('saobang-workshop-v1')||'{}'));try{if(!localStorage.getItem('saobang-hop4309-v1')){/* V309 Lượt 4: bỏ 2 robot mẫu 1 / 3 cũ (hợp thể không tốn chiến cơ), hoàn nguyên liệu + hợp kim tiến bậc đã tốn */const keep=state.supers.filter(q=>q.model!==1&&q.model!==3),lost=state.supers.length-keep.length;state.supers=keep;if(state.selected&&!keep.some(q=>q.key===state.selected)&&/^(sss|super):/.test(state.selected))state.selected=keep[0]?keep[0].key:null;let H={},cr=0;try{H=JSON.parse(localStorage.getItem('saobang-hop309-v1')||'null')||{};}catch{}if(H.adv){const C=[1,2,3,4,6,8,11,14,17,20],R=[2000,3500,5500,8000,11000,15000,20000,26000,33000,42000];for(const i of [1,3]){const a=H.adv[i]|0;let n=0;for(let k=0;k<a&&k<10;k++){n+=C[k];cr+=R[k];}if(n)H.m=(H.m||[0,0,0,0]).map(v=>(v|0)+n);H.adv[i]=0;}localStorage.setItem('saobang-hop309-v1',JSON.stringify(H));}localStorage.setItem('saobang-hop4309-v1',JSON.stringify({mig:1,lost,cr,paid:0}));localStorage.setItem(KEY,JSON.stringify(state));}}catch(e){}")
+    rep("f.draw(ctx,W,H,time,on,{...opts(),cx:player.x,cy:player.y,S,rot:","f.draw(ctx,W,H,time,on,{...opts(),cx:player.x,cy:player.y,S:S*(window.HOP4309===false?1:(window.Hop4309?Hop4309.scale(f,on):1)),rot:")
 open('Phi_Doi_Sao_Bang_V74_mau.html','w',encoding='utf-8').write(h);print(round(len(h)/1e6,2),'MB')
 # ---- V100 · BẢN THỬ cho chủ dự án: dữ liệu tách riêng (tiền tố thu100:) + bảng nạp tài khoản mẫu ----
 # V301: chỉ dựng khi cần (BAN_THU=1 hoặc khi xuất bản) để mỗi lần dựng nhanh hơn, bớt một tệp 81 MB

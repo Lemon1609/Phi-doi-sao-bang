@@ -287,7 +287,7 @@ const Admin66=(()=>{
   const m7=read('saobang-meta-v407');m7.v=1;m7.cores=BIG;
   const un=read('saobang-unlock-v66');un.seen=Object.keys(UNLOCK66);un.early=un.early||{};un.fails=un.fails||{};un.gift=Object.keys(UNLOCK66);
   const put=(k,v)=>localStorage.setItem(k,JSON.stringify(v));
-  try{put('saobang-campaign-v36',c);put('saobang-hangar-v1',hg);put('saobang-workshop-v1',ws);put('saobang-gear-sss-v1',gs);try{const o2={};for(const x of SSS_E.sss_equipment)o2[x.id]={lv:5,at:Date.now()};put('saobang-gear-sss-v2',{v:2,owned:o2,bind:{},wk:{w:0,n:0},pay:null});}catch{}/* V156 */put('saobang-meta-v407',m7);put('saobang-unlock-v66',un);
+  try{put('saobang-campaign-v36',c);put('saobang-hangar-v1',hg);put('saobang-workshop-v1',ws);put('saobang-gear-sss-v1',gs);try{const o2={};const RM4=window.SSS4309!==false?['sss_chrono_monarch_a','sss_chrono_monarch_m','sss_chrono_monarch_s']:[];for(const x of SSS_E.sss_equipment)if(!RM4.includes(x.id))o2[x.id]={lv:5,at:Date.now()};put('saobang-gear-sss-v2',{v:2,owned:o2,bind:{},wk:{w:0,n:0},pay:null,l4:RM4.length?1:0});/* V309 Lượt 4: 21 món */}catch{}/* V156 */put('saobang-meta-v407',m7);put('saobang-unlock-v66',un);
    S={on:true,phase:2,at:Date.now()};save();}catch(e){return;}
   window.__adm66=true;setTimeout(()=>location.reload(),300);}
  // các module của game lưu khi rời trang → chặn ghi đè trong lúc tải lại

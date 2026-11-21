@@ -10,7 +10,7 @@ const PILOT_ART=typeof PILOT_ASSETS!=='undefined'?PILOT_ASSETS:{};
 const PILOTS67=[
  {id:1,name:'Lâm Phương',tag:'Át Chủ Bài',rank:'A',col:'#3fd2ff',kind:'graze',a:15,b:45,txt:v=>`+${v}% nạp Graze`},
  {id:2,name:'Hạ Vy',tag:'Chỉ Huy',rank:'A',col:'#ffd166',kind:'super',a:1,b:2.5,txt:v=>`Bạo Tẩu +${v.toFixed(1)} s · +${Math.round(8+(v-1)/1.5*12)}% sát thương khi Bạo Tẩu`},
- {id:3,name:'Kiều An',tag:'Kỹ Sư',rank:'A',col:'#ff9f43',kind:'regen',a:18,b:10.5,txt:v=>`Không trúng đạn 4 s → hồi 1 giáp mỗi ${v.toFixed(1)} s`},
+ {id:3,name:'Kiều An',tag:'Kỹ Sư',rank:'A',col:'#ff9f43',kind:'regen',a:18,b:10.5,txt:v=>`Không trúng đạn 4 s → hồi 1 khiên mỗi ${v.toFixed(1)} s`},
  {id:4,name:'Thiên Lam',tag:'Xạ Thủ',rank:'S',col:'#8e7bff',kind:'boss',a:10,b:25,txt:v=>`+${v}% sát thương lên boss · +${Math.round(5+(v-10)/15*5)}% chí mạng`},
  {id:5,name:'Bảo Ngọc',tag:'Cựu Binh',rank:'A',col:'#59e3a0',kind:'tank',a:15,b:30,txt:v=>`Máu ≤ 2: giảm ${v}% sát thương nhận`},
  {id:6,name:'Mộc Miên',tag:'Cứu Thương',rank:'S',col:'#ff7eb6',kind:'pickup',a:20,b:45,txt:v=>`Nhặt buff: ${v}% hồi 1 giáp/máu · hút xa +80 px`},

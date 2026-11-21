@@ -14,7 +14,7 @@ const HT197V=(()=>{
   const own=k=>f.supers.find(q=>q.model===k);
   const usingIdx=R.findIndex((p,k)=>{const o=own(k);return o&&o.key===sel;});
   if(pick==null||pick>=R.length)pick=usingIdx>=0?usingIdx:Math.max(0,R.findIndex((p,k)=>own(k)));
-  const i=pick,pair=R[i],o=own(i),m=M[i],ready=pair.every(Fusion.componentReady),using=!!(o&&sel===o.key);
+  const i=pick,pair=R[i],solo=pair[0]===pair[1],o=own(i),m=M[i],ready=pair.every(Fusion.componentReady),using=!!(o&&sel===o.key);
   let r=null;try{r=o?Fusion.resolve(o.key):null;}catch{}
   const st=using?['ĐANG XUẤT CHIẾN','on']:o?['ĐÃ SỞ HỮU','own']:ready?['SẴN SÀNG HỢP THỂ','rdy']:['CHƯA ĐỦ THÀNH PHẦN','lk'];
   const comp=k=>{const ok=Fusion.componentReady(k),ow=Campaign36.ownsCraft(k);let v={enhance:0};try{v=Workshop.craftProgress(k);}catch{}
@@ -23,8 +23,8 @@ const HT197V=(()=>{
   body.innerHTML=`<div class="ht197">
    <div class="ht-hero"><div class="hb-sss ht-pic" style="background-position:${pos(i)} 100%"></div>
     <div class="ht-name"><b>${m.name}</b><span class="ht-st ${st[1]}">${st[0]}</span>${r?`<small>Lv ${r.level} · Cường hóa +${r.enhance}</small>`:''}</div></div>
-   <div class="ht-rec">${comp(pair[0])}<i>+</i>${comp(pair[1])}<i>→</i><div class="ht-out"><span class="pic"><span class="hb-sss" style="background-position:${pos(i)} 0"></span></span><b>SSS</b></div></div>
-   <button type="button" class="hb-btn ${o?'cyan':'gold'} ht-main" id="ht-x" ${using||(!o&&!ready)?'disabled':''}>${using?'✓ ĐANG XUẤT CHIẾN':o?'CHỌN XUẤT CHIẾN':ready?'✦ HỢP THỂ 2 CHIẾN CƠ':'CẦN 2 CHIẾN CƠ CƯỜNG HÓA +1'}</button>
+   <div class="ht-rec">${comp(pair[0])}${solo?'<i>✦</i><button type="button" class="ht-c ok ht-solo" disabled><span class="pic" style="display:grid;place-items:center;font-size:26px;color:#fde047">✦</span><b>TỰ THỨC TỈNH</b><small>chỉ cần 1 tàu</small></button>':'<i>+</i>'+comp(pair[1])}<i>→</i><div class="ht-out"><span class="pic"><span class="hb-sss" style="background-position:${pos(i)} 0"></span></span><b>SSS</b></div></div>
+   <button type="button" class="hb-btn ${o?'cyan':'gold'} ht-main ${window.HOP4309!==false?'u7-pri':''}" id="ht-x" ${using||(!o&&!ready)?'disabled':''}>${using?'✓ ĐANG XUẤT CHIẾN':o?'CHỌN XUẤT CHIẾN':solo?(ready?'✦ THỨC TỈNH ĐẾ VƯƠNG':'CẦN '+short(crafts[pair[0]].name).toUpperCase()+' CƯỜNG HÓA +1'):ready?'✦ HỢP THỂ 2 CHIẾN CƠ':'CẦN 2 CHIẾN CƠ CƯỜNG HÓA +1'}</button>
    <div class="ht-strip">${R.map((p,k)=>{const ok=own(k),rd=p.every(Fusion.componentReady),us=!!(ok&&sel===ok.key);
      return `<button type="button" class="ht-s ${k===i?'sel':''} ${ok?'own':''} ${us?'us':''}" data-k="${k}"><span class="hb-sss" style="background-position:${pos(k)} 100%"></span><b>${short(M[k].name)}</b>${!ok&&rd?'<i class="hb-dot"></i>':''}</button>`;}).join('')}</div>
    <details class="ht-more"><summary>Kỹ năng &amp; chi tiết</summary><p class="hb-desc">✦ ${m.skills}<br><b>MAX:</b> ${m.max}<br><b>Tuyệt kỹ:</b> ${m.ult}</p>

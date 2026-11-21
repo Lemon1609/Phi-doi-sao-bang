@@ -21,11 +21,17 @@ const Gear44=(()=>{
  //  Lưu ở khóa MỚI saobang-gear-sss-v2; khóa v1 giữ nguyên, chỉ đọc 1 lần để chuyển.
  const EJ=(typeof SSS_E!=='undefined'&&SSS_E)||{sss_equipment:[]},KEY2='saobang-gear-sss-v2';
  const DEF2={};EJ.sss_equipment.forEach((x,i)=>{const fx=BY[x.id];DEF2[x.id]={id:x.id,kind:x.kind,tier:'sss',group:x.group|0,ord:i,parents:x.parents.slice(),name:x.name,color:(x.art&&x.art.color)||(fx&&fx.color)||'#ffd56a',second:fx&&fx.second,ring:fx?fx.ring:undefined,fx:!!fx,steps:x.cost.lvSteps,trait:x.trait,skill:x.skill,super:x.super,ult:x.ult,traits:[{name:x.trait.name}],flavor:''};});
+ // V309 Lượt 4 (chủ dự án 21/11): 21 món SSS = 6 cặp 1–1 (món 1+2 … 11+12) + 1 món Độc Tôn tự thức tỉnh từ món 13 mỗi loại. Tắt: window.SSS4309=false (đặt trước khi tải)
+ const L4REM=['sss_chrono_monarch_a','sss_chrono_monarch_m','sss_chrono_monarch_s','sss_monarch_aegis','sss_monarch_inferno','sss_monarch_rail'];
+ const L4COST={};for(const id of L4REM)if(DEF2[id])L4COST[id]=DEF2[id].steps;
+ if(window.SSS4309!==false){for(const id of ['sss_chrono_monarch_a','sss_chrono_monarch_m','sss_chrono_monarch_s'])delete DEF2[id];
+  const SOLO={sss_monarch_aegis:['monarch12_a','Hoàng Đế Bất Hoại'],sss_monarch_inferno:['monarch12_m','Trảm Không Đế Vương'],sss_monarch_rail:['monarch12_s','Ấn Triện Đế Vương']};
+  for(const k in SOLO)if(DEF2[k]){DEF2[k].parents=[SOLO[k][0],SOLO[k][0]];DEF2[k].name=SOLO[k][1];DEF2[k].solo=1;try{if(BY[k])BY[k].name=SOLO[k][1];}catch{}}}
  const SSS2=Object.values(DEF2),def=id=>DEF2[id]||BY[id]||null;
  const MATN=id=>{try{return V70.matName(id);}catch{return id;}};
  const nameOf=v=>{try{return (BY[v]&&BY[v].name)||GearCatalog[v].name;}catch{return v;}};
  let S=load();
- function load(){try{const o=JSON.parse(localStorage.getItem(KEY2)||'null');if(o&&o.v===2)return {v:2,owned:o.owned||{},bind:o.bind||{},wk:o.wk||{w:0,n:0},pay:o.pay||null};}catch{}
+ function load(){try{const o=JSON.parse(localStorage.getItem(KEY2)||'null');if(o&&o.v===2)return l4mig({v:2,owned:o.owned||{},bind:o.bind||{},wk:o.wk||{w:0,n:0},pay:o.pay||null,l4:o.l4||0});}catch{}
   // chuyển từ v1: 9 món còn trong danh sách → giữ (Lv1); 9 món bị bỏ → tặng 1 SSS chung món mẹ chưa có; hết chỗ thì hoàn chi phí mở
   const n={v:2,owned:{},bind:{},wk:{w:0,n:0},pay:null};let o=null;try{o=JSON.parse(localStorage.getItem(KEY)||'null');}catch{}
   if(o&&o.owned){const old=Object.keys(o.owned),pay={cr:0,m:{}};for(const id of old)if(DEF2[id])n.owned[id]={lv:1,at:Date.now(),from:'v1'};
@@ -33,7 +39,12 @@ const Gear44=(()=>{
     if(c)n.owned[c.id]={lv:1,at:Date.now(),from:id};else{const st=SSS2.find(d=>d.parents.some(p=>ps.includes(p)))||SSS2[0];if(st){const c0=st.steps[0];pay.cr+=c0.credits|0;for(const [k,v] of Object.entries(c0.mats||{}))pay.m[k]=(pay.m[k]|0)+v;}}}
    for(const k of KINDS){const e=o.equip&&o.equip[k];if(!e)continue;const id=DEF2[e]?e:Object.keys(n.owned).find(x=>n.owned[x].from===e);if(id)for(const p of DEF2[id].parents)n.bind[p]=id;}
    if(pay.cr||Object.keys(pay.m).length)n.pay=pay;}
-  try{localStorage.setItem(KEY2,JSON.stringify(n));}catch{}return n;}
+  n.l4=1;try{localStorage.setItem(KEY2,JSON.stringify(n));}catch{}return n;}
+ // V309 Lượt 4: 6 món SSS bị bỏ / đổi công thức → hoàn chi phí mở + nâng cấp đã tốn (qua S.pay → payBack), gỡ món (chủ dự án chọn "hoàn nguyên liệu, bỏ món")
+ function l4mig(n){if(n.l4||window.SSS4309===false)return n;const pay=n.pay||{cr:0,m:{}};let any=false;
+  for(const id of L4REM){const o=n.owned[id];if(!o)continue;const st=L4COST[id]||[];const lv=Math.max(1,o.lv|0);for(let k=0;k<lv&&k<st.length;k++){const c=st[k]||{};pay.cr+=c.credits|0;for(const [m,v] of Object.entries(c.mats||{}))pay.m[m]=(pay.m[m]|0)+v;if(c.sss_core)pay.m.sss_core=(pay.m.sss_core|0)+c.sss_core;}delete n.owned[id];any=true;}
+  for(const b of Object.keys(n.bind))if(L4REM.includes(n.bind[b]))delete n.bind[b];
+  if(any)n.pay=pay;n.l4=1;try{localStorage.setItem(KEY2,JSON.stringify(n));}catch{}return n;}
  function save(){try{localStorage.setItem(KEY2,JSON.stringify(S));}catch{}}
  function payBack(){if(!S.pay)return;try{if(typeof V70==='undefined'||!Progress.grantCredits)return;for(const [k,v] of Object.entries(S.pay.m))V70.add(k,v);if(S.pay.cr)Progress.grantCredits(S.pay.cr);S.pay=null;save();}catch{}}
  const items=()=>{try{return Progress.getState().items||[];}catch{return [];}};
@@ -49,7 +60,7 @@ const Gear44=(()=>{
  const haveM=k=>{try{return V70.have(k)|0;}catch{return 0;}};
  function costOk(st){const L=[];if(!st)return ['max'];for(const [k,v] of Object.entries(st.mats||{}))if(haveM(k)<v)L.push(MATN(k)+' '+haveM(k)+'/'+v);if(st.sss_core&&haveM('sss_core')<st.sss_core)L.push('Tinh Hạch '+haveM('sss_core')+'/'+st.sss_core);try{if(Progress.balance()<st.credits)L.push('hợp kim');}catch{}return L;}
  function pay(st){if(costOk(st).length)return false;if(st.credits&&!Progress.spendCredits(st.credits))return false;for(const [k,v] of Object.entries(st.mats||{}))V70.add(k,-v);if(st.sss_core)V70.add('sss_core',-st.sss_core);return true;}
- function canFuse(id){const d=DEF2[id];if(!d)return {ok:false,why:'Không phải công thức'};const [a,b]=d.parents,ta=tierN(a),tb=tierN(b);if(ta<0||tb<0)return {ok:false,why:'Thiếu '+nameOf(ta<0?a:b)};if(ta<7||tb<7)return {ok:false,why:'Cần cả hai món ≥ Tím +1'};const L=costOk(d.steps[0]);if(L.length)return {ok:false,why:'Thiếu '+L.slice(0,2).join(', ')};return {ok:true,why:''};}
+ function canFuse(id){const d=DEF2[id];if(!d)return {ok:false,why:'Không phải công thức'};const [a,b]=d.parents,ta=tierN(a),tb=tierN(b);if(ta<0||tb<0)return {ok:false,why:'Thiếu '+nameOf(ta<0?a:b)};if(ta<7||tb<7)return {ok:false,why:d.solo?'Cần món ≥ Tím +1':'Cần cả hai món ≥ Tím +1'};const L=costOk(d.steps[0]);if(L.length)return {ok:false,why:'Thiếu '+L.slice(0,2).join(', ')};return {ok:true,why:''};}
  const sssEnh=id=>{const d=DEF2[id];if(!d)return 0;return Math.min(10,2*Math.min(...d.parents.map(plusOf)));};
  // SSS hoạt động khi đang lắp 1 trong 2 món mẹ; món mẹ dùng chung → theo lựa chọn (bind), mặc định Lv cao hơn rồi Nhóm cao hơn
  function sssFor(v,kind){const b=S.bind[v];if(b==='-')return null;if(b&&owns(b)&&DEF2[b]&&DEF2[b].kind===kind&&DEF2[b].parents.includes(v))return b;const L=SSS2.filter(d=>d.kind===kind&&owns(d.id)&&d.parents.includes(v)).sort((x,y)=>lvOf(y.id)-lvOf(x.id)||y.group-x.group);return L.length?L[0].id:null;}
@@ -164,13 +175,13 @@ const Gear44=(()=>{
   if(tabK==='items')return renderItems();
   const list=SSS2.filter(d=>d.kind===tabK).sort((a,b)=>a.group-b.group||a.ord-b.ord),it=equippedItem(tabK),cur=activeId(tabK);
   if(!sel||!DEF2[sel]||DEF2[sel].kind!==tabK)sel=(list.find(d=>d.id===cur)||list[0]).id;
-  root.querySelector('#g44-list').innerHTML=list.map(d=>{const c=canFuse(d.id),own=owns(d.id),on=cur===d.id;return `<button class="g44-r ${own?'own':''} ${on?'on':''} ${d.id===sel?'sel':''}" data-pick="${d.id}">${iconOf(d.parents[0])}<i>+</i>${iconOf(d.parents[1])}<i>→</i>${pic(d,46)}<span><b>${esc(d.name)}</b><small>Nhóm ${GN[d.group]} · ${own?(on?'ĐANG XUẤT CHIẾN · ':'')+'Lv'+lvOf(d.id)+'/5 · +'+sssEnh(d.id):c.ok?'Sẵn sàng hợp thể':esc(c.why)}</small></span></button>`;}).join('');
+  root.querySelector('#g44-list').innerHTML=list.map(d=>{const c=canFuse(d.id),own=owns(d.id),on=cur===d.id;return `<button class="g44-r ${own?'own':''} ${on?'on':''} ${d.id===sel?'sel':''}" data-pick="${d.id}">${iconOf(d.parents[0])}${d.solo?'<i>✦</i><small class="g44-solo">TỰ THỨC TỈNH</small>':'<i>+</i>'+iconOf(d.parents[1])}<i>→</i>${pic(d,46)}<span><b>${esc(d.name)}</b><small>Nhóm ${GN[d.group]} · ${own?(on?'ĐANG XUẤT CHIẾN · ':'')+'Lv'+lvOf(d.id)+'/5 · +'+sssEnh(d.id):c.ok?'Sẵn sàng hợp thể':esc(c.why)}</small></span></button>`;}).join('');
   const d=DEF2[sel],c=canFuse(d.id),own=owns(d.id),lv=lvOf(d.id),on=cur===d.id,tl=d.trait.lv,shown=tl[Math.max(0,lv-1)],nx=lv&&lv<5?tl[lv]:null;
   const shared=d.parents.filter(p=>SSS2.some(x=>x!==d&&x.parents.includes(p)));
   let act='';if(!own)act=`<button class="main" data-g="fuse" data-id="${d.id}" ${c.ok?'':'disabled'}>${c.ok?'HỢP THỂ · '+esc(costTxt(d.steps[0])):esc(c.why)}</button>`;
   else{act=(lv<5?`<button class="main" data-g="up" data-id="${d.id}" ${costOk(d.steps[lv]).length?'disabled':''}>NÂNG Lv${lv+1} · ${esc(costTxt(d.steps[lv]))}</button>`:'<p class="g44-st">Đã đạt Lv5</p>')+(on?`<button data-g="unequip" data-id="${d.id}">GỠ SSS (dùng món mẹ thường)</button>`:`<button data-g="equip" data-id="${d.id}">CHỌN XUẤT CHIẾN</button>`);}
   root.querySelector('#g44-det').innerHTML=`<div class="g44-art">${pic(d,96,0)}${pic(d,96,1)}</div><div class="g44-txt"><h3 style="color:${d.color}">${esc(d.name)} <em>SSS · Nhóm ${GN[d.group]}</em></h3>
-   <p>Món mẹ: <b>${esc(nameOf(d.parents[0]))}</b> ${pTag(d.parents[0])} + <b>${esc(nameOf(d.parents[1]))}</b> ${pTag(d.parents[1])}</p>
+   <p>Món mẹ: <b>${esc(nameOf(d.parents[0]))}</b> ${pTag(d.parents[0])}${d.solo?' · <b>tự thức tỉnh</b> (chỉ cần 1 món ≥ Tím +1)':` + <b>${esc(nameOf(d.parents[1]))}</b> ${pTag(d.parents[1])}`}</p>
    ${window.DET197!==false?`<div class="g44-act">${act}</div><div class="k197"><div><i>Nội tại</i><b>${esc(d.trait.name)}</b><small>Lv${lv||1}/5</small></div><div><i>Kỹ năng</i><b>${esc(d.skill.name)}</b><small>${d.skill.cooldown}s</small></div><div><i>Bạo Tẩu</i><b>${esc(d.super.name)}</b></div><div><i>Tuyệt kỹ</i><b>${esc(d.ult.name)}</b></div></div>${typeof TapBan200!=='undefined'&&TapBan200.on()?TapBan200.btn:''}<details class="d197"><summary>Chi tiết</summary>`:''}
    <p class="g44-tr">Nội tại · <b>${esc(d.trait.name)}</b>${lv?' (Lv'+lv+')':' (Lv1)'}: ${esc(shown.desc)}</p>${nx?`<p class="g44-fl">Lv${lv+1}: ${esc(nx.desc)}</p>`:''}
    <p>Kỹ năng · <b>${esc(d.skill.name)}</b> (${d.skill.cooldown}s): ${esc(d.skill.effect)}</p><p>Bạo Tẩu · <b>${esc(d.super.name)}</b>: ${esc(d.super.effect)}</p><p>Tuyệt kỹ · <b>${esc(d.ult.name)}</b>: ${esc(d.ult.effect)}</p>
