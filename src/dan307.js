@@ -57,7 +57,7 @@
  const RC={thuong:[220,232,255],luc:[30,225,85],lam:[35,120,255],tim5:[255,55,205],ss:[255,185,25]};
  window.MAU309=RCB;
  const mix=(a,b,f)=>[a[0]+(b[0]-a[0])*f,a[1]+(b[1]-a[1])*f,a[2]+(b[2]-a[2])*f];
- const RCC={};function recolor(im,k,tier){if(window.DAN309===false)return null;const B=window.MAU309B!==false?RCB[tier]:null,c=RC[tier];if(!c)return null;const key=k+'|'+tier+(B?'b':'');if(RCC[key])return RCC[key];
+ const RCC={};function recolor(im,k,tier){if(window.DAN309===false)return null;const B=window.MAU309B!==false||/^sk8_/.test(tier)?RCB[tier]:null,c=RC[tier]||(B&&B[1]);if(!c)return null;const key=k+'|'+tier+(B?'b':'');if(RCC[key])return RCC[key];
   try{const W=im.naturalWidth||im.width,H=im.naturalHeight||im.height,cv=document.createElement('canvas');cv.width=W;cv.height=H;const g=cv.getContext('2d');g.drawImage(im,0,0);const d=g.getImageData(0,0,W,H),p=d.data;
    for(let i=0;i<p.length;i+=4){if(!p[i+3])continue;const L=Math.max(p[i],p[i+1],p[i+2])/255;let q;
     if(B){/* ảnh tách nền alpha=max → cường độ nằm ở alpha: v = sáng × alpha */const v=L*p[i+3]/255;q=v<.25?mix(B[2].map(x=>x*.6),B[2],v/.25):v<.55?mix(B[2],B[1],(v-.25)/.3):v<.85?B[1]:mix(B[1],B[0],Math.min(1,(v-.85)/.15));p[i+3]=Math.min(255,p[i+3]*1.35);}
@@ -66,9 +66,9 @@
    g.putImageData(d,0,0);return RCC[key]=cv;}catch{return null;}}
  const TC={};function tinted(id,k,tier,alt){const im=IM[k];if(!im||!im.complete||!im.naturalWidth)return null;if(!alt&&tier!=='tim'){const rc=recolor(im,k,tier);if(rc)return rc;}let f=(TINT[id]||TG)[tier]||'none';if(alt)f=(f==='none'?'':f+' ')+'hue-rotate(165deg)';tier=tier+(alt?'_alt':'');if(!f||f==='none')return im;const key=k+'|'+tier;if(TC[key])return TC[key];
   try{const c=document.createElement('canvas');c.width=im.naturalWidth;c.height=im.naturalHeight;const g=c.getContext('2d');if(!('filter' in g))return TC[key]=im;g.filter=f;g.drawImage(im,0,0);return TC[key]=c;}catch{return TC[key]=im;}}
- function draw(g,s){const L=s.L307,a=Math.atan2(s.vy,s.vx)+Math.PI/2,sp=SPR[s.art28]||[],alt=s.art28===11&&(s.k307&1),im=s.bt307?(alt?tinted(11,sp[1],'ss',1):(window.DAN309!==false&&s.t307!=='tim'&&IM[sp[1]]&&IM[sp[1]].complete?(recolor(IM[sp[1]],sp[1],s.t307)||IM[sp[1]]):IM[sp[1]])):tinted(s.art28,sp[0],s.t307,alt);
+ function draw(g,s){let L=s.L307,a=Math.atan2(s.vy,s.vx)+Math.PI/2,sp=SPR[s.art28]||[],alt=s.art28===11&&(s.k307&1),im=s.bt307?(alt?tinted(11,sp[1],'ss',1):(window.DAN309!==false&&s.t307!=='tim'&&IM[sp[1]]&&IM[sp[1]].complete?(recolor(IM[sp[1]],sp[1],s.t307)||IM[sp[1]]):IM[sp[1]])):tinted(s.art28,sp[0],s.t307,alt);
   if(im&&(im.width||im.naturalWidth)){const iw=im.naturalWidth||im.width,ih=im.naturalHeight||im.height,h=L*(s.bt307?1.05:1),w=h*iw/ih*(window.DAN309===false?1:(iw/ih<.22?1.9:1.4));
-   const fa=Math.min(1,(s.age||0)/.07);/* V307: hiện dần 0,07 s đầu để loạt đạn vừa bắn không chồng thành khối sát mũi tàu */
+   try{const ot=window.SK8T&&window.SK8T();if(ot&&!alt&&window.DAN309!==false){const kk=sp[s.bt307?1:0];if(IM[kk]&&IM[kk].complete){const r8=recolor(IM[kk],kk,ot);if(r8)im=r8;}}}catch{}/* V309 Lượt 8: trang phục chiến cơ đổi màu đạn chính (bảng sk8_<hạng> trong MAU309) */const fa=Math.min(1,(s.age||0)/.07);/* V307: hiện dần 0,07 s đầu để loạt đạn vừa bắn không chồng thành khối sát mũi tàu */
    g.save();g.translate(s.x,s.y);g.rotate(a);g.globalCompositeOperation='source-over';g.globalAlpha=.95*fa;g.drawImage(im,-w/2,-h*.12,w,h);
    g.globalCompositeOperation='lighter';if(window.MAU309B!==false&&window.DAN309!==false){/* V309b: chỉ quầng ngoài cộng sáng, alpha .35 (Gemini) */g.globalAlpha=(s.bt307?.3:.35)*fa;g.drawImage(im,-w*.62,-h*.18,w*1.24,h*1.08);}else{g.globalAlpha=(s.bt307?.35:.22)*fa*(window.DAN309===false?1:2);g.drawImage(im,-w*.3,-h*.1,w*.6,h*.5);if(window.DAN309!==false){g.globalAlpha=.3*fa;g.drawImage(im,-w*.62,-h*.18,w*1.24,h*1.08);}}g.restore();return;}
   drawCode(g,s);}
