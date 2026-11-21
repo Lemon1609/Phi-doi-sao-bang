@@ -53,7 +53,8 @@ const Music96=(()=>{
   if(m==='play'||m==='pause'){let bs=false;try{bs=!!(boss&&!boss.dead&&boss.hp>0);}catch{}if(bs)return 'boss';let gm='';try{gm=gameMode;}catch{}
    try{if(typeof Eclipse67!=='undefined'&&Eclipse67.active())return 'eclipse';}catch{}if(gm==='endless')return 'endless';return 'battle';}return 'lobby';}
  const p3=()=>{try{return !!(boss&&!boss.dead&&(boss.parts||[]).length&&(boss.parts||[]).every(p=>p.dead||!(p.hp>0)));}catch{return false;}};
- function bpmNow(){if(!trk)return 120;if(cur==='endless'){let t=0;try{t=time||0;}catch{}return Math.min(144,124+Math.floor(t/180)*4);}if(cur==='boss'&&p3())return 148;return trk.bpm;}
+ function bpmNow(){const b=bpm0();try{return window.__bpm6?b*window.__bpm6():b;}catch{return b;}}/* V309 Lượt 6: nhanh hơn khi cảnh báo boss / Bạo Tẩu */
+ function bpm0(){if(!trk)return 120;if(cur==='endless'){let t=0;try{t=time||0;}catch{}return Math.min(144,124+Math.floor(t/180)*4);}if(cur==='boss'&&p3())return 148;return trk.bpm;}
  // ---------- nhạc cụ ----------
  function env(g,t,a,v,d){g.gain.setValueAtTime(.0001,t);g.gain.exponentialRampToValueAtTime(Math.max(.0002,v),t+a);g.gain.exponentialRampToValueAtTime(.0001,t+d);}
  function osc(type,f,t,d,v,a=.005,filt=null,q=1,det=0){const o=ctx.createOscillator(),g=ctx.createGain();o.type=type;o.frequency.setValueAtTime(f,t);if(det)o.detune.setValueAtTime(det,t);

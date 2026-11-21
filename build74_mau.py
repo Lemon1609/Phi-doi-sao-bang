@@ -144,7 +144,7 @@ if os.environ.get('PK113','0')!='0':  # V116: chủ dự án muốn giữ biểu
 # V309 Lượt 5 · 8 vật phẩm rơi mới (GPT 89280) thay hộp lục giác bạc V51/V78. Tắt: DROP5=0 khi dựng
 DROP309={}
 if os.environ.get('DROP5','1')!='0':
-    for _k in ['power','heal','shield','bomb','drone','super','magnet','star']:
+    for _k in ['power','heal','shield','bomb','drone','super','magnet','star']+['weapon%d'%_i for _i in range(5)]:  # Lượt 6: + 5 hộp đổi súng
         _pp='src/drop309/'+_k+'.png'
         if os.path.exists(_pp):
             DROP309[_k]=_w8(_pp,128)
@@ -1130,6 +1130,12 @@ rep("for(const e of enemies){EnemyFleet.drawEnemy(e);if(e.elite&&window.RING108=
 rep("if(c183){ctx.globalCompositeOperation='source-over';ctx.drawImage(c183,d.x-c183.w/2,d.y-c183.w/2,c183.w,c183.w);continue;}",
     "if(c183){let w9=c183.w;if(typeof L5309!=='undefined'&&L5309.dOn()){w9*=L5309.kp(d);L5309.glow(d.x,d.y,w9,'#fbbf24',d.ph);}ctx.globalCompositeOperation='source-over';ctx.drawImage(c183,d.x-w9/2,d.y-w9/2,w9,w9);continue;}")
 rep("</body>","<script>const DROP309_IMG="+json.dumps(DROP309)+";</script><script id=\"l5309-js\">"+open('src/l5309.js',encoding='utf-8').read()+"</script></body>")
+# ---- V309 Lượt 6 · cảm giác bắn, âm thanh, boss, điện thoại ----
+rep("if(shake>0&&mode==='play'&&!VisualFX.reduced()){const A=typeof FX16S==='function'?FX16S():3;ctx.translate(rnd(-A,A),rnd(-A,A));}",
+    "{const k6=typeof L6309!=='undefined'?L6309.shk():null;if(k6===0){}else if(k6>0){ctx.translate(rnd(-k6,k6),rnd(-k6,k6));}else if(shake>0&&mode==='play'&&!VisualFX.reduced()){const A=typeof FX16S==='function'?FX16S():3;ctx.translate(rnd(-A,A),rnd(-A,A));}}")
+rep("{const k78=(window.Bal787&&Bal787.bossDrop)?Bal787.bossDrop(p.x,p.y,'wing'):(Safety31.push(drops,100,{x:p.x,y:p.y,type:'power',t:0}),'power');toast((p.side<0?'CÁNH TRÁI':'CÁNH PHẢI')+' ĐÃ PHÁ'+(k78==='heal'?' · HỒI MÁU':k78==='power'?' · W':''));}",
+    "{const k78=typeof L6309!=='undefined'?L6309.wingDrop(p.x,p.y):(window.Bal787&&Bal787.bossDrop)?Bal787.bossDrop(p.x,p.y,'wing'):(Safety31.push(drops,100,{x:p.x,y:p.y,type:'power',t:0}),'power');toast((p.side<0?'CÁNH TRÁI':'CÁNH PHẢI')+' ĐÃ PHÁ'+(k78==='heal'?' · HỒI MÁU':k78==='power'?' · W':k78==='shield'?' · HỒI KHIÊN':k78==='super'?' · SIÊU CẤP':''));}")
+rep("</body>","<style id=\"l6309-css\">#auto6{position:absolute;z-index:30;white-space:nowrap;display:flex;align-items:center;gap:4px;height:24px;padding:0 9px 0 7px;border-radius:12px;border:1px solid rgba(125,211,252,.55);background:linear-gradient(180deg,rgba(15,30,52,.88),rgba(8,16,30,.88));color:#bfe6ff;font:800 10px/1 sans-serif;letter-spacing:.06em;pointer-events:auto;touch-action:none}#auto6 i{width:10px;height:10px;border-radius:50%;background:#334155;box-shadow:inset 0 0 0 1.5px #64748b}#auto6.on{border-color:#fbbf24;color:#ffe9a8;background:linear-gradient(180deg,rgba(66,42,6,.9),rgba(28,16,2,.9))}#auto6.on i{background:#fbbf24;box-shadow:0 0 6px #fbbf24}#auto6[hidden]{display:none}</style><script id=\"l6309-js\">"+open('src/l6309.js',encoding='utf-8').read()+"</script></body>")
 open('Phi_Doi_Sao_Bang_V74_mau.html','w',encoding='utf-8').write(h);print(round(len(h)/1e6,2),'MB')
 # ---- V100 · BẢN THỬ cho chủ dự án: dữ liệu tách riêng (tiền tố thu100:) + bảng nạp tài khoản mẫu ----
 # V301: chỉ dựng khi cần (BAN_THU=1 hoặc khi xuất bản) để mỗi lần dựng nhanh hơn, bớt một tệp 81 MB

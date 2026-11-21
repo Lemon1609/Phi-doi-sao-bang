@@ -9,7 +9,7 @@
   const SND={
     wingHit:t=>o('triangle',320,300,t,.04,.07),
     coreHit:t=>o('sine',680,680,t,.045,.08),
-    pickup:t=>o('triangle',520,880,t,.07,.09),
+    pickup:t=>{if(window.FEEL6!==false&&typeof L6309!=='undefined')return;/* Lượt 6: L6309 phát tiếng nhặt tăng cao độ */o('triangle',520,880,t,.07,.09);},
     lowHp:t=>{o('square',440,440,t,.06,.05);o('square',440,440,t+.11,.06,.05);},
     ui:t=>o('sine',900,900,t,.025,.04)};
   const CD={wingHit:250,coreHit:200,pickup:90,lowHp:2400,ui:60};const last={},n={};

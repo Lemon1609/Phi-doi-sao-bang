@@ -24,7 +24,7 @@ const L5309=(()=>{
   g.globalCompositeOperation='lighter';g.lineCap='round';for(let i=0;i<3;i++){const a0=i*TAU/3;g.strokeStyle=i%2?'rgba(249,115,22,.95)':'rgba(239,68,68,.95)';g.lineWidth=5;g.beginPath();g.arc(h,h,h*.74,a0,a0+TAU/7);g.stroke();g.strokeStyle='rgba(255,220,170,.8)';g.lineWidth=1.6;g.beginPath();g.arc(h,h,h*.74,a0+.05,a0+TAU/7-.05);g.stroke();}
   return C.aura=c;}
  // ---- 1. vật phẩm rơi ----
- const DCOL={power:'#ff7a2e',heal:'#4ade80',shield:'#22d3ee',bomb:'#ff4d4d',drone:'#60a5fa',super:'#c084fc',magnet:'#a78bfa',star:'#fbbf24'};
+ const DCOL={power:'#ff7a2e',heal:'#4ade80',shield:'#22d3ee',bomb:'#ff4d4d',drone:'#60a5fa',super:'#c084fc',magnet:'#a78bfa',star:'#fbbf24',weapon:'#e2e8f0'};
  const dOn=()=>window.DROP309!==false&&A.power;
  const im={};for(const k in A){const i=new Image();i.decoding='async';i.src=A[k];im[k]=i;}
  if(im.star)window.DROP309IM=im.star;
