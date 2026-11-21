@@ -51,6 +51,7 @@ const NC307=(()=>{
  const stXp=()=>T4.reduce((a,t)=>a+(st[t]|0)*D.XP[t],0),stN=()=>T4.reduce((a,t)=>a+(st[t]|0),0);
  // ---------- trạng thái màn ----------
  let upPop=0,back=false,mode='up',flash='',warnAsk=false;
+ const mode9=()=>mode;
  const WK='saobang-nc307-warn';const noWarnToday=()=>{try{return localStorage.getItem(WK)===new Date().toDateString();}catch{return false;}};
  setInterval(()=>{try{if(!back)return;const d=[...document.querySelectorAll('.ev82,.adv70')].find(x=>!x.hidden&&x.getClientRects().length);if(d)return;back=false;if(el){el.classList.add('open');render();}}catch{}},300);
  let cur=null,mats=[],st=zero(),ask=null,el=null,msg='';
@@ -81,7 +82,7 @@ const NC307=(()=>{
   el.querySelector('.nc307-in').innerHTML=`
   <div class="nc307-top"><b>${window.UX9!==false?'CƯỜNG HÓA · NÂNG CẤP':'NÂNG CẤP'}</b><button class="nc307-swap" data-nc="bag">⇅ Đổi món</button><button class="nc307-x" data-nc="x" aria-label="Đóng">✕</button></div>
   <div class="nc307-pn" style="--c:${colorOf(it)}">
-   <div class="nc307-pc" data-nc="${it.kind==='craft'?'':'bag'}"><b>${esc(String(title).split(' · ')[0])}</b><div class="nc307-art">${artOf(it)}</div><div class="nc307-st">${stars(it)}</div><small>${esc(it.kind==='craft'?TIER70.name[nOf(it)]:(()=>{try{return V70T(it);}catch{return '';}})())}</small></div>
+   <div class="nc307-pc" data-nc="${it.kind==='craft'&&window.UX9B===false?'':'bag'}">${window.UX9B!==false?'<i class="sw9">⇄</i>':''}<b>${esc(String(title).split(' · ')[0])}</b><div class="nc307-art">${artOf(it)}</div><div class="nc307-st">${stars(it)}</div><small>${esc(it.kind==='craft'?TIER70.name[nOf(it)]:(()=>{try{return V70T(it);}catch{return '';}})())}</small></div>
    <table class="nc307-tb"><tr><td>Cấp</td><td>${it.level|0}/${r0.cap}</td><td>➤</td><td class="${r.L>(it.level|0)?'up':''}">${r.L}/${r.cap}</td></tr>
     ${rows.map(x=>`<tr><td>${x[0]}</td><td>${x[1]}</td><td>➤</td><td class="${x[3]?'up':''}">${x[2]}</td></tr>`).join('')}</table>
   </div>
@@ -103,6 +104,7 @@ const NC307=(()=>{
   const kinds=[...new Set((isMat?[]:ships()).concat(items()).map(m=>m.kind))];
   if(tab!=='all')l=l.filter(m=>m.kind===tab);
   l=l.slice().sort(isMat?((a,b)=>nOf(a)-nOf(b)||a.level-b.level):((a,b)=>(eqIds().includes(b.id)-eqIds().includes(a.id))||nOf(b)-nOf(a)||(b.level-a.level)));
+  if(!isMat&&mode9()==='adv'&&window.UX9B!==false)l=l.map((m,i)=>[advOk(m),i,m]).sort((a,b)=>(b[0]-a[0])||(a[1]-b[1])).map(x=>x[2]);
   return `<div class="nc307-sh" data-nc="no"><div class="nc307-shp"><i class="nc307-grip"></i><div class="nc307-sht"><b>${isMat?'Chọn vật liệu · bị tiêu hao':'Chọn trang bị cần nâng'}</b><button data-nc="no">✕</button></div>
    <div class="nc307-tabs ${u9?'t9':''}">${u9?'':`<button data-nc="tab" data-id="all" class="${tab==='all'?'on':''}">Tất cả</button>`}${kinds.map(k=>`<button data-nc="tab" data-id="${esc(k)}" class="${tab===k?'on':''}">${esc(kname(k))}</button>`).join('')}</div>
    <div class="nc307-rows">${l.length?l.map(m=>rowHtml(m,isMat)).join(''):(isMat?'<i>Không có trang bị / bản sao cùng mẫu để làm vật liệu.</i>':'<i>Không có trang bị phù hợp.</i>')}</div></div></div>`;}
@@ -110,7 +112,8 @@ const NC307=(()=>{
   let st='';if(m.kind==='craft'){try{st='Hệ số ×'+Workshop.levelFactor(m._v).toFixed(2);}catch{}}else try{const a=Progress.stat(m);st=m.kind==='armor'?`Giáp ${a.armor.toFixed(1)} · Máu ${a.hp.toFixed(1)}`:`ST ${a.auxDamage.toFixed(2)} · ${a.interval.toFixed(2)} s`;}catch{}
   const eq=eqIds().includes(m.id);
   const fi=(()=>{try{return TIER70.frame[nOf(m)]|0;}catch{return 0;}})();
-  return `<button class="nc307-row ${m.id===cur?'on':''}${m.copy?' cp':''}" data-f="${fi}" data-nc="${isMat?'add':'pick'}" data-id="${esc(m.id)}" style="--c:${colorOf(m)}">${card(m,'nc307-mini')}<div class="nc307-ri"><b>${esc(t)}</b><span class="nc307-rs">${stars(m)} <small>${esc(lb)}</small></span><small>${tab==='all'?esc(kname(m.kind))+' · ':''}${st}</small></div><div class="nc307-rr"><b>Lv${m.level|0}${m.copy?'':`<small>/${capOf(m)}</small>`}</b>${m.copy?'<s class="cp">Bản sao</s>':''}${eq?'<s>Đang mặc</s>':''}${isMat?`<em>+${fmt(feedXp(m))} XP</em>`:''}${!isMat&&m.id===cur?'<s class="cur">Đang chọn</s>':''}${!isMat&&mode==='adv'&&lowLv(m)?'<s class="lo">Cấp chưa đủ</s>':''}</div>${!isMat&&window.UX9!==false?`<i class="tk9 ${m.id===cur?'on':''}">${m.id===cur?'✓':''}</i>`:''}</button>`;}
+  return `<button class="nc307-row ${m.id===cur?'on':''}${m.copy?' cp':''}" data-f="${fi}" data-nc="${isMat?'add':'pick'}" data-id="${esc(m.id)}" style="--c:${colorOf(m)}">${card(m,'nc307-mini')}<div class="nc307-ri"><b>${esc(t)}</b><span class="nc307-rs">${stars(m)} <small>${esc(lb)}</small></span><small>${tab==='all'?esc(kname(m.kind))+' · ':''}${st}</small></div><div class="nc307-rr"><b>Lv${m.level|0}${m.copy?'':`<small>/${capOf(m)}</small>`}</b>${m.copy?'<s class="cp">Bản sao</s>':''}${eq?'<s>Đang mặc</s>':''}${isMat?`<em>+${fmt(feedXp(m))} XP</em>`:''}${!isMat&&m.id===cur?'<s class="cur">Đang chọn</s>':''}${!isMat&&mode==='adv'&&window.UX9B!==false&&advOk(m)?'<s class="ok9">ĐỦ ĐIỀU KIỆN</s>':''}${!isMat&&mode==='adv'&&lowLv(m)?'<s class="lo">Cấp chưa đủ</s>':''}</div>${!isMat&&window.UX9!==false?`<i class="tk9 ${m.id===cur?'on':''}">${m.id===cur?'✓':''}</i>`:''}</button>`;}
+ function advOk(m){try{if(m.copy)return false;const K=m.kind==='craft'?'craft':'gear',ref=m.kind==='craft'?m.idx:m.id;const p=Evo82.plan(K,ref);return !!(p&&!p.max&&p.ok);}catch{return false;}}
  function lowLv(m){try{const K=m.kind==='craft'?'craft':'gear',ref=m.kind==='craft'?m.idx:m.id;const p=Evo82.plan(K,ref);return !!(p&&!p.max&&p.st&&p.st.mainLv&&(m.level|0)<p.st.mainLv);}catch{return false;}}
  function advHtml(it){const K=it.kind==='craft'?'craft':'gear',ref=it.kind==='craft'?it.idx:it.id;let p=null;try{p=Evo82.plan(K,ref);}catch{}
   const n=nOf(it),title=(()=>{if(it.kind==='craft')return shipName(it.idx);try{return Progress.title(it).split(' · ')[0];}catch{return '';}})();
@@ -122,7 +125,7 @@ const NC307=(()=>{
   else{let s0={};try{s0=Progress.stat(it);}catch{}const N={armor:'Giáp',hp:'Máu',auxDamage:'Sát thương'};for(const key of Object.keys(s0)){if(key==='interval')continue;const v=s0[key],d=key==='auxDamage'?2:1;S.push([N[key]||key,v.toFixed(d),(v*k).toFixed(d)]);}}
   const lv=it.level|0;
   const pop=Date.now()-upPop<1800?'<em class="nc307-p1">+1</em>':'';
-  const cardA=`<div class="nc307-ac" style="--c:${fc(n)}">${pop}<b class="t">${esc(title)}</b><div class="nc307-art">${artOf(it)}</div><b class="f">${esc(nm(n))}</b></div>`;
+  const cardA=`<div class="nc307-ac" style="--c:${fc(n)}" ${window.UX9B!==false?'data-nc="bag"':''}>${window.UX9B!==false?'<i class="sw9">⇄</i>':''}${pop}<b class="t">${esc(title)}</b><div class="nc307-art">${artOf(it)}</div><b class="f">${esc(nm(n))}</b></div>`;
   const cardB=max?'':`<div class="nc307-ac" style="--c:${fc(n+1)}"><b class="t">${esc(title)}</b><div class="nc307-art">${artOf(it)}</div><b class="f">${esc(nm(n+1))}</b></div>`;
   const tbl=max?'':`<table class="nc307-tb nc307-tc"><tr><td>Cấp</td><td>${lv}/${capN(n)}</td><td>➤</td><td class="up">${lv}/${capN(n+1)}</td></tr>${S.map(x=>`<tr><td>${x[0]}</td><td>${x[1]}</td><td>➤</td><td class="up">${x[2]}</td></tr>`).join('')}</table>`;
   let slots='',cost=0,need='';
@@ -180,5 +183,5 @@ const NC307=(()=>{
  ['pointerdown','mousedown','touchstart','click'].forEach(t=>{document.addEventListener(t,hit,true);document.addEventListener(t,hitC,true);document.addEventListener(t,hitG,true);});
  // nút sh-up luôn bấm được (chỉ mở màn), đổi nhãn
  setInterval(()=>{try{if(!on())return;document.querySelectorAll('#upgrade392,#quote392').forEach(x=>x.style.display='none');const c=document.querySelector('#hb-lv');if(c&&!c.dataset.nc&&window.NC307C!==false){c.dataset.nc='1';c.disabled=false;c.innerHTML='NÂNG CẤP<small>Bản sao cùng tàu / Đá XP</small>';}const b=document.querySelector('.hb-sheet.open #sh-up');if(b&&get(b.closest('.hb-sheet').dataset.item)&&!b.dataset.nc){b.dataset.nc='1';b.disabled=false;b.innerHTML='NÂNG CẤP<small>Dùng trang bị khác / Đá XP</small>';}}catch{}},300);
- return {clearX:id=>{delete S.x[id];save();},open,close,sim,da:XPDA307,feedXp,cfg:C,state:()=>JSON.parse(JSON.stringify(S)),_m:()=>mats.slice()};
+ return {invested:it=>{try{return invested(it);}catch{return 0;}},clearX:id=>{delete S.x[id];save();},open,close,sim,da:XPDA307,feedXp,cfg:C,state:()=>JSON.parse(JSON.stringify(S)),_m:()=>mats.slice()};
 })();

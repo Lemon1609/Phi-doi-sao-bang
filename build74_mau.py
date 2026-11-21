@@ -1151,6 +1151,13 @@ rep("</body>","<style id=\"l8309-css\">"+open('src/l8309.css',encoding='utf-8').
 # V309 Lượt 9 · UX9 (Sảnh 4 cụm, Kho 4 ô + Túi lưới) + THEME9 (Royal Blue)
 _c9=open('src/l9309.css',encoding='utf-8').read().replace('@U9','html.ux9 body'+':not(#_u9)'*34).replace('@T9','html.theme9 body'+':not(#_t9)'*34)
 rep("</body>","<style id=\"l9309-css\">"+_c9+"</style><script id=\"l9309-js\">"+open('src/l9309.js',encoding='utf-8').read()+"</script></body>")
+# V309 Lượt 9B: bỏ thanh 5 tab, đầu trang 2 tầng, buồng lái Sảnh, Kho rộng (tắt lúc chạy: window.UX9B=false)
+_cb9=open('src/l9b309.css',encoding='utf-8').read().replace('@B9','html.ux9b body'+':not(#_b9)'*36)
+rep("</body>","<style id=\"l9b309-css\">"+_cb9+"</style><script id=\"l9b309-js\">"+open('src/l9b309.js',encoding='utf-8').read()+"</script></body>")
+# V309 Lượt 9B: đổi tên hiển thị Vũ khí phụ → Tàu con, Tiến khung → Tiến bậc (dựng RENAME9=0 để giữ tên cũ)
+if os.environ.get('RENAME9','1')!='0':
+    for _a,_b in [('Vũ khí phụ','Tàu con'),('VŨ KHÍ PHỤ','TÀU CON'),('vũ khí phụ','tàu con'),('Vũ Khí Phụ','Tàu Con'),('TIẾN KHUNG','TIẾN BẬC'),('Tiến khung','Tiến bậc'),('tiến khung','tiến bậc'),('Tiến Khung','Tiến Bậc')]:
+        h=h.replace(_a,_b)
 open('Phi_Doi_Sao_Bang_V74_mau.html','w',encoding='utf-8').write(h);print(round(len(h)/1e6,2),'MB')
 # ---- V100 · BẢN THỬ cho chủ dự án: dữ liệu tách riêng (tiền tố thu100:) + bảng nạp tài khoản mẫu ----
 # V301: chỉ dựng khi cần (BAN_THU=1 hoặc khi xuất bản) để mỗi lần dựng nhanh hơn, bớt một tệp 81 MB
