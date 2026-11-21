@@ -84,7 +84,7 @@ const PSK307=(()=>{
   3:['Mỗi lần hồi khiên: xóa đạn quanh tàu bán kính 150','Khiên vỡ: rút ngắn 3 s lần hồi khiên kế (hồi 25 s)','Còn khiên: tàu con bắn nhanh +15%'],
   4:['Đánh boss: +8% chí mạng','Mỗi 8 s: phát xuyên phá 1,2% máu hiện tại của boss (trần 200% công)','Boss dưới 25% máu: tên lửa + tàu con +12% sát thương lên boss'],
   5:['Máu ≤ 2: bật Khiên Chắn Đạn (hồi 30 s)','Máu ≤ 2: hút vật phẩm xa hơn 25%','Bất Khuất: miễn 1 đòn chí tử mỗi trận, bất tử 1,5 s'],
-  6:['Hút vật phẩm xa thêm 220 px','Nhặt buff: +10% sát thương chí mạng trong 5 s','Đầy máu nhặt hồi máu: thành giáp tạm (15% máu tối đa, 8 s)'],
+  6:['Hút vật phẩm xa thêm 220 px','Nhặt buff: +10% sát thương chí mạng trong 5 s','Đầy máu nhặt hồi máu: thành khiên tạm (15% máu tối đa, 8 s)'],
   7:['Tên lửa +10% chí mạng','Mỗi loạt tên lửa thứ 5 thêm 2 quả phụ (50%)','Bạo Tẩu: tên lửa bắn nhanh +20%'],
   8:['Hạ địch bằng bom / khi Bạo Tẩu: +15% nạp Bạo Tẩu','Có ≥ 3 món SSS: tàu con + tên lửa +12% sát thương','Vào Bạo Tẩu: thêm tàu con bóng tối 4 s']};
  return {rate,TXT,log:()=>log.slice(),open:id=>[2,6,11].map(n=>T(id)>=n),cfg:C};

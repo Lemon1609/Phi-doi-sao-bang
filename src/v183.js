@@ -7,8 +7,8 @@
 //  Tắt cả: window.DROP183=false (đặt trước khi vào trận).
 window.RV75_BEAM=false;
 const STAR185IM=(()=>{try{if(typeof SAO185==='undefined')return null;const i=new Image();i.src=SAO185;return i;}catch{return null;}})();
-const STAR183=(()=>{const C={};return (big,s)=>{if(window.DROP183===false)return null;let im=null,gpt=false;if(window.SAO185!==false&&STAR185IM&&STAR185IM.complete&&STAR185IM.naturalWidth){im=STAR185IM;gpt=true;}else{try{im=Pickup51.img('star');}catch{}}if(!im)return null;
-  const k=(big?1:0)+(gpt?2:0);if(C[k])return C[k];const w=Math.round(s*.92),r=2,c=document.createElement('canvas');c.width=c.height=w*r;const g=c.getContext('2d');g.imageSmoothingQuality='high';g.drawImage(im,0,0,w*r,w*r);
+const STAR183=(()=>{const C={};return (big,s)=>{if(window.DROP183===false)return null;let im=null,gpt=false,n9=0;if(window.DROP309!==false&&window.DROP309IM&&DROP309IM.complete&&DROP309IM.naturalWidth){im=DROP309IM;gpt=true;n9=4;}/* V309 Lượt 5: sao mới */else if(window.SAO185!==false&&STAR185IM&&STAR185IM.complete&&STAR185IM.naturalWidth){im=STAR185IM;gpt=true;}else{try{im=Pickup51.img('star');}catch{}}if(!im)return null;
+  const k=(big?1:0)+(gpt?2:0)+n9;if(C[k])return C[k];const w=Math.round(s*(n9?1.1:.92)),r=2,c=document.createElement('canvas');c.width=c.height=w*r;const g=c.getContext('2d');g.imageSmoothingQuality='high';g.drawImage(im,0,0,w*r,w*r);
   /* chủ dự án chốt: vàng dịu (GPT #D5A13B, lõi #FFE49A) — phủ màu lên tranh, giữ lõi sáng */if(gpt){c.w=w;C[k]=c;return c;}/* V185: tranh GPT đã đúng màu vàng dịu → không phủ màu */g.globalCompositeOperation='source-atop';const gr=g.createRadialGradient(w,w,0,w,w,w);gr.addColorStop(0,'rgba(255,228,154,.35)');gr.addColorStop(.45,'rgba(213,161,59,.55)');gr.addColorStop(1,'rgba(213,161,59,.7)');g.fillStyle=gr;g.fillRect(0,0,w*r,w*r);c.w=w;C[k]=c;return c;};})();
 (()=>{let low=0,last=0,fr=0,acc=0,done=false;
   function tick(t){requestAnimationFrame(tick);const dt=last?(t-last)/1000:0;last=t;let p=false;try{p=mode==='play';}catch{}if(!p||done||document.hidden||!(dt>0&&dt<.5)){fr=0;acc=0;return;}

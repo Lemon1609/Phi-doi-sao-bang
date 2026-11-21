@@ -15,7 +15,7 @@ const STONE71={
  ex:{off:{omega:[.025,.045],sigma:[.018,.032]},def:{omega:[.05,.08],sigma:[.035,.06]},sss:1.3},  // [Tím, Cam]
  // hiệu ứng: v = [Lam, Tím, Cam] (null = chưa có ở phẩm đó), cap = trần cộng dồn, hi = chỉ lấy viên cao nhất
  eff:{
-  s2:{pos:'ship',n:'Đá Hấp Thụ',v:[null,.10,.20],cap:.25,d:'Nhặt vật phẩm hồi {v} giáp tối đa (đầy giáp: +1 máu) · hồi 6 giây'},
+  s2:{pos:'ship',n:'Đá Hấp Thụ',v:[null,.10,.20],cap:.25,d:'Nhặt vật phẩm hồi {v} khiên tối đa (đầy khiên: +1 máu) · hồi 6 giây'},
   s5:{pos:'ship',n:'Đá Bạo Tẩu',v:[null,.5,1],cap:2.5,u:'s',d:'Bạo Tẩu kéo dài thêm {v} (tối đa 12 giây)'},
   s7:{pos:'ship',n:'Đá Diệt Boss',v:[.04,.07,.12],cap:.24,d:'+{v} sát thương khi đánh boss'},
   a2:{pos:'armor',n:'Đá Nhân Đôi',v:[null,.15,.30],cap:.45,d:'Nhặt vật phẩm nâng đạn: {v} tỉ lệ được 2 cấp'},
@@ -35,7 +35,7 @@ const STONE71={
   s4:{pos:'ship',n:'Đá Nạp Đạn Bom',v:[null,.2,.5],cap:.7,d:'Dùng bom: {v} tỉ lệ +1 cấp đạn'},
   s6:{pos:'ship',n:'Đá Nhảy Vọt',v:[8,14,24],cap:24,hi:1,u:'n',d:'Vô Tận: vào trận từ đợt {v}+1 (đợt bỏ qua không nhận thưởng)'},
   a1:{pos:'armor',n:'Đá Bảo Toàn',v:[null,.1,.2],cap:.3,d:'Dùng tối thượng Vũ khí tối thượng: {v} tỉ lệ giữ lại lượt (1 lần/trận)'},
-  a3:{pos:'armor',n:'Đá Dưỡng Khiên',v:[null,.08,.15],cap:.15,hi:1,d:'Khi khiên chắn đạn đang bật: mỗi 3 giây hồi {v} giáp'},
+  a3:{pos:'armor',n:'Đá Dưỡng Khiên',v:[null,.08,.15],cap:.15,hi:1,d:'Khi khiên chắn đạn đang bật: mỗi 3 giây hồi {v} khiên'},
   a4:{pos:'armor',n:'Đá Hồi Bom',v:[null,60,45],cap:45,lo:1,u:'s',d:'Trong trận hồi 1 bom mỗi {v} (tối đa 3)'},
   a5:{pos:'armor',n:'Đá Kim Cang',v:[null,.11,.2],cap:.2,hi:1,d:'Khi Bạo Tẩu: giảm {v} sát thương nhận vào'},
   a6:{pos:'armor',n:'Đá Vinh Quang',v:[.2,.5,1],cap:1,hi:1,d:'Vô Tận: +{v} điểm hạ địch'},
@@ -55,10 +55,10 @@ const STONE71={
   7:{pos:'ship',pa:'alpha',a:{n:'Phần Thiên α',e:[['dmg',.30]],d:'Thiêu đốt lâu và lan rộng hơn: +{p} sát thương đạn chính'},b:{n:'Phần Thiên β',e:[['dmg',.30]],d:'Tàn lửa dưới sân: +{p} sát thương đạn chính'}},
   4:{pos:'ship',pa:'beta',a:{n:'Thự Quang α',e:[['dmg',.27]],d:'Dồn hỏa lực, thu hẹp góc tán xạ: +{p} sát thương đạn chính'},b:{n:'Thự Quang β',e:[['dmg',.20]],d:'Áp sát càng mạnh: +{p} sát thương đạn chính (trung bình)'}},
   seraph36:{pos:'armor',pa:'alpha',a:{n:'Thiên Ân α',e:[['u','shieldEvery',60]],pv:{shieldEvery:100},d:'Mỗi {v} giây tự bật khiên chắn đạn 5 giây'},b:{n:'Thiên Ân β',e:[['u','shieldPlus',2]],d:'Khiên chắn đạn nhặt được kéo dài thêm {v} giây'}},
-  void36:{pos:'armor',pa:'alpha',a:{n:'Vực Tối α',e:[['u','bombConvert',1]],d:'Dùng bom: mỗi viên đạn bị xóa +{v}×20 điểm, hồi {v}×10% giáp'},b:{n:'Vực Tối β',e:[['u','buffAfterHit',.32]],d:'Trúng đạn: +{v} sát thương toàn đội trong 6 giây'}},
-  aurora36:{pos:'armor',pa:'alpha',a:{n:'Thánh Quang α',e:[['u','pickBuff',.39]],d:'Đầy máu: mỗi 20 vật phẩm nhặt được +{v} sát thương toàn đội 8 giây'},b:{n:'Thánh Quang β',e:[['u','healBoost',.5]],d:'Máu/giáp hồi từ vật phẩm +{v}'}},
-  nanite:{pos:'armor',pa:'alpha',a:{n:'Nano α',e:[['u','hpScale',.195]],d:'Máu & giáp càng đầy sát thương toàn đội càng cao, tối đa +{v}'},b:{n:'Nano β',e:[['u','killShield',19]],pv:{killShield:22},d:'Mỗi {v} quái hạ được: hồi 10% giáp'}},
-  reactive:{pos:'armor',pa:'alpha',a:{n:'Long Viêm α',e:[['u','grazeChain',.44]],d:'Lách đạn 5 lần liên tiếp (2 giây): +{v} sát thương toàn đội 8 giây'},b:{n:'Long Viêm β',e:[['u','grazeScore',1]],d:'Lách đạn: +{v}×100% điểm; mỗi 10 lần lách hồi 5% giáp'}},
+  void36:{pos:'armor',pa:'alpha',a:{n:'Vực Tối α',e:[['u','bombConvert',1]],d:'Dùng bom: mỗi viên đạn bị xóa +{v}×20 điểm, hồi {v}×10% khiên'},b:{n:'Vực Tối β',e:[['u','buffAfterHit',.32]],d:'Trúng đạn: +{v} sát thương toàn đội trong 6 giây'}},
+  aurora36:{pos:'armor',pa:'alpha',a:{n:'Thánh Quang α',e:[['u','pickBuff',.39]],d:'Đầy máu: mỗi 20 vật phẩm nhặt được +{v} sát thương toàn đội 8 giây'},b:{n:'Thánh Quang β',e:[['u','healBoost',.5]],d:'Máu/khiên hồi từ vật phẩm +{v}'}},
+  nanite:{pos:'armor',pa:'alpha',a:{n:'Nano α',e:[['u','hpScale',.195]],d:'Máu & khiên càng đầy sát thương toàn đội càng cao, tối đa +{v}'},b:{n:'Nano β',e:[['u','killShield',19]],pv:{killShield:22},d:'Mỗi {v} quái hạ được: hồi 10% khiên'}},
+  reactive:{pos:'armor',pa:'alpha',a:{n:'Long Viêm α',e:[['u','grazeChain',.44]],d:'Lách đạn 5 lần liên tiếp (2 giây): +{v} sát thương toàn đội 8 giây'},b:{n:'Long Viêm β',e:[['u','grazeScore',1]],d:'Lách đạn: +{v}×100% điểm; mỗi 10 lần lách hồi 5% khiên'}},
   phase:{pos:'armor',pa:'alpha',a:{n:'Dịch Pha α',e:[['u','hitInvuln',.4]],d:'Trúng đạn: bất tử thêm {v} giây (hồi 5 giây)'},b:{n:'Dịch Pha β',e:[['u','hitReduce',.25]],d:'Sau khi trúng đạn: giảm {v} sát thương nhận vào trong 3 giây'}},
   judgement36:{pos:'missiles',pa:'alpha',a:{n:'Phán Quyết α',e:[['dmg',.28]],d:'Tách 3 luồng hình quạt: +{p} sát thương tên lửa'},b:{n:'Phán Quyết β',e:[['dmg',.30]],d:'Nổ nội chấn lần 2: +{p} sát thương tên lửa'}},
   nova36:{pos:'missiles',pa:'alpha',a:{n:'Diệt Tinh α',e:[['dmg',.30]],d:'Vụ nổ lớn hơn: +{p} sát thương tên lửa'},b:{n:'Diệt Tinh β',e:[['dmg',.20]],d:'Mục tiêu càng xa càng đau: +{p} sát thương tên lửa (trung bình)'}},

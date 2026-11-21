@@ -1,5 +1,7 @@
 # CHUẨN PHONG CÁCH ĐÃ CHỐT · Phi Đội Sao Băng (cập nhật 12/11/2026, V232–V233)
 
+- 21/11 Lượt 5 (bản thử): 8 vật phẩm rơi GPT 89280 thay hộp lục giác bạc; quái tinh anh ×1,25 + quầng cam–đỏ; nổ quái chớp lõi + vòng xung kích; tia Thời Không tím–ngọc; chữ khiên cho Mộc Miên và đá khảm.
+
 ## QUY ĐỊNH HIỆN HÀNH (tóm tắt 14/11/2026 · phần dưới là nhật ký theo thời gian, nhiều mục đã bị thay thế)
 - **Hợp thể 1–1 + robot nữ (chủ dự án 21/11 11:2x, Lượt 4)**: 7 Chiến Thần = 1+4 · 2+5 · 3+7 · 6+9 · 8+10 · 11+12 (Thời Không Thôn Tinh, mới) · 13 tự thức tỉnh (Hư Không Đế Vương); bỏ Hắc Tinh Đột Kích, Tinh Vân Phán Quan. 21 SSS = 6 cặp 1+2…11+12 + 1 món 13 tự thức tỉnh mỗi loại. Save cũ: món bị bỏ → hoàn nguyên liệu, gỡ món. Chủ dự án CHỌN dùng tấm 89270 (3 robot nữ mặt lưng) cho dạng robot trong trận dù đã được nhắc luật "không gợi dục" — nới luật riêng cho 3 mẫu này (Tử Diệu, Hàn Phong, Thiên Vũ); tấm 89264 (giáp kín) vẫn còn trong `src/ship118_cho/` nếu đổi ý.
 - **Tâm chiến cơ / robot (chủ dự án 20/11 08:38)**: tâm robot (dạng đứng) ở LƯNG; tâm chiến cơ ở giữa thân; né đạn chỉ tính đạn trúng tâm (vòng 4,5 px, đã đúng sẵn trong mã). Robot: tâm đặt theo từng tranh 29–33 % chiều cao (build74_mau.py `_fr`).

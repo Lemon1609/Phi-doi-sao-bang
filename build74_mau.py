@@ -141,6 +141,15 @@ if os.environ.get('PK113','0')!='0':  # V116: chủ dự án muốn giữ biểu
         _pp='src/pickup113/'+_k+'.png'
         if os.path.exists(_pp):
             _o=PK.get(_k,{'burst':''});PK[_k]={'base':_w8(_pp,128),'idle':'','burst':_o.get('burst','')}
+# V309 Lượt 5 · 8 vật phẩm rơi mới (GPT 89280) thay hộp lục giác bạc V51/V78. Tắt: DROP5=0 khi dựng
+DROP309={}
+if os.environ.get('DROP5','1')!='0':
+    for _k in ['power','heal','shield','bomb','drone','super','magnet','star']:
+        _pp='src/drop309/'+_k+'.png'
+        if os.path.exists(_pp):
+            DROP309[_k]=_w8(_pp,128)
+            if _k!='star':_o=PK.get(_k,{'burst':''});PK[_k]={'base':DROP309[_k],'idle':'','burst':_o.get('burst','')}
+print('vat pham L5:',len(DROP309))
 HUD113={k:_w8('src/hud113/'+k+'.png',64) for k in ['graze','warn'] if os.path.exists('src/hud113/'+k+'.png')}
 BUL78A={}
 for _c in ['red','orange','purple','blue','green','white']:
@@ -1115,6 +1124,12 @@ if os.environ.get('HOP4','1')!='0':
     rep("max:'Nữ cơ khí giáp bạch kim–lam vũ trụ, vòng vệ tinh pha lê sau lưng; cột băng và đội tiêm kích tự động.'","max:'Nam cơ khí giáp đen–vàng, vương miện, áo choàng hoàng kỳ và cánh pha lê tím.'")
     rep("state=FusionBlueprints.sanitize(JSON.parse(localStorage.getItem(KEY)||'{}'),JSON.parse(localStorage.getItem('saobang-workshop-v1')||'{}'));","state=FusionBlueprints.sanitize(JSON.parse(localStorage.getItem(KEY)||'{}'),JSON.parse(localStorage.getItem('saobang-workshop-v1')||'{}'));try{if(!localStorage.getItem('saobang-hop4309-v1')){/* V309 Lượt 4: bỏ 2 robot mẫu 1 / 3 cũ (hợp thể không tốn chiến cơ), hoàn nguyên liệu + hợp kim tiến bậc đã tốn */const keep=state.supers.filter(q=>q.model!==1&&q.model!==3),lost=state.supers.length-keep.length;state.supers=keep;if(state.selected&&!keep.some(q=>q.key===state.selected)&&/^(sss|super):/.test(state.selected))state.selected=keep[0]?keep[0].key:null;let H={},cr=0;try{H=JSON.parse(localStorage.getItem('saobang-hop309-v1')||'null')||{};}catch{}if(H.adv){const C=[1,2,3,4,6,8,11,14,17,20],R=[2000,3500,5500,8000,11000,15000,20000,26000,33000,42000];for(const i of [1,3]){const a=H.adv[i]|0;let n=0;for(let k=0;k<a&&k<10;k++){n+=C[k];cr+=R[k];}if(n)H.m=(H.m||[0,0,0,0]).map(v=>(v|0)+n);H.adv[i]=0;}localStorage.setItem('saobang-hop309-v1',JSON.stringify(H));}localStorage.setItem('saobang-hop4309-v1',JSON.stringify({mig:1,lost,cr,paid:0}));localStorage.setItem(KEY,JSON.stringify(state));}}catch(e){}")
     rep("f.draw(ctx,W,H,time,on,{...opts(),cx:player.x,cy:player.y,S,rot:","f.draw(ctx,W,H,time,on,{...opts(),cx:player.x,cy:player.y,S:S*(window.HOP4309===false?1:(window.Hop4309?Hop4309.scale(f,on):1)),rot:")
+# ---- V309 Lượt 5 · vật phẩm rơi mới, quái tinh anh, nổ quái ----
+rep("for(const e of enemies){EnemyFleet.drawEnemy(e);if(e.elite&&window.RING108===false){",
+    "for(const e of enemies){EnemyFleet.drawEnemy(e);if(e.elite&&typeof L5309!=='undefined'&&L5309.on())continue;if(e.elite&&window.RING108===false){")
+rep("if(c183){ctx.globalCompositeOperation='source-over';ctx.drawImage(c183,d.x-c183.w/2,d.y-c183.w/2,c183.w,c183.w);continue;}",
+    "if(c183){let w9=c183.w;if(typeof L5309!=='undefined'&&L5309.dOn()){w9*=L5309.kp(d);L5309.glow(d.x,d.y,w9,'#fbbf24',d.ph);}ctx.globalCompositeOperation='source-over';ctx.drawImage(c183,d.x-w9/2,d.y-w9/2,w9,w9);continue;}")
+rep("</body>","<script>const DROP309_IMG="+json.dumps(DROP309)+";</script><script id=\"l5309-js\">"+open('src/l5309.js',encoding='utf-8').read()+"</script></body>")
 open('Phi_Doi_Sao_Bang_V74_mau.html','w',encoding='utf-8').write(h);print(round(len(h)/1e6,2),'MB')
 # ---- V100 · BẢN THỬ cho chủ dự án: dữ liệu tách riêng (tiền tố thu100:) + bảng nạp tài khoản mẫu ----
 # V301: chỉ dựng khi cần (BAN_THU=1 hoặc khi xuất bản) để mỗi lần dựng nhanh hơn, bớt một tệp 81 MB

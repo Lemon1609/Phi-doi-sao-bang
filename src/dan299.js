@@ -72,11 +72,13 @@
     g.restore();return true;}
   const DRAW={0:draw0};for(const id in CFG)if(+id)DRAW[id]=(g,s)=>drawGen(+id,g,s);
   // laser tàu 2 (ray28, art28 1): cột rộng màu bậc, lõi trắng, đầu cột sáng, gợn chạy dọc
-  function laser1(s){const g=ctx,col=colorOf(1),y=Math.max(0,s.y),r=Math.max(2,s.r||3),fade=s.life28>0?Math.max(0,Math.min(1,(s.life28-s.age)/.05)):1,w=r*(sup?3.2:4.2)*(K7()?.62:1),gc=glowCol(col),k7=K7();
+  /* V309 Lượt 5: Thời Không Thôn Tinh — tia tím #a855f7 / ngọc #2dd4bf, lõi trắng gắt (tắt window.TK309=false) */
+  function tk9(){if(window.TK309===false)return false;try{return !!(activeRobot&&activeRobot.super&&SSSGame.indexFor(activeRobot)===1);}catch{return false;}}
+  function laser1(s){const T9=tk9(),g=ctx,col=T9?'#a855f7':colorOf(1),c2=T9?'#2dd4bf':col,y=Math.max(0,s.y),r=Math.max(2,s.r||3),fade=s.life28>0?Math.max(0,Math.min(1,(s.life28-s.age)/.05)):1,w=r*(sup?3.2:4.2)*(K7()?.62:1),gc=glowCol(col),k7=K7();
     g.save();g.globalCompositeOperation='lighter';
-    const gr=g.createLinearGradient(s.x-w,0,s.x+w,0);gr.addColorStop(0,col+'00');if(k7){gr.addColorStop(.25,col+'99');gr.addColorStop(.44,col+'ee');gr.addColorStop(.5,'#ffffff');gr.addColorStop(.56,col+'ee');gr.addColorStop(.75,col+'99');}else{gr.addColorStop(.3,col+'88');gr.addColorStop(.5,'#ffffff');gr.addColorStop(.7,col+'88');}gr.addColorStop(1,col+'00');
+    const gr=g.createLinearGradient(s.x-w,0,s.x+w,0);gr.addColorStop(0,col+'00');if(k7){gr.addColorStop(.25,col+'99');gr.addColorStop(.44,c2+'ee');gr.addColorStop(.5,'#ffffff');gr.addColorStop(.56,c2+'ee');gr.addColorStop(.75,col+'99');}else{if(T9){gr.addColorStop(.22,col+'aa');gr.addColorStop(.4,c2+'dd');gr.addColorStop(.5,'#ffffff');gr.addColorStop(.6,c2+'dd');gr.addColorStop(.78,col+'aa');}else{gr.addColorStop(.3,col+'88');gr.addColorStop(.5,'#ffffff');gr.addColorStop(.7,col+'88');}}gr.addColorStop(1,col+'00');
     g.globalAlpha=fade*(sup?.5:.8);g.fillStyle=gr;g.fillRect(s.x-w,0,w*2,y);
-    g.globalAlpha=fade*.9;g.fillStyle='#fff';g.fillRect(s.x-1,0,2,y);
+    g.globalAlpha=fade*.9;g.fillStyle='#fff';g.fillRect(s.x-(T9?1.5:1),0,T9?3:2,y);
     const t=performance.now()/1000;g.strokeStyle=col;g.lineWidth=1.5;for(let yy=y-((t*600)%60);yy>0;yy-=60){g.globalAlpha=fade*.55*(yy/y);g.beginPath();g.ellipse(s.x,yy,w*.9,3,0,0,6.283);g.stroke();}
     g.globalAlpha=fade*.8;g.drawImage(gc,s.x-w*2,y-w*2,w*4,w*4);g.restore();
     let contact=null;if(s.hit)for(const e of s.hit)if(e&&!e.dead&&e.hp>0&&Number.isFinite(e.y)&&e.y<=s.y&&(!contact||e.y>contact.y))contact=e;
