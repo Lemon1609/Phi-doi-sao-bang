@@ -26,5 +26,11 @@
   BtFx218.back=function(c,a,cell,cw,ch,size,isOn,now,ta,id){if(!on())return ob.apply(this,arguments);let done=false;try{done=draw(c,id,size,!!isOn,now);}catch(e){}if(!done)return ob.apply(this,arguments);};
   BtFx218.__w309=1;return true;}
  if(!hook()){const t=setInterval(()=>{if(hook())clearInterval(t);},250);}
+ // Tàu không đi qua bộ vẽ v118 (Evo53/BtFx218 không có ảnh, vd tàu 12): tự vẽ cánh sau thân trước khi vẽ tàu
+ function hook2(){try{if(typeof SuperGame==='undefined'||!SuperGame.drawShip||SuperGame.drawShip.__w309)return !!(typeof SuperGame!=='undefined'&&SuperGame.drawShip&&SuperGame.drawShip.__w309);if(!SuperGame.__c118)return false;const od=SuperGame.drawShip;
+  const f=function(id,rot){try{const v118=(id<=9||(window.ART239!==false&&id<=12&&window.BtFx218&&BtFx218.has&&BtFx218.has(id)));let hasHull=false;try{const a=Evo53.hull(id);hasHull=!!(a&&(a.naturalWidth||a.width));}catch{}
+    if(on()&&MAP[id]&&!(v118&&hasHull)&&typeof player!=='undefined'){let sp=false;try{sp=superTime>0;}catch{}const now=(typeof time==='number'?time:performance.now()/1000);ctx.save();ctx.translate(player.x,player.y);ctx.rotate((rot||0)*.6);draw(ctx,id,sp?123:106,sp,now);ctx.restore();}}catch{}
+   return od.apply(this,arguments);};f.__w309=1;SuperGame.drawShip=f;return true;}catch{return false;}}
+ if(!hook2()){const t2=setInterval(()=>{if(hook2())clearInterval(t2);},250);}
  window.Wing309={MAP,draw};
 })();
