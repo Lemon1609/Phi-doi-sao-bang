@@ -337,7 +337,9 @@ for _p in sorted(_g.glob('src/tier/*.png'))+sorted(_g.glob('src/tier/*.webp')):
 print('tranh than tau theo bac:',len(TIER69))
 SHIP118={}
 # V217 · cân đối cỡ / tỉ lệ thân tàu lúc dựng (claude_tools/candoi217.py); tệp gốc trong src/ship118 giữ nguyên. Tắt: CANDOI217=0
-if os.environ.get('CANDOI217','1')!='0':
+if os.environ.get('SHIP309','1')!='0' and os.path.isdir('src/ship309'):  # V309 Lượt 3: bộ 13 chiến cơ v4 (claude_tools/cat_tau309v4.py), mọi bậc cùng 1 dáng, cỡ theo bậc. Tắt: SHIP309=0
+    _S118={os.path.splitext(os.path.basename(_p))[0]:_I.open(_p).convert('RGBA') for _p in sorted(_g.glob('src/ship309/tau*.png'))}
+elif os.environ.get('CANDOI217','1')!='0':
     import sys as _sys;_sys.path.insert(0,'claude_tools');import candoi217 as _cd;_S118=_cd.can_doi('src/ship118')
 else:
     _S118={os.path.splitext(os.path.basename(_p))[0]:_I.open(_p).convert('RGBA') for _p in sorted(_g.glob('src/ship118/tau*.png'))}
@@ -346,6 +348,32 @@ for _n in sorted(_S118):
     if os.environ.get('SHIP256','1')!='0' and _im.width>256:_im=_im.resize((256,256),_I.LANCZOS)  # V307 (19/11): thu ảnh tàu về 256 để nhẹ bản dựng; SHIP256=0 giữ 512
     _bf=_io.BytesIO();_im.save(_bf,'WEBP',quality=88)
     SHIP118.setdefault(str(int(_num)-1),{})[_f]='data:image/webp;base64,'+_b64.b64encode(_bf.getvalue()).decode()
+SHIP309COL={};SHIP309BB={}  # V309 Lượt 3: điểm phản lực / mép cánh / mũi theo tranh v4 (đơn vị = cạnh khung, gốc = tâm khung)
+if os.environ.get('SHIP309','1')!='0' and os.path.isdir('src/ship309'):
+    import numpy as _np
+    for _n in sorted(_S118):
+        if _n.endswith('_bt'):continue
+        _num,_f=_n[3:].split('_',1);_A=_np.asarray(_S118[_n])[...,3]>128;_ys,_xs=_np.where(_A);_W=_A.shape[1]
+        _x0,_x1,_y0,_y1=int(_xs.min()),int(_xs.max()),int(_ys.min()),int(_ys.max());_cx=(_x0+_x1)/2;_w=_x1-_x0
+        _best=(-1,0)
+        for _dx in range(int(_w*.06),int(_w*.26)+1):
+            _c=[int(_cx-_dx),int(_cx+_dx)];_b=[(_np.where(_A[:,_q])[0].max() if _A[:,_q].any() else 0) for _q in _c];_bb=min(_b)
+            if _bb>_best[0]:_best=(_bb,_dx)
+        _ly=int(_np.where(_A[:,_x0])[0].mean())
+        _R=_np.asarray(_S118[_n])[...,:3].astype(float);_h=_y1-_y0;_V=_R.max(2);_bx=_np.zeros_like(_A);_bx[int(_y0+.2*_h):int(_y1-.2*_h),int(_cx-.18*_w):int(_cx+.18*_w)]=True;_m=_A&_bx
+        _thr=_np.percentile(_V[_m],98.5) if _m.any() else 255;_gy,_gx=_np.where(_m&(_V>=_thr));_gx=_gx.mean() if len(_gx) else _cx;_gy=_gy.mean() if len(_gy) else 256
+        SHIP309BB.setdefault(str(int(_num)-1),{})[_f]=[round(v/_W,4) for v in (_x0-256,_y0-256,_x1-256,_y1-256,_best[1],_best[0]-256,_ly-256,_gx-256,_gy-256)]
+        if _f=='thuong':
+            _S=(_V-_R.min(2))/_np.maximum(_V,1);_mm=_A&(_S>.5)&(_V>140)
+            _P=_R[_mm];_c=_np.array([160,210,255.])
+            if len(_P):
+                _mx=_P.max(1);_mn=_P.min(1);_d=_np.maximum(_mx-_mn,1);_r,_gg,_bb=_P[:,0],_P[:,1],_P[:,2]
+                _hu=_np.where(_mx==_r,((_gg-_bb)/_d)%6,_np.where(_mx==_gg,(_bb-_r)/_d+2,(_r-_gg)/_d+4))*60
+                _hist=_np.histogram(_hu,bins=24,range=(0,360))[0].astype(float);_gold=(_np.arange(24)*15>=30)&(_np.arange(24)*15<60)
+                if _hist[~_gold].sum()>_hist.sum()*.25:_hist[_gold]=0
+                _bi=int(_hist.argmax());_sel=(_hu>=_bi*15-15)&(_hu<_bi*15+30);_c=_P[_sel].mean(0) if _sel.any() else _P.mean(0)
+            _c=_c*(235/max(1,_c.max()))
+            SHIP309COL[str(int(_num)-1)]='#%02x%02x%02x'%tuple(int(v) for v in _c)
 print('V118 chien co thiet ke lai:',{k:len(v) for k,v in SHIP118.items()})
 BOSS78A={}
 for _k,_f,_s in [('p1','boss_pha_khong_phase1',640),('p2','boss_pha_khong_phase2',640),('p3','boss_pha_khong_phase3',640),('portrait','boss_pha_khong_portrait',192),('carrier','loot_carrier',224)]:
@@ -994,6 +1022,8 @@ rep("</body>","<script id=\"dq309-img-js\">window.DQ309_IMG="+json.dumps({os.pat
 rep("</body>","<script id=\"tb309-img-js\">window.TB309_IMG="+json.dumps({os.path.splitext(f)[0]:'data:image/webp;base64,'+base64.b64encode(open('src/tb309img/'+f,'rb').read()).decode() for f in sorted(os.listdir('src/tb309img'))})+";</script><script id=\"tb309-js\">"+open('src/tb309.js',encoding='utf-8').read()+"</script></body>")  # V309 trang bị đồng bộ (Gemini/GPT 2 tấm)
 rep("</body>","<script id=\"wing309-img-js\">window.WING309_IMG="+json.dumps({os.path.splitext(f)[0]:'data:image/webp;base64,'+base64.b64encode(open('src/wing309img/'+f,'rb').read()).decode() for f in sorted(os.listdir('src/wing309img')) if f.endswith('.webp')})+";window.WING309_PIV="+open('src/wing309img/piv.json').read()+";</script><script id=\"wing309-js\">"+open('src/wing309.js',encoding='utf-8').read()+"</script></body>")  # V309 Lượt 2 cánh năng lượng 6 mẫu (GPT)
 rep("</body>","<script id=\"ui309-js\">"+open('src/ui309.js',encoding='utf-8').read()+"</script></body>")  # V309 Lượt 2 khung thẻ icon + khung bắn thử
+rep("flame(player.x,player.y+20);","if(!(window.SHIP309V4&&window.L3309!==false))flame(player.x,player.y+20);")  # V309 Lượt 3: tàu v4 có 2 luồng phản lực riêng (l3309) → bỏ ngọn lửa xanh chung cũ
+rep("</body>","<script id=\"l3309-js\">window.SHIP309V4="+('true' if SHIP309BB else 'false')+";window.SHIP309BB="+json.dumps(SHIP309BB,separators=(',',':'))+";window.SHIP309COL="+json.dumps(SHIP309COL)+";"+open('src/l3309.js',encoding='utf-8').read()+"</script></body>")  # V309 Lượt 3 chiến cơ v4: hiệu ứng bậc + biến hình Bạo Tẩu
 rep("</body>","<script id=\"rob309-js\">"+open('src/rob309.js',encoding='utf-8').read()+"</script></body>")  # V309 biến hình robot: sóng xung kích + vòng ma trận +6/+10
 rep("</body>","<script id=\"rift307-js\">"+open('src/rift307.js',encoding='utf-8').read()+"</script></body>")  # V307 Khe Nứt Hư Không (Gemini 6 hệ thống)
 rep("</body>","<style id=\"tb307-css\"></style><script id=\"tb307-js\">"+open('src/tb307.js',encoding='utf-8').read()+"</script></body>")  # V307 hiệu ứng + cơ chế trang bị (Gemini)

@@ -9,7 +9,7 @@ const ARMOR69={r:50,fade:6};
 //  • Điểm giáp (shield > 0): bong bóng nhạt theo % giáp, lóe khi bị trúng, tắt khi giáp = 0.
 const Armor69=(()=>{
  let vis=0,fl=0,last=0,prevSh=null;const TAU=Math.PI*2;
- function bubble(){if(!(mode==='play'||mode==='pause'))return;const now=performance.now()/1000,dt=Math.min(.05,Math.max(0,now-(last||now)));last=now;
+ function bubble(){if(!(mode==='play'||mode==='pause'))return;if(window.SHIP309V4&&window.L3309!==false&&window.TB309&&TB309.on()&&window.TB309SH!==false)return;/* V309 Lượt 3: vành khiên tb309 thay bong bóng */const now=performance.now()/1000,dt=Math.min(.05,Math.max(0,now-(last||now)));last=now;
   let frac=0,timed=0;try{frac=maxShield>0?Math.max(0,Math.min(1,shield/maxShield)):0;timed=bulletShieldTime||0;}catch{}
   try{if(prevSh!=null&&shield<prevSh-1e-6)fl=1;prevSh=shield;}catch{}fl=Math.max(0,fl-dt*3);
   const want=((timed>0||frac>0)&&!(window.BUB231!==false&&typeof superTime!=='undefined'&&superTime>0))?1:0;/* V231: chủ dự án 12/11 — Bạo Tẩu không vẽ bong bóng khiên tròn quanh tàu (khiên vẫn chặn đạn). Tắt: BUB231=false */vis+=(want-vis)*Math.min(1,dt*ARMOR69.fade);if(vis<.02)return;

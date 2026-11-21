@@ -73,7 +73,7 @@
   const iw=im.naturalWidth||im.width,ih=im.naturalHeight||im.height,ar=iw/ih,sq=ar>.8;let L=(mis?SZ.mis:SZ.side)[sup?1:0];if(!mis&&sq)L*=.85;if(I.v==='swarm9')L*=.72;const BIG=I.v==='devour10_m'||I.v==='chrono11_m'||I.v==='monarch12_m';if(BIG)L*=1.15;if(I.sss)L*=1.15;
   const W=L*ar,ang=Math.atan2(o.vy||-1,o.vx||0)+Math.PI/2,spin=SPIN[key]||0;
   c.save();try{c.translate(o.x,o.y);c.rotate(ang);
-   const h=ref&&mis?(ref.__h9||(ref.__h9=[])):null;const TR=TRAIL[I.tier]||TRAIL.lam;if(h){const n=h.length;if(!n||Math.hypot(h[n-2]-o.x,h[n-1]-o.y)>2){h.push(o.x,o.y);if(h.length>TR[0]*2)h.splice(0,2);}}
+   const h=ref&&mis?(ref.__h9||(ref.__h9=[])):null;let TR=TRAIL[I.tier]||TRAIL.lam;if(sup&&L3())TR=[Math.max(TR[0],10),44];/* V309 Lượt 3: Bạo Tẩu đuôi dài hơn */if(h){const n=h.length;if(!n||Math.hypot(h[n-2]-o.x,h[n-1]-o.y)>2){h.push(o.x,o.y);if(h.length>TR[0]*2)h.splice(0,2);}}
    if(h&&h.length>=6){c.restore();c.save();c.globalCompositeOperation='lighter';c.lineCap='round';const n=h.length/2;/* đuôi cong 8 điểm: rộng 5→0, α .65→0 (Gemini) */
     const ss=!!I.sss||(I.v==='devour10_m'||I.v==='chrono11_m'||I.v==='monarch12_m'),W0=5*(sup?1.25:1)*(ss?1.5:1);for(let k=1;k<n;k++){const q=k/(n-1),x1=k===n-1?o.x:h[k*2],y1=k===n-1?o.y:h[k*2+1];c.strokeStyle=rgba(I.pal[3],(ss?.85:.65)*q);c.lineWidth=Math.max(.5,W0*q);c.beginPath();c.moveTo(h[k*2-2],h[k*2-1]);c.lineTo(x1,y1);c.stroke();
      if(ss){c.strokeStyle=rgba(I.pal[1],.9*q);c.lineWidth=Math.max(.4,W0*.38*q);c.stroke();}}/* SSS: đuôi song sắc — viền mẹ B, lõi mẹ A */
@@ -98,7 +98,7 @@
    if(q<.3){const u=q/.3;x=v.x+(mx-v.x)*u;y=v.y+(my-v.y)*u;vx=mx-v.x;vy=my-v.y;}else{const u=(q-.3)/.7;x=mx+(v.tx-mx)*u;y=my+(v.ty-my)*u;vx=v.tx-mx;vy=v.ty-my;}
    v.__ref=v.__ref||{};g.save();const r=put(g,{x,y,vx,vy},info(id,'missiles'),true,supNow(),0,v.__ref);g.restore();if(q>=.3&&!v.__b){v.__b=1;BEND.push({x:mx,y:my,t:performance.now()/1000,id});}fxDraw(g);return r;}   // V309: bẻ góc 90° rồi lao vào mục tiêu
   if(v.k==='dive'){const id=v.v||'nova36';if(!SPR[id])return false;const y=v.y-(.3-v.life)*500;g.save();g.globalAlpha=Math.min(1,v.life*4);const r=put(g,{x:v.x,y,vx:0,vy:-1},info(id,'missiles'),true,supNow(),0);g.restore();return r;}
-  if(v.k==='beam'&&v.v==='devour10_s'&&window.FX309){/* V309: tia Thôn Phệ đỏ tía #e11d74, lõi #fce7f3 (khớp tàu con) */try{FX309.beam(g,v.a.x,v.a.y,v.b.x,v.b.y,'e3',14,Math.min(1,v.life*5)*.9,{fs:16,rs:18});}catch{}return true;}
+  if(v.k==='beam'&&v.v==='devour10_s'&&window.FX309){/* V309: tia Thôn Phệ đỏ tía #e11d74, lõi #fce7f3 (khớp tàu con) */try{FX309.beam(g,v.a.x,v.a.y,v.b.x,v.b.y,'e3',14+((()=>{try{return L3()&&superTime>0;}catch{return false;}})()?2:0),Math.min(1,v.life*5)*.9,{fs:16,rs:18});}catch{}return true;}
   if(v.k==='cleave'){fxDraw(g);const prog=1-v.life/.55,y=v.y0-(v.y0+20)*prog,I=info('monarch12_m','missiles');put(g,{x:v.x,y,vx:0,vy:-1},I,true,supNow(),0);
    g.save();g.globalCompositeOperation='lighter';g.globalAlpha=Math.min(1,v.life*3);g.strokeStyle=rgba(I.pal[1],.85);g.lineWidth=3;g.beginPath();g.ellipse(v.x,y,v.w/2,10,0,Math.PI,2*Math.PI);g.stroke();g.strokeStyle=rgba(I.pal[3],.6);g.lineWidth=1.2;g.stroke();g.restore();return true;}
   if(v.k==='halo'){const p=1-v.life/.9,out=p<.5,q=out?p*2:(p-.5)*2;const px=out?v.sx+(v.tx-v.sx)*q:v.tx+(player.x+v.side*20-v.tx)*q,py=out?v.sy+(v.ty-v.sy)*q:v.ty+(player.y-60-v.ty)*q;
@@ -115,7 +115,7 @@
   else if(g==='bend'){if(p.age<.18){p.vx=sd*speed*.72;p.vy=-speed*.72;}else if(!p.__qd){p.__qd=1;p.vx=Math.cos(a)*speed*1.15;p.vy=Math.sin(a)*speed*1.15;BEND.push({x:p.x,y:p.y,t:performance.now()/1000,id:p.id});}}   // chéo 0,18 s rồi gập góc lao thẳng
   else if(g==='straight'){if(p.age<.22){p.vx*=.6;p.vy=-speed;}if(!p.__qd){p.__qd=1;LIVE.set(p,{x:p.x,y:p.y,id:p.id});}}}
  const BEND=[],LIVE=new Map(),RINGS=[];
- function ring(x,y,id,r){RINGS.push({x,y,r:r||60,t:performance.now()/1000,I:info(id,VKIND(id))});if(RINGS.length>12)RINGS.shift();}
+ function ring(x,y,id,r){let _b=1;try{if(L3()&&superTime>0)_b=1.3;}catch{}RINGS.push({x,y,r:(r||60)*_b,t:performance.now()/1000,I:info(id,VKIND(id))});if(RINGS.length>12)RINGS.shift();}
  function fxDraw(c){const t=performance.now()/1000;
   for(const [p,v] of LIVE){if(p.on&&p.id===v.id){v.x=p.x;v.y=p.y;continue;}LIVE.delete(p);if(v.y>-20&&v.y<900)ring(v.x,v.y,v.id,60);}   // phóng thẳng → vòng xung kích nổ rộng
   c.save();c.globalCompositeOperation='lighter';
@@ -132,6 +132,7 @@
    const k=1-Math.pow(.8,dt*60);S.x+=(p.x-S.x)*k;S.y+=(p.y-S.y)*k;if(Math.abs(p.x-S.x)>90||Math.abs(p.y-S.y)>90){S.x=p.x;S.y=p.y;}
    let n=0;try{for(const q of shots)if(q.gearKind==='sidearm'&&(q.age||0)<.03)n++;}catch{}if(n>(S.n||0))S.kick=2.5;S.n=n;S.kick=(S.kick||0)*Math.pow(.02,dt);
    p={x:S.x,y:S.y+Math.sin(tn*2.4+(sdk==='L'?0:1.6))*3+S.kick};}
+  if(sp&&L3()&&!demo){/* V309 Lượt 3: Bạo Tẩu tách tàu con ra hai bên +9 px (chỉ hình) */const pxx=typeof player!=='undefined'?player.x:240;p={x:p.x+(p.x<pxx?-9:9),y:p.y};}
   const I=info(v,'sidearm'),im=own||tint(key,I.pal,true);if(!im)return false;const w=own?(sp?46:40):(sp?40:32),t=performance.now()/1000;
   if(own){/* lửa động cơ nhỏ sau đuôi (tranh riêng đã đa sắc, không nhuộm) */c.save();c.globalCompositeOperation='lighter';for(const dx of [-w*.16,w*.16]){const fl=7*(1.05+.2*Math.sin(t*Math.PI*2*22+dx)),/* lửa co giãn .85→1.25 ở 22 Hz */y0=p.y+w*.36,gr=c.createLinearGradient(0,y0,0,y0+fl*1.6);gr.addColorStop(0,'rgba(255,255,255,.9)');gr.addColorStop(.35,rgba(I.pal[3],.65));gr.addColorStop(1,rgba(I.pal[3],0));c.fillStyle=gr;c.beginPath();c.moveTo(p.x+dx-3,y0);c.lineTo(p.x+dx+3,y0);c.lineTo(p.x+dx,y0+fl*1.6);c.closePath();c.fill();}c.restore();}
   c.save();try{c.globalCompositeOperation='lighter';c.lineWidth=1.6;const lo=/^(thuong|luc|lam)$/.test(I.tier);c.strokeStyle=rgba(I.pal[3],(lo?.20:.30)+(sp?.15:0));c.beginPath();c.arc(p.x,p.y+3,16,0,6.283);c.stroke();if(I.tier==='ss'){c.strokeStyle=rgba('#fde047',.35);c.beginPath();c.arc(p.x,p.y+3,19,0,6.283);c.stroke();}
@@ -147,8 +148,8 @@
   if(!isOn&&wasOn&&mayBreak){const ang=nearDir();brk={t0:t,x,y,I};hitArc={t0:t,ang,I};shards=Array.from({length:7},(_,k)=>({a:k/7*6.283+Math.random()*.5,v:120+Math.random()*90,r:Math.random()*6.283,s:3+Math.random()*3}));}
   wasOn=isOn;
   if(isOn){const im=tint(key,I.pal),spin=SPINSH[key]||0;ctx.save();ctx.translate(x,y);
-   const rg=ctx.createRadialGradient(0,0,R*.7,0,0,R);rg.addColorStop(0,rgba(I.pal[1],0));rg.addColorStop(1,rgba(I.pal[1],.10));ctx.fillStyle=rg;ctx.beginPath();ctx.arc(0,0,R,0,6.283);ctx.fill();
-   if(im){ctx.globalAlpha=.6;ctx.save();ctx.rotate(t*spin);ctx.drawImage(im,-R-2,-R-2,R*2+4,R*2+4);ctx.restore();
+   const rg=ctx.createRadialGradient(0,0,R*.7,0,0,R);rg.addColorStop(0,rgba(I.pal[1],0));rg.addColorStop(1,rgba(I.pal[1],L3()?.06:.10));ctx.fillStyle=rg;ctx.beginPath();ctx.arc(0,0,R,0,6.283);ctx.fill();
+   const _sp=L3(),_tf=_sp&&(()=>{try{return superTime>0;}catch{return false;}})();/* V309 Lượt 3: vành khiên trong suốt hơn (α .35), Bạo Tẩu xoay ×1,8 α .55 */if(im){ctx.save();ctx.rotate(t*spin*(_tf?1.8:1));if(_sp){/* lòng trong α .22, vành ngoài α .5 (Bạo Tẩu .62) */ctx.globalAlpha=.22;ctx.save();ctx.beginPath();ctx.arc(0,0,R*.74,0,6.283);ctx.clip();ctx.drawImage(im,-R-2,-R-2,R*2+4,R*2+4);ctx.restore();ctx.globalAlpha=_tf?.62:.5;ctx.beginPath();ctx.arc(0,0,R+8,0,6.283);ctx.arc(0,0,R*.74,0,6.283,true);ctx.clip();}else ctx.globalAlpha=.6;ctx.drawImage(im,-R-2,-R-2,R*2+4,R*2+4);ctx.restore();
     if(sss){const im2=tint(SHF[sss.parents[1]]||key,palOf(sss.parents[1],'sss',{parents:[sss.parents[1],sss.parents[0]]}));if(im2){ctx.globalAlpha=.45;ctx.rotate(-t*spin*1.3);ctx.drawImage(im2,-R-9,-R-9,R*2+18,R*2+18);}}}
    if(I.tier==='ss'){ctx.globalAlpha=1;ctx.strokeStyle=rgba('#fde047',.35);ctx.lineWidth=2;ctx.beginPath();ctx.arc(0,0,R+5,0,6.283);ctx.stroke();}
    if(v==='seraph36'){ctx.globalAlpha=.55;ctx.globalCompositeOperation='lighter';ctx.fillStyle=rgba(I.pal[0],.6);for(const s of [-1,1]){ctx.beginPath();ctx.ellipse(s*(R+6),2,5,14,s*.5,0,6.283);ctx.fill();}}
@@ -162,6 +163,7 @@
   // vòng bất tử / biến hình: vàng–trắng r 46, dày 6, nhấp nháy 10 Hz
   let iv=0;try{iv=invuln;}catch{}if(iv>.25){ctx.save();ctx.globalCompositeOperation='lighter';ctx.globalAlpha=.65*(.55+.45*Math.sign(Math.sin(t*62.8)));ctx.strokeStyle='#fef08a';ctx.lineWidth=6;ctx.beginPath();ctx.arc(x,y,46,0,6.283);ctx.stroke();ctx.strokeStyle='#ffffff';ctx.lineWidth=2;ctx.stroke();ctx.restore();}
   return true;}
+ function L3(){return !!window.SHIP309V4&&window.L3309!==false;}
  function railKey(){const it=eq('sidearm');const I=info((it&&it.variant)||'rail','sidearm');const k='tb_'+I.pal.join('_').replace(/#/g,'');try{if(window.FX309&&!FX309.PAL[k])FX309.PAL[k]=I.pal.slice(0,3);}catch{}return k;}
  function sig(kind){const it=eq(kind);if(!it)return null;const I=info(it.variant,kind);return [I.pal[3],I.pal[0]];}
  // quả cầu khiên cũ (FX40.shieldBubble, r 56 xanh lam chung mọi giáp) → nhường vành khiên theo dòng giáp
