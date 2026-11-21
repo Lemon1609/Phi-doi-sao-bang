@@ -136,7 +136,7 @@ const L8309=(()=>{
   try{if(typeof kill==='function'&&!kill.__l8){const ok=kill;const f=function(e){const was=e&&!e.dead;const r=ok.apply(this,arguments);try{if(on()&&was&&e.dead&&play()){let isB=false;try{isB=e===boss;}catch{}const o=wear('ship');if(!isB&&o.hk)fxKill(BF,o,e.x,e.y,(e.r||20)*(e.elite?1.4:1));}}catch{}return r;};f.__l8=1;kill=f;}}catch{}
   // chỉ số: +% Công theo hạng cao nhất đang mặc + Thưởng Bộ 3/3
   try{if(typeof Combat!=='undefined'&&!Combat.__l8){Combat.__l8=1;const of=Combat.factor;Combat.factor=function(){const v=of.apply(this,arguments);try{return v*(1+bonus());}catch{return v;}};
-    const ost=Combat.stats;Combat.stats=function(){const r=ost.apply(this,arguments);try{const b=bonus();if(b>0&&r){const a0=r.attack;r.attack*=1+b;r.cp=Math.round(r.cp+(r.attack-a0)*24);}}catch{}return r;};}}catch{}
+    const ost=Combat.stats;Combat.stats=function(){/* lực chiến ngoài trận không tính trạng thái Bạo Tẩu của sân khấu sảnh (demo bật/tắt superTime làm lực chiến nhảy ±2 %). Tắt: window.CP8FIX=false */let st0=null;try{if(window.CP8FIX!==false&&typeof mode!=='undefined'&&mode!=='play'&&mode!=='pause'&&superTime>0){st0=superTime;superTime=0;}}catch{}let r;try{r=ost.apply(this,arguments);}finally{if(st0!==null)try{superTime=st0;}catch{}}try{const b=bonus();if(b>0&&r){const a0=r.attack;r.attack*=1+b;r.cp=Math.round(r.cp+(r.attack-a0)*24);}}catch{}return r;};}}catch{}
   regB();}
  hooks();setTimeout(hooks,0);setTimeout(hooks,1500);setTimeout(hooks,3000);setTimeout(hooks,6000);
  // ---------- Sảnh: khung + danh hiệu ----------
