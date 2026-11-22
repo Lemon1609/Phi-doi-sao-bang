@@ -37,7 +37,8 @@ Luật phong cách chi tiết + nhật ký quyết định: `docs_claude/CHUAN_P
 - Thân tàu: `claude_tools/tau_v241.py`.
 - Chỉ lưu ảnh gốc của bản ĐÃ CHỐT vào `src/ship118_cho/V<số>_*` (lượt bị loại không lưu); ghi quyết định vào `CHUAN_PHONG_CACH_DA_CHOT.md`.
 
-## Trạng thái (16/11/2026)
+## Trạng thái (cập nhật 22/11/2026 11:48)
+- **ĐỌC TRƯỚC: `docs_claude/BAN_GIAO_V309_CHOT_HA_V1.md`** — V309 xong 12 lượt, chủ dự án "Chốt" Lượt 12 (commit `f8d2060`) = bản V1 thiết kế hoàn chỉnh, CHƯA xuất bản (vẫn V306). Bước kế: chủ dự án cài thử máy thật đo FPS / cảm ứng; chỉ xuất bản khi có câu "duyệt xuất bản". Các mục bên dưới là nhật ký lịch sử theo thời gian.
 - Bản phát hành gần nhất: web + APK **V306** (offline `Phi_Doi_Sao_Bang_V306.html`). Chưa xuất bản gì sau đó; V307 đang làm (chưa "duyệt xuất bản").
 - V307 (nhánh `nguon-v212`, chưa xuất bản): mùa giải **21 ngày / 25 cấp** + rương vượt cấp (tối đa 3, 1.000 XP/rương) trong `src/s77.js` (bảng thưởng theo Gemini; mùa cũ 14 ngày/20 cấp tự gửi bù rồi mở mùa mới; `v92.js` hạng Vô Tận ép chốt mùa 1 lần); 2 nhiệm vụ tuần mới `W_ENDLESS_RUN`, `W_SWEEP_OPS` trong `src/q77.js` (tổng điểm tuần 720, mốc cao nhất vẫn 500); tam giác đỏ cảnh báo `warn307`; tinh vân sảnh + chip gợi ý `.nx66` chuyển sang phải; mẹo nạp (loading tips) trong `claude_tools/split.py`.
 - **V307 phiên chiến cơ (16–17/11)**: tàu 1 đã có 6 thân thường mới (GPT) + cánh Bạo Tẩu đổi màu theo bậc (`WC307` trong `src/btfx218.js`); tàu 2–13 chờ GPT. Thẻ Vô tận, nút UI GPT, 5 tab, nút TRUYỆN tàu/phi công đã xong. Chi tiết, việc dang dở và bẫy: `docs_claude/BAN_GIAO_PHIEN_CHIEN_CO_V307.md` (đọc đầu tiên).
