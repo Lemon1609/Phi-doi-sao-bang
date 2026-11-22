@@ -8,7 +8,7 @@
 //  • LOAD7: hàng BỘ 1 | BỘ 2 | BỘ 3 | LƯU trên thẻ phi công ở Sảnh (khóa saobang-load7-v1): chiến cơ / Chiến Thần + 3 trang bị + SSS đang gắn + đội phi công.
 //    Chạm bộ trống = lưu đội hình hiện tại; chạm bộ đã có = chuyển sang bộ đó; LƯU = ghi đè bộ đang chọn.
 //  • CODEX7: ô BÁCH KHOA ở cột trái Sảnh → 3 tab (13 chiến cơ · 7 Chiến Thần trước/lưng · 21 SSS); chưa có = bóng tối.
-//    Thưởng sưu tầm vĩnh viễn: mỗi chiến cơ +1 % Công · mỗi Chiến Thần +2 % Công & Máu · mỗi món SSS +1 % Máu (Công nhân vào Combat.factor + lực chiến,
+//    Thưởng sưu tầm vĩnh viễn: mỗi chiến cơ +0,5 % Công · mỗi Chiến Thần +1 % Công & Máu · mỗi món SSS +0,5 % Máu (L10B, trước +1/+2/+1) (Công nhân vào Combat.factor + lực chiến,
 //    Máu nhân maxHp lúc vào trận).
 const L7309=(()=>{
  const TAU=Math.PI*2,now=()=>performance.now();
@@ -90,7 +90,7 @@ const L7309=(()=>{
  function owned(){const o={ship:[],rob:[],sss:[]};try{for(let i=0;i<13;i++)if(Campaign36.ownsCraft(i))o.ship.push(i);}catch{}
    try{const sup=Fusion.getState().supers||[];for(let i=0;i<7;i++)if(sup.some(q=>q.model===i))o.rob.push(i);}catch{}
    try{for(const d of Gear44.defs())if(Gear44.owns(d.id))o.sss.push(d.id);}catch{}return o;}
- let BC=null,BT=0;function bonus(){const n=now();if(BC&&n-BT<2000)return BC;const o=owned();BC={atk:o.ship.length*.01+o.rob.length*.02,hp:o.rob.length*.02+o.sss.length*.01,o};BT=n;return BC;}
+ let BC=null,BT=0;function bonus(){const n=now();if(BC&&n-BT<2000)return BC;const o=owned();BC={atk:o.ship.length*.005+o.rob.length*.01,hp:o.rob.length*.01+o.sss.length*.005,o};/* L10B 22/11: chủ dự án chốt giảm một nửa */BT=n;return BC;}
  function cHooks(){if(cHooks.d)return;cHooks.d=1;
    try{const of=Combat.factor;Combat.factor=function(){const v=of.apply(this,arguments);try{return cOn()?v*(1+bonus().atk):v;}catch{return v;}};}catch{}
    try{const ost=Combat.stats;Combat.stats=function(){const r=ost.apply(this,arguments);try{if(cOn()&&r){const b=bonus(),a0=r.attack,h0=r.hp;r.attack*=1+b.atk;r.hp*=1+b.hp;r.cp=Math.round(r.cp+(r.attack-a0)*24+(r.hp-h0)*55);}}catch{}return r;};}catch{}
@@ -108,7 +108,7 @@ const L7309=(()=>{
        rows=`<li>Công thức: <b>${nm(pr[0])}</b> + <b>${pr[0]===pr[1]?'tự thức tỉnh':nm(pr[1])}</b></li><li>Đặc kỹ: <b>${(sk&&(sk.name||sk))||'—'}</b></li><li>Sát thương dạng robot ×1,35 · đứng 5,0–8,5 s theo bậc</li>`;}
      else{const d=c.d,nm=id=>{try{return Progress.kindName?id:id;}catch{return id;}};rows=`<li>Loại: <b>${KN[d.kind]||d.kind}</b>${d.solo?' · TỰ THỨC TỈNH':''}</li><li>Hệ số sát thương SSS ×1,35</li><li>${(d.desc||d.effect||'').toString().slice(0,120)}</li>`;}}catch{}
    return `<div class="cx7-big ${c.own?'':'lk'}"><img src="${c.img||''}" alt="">${c.img2?`<img src="${c.img2}" alt="">`:''}</div><div class="cx7-dt"><h4>${c.name}${c.own?'':' <em>CHƯA CÓ</em>'}</h4><ul>${rows}</ul></div>`;}
- function render(){if(!cel)return;const b=bonus(),o=b.o;const pct=v=>'+'+Math.round(v*100)+'%';
+ function render(){if(!cel)return;const b=bonus(),o=b.o;const pct=v=>'+'+(Math.round(v*1000)/10).toLocaleString('vi-VN')+'%';
    const C=cards();const cur=C.find(c=>c.k===csel)||null;
    cel.querySelector('.cx7-bonus').innerHTML=`<b>THƯỞNG SƯU TẦM</b><span>Công <i>${pct(b.atk)}</i></span><span>Máu <i>${pct(b.hp)}</i></span><small>Chiến cơ ${o.ship.length}/13 · Chiến Thần ${o.rob.length}/7 · SSS ${o.sss.length}/21</small>`;
    cel.querySelectorAll('[data-cx7t]').forEach(x=>x.setAttribute('aria-pressed',String(x.dataset.cx7t===ctab)));
@@ -117,7 +117,7 @@ const L7309=(()=>{
    cel.querySelector('.cx7-grid').innerHTML=C.map(c=>`<button type="button" class="cx7-c ${c.own?'':'lk'} ${c.k===csel?'sel':''}" data-cx7="${c.k}"><span>${c.img?`<img src="${c.img}" alt="">`:''}${c.img2&&ctab==='rob'?`<img class="b" src="${c.img2}" alt="">`:''}</span><small>${c.own?c.name:'???'}</small></button>`).join('');}
  function open(){if(!cOn())return;if(!cel){cel=document.createElement('div');cel.className='m63 cx7';cel.hidden=true;cel.innerHTML=`<div class="m63-card"><div class="m63-eye">BÁCH KHOA TOÀN THƯ</div><button class="m63-x" data-cx7x="1" aria-label="Đóng">×</button>
    <div class="cx7-bonus"></div><div class="cx7-tabs"><button data-cx7t="ship">13 CHIẾN CƠ</button><button data-cx7t="rob">7 CHIẾN THẦN</button><button data-cx7t="sss">21 TRANG BỊ SSS</button></div>
-   <div class="cx7-detail"></div><div class="cx7-grid"></div><p class="cx7-note">Mỗi chiến cơ +1% Công · mỗi Chiến Thần +2% Công & Máu · mỗi món SSS +1% Máu (cộng vĩnh viễn cho cả đội).</p></div>`;
+   <div class="cx7-detail"></div><div class="cx7-grid"></div><p class="cx7-note">Mỗi chiến cơ +0,5% Công · mỗi Chiến Thần +1% Công & Máu · mỗi món SSS +0,5% Máu (cộng vĩnh viễn cho cả đội).</p></div>`;
    cel.addEventListener('click',e=>{const t=e.target;if(t===cel||t.closest('[data-cx7x]')){cel.hidden=true;return;}const tb=t.closest('[data-cx7t]');if(tb){ctab=tb.dataset.cx7t;csel=null;render();return;}const c=t.closest('[data-cx7]');if(c){csel=c.dataset.cx7;render();}});document.body.appendChild(cel);}
    BC=null;render();cel.hidden=false;}
  function tile(){if(!cOn())return;const L=document.querySelector('#lb68 .l74.l74-l')||document.querySelector('.l74.l74-l');if(!L||L.querySelector('[data-cx7o]'))return;

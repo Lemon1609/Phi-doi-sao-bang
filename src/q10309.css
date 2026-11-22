@@ -116,7 +116,7 @@ html.qol10 #nc307 .nc307-ns{position:relative}
 .qf10 .qf10r button{height:30px;padding:0 12px;border-radius:8px;border:1.5px solid #bbf7d0;background:linear-gradient(180deg,rgba(255,255,255,.5),rgba(255,255,255,0) 50%),linear-gradient(180deg,#4ade80,#16a34a);color:#052e16;font:900 11px/1 sans-serif;box-shadow:0 2px 0 #064e1f}
 .qf10 .qf10r s{text-decoration:none;font:900 9px/1 sans-serif;color:#86efac}.qf10 .qf10r s.l{color:#94a3b8;font-size:13px}
 /* ---------- banner thành công ---------- */
-#bn10{position:fixed;left:0;right:0;top:34%;z-index:2147483460;height:0;overflow:visible;pointer-events:none;display:flex;align-items:center;justify-content:center;font:900 22px/1 sans-serif;letter-spacing:.12em;font-style:italic;color:transparent;opacity:0}
+#bn10{position:fixed;left:0;right:0;top:15%;z-index:2147483460;height:0;overflow:visible;pointer-events:none;display:flex;align-items:center;justify-content:center;font:900 22px/1 sans-serif;letter-spacing:.12em;font-style:italic;color:transparent;opacity:0}
 #bn10.go{animation:bn10 1.2s ease-out forwards}
 #bn10.go::before{content:'';position:absolute;left:0;right:0;top:-26px;height:52px;background:linear-gradient(90deg,transparent,rgba(56,189,248,.55) 18%,rgba(255,255,255,.75) 50%,rgba(56,189,248,.55) 82%,transparent);transform-origin:center;animation:bn10b 1.2s ease-out forwards}
 #bn10.adv.go::before{background:linear-gradient(90deg,transparent,rgba(250,204,21,.6) 18%,rgba(255,255,255,.8) 50%,rgba(250,204,21,.6) 82%,transparent)}
@@ -142,4 +142,6 @@ html.qol10 #nc307 .nc307-ns{position:relative}
 /* lớp trên các màn đang mở (Túi đồ z 2147483250 / Cường hóa 2147483300) */
 .m63.qa10:not([hidden]),.m63.qs10:not([hidden]),.m63.qf10:not([hidden]),.m63.oc10p:not([hidden]){z-index:2147483380!important}
 html.qol10 body #hub9 .h9tabs button{white-space:normal!important;line-height:1.05!important;font-size:8.5px!important}
-.cx7 .cx7-big.pv10on{min-width:46%!important;min-height:150px!important;flex:0 0 46%!important}
+.cx7 .cx7-detail:has(.pv10on){flex-direction:column!important;align-items:stretch!important;gap:6px!important}
+.cx7 .cx7-big.pv10on{width:100%!important;height:196px!important;flex:0 0 196px!important;border-radius:8px;overflow:hidden}
+.cx7 .cx7-big.pv10on img{width:1px!important;height:1px!important;position:absolute}

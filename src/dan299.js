@@ -74,7 +74,7 @@
   // laser tàu 2 (ray28, art28 1): cột rộng màu bậc, lõi trắng, đầu cột sáng, gợn chạy dọc
   /* V309 Lượt 5: Thời Không Thôn Tinh — tia tím #a855f7 / ngọc #2dd4bf, lõi trắng gắt (tắt window.TK309=false) */
   function tk9(){if(window.TK309===false)return false;try{return !!(activeRobot&&activeRobot.super&&SSSGame.indexFor(activeRobot)===1);}catch{return false;}}
-  function laser1(s){const T9=tk9(),g=ctx,col=T9?'#a855f7':colorOf(1),c2=T9?'#2dd4bf':col,y=Math.max(0,s.y),r=Math.max(2,s.r||3),fade=s.life28>0?Math.max(0,Math.min(1,(s.life28-s.age)/.05)):1,w=r*(sup?3.2:4.2)*(K7()?.62:1),gc=glowCol(col),k7=K7();
+  function laser1(s){const T9=tk9(),g=ctx,S8=(()=>{try{if(T9||window.SK8LASER===false||!window.SK8T)return null;const k=window.SK8T();return k&&window.MAU309&&window.MAU309[k];}catch{return null;}})()/* L10B: màu Trang Phục cho laser tàu 2 (tắt window.SK8LASER=false) */,col=T9?'#a855f7':S8?S8[1]:colorOf(1),c2=T9?'#2dd4bf':S8?S8[2]:col,y=Math.max(0,s.y),r=Math.max(2,s.r||3),fade=s.life28>0?Math.max(0,Math.min(1,(s.life28-s.age)/.05)):1,w=r*(sup?3.2:4.2)*(K7()?.62:1),gc=glowCol(col),k7=K7();
     g.save();g.globalCompositeOperation='lighter';
     const gr=g.createLinearGradient(s.x-w,0,s.x+w,0);gr.addColorStop(0,col+'00');if(k7){gr.addColorStop(.25,col+'99');gr.addColorStop(.44,c2+'ee');gr.addColorStop(.5,'#ffffff');gr.addColorStop(.56,c2+'ee');gr.addColorStop(.75,col+'99');}else{if(T9){gr.addColorStop(.22,col+'aa');gr.addColorStop(.4,c2+'dd');gr.addColorStop(.5,'#ffffff');gr.addColorStop(.6,c2+'dd');gr.addColorStop(.78,col+'aa');}else{gr.addColorStop(.3,col+'88');gr.addColorStop(.5,'#ffffff');gr.addColorStop(.7,col+'88');}}gr.addColorStop(1,col+'00');
     g.globalAlpha=fade*(sup?.5:.8);g.fillStyle=gr;g.fillRect(s.x-w,0,w*2,y);

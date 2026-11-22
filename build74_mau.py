@@ -1158,6 +1158,9 @@ rep("</body>","<style id=\"l9b309-css\">"+_cb9+"</style><script id=\"l9b309-js\"
 rep("</body>","<style id=\"a10309-css\">"+open('src/a10309.css',encoding='utf-8').read()+"</style><script id=\"a10309-js\">"+open('src/a10309.js',encoding='utf-8').read()+"</script></body>")
 _cq=open('src/q10309.css',encoding='utf-8').read().replace('@Q10','html.qol10 body'+':not(#_q10)'*38)
 rep("</body>","<style id=\"q10309-css\">"+_cq+"</style><script id=\"q10309-js\">"+open('src/q10309.js',encoding='utf-8').read()+"</script></body>")
+# V309 Lượt 10B: 1 chuẩn khung chrome vát góc + 1 kiểu nút X (tắt window.FRAME10=false)
+_cf=open('src/f10309.css',encoding='utf-8').read().replace('@F10','html.frame10 body'+':not(#_f10)'*40)
+rep("</body>","<style id=\"f10309-css\">"+_cf+"</style></body>")
 # V309 Lượt 9B: đổi tên hiển thị Vũ khí phụ → Tàu con, Tiến khung → Tiến bậc (dựng RENAME9=0 để giữ tên cũ)
 if os.environ.get('RENAME9','1')!='0':
     for _a,_b in [('Vũ khí phụ','Tàu con'),('VŨ KHÍ PHỤ','TÀU CON'),('vũ khí phụ','tàu con'),('Vũ Khí Phụ','Tàu Con'),('TIẾN KHUNG','TIẾN BẬC'),('Tiến khung','Tiến bậc'),('tiến khung','tiến bậc'),('Tiến Khung','Tiến Bậc')]:

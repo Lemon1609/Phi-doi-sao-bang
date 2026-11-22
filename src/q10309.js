@@ -7,7 +7,8 @@
 //  PT10  Tuần tra AFK mini góc trái Sảnh (chấm đỏ khi tích ≥ 6 giờ). CHIẾN ĐẤU ở Sảnh mở thẳng Bản đồ (l9b309).
 //  OC10  Siêu Tần Tuần (Vô Tận, theo tuần hệ thống, chạy offline): 1 chiến cơ + 1 giáp + 1 tên lửa + 1 tàu con; mỗi món đang dùng +10 % điểm và +2,5 % Công
 //        trong Vô Tận (đủ 4 món = +40 % điểm, +10 % Công). Huy hiệu ϟ ở nút VÔ TẬN, ô Kho, hàng Túi đồ.
-//  QF10  Quỹ Tiến Trình 160 ải (tab trong PHÚC LỢI): 16 mốc ải 10…160, thưởng Hợp kim + Đá XP + mảnh phi công (KHÔNG có Kim cương: luật khóa "không thêm nguồn kim cương mới").
+//  QF10  Quỹ Tiến Trình 160 ải (tab trong PHÚC LỢI): 16 mốc ải 10…160, thưởng Kim cương 50→150 (tổng 1.440, chủ dự án duyệt NGOẠI LỆ 22/11 vì nhận 1 lần;
+//        tắt riêng window.QF10GEM=false) + Hợp kim + Đá XP + mảnh phi công.
 //  BN10  Banner NÂNG CẤP / TIẾN BẬC THÀNH CÔNG 0,5 s + chớp icon + số xanh nhảy.
 //  PV10  Bách khoa: khung xem bắn đạn thật (WING10.Stage) cho chiến cơ / Chiến Thần / trang bị SSS.
 const Q10309=(()=>{
@@ -65,7 +66,7 @@ const Q10309=(()=>{
  function qaOpen(){if(!qa){qa=document.createElement('div');qa.className='m63 qa10';qa.hidden=true;qa.innerHTML='<div class="m63-card"></div>';document.body.appendChild(qa);
      qa.addEventListener('click',e=>{if(e.target===qa){qa.hidden=true;return;}const b=e.target.closest('[data-qa]');if(!b)return;e.stopPropagation();const k=b.dataset.qa;
        if(k==='x'){qa.hidden=true;return;}if(k==='tk'){qaOff[b.dataset.v]=!b.checked;qaRender();return;}
-       if(k==='go'){let n=0;for(const r of qaRows()){if(qaOff[r.key])continue;try{if(Evo82.doBreak(r.K,r.ref))n++;}catch{}}if(n){banner('adv');try{Progress.render();}catch{}}qaRender();if(!n)toastS('Không tiến bậc được món nào.');}});}
+       if(k==='go'){let n=0;for(const r of qaRows()){if(qaOff[r.key])continue;try{if(Evo82.doBreak(r.K,r.ref))n++;}catch{}}if(n){qa.hidden=true;banner('adv');try{Progress.render();}catch{}}else{qaRender();toastS('Không tiến bậc được món nào.');}}});}
    qaOff={};qaRender();qa.hidden=false;}
  document.addEventListener('click',e=>{if(!on())return;const b=e.target.closest&&e.target.closest('#k307 [data-k="qadv"]');if(!b)return;e.stopPropagation();e.preventDefault();qaOpen();},true);
  // ================= BN10 · banner thành công =================
@@ -97,13 +98,13 @@ const Q10309=(()=>{
  // ================= QF10 · Quỹ tiến trình =================
  const QK='saobang-quy10-v1';let QS={got:{}};try{QS=Object.assign({got:{}},JSON.parse(localStorage.getItem(QK)||'{}'));}catch{}
  const qsave=()=>{try{localStorage.setItem(QK,JSON.stringify(QS));}catch{}};
- const QF=Array.from({length:16},(_,i)=>{const k=i+1,s=k*10;return {s,cr:2000*k+(k%5===0?10000:0),xp:k<=5?[2,4+k]:k<=11?[3,k-3]:[3,k],psh:2+Math.floor(k/2)};});
+ const QF=Array.from({length:16},(_,i)=>{const k=i+1,s=k*10;return {s,dm:[50,50,60,60,70,70,80,80,90,90,100,100,120,120,150,150][i],cr:2000*k+(k%5===0?10000:0),xp:k<=5?[2,4+k]:k<=11?[3,k-3]:[3,k],psh:2+Math.floor(k/2)};});
  const fundDot=()=>{const cl=cleared();return QF.some(m=>cl.includes(m.s)&&!QS.got[m.s]);};
- function giveFund(m){try{Progress.grantCredits(m.cr);}catch{}try{XPDA307.add(m.xp[0],m.xp[1]);}catch{}try{const st=Pilot67.state(),own=Object.keys(st.own).map(Number),mp=st.team[0]&&st.own[st.team[0]]?st.team[0]:own[0];if(mp)Pilot67._piece(mp,m.psh);else Progress.grantCredits(m.psh*900);}catch{}}
+ function giveFund(m){if(m.dm&&window.QF10GEM!==false)try{Econ74.add(m.dm,'Quỹ Tiến Trình ải '+m.s);}catch{}try{Progress.grantCredits(m.cr);}catch{}try{XPDA307.add(m.xp[0],m.xp[1]);}catch{}try{const st=Pilot67.state(),own=Object.keys(st.own).map(Number),mp=st.team[0]&&st.own[st.team[0]]?st.team[0]:own[0];if(mp)Pilot67._piece(mp,m.psh);else Progress.grantCredits(m.psh*900);}catch{}}
  let qf=null;
  function qfRender(){if(!qf)return;const cl=cleared();const xn=['','I','II','III','IV'];
    qf.querySelector('.m63-card').innerHTML=`<div class="m63-eye">QUỸ TIẾN TRÌNH</div><button class="m63-x" data-qf="x" aria-label="Đóng">×</button><p class="qf10p">Vượt mốc ải chiến dịch để nhận quỹ — mốc đã vượt tự mở nhận. Đã vượt <b>${Math.max(0,...cl.filter(n=>n<=160),0)}</b>/160 ải.</p>
-    <div class="qf10l">${QF.map(m=>{const ok=cl.includes(m.s),got=!!QS.got[m.s];return `<div class="qf10r ${got?'got':ok?'ok':'lk'}"><b>ẢI ${m.s}</b><span><em>${fmt(m.cr)} ◈</em><em>${m.xp[1]} Đá XP ${xn[m.xp[0]]}</em><em>${m.psh} mảnh phi công</em></span>${got?'<s>ĐÃ NHẬN</s>':ok?`<button data-qf="get" data-v="${m.s}">NHẬN</button>`:'<s class="l">🔒</s>'}</div>`;}).join('')}</div>
+    <div class="qf10l">${QF.map(m=>{const ok=cl.includes(m.s),got=!!QS.got[m.s];return `<div class="qf10r ${got?'got':ok?'ok':'lk'}"><b>ẢI ${m.s}</b><span>${m.dm&&window.QF10GEM!==false?`<em class="dm">${m.dm} 💎</em>`:''}<em>${fmt(m.cr)} ◈</em><em>${m.xp[1]} Đá XP ${xn[m.xp[0]]}</em><em>${m.psh} mảnh phi công</em></span>${got?'<s>ĐÃ NHẬN</s>':ok?`<button data-qf="get" data-v="${m.s}">NHẬN</button>`:'<s class="l">🔒</s>'}</div>`;}).join('')}</div>
     <button class="qf10all" data-qf="all" ${fundDot()?'':'disabled'}>NHẬN TẤT CẢ</button>`;}
  function qfOpen(){if(!on())return;if(!qf){qf=document.createElement('div');qf.className='m63 qf10';qf.hidden=true;qf.innerHTML='<div class="m63-card"></div>';document.body.appendChild(qf);
      qf.addEventListener('click',e=>{if(e.target===qf){qf.hidden=true;return;}const b=e.target.closest('[data-qf]');if(!b)return;e.stopPropagation();const k=b.dataset.qf;if(k==='x'){qf.hidden=true;return;}const cl=cleared();
@@ -147,13 +148,13 @@ const Q10309=(()=>{
  function codex(){if(!window.WING10)return;const box=$('.m63.cx7:not([hidden]) .cx7-big');if(!box)return;let c=box.querySelector('canvas.pv10');
    if(!c){c=document.createElement('canvas');c.className='pv10';box.appendChild(c);box.classList.add('pv10on');
      pvS=WING10.Stage(c,{visible:()=>c.isConnected&&vis($('.m63.cx7')),get:()=>{const sel=(($('.m63.cx7 .cx7-c.sel')||{}).dataset||{}).cx7||'';const im0=box.querySelector('img');
-       if(sel[0]==='s'){const i=+sel.slice(1);let src='';try{const S=SHIP118[String(i)];src=S.tim||S.thuong;}catch{}return {src,col:WING10.colOf(i),bb:WING10.bbOf(i),sw:.42,sh:.6,cy:.62,key:'cx'+i,arc:(performance.now()%3600)<1100};}
-       if(sel[0]==='r'){let col='#c4b5fd';try{col=SSS_MODELS[+sel.slice(1)].color||col;}catch{}return {src:im0&&im0.src,col,wing:true,sw:.5,sh:.7,cy:.58,arc:(performance.now()%3000)<1000,key:'rb'};}
-       let lc=0;try{lc=launchCraft;}catch{}let src='';try{const S=SHIP118[String(lc)];src=S.tim||S.thuong;}catch{}let d=null;try{d=Gear44.defs().find(x=>'x'+x.id===sel);}catch{}const o={src,col:WING10.colOf(lc),bb:WING10.bbOf(lc),sw:.34,sh:.5,cy:.66,key:'sx'};
+       if(sel[0]==='s'){const i=+sel.slice(1);let src='';try{const S=SHIP118[String(i)];src=S.tim||S.thuong;}catch{}return {src,col:WING10.colOf(i),bb:WING10.bbOf(i),sw:.3,sh:.55,cy:.62,key:'cx'+i,arc:(performance.now()%3600)<1100};}
+       if(sel[0]==='r'){let col='#c4b5fd';try{col=SSS_MODELS[+sel.slice(1)].color||col;}catch{}return {src:im0&&im0.src,col,wing:true,sw:.36,sh:.78,cy:.55,arc:(performance.now()%3000)<1000,key:'rb'};}
+       let lc=0;try{lc=launchCraft;}catch{}let src='';try{const S=SHIP118[String(lc)];src=S.tim||S.thuong;}catch{}let d=null;try{d=Gear44.defs().find(x=>'x'+x.id===sel);}catch{}const o={src,col:WING10.colOf(lc),bb:WING10.bbOf(lc),sw:.26,sh:.45,cy:.64,key:'sx'};
        if(d){if(d.kind==='sidearm'){try{o.pod=TB309.img('pod_'+d.id);}catch{}}else if(d.kind==='missiles'){try{o.mis=im0;}catch{}}else o.shield='#fde68a';}return o;}});}
    if(pvS)pvS.start();}
  // ================= Sảnh: CHIẾN ĐẤU, sửa nhỏ =================
- setInterval(()=>{try{html.classList.toggle('qol10',on());if(!on())return;hubTab();cons();patrol();ocBadges();codex();}catch(e){}},400);
+ setInterval(()=>{try{html.classList.toggle('frame10',window.FRAME10!==false);html.classList.toggle('qol10',on());if(!on())return;hubTab();cons();patrol();ocBadges();codex();}catch(e){}},400);
  return {qsOpen,qaOpen,qfOpen,ocPop,oc,ocHits,banner,stagesFor,week,QF,fundDot};
 })();
 window.Q10309=Q10309;

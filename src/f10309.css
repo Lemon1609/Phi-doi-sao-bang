@@ -1,0 +1,37 @@
+/* V309 Lượt 10B · 1 chuẩn khung Bạc Chrome vát góc + viền trong Cyan + 1 kiểu nút X (tắt window.FRAME10=false). @F10 = html.frame10 body + 40 :not(#_f10) */
+:root{--bv10:14px;--cl10:polygon(var(--bv10) 0,calc(100% - var(--bv10)) 0,100% var(--bv10),100% calc(100% - var(--bv10)),calc(100% - var(--bv10)) 100%,var(--bv10) 100%,0 calc(100% - var(--bv10)),0 var(--bv10));
+ --ch10:linear-gradient(135deg,#f8fafc 0 12.6px,transparent 13px) border-box,linear-gradient(225deg,#e2e8f0 0 12.6px,transparent 13px) border-box,linear-gradient(315deg,#64748b 0 12.6px,transparent 13px) border-box,linear-gradient(45deg,#94a3b8 0 12.6px,transparent 13px) border-box;
+ --cr10:linear-gradient(180deg,#f8fafc 0,#cbd5e1 18%,#94a3b8 42%,#e2e8f0 58%,#64748b 100%) border-box;
+ --rb10:repeating-linear-gradient(0deg,rgba(125,211,252,.07) 0 1px,transparent 1px 22px) padding-box,repeating-linear-gradient(90deg,rgba(125,211,252,.07) 0 1px,transparent 1px 22px) padding-box,linear-gradient(180deg,#184fa8,#0d2f6e) padding-box}
+/* khung hộp thoại .m63 (lớp nền là ::before) */
+@F10 .m63 > .m63-card::before{border:3px solid transparent!important;border-image:none!important;border-radius:0!important;clip-path:var(--cl10)!important;
+ background:var(--ch10),linear-gradient(180deg,#0f3a88 0,#0a2a66 46px,#38bdf8 46px,#38bdf8 47px,transparent 47px) padding-box,var(--rb10),var(--cr10)!important;
+ box-shadow:inset 0 0 0 1px rgba(103,232,249,.9),inset 0 0 0 3px rgba(8,47,73,.55),inset 0 0 14px rgba(56,189,248,.25)!important}
+/* bảng / trang khác cùng chuẩn */
+@F10 :is(#nav74p .n74pc,#m40 .mm,.e74p .e74c,#k307 .k307-in,#cd9 .cd9c,#ch10 .ch10c,#cp9 .cp9c,#nc307 .nc307-shp){border:3px solid transparent!important;border-image:none!important;border-radius:0!important;clip-path:var(--cl10)!important;
+ background:var(--ch10),var(--rb10),var(--cr10)!important;box-shadow:inset 0 0 0 1px rgba(103,232,249,.9),inset 0 0 0 3px rgba(8,47,73,.55),inset 0 0 14px rgba(56,189,248,.25)!important}
+@F10 :is(#cd9 .cd9h,#ch10 .cd9h,#cp9 .cd9h){margin:0 -12px 10px!important}
+/* Cường hóa (toàn màn): viền chrome trong mép + thanh tiêu đề chrome */
+@F10 #nc307{box-shadow:inset 0 0 0 3px #94a3b8,inset 0 0 0 4px rgba(103,232,249,.85)!important}
+/* ---------- 1 kiểu nút đóng X: ô vát góc xanh–bạc ---------- */
+@F10 :is(.m63 .m63-x,#nc307 .nc307-x,#k307 [data-k="x"],#hub9 .h9x,#cd9 .cd9h button,#ch10 .cd9h button,#cp9 .cd9h button,#m40 .mm > .x){
+ width:34px!important;height:34px!important;min-width:34px!important;padding:0!important;border:0!important;border-radius:0!important;border-image:none!important;
+ clip-path:polygon(8px 0,calc(100% - 8px) 0,100% 8px,100% calc(100% - 8px),calc(100% - 8px) 100%,8px 100%,0 calc(100% - 8px),0 8px)!important;
+ background:linear-gradient(180deg,rgba(255,255,255,.55) 0,rgba(255,255,255,.12) 46%,rgba(255,255,255,0) 52%),linear-gradient(180deg,#38bdf8,#1d4ed8)!important;
+ box-shadow:inset 0 0 0 2px #e2e8f0,inset 0 0 0 3px rgba(8,47,73,.6),inset 0 -3px 0 rgba(0,0,0,.25)!important;
+ color:#fff!important;-webkit-text-fill-color:#fff!important;font:900 17px/34px sans-serif!important;text-align:center!important;text-shadow:0 1px 1px rgba(0,0,0,.6)!important;text-indent:0!important;overflow:hidden!important}
+@F10 :is(.m63 .m63-x,#nc307 .nc307-x,#k307 [data-k="x"],#hub9 .h9x,#cd9 .cd9h button,#ch10 .cd9h button,#cp9 .cd9h button)::before,@F10 :is(.m63 .m63-x,#nc307 .nc307-x,#k307 [data-k="x"],#hub9 .h9x)::after{display:none!important}
+@F10 .m63 .m63-x{font-size:0!important}
+@F10 .m63 .m63-x::after{content:'✕'!important;display:block!important;position:static!important;width:auto!important;height:auto!important;background:none!important;font:900 17px/34px sans-serif!important;color:#fff!important;-webkit-text-fill-color:#fff!important}
+@F10 :is(.m63 .m63-x,#nc307 .nc307-x,#k307 [data-k="x"],#hub9 .h9x):active{transform:translateY(1px)!important}
+/* ---------- Sảnh: bỏ lớp ánh sáng chồng (cột đèn + quả cầu sáng) làm tàu lóa trắng; Tuần tra viền chrome ---------- */
+@F10 #hgr41 .h1-stage .l74-rays{opacity:.18!important}
+@F10 #hgr41 .h1-stage .l74-rays > b{display:none!important}
+@F10 #hgr41 .h1-stage .pt10{border:0!important;border-radius:0!important;clip-path:polygon(8px 0,calc(100% - 8px) 0,100% 8px,100% calc(100% - 8px),calc(100% - 8px) 100%,8px 100%,0 calc(100% - 8px),0 8px)!important;
+ background:linear-gradient(180deg,rgba(255,255,255,.4) 0,rgba(255,255,255,.08) 46%,rgba(255,255,255,0) 52%),linear-gradient(180deg,#1e5aa8,#0b2152)!important;box-shadow:inset 0 0 0 2px #cbd5e1,inset 0 0 0 3px rgba(103,232,249,.75)!important}
+@F10 #hgr41 .h1-stage .pt10 em{top:3px!important;right:3px!important}
+/* ---------- Bản đồ: chữ XUẤT KÍCH NHANH nâu đậm rõ nét ---------- */
+@F10 #cmap .mb10 .go10 b,@F10 #cmap .mb10 .go10 small{color:#2b1300!important;-webkit-text-fill-color:#2b1300!important;text-shadow:0 1px 0 rgba(255,250,220,.75)!important;opacity:1!important;filter:none!important}
+@F10 #cmap .mb10 .go10{color:#2b1300!important;-webkit-text-fill-color:#2b1300!important}
+/* Quỹ: kim cương */
+.qf10 .qf10r em.dm{background:rgba(14,116,144,.55);color:#a5f3fc;font-weight:900}

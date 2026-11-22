@@ -109,7 +109,7 @@ const L9B309=(()=>{
      sg.addEventListener('click',e=>{const b=e.target.closest('[data-ar9]');if(b){e.stopPropagation();switchShip(+b.dataset.ar9);}});
      doll.addEventListener('click',e=>{const s=e.target.closest('.hb-slot');if(!s||!on())return;const cs=s.classList.contains('c9ship'),k=s.dataset.k307k;setTimeout(()=>{try{if(cs)NC307.open('craft:'+lcOf());else{const id=(Progress.v70.equipped()||{})[k];if(id)NC307.open(id);}}catch{}},30);});}
    for(const c of ['.c9st','.c9tp'])if(doll.querySelector(':scope>'+c))sg.appendChild(doll.querySelector(':scope>'+c));
-   if(window.WING10&&window.ANIM10!==false){if(!K.s10||K.s10.c!==K.c){const pod={},gi=k=>{const i=gearIm(k);return i;};K.s10=WING10.Stage(K.c,{visible:()=>vis($('#hub40'))&&on()&&window.ANIM10!==false,get:()=>{const lc=lcOf();return {src:shipSrc(lc),col:shipCol(lc),pod:gi('sidearm'),mis:gi('missiles'),bb:WING10.bbOf(lc),arc:!!window.__arc10||(performance.now()%4200)<1300,key:'kho'};}});}if(vis($('#hub40')))K.s10.start();}
+   if(window.WING10&&window.ANIM10!==false){if(!K.s10||K.s10.c!==K.c){const pod={},gi=k=>{const i=gearIm(k);return i;};K.s10=WING10.Stage(K.c,{visible:()=>vis($('#hub40'))&&on()&&window.ANIM10!==false,get:()=>{const lc=lcOf();return {src:shipSrc(lc),col:shipCol(lc),pod:gi('sidearm'),mis:gi('missiles'),bb:WING10.bbOf(lc),arc:!!window.__arc10,key:'kho'};}});}if(vis($('#hub40')))K.s10.start();}
    else if(!K.raf&&vis($('#hub40')))K.raf=requestAnimationFrame(loop);
    let tn='';try{tn=TIER70.name[V70.craftN(lcOf())|0]||'';}catch{}let nm='';try{nm=Fighters28.profiles[lcOf()].name;}catch{}const np=sg.querySelector('.np9'),nt=`${nm}${tn?' · '+tn:''}`;if(np.textContent!==nt)np.textContent=nt;
    const st=sg.querySelector('.c9st');if(st&&!st.dataset.b9){st.dataset.b9=1;}
