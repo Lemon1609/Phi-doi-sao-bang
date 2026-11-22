@@ -1,0 +1,132 @@
+/* V309 Lượt 12 · Chốt hạ V1 · @P12 = html.polish12 body + 46 :not(#_p12) · tắt window.POLISH12=false */
+/* ================= Phần 0 ================= */
+/* 0.1 thẻ ải: nổi trên thanh XUẤT KÍCH NHANH, khung chrome, X thống nhất */
+@P12 #cmap .cm-sheet{z-index:9!important;bottom:calc(env(safe-area-inset-bottom,0px) + 8px)!important;max-height:calc(100% - var(--h9,0px) - 64px)!important;overflow-y:auto!important;overscroll-behavior:contain;
+ border:3px solid transparent!important;border-radius:0!important;clip-path:var(--cl10)!important;background:var(--ch10),var(--rb10),var(--cr10)!important;
+ box-shadow:inset 0 0 0 1px rgba(103,232,249,.9),inset 0 0 0 3px rgba(8,47,73,.55),inset 0 0 14px rgba(56,189,248,.25)!important;padding:14px 12px 12px!important}
+@P12 #cmap .cm-sheet .cm-act{position:sticky;bottom:-12px;z-index:2;padding:8px 0 4px;background:linear-gradient(180deg,rgba(13,47,110,0),#0d2f6e 30%)}
+@P12 #cmap .cm-sheet .cm-x,@P12 .e74p .e74x{width:32px!important;height:32px!important;min-width:32px!important;padding:0!important;border:0!important;border-radius:0!important;
+ clip-path:polygon(8px 0,calc(100% - 8px) 0,100% 8px,100% calc(100% - 8px),calc(100% - 8px) 100%,8px 100%,0 calc(100% - 8px),0 8px)!important;
+ background:linear-gradient(180deg,rgba(255,255,255,.55) 0,rgba(255,255,255,.12) 46%,rgba(255,255,255,0) 52%),linear-gradient(180deg,#38bdf8,#1d4ed8)!important;
+ box-shadow:inset 0 0 0 2px #e2e8f0,inset 0 0 0 3px rgba(8,47,73,.6),inset 0 -3px 0 rgba(0,0,0,.25)!important;color:#fff!important;-webkit-text-fill-color:#fff!important;font:900 16px/32px sans-serif!important;text-align:center!important}
+@P12 #cmap .cm-sheet .cm-x{top:8px!important;right:8px!important}
+/* 0.2 thanh tab đầu trang đang mở → chỉ giữ 1 nút X (góc phải thanh tab) */
+@HB12 :is(.m63 .m63-x,.q77-x,.e74p .e74x,#nav74p .n74pc > .x,#nav74p .n74x,.tr67 .tr67-x){display:none!important}
+/* 0.3 ô ải Anh Hùng: đỏ hồng / tím sẫm */
+@PH12 #cmap .cm-node.h11c{background:radial-gradient(circle,#fff 0,#fecdd3 9%,rgba(244,63,94,.78) 18%,rgba(190,24,93,.25) 32%,rgba(190,24,93,0) 48%)!important;filter:none!important}
+@PH12 #cmap .cm-node.h11c::before{border-color:rgba(251,113,133,.9)!important;box-shadow:0 0 12px rgba(244,63,94,.6),inset 0 0 8px rgba(244,63,94,.4)!important}
+@PH12 #cmap .cm-node.h11d{background:radial-gradient(circle,#fff 0,#f5d0fe 9%,rgba(192,38,211,.8) 18%,rgba(126,34,206,.28) 32%,rgba(126,34,206,0) 48%)!important;filter:none!important}
+@PH12 #cmap .cm-node.h11d::before{border-color:rgba(232,121,249,.9)!important;box-shadow:0 0 12px rgba(192,38,211,.65),inset 0 0 8px rgba(192,38,211,.45)!important}
+@PH12 #cmap .cm-node.h11l{background:radial-gradient(circle,#6b2a45 0,rgba(80,20,50,.6) 12%,rgba(80,20,50,0) 34%)!important;filter:none!important;opacity:.6}
+@PH12 #cmap .cm-node.h11l::before{border-color:rgba(120,50,80,.5)!important;box-shadow:none!important}
+@PH12 #cmap .cm-node b{color:#ffe4ef!important;text-shadow:0 0 6px #be185d,0 1px 2px #000!important}
+@PH12 #cmap svg.cs10s line,@PH12 #cmap svg.cs10s path{stroke:#f472b6!important}
+/* 0.4 chữ nút vàng nâu đậm + nền tối sau dòng phụ ở màn Phi công */
+@P12 :is(.b11.gd,.ep11g,.sl11 button,.q77-all,#q77-all,.fx68-b button.y12,#m40 button.big[data-f],#cmap .cm-sheet .cm-go,#cmap .mb10 .go10,#chest-open-all,#r-claim){color:#2b1300!important;-webkit-text-fill-color:#2b1300!important;text-shadow:0 1px 0 rgba(255,255,255,.55)!important}
+@P12 .b11.gd *{color:#2b1300!important;-webkit-text-fill-color:#2b1300!important;text-shadow:0 1px 0 rgba(255,255,255,.45)!important}
+@P12 .b11.gd em.no{color:#9d1010!important;-webkit-text-fill-color:#9d1010!important}@P12 .b11.gd em.ok{color:#0d5c2c!important;-webkit-text-fill-color:#0d5c2c!important}
+@P12 .pl11n small{align-self:flex-start;padding:1px 7px;border-radius:6px;background:rgba(3,10,26,.72);box-shadow:0 0 0 1px rgba(148,163,184,.35)}
+@P12 .pl11n b{padding:0 2px;background:linear-gradient(90deg,rgba(3,10,26,.6),rgba(3,10,26,0))}
+
+/* ================= Phần 1 · HUD trong trận ================= */
+@P12 #tele07 .t7-row{background:rgba(8,26,64,.42)!important;clip-path:polygon(6px 0,calc(100% - 6px) 0,100% 6px,100% calc(100% - 6px),calc(100% - 6px) 100%,6px 100%,0 calc(100% - 6px),0 6px);box-shadow:inset 0 0 0 1px rgba(226,232,240,.55),inset 0 0 0 2px rgba(8,47,73,.45)!important;border-radius:0!important}
+@P12 #pause{clip-path:polygon(7px 0,calc(100% - 7px) 0,100% 7px,100% calc(100% - 7px),calc(100% - 7px) 100%,7px 100%,0 calc(100% - 7px),0 7px)!important;box-shadow:inset 0 0 0 1.5px rgba(226,232,240,.85),inset 0 0 0 3px rgba(8,47,73,.5)!important;background-color:rgba(12,40,92,.5)!important}
+@P12 :is(#missile-action,#robot-skill,#bomb,#ult72-btn){clip-path:polygon(29% 0,71% 0,100% 29%,100% 71%,71% 100%,29% 100%,0 71%,0 29%)!important;box-shadow:inset 0 0 0 1.5px rgba(226,232,240,.75),inset 0 0 0 3px rgba(8,47,73,.45)!important;background-color:rgba(8,26,64,.45)!important}
+@P12 #auto6{border-radius:0!important;clip-path:polygon(6px 0,calc(100% - 6px) 0,100% 6px,100% calc(100% - 6px),calc(100% - 6px) 100%,6px 100%,0 calc(100% - 6px),0 6px)!important;background:rgba(8,26,64,.5)!important;box-shadow:inset 0 0 0 1px rgba(226,232,240,.6)!important;border:0!important;top:calc(env(safe-area-inset-top,0px) + 82px)!important}
+/* tên + máu boss: thấp xuống dưới vùng an toàn, dải chrome mảnh */
+@P12 #bossbar{top:calc(env(safe-area-inset-top,0px) + 42px)!important;left:44px!important;right:44px!important;padding:3px 10px 5px!important;background:rgba(8,26,64,.45)!important;
+ clip-path:polygon(8px 0,calc(100% - 8px) 0,100% 8px,100% calc(100% - 8px),calc(100% - 8px) 100%,8px 100%,0 calc(100% - 8px),0 8px);box-shadow:inset 0 0 0 1px rgba(226,232,240,.5)}
+
+/* ================= Phần 1 · Thắng / Thua / Tạm dừng ================= */
+@P12 #overlay.rs-on{padding-top:calc(env(safe-area-inset-top,0px) + 58px)!important;overflow-y:auto!important}
+@P12 #overlay.rs-on #rs{border:3px solid transparent!important;border-image:none!important;border-radius:0!important;clip-path:none!important;background:var(--ch10),var(--rb10),var(--cr10)!important;
+ box-shadow:inset 0 0 0 1px rgba(103,232,249,.9),inset 0 0 0 3px rgba(8,47,73,.55),inset 0 0 18px rgba(56,189,248,.25)!important;overflow:visible!important}
+@P12 #overlay.rs-on #rs.lose{background:var(--ch10),repeating-linear-gradient(0deg,rgba(125,211,252,.06) 0 1px,transparent 1px 22px) padding-box,linear-gradient(180deg,#1e3a78,#0f1f48) padding-box,var(--cr10)!important}
+@P12 #overlay.rs-on #rs .rs-rib{margin-top:0!important}
+@P12 #overlay.rs-on #rs .rs-star{animation-duration:.42s!important}
+@P12 #overlay.rs-on #rs .rs-star:nth-child(1){--d:.15s!important}@P12 #overlay.rs-on #rs .rs-star:nth-child(2){--d:.45s!important}@P12 #overlay.rs-on #rs .rs-star:nth-child(3){--d:.75s!important}
+@P12 #overlay.rs-on #rs .rs-loot.rw78g{gap:6px!important}
+@P12 #overlay #lobby-back,@P12 #overlay[data-state="pause"] #dock-return{min-height:44px!important;border-radius:12px!important;border:1.5px solid #bae6fd!important;background:linear-gradient(180deg,#5fc8ff,#1a63c9 55%,#0f3f8f)!important;box-shadow:0 4px 0 #082a63,inset 0 1px 0 #ffffffaa,inset 0 -3px 6px #00000040!important;color:#fff!important;font-weight:900!important;letter-spacing:.06em}
+@P12 #overlay[data-state="pause"] #start{min-height:48px!important;border-radius:12px!important;border:1.5px solid #ffe9a8!important;background:linear-gradient(180deg,#ffe48a,#f5a524 55%,#b9620a)!important;box-shadow:0 4px 0 #6b3300,inset 0 1px 0 #fff9!important;color:#2b1300!important;-webkit-text-fill-color:#2b1300!important;font-weight:900!important}
+@P12 #overlay .fx68-b{display:flex;gap:8px}
+@P12 #overlay .fx68-b button{flex:1;min-height:44px!important;border-radius:12px!important;border:1.5px solid #bae6fd!important;background:linear-gradient(180deg,#5fc8ff,#1a63c9 55%,#0f3f8f)!important;box-shadow:0 4px 0 #082a63,inset 0 1px 0 #ffffffaa!important;color:#fff!important;font:900 12px sans-serif!important;letter-spacing:.06em}
+@P12 #overlay .fx68-b button.y12{border-color:#ffe9a8!important;background:linear-gradient(180deg,#ffe48a,#f5a524 55%,#b9620a)!important;box-shadow:0 4px 0 #6b3300,inset 0 1px 0 #fff9!important}
+/* bảng tạm dừng */
+@P12 #overlay .pz12{position:absolute;z-index:0;pointer-events:none;border:3px solid transparent;clip-path:var(--cl10);background:var(--ch10),var(--rb10),var(--cr10);box-shadow:inset 0 0 0 1px rgba(103,232,249,.9),inset 0 0 18px rgba(56,189,248,.25)}
+@P12 #overlay[data-state="pause"] > :not(.pz12){position:relative;z-index:1}
+
+/* ================= Phần 2 · màn phụ ================= */
+/* Vòng quay: thanh tiêu đề như khung chuẩn */
+@P12 .e74p .e74h{border-radius:0!important;border:0!important;border-image:none!important;background:linear-gradient(180deg,#0f3a88,#0a2a66)!important;box-shadow:inset 0 -1px 0 #38bdf8!important;clip-path:none!important}
+@P12 .e74p .e74h::before,@P12 .e74p .e74h::after{display:none!important}
+@P12 .e74p .e74h small{color:#7dd3fc!important}@P12 .e74p .e74h b{color:#fff!important;text-shadow:0 0 8px rgba(56,189,248,.6)!important}
+/* Mở rương (Kho báu) + Hợp thể: trang con #hub40 nền Royal Blue, thanh tiêu đề chuẩn */
+@P12 #hub40 #hb-body:not(.k307){background:repeating-linear-gradient(0deg,rgba(125,211,252,.06) 0 1px,transparent 1px 22px),repeating-linear-gradient(90deg,rgba(125,211,252,.06) 0 1px,transparent 1px 22px),linear-gradient(180deg,#184fa8,#0b2560)!important}
+@P12 #hub40 .hb-top{border-radius:0!important;border-image:none!important;background:linear-gradient(180deg,#0f3a88,#0a2a66)!important;box-shadow:inset 0 -1px 0 #38bdf8,0 2px 6px rgba(0,0,0,.35)!important;clip-path:none!important}
+@P12 #hub40 .hb-top::before,@P12 #hub40 .hb-top::after{display:none!important}
+@P12 #hub40 .hb-top #hb-title{color:#fff!important;text-shadow:0 0 8px rgba(56,189,248,.6)!important;background:none!important}
+@P12 #hub40 #chest-lab.chest-panel{border:3px solid transparent!important;border-image:none!important;border-radius:0!important;clip-path:var(--cl10)!important;background:var(--ch10),var(--rb10),var(--cr10)!important;box-shadow:inset 0 0 0 1px rgba(103,232,249,.85),inset 0 0 14px rgba(56,189,248,.25)!important}
+@P12 #hub40 #chest-open-all{border-radius:12px!important;border:1.5px solid #ffe9a8!important;clip-path:none!important;background:linear-gradient(180deg,#ffe48a,#f5a524 55%,#b9620a)!important;box-shadow:0 4px 0 #6b3300,inset 0 1px 0 #fff9!important;color:#2b1300!important;-webkit-text-fill-color:#2b1300!important;font-weight:900!important;min-height:44px!important;padding:0 18px!important}
+@P12 #hub40 #chest-open-all::before,@P12 #hub40 #chest-open-all::after{display:none!important}
+@P12 #hub40 .ht197{background:radial-gradient(ellipse at 50% 38%,rgba(56,120,220,.35),rgba(8,26,64,0) 60%),repeating-linear-gradient(0deg,rgba(125,211,252,.06) 0 1px,transparent 1px 22px),repeating-linear-gradient(90deg,rgba(125,211,252,.06) 0 1px,transparent 1px 22px),linear-gradient(180deg,#184fa8,#0b2560)!important}
+@P12 .e74p .e74c::before,@P12 .e74p .e74c::after{display:none!important}
+@P12 #hub40 :is(.hb-chest,.c74,.chest-panel,.hb-seg-chest,#chest-panel){border-radius:0!important}
+@P12 #hub40 .hb-body > :is(section,.hb-card,.hb-panel){border:3px solid transparent!important;border-image:none!important;border-radius:0!important;clip-path:var(--cl10);background:var(--ch10),var(--rb10),var(--cr10)!important;box-shadow:inset 0 0 0 1px rgba(103,232,249,.8)!important}
+/* Hợp thể Chiến Thần / VKTT / Đá khảm / Trang phục: hộp riêng dùng khung chuẩn */
+@P12 :is(#ht197,.ht197,.u72,.st71,.adv70,.cx7 > .m63-card,.sk8,.ult72){--frame12:1}
+@P12 :is(.u72 .sr,.st71 .st71-c,.ht197-c){border:3px solid transparent!important;border-image:none!important;border-radius:0!important;clip-path:var(--cl10)!important;background:var(--ch10),var(--rb10),var(--cr10)!important}
+/* bản đồ: tên chương không bị đường kẻ cắt + nút CÀN QUÉT NHANH vát góc chrome */
+@P12 #cmap .cm-head h3{display:table!important;margin:0 auto!important;padding:1px 14px!important;position:relative;z-index:2;background:linear-gradient(90deg,rgba(6,20,48,0),rgba(6,20,48,.94) 14%,rgba(6,20,48,.94) 86%,rgba(6,20,48,0))!important}
+@P12 #cmap .qs10b{border-radius:0!important;clip-path:polygon(9px 0,calc(100% - 9px) 0,100% 9px,100% calc(100% - 9px),calc(100% - 9px) 100%,9px 100%,0 calc(100% - 9px),0 9px)!important;
+ background:linear-gradient(180deg,rgba(255,255,255,.35),rgba(255,255,255,0) 48%),linear-gradient(180deg,#1e5bb8,#0d2f6e)!important;box-shadow:inset 0 0 0 2px #cbd5e1,inset 0 0 0 3px rgba(8,47,73,.6),inset 0 0 10px rgba(56,189,248,.35)!important;border:0!important;color:#e0f2fe!important}
+@P12 #cmap .qs10b b{color:#e0f2fe!important}
+/* đầu trang + thanh tab: chữ thoáng, không rớt dòng */
+@P12 #hdr9 .q9 small{font:900 7.8px/1 sans-serif!important;letter-spacing:-.02em!important;white-space:nowrap!important;margin-top:1px}
+@P12 #hub9 .h9tabs{overflow-x:auto;scrollbar-width:none}
+@P12 #hub9 .h9tabs::-webkit-scrollbar{display:none}
+@P12 #hub9 .h9tabs button{flex:1 0 auto!important;min-width:54px!important;padding:0 6px!important;font:900 9.5px/1 sans-serif!important;white-space:nowrap!important;letter-spacing:.02em}
+@P12 #hub9 .h9t{font-size:10px!important;white-space:nowrap!important}
+
+/* ================= Phần 3 · vùng chạm ≥ 44 px ================= */
+@P12 #nc307 .nc307-gb button{position:relative;min-width:28px!important;min-height:28px!important;touch-action:none;-webkit-user-select:none;user-select:none}
+@P12 #nc307 .nc307-gb button::after{content:'';position:absolute;inset:-8px -6px}
+@P12 #hgr41 #lb68 .ld7 button{position:relative;height:40px!important;min-width:44px!important}
+@P12 #hgr41 #lb68 .ld7{height:44px!important}
+@P12 #hb-body.k307 .stg9 .c9st > *{position:relative;min-height:30px}
+@P12 #hb-body.k307 .stg9 .c9st > *::after{content:'';position:absolute;inset:-6px -6px}
+
+/* ================= Phần 4 · buồng lái + phản hồi ================= */
+@P12 #lb68 .cp12{position:absolute;z-index:0;pointer-events:none;border:4px solid transparent;
+ clip-path:polygon(18px 0,calc(100% - 18px) 0,100% 18px,100% calc(100% - 10px),calc(100% - 10px) 100%,10px 100%,0 calc(100% - 10px),0 18px);
+ background:radial-gradient(circle at 12px 12px,#e2e8f0 0 2px,#475569 2.5px,transparent 3.5px) padding-box,radial-gradient(circle at calc(100% - 12px) 12px,#e2e8f0 0 2px,#475569 2.5px,transparent 3.5px) padding-box,
+  radial-gradient(circle at 12px calc(100% - 12px),#e2e8f0 0 2px,#475569 2.5px,transparent 3.5px) padding-box,radial-gradient(circle at calc(100% - 12px) calc(100% - 12px),#e2e8f0 0 2px,#475569 2.5px,transparent 3.5px) padding-box,
+  repeating-linear-gradient(0deg,rgba(148,163,184,.09) 0 1px,transparent 1px 5px) padding-box,linear-gradient(180deg,#34465f 0,#1a2740 22%,#0d1628 60%,#24324a 100%) padding-box,
+  linear-gradient(180deg,#f8fafc,#94a3b8 25%,#475569 55%,#e2e8f0 85%,#64748b) border-box;
+ box-shadow:inset 0 2px 0 rgba(255,255,255,.18),inset 0 -6px 14px rgba(0,0,0,.55),inset 0 0 0 1px rgba(56,189,248,.35)}
+@P12 #lb68 .cp12 i{position:absolute;left:4%;right:4%;height:3px;border-radius:2px;background:linear-gradient(90deg,transparent,#7dd3fc 20%,#e0f2fe 50%,#7dd3fc 80%,transparent);opacity:.8;box-shadow:0 0 6px #38bdf8}
+@P12 #lb68 .cp12::before,@P12 #lb68 .cp12::after{content:'';position:absolute;top:22%;bottom:22%;width:5px;background:linear-gradient(180deg,#64748b,#e2e8f0 50%,#64748b);border-radius:2px}
+@P12 #lb68 .cp12::before{left:2px}@P12 #lb68 .cp12::after{right:2px}
+@P12 #lb68 .cp12 i.a{top:calc(50% - 1px)}
+@P12 #lb68 > :not(.cp12){position:relative;z-index:1}
+/* nút nhún nhẹ khi chạm (thuộc tính scale, không đè transform) */
+@P12 :is(.m63,#hdr9,#lb68,#hub9,#cmap,#hub40,#k307,#nc307,.e74p,#nav74p,#m40,#overlay) :is(button,.cta):active{scale:.96;transition:scale .06s}
+/* popup bung 140 ms */
+@keyframes pop12{from{opacity:0;transform:scale(.94)}to{opacity:1;transform:none}}
+@P12 .m63:not([hidden]) > .m63-card,@P12 .e74p:not([hidden]) > .e74c,@P12 #nav74p:not([hidden]) .n74pc,@P12 #m40:not([hidden]) .mm,@P12 #k307:not([hidden]) .k307-in{animation:pop12 .14s ease-out both}
+/* mở rương: lóe sáng đồ Tím / mở khóa (b3) */
+@keyframes flash12{0%{box-shadow:0 0 0 0 rgba(216,180,254,0),inset 0 0 0 0 rgba(255,255,255,0)}25%{box-shadow:0 0 26px 8px rgba(216,180,254,.95),inset 0 0 30px 6px rgba(255,255,255,.75)}100%{box-shadow:0 0 12px 2px rgba(192,132,252,.5),inset 0 0 0 0 rgba(255,255,255,0)}}
+@keyframes flash12g{0%{box-shadow:0 0 0 0 rgba(253,224,71,0)}25%{box-shadow:0 0 28px 10px rgba(253,224,71,.95),inset 0 0 30px 6px rgba(255,255,255,.8)}100%{box-shadow:0 0 14px 3px rgba(250,204,21,.55)}}
+@P12 .c74card.b3{animation:flash12 .9s ease-out both}
+@P12 .c74card.b3 .c74art{position:relative}
+@P12 .c74card.b3 .c74art::after{content:'';position:absolute;inset:-40%;background:conic-gradient(from 0deg,transparent 0 10%,rgba(255,255,255,.55) 12%,transparent 16% 35%,rgba(216,180,254,.6) 37%,transparent 41% 60%,rgba(255,255,255,.5) 62%,transparent 66%);animation:spin12 1.2s linear 2;pointer-events:none;opacity:.8}
+@keyframes spin12{to{transform:rotate(360deg)}}
+@P12 :is(.c74card.sss,.c74card.b4){animation:flash12g .9s ease-out both}
+@P12 #hgr41 #lb68{position:relative!important}
+/* màn rộng (gập / tablet): đầu trang + thanh đáy bản đồ bám theo cột game 480 px, không kéo giãn */
+@P12 #hdr9{left:max(0px,calc(50% - 240px))!important;right:max(0px,calc(50% - 240px))!important}
+@P12 #cmap .mb10{left:max(8px,calc(50% - 232px))!important;right:max(8px,calc(50% - 232px))!important}
+@P12 #cmap .qs10b{left:max(8px,calc(50% - 232px))!important}
+@P12 #cmap .hm11,@P12 #cmap .hi11{right:max(10px,calc(50% - 230px))!important}
+@P12 #cmap .cm-sheet{left:max(8px,calc(50% - 232px))!important;right:max(8px,calc(50% - 232px))!important}
+@P12 #hub9{left:max(0px,calc(50% - 240px))!important;right:max(0px,calc(50% - 240px))!important}
+@P12 #hdr9::before{content:'';position:fixed;left:0;right:0;top:0;height:var(--h9,102px);z-index:-1;background:linear-gradient(180deg,#0b1d44,#071330);box-shadow:0 2px 0 rgba(56,189,248,.25)}

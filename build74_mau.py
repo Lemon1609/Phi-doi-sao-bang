@@ -1164,6 +1164,9 @@ rep("</body>","<style id=\"f10309-css\">"+_cf+"</style></body>")
 # V309 Lượt 11: Tiếp tế Vô tận, Phi công gọn, gom tab đầu trang, chế độ Anh Hùng (tắt window.UX11=false)
 _c11=open('src/l11309.css',encoding='utf-8').read().replace('@H11','html.ux11.hero11 body'+':not(#_l11)'*44).replace('@L11','html.ux11 body'+':not(#_l11)'*42)
 rep("</body>","<style id=\"l11309-css\">"+_c11+"</style><script id=\"l11309-js\">"+open('src/l11309.js',encoding='utf-8').read()+"</script></body>")
+# V309 Lượt 12 (Chốt hạ V1): sửa 4 lỗi L11, HUD chrome, kết quả/tạm dừng, màn phụ, vùng chạm, buồng lái (tắt window.POLISH12=false)
+_c12=open('src/l12309.css',encoding='utf-8').read().replace('@PH12','html.polish12.hero11 body'+':not(#_p12)'*48).replace('@HB12','html.polish12.hub9on body'+':not(#_p12)'*48).replace('@P12','html.polish12 body'+':not(#_p12)'*46)
+rep("</body>","<style id=\"l12309-css\">"+_c12+"</style><script id=\"l12309-js\">"+open('src/l12309.js',encoding='utf-8').read()+"</script></body>")
 # V309 Lượt 9B: đổi tên hiển thị Vũ khí phụ → Tàu con, Tiến khung → Tiến bậc (dựng RENAME9=0 để giữ tên cũ)
 if os.environ.get('RENAME9','1')!='0':
     for _a,_b in [('Vũ khí phụ','Tàu con'),('VŨ KHÍ PHỤ','TÀU CON'),('vũ khí phụ','tàu con'),('Vũ Khí Phụ','Tàu Con'),('TIẾN KHUNG','TIẾN BẬC'),('Tiến khung','Tiến bậc'),('tiến khung','tiến bậc'),('Tiến Khung','Tiến Bậc')]:

@@ -121,7 +121,7 @@ const L11309=(()=>{
 
  // =================== P4 · CHẾ ĐỘ ANH HÙNG ===================
  const HK='saobang-hero11-v1';const HS=rd(HK,{on:false,st:{},first:{}});HS.st=HS.st||{};HS.first=HS.first||{};
- const HC=window.HERO11CFG={hp:1.8,boss:1.8,cp:1.5,xp3:s=>1+Math.floor(s/40),firstCr:s=>500*Math.ceil(s/20),shard:.15};
+ const HC=window.HERO11CFG={hp:1.8,boss:1.8,dmg:1.25,cp:1.5,xp3:s=>1+Math.floor(s/40),firstCr:s=>500*Math.ceil(s/20),shard:.15};
  const hsave=()=>wr(HK,HS);
  const heroOn=()=>ok('HERO11')&&!!HS.on;
  const nCleared=n=>{try{return Progress.getState().cleared.includes(n);}catch{return false;}};
@@ -139,7 +139,7 @@ const L11309=(()=>{
      const h='★'.repeat(v)+'<s>'+'★'.repeat(3-v)+'</s>';if(st.__h!==h){st.innerHTML=h;st.__h=h;}}else if(st)st.remove();}
   // dòng thông tin chương (lực chiến đề nghị)
   let inf=cm.querySelector('.hi11');if(!inf){inf=document.createElement('div');inf.className='hi11';cm.appendChild(inf);}let cnt=0,c3=0;for(const k in HS.st){cnt++;if((HS.st[k]|0)>=3)c3++;}
-  const ih=`Máu quái ×${String(HC.hp).replace('.',',')} · ${c3} ải 3★`;if(inf.__h!==ih){inf.textContent=ih;inf.__h=ih;}}
+  const ih=`Máu ×${String(HC.hp).replace('.',',')} · đòn ×${String(HC.dmg).replace('.',',')} · ${c3} ải 3★`;if(inf.__h!==ih){inf.textContent=ih;inf.__h=ih;}}
  // thẻ ải (cm-sheet) khi đang ở Anh Hùng
  function hSheet(){if(!heroOn())return;const sh=document.querySelector('#cmap .cm-sheet.open');if(!sh||sh.__h11===sh.innerHTML)return;const h4=sh.querySelector('h4');if(!h4)return;
   const n=parseInt((h4.textContent.match(/Ải\s*(\d+)/)||[])[1],10);if(!n)return;const v=hStars(n),cl=nCleared(n);
@@ -148,11 +148,13 @@ const L11309=(()=>{
   const req=sh.querySelector('.cm-req');const reqH=`<b style="color:${me>=rq?'#9ff0c8':'#ff9a9a'}">Lực chiến đề nghị (Anh Hùng): ${fmt(rq)}</b> · Bạn ${fmt(me)}`;if(req)req.innerHTML=reqH;else h4.insertAdjacentHTML('afterend','<p class="cm-req">'+reqH+'</p>');
   let box=sh.querySelector('.h11b');if(!box){box=document.createElement('p');box.className='h11b';const rq2=sh.querySelector('.cm-req');if(rq2)rq2.after(box);else (sh.querySelector('.cm-act')||sh).before(box);}
   const mat=(()=>{try{const m=V70.matOf(n);return m?V70.matName(m.id+'3'):'';}catch{return '';}})();
-  box.innerHTML=`Sao Anh Hùng: <span class="y">${'★'.repeat(v)}</span><span class="g">${'★'.repeat(3-v)}</span><br>Thưởng: ◈ ×2 · ${HC.xp3(n)} Đá XP Cao Cấp${mat?' · '+(n%10===0?2:1)+' '+mat:' · 20% NL Tím'} · 15% mảnh phi công chính${HS.first[n]?'':` · <b>lần đầu +${fmt(HC.firstCr(n))} ◈</b>`}`;
+  box.innerHTML=`Quái & boss ×${String(HC.hp).replace('.',',')} máu · ×${String(HC.dmg).replace('.',',')} sát thương<br>Sao Anh Hùng: <span class="y">${'★'.repeat(v)}</span><span class="g">${'★'.repeat(3-v)}</span><br>Thưởng: ◈ ×2 · ${HC.xp3(n)} Đá XP Cao Cấp${mat?' · '+(n%10===0?2:1)+' '+mat:' · 20% NL Tím'} · 15% mảnh phi công chính${HS.first[n]?'':` · <b>lần đầu +${fmt(HC.firstCr(n))} ◈</b>`}`;
   sh.querySelectorAll('.cm-sw').forEach(b=>b.hidden=true);
   const go=sh.querySelector('.cm-go');if(go){if(!cl){go.disabled=true;go.textContent='🔒 Qua ải '+n+' THƯỜNG trước';}else if(!go.__h11){go.__h11=1;go.addEventListener('click',()=>{if(heroOn())hPend={st:n,t:Date.now()};},true);go.textContent='XUẤT KÍCH · ANH HÙNG';}}
   sh.__h11=sh.innerHTML;}
  function hookHeroRun(){
+  // V309 Lượt 12: Anh Hùng quái/boss gây ×1,25 sát thương (bọc SURV200.m — hệ số áp ngay ở 2 chỗ trừ máu/khiên trong damage() gốc)
+  try{if(!window.__h11dmg&&typeof SURV200!=='undefined'&&SURV200.m){window.__h11dmg=1;const om=SURV200.m;SURV200.m=function(){const v=om.apply(this,arguments);try{return hRun&&md()==='play'?v*HC.dmg:v;}catch{return v;}};}}catch{}
   try{if(!window.__h11add){window.__h11add=1;const oa=addEnemy;const fn=function(e){const r=oa.apply(this,arguments);try{if(hRun&&e&&!e.__h11&&!e.bossPart&&e!==boss){e.__h11=1;e.hp*=HC.hp;e.maxHp=e.hp;if(e.guard)e.guard*=HC.hp;}}catch{}return r;};window.addEnemy=fn;try{addEnemy=fn;}catch{}}}catch{}
   try{if(!Progress.rewardStage.__l11){const o=Progress.rewardStage;const f=function(n){if(!(hRun&&gm()==='campaign'&&Number(n)===hRun.st))return o.apply(this,arguments);
     const orc=Campaign36.recordStars;let got=0;Campaign36.recordStars=function(s,v){if(Number(s)===hRun.st){got=Math.min(3,Math.max(1,v|0));HS.st[s]=Math.max(HS.st[s]|0,got);hsave();return HS.st[s];}return orc.apply(this,arguments);};
