@@ -31,16 +31,16 @@ const L9B309=(()=>{
        if(k==='en'){const x=document.querySelector('.en75');if(x)x.click();}
        else if(k==='cr'||k==='dm'){try{Trade67.open();}catch{}}
        else if(k==='home'){closeAll();try{Nav74.tab('home');}catch{}}
-       else if(k==='mis'){closeAll();try{Q77.open('d');}catch{}}
+       else if(k==='mis'){closeAll();if(window.UX11!==false&&window.HUB11!==false&&typeof L9309!=='undefined'&&L9309.H.mis){try{NC307.close();KHO307.close();}catch{}try{L9309.open('mis');}catch{}}else try{Q77.open('d');}catch{}}
        else if(k==='pl'||k==='bst'){try{NC307.close();KHO307.close();}catch{}try{L9309.open(k);}catch{}}
-       else if(k==='shop'){closeAll();try{Nav74.tab('shop');}catch{}}});}
+       else if(k==='shop'){closeAll();if(window.UX11!==false&&window.HUB11!==false&&typeof L9309!=='undefined'&&L9309.H.shop){try{NC307.close();KHO307.close();}catch{}try{L9309.open('shop');}catch{}}else try{Nav74.tab('shop');}catch{}}});}
    const show=modeOf()==='menu'&&(vis($('#hgr41'))||vis($('#hub40'))||vis($('#cmap')));hdr.hidden=!show;H.classList.toggle('hdr9on',show);if(!show)return;
    let en='',cr=0,dm=0;try{const e=document.querySelector('#hgr41 .gem74 [data-en75]');en=e?e.textContent+'/120':'';}catch{}if(!en)try{en=document.querySelector('#hgr41 .en8v').textContent;}catch{}
    try{cr=Progress.balance();}catch{}try{dm=Econ74.gems();}catch{}
    let I=[];try{I=Cot307.items();}catch{}const d=k=>{const x=I.find(y=>y.k===k);return !!(x&&x.dot&&!x.lk);};
    const key=en+'|'+cr+'|'+dm+'|'+d('missions')+(d('daily')||d('gifts')||d('wheel')||d('season'))+cur;if(key===hk)return;hk=key;
    hdr.querySelector('[data-v=en]').textContent=en;hdr.querySelector('[data-v=cr]').textContent=shortN(cr);hdr.querySelector('[data-v=dm]').textContent=shortN(dm);
-   hdr.querySelector('[data-h9b=mis] em').hidden=!d('missions');hdr.querySelector('[data-h9b=pl] em').hidden=!(d('daily')||d('gifts')||d('wheel')||d('season'));
+   const u11=window.UX11!==false&&window.HUB11!==false;hdr.querySelector('[data-h9b=mis] em').hidden=!(d('missions')||(u11&&d('season')));hdr.querySelector('[data-h9b=pl] em').hidden=!(d('daily')||d('gifts')||(!u11&&(d('wheel')||d('season'))));
    hdr.querySelector('[data-h9b=home]').classList.toggle('on',cur==='home'&&vis($('#hgr41')));}
  // ---------- Sảnh: dòng tên tàu + buồng lái ----------
  let pass=false;

@@ -18,14 +18,14 @@ const Q10309=(()=>{
  const fmt=n=>Math.round(n).toLocaleString('vi-VN');
  const vis=e=>!!e&&!e.hidden&&getComputedStyle(e).display!=='none';
  const modeOf=()=>{try{return mode;}catch{return 'menu';}};
- const stars=n=>{try{return Campaign36.getState().stars[n]|0;}catch{return 0;}};
+ const stars0=n=>{try{return Campaign36.getState().stars[n]|0;}catch{return 0;}};
  const cleared=()=>{try{return Progress.getState().cleared||[];}catch{return [];}};
  const html=document.documentElement;
  // ================= QS10 · càn quét nhanh =================
  const XPN={1:'Đá XP I',2:'Đá XP II',3:'Đá XP III'};
  function matList(){const L=[];try{for(const ty of MAT69.types)for(let t=1;t<=MAT69.tiers.length;t++)L.push({id:ty.id+t,t,n:V70.matName(ty.id+t),have:V70.have(ty.id+t),im:(typeof MAT69_ART!=='undefined'&&MAT69_ART[ty.id+t])||''});}catch{}return L;}
  function xpIcon(t){try{return (window.UI307_IMG||{})['icon_xp_crystal_'+['','white','green','purple'][t]]||'';}catch{return '';}}
- function stagesFor(id){const out=[];const cl=cleared();
+ function stagesFor(id,hs){const out=[];const cl=cleared();const stars=hs||stars0;
    if(/^xp\d$/.test(id)){const t=+id[2];let B=[];try{B=XP307CFG.bands;}catch{}
      for(let s=1;s<=160;s++){if(stars(s)!==3||!cl.includes(s))continue;let k='n';try{const bk=Campaign36.bossKind(s)||'';k=bk==='mini'?'mini':bk?'boss':'n';}catch{}const band=(B.find(r=>s<=r[0])||B[B.length-1]||[0,{}])[1]||{};let e=0;for(const [tt,a,b,p] of (band[k]||[]))if(tt===t)e+=(a+b)/2*p;if(e>0)out.push({s,e});}
      return out.sort((a,b)=>b.e-a.e||b.s-a.s).slice(0,10);}
@@ -41,11 +41,11 @@ const Q10309=(()=>{
     <div class="qs10g">${L.map(x=>`<button data-qs="pick" data-v="${x.id}" class="${x.id===qsSel?'on':''} t${x.t}"><i>${x.im?`<img src="${x.im}" alt="">`:'◆'}</i><small>${x.n}</small><b>${fmt(x.have)}</b></button>`).join('')}</div>
     <div class="qs10h"><b>${cur.n||''}</b><span>Lượt hôm nay ${sw.used}/${sw.max}${sw.tk?` · vé ${sw.tk}`:''}</span></div>
     <div class="qs10l">${S.length?S.map(r=>`<div class="qs10r"><span><b>ẢI ${r.s}</b><em>★★★</em><small>${/^xp/.test(qsSel)?'~'+(Math.round(r.e*10)/10)+' viên / lượt':(r.s%10===0?'Ải boss':'Ải mini boss')+' · rơi chắc chắn'}</small></span><button data-qs="sw" data-v="${r.s}">CÀN QUÉT</button></div>`).join(''):'<p class="qs10e">Chưa có ải 3★ nào rơi món này. Vượt ải với 3★ để mở càn quét.</p>'}</div>
-    ${qsMsg?`<p class="qs10m">${qsMsg}</p>`:''}`;}
+    ${(()=>{try{if(!window.L11309||window.UX11===false||window.HERO11===false)return '';const H=stagesFor(qsSel,s=>L11309.hStars(s));if(!H.length)return '';return `<div class="qs10hh">ANH HÙNG ★★★</div><div class="qs10l h11">${H.map(r=>`<div class="qs10r h11"><span><b>ẢI ${r.s} · AH</b><em>★★★</em><small>◈ ×2 · Đá XP Cao Cấp · NL Tím</small></span><button data-qs="hsw" data-v="${r.s}">CÀN QUÉT AH</button></div>`).join('')}</div>`;}catch{return '';}})()}${qsMsg?`<p class="qs10m">${qsMsg}</p>`:''}`;}
  function qsOpen(id){if(!on())return;if(!qs){qs=document.createElement('div');qs.className='m63 qs10';qs.hidden=true;qs.innerHTML='<div class="m63-card"></div>';document.body.appendChild(qs);
      qs.addEventListener('click',e=>{if(e.target===qs){qs.hidden=true;return;}const b=e.target.closest('[data-qs]');if(!b)return;e.stopPropagation();const k=b.dataset.qs,v=b.dataset.v;
        if(k==='x'){qs.hidden=true;return;}if(k==='tab'){qsTab=v;qsSel=null;qsMsg='';}else if(k==='pick'){qsSel=v;qsMsg='';}
-       else if(k==='sw'){let r=null;try{r=Campaign36.sweep(+v);}catch{}if(r){const m=Array.isArray(r.materials)?r.materials.filter(x=>typeof x==='string').slice(0,3).join(' · '):'';qsMsg='CÀN QUÉT ẢI '+v+' · +'+fmt(r.credits||0)+' ◈'+(m?' · '+m:'');try{window.dispatchEvent(new CustomEvent('nc10',{detail:'sweep'}));}catch{}}else qsMsg='Không càn quét được (hết lượt hôm nay / chưa 3★ / đang trong trận).';}
+       else if(k==='hsw'){try{qsMsg=L11309.heroSweep(+v);}catch{qsMsg='';}try{window.dispatchEvent(new CustomEvent('nc10',{detail:'sweep'}));}catch{}}else if(k==='sw'){let r=null;try{r=Campaign36.sweep(+v);}catch{}if(r){const m=Array.isArray(r.materials)?r.materials.filter(x=>typeof x==='string').slice(0,3).join(' · '):'';qsMsg='CÀN QUÉT ẢI '+v+' · +'+fmt(r.credits||0)+' ◈'+(m?' · '+m:'');try{window.dispatchEvent(new CustomEvent('nc10',{detail:'sweep'}));}catch{}}else qsMsg='Không càn quét được (hết lượt hôm nay / chưa 3★ / đang trong trận).';}
        qsRender();});}
    if(id){qsTab=/^xp/.test(id)?'xp':'mat';qsSel=id;}qsMsg='';qsRender();qs.hidden=false;}
  // nối từ Cường hóa → Tiến bậc: chạm ô nguyên liệu Thiếu

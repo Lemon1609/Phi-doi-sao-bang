@@ -55,8 +55,8 @@ const WING10=(()=>{
      g.globalAlpha=.78-i*.06;g.fillStyle=gr;g.fill();g.globalAlpha=.55;g.strokeStyle='rgba(236,254,255,.55)';g.lineWidth=.8;g.beginPath();g.moveTo(2,0);g.bezierCurveTo(L*.4,-w*.6,L*.75,-w*.4-L*.08,L*.96,-L*.115);g.stroke();g.restore();}
    PW.set(k,cv);if(PW.size>16)PW.delete(PW.keys().next().value);return cv;}
  // vẽ 2 cánh hai bên tàu con (x,y = tâm, w = cỡ tàu con); sp = Bạo Tẩu (rực hơn, bung rộng); cols = [lõi, chóp] (màu Trang Phục nếu có)
- function podWing(g,x,y,w,sp,cols){if(!on())return;const c0=(cols&&cols[0])||'#22d3ee',c1=(cols&&cols[1])||'#7c3aed',im=podWingImg(c0,c1),a=angle(sp?1:0,.9),S=w*(sp?1.25:1.05);
-   g.save();for(const sd of [-1,1]){g.save();g.translate(x+sd*w*.18,y+w*.12);g.scale(sd,1);g.rotate(-a*1.2-(sp?.12:0));g.globalAlpha=sp?.95:.62;g.drawImage(im,-S*.06,-S*.82,S,S);
+ function podWing(g,x,y,w,sp,cols){if(!on())return;const c0=(cols&&cols[0])||'#22d3ee',c1=(cols&&cols[1])||'#7c3aed',im=podWingImg(c0,c1),a=angle(sp?1:0,.9),K11=window.PW11===false?1:(+window.PW11K||1.7),S=w*(sp?1.25:1.05)*K11,UP=window.PW11===false?0:(+window.PW11UP||(sp?.85:.72));
+   g.save();for(const sd of [-1,1]){g.save();g.translate(x+sd*w*.18,y+w*(K11>1?.02:.12));g.scale(sd,1);g.rotate(-a*1.2-(sp?.12:0)-UP);g.globalAlpha=sp?.95:.62;g.drawImage(im,-S*.06,-S*.82,S,S);
      if(sp&&!lite()){g.globalCompositeOperation='lighter';g.globalAlpha=.3;g.drawImage(im,-S*.06,-S*.82,S,S);}g.restore();}g.restore();}
  // ---------- tia lửa chập điện ----------
  const SP=[];
