@@ -3,7 +3,7 @@ name: Build APK
 on:
   push:
     branches: ["**"]
-    paths: ["www/**", "VERSION", "signing/**", "assets/**", "capacitor.config.json", "package.json", ".github/workflows/apk.yml"]
+    paths: ["www/**", "VERSION", "signing/**", "assets/**", "capacitor.config.json", "package.json", "android_patch/**", ".github/workflows/apk.yml"]
   workflow_dispatch:
 
 permissions:
@@ -31,6 +31,13 @@ jobs:
 
       - name: Tạo dự án Android
         run: npx cap add android
+
+      - name: Toàn màn hình thật + vùng an toàn (V2.1.42, MainActivity)
+        run: |
+          F=$(find android/app/src/main/java -name MainActivity.java | head -1)
+          echo "$F"
+          cp android_patch/MainActivity.java "$F"
+          head -5 "$F"
 
       - name: Khóa màn hình dọc, ẩn thanh tiêu đề
         run: |

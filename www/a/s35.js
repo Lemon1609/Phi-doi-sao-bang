@@ -85,9 +85,9 @@ window.DAN299_IMG={"tau1_cau_lua":["data:image/webp;base64,UklGRkoOAABXRUJQVlA4W
     if(contact){g.save();g.globalCompositeOperation='lighter';g.globalAlpha=.8*fade;g.drawImage(gc,s.x-w*3,contact.y-w*3,w*6,w*6);g.restore();}}
   // hiệu ứng trúng đích: đạn biến mất giữa màn → bung cánh hoa lửa (cung đứt đoạn, không vòng kín)
   const FX=[];let prev=new Map();
-  function scan(){if(window.DAN299===false)return;const cur=new Map();try{for(const s of shots){if(s.art28!==undefined&&DRAW[s.art28]&&mine(s))cur.set(s,[s.x,s.y,s.art28]);}}catch{}
+  function scan(){if(window.DAN299===false||window.__L42)return;/* V2.1.42: tắt hoa trúng đích cũ (vòng cong trắng quanh đạn quạt) khi V2.1 bật */const cur=new Map();try{for(const s of shots){if(s.art28!==undefined&&DRAW[s.art28]&&mine(s))cur.set(s,[s.x,s.y,s.art28]);}}catch{}
     for(const [s,v] of prev){if(!cur.has(s)&&v[1]>12&&v[1]<(typeof H!=='undefined'?H:800)-40&&FX.length<40)FX.push({x:v[0],y:v[1],id:v[2],t:0,col:colorOf(v[2]),r0:Math.random()*6.28});}prev=cur;}
-  function drawFx(dt){if(window.DAN299===false||!FX.length)return;const g=ctx;g.save();g.globalCompositeOperation='lighter';
+  function drawFx(dt){if(window.DAN299===false||!FX.length)return;if(window.__L42){FX.length=0;return;}const g=ctx;g.save();g.globalCompositeOperation='lighter';
     for(let i=FX.length-1;i>=0;i--){const e=FX[i];e.t+=Math.min(.05,dt||.016);const p=e.t/.28;if(p>=1){FX.splice(i,1);continue;}
       const R=8+30*(1-(1-p)*(1-p)),a=1-p,gc=glowCol(e.col),ty=(CFG[e.id]||{}).fx||'hoa';g.globalAlpha=.6*a;g.drawImage(gc,e.x-R,e.y-R,R*2,R*2);
       g.strokeStyle=e.col;g.fillStyle=e.col;g.lineCap='round';g.lineWidth=2.6*(1-p)+1;
