@@ -2,13 +2,14 @@
 
 Đọc tệp này TRƯỚC, sau đó `CLAUDE.md` (mục nhật ký cuối: V2.1 Đợt 1 → Đợt 3b + SFX).
 
-## 1. Trạng thái một dòng
-V2.1 (tiến hóa đồ họa 13 chiến cơ · 7 Chiến Thần · 13 tên lửa · 13 tàu con · 14 SSS · LED neon · âm thanh động) **đã làm xong trên bản thử** `l21j.html`, hồi quy đạt. **CHƯA xuất bản**: chủ dự án đã nói "duyệt xuất bản" (23/11 21:12) rồi **tạm giữ** (21:14) để làm âm thanh; âm thanh đã xong → bước kế là xin chủ dự án xác nhận lại rồi đóng gói APK (mục 5).
+## 1. Trạng thái (23/11 21:40)
+- Chủ dự án **"Duyệt xuất bản" lúc 21:31**. Đã push: nguồn `nguon-v212` = `9ddb70f` (gộp L13 → V2.1, không xóa tệp) và bản phát hành `build-apk-v198` = `ecbe8e1` (`www/` tách từ bản thử `l21j` đã qua t156 14/14 + t209 20/20, `VERSION` = `V2.1`).
+- **APK CHƯA CÓ**: workflow `Build APK` lần 40 (https://github.com/Lemon1609/Phi-doi-sao-bang/actions/runs/45195442013) không khởi động — GitHub báo "recent account payments have failed or your spending limit needs to be increased" (Billing & plans). Chờ chủ dự án sửa thanh toán / giới hạn chi tiêu, rồi chạy lại: `gh api -X POST repos/Lemon1609/Phi-doi-sao-bang/actions/runs/45195442013/rerun` → theo dõi → lấy link + dung lượng APK (mục 5 bước 4). KHÔNG đổi repo sang public để né phí (khóa ký nằm trong repo).
 
-## 2. Mã nguồn ở đâu (QUAN TRỌNG)
-- GitHub `Lemon1609/phi-doi-sao-bang` (PRIVATE) nhánh **`nguon-v212`** vẫn ở `9cf4d28` (Lượt 12). **Mọi việc L13 → V2.1 CHƯA được push** (phiên cũ không có quyền / lệnh push bị chặn khi chưa được chủ dự án yêu cầu).
-- Nguồn mới nhất nằm trong gói bàn giao **`nguon_V21_day_du.zip`** (= thư mục `/home/claude/nguon` của phiên cũ). Đây là bản nguồn RÚT GỌN: có đủ mã + ảnh mới (evo21img, ship309, ui17img, th17img…) nhưng THIẾU ~3.600 ảnh cũ chỉ có trong repo → muốn dựng đầy đủ phải: clone `nguon-v212` → chép đè nội dung zip lên (chỉ thêm/sửa, KHÔNG xóa tệp của repo; cách an toàn: `GIT_INDEX_FILE=/tmp/idx git read-tree HEAD && git --work-tree=<thư mục giải nén> add --ignore-removal -- . ':!**/__pycache__/**'`) → commit. Kiểm trước: 741 tệp thêm, 194 tệp sửa, 0 xóa. Chỉ push khi chủ dự án đồng ý.
-- Bản thử đã dựng (vá từ L17): `Phi_Doi_Sao_Bang_V21_thu.html` trong gói `Phi_Doi_Sao_Bang_V21_thu.zip` (= `/home/claude/work/l21j.html`, 86,7 MB thô / ~62,7 MB nén). Bản tắt V2.1 để so: chèn `<script>window.EVO21=false</script>` ngay sau `<head>`.
+## 2. Mã nguồn ở đâu
+- GitHub `Lemon1609/Phi-doi-sao-bang` (PRIVATE), nhánh **`nguon-v212`** (`9ddb70f`) = nguồn đầy đủ mới nhất. Gói `nguon_V21_day_du.zip` chỉ là bản sao dự phòng (thiếu ảnh cũ).
+- Bản phát hành: nhánh `build-apk-v198` (`www/` + `VERSION`). Bản thử HTML một tệp: `Phi_Doi_Sao_Bang_V21_thu.zip`.
+- `claude_tools/split.py` đã sửa: dời `<link i15root>` / `<script vfx15b>` (opt15 chèn sau `<head>`) ra sau `<title>` để khớp khuôn đầu trang; khi tách cần `KIT=<thư mục có src/ui19/loading_*.png, app_icon.png>`.
 
 ## 3. V2.1 gồm gì (mô-đun mới / sửa)
 | Mô-đun | Việc | Tắt |
