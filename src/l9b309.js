@@ -74,8 +74,9 @@ const L9B309=(()=>{
  const lcOf=()=>{try{return typeof launchCraft==='number'?launchCraft:(selected|0);}catch{return 0;}};
  const owned=()=>{const o=[];for(let i=0;i<13;i++){try{if(Campaign36.ownsCraft(i))o.push(i);}catch{}}return o;};
  function shipSrc(i){try{const n=V70.craftN(i)|0,S=SHIP118[String(i)];return S[FORM[n]]||S.tim||S.thuong||'';}catch{return '';}}
- function gearIm(kind){try{const it=(gear.equipment||[]).find(x=>x.kind===kind);const v=it&&it.variant;if(!window.TB309)return null;if(kind==='sidearm')return TB309.img('pod_'+v)||TB309.img('pod_disc');const M={inferno:'c_m_inferno',cryo:'c_m_cryo',thunder:'c_m_thunder',singularity:'c_m_singularity',spiral:'c_m_spiral',stellar:'c_m_stellar'};return TB309.img(M[v]||'c_m_inferno');}catch{return null;}}
+ function gearIm(kind){try{{const e=window.Evo21&&Evo21.hangarImg?Evo21.hangarImg(kind):null;if(e)return e.im;}/* V2.1 Đợt 3b: ảnh 4 bậc / SSS 3 mốc */const it=(gear.equipment||[]).find(x=>x.kind===kind);const v=it&&it.variant;if(!window.TB309)return null;if(kind==='sidearm')return TB309.img('pod_'+v)||TB309.img('pod_disc');const M={inferno:'c_m_inferno',cryo:'c_m_cryo',thunder:'c_m_thunder',singularity:'c_m_singularity',spiral:'c_m_spiral',stellar:'c_m_stellar'};return TB309.img(M[v]||'c_m_inferno');}catch{return null;}}
  const okIm=im=>im&&im.complete!==false&&(im.naturalWidth||im.width);
+ /* V309 L17 mục 4: màu đuôi tên lửa đang mặc (bảng màu TB309) */function misCol18(){try{const id=Progress.v70.equipped().missiles,it=id&&Progress.v70.get(id);if(it&&window.TB309&&TB309.info){const p=TB309.info(it.variant,'missiles').pal;if(p&&p[3])return p[3];}}catch{}return '#ffb347';}
  function shipCol(i){try{return Fighters28.profiles[i].color||'#7dd3fc';}catch{return '#7dd3fc';}}
  function loop(){const c=K.c;if(!c||!c.isConnected||!vis($('#hub40'))||!on()){K.raf=0;return;}K.raf=requestAnimationFrame(loop);
    const W=c.clientWidth,H=c.clientHeight;if(!W||!H)return;const dpr=Math.min(2,window.devicePixelRatio||1);if(c.width!==Math.round(W*dpr)){c.width=Math.round(W*dpr);c.height=Math.round(H*dpr);}
@@ -85,7 +86,7 @@ const L9B309=(()=>{
    const lc=lcOf(),src=shipSrc(lc);if(src!==K.src){K.src=src;K.im=new Image();K.im.src=src;K.pod=gearIm('sidearm');K.mis=gearIm('missiles');}
    const col=shipCol(lc),x=W/2+Math.sin(t*.9)*W*.06,y=H*.66+Math.sin(t*1.9)*5,S=Math.min(W*.46,H*.5);
    // nền bệ
-   g.save();g.globalAlpha=.55;g.strokeStyle=col;g.lineWidth=1.5;g.beginPath();g.ellipse(W/2,H*.66+S*.42,S*.7,S*.13,0,0,Math.PI*2);g.stroke();g.globalAlpha=.25;g.beginPath();g.ellipse(W/2,H*.66+S*.42,S*.95,S*.18,0,0,Math.PI*2);g.stroke();g.restore();
+   if(window.FX18!==false&&window.FX18API)FX18API.disk(g,W/2,H*.66+S*.43,S*.84,S*.17,t);else{g.save();g.globalAlpha=.55;g.strokeStyle=col;g.lineWidth=1.5;g.beginPath();g.ellipse(W/2,H*.66+S*.42,S*.7,S*.13,0,0,Math.PI*2);g.stroke();g.globalAlpha=.25;g.beginPath();g.ellipse(W/2,H*.66+S*.42,S*.95,S*.18,0,0,Math.PI*2);g.stroke();g.restore();}
    K.sh-=dt;if(K.sh<=0){K.sh=.12;K.b.push({x:x-S*.07,y:y-S*.36},{x:x+S*.07,y:y-S*.36});}
    K.ps-=dt;if(K.ps<=0){K.ps=.3;K.pb.push({x:x-S*.62,y:y-S*.1},{x:x+S*.62,y:y-S*.1});}
    K.ms-=dt;if(K.ms<=0){K.ms=1.3;K.m.push({x:x-S*.3,y:y-S*.2,vx:-110,vy:-120,a:0},{x:x+S*.3,y:y-S*.2,vx:110,vy:-120,a:0});}
@@ -95,7 +96,7 @@ const L9B309=(()=>{
    for(const f of K.fx){f.t+=dt;g.globalAlpha=Math.max(0,1-f.t/.25);g.strokeStyle=col;g.lineWidth=2;g.beginPath();g.arc(f.x,f.y,4+f.t*60,0,Math.PI*2);g.stroke();if(f.t>.25)f.dead=1;}
    g.globalAlpha=1;g.restore();K.b=K.b.filter(b=>!b.dead);K.pb=K.pb.filter(b=>!b.dead);K.fx=K.fx.filter(f=>!f.dead);
    const mim=okIm(K.mis)?K.mis:null;for(const m of K.m){m.a+=dt;const k=Math.min(1,m.a*2);m.vx+=((W/2-m.x)*2.5-m.vx)*dt*k*2;m.vy+=(-460-m.vy)*dt*k*2;m.x+=m.vx*dt;m.y+=m.vy*dt;
-     g.save();g.translate(m.x,m.y);g.rotate(Math.atan2(m.vy,m.vx)+Math.PI/2);g.globalCompositeOperation='lighter';g.fillStyle='rgba(251,146,60,.55)';g.beginPath();g.ellipse(0,14,4,12,0,0,Math.PI*2);g.fill();g.globalCompositeOperation='source-over';
+     g.save();g.translate(m.x,m.y);g.rotate(Math.atan2(m.vy,m.vx)+Math.PI/2);if(window.FX18!==false&&window.FX18API)FX18API.flame(g,0,13,0,30,11,misCol18(),t,m.x*.01,true);else{g.globalCompositeOperation='lighter';g.fillStyle='rgba(251,146,60,.55)';g.beginPath();g.ellipse(0,14,4,12,0,0,Math.PI*2);g.fill();}g.globalCompositeOperation='source-over';
      if(mim){const iw=mim.naturalWidth||mim.width,ih=mim.naturalHeight||mim.height,L=30,w=L*iw/ih;g.drawImage(mim,-w/2,-L/2,w,L);}else{g.fillStyle='#fde68a';g.fillRect(-2,-9,4,18);}g.restore();if(m.y<16){m.dead=1;K.fx.push({x:m.x,y:20,t:0});}}K.m=K.m.filter(m=>!m.dead);
    const pim=okIm(K.pod)?K.pod:null;if(pim){const iw=pim.naturalWidth||pim.width,ih=pim.naturalHeight||pim.height,s=S*.24/Math.max(iw,ih);for(const sd of [-1,1]){const px=x+sd*S*.62,py=y+S*.02+Math.sin(t*2.4+sd)*3;g.drawImage(pim,px-iw*s/2,py-ih*s/2,iw*s,ih*s);}}
    if(okIm(K.im)){g.save();g.globalCompositeOperation='lighter';g.globalAlpha=.5;g.fillStyle=col;g.beginPath();g.ellipse(x-S*.08,y+S*.4,4,14+Math.sin(t*30)*3,0,0,Math.PI*2);g.ellipse(x+S*.08,y+S*.4,4,14+Math.cos(t*30)*3,0,0,Math.PI*2);g.fill();g.restore();g.drawImage(K.im,x-S/2,y-S/2,S,S);}}
@@ -109,7 +110,8 @@ const L9B309=(()=>{
      sg.addEventListener('click',e=>{const b=e.target.closest('[data-ar9]');if(b){e.stopPropagation();switchShip(+b.dataset.ar9);}});
      doll.addEventListener('click',e=>{const s=e.target.closest('.hb-slot');if(!s||!on())return;const cs=s.classList.contains('c9ship'),k=s.dataset.k307k;setTimeout(()=>{try{if(cs)NC307.open('craft:'+lcOf());else{const id=(Progress.v70.equipped()||{})[k];if(id)NC307.open(id);}}catch{}},30);});}
    for(const c of ['.c9st','.c9tp'])if(doll.querySelector(':scope>'+c))sg.appendChild(doll.querySelector(':scope>'+c));
-   if(window.WING10&&window.ANIM10!==false){if(!K.s10||K.s10.c!==K.c){const pod={},gi=k=>{const i=gearIm(k);return i;};K.s10=WING10.Stage(K.c,{visible:()=>vis($('#hub40'))&&on()&&window.ANIM10!==false,get:()=>{const lc=lcOf();return {src:shipSrc(lc),col:shipCol(lc),pod:gi('sidearm'),mis:gi('missiles'),bb:WING10.bbOf(lc),arc:!!window.__arc10,key:'kho'};}});}if(vis($('#hub40')))K.s10.start();}
+   if(window.WING10&&window.ANIM10!==false){if(!K.s10||K.s10.c!==K.c){const pod={},gi=k=>{const i=gearIm(k);return i;};K.s10=WING10.Stage(K.c,{visible:()=>vis($('#hub40'))&&on()&&window.ANIM10!==false,get:()=>{const lc=lcOf();let hl=null;try{hl=(window.KHO_SSS87===true||(window.TH17!==false&&window.KHO_SSS87!==false))&&window.SSS87&&SSS87.hull?SSS87.hull(lc):null;}catch{}/* 23/11: hiện dạng thần hóa khi đã có tranh mới TH17 (tắt: window.KHO_SSS87=false) *//* V309 L17B: tàu đang ở dạng Chiến Thần → sân khấu Kho hiện Chiến Thần (cùng ảnh trong trận) */
+       return {src:hl&&hl.src?hl.src:shipSrc(lc),wing:hl&&hl.src?false:undefined,col:shipCol(lc),pod:gi('sidearm'),mis:gi('missiles'),bb:hl&&hl.src?null:WING10.bbOf(lc),arc:!!window.__arc10,key:'kho',id:lc,th17:!!(hl&&hl.src&&window.TH17!==false),mcol:misCol18(),pcol:window.FX18API?FX18API.podCols(lc):null};}});}if(vis($('#hub40')))K.s10.start();}
    else if(!K.raf&&vis($('#hub40')))K.raf=requestAnimationFrame(loop);
    let tn='';try{tn=TIER70.name[V70.craftN(lcOf())|0]||'';}catch{}let nm='';try{nm=Fighters28.profiles[lcOf()].name;}catch{}const np=sg.querySelector('.np9'),nt=`${nm}${tn?' · '+tn:''}`;if(np.textContent!==nt)np.textContent=nt;
    const st=sg.querySelector('.c9st');if(st&&!st.dataset.b9){st.dataset.b9=1;}

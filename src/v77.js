@@ -78,11 +78,12 @@ const V77=(()=>{
   setTimeout(()=>{try{const host=[...document.querySelectorAll('h1,h2,h3,b,strong,div,span')].find(x=>x.children.length===0&&/CHIẾN THẮNG/.test(x.textContent)&&x.getClientRects().length);const pan=host&&host.closest('[class*="card"],[class*="panel"],[class*="c74"],section,#overlay');
    if(pan&&!pan.contains(card)){card.classList.add('in');const ref=[...pan.querySelectorAll('*')].find(x=>/ĐIỂM/.test(x.textContent)&&x.children.length===0);(ref&&ref.parentElement&&ref.parentElement!==pan?ref.parentElement:host.parentElement||pan).after?.(card);}}catch{}},120);}
  // ---------------- Tiệm Danh Dự ----------------
- const ITEMS=SH.SHELF_6_ITEMS.map(it=>it.id==='REROLL_STONE_1'?{...it,name:'Đá khảm Lục ngẫu nhiên (×1)'}:it);
+ const ITEMS=SH.SHELF_6_ITEMS.map(it=>it.id==='REROLL_STONE_1'?{...it,name:'Đá khảm Lục ngẫu nhiên (×1)'}:it).concat(window.NT16===false?[]:[{slot:7,id:'NT16_CRYSTAL_5',name:'5 Tinh Thể Nội Tại',costTokens:20,type:'MATERIAL',weeklyLimit:3}]);/* V309 L16 (giá Claude đặt, chờ Gemini) */
  const used=it=>it.oneTimeOnly?(S.own[it.id]?1:0):(S.shop[it.id+'@'+weekK()]|0);
  const lim=it=>it.oneTimeOnly?1:it.weeklyLimit;
  function buy(id,arg){const it=ITEMS.find(x=>x.id===id);if(!it)return false;if(used(it)>=lim(it)){T(it.oneTimeOnly?'ĐÃ SỞ HỮU':'HẾT LƯỢT TUẦN NÀY');return false;}if(S.tok<it.costTokens){T('THIẾU XU TINH ANH');return false;}
-  let ok=true;try{if(id==='REROLL_STONE_1'){const pos=['ship','armor','missiles','sidearm'];Stone71.give(Stone71.make(2,pos[Math.floor(Math.random()*4)],{ty:'stat'}));}
+  let ok=true;try{if(id==='NT16_CRYSTAL_5'){if(typeof NT16==='undefined'){ok=false;}else NT16.add(5);}
+   else if(id==='REROLL_STONE_1'){const pos=['ship','armor','missiles','sidearm'];Stone71.give(Stone71.make(2,pos[Math.floor(Math.random()*4)],{ty:'stat'}));}
    else if(id==='PILOT_SHARD_SELECT_5'){const st=Pilot67.state();const p=st.team&&st.team[0]&&st.own[st.team[0]]?st.team[0]:Object.keys(st.own)[0];if(p==null){T('CHƯA CÓ PHI CÔNG');ok=false;}else{Pilot67._piece(+p,5);let nm='phi công';try{nm=PILOTS67.find(x=>x.id===+p).name;}catch{}window.__v77pp=' → +5 MẢNH · '+nm.toUpperCase()+' (CÓ '+(Pilot67.state().pieces[+p]|0)+')';}}
    else if(id==='BLUE_FODDER_SELECT'){if(!arg){T('CHỌN MÓN NHẬN PHÔI');ok=false;}else{const [k,m]=arg.split('|');V70.phAdd(k,k==='craft'?+m:m,2,1);}}}catch(e){ok=false;}
   if(!ok)return false;S.tok-=it.costTokens;if(it.oneTimeOnly){S.own[id]=1;S.on[id]=1;}else S.shop[id+'@'+weekK()]=used(it)+1;save();T('ĐÃ ĐỔI · '+it.name+(id==='PILOT_SHARD_SELECT_5'&&window.__v77pp?window.__v77pp:''));window.__v77pp='';return true;}

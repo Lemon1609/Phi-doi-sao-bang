@@ -183,5 +183,5 @@ const NC307=(()=>{
  ['pointerdown','mousedown','touchstart','click'].forEach(t=>{document.addEventListener(t,hit,true);document.addEventListener(t,hitC,true);document.addEventListener(t,hitG,true);});
  // nút sh-up luôn bấm được (chỉ mở màn), đổi nhãn
  setInterval(()=>{try{if(!on())return;document.querySelectorAll('#upgrade392,#quote392').forEach(x=>x.style.display='none');const c=document.querySelector('#hb-lv');if(c&&!c.dataset.nc&&window.NC307C!==false){c.dataset.nc='1';c.disabled=false;c.innerHTML='NÂNG CẤP<small>Bản sao cùng tàu / Đá XP</small>';}const b=document.querySelector('.hb-sheet.open #sh-up');if(b&&get(b.closest('.hb-sheet').dataset.item)&&!b.dataset.nc){b.dataset.nc='1';b.disabled=false;b.innerHTML='NÂNG CẤP<small>Dùng trang bị khác / Đá XP</small>';}}catch{}},300);
- return {invested:it=>{try{return invested(it);}catch{return 0;}},clearX:id=>{delete S.x[id];save();},open,close,sim,da:XPDA307,feedXp,cfg:C,state:()=>JSON.parse(JSON.stringify(S)),_m:()=>mats.slice()};
+ return {cur:()=>cur,mode:()=>mode,get:id=>get(id),render:()=>{try{render();}catch{}},/* V309 L17 */invested:it=>{try{return invested(it);}catch{return 0;}},clearX:id=>{delete S.x[id];save();},open,close,sim,da:XPDA307,feedXp,cfg:C,state:()=>JSON.parse(JSON.stringify(S)),_m:()=>mats.slice()};
 })();

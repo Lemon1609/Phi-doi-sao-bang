@@ -21,7 +21,7 @@ const Wing87=(()=>{
  // ---------- hình ----------
  const TH={};function sprite(i){try{if(i>=10&&window.Ship83&&Ship83.hull){const h=Ship83.hull(i,false);if(h)return {im:h,sx:0,sy:0,sw:h.naturalWidth||h.width,sh:h.naturalHeight||h.height};}}catch{}
   try{const im=(typeof Evo53!=='undefined'&&Evo53.hull)?Evo53.hull(i):fighterAtlasV22;const w=(im.naturalWidth||im.width)/5,h=(im.naturalHeight||im.height)/4;if(!w)return null;return {im,sx:i%5*w,sy:Math.floor(i/5)*h,sw:w,sh:h};}catch{return null;}}
- function thumb(i){if(TH[i])return TH[i];const s=sprite(i);if(!s)return '';try{const c=document.createElement('canvas');c.width=c.height=72;c.getContext('2d').drawImage(s.im,s.sx,s.sy,s.sw,s.sh,0,0,72,72);return TH[i]=c.toDataURL();}catch{return '';}}
+ function thumb(i){const n17=(window.UI17!==false&&typeof window.SHIPCUR17==='function'&&SHIPCUR17(i));if(n17)return n17;/* V309 L17B */if(TH[i])return TH[i];const s=sprite(i);if(!s)return '';try{const c=document.createElement('canvas');c.width=c.height=72;c.getContext('2d').drawImage(s.im,s.sx,s.sy,s.sw,s.sh,0,0,72,72);return TH[i]=c.toDataURL();}catch{return '';}}
  // ---------- trận ----------
  // sát thương đồng đội = tỉ lệ × sát thương đạn chính THỰC SỰ trúng mục tiêu (đo liên tục), đạn riêng tự dẫn, không suy giảm theo tầm
  let P={x:0,y:0,init:0},fireT=0,dealt=0,nShot=0,B=[],MD=0,mAcc=0,mT=0;

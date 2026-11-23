@@ -164,6 +164,7 @@ const L11309=(()=>{
   const x3=HC.xp3(n);try{XPDA307.add(3,x3);out.push('+'+x3+' Đá XP Cao Cấp');}catch{}
   try{const m=V70.matOf(n);if(m){const k=n%10===0?2:1;V70.add(m.id+'3',k);out.push('+'+k+' '+V70.matName(m.id+'3'));}else if(Math.random()<.2){const ty=MAT69.types[Math.floor(Math.random()*MAT69.types.length)];V70.add(ty.id+'3',1);out.push('+1 '+V70.matName(ty.id+'3'));}}catch{}
   try{if(Math.random()<HC.shard){const S=Pilot67.state(),id=S.team&&S.team[0];if(id!=null){Pilot67._piece(id,1);out.push('+1 mảnh phi công chính');}}}catch{}
+  try{if(typeof NT16!=='undefined'){const g=NT16.heroGain(n);if(g)out.push('+'+g+' Tinh Thể Nội Tại');}}catch{}/* V309 L16 */
   setTimeout(()=>T('ANH HÙNG · '+out.join(' · ')),900);}
  function hTick(){const m=md();
   if(hPend&&m==='play'&&gm()==='campaign'){let lv=0;try{lv=level;}catch{}if(lv===hPend.st){hRun={st:lv,t:Date.now()};hPend=null;T('ẢI '+lv+' · ANH HÙNG');}}
@@ -175,7 +176,7 @@ const L11309=(()=>{
   const st=(()=>{try{return (Campaign36.getState().stars||{})[s]|0;}catch{return 0;}})();if(st<3)return 'Ải '+s+' cần 3★ THƯỜNG để càn quét';
   try{r=Campaign36.sweep(s);}catch{}if(!r)return 'Không càn quét được (hết lượt / đang trong trận)';
   const out=['+'+fmt(r.credits*2)+' ◈'];try{Progress.grantCredits(r.credits);}catch{}const x3=Math.max(1,Math.floor(HC.xp3(s)/2));try{XPDA307.add(3,x3);out.push('+'+x3+' Đá XP Cao Cấp');}catch{}
-  try{const m=V70.matOf(s);if(m){V70.add(m.id+'3',1);out.push('+1 '+V70.matName(m.id+'3'));}}catch{}return 'CÀN QUÉT AH ẢI '+s+' · '+out.join(' · ');}
+  try{const m=V70.matOf(s);if(m){V70.add(m.id+'3',1);out.push('+1 '+V70.matName(m.id+'3'));}}catch{}try{if(typeof NT16!=='undefined'){const g=NT16.heroGain(s,1);if(g)out.push('+'+g+' Tinh Thể Nội Tại');}}catch{}/* V309 L16 */return 'CÀN QUÉT AH ẢI '+s+' · '+out.join(' · ');}
 
  // =================== Tên lửa kiểu cũ (vệt trắng xoáy) ===================
  function hookMis(){try{if(Fighters28.draw.__l11)return;const od=Fighters28.draw;const f=function(g,s){try{if(s&&ok('SW11')&&s.type==='missile'&&s.art28==null&&!s.gearItem&&!s.gearKind&&!s.d307)return misDraw(g,s);}catch{}return od.apply(this,arguments);};f.__l11=1;Fighters28.draw=f;}catch{}}

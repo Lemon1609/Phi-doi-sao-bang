@@ -30,6 +30,10 @@ def rep(m):
     return f'<link rel="stylesheet"{attrs} href="{fn}">'
 s=re.sub(r'<(script|style)([^>]*)>(.*?)</\1>',rep,s,flags=re.S)
 head='<!doctype html><html lang="vi"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#08101c"><title>Phi Đội Sao Băng V67</title>'
+if not s.startswith(head):
+    # V2.1: opt15 chèn <link i15root> / <script vfx15b> ngay sau <head> → dời ra sau thẻ <title> để giữ khuôn đầu trang
+    _pre='<!doctype html><html lang="vi"><head>';_k=s.index(head[len(_pre):]);assert s.startswith(_pre) and _k<2_000_000,s[:300]
+    s=head+s[len(_pre):_k]+s[_k+len(head)-len(_pre):]
 assert s.startswith(head),s[:300]
 s='<title>Phi Đội Sao Băng</title><meta name="theme-color" content="#08101c">'+"<script>(()=>{const c=document.createElement('div');c.id='hs78';c.hidden=true;window.__hs78=c;const H=document.head,ap=H.appendChild.bind(H);H.appendChild=function(n){if(n&&(n.tagName==='STYLE'||n.tagName==='LINK'))return c.appendChild(n);return ap(n);};document.currentScript.after(c);})()</script>"+s[len(head):]
 # V79C · màn tải (UI19 của GPT): tiến độ theo dung lượng thật của các tệp đã tải xong · lỗi → nút thử lại

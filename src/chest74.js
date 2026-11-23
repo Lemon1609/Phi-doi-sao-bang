@@ -70,7 +70,7 @@ const Chest74=(()=>{
   return {pp,cr:P.credits|0,exp:W.exp|0,aux:W.aux|0,cf:sum(W.craftFragments),gf:sum(W.gearFragments),items:new Set((P.items||[]).map(i=>i.id)),m:{...(jget('saobang-adv69-v1').m||{})},ph:{...(jget('saobang-tier70-v1').ph||{})},st:new Set(st),u};}
  const esc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
  const fmt=n=>Number(n).toLocaleString('vi-VN');
- const TH=[];function shipImg(i){if(TH[i])return TH[i];try{const im=(typeof Evo53!=='undefined'&&Evo53.hull)?Evo53.hull(i):fighterAtlasV22;const w=(im.naturalWidth||im.width)/5,h=(im.naturalHeight||im.height)/4,c=document.createElement('canvas');c.width=c.height=112;c.getContext('2d').drawImage(im,i%5*w,Math.floor(i/5)*h,w,h,0,0,112,112);return TH[i]=c.toDataURL();}catch{return '';}}
+ const TH=[];function shipImg(i){const n17=(window.UI17!==false&&typeof window.SHIPCUR17==='function'&&SHIPCUR17(i));if(n17)return n17;/* V309 L17B */if(TH[i])return TH[i];try{const im=(typeof Evo53!=='undefined'&&Evo53.hull)?Evo53.hull(i):fighterAtlasV22;const w=(im.naturalWidth||im.width)/5,h=(im.naturalHeight||im.height)/4,c=document.createElement('canvas');c.width=c.height=112;c.getContext('2d').drawImage(im,i%5*w,Math.floor(i/5)*h,w,h,0,0,112,112);return TH[i]=c.toDataURL();}catch{return '';}}
  const shipName=i=>{try{return Fighters28.profiles[i].name;}catch{return 'Chiến cơ';}};
  const gearName=it=>{try{return GearCatalog[it.variant].name;}catch{return 'Trang bị';}};
  const gearArt=it=>{try{return Progress.art(it);}catch{return '◈';}};

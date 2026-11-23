@@ -114,6 +114,7 @@ const KHO307=(()=>{
    return `<button class="k307-row cp" data-f="${FR(c.t)}" data-k="copy" data-id="${c.u}" style="--c:${fcol(c.t)}"><div class="k307-ic">${ic}</div><div class="k307-ri"><b>${esc(nm)}</b><span>${'★'.repeat(FR(c.t)+1)}${'✦'.repeat(PL(c.t))} <small>${esc(TIER70.name[c.t]||'')}</small></span><small>${kf==='all'?esc(kd)+' · ':''}Bản sao · vật liệu cùng mẫu${c.lk?' · 🔒':''}</small></div><div class="k307-rr"><b>Lv${c.lv}</b><s class="cp">Bản sao</s></div></button>`;});}
  function resHtml(){const R=[];try{for(const t of XPDA307.types)R.push([XPDA307.NAME[t],XPDA307.have(t),fmt(XPDA307.XP[t])+' XP / viên',XPDA307.COL[t],'◆',XPDA307.IMG(t)]);}catch{}
   try{R.push(['Hợp kim',Progress.balance(),'Tiền tệ chính: nâng bậc, tiến khung, phi công','#ffd166','◈',(window.TN307_IMG||{}).hop_kim]);}catch{}
+  try{if(window.NT16!==false&&typeof NT16!=='undefined')R.push(['Tinh Thể Nội Tại',NT16.have(),'Nâng cấp Đá Nội Tại (Kho › Đá khảm › Đá Nội Tại)','#7fe7ff','◆',NT16.icon()]);}catch{}/* V309 L16 */
   try{R.push(['Lõi Siêu Hợp',Meta407.cores(),'Tiến bậc phi công Tím / Tím+5, cây tiềm năng','#c77dff','✪',(window.TN307_IMG||{}).loi_sieu_hop]);}catch{}
   try{R.push(['Bản sao (kho)',Evo82.list().length,'Nguyên liệu tiến khung','#7fdcff','❖',(window.TN307_IMG||{}).ban_sao_cc]);}catch{}
   try{R.push(['Vé càn quét',V75.state?V75.state().tk:0,'Càn quét nhanh ải đã đạt 3 sao','#7fdcff','🎫',(window.TN307_IMG||{}).ve]);}catch{}

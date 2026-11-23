@@ -67,12 +67,13 @@ const L7309=(()=>{
  const LK='saobang-load7-v1';let LS={act:0,sets:[null,null,null]};try{const o=JSON.parse(localStorage.getItem(LK)||'null');if(o&&Array.isArray(o.sets))LS=o;}catch{}
  const lsave=()=>{try{localStorage.setItem(LK,JSON.stringify(LS));}catch{}};
  function snap(){const o={craft:0,fus:null,eq:{},sss:{},team:[]};try{o.craft=selected;}catch{}try{const r=Fusion.getSelected();o.fus=r&&r.key||null;}catch{}
-   try{o.eq=Object.assign({},Progress.getState().equipped);}catch{}try{for(const k of Progress.kinds){const id=Gear44.activeId(k);if(id&&/^sss_/.test(id))o.sss[k]=id;}}catch{}try{o.team=Pilot67.state().team.slice();}catch{}o.at=Date.now();return o;}
+   try{o.eq=Object.assign({},Progress.getState().equipped);}catch{}try{for(const k of Progress.kinds){const id=Gear44.activeId(k);if(id&&/^sss_/.test(id))o.sss[k]=id;}}catch{}try{o.team=Pilot67.state().team.slice();}catch{}try{if(typeof NT16!=='undefined')o.nt16=NT16.loadout();}catch{}/* V309 L16: 3 Đá Nội Tại */o.at=Date.now();return o;}
  function apply(o){if(!o)return false;try{if(['play','pause','reward'].includes(mode))return false;}catch{}
    try{if(o.fus&&Fusion.resolve(o.fus)){Fusion.select(o.fus);}else{Fusion.select(null,false);try{activeRobot=null;}catch{}selectCraft(o.craft|0);}}catch{}
    try{const items=Progress.getState().items||[];for(const k in o.eq){const id=o.eq[k];if(items.some(i=>i.id===id))Progress.equip(id);}}catch{}
    try{for(const k of Progress.kinds){if(o.sss[k]&&Gear44.owns(o.sss[k]))Gear44.equipSSS(k,o.sss[k]);}}catch{}
    try{const st=Pilot67.state();(o.team||[]).forEach((id,i)=>{if(id==null||st.own[id])Pilot67.setSlot(i,id);});}catch{}
+   try{if(o.nt16&&typeof NT16!=='undefined'&&window.NT16!==false)NT16.setLoadout(o.nt16);}catch{}/* V309 L16 */
    try{gear=Progress.stats();}catch{}try{Combat.render();}catch{}try{Progress.render();}catch{}return true;}
  function lbtn(i){LS.act=i;if(!LS.sets[i]){LS.sets[i]=snap();lsave();T('ĐÃ LƯU ĐỘI HÌNH VÀO BỘ '+(i+1));}else{const ok=apply(LS.sets[i]);lsave();T(ok?'ĐÃ CHUYỂN SANG BỘ '+(i+1):'KHÔNG ĐỔI ĐƯỢC LÚC ĐANG CHƠI');}lpaint();}
  function lsaveAct(){LS.sets[LS.act]=snap();lsave();T('ĐÃ GHI ĐÈ BỘ '+(LS.act+1));lpaint();}

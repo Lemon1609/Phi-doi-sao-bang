@@ -21,11 +21,13 @@
  // bậc theo tên hiển thị (Trắng / Lục / Lam / Tím / Tím+n / SS) — cùng nguồn với Kho; không có thì theo spec.rank
  function rankOf(i){const n=tierName(i);if(n){if(/SS/.test(n))return 5;if(/Tím/.test(n))return /\+\s*5/.test(n)?4:3;if(/Lam/.test(n))return 2;if(/Lục/.test(n))return 1;return 0;}let r=0;try{r=(i.spec||gearSpec(i)).rank|0;}catch{}return Math.max(0,Math.min(5,r));}
  function plusOf(i){const m=tierName(i).match(/\+\s*(\d+)/);return m?+m[1]:(i.enhance|0);}
+ /* V2.1 Đợt 3b: ô trang bị đang hợp thể SSS dùng ảnh mốc +0/+3/+10 (Evo21.sssIcon) */
+ function e21h(h,sid){try{if(!sid||!window.Evo21||!Evo21.sssIcon)return h;const u=Evo21.sssIcon(sid);if(!u)return h;return String(h).replace(/url\((["']?)data:[^)]*?\1\)/,'url("'+u+'")').replace(/src="data:[^"]*"/,'src="'+u+'"');}catch{return h;}}
  function hookArt(){try{if(typeof Progress==='undefined'||!Progress.art||Progress.art.__u309)return false;const o=Progress.art;
   const f=function(i){const h=o.apply(this,arguments);try{if(window.THE309===false||!i||typeof i!=='object'||!i.kind)return h;const r=rankOf(i),en=plusOf(i),sss0=/^sss_/.test(i.variant||'')||!!i.sss;let sid=null;try{if(typeof Gear44!=='undefined'&&Progress.getState().equipped[i.kind]===i.id){const a=Gear44.activeId(i.kind);if(a&&/^sss_/.test(a))sid=a;}}catch{}/* món đang mặc đã hợp thể SSS → vương miện */
     const sss=sss0||!!sid,cap=sid?10:(i.key?10:5);
     let en2=en;if(sid){try{en2=Gear44.sssEnh(sid)|0;}catch{}}const stars='★'.repeat(sss?5:Math.min(5,r+1)),e=en2>=cap?'MAX':en2>0?'+'+en2:'';
-    return String(h).replace(/class="gear25-art/,'class="gear25-art c309'+(sss?' sss':'')).replace(/style="/,'style="--c9:'+TC[r]+';').replace(/<\/span>\s*$/,`<i class="c9s">${stars}</i>${e?`<i class="c9e">${e}</i>`:''}${sss?'<i class="c9c"></i>':''}</span>`);}catch{return h;}};
+    return String(e21h(h,sid)).replace(/class="gear25-art/,'class="gear25-art c309'+(sss?' sss':'')).replace(/style="/,'style="--c9:'+TC[r]+';').replace(/<\/span>\s*$/,`<i class="c9s">${stars}</i>${e?`<i class="c9e">${e}</i>`:''}${sss?'<i class="c9c"></i>':''}</span>`);}catch{return h;}};
   f.__u309=1;Progress.art=f;return true;}catch{return false;}}
  // ---------- khung bắn thử ----------
  let RAF=0;

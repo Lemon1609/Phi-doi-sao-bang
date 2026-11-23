@@ -12,16 +12,18 @@
  function bar(){const b=boss;if(!b||b.dead||!(b.max>0))return;const V=window.G3_209!==false;
   if(owner!==b){owner=b;trail=1;born=time;}
   const N=b.major36?20:6,f=Math.max(0,Math.min(1,b.hp/b.max)),left=Math.max(1,Math.ceil(f*N-1e-6)),inTube=f<=0?0:f*N-(left-1);
-  const col=V?((left-1)%2?'#7ccbff':G3.core):TUBE[(left-1)%TUBE.length],nxt=left>1?(V?((left-2)%2?'#3a87bd':G3.coreDim):TUBE[(left-2)%TUBE.length]):(V?G3.track:'#0a0f1c');
+  // V309 L13 · BAR13: ống hiện tại cyan sáng ↔ lam đậm xen kẽ, ống kế tiếp là màu của ống kia (đủ tương phản, không lẫn nền); ống cuối cam nhắc sắp hạ. Tắt: window.BAR13=false
+  const B13=V&&window.BAR13!==false,C13=['#5fe0ff','#2d7dff'],cur13=left===1?'#ffb347':C13[(left-1)%2];
+  const col=B13?cur13:(V?((left-1)%2?'#7ccbff':G3.core):TUBE[(left-1)%TUBE.length]),nxt=B13?(left>1?C13[left%2]:G3.track):(left>1?(V?((left-2)%2?'#3a87bd':G3.coreDim):TUBE[(left-2)%TUBE.length]):(V?G3.track:'#0a0f1c'));
   trail+= (inTube-trail)*.08;if(inTube>trail)trail=inTube;
-  const w=V?150:124,h=V?10:7,x=Math.max(8,Math.min(W-w-38,b.x-w/2)),y=Math.max(V?96:84,b.y-(b.major36?92:58));
+  const w=V?150:124,h=V?10:7,x=Math.max(B13?124:8,Math.min(W-w-38,b.x-w/2)),y=Math.max(V?96:84,b.y-(b.major36?92:58));
   const g=ctx;g.save();g.globalAlpha=1;g.globalCompositeOperation='source-over';g.shadowBlur=0;
   rr(g,x-2,y-2,w+4,h+4,4);g.fillStyle=V?G3.panel:'rgba(4,7,16,.82)';g.fill();g.strokeStyle=V?'rgba(166,205,255,.45)':'rgba(255,255,255,.35)';g.lineWidth=1;g.stroke();
   rr(g,x,y,w,h,3);g.save();g.clip();g.fillStyle=nxt;g.fillRect(x,y,w,h);
   g.fillStyle='rgba(255,255,255,.7)';g.fillRect(x,y,w*trail,h);
   const lg=g.createLinearGradient(0,y,0,y+h);lg.addColorStop(0,'#ffffffaa');lg.addColorStop(.45,col);lg.addColorStop(1,col);g.fillStyle=lg;g.fillRect(x,y,w*inTube,h);g.restore();
   g.font="800 "+(V?12:11)+"px 'Be Vietnam Pro',Neo,sans-serif";g.textAlign='left';g.textBaseline='middle';g.lineWidth=3;g.strokeStyle='#04070e';
-  const cnt='×'+left;g.strokeText(cnt,x+w+6,y+h/2);g.fillStyle='#fff';g.fillText(cnt,x+w+6,y+h/2);
+  const cnt='×'+left,t102=window.TXT102;if(B13)window.TXT102=false;/* V102 chặn chữ «×n» trong trận → mở riêng cho số ống máu boss */try{if(B13){/* L15: chữ ×N to hơn 2 px + viền tối dày để không chìm trên giáp trắng của boss */g.font="900 14px 'Be Vietnam Pro',Neo,sans-serif";g.lineWidth=4;g.lineJoin='round';g.strokeStyle='#02050c';}g.strokeText(cnt,x+w+6,y+h/2);g.fillStyle='#fff';g.fillText(cnt,x+w+6,y+h/2);}finally{if(B13)window.TXT102=t102;}
   const parts=b.parts||[];for(let i=0;i<parts.length;i++){const px=x+7+i*12,py=y-(V?8:7),z=V?4:3;g.save();g.translate(px,py);g.rotate(Math.PI/4);g.fillStyle=parts[i].dead?'#4b5563':(V?G3.wing:'#ffd27a');g.fillRect(-z,-z,2*z,2*z);if(V){g.strokeStyle='#04070e';g.lineWidth=1;g.strokeRect(-z,-z,2*z,2*z);}g.restore();}
   // V66.6: luôn ghi CẤP + tên boss (3 giây đầu sáng rõ, sau đó mờ nhẹ)
   {const age=time-born,nm=(document.getElementById('bossname')||{}).textContent||'';let lv=level;try{if(Dungeons.active())lv=20+Dungeons.bossIndex()*20;}catch{}const tag='LV.'+lv+(nm?' · '+nm:'');

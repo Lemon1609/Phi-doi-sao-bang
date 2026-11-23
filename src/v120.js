@@ -139,7 +139,7 @@
     for(let k=st.dots.length-1;k>=0;k--){const q=st.dots[k];if(q.once){if(t>=q.at){hurt(q.e,q.d,q.src);st.dots.splice(k,1);}continue;}if(t>=q.end||q.e.dead){st.dots.splice(k,1);continue;}hurt(q.e,q.d*dt,q.src);}
     if(st.dots.length>60)st.dots.splice(0,st.dots.length-60);
     for(let k=st.vort.length-1;k>=0;k--){const v=st.vort[k];if(t>=v.end){st.vort.splice(k,1);continue;}
-      for(const e of targets()){if(e===boss||e.bossPart)continue;const d=dist2(e,v);if(d<v.R&&d>2){const m=Math.min(d,95*dt);e.x+=(v.x-e.x)/d*m;e.y+=(v.y-e.y)/d*m;}}
+      for(const e of targets()){if(e===boss||e.bossPart||e.bia304)continue;/* L13: không kéo bia đo cố định (bia dồn cục làm số đo tàu 11 dao động ±30 %) */const d=dist2(e,v);if(d<v.R&&d>2){const m=Math.min(d,95*dt);e.x+=(v.x-e.x)/d*m;e.y+=(v.y-e.y)/d*m;}}
       if(t>=v.next){v.next+=.2;for(const e of targets())if(!(e===boss||e.bossPart)&&dist2(e,v)<v.R)hurt(e,v.d,v.src);}}
     st.fx=st.fx.filter(f=>t-f.t<f.life&&t>=f.t);if(st.fx.length>40)st.fx.splice(0,st.fx.length-40);}
   function hookUpd(){try{const ou=update;if(ou.__p120)return;const nu=function(){const r=ou.apply(this,arguments);try{step();}catch(e){}return r;};nu.__p120=1;window.update=nu;try{update=nu;}catch{}}catch{}}

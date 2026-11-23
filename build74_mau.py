@@ -356,7 +356,7 @@ else:
 for _n in sorted(_S118):
     _num,_f=_n[3:].split('_',1);_im=_S118[_n]
     if os.environ.get('SHIP256','1')!='0' and _im.width>256:_im=_im.resize((256,256),_I.LANCZOS)  # V307 (19/11): thu ảnh tàu về 256 để nhẹ bản dựng; SHIP256=0 giữ 512
-    _bf=_io.BytesIO();_im.save(_bf,'WEBP',quality=88)
+    _bf=_io.BytesIO();_im.save(_bf,'WEBP',quality=int(os.environ.get('SHIPQ','85')))  # V2.1 Đợt 3: thân tàu trận q85
     SHIP118.setdefault(str(int(_num)-1),{})[_f]='data:image/webp;base64,'+_b64.b64encode(_bf.getvalue()).decode()
 SHIP309COL={};SHIP309BB={}  # V309 Lượt 3: điểm phản lực / mép cánh / mũi theo tranh v4 (đơn vị = cạnh khung, gốc = tâm khung)
 if os.environ.get('SHIP309','1')!='0' and os.path.isdir('src/ship309'):
@@ -1167,11 +1167,52 @@ rep("</body>","<style id=\"l11309-css\">"+_c11+"</style><script id=\"l11309-js\"
 # V309 Lượt 12 (Chốt hạ V1): sửa 4 lỗi L11, HUD chrome, kết quả/tạm dừng, màn phụ, vùng chạm, buồng lái (tắt window.POLISH12=false)
 _c12=open('src/l12309.css',encoding='utf-8').read().replace('@PH12','html.polish12.hero11 body'+':not(#_p12)'*48).replace('@HB12','html.polish12.hub9on body'+':not(#_p12)'*48).replace('@P12','html.polish12 body'+':not(#_p12)'*46)
 rep("</body>","<style id=\"l12309-css\">"+_c12+"</style><script id=\"l12309-js\">"+open('src/l12309.js',encoding='utf-8').read()+"</script></body>")
+# V309 Lượt 14 · rương ngẫu nhiên (kho Chests) + đăng nhập tích lũy + thành tựu 5 bậc (src/l14309.js) · nối Meta40/Chests (cùng nội dung claude_tools/rep14.py)
+rep("function claimDaily(){const d=today(),ds=dailyState();if(ds.claimed)return false;","function claimDaily(){const d=today(),ds=dailyState();if(ds.claimed)return false;if(window.Login14Hook&&Login14Hook.on()){if(!Login14Hook.claim())return false;S.daily={last:d,streak:ds.streak+1};save();return true;}/* V309 L14: đăng nhập tích lũy */")
+rep("function rewardsPanel(tab='daily'){const ds=dailyState();","function rewardsPanel(tab='daily'){if(window.Login14Hook&&(tab==='ach'?Login14Hook.achOn():Login14Hook.on())){Login14Hook.panel(tab,{modal,closeM,claimDaily,again:rewardsPanel});return;}/* V309 L14 */const ds=dailyState();")
+rep("const achReady=()=>achRows().some(r=>r.can);","const achReady=()=>(window.Login14Hook&&Login14Hook.achOn())?Login14Hook.achReady():achRows().some(r=>r.can);/* V309 L14 */")
+rep("return {init,render,setLocked,rewardBoss,open,openAll,dayKey,rollover,mergeRestoreState,getState:","return {add14:c=>{rollover();state.crates.push(c);save();render();return c;}/* V309 L14: rương từ đăng nhập / nhiệm vụ / thành tựu, không tính trần ngày */,init,render,setLocked,rewardBoss,open,openAll,dayKey,rollover,mergeRestoreState,getState:")
+rep("</body>","<script id=\"l14309-js\">"+open('src/l14309.js',encoding='utf-8').read()+"</script></body>")
+# V309 Lượt 15 · PERF_HUD (src/opt15.js)
+rep("</body>","<script id=\"opt15-js\">"+open('src/opt15.js',encoding='utf-8').read()+"</script></body>")
+# V309 Lượt 15B · kho icon dùng chung UI_ICONS + thay emoji hình (src/l15b309.js, tắt window.ICON15B=false)
+rep("</body>","<script id=\"l15b309-js\">"+open('src/l15b309.js',encoding='utf-8').read()+"</script></body>")
+# V309 Lượt 16 (V2.0) · Hệ Đá Nội Tại (src/nt16.js, tắt window.NT16=false). Móc thêm trong l11309 (Anh Hùng), q77 (mốc tuần), v77 (Tiệm Danh Dự), kho307 (Tài nguyên), l7309 (Bộ trang bị)
+rep("</body>","<script id=\"nt16-js\">"+open('src/nt16.js',encoding='utf-8').read()+"</script></body>")
+# V309 Lượt 17 (chốt V2.0) · Hệ Ép Xung (src/oc17.js, tắt window.OC17=false) + đồng bộ UI: 12 icon + 6 khung 3D GPT, sửa ảnh cũ, nút/emoji (src/ui17.js, tắt window.UI17=false)
+#  ảnh: src/ui17img/*.webp (tách nền bằng claude_tools/ui17_assets.py) · sửa nguồn trực tiếp: nc307.js (xuất cur/mode/get/render), evo82.js (ảnh chiến cơ SHIP118)
+rep("</body>","<script id=\"oc17-js\">"+open('src/oc17.js',encoding='utf-8').read()+"</script></body>")
+rep("</body>","<script id=\"ui17-img-js\">window.UI17_IMG="+json.dumps({os.path.splitext(f)[0]:'data:image/webp;base64,'+base64.b64encode(open('src/ui17img/'+f,'rb').read()).decode() for f in sorted(os.listdir('src/ui17img'))})+";</script></body>")
+rep("</body>","<script id=\"ui17-js\">"+open('src/ui17.js',encoding='utf-8').read()+"</script></body>")
+# V309 L17 mục 4 · chuốt canvas dùng chung (src/fx18.js, tắt window.FX18=false): luồng đẩy tên lửa 3 nấc, đạn thử Kho theo tàu (Dan307.hangar), cánh plasma tàu con theo màu tàu, đĩa hologram Kho — sửa a10309, l9b309, tb309, l8309, dan307
+rep("</body>","<script id=\"fx18-js\">"+open('src/fx18.js',encoding='utf-8').read()+"</script></body>")
+# V309 L17B · 3 Chiến cơ Thần hóa tranh mới (src/th17img/*.webp, tách nền 2 lớp bằng claude_tools/th17_assets.py) ghi đè 6 khóa ART86_ASSETS TRƯỚC khi Art86 nạp ảnh; hiệu ứng LED lõi + lửa động cơ src/th17.js. Tắt: window.TH17=false
+rep('<script id="art86-js">','<script id="th17-img-js">window.TH17_IMG='+json.dumps({os.path.splitext(f)[0]:'data:image/webp;base64,'+base64.b64encode(open('src/th17img/'+f,'rb').read()).decode() for f in sorted(os.listdir('src/th17img'))})+';if(window.TH17!==false&&typeof ART86_ASSETS!=="undefined")Object.assign(ART86_ASSETS,window.TH17_IMG);</script><script id="art86-js">')
+rep("</body>","<script id=\"th17-js\">"+open('src/th17.js',encoding='utf-8').read()+"</script></body>")
 # V309 Lượt 9B: đổi tên hiển thị Vũ khí phụ → Tàu con, Tiến khung → Tiến bậc (dựng RENAME9=0 để giữ tên cũ)
 if os.environ.get('RENAME9','1')!='0':
     for _a,_b in [('Vũ khí phụ','Tàu con'),('VŨ KHÍ PHỤ','TÀU CON'),('vũ khí phụ','tàu con'),('Vũ Khí Phụ','Tàu Con'),('TIẾN KHUNG','TIẾN BẬC'),('Tiến khung','Tiến bậc'),('tiến khung','tiến bậc'),('Tiến Khung','Tiến Bậc')]:
         h=h.replace(_a,_b)
-open('Phi_Doi_Sao_Bang_V74_mau.html','w',encoding='utf-8').write(h);print(round(len(h)/1e6,2),'MB')
+# V309 Lượt 13 · chữ "giáp" còn sót → "khiên" (từ V78 giáp = khiên chặn 1 đòn). Cùng nội dung claude_tools/rep13.py
+for _a,_b in [("hồi ${(.3+r*.15).toFixed(2)} giáp đã mất","bật khiên chặn 1 đòn"),("hồi ${(.5+r*.2).toFixed(1)} giáp đã mất","bật khiên chặn 1 đòn"),
+  ("'hồi 1 giáp, miễn sát thương 1,3s","'bật khiên, miễn sát thương 1,3s"),("'hồi 1 máu, 1 giáp và xóa đạn gần'","'hồi 1 máu, bật khiên và xóa đạn gần'"),
+  ("phản công tối đa 5 đạn, hồi 1 giáp'","phản công tối đa 5 đạn, bật khiên'"),("Tự hồi 1 giáp mỗi 14 giây","Tự bật khiên mỗi 14 giây"),
+  ("làm chậm và hồi giáp để trụ lâu","làm chậm và bật khiên để trụ lâu"),("Bạo Tẩu lâu hơn, hồi giáp, chí mạng","Bạo Tẩu lâu hơn, khiên định kỳ, chí mạng")]:
+  rep(_a,_b)
+# V2.1 Đợt 1 · tiến hóa cơ chế & hiệu ứng theo bậc + bộ ảnh GPT mới (src/evo21.js, ảnh src/evo21img do claude_tools/evo21_cat.py tạo). Tắt: window.EVO21=false
+# V2.1 Đợt 3: nén lại + thu cạnh dài ảnh V2.1 lúc dựng (claude_tools/evo21_nen.py; giữ q90 gốc: E21NEN=0)
+_e21d='src/evo21img'
+if os.path.isdir(_e21d) and os.environ.get('E21NEN','1')!='0':
+  import subprocess as _sp21,sys as _sys21,tempfile as _tf21
+  _e21q=_tf21.mkdtemp(prefix='e21q_');_sp21.run([_sys21.executable,'claude_tools/evo21_nen.py',_e21d,_e21q],check=True);_e21d=_e21q
+_e21={os.path.splitext(f)[0]:'data:image/webp;base64,'+base64.b64encode(open(_e21d+'/'+f,'rb').read()).decode() for f in sorted(os.listdir(_e21d)) if f.endswith('.webp')} if os.path.isdir(_e21d) else {}
+_e21h=json.load(open(_e21d+'/_h0.json')) if os.path.exists(_e21d+'/_h0.json') else {}
+rep("</body>","<script id=\"evo21-img-js\">window.EVO21_IMG="+json.dumps(_e21)+";window.EVO21_H="+json.dumps(_e21h)+";</script><script id=\"evo21-js\">"+open('src/evo21.js',encoding='utf-8').read()+"</script><script id=\"evo21-led-js\">"+open('src/evo21_led.js',encoding='utf-8').read()+"</script><script id=\"evo21-sfx-js\">"+open('src/evo21_sfx.js',encoding='utf-8').read()+"</script></body>")  # V2.1 EVO21_LED (tắt window.EVO21LED=false)
+open('Phi_Doi_Sao_Bang_V74_mau.html','w',encoding='utf-8').write(h)
+# V309 Lượt 15 · giảm dung lượng sau khi dựng: PNG→WebP q90 + gộp ảnh trùng (claude_tools/opt15_assets.py). Bỏ qua: OPT15_ANH=0
+if os.environ.get('OPT15_ANH','1')!='0':
+  import subprocess as _sp,sys as _sys
+  _sp.run([_sys.executable,'claude_tools/opt15_assets.py','Phi_Doi_Sao_Bang_V74_mau.html','Phi_Doi_Sao_Bang_V74_mau.html','--bao','opt15_bao.json'],check=True);print(round(len(h)/1e6,2),'MB')
 # ---- V100 · BẢN THỬ cho chủ dự án: dữ liệu tách riêng (tiền tố thu100:) + bảng nạp tài khoản mẫu ----
 # V301: chỉ dựng khi cần (BAN_THU=1 hoặc khi xuất bản) để mỗi lần dựng nhanh hơn, bớt một tệp 81 MB
 if os.environ.get('BAN_THU')!='1':

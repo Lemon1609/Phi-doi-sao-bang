@@ -12,7 +12,7 @@
  const B={
   nhiem_vu:['NHIỆM VỤ HẰNG NGÀY','Đủ năng động mở rương mốc · làm mới 0 giờ',2,'#2fd0ff'],
   mua_giai:['MÙA GIẢI 21 NGÀY','25 cấp thưởng · rương vượt cấp',4,'#c24dff'],
-  diem_danh:['ĐIỂM DANH MỖI NGÀY','Giữ chuỗi 7 ngày · ngày 7 nhận quà lớn',6,'#3fd468'],
+  diem_danh:['ĐIỂM DANH MỖI NGÀY',window.L14===false||window.LOGIN14===false?'Giữ chuỗi 7 ngày · ngày 7 nhận quà lớn':'Cộng dồn ngày · bỏ ngày không mất tiến độ',6,'#3fd468'],/* V309 L14 */
   qua:['TRUNG TÂM QUÀ','Quà đăng nhập · nhiệm vụ · mùa giải',1,'#ffb347']};
  function banner(k){const b=B[k],art=A[k];const d=document.createElement('div');d.className='tr307'+(art?' art':'');d.dataset.k=k;d.style.setProperty('--tc',b[3]);
   const pil=PA()['p'+b[2]];

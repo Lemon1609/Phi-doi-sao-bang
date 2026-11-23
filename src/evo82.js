@@ -39,7 +39,7 @@ const Evo82=(()=>{
  const nameOf=(k,m)=>{try{return k==='craft'?Fighters28.profiles[m].name:GearCatalog[m].name;}catch{return String(m);}};
  function groupOf(k,m){let si=-1;if(k==='craft')si=m|0;else{try{Campaign36.sets.forEach((s,i)=>{if(s&&s.includes(m))si=i;});}catch{}}return si>=7?'SS':si>=5?'S':'';}// bộ 10–12 (APEX) tính như SS cho luật thay bản sao
  const TH={};function shipThumb(i){if(TH[i])return TH[i];try{const im=(typeof Evo53!=='undefined'&&Evo53.hull)?Evo53.hull(i):fighterAtlasV22;const w=(im.naturalWidth||im.width)/5,h=(im.naturalHeight||im.height)/4,c=document.createElement('canvas');c.width=c.height=96;c.getContext('2d').drawImage(im,i%5*w,Math.floor(i/5)*h,w,h,0,0,96,96);return TH[i]=c.toDataURL();}catch{return '';}}
- function artOf(k,m){if(k==='craft'){const s=shipThumb(m|0);return s?`<img src="${s}" alt="">`:'✈';}
+ function artOf(k,m,t){if(k==='craft'){const s=(window.UI17!==false&&typeof window.SHIPART17==='function'&&SHIPART17(m|0,t))||shipThumb(m|0);/* V309 L17: ảnh chiến cơ chuẩn SHIP118 thay atlas cũ */return s?`<img src="${s}" alt="">`:'✈';}
   try{const al=(typeof GEAR81_DATA!=='undefined'&&GEAR81_DATA[m])?GEAR81_DATA[m].art:m;const A=typeof GEAR44_ASSETS!=='undefined'?GEAR44_ASSETS:{},E=typeof EVO53_ART!=='undefined'?EVO53_ART:{};const src=A[m+'_icon']||A[al+'_icon']||E['g:'+al+'_icon_evo1'];if(src)return `<img src="${src}" alt="" class="${al!==m?'g81':''}">`;}catch{}return '⚙';}
  // ---------- kho bản sao ----------
  const lvCost=lv=>({cr:19*lv,st:Math.ceil(lv/13)});
@@ -113,7 +113,7 @@ const Evo82=(()=>{
   });}
  function close(){if(el)el.hidden=true;try{Progress.render();}catch{}}
  const tag=t=>`<span class="fr70" style="--fc:${FC(t)}">${esc(TN(t))}</span>`;
- function copyCard(c,extra=''){return `<div class="ev82c ${c.lk?'lk':''}" style="--fc:${FC(c.t)}"><span class="ev82a">${artOf(c.k,c.m)}</span><b>${esc(nameOf(c.k,c.m))}</b><small>${esc(TN(c.t))} · Lv ${c.lv}/${CAP(c.t)}</small>${extra}</div>`;}
+ function copyCard(c,extra=''){return `<div class="ev82c ${c.lk?'lk':''}" style="--fc:${FC(c.t)}"><span class="ev82a">${artOf(c.k,c.m,c.t)}</span><b>${esc(nameOf(c.k,c.m))}</b><small>${esc(TN(c.t))} · Lv ${c.lv}/${CAP(c.t)}</small>${extra}</div>`;}
  function brkHtml(){const p=plan(ctx.kind,ctx.ref);if(!p){ctx=null;return invHtml();}const x=p.x,title=nameOf(x.k,x.m),isC=!!x.copy;
   if(p.max)return `<div class="m63-eye">ĐỘT PHÁ${isC?' BẢN SAO':''}</div><h3>${esc(title)} ${tag(x.t)}</h3><p class="adv-max">Đã đạt khung cao nhất: <b>Tím +5</b>.</p><div class="adv-btns"><button class="adv-x" data-e="inv">KHO BẢN SAO</button><button class="adv-x" data-e="x">ĐÓNG</button></div>`;
   const st=p.st,nt=x.t+1;

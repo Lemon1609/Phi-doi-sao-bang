@@ -42,11 +42,13 @@ window.Hop309=(()=>{
  function paint(name,src,s){const b=bases[name]||(bases[name]=img(src));if(!b.complete||!b.naturalWidth)return false;
   const W=b.naturalWidth,H=b.naturalHeight,cw=W/7,ch=H/2,c=cvs[name]||(cvs[name]=document.createElement('canvas'));c.width=W;c.height=H;
   c.naturalWidth=W;c.naturalHeight=H;c.complete=true;c.__h309=1;const g=c.getContext('2d');g.clearRect(0,0,W,H);g.drawImage(b,0,0);let ok=true;
-  s.split('').forEach((m,i)=>{if(m==='1')return;const im=img(HOP309_IMG['f'+i+'_b'+m]);if(!im.complete||!im.naturalWidth){ok=false;return;}g.clearRect(i*cw,0,cw,ch);g.drawImage(im,i*cw,0,cw,ch);});
+  const E21=k=>(window.EVO21!==false&&window.EVO21IMG!==false&&window.EVO21_IMG&&EVO21_IMG[k])||null;/* V2.1: tranh GPT mới — chiến cơ ct<i>_f<m> (hàng trên) + robot ct<i>_r<m> (hàng dưới) theo mốc */
+  s.split('').forEach((m,i)=>{const fs=E21('ct'+(i+1)+'_f'+m)||(m==='1'?null:HOP309_IMG['f'+i+'_b'+m]);if(fs){const im=img(fs);if(!im.complete||!im.naturalWidth){ok=false;}else{g.clearRect(i*cw,0,cw,ch);g.drawImage(im,i*cw,0,cw,ch);}}
+   const rs=E21('ct'+(i+1)+'_r'+m);if(rs){const im=img(rs);if(!im.complete||!im.naturalWidth){ok=false;}else{g.clearRect(i*cw,ch,cw,ch);g.drawImage(im,i*cw,ch,cw,ch);}}});
   return ok;}
  function refreshAtlas(){if(!ON()||typeof HOP309_IMG==='undefined'||typeof SSS_ATLAS==='undefined'){window.__hop309atlas=window.__hop309bay=null;return;}
   const s=[0,1,2,3,4,5,6].map(i=>{try{const r=Fusion.resolve('sss:'+i);return r?mark(r.enhance|0):1;}catch{return 1;}}).join('');
-  if(s===sig)return;if(!/[23]/.test(s)){window.__hop309atlas=window.__hop309bay=null;sig=s;return;}
+  if(s===sig)return;if(!/[23]/.test(s)&&!(window.EVO21!==false&&window.EVO21_IMG&&EVO21_IMG.ct1_f1)){window.__hop309atlas=window.__hop309bay=null;sig=s;return;}
   const a=paint('a',SSS_ATLAS,s),b=typeof SSS_ATLAS_BAY==='undefined'||paint('b',SSS_ATLAS_BAY,s);
   if(!a||!b){setTimeout(refreshAtlas,300);return;}
   window.__hop309atlas=cvs.a;window.__hop309bay=cvs.b||cvs.a;sig=s;try{SSSLab.paint();}catch{}}

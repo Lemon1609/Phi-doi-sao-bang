@@ -44,14 +44,21 @@
 | 10 / 10B | b89253b, 3c7d524 | chuyển động cánh/LED/hồ quang; bản đồ chòm sao, càn quét nhanh, Siêu Tần Tuần, Quỹ; khung chrome thống nhất | a10309 `ANIM10`, q10309 `QOL10`, f10309 `FRAME10` |
 | 11 | b4dd344 | Tiếp tế Vô tận, Phi công gọn, gom tab đầu trang, chế độ Anh Hùng | l11309 `UX11` (EP11/PL11/HUB11/HERO11/SW11) |
 | 12 | f8d2060 | sửa 4 lỗi L11, HUD chrome, thắng/thua/tạm dừng, màn phụ, vùng chạm, buồng lái, màn rộng | l12309 `POLISH12` |
+| 13 | (chưa commit — phiên không có quyền GitHub) | sửa thanh máu boss (×N bị V102 chặn), chữ giáp→khiên, cân boss đơn 13 cơ chế (tàu 3/4/10/12), tàu 11 ổn định số đo, Rương HK mốc tuần, t209 chờ đồng hồ game | play47 `BAR13`, co309 `XUYEN13/BK13`, v120, q77 `HK13` |
+| 14 | (chưa commit — phiên không có quyền GitHub) | rương TB/CC/Boss chung kho (không Tím, VIP ≤ Lục, không tính trần Vô tận), đăng nhập tích lũy (ngày 1–7 bộ Lam, ngày 8+ 4 tầng + mốc 10/15…), thành tựu 5 bậc, mốc năng động thêm rương + mốc tuần 600 | l14309 `L14/RUONG14/LOGIN14/ACH14`, q77, v92, tranh307 + rep Meta40/Chests |
+| 15 | (chưa commit — phiên không có quyền GitHub) | giảm 85,5 → 73,4 MB (zip 62,6 → 54,4 MB): PNG→WebP + gộp ảnh trùng sau khi dựng; PERF_HUD; chữ ×N boss to + viền | claude_tools/opt15_assets.py (`OPT15_ANH=0`), opt15 `PERF_HUD` |
+| 15B | (chưa commit — phiên không có quyền GitHub) | UI_ICONS (rương 3D, tài nguyên, SVG chrome), thay emoji hình, huy hiệu Chiến Lệnh, rương 3D ở kho/điểm danh/mốc năng động; thu nhỏ 102 dải VFX trúng đích (−1,4 MB) → 72,0 MB | l15b309 `ICON15B`, opt15_assets bước C (`OPT15_VFX=0`), gear_fx_v3 vfxK15, l14309, q77, ui78 |
+| 16 | (chưa commit — phiên không có quyền GitHub) | Hệ Đá Nội Tại: 3 ô × 9 viên Lv1–5, Tinh Thể Nội Tại (Anh Hùng, Tháp, mốc tuần, Tiệm Danh Dự), lưu theo Bộ | nt16 `NT16`, l11309, q77, v77, kho307, l7309 |
+| 17 (chốt V2.0) | (chưa commit — tag đề xuất v309-v2.0) | 12 icon + 6 khung 3D GPT, sửa ảnh cũ (Kho bản sao, quà bộ, hợp kim), dọn nút tím/lệch tông + 9 emoji; Hệ Ép Xung OC+1..+5 | ui17 `UI17`, oc17 `OC17`, nc307, evo82 |
 
 Con số đã chốt Lượt 11–12: tiếp tế 1.200 / 300 / 600 ◈ (Đột kích cần kỷ lục ≥ đợt 20); Anh Hùng máu ×1,8, sát thương ×1,25, lực chiến đề nghị ×1,5, thưởng lần đầu +500 ◈ mỗi 20 ải, 15 % mảnh phi công, 20 % nguyên liệu Tím, không kim cương.
 
 ## 6. Việc còn mở / đã biết (chưa ai yêu cầu làm)
-- Đo FPS + cảm ứng trên máy thật (chủ dự án sẽ làm). Safe-area chỉ kiểm được trên máy thật.
-- Thanh máu boss trong ảnh chụp trông rỗng dù boss còn máu (có từ trước Lượt 12, chưa rõ nguyên nhân).
-- t209 thỉnh thoảng trượt 1 mục ở lần đầu (mục "Bạo Tẩu phá chướng ngại" / "Phá 1 tháp" đã biết là chập chờn).
-- Từ các lượt trước (xem CLAUDE.md): 5 tranh VKTT chờ món mới; vật phẩm đổi súng không rơi từ V54; chưa đo boss đơn cho 13 cơ chế đạn; tàu 11 sát thương dao động lớn; chữ "giáp đã mất" ở mô tả món Giáp gốc; Rương HK từ nhiệm vụ tuần; đá nội tại / ép xung chưa làm.
+- Đo FPS + cảm ứng trên máy thật (chủ dự án sẽ làm, bật Cài đặt › ĐO FPS (THỬ MÁY)). Safe-area chỉ kiểm được trên máy thật.
+- Dung lượng < 40 MB: cần kiểm ảnh không dùng theo thời gian chạy hoặc thu nhỏ theo họ ảnh (Lượt 15 chỉ làm phần an toàn).
+- t209: mục "Bạo Tẩu phá chướng ngại" đã đổi sang chờ đồng hồ game (Lượt 13); nếu còn trượt thì xem lại.
+- Từ các lượt trước (xem CLAUDE.md): 5 tranh VKTT chờ món mới; vật phẩm đổi súng không rơi từ V54. Đá Nội Tại (L16) và Ép Xung (L17) đã làm.
+- L17: mấy số Claude tự đặt chờ chốt — Tiệm Danh Dự 5 Tinh Thể = 20 xu (3 lần/tuần), Tháp vượt lại +1 Tinh Thể, Ép Xung trừ VL Tím đều 4 loại, XP hoàn trả quy ra Đá XP.
 - Chủ dự án đã bỏ khỏi kế hoạch: Boss Rush, Tàu Hộ Tống. Từ v2.0 chỉ giữ thẻ tăng ích Roguelike cho Vô tận và Sự kiện mùa offline.
 
 ## 7. Bẫy kỹ thuật hay gặp

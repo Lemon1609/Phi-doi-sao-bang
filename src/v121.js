@@ -86,7 +86,7 @@
     g.putImageData(d,0,0);return RC9[key]=cv;}catch{return im;}}
   function rgba(h,a){const n=parseInt(h.slice(1,7),16);return `rgba(${n>>16&255},${n>>8&255},${n&255},${a})`;}
   function drawSkill(){if(!cur)return;if(window.KN309===false)return drawSkill0();ctx.save();try{if(window.MAU309B===false)ctx.filter='brightness(1.22) saturate(1.2)';/* V309b: màu đã nướng sẵn theo bảng chống lóa → bỏ ctx.filter (đắt khi vẽ ảnh lớn) */}catch{}try{drawSkill0();}finally{ctx.restore();}}/* V309: kỹ năng sáng hơn, dày hơn (×1,2), màu theo bậc. Tắt: window.KN309=false */
-  function drawSkill0(){if(!cur)return;const t=now(),u=Math.min(1,(t-cur.t0)/cur.dur),S=SK[cur.i],c=cur.col,c2=cur.c2,sc=(cur.ss?1.25:1)*(window.KN309===false?1:1.2),fade=u<.1?u/.1:u>.85?(1-u)/.15:1,few=lite();
+  function drawSkill0(){if(!cur)return;try{if(window.Evo21&&Evo21.hasSong(cur.i))return;}catch{}/* V2.1: tàu có Sóng kỹ năng Evo21 mới → bỏ hình cũ (sát thương / xóa đạn giữ nguyên) */const t=now(),u=Math.min(1,(t-cur.t0)/cur.dur),S=SK[cur.i],c=cur.col,c2=cur.c2,sc=(cur.ss?1.25:1)*(window.KN309===false?1:1.2),fade=u<.1?u/.1:u>.85?(1-u)/.15:1,few=lite();
     ctx.save();ctx.globalCompositeOperation='lighter';const A=art('ult_'+String(cur.i+1).padStart(2,'0'));
     switch(S.fx){
      case 'phoenix':{const x=W/2+Math.sin(u*TAU)*W*.28,y=player.y-180-Math.sin(u*TAU*2)*90-u*120,s=210*sc;ctx.globalAlpha=fade;if(A)ctx.drawImage(A,x-s/2,y-s/2,s,s);else{ctx.fillStyle=rgba(c2,.55);for(const sd of [-1,1]){ctx.beginPath();ctx.moveTo(x,y);ctx.quadraticCurveTo(x+sd*s*.6,y-s*.5,x+sd*s*.55,y+s*.05);ctx.quadraticCurveTo(x+sd*s*.3,y-s*.05,x,y+s*.2);ctx.fill();}ctx.fillStyle=rgba(c,.9);ctx.beginPath();ctx.ellipse(x,y,10*sc,26*sc,0,0,TAU);ctx.fill();}break;}

@@ -24,7 +24,7 @@ const Ui19=(()=>{
    const t=Math.min(3,stars-(fin?1:0)>=0?stars-(fin?1:0):0);const rk=a[RANK[fin?3:t]];if(rk){b.textContent=b.textContent.replace(/\s*★+\s*$/,'');const im=document.createElement('img');im.className='u19rk';im.src=rk;im.alt='';im.title=fin?'Hoàn thành':'Bậc '+(t+1);b.appendChild(im);}}}
  // ---------- ảnh món cho quà bộ ----------
  const TH={};
- function shipArt(i){if(TH[i])return TH[i];try{const im=(typeof Evo53!=='undefined'&&Evo53.hull)?Evo53.hull(i):fighterAtlasV22;const w=(im.naturalWidth||im.width)/5,h=(im.naturalHeight||im.height)/4;if(!w||!h)return '';const c=document.createElement('canvas');c.width=c.height=96;c.getContext('2d').drawImage(im,i%5*w,Math.floor(i/5)*h,w,h,0,0,96,96);return TH[i]=c.toDataURL();}catch{return '';}}
+ function shipArt(i){const n17=(window.UI17!==false&&typeof window.SHIPCUR17==='function'&&SHIPCUR17(i));if(n17)return n17;/* V309 L17B */if(TH[i])return TH[i];try{const im=(typeof Evo53!=='undefined'&&Evo53.hull)?Evo53.hull(i):fighterAtlasV22;const w=(im.naturalWidth||im.width)/5,h=(im.naturalHeight||im.height)/4;if(!w||!h)return '';const c=document.createElement('canvas');c.width=c.height=96;c.getContext('2d').drawImage(im,i%5*w,Math.floor(i/5)*h,w,h,0,0,96,96);return TH[i]=c.toDataURL();}catch{return '';}}
  function gearArt(model){try{const it=(Progress.getState().items||[]).find(x=>x.variant===model);return Progress.art(it||{variant:model,kind:GearCatalog[model].kind,level:1,rarity:'normal'});}catch{return '';}}
  function pieceArt(kind,model){if(kind==='craft'){const s=shipArt(model);return s?`<img src="${s}" alt="">`:'✈';}return gearArt(model)||'⚙';}
  // ---------- chế độ NHẸ ở sảnh ----------

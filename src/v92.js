@@ -64,7 +64,7 @@ const V92=(()=>{
  function rankUI(){const el=document.querySelector('.s77p:not([hidden])');if(!el||el.querySelector('.rk92'))return;const h=el.querySelector('.s77-hd');if(!h)return;rollSeason();const d=document.createElement('div');d.innerHTML=rankHtml();h.before(d.firstElementChild);}
  // =================== §4.2 Đặc quyền thành tựu ===================
  let PK=Object.assign({wd:'',rv:{d:'',n:0}},ld(V92CFG.perks.key));const svP=()=>sv(V92CFG.perks.key,PK);
- function stars(){try{const a=Meta40.state().S.ach||{};let n=0;for(const k in a)n+=a[k]|0;return n;}catch{return 0;}}
+ function stars(){try{if(window.Login14Hook&&Login14Hook.achOn()&&typeof L14309!=='undefined'){const a=L14309.state().ach||{};let n=0;for(const k in a)n+=a[k]|0;return n;}/* V309 L14: sao = bậc thành tựu 5 bậc đã nhận */const a=Meta40.state().S.ach||{};let n=0;for(const k in a)n+=a[k]|0;return n;}catch{return 0;}}
  let tC=-1,tV=0;function tier(){if(!on())return 0;const n=performance.now();if(n-tC<1500)return tV;tC=n;const s=stars();let t=0;V92CFG.perks.tiers.forEach((x,i)=>{if(s>=x.s)t=i+1;});tV=t;return t;}
  window.SWEEP92=()=>{const t=tier();return t>=4?15:t>=1?12:10;};
  window.GDISC92=()=>tier()>=2?.92:1;

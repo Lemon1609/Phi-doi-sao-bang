@@ -42,7 +42,7 @@ const L6309=(()=>{
   boss:t=>{osc('sine',72,26,t,.75,.11);noi(t,.9,.07,'lowpass',420);osc('sawtooth',140,40,t+.05,.5,.02);noi(t+.25,.6,.04,'lowpass',300);},
   beep:t=>{osc('square',1250,1250,t,.06,.022);osc('square',1250,1250,t+.09,.05,.018);},
  };
- function snd(k,ms){if(!cd(k,ms||0))return;if(!ok())return;try{SND[k](ac.currentTime+.01);}catch{}}
+ function snd(k,ms){if(!cd(k,ms||0))return;if((k==='boss'||k==='boomBig')&&window.EvoSFX)try{EvoSFX.duck(k==='boss'?.55:.3,k==='boss'?1.1:.35);}catch{}/* V2.1: hạ nhạc khi nổ lớn */if(!ok())return;try{SND[k](ac.currentTime+.01);}catch{}}
  let pn=0,pt=-1e9;
  function pickup(){const n=now();if(n-pt>1500)pn=0;pt=n;const k=Math.pow(1.04,Math.min(pn++,18));cnt.pick=(cnt.pick||0)+1;if(!ok())return;try{const t=ac.currentTime+.01;osc('triangle',560*k,920*k,t,.07,.07);osc('sine',1120*k,1120*k,t+.05,.09,.035);}catch{}}
  // ---------- nhạc nền ----------

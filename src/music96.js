@@ -27,9 +27,9 @@ const Music96=(()=>{
  const save=()=>{try{localStorage.setItem(KEY,JSON.stringify(S));}catch{}};
  const hz=m=>440*Math.pow(2,(m-69)/12);
  let dly=null,rvb=null,pump=null,dlyT=null;
- let ctx=null,master=null,mlp=null,jg=null,comp0=null,noise=null,cur=null,trk=null,nextT=0,step=0,bar=0,timer=null,lastWant='',hold=0,lastMode='',stat={jw:0,jl:0};
+ let dk21=null,ctx=null,master=null,mlp=null,jg=null,comp0=null,noise=null,cur=null,trk=null,nextT=0,step=0,bar=0,timer=null,lastWant='',hold=0,lastMode='',stat={jw:0,jl:0};
  function init(){if(ctx||!on())return;const AC=window.AudioContext||window.webkitAudioContext;if(!AC)return;try{ctx=new AC();}catch{return;}
-  master=ctx.createGain();master.gain.value=0;const comp=ctx.createDynamicsCompressor();comp.threshold.value=-14;comp.ratio.value=4;mlp=ctx.createBiquadFilter();mlp.type='lowpass';mlp.frequency.value=18000;master.connect(mlp);mlp.connect(comp);comp.connect(ctx.destination);comp0=comp;jg=ctx.createGain();jg.gain.value=0;jg.connect(comp);
+  master=ctx.createGain();master.gain.value=0;const comp=ctx.createDynamicsCompressor();comp.threshold.value=-14;comp.ratio.value=4;mlp=ctx.createBiquadFilter();mlp.type='lowpass';mlp.frequency.value=18000;dk21=ctx.createGain();dk21.gain.value=1;master.connect(dk21);dk21.connect(mlp);/* V2.1: nút hạ nhạc (ducking) cho nổ lớn / Tuyệt kỹ */mlp.connect(comp);comp.connect(ctx.destination);comp0=comp;jg=ctx.createGain();jg.gain.value=0;jg.connect(comp);
   const n=ctx.sampleRate;noise=ctx.createBuffer(1,n,n);const d=noise.getChannelData(0);for(let i=0;i<n;i++)d[i]=Math.random()*2-1;
   buses(ctx,master);timer=setInterval(sched,40);}
  function buses(c,m){try{dly=c.createDelay(1.5);dlyT=dly;const fb=c.createGain(),dl=c.createBiquadFilter(),dg=c.createGain();dly.delayTime.value=.35;fb.gain.value=.38;dl.type='lowpass';dl.frequency.value=2800;dg.gain.value=.8;
@@ -125,6 +125,6 @@ const Music96=(()=>{
   const comp=oc.createDynamicsCompressor();comp.threshold.value=-14;comp.ratio.value=4;const lp=oc.createBiquadFilter();lp.type='lowpass';lp.frequency.value=MUSIC96_TRACKS[id].lp||18000;master.connect(lp);lp.connect(comp);comp.connect(oc.destination);noise=oc.createBuffer(1,44100,44100);const d=noise.getChannelData(0);for(let i=0;i<44100;i++)d[i]=Math.random()*2-1;
   const oldB=[dly,rvb,pump,dlyT];buses(oc,master);const T=MUSIC96_TRACKS[id],sd=60/T.bpm/4;try{dly.delayTime.value=sd*3;}catch{}let t=.05,st=0,br=0;while(t<sec-.3){play(id,t,st,br,sd);t+=sd;st++;if(st>=16){st=0;br++;}}
   const buf=await oc.startRendering();[ctx,master,noise]=old;[dly,rvb,pump,dlyT]=oldB;return Array.from(buf.getChannelData(0));}
- return {jingle,state:()=>({cur,bar,step,vol:S.vol,ctx:ctx&&ctx.state,en:enabled(),bpm:Math.round(bpmNow()),jw:stat.jw,jl:stat.jl,hold:ctx?Math.max(0,hold-ctx.currentTime):0}),unlock,render,setVol:v=>{S.vol=v;save();},TR:MUSIC96_TRACKS};
+ return {jingle,state:()=>({cur,bar,step,vol:S.vol,ctx:ctx&&ctx.state,en:enabled(),bpm:Math.round(bpmNow()),jw:stat.jw,jl:stat.jl,hold:ctx?Math.max(0,hold-ctx.currentTime):0}),unlock,render,setVol:v=>{S.vol=v;save();},duckFx:(a,d)=>{/* V2.1 EVO21_SFX: hạ nhạc a (0..1) trong d giây rồi trả lại 0,35 s */try{if(!ctx||!dk21||window.EVO21===false)return;const t=ctx.currentTime,g=dk21.gain;g.cancelScheduledValues(t);g.setTargetAtTime(Math.max(.2,1-a),t,.03);g.setTargetAtTime(1,t+Math.max(.1,d),.35);}catch{}},TR:MUSIC96_TRACKS};
 })();
 window.Music96=Music96;

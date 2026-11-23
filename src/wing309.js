@@ -9,7 +9,7 @@
  const MAP={0:'phoenix',7:'phoenix',1:'cryo',2:'cryo',4:'seraph',8:'seraph',5:'void',6:'void',10:'void',12:'void',3:'cyber',9:'cyber',11:'chrono'};
  const st={on:false,t0:-9};
  const on=()=>window.CANH309!==false;
- function draw(ctx,id,size,isOn,now){const k=MAP[id];if(!k)return false;if(!isOn&&window.SHIP309V4&&window.L3309!==false){st.on=false;return true;}/* V309 Lượt 3: ẩn cánh lúc Thường (chỉ bung khi Bạo Tẩu) */const im=IM[k];if(!ok(im))return false;const pv=PIV[k]||[.13,.3];
+ function draw(ctx,id,size,isOn,now){try{if(window.Evo21&&Evo21.drawWing(ctx,id,size,isOn,now))return true;}catch{}/* V2.1 Đợt 1: cánh GPT mới (EVO21_IMG) */const k=MAP[id];if(!k)return false;if(!isOn&&window.SHIP309V4&&window.L3309!==false){st.on=false;return true;}/* V309 Lượt 3: ẩn cánh lúc Thường (chỉ bung khi Bạo Tẩu) */const im=IM[k];if(!ok(im))return false;const pv=PIV[k]||[.13,.3];
   if(isOn&&!st.on)st.t0=now;st.on=isOn;
   const ta=now-st.t0,iw=im.naturalWidth,ih=im.naturalHeight;
   // tụ (0–0,12 s co lại) rồi bung (0,12–0,3 s vọt quá rồi về)

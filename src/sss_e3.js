@@ -191,7 +191,7 @@
   const ad=defOf('armor');if(ad){if(!S.a||S.a.id!==ad.id){S.a=Object.assign(A0(),{id:ad.id,lv:lvOf(ad.id),cd:t+3,shieldCd:t,skCd:t+4});}S.a.lv=lvOf(ad.id);window.SSSE_A=true;aTick(S.a,dt);if(edge)aUlt(S.a);}else{S.a=null;window.SSSE_A=false;}
   // vũ khí
   for(const k of ['missiles','sidearm']){const d=defOf(k),w=d&&W[d.id];if(!w){delete S.w[k];continue;}let st=S.w[k];if(!st||st.id!==d.id)st=S.w[k]={id:d.id,next:t+.8,sk:t+3};const lv=lvOf(d.id),F=full(k)*(CAL[d.id]||1);if(!(F>0))continue;
-   const p=w.p*(s?.8:1);if(t>=st.next){st.next=t+p;const e=primary();if(e){const D=F*(SHARE+.02*(lv-1))*p;try{w.proc(D,e,lv,s);}catch(er){}spr(d.id+(s?'_is':'_in'),{x:e.x,y:e.y,sz:isBoss(e)?110:80,life:.4});}}
+   const p=w.p*(s?.8:1);if(t>=st.next){st.next=t+p;const e=primary();if(e){const D=F*(SHARE+.02*(lv-1))*p;try{w.proc(D,e,lv,s);}catch(er){}try{if(d.kind==='sidearm'&&window.Evo21&&Evo21.sssHit)Evo21.sssHit(d.id,e.x,e.y);}catch(er){}/* V2.1 Đợt 3: bùng trúng tranh GPT */spr(d.id+(s?'_is':'_in'),{x:e.x,y:e.y,sz:isBoss(e)?110:80,life:.4});}}
    const cd=(d.skill&&d.skill.cooldown)||10;if(t>=st.sk&&primary()){st.sk=t+cd;try{w.skill(F*SK*cd,lv);}catch{}}
    if(edge){try{w.ult(F*4,lv);}catch{}const e=primary();spr(d.id+'_tk',{x:e?e.x:240,y:e?e.y:300,sz:300,life:.9});}}
   for(const [e,v] of VU)if(e.dead||t>v.until)VU.delete(e);}
