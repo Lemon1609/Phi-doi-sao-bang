@@ -1,0 +1,9 @@
+[{"n":"lobby","steps":[["js","try{Nav74.tab('home')}catch(e){}"],["w",2500],["shot","v_lb0"],["w",1500],["shot","v_lb1"],["w",1500],["shot","v_lb2"],["w",1500],["shot","v_lb3"]]},
+ {"n":"battle","steps":[["st",12],["w",3000],["js","invuln=999;window.__k=setInterval(()=>{enemies=[];bullets=[];player.x=240;player.y=600;},30)"],["w",800],["shot","v_bt0"],["js","superTime=30"],["w",1500],["shot","v_bt1"]]},
+ {"n":"od","steps":[["st",12],["w",3000],["js","invuln=999;window.__k=setInterval(()=>{enemies=[];bullets=[];},30);power=5;powerUpgrades=4;activateSuper();superTime=0.3"],["w",900],
+  ["eval","return {power,superTime}","a_het"],
+  ["js","collect({type:'power',x:player.x,y:player.y})"],["w",100],["eval","return {power,superTime:+superTime.toFixed(2)}","b_nhat1"],
+  ["js","superTime=3;collect({type:'power',x:player.x,y:player.y})"],["eval","return {superTime:+superTime.toFixed(2)}","c_them"],
+  ["js","superTime=5;collect({type:'power',x:player.x,y:player.y})"],["eval","return {superTime:+superTime.toFixed(2),cap:Rank36.grade()}","d_tran"],
+  ["js","power=2;powerUpgrades=1;superTime=0.2"],["w",700],["eval","return {power,superTime}","e_tuSuper"]]},
+ {"n":"kho","steps":[["js","try{Nav74.tab('equip')}catch(e){}"],["w",3500],["shot","v_kho"]]}]

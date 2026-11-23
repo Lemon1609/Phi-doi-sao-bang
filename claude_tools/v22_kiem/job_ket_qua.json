@@ -1,0 +1,12 @@
+[{"n":"win","steps":[["st",12],["w",3000],["js","finishStage36(false)"],["w",2500],["shot","w1"],
+ ["eval","const ov=document.getElementById('overlay');return {run:End22.run(),btns:[...ov.querySelectorAll('button')].filter(b=>b.offsetParent).map(b=>b.textContent.trim())}","b"],
+ ["js","window.__log=[];const t0=performance.now();const iv=setInterval(()=>{const ov=document.getElementById('overlay');window.__log.push([Math.round(performance.now()-t0),mode,ov.hidden,document.body.classList.contains('res78')]);},300);setTimeout(()=>clearInterval(iv),4000);document.querySelector('#e22a .e22s').click()"],
+ ["w",4300],["shot","w2"],["eval","return window.__log","log"]]},
+ {"n":"next","steps":[["st",12],["w",3000],["js","finishStage36(false)"],["w",2500],["js","document.querySelector('#e22a .e22g').click()"],["w",3500],["shot","n1"],
+ ["eval","return {mode,level,ovh:document.getElementById('overlay').hidden,res:document.body.classList.contains('res78')}","r"]]},
+ {"n":"lose","steps":[["st",12],["w",3000],["js","end(false)"],["w",2500],["shot","l1"],
+ ["eval","const ov=document.getElementById('overlay');return {run:End22.run(),btns:[...ov.querySelectorAll('button')].filter(b=>b.offsetParent).map(b=>b.textContent.trim())}","b"],
+ ["js","document.querySelector('#e22a .e22g').click()"],["w",3500],["shot","l2"],
+ ["eval","return {mode,level,ovh:document.getElementById('overlay').hidden}","r"],
+ ["js","end(false)"],["w",1500],["js","document.querySelector('#e22a .e22s').click()"],["w",3000],["shot","l3"],
+ ["eval","return {mode,ovh:document.getElementById('overlay').hidden,res:document.body.classList.contains('res78')}","r2"]]}]

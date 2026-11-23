@@ -109,7 +109,9 @@ const Ult72=(()=>{
  const mainW=()=>S.main&&WP(S.main).own?S.main:null;
  const playing=()=>typeof mode!=='undefined'&&mode==='play';
  const sc=()=>(typeof W==='number'?W/400:1.2);
- function begin(){const id=mainW();B.on=!!id;B.tok=0;B.ev=0;B.t=0;B.ready=0;B.useAt=-99;B.ents=[];B.cc=[];B.picks=0;B.basicT=0;B.credit=(()=>{try{return typeof Stone71!=='undefined'?Math.min(.2,Stone71.ef('s1')+Stone71.ef('w1')):0;}catch{return 0;}})();B.ultN=0;B.tl6=0;B.hc=0;B.hcT=0;B.hc6=0;B.tvAt=-99;B.stopE.clear();B.slowE.clear();B.frozenB=null;B.last=-1;
+ /* V2.2 · 5C (chủ dự án 24/11): kích hoạt riêng từng mẫu — Săn Sao 8 vật phẩm · Lưới Điện 20 lần hạ địch (khóa mục tiêu nhiều máu nhất) · Pháo Đài trúng đòn hoặc mỗi 18 s (tháp chắn 6 s + xóa đạn quanh tàu) · Đồng Hồ khi vào Bạo Tẩu; Tối thượng choáng boss 1,2 s (trong trần khống chế boss). Tắt: window.VK22=false */
+ const VK=()=>window.V22!==false&&window.VK22!==false;
+ function begin(){const id=mainW();B.on=!!id;B.tok=0;B.ev=0;B.t=0;B.ready=0;B.useAt=-99;B.ents=[];B.cc=[];B.picks=0;B.basicT=0;B.credit=(()=>{try{return typeof Stone71!=='undefined'?Math.min(.2,Stone71.ef('s1')+Stone71.ef('w1')):0;}catch{return 0;}})();B.ultN=0;B.tl6=0;B.hc=0;B.hcT=0;B.hc6=0;B.tvAt=-99;B.kc22=0;B.fT22=18;B.aAt22=-99;B.wAt22=-99;B.stopE.clear();B.slowE.clear();B.frozenB=null;B.last=-1;
   try{B.d0=C.d0k*Combat.stats().attack/(1+bonus());}catch{B.d0=10;}
   if(id){const r=WP(id).r;if(id==='world')B.basicT=cdOf('world',skIdx(r))*.5;if(id==='web')B.basicT=cdOf('web',skIdx(r))*.5;}}
  try{const ob=Combat.begin;Combat.begin=function(){const r=ob.apply(this,arguments);try{begin();}catch{}return r;};}catch{}
@@ -131,13 +133,14 @@ const Ult72=(()=>{
  function evReq(id,i){let n=C.sk[id].u.ev[i];if(id==='fortress'&&X.has('fortress_1',6))n=Math.max(1,n-1);if(id==='hunter'&&X.has('hunter_1',6))n=Math.max(2,n-3);return n;}
  function addEv(n=1){const id=mainW();if(!id||!isLegend(WP(id).r)||B.ready)return;B.ev+=n;}
  function useUlt(){const id=mainW();if(!playing()||!id||!isLegend(WP(id).r))return false;if(charge()<1){toast('TỐI THƯỢNG CHƯA SẠC ĐỦ');return false;}if(time-B.useAt<C.ultCd){toast('HỒI '+Math.ceil(C.ultCd-(time-B.useAt))+' GIÂY');return false;}
-  B.useAt=time;B.t=0;B.ev=0;B.ready=0;B.credit=0;B.ultN=(B.ultN|0)+1;const i=uIdx(WP(id).r);ULT[id](i);try{if(typeof Stone71!=='undefined')Stone71.onUlt();}catch{}try{tone(660,.25,'sawtooth',.05);}catch{}return true;}
+  B.useAt=time;B.t=0;B.ev=0;B.ready=0;B.credit=0;B.ultN=(B.ultN|0)+1;const i=uIdx(WP(id).r);ULT[id](i);try{if(VK()&&boss&&!boss.dead)stop(boss,1.2);}catch{}try{if(typeof Stone71!=='undefined')Stone71.onUlt();}catch{}try{tone(660,.25,'sawtooth',.05);}catch{}return true;}
  // ---------- 4 vũ khí ----------
  const img={};function I(k){if(!ART[k])return null;let im=img[k];if(!im){im=new Image();im.src=ART[k];img[k]=im;}return im.complete&&im.naturalWidth?im:null;}
  const near=(x,y,pred)=>{let best=null,bd=1e12;for(const e of live()){if(pred&&!pred(e))continue;const d=dist2(e,x,y);if(d<bd){bd=d;best=e;}}return best;};
  // Pháo Đài
+ function aegis22(){const k=skIdx(WP('fortress').r),s=C.sk.fortress;turrets(s.n[k],s.blk[k],6,s.dps[k],false);B.fT22=18;B.aAt22=time;try{for(const b of bullets)if(!b.dead&&Math.hypot(b.x-player.x,b.y-player.y)<120)b.dead=true;}catch{}}
  function turrets(n,blk,life,dps,big){const list=[];const ys=big?H*.8:player.y+10;for(let k=0;k<n;k++){const x=big?W*(k+1)/(n+1):clamp(player.x+(k-(n-1)/2)*58,30,W-30),y=big?ys:clamp(player.y-48-(k%2)*16,60,H-40);list.push({ty:big?'tower':'turret',x,y,blk:blk+(X.has('fortress_1',3)?(big?2:1):0),life:Math.min(7,life+(X.has('fortress_2',3)?1:0)),t:0,dps:dps/n,fl:0,tk:0,tgt:null});}B.ents=B.ents.filter(e=>e.ty!=='turret'&&e.ty!=='tower').concat(list);}
- function onBomb(){const id=mainW();if(id==='fortress'){const k=skIdx(WP(id).r),s=C.sk.fortress;turrets(s.n[k],s.blk[k],s.life[k],s.dps[k],false);if(X.has('fortress_2',6)){const t0=B.ents.find(e=>e.ty==='turret');if(t0){t0.ty='tower';t0.life=Math.min(3,t0.life);}}}
+ function onBomb(){const id=mainW();if(id==='fortress'&&!VK()){const k=skIdx(WP(id).r),s=C.sk.fortress;turrets(s.n[k],s.blk[k],s.life[k],s.dps[k],false);if(X.has('fortress_2',6)){const t0=B.ents.find(e=>e.ty==='turret');if(t0){t0.ty='tower';t0.life=Math.min(3,t0.life);}}}
   if(id==='web'&&X.has('web_2',3)&&B.basicT<=0&&time-(B.tvAt||-99)>=45){B.tvAt=time;net(false);B.basicT=cdOf('web',skIdx(WP('web').r));}if(time-B.lastBomb>=8){B.lastBomb=time;if(id==='fortress')addEv();}}
  // Thế Giới
  function timeBomb(){const k=skIdx(WP('world').r),s=C.sk.world;const t=near(player.x,player.y-200,e=>e.elite||e.large)||near(player.x,player.y-200,e=>!(e===boss||e.bossPart))||near(player.x,player.y);if(!t)return false;
@@ -148,7 +151,7 @@ const Ult72=(()=>{
   Object.assign(o,{x:player.x,y:player.y-30,vx:Math.cos(a)*sp,vy:-Math.abs(Math.sin(a))*sp,t:0,tk:0,rot:0});if(!keep)B.ents=B.ents.filter(e=>!(e.ty==='saw'&&(ult||!e.ult)));B.ents.push(o);return o;}
  function sawBasic(){if(X.has('hunter_1',3)){saw(false,0,.65);saw(false,0,.65,true);}else saw(false);}
  // Lưới Điện
- function net(ult,i){const s=C.sk.web,k=skIdx(WP('web').r);const d=(ult?s.u.diag[i]:s.diag[k])*sc();const o={ty:'net',x:clamp(player.x,d/2,W-d/2),y:clamp(player.y-d*.45,d/2,H-d/2),d,life:ult?s.u.life[i]:s.life[k],dps:ult?s.u.dps[i]:s.dps[k],slow:ult?s.u.slow[i]:s.slow[k],ult:!!ult,t:0,tk:0};B.ents=B.ents.filter(e=>e.ty!=='net');B.ents.push(o);if(!ult)addEv();return o;}
+ function net(ult,i,tg){const s=C.sk.web,k=skIdx(WP('web').r);const d=(ult?s.u.diag[i]:s.diag[k])*sc();const o={ty:'net',x:clamp(tg?tg.x:player.x,d/2,W-d/2),y:clamp(tg?tg.y:player.y-d*.45,d/2,H-d/2),d,life:ult?s.u.life[i]:s.life[k],dps:ult?s.u.dps[i]:s.dps[k],slow:ult?s.u.slow[i]:s.slow[k],ult:!!ult,t:0,tk:0};B.ents=B.ents.filter(e=>e.ty!=='net');B.ents.push(o);if(!ult)addEv();return o;}
  const ULT={
   fortress(i){const u=C.sk.fortress.u;turrets(u.towers,u.blk[i],u.life[i],u.dps[i],true);flashText('MÁI VÒM SẮT');},
   world(i){const u=C.sk.world.u;const ex=X.has('world_2',6)?1.2:0;if(X.has('world_1',6)&&!B.tl6){B.tl6=1;try{activateSuper();}catch{}invuln=Math.max(invuln,boss&&!boss.dead?1.5:2.5);}const f={ty:'tfield',x:W/2,y:H/2,R:Math.max(W,H),life:u.stop[i]+ex,t:0,rate:u.rate[i]+(X.has('world_1',3)?.12:0),cap:u.capD[i],rec:new Map(),big:true};
@@ -170,7 +173,8 @@ const Ult72=(()=>{
  function step(dt){const id=mainW();if(!id)return;if(window.L3_146!==false)I('ult_act_'+id);const d0=D0();B.tok=Math.min(C.budget.cap*d0,B.tok+C.budget.regen*d0*dt);
   if(isLegend(WP(id).r)&&!B.ready){B.t+=dt*(1+Math.min(.12,X.mod('charge')||0));if(charge()>=1)B.ready=1;}
   const k=skIdx(WP(id).r);
-  if(id==='world'||id==='web'){B.basicT-=dt;if(B.basicT<=0){const s=C.sk[id];if(id==='world'?timeBomb():(net(false),true))B.basicT=cdOf(id,k);else B.basicT=1;}}
+  if(VK()&&id==='fortress'){B.fT22-=dt;if(B.fT22<=0)aegis22();}
+  if((id==='world'||id==='web')&&!VK()){B.basicT-=dt;if(B.basicT<=0){const s=C.sk[id];if(id==='world'?timeBomb():(net(false),true))B.basicT=cdOf(id,k);else B.basicT=1;}}
   for(const o of B.ents){o.t+=dt;
    if(o.ty==='turret'||o.ty==='tower'){o.tk-=dt;o.fl=Math.max(0,o.fl-dt);
      if(o.blk>0)for(const b of bullets){if(b.dead)continue;const R=o.ty==='tower'?26:22;if(dist2(b,o.x,o.y)<R*R){b.dead=true;o.blk--;o.fl=.35;if(o.blk<=0)break;}}
@@ -236,9 +240,11 @@ const Ult72=(()=>{
  // sự kiện: nhặt vật phẩm, bom, Bạo Tẩu tự nhiên
  try{const oc=collect;collect=function(d){const r=oc.apply(this,arguments);try{if(playing()&&d&&!d.ult72&&d.type!=='craft'&&time-B.lastPick>=1){B.lastPick=time;const id=mainW();if(id==='hunter'){const s=C.sk.hunter,k=skIdx(WP(id).r);const cur=B.ents.find(o=>o.ty==='saw'&&!o.ult);const us=B.ents.find(o=>o.ty==='saw'&&o.ult);
      if(us){us.evoN++;const need=s.u.evo[uIdx(WP(id).r)];if(us.evoN>=need&&us.form<3){us.evoN=0;us.form++;us.R*=1.08;}}
-     if(cur){for(const c2 of B.ents)if(c2.ty==='saw'&&!c2.ult)c2.life=Math.min(c2.maxAge,c2.life+c2.add);addEv();}else{B.picks++;if(B.picks>=s.need[k]){B.picks=0;sawBasic();}}}}}catch{}return r;};}catch{}
+     if(cur){for(const c2 of B.ents)if(c2.ty==='saw'&&!c2.ult)c2.life=Math.min(c2.maxAge,c2.life+c2.add);addEv();}else{B.picks++;if(B.picks>=(VK()?8:s.need[k])){B.picks=0;sawBasic();}}}}}catch{}return r;};}catch{}
  try{const ob=bomb;bomb=function(){const b0=typeof bombs!=='undefined'?bombs:0;const r=ob.apply(this,arguments);try{if(playing()&&bombs<b0)onBomb();}catch{}return r;};}catch{}
- try{const oa=activateSuper;activateSuper=function(){const r=oa.apply(this,arguments);try{if(playing()&&mainW()==='web'&&B.basicT<=0){net(false);B.basicT=cdOf('web',skIdx(WP('web').r));}}catch{}return r;};}catch{}
+ try{const oa=activateSuper;activateSuper=function(){const r=oa.apply(this,arguments);try{if(playing()&&mainW()==='web'&&!VK()&&B.basicT<=0){net(false);B.basicT=cdOf('web',skIdx(WP('web').r));}if(playing()&&VK()&&mainW()==='world'&&time-B.wAt22>=6){B.wAt22=time;timeBomb();}}catch{}return r;};}catch{}
+ try{const ok=kill;kill=function(e){const was=e&&!e.dead;const r=ok.apply(this,arguments);try{if(was&&e.dead&&playing()&&VK()&&mainW()==='web'&&!e.bossPart){B.kc22=(B.kc22|0)+1;if(B.kc22>=20){B.kc22=0;let t=null,hp=-1;for(const q of live())if(!q.bossPart&&(q.hp||0)>hp){hp=q.hp||0;t=q;}net(false,undefined,t);}}}catch{}return r;};}catch{}
+ try{const od=damage;damage=function(){let h0=0,s0=0;try{h0=hp;s0=shield;}catch{}const r=od.apply(this,arguments);try{if(playing()&&VK()&&mainW()==='fortress'&&(hp<h0||shield<s0)&&time-B.aAt22>=4)aegis22();}catch{}return r;};}catch{}
  // ---------- nút trong trận ----------
  let bt=null;
  function btn(){const id=mainW();const show=playing()||(typeof mode!=='undefined'&&mode==='pause');if(!bt){bt=document.createElement('button');bt.id='ult72-btn';bt.type='button';bt.innerHTML='<i></i><b></b><small></small>';bt.addEventListener('pointerdown',e=>{e.preventDefault();e.stopPropagation();useUlt();});document.body.appendChild(bt);}{const host=document.getElementById('bomb')?.parentElement;if(host&&bt.parentNode!==host)host.appendChild(bt);}
@@ -265,11 +271,14 @@ const Ult72=(()=>{
  const tag=r=>`<span class="fr70" style="--fc:${C.fcol[fi(r)]}">${C.rn[r]}</span>`;
  const model=(id,r)=>{let k='ult_'+id+'_f'+(fi(r)+1);/* V144: 5 dạng theo mốc màu (GPT L1) */if(window.FORM144===false||!ART[k])k='ult_'+id+(isLegend(r)?'_legend':'_base');return ART[k]?`<img src="${ART[k]}" alt="">`:`<i style="background:${C.col[id]}"></i>`;};
  function skillText(id,w){const s=C.sk[id],k=skIdx(w.r);
-  const base={fortress:`Dùng bom: gọi ${s.n?s.n[k]:0} pháo nhỏ ${s.life?s.life[k]:0} giây, mỗi pháo chặn ${s.blk?s.blk[k]:0} viên đạn và tự bắn địch gần nhất.`,
+  const base=VK()?{fortress:`Khi bị trúng đòn hoặc mỗi 18 giây: dựng ${s.n?s.n[k]:0} pháo chắn đạn 6 giây (mỗi pháo chặn ${s.blk?s.blk[k]:0} viên) và xóa đạn quanh tàu.`,
+   world:`Khi vào Bạo Tẩu: ném bom thời gian, dừng quái quanh mục tiêu ${s.stop?String(s.stop[k]).replace('.',','):0} giây (boss ${s.bstop?String(s.bstop[k]).replace('.',','):0} giây), hết giờ nổ ${s.rate?pct(s.rate[k]):0} sát thương đã gây.`,
+   hunter:`Nhặt 8 vật phẩm: gọi lưỡi cưa nảy quanh màn hình ${s.life?String(s.life[k]).replace('.',','):0} giây; mỗi vật phẩm nhặt thêm kéo dài cưa.`,
+   web:`Hạ 20 địch: giăng lưới laser ${s.life?String(s.life[k]).replace('.',','):0} giây khóa vào mục tiêu nhiều máu nhất, làm chậm ${s.slow?pct(s.slow[k]):0}.`}[id]:{fortress:`Dùng bom: gọi ${s.n?s.n[k]:0} pháo nhỏ ${s.life?s.life[k]:0} giây, mỗi pháo chặn ${s.blk?s.blk[k]:0} viên đạn và tự bắn địch gần nhất.`,
    world:`Mỗi ${s.cd?s.cd[k]:0} giây ném bom thời gian: dừng quái quanh mục tiêu ${s.stop?String(s.stop[k]).replace('.',','):0} giây (boss ${s.bstop?String(s.bstop[k]).replace('.',','):0} giây), hết giờ nổ ${s.rate?pct(s.rate[k]):0} sát thương đã gây lên chúng.`,
    hunter:`Nhặt ${s.need?s.need[k]:0} vật phẩm: gọi lưỡi cưa nảy quanh màn hình ${s.life?String(s.life[k]).replace('.',','):0} giây; mỗi vật phẩm nhặt thêm kéo dài cưa.`,
    web:`Mỗi ${s.cd?s.cd[k]:0} giây (hoặc khi Bạo Tẩu): giăng lưới laser hình thoi ${s.life?String(s.life[k]).replace('.',','):0} giây, gây sát thương và làm chậm ${s.slow?pct(s.slow[k]):0} quái trong lưới.`}[id];
-  const u=s.u,i=uIdx(w.r),f=v=>String(v).replace('.',',');const ult=({fortress:()=>`5 trụ laser ${f(u.life[i])} giây bắn thẳng lên, mỗi trụ chặn ${u.blk[i]} đạn.`,world:()=>`Trường thời gian toàn màn ${f(u.stop[i])} giây: dừng quái, dừng đạn 2 giây, boss ${f(u.bstop[i])} giây; hết giờ nổ ${pct(u.rate[i])} sát thương đã tích.`,hunter:()=>`Lưỡi cưa tiến hóa ${f(u.life[i])} giây, nhặt ${u.evo[i]} vật phẩm thì tiến hóa (tối đa 4 dạng), đánh dấu "dễ tổn thương".`,web:()=>`Lưới lớn ${f(u.life[i])} giây, làm chậm ${pct(u.slow[i])} quái thường (boss tối đa 15%).`})[id]();
+  const u=s.u,i=uIdx(w.r),f=v=>String(v).replace('.',',');const ult=({fortress:()=>`5 trụ laser ${f(u.life[i])} giây bắn thẳng lên, mỗi trụ chặn ${u.blk[i]} đạn.`,world:()=>`Trường thời gian toàn màn ${f(u.stop[i])} giây: dừng quái, dừng đạn 2 giây, boss ${f(u.bstop[i])} giây; hết giờ nổ ${pct(u.rate[i])} sát thương đã tích.`,hunter:()=>`Lưỡi cưa tiến hóa ${f(u.life[i])} giây, nhặt ${u.evo[i]} vật phẩm thì tiến hóa (tối đa 4 dạng), đánh dấu "dễ tổn thương".`,web:()=>`Lưới lớn ${f(u.life[i])} giây, làm chậm ${pct(u.slow[i])} quái thường (boss tối đa 15%).`})[id]()+(VK()?' Choáng boss 1,2 giây.':'');
   const ch=`Sạc: ${u.T[i]} giây hoặc ${u.ev[i]} lần ${({fortress:'dùng bom',world:'kích kỹ năng cơ bản',hunter:'nhặt vật phẩm khi cưa đang chạy',web:'kích lưới cơ bản'})[id]}.`;
   return {base,ult,ch};}
  function giftPanel(){if(!el)build();el.classList.remove('srm');el.innerHTML=`<div class="m63-card adv-card u72-card"><div class="m63-eye">VŨ KHÍ TỐI THƯỢNG · MỞ KHÓA</div><h3>Chọn vũ khí đầu tiên</h3><p class="adv-max">Bạn được tặng ${C.gift} mảnh để kích hoạt 1 vũ khí. Các vũ khí còn lại kích hoạt bằng mảnh tích lũy.</p>
@@ -324,6 +333,6 @@ const Ult72=(()=>{
  // nút ở sảnh/kho
  setInterval(()=>{try{const fx=document.querySelector('#hgr41 .h1-fx');if(fx&&!fx.querySelector('[data-u72]')){const b=document.createElement('button');b.dataset.u72=1;b.className='adv69b';b.textContent='VŨ KHÍ TT';b.addEventListener('click',e=>{e.stopPropagation();open();});fx.appendChild(b);}
    const b=document.querySelector('#hgr41 [data-u72]');if(b){const hot=(!S.gift&&maxStage()>=C.unlock)||countReady()>0;b.classList.toggle('hot',hot);}}catch{}},1000);
- return {X,bonusOf,mainW,cur:()=>cur,render:()=>render(),C,state:()=>JSON.parse(JSON.stringify(S)),open,tasks,giftPick,activate,assign,levelUp,promote,setMain,setSup,bonus,P,claim,buyMarket,useUlt,charge,
+ return {skillText:(id,r)=>skillText(id,Object.assign({},WP(id),r==null?{}:{r})),X,bonusOf,mainW,cur:()=>cur,render:()=>render(),C,state:()=>JSON.parse(JSON.stringify(S)),open,tasks,giftPick,activate,assign,levelUp,promote,setMain,setSup,bonus,P,claim,buyMarket,useUlt,charge,
   buyMarket2,give:o=>{if(!o)return;if(o.s)S.pool+=o.s|0;if(o.c)addLK(o.c,o.k);if(o.lk)for(const k in o.lk)if(S.lk[k]!=null)S.lk[k]+=o.lk[k]|0;if(o.th)S.th+=o.th|0;if(o.w)for(const id in o.w){try{WP(id).sh+=o.w[id]|0;}catch{}}save();bump();},_B:B,_set:o=>{for(const k in o){if(k==='w'){for(const id in o.w)Object.assign(S.w[id],o.w[id]);}else S[k]=o[k];}save();bump();},_D0:D0,_spend:spend};
 })();

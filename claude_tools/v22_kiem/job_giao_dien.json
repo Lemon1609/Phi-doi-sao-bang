@@ -1,0 +1,10 @@
+[{"n":"ui","steps":[["js","try{Nav74.tab('home')}catch(e){}"],["w",3000],["shot","u_lobby"],
+ ["js","document.getElementById('lb68-pp').click()"],["w",900],["shot","u_hs1"],
+ ["js","document.querySelector('#hs22 [data-hs=\"t:ct\"]').click()"],["w",500],["shot","u_hs2"],
+ ["js","document.querySelector('#hs22 [data-hs=fr]').click()"],["w",700],["shot","u_fr1"],
+ ["js","document.querySelector('#fr22 [data-fr=\"f:ice\"]').click()"],["w",400],["shot","u_fr2"],
+ ["js","document.querySelector('#fr22 [data-fr=\"t:av\"]').click()"],["w",400],["shot","u_fr3"],
+ ["js","V22UI.frClose();V22UI.hsClose();Nav74.tab('equip')"],["w",3000],["shot","u_kho1"],
+ ["eval","return [...document.querySelectorAll('#hub40 .hb-slot')].map(b=>b.className+' || '+b.innerText.replace(/\\n/g,' ')).join('\\n')","slots"],
+ ["js","document.querySelector('#hub40 .tb22 [data-t22=b]').click()"],["w",800],["shot","u_kho2"],
+ ["js","const m=document.querySelector('.m63');"],["js","try{Gfx66.open()}catch(e){}"],["w",800],["shot","u_modal"]]}]

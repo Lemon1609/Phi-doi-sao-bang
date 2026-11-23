@@ -28,7 +28,15 @@ const FX18=(()=>{
    gr=g.createLinearGradient(0,0,0,H*.45);gr.addColorStop(0,'rgba(255,255,255,1)');gr.addColorStop(1,'rgba(255,255,255,0)');g.fillStyle=gr;shape(W*.1,H*.45);g.fill();}
   FL.set(k,cv);if(FL.size>64)FL.delete(FL.keys().next().value);return cv;}
  // vẽ trong hệ tọa độ hiện tại: (x,y) = tâm miệng ống, ang = hướng phụt (rad, 0 = xuống dưới), len/wid = px
- function flame(g,x,y,ang,len,wid,col,t,seed,hot){const im=flameImg(col,hot),fl=len*(1+.12*Math.sin((t||performance.now()/1000)*38+(seed||0))+.05*Math.sin((t||0)*71+(seed||0)*3));
+ /* V2.2: luồng ion-plasma thuôn — kim lõi trắng-vàng/cyan mảnh ở miệng ống + đuôi lông vũ trong mờ dần về 0 (tính từng điểm ảnh 1 lần/màu, không gradient mỗi khung, không shadowBlur) */
+ const PL=new Map();
+ function plumeImg(col){const k=String(col);let cv=PL.get(k);if(cv)return cv;const c=vivid(hex(col)),W=40,H=160;cv=document.createElement('canvas');cv.width=W;cv.height=H;const g=cv.getContext('2d'),id=g.createImageData(W,H),d=id.data,cw=mix(c,[255,244,214],.55);
+  for(let y=0;y<H;y++){const v=y/H,wo=W*.30*Math.pow(1-v,.75)*(v<.06?.72+.28*v/.06:1)+.6,wc=W*.075*Math.max(0,1-v/.52)+.35,fo=Math.pow(1-v,1.7),fc=Math.max(0,1-v/.55);
+   for(let x=0;x<W;x++){const dx=Math.abs(x+.5-W/2),ao=Math.exp(-(dx/wo)*(dx/wo)*2.3)*fo*.82,ac=Math.exp(-(dx/wc)*(dx/wc)*2.6)*fc;
+    const a=Math.min(1,ao+ac);if(a<.004)continue;const t=ac/(ao+ac+1e-6),i=(y*W+x)*4,mid=v<.25?cw:c;
+    d[i]=mid[0]+(255-mid[0])*t;d[i+1]=mid[1]+(255-mid[1])*t;d[i+2]=mid[2]+(255-mid[2])*t;d[i+3]=a*255;}}
+  g.putImageData(id,0,0);PL.set(k,cv);if(PL.size>48)PL.delete(PL.keys().next().value);return cv;}
+ function flame(g,x,y,ang,len,wid,col,t,seed,hot){const p22=(window.V22!==false&&window.PLUME22!==false),im=p22?plumeImg(col):flameImg(col,hot),T0=(t||performance.now()/1000),fl=p22?len*1.12*(1+.06*Math.sin(T0*41+(seed||0))+.02*Math.sin(T0*73+(seed||0)*3)):len*(1+.12*Math.sin(T0*38+(seed||0))+.05*Math.sin((t||0)*71+(seed||0)*3));if(p22)wid*=1.15;
   const pc=g.globalCompositeOperation,pa=g.globalAlpha;g.save();g.translate(x,y);if(ang)g.rotate(ang);g.globalCompositeOperation='lighter';g.drawImage(im,-wid/2,0,wid,fl);g.restore();g.globalCompositeOperation=pc;g.globalAlpha=pa;}
  // ---------- đĩa hologram ----------
  const DK=new Map();
@@ -92,5 +100,5 @@ const FX18=(()=>{
  // tàu con: bỏ chùm gai → chỉ tia đẩy mini phụt xuống từ đuôi
  function podFx(g,x,y,w,sp,col,t){/* chủ dự án 23/11: bỏ vòng hào quang quanh tàu con, chỉ giữ tia đẩy mini dưới đuôi */
   flame(g,x,y+w*.36,0,w*(sp?1.05:.8),Math.max(5,w*.3),col,t||performance.now()/1000,x*.02,true);}
- return {on,flame,flameImg,disk,wingImg,pal,podCols,shipCol,hex,shipInfo,battleIm,tone,engine,podFx,imgOf};
+ return {on,flame,flameImg,plumeImg,disk,wingImg,pal,podCols,shipCol,hex,shipInfo,battleIm,tone,engine,podFx,imgOf};
 })();window.FX18API=FX18;

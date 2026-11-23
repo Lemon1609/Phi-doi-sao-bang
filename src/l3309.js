@@ -25,19 +25,19 @@
   const t=document.createElement('canvas');t.width=t.height=S;const h=t.getContext('2d');h.drawImage(c,0,0);h.globalCompositeOperation='source-in';h.fillStyle=colorOf(id);h.fillRect(0,0,S,S);
   return GL[k]=t;}
  const FS={};function flameSpr(col){if(FS[col])return FS[col];const W=32,H=96,cv=document.createElement('canvas');cv.width=W;cv.height=H;const g=cv.getContext('2d'),gr=g.createLinearGradient(0,0,0,H);gr.addColorStop(0,'rgba(255,255,255,.95)');gr.addColorStop(.3,rgba(col,.75));gr.addColorStop(1,rgba(col,0));g.fillStyle=gr;g.beginPath();g.moveTo(0,8);g.quadraticCurveTo(W/2,0,W,8);g.lineTo(W/2,H);g.closePath();g.fill();return FS[col]=cv;}
- function flame(c,x,y,w,len,col,t,k){if(window.V2142!==false){/* V2.1.42: sprite dựng sẵn, không tạo gradient mỗi khung */const fl=len*(1+.18*Math.sin(t*Math.PI*2*22+k)),s=flameSpr(col);c.drawImage(s,x-w,y-w*.6,w*2,fl+w*.6);return;}const fl=len*(1+.18*Math.sin(t*Math.PI*2*22+k)),g=c.createLinearGradient(0,y,0,y+fl);g.addColorStop(0,'rgba(255,255,255,.95)');g.addColorStop(.3,rgba(col,.75));g.addColorStop(1,rgba(col,0));c.fillStyle=g;c.beginPath();c.moveTo(x-w,y);c.quadraticCurveTo(x,y-w*.6,x+w,y);c.lineTo(x,y+fl);c.closePath();c.fill();}
+ function flame(c,x,y,w,len,col,t,k){if((window.V22!==false&&window.PLUME22!==false)&&window.FX18API&&FX18API.flame){FX18API.flame(c,x,y-1,0,len*1.1,w*2.6,col,t,k*1.7,true);return;}if(window.V2142!==false){/* V2.1.42: sprite dựng sẵn, không tạo gradient mỗi khung */const fl=len*(1+.18*Math.sin(t*Math.PI*2*22+k)),s=flameSpr(col);c.drawImage(s,x-w,y-w*.6,w*2,fl+w*.6);return;}const fl=len*(1+.18*Math.sin(t*Math.PI*2*22+k)),g=c.createLinearGradient(0,y,0,y+fl);g.addColorStop(0,'rgba(255,255,255,.95)');g.addColorStop(.3,rgba(col,.75));g.addColorStop(1,rgba(col,0));c.fillStyle=g;c.beginPath();c.moveTo(x-w,y);c.quadraticCurveTo(x,y-w*.6,x+w,y);c.lineTo(x,y+fl);c.closePath();c.fill();}
  function ringDash(c,r,n,col,a,lw,rot){c.save();c.rotate(rot);c.strokeStyle=rgba(col,a);c.lineWidth=lw;const s=6.283/n;for(let i=0;i<n;i++){c.beginPath();c.arc(0,0,r,i*s,i*s+s*.62);c.stroke();}c.restore();}
  function back(id,f,sp,F,now,b){const B=BB[id]&&BB[id][f];if(!B)return;const col=colorOf(id),c=ctx,lite=(()=>{try{return VisualFX.counts().quality==='light';}catch{return false;}})();
-  const k=sp?(1+.08*ease((now-st.tOn)/.3)):1,u=v=>v*F*k,ti={thuong:0,luc:0,lam:1,tim:2,tim5:3,ss:4}[f]||0,R=u(Math.max(B[2]-B[0],B[3]-B[1]))*.62;
+  const k=sp?(1+.08*ease((now-st.tOn)/.3)):1,u=v=>v*F*k,_h22=(window.__half22=Math.max(-B[0],B[2])*F*k),ti={thuong:0,luc:0,lam:1,tim:2,tim5:3,ss:4}[f]||0,R=u(Math.max(B[2]-B[0],B[3]-B[1]))*.62;
   c.save();c.globalCompositeOperation='lighter';
   // vòng năng lượng sau lưng (Tím+) / 2 vòng ma trận (SS)
   if(ti>=2&&!window.__L42){/* V2.1.42: bỏ vòng gạch cũ quanh thân khi V2.1 bật (LED EVO21 thay) */ringDash(c,R,ti>=4?10:6,col,ti>=4?.32:.25,1.6,now*.6);if(ti>=4){ringDash(c,R*.82,14,'#fde047',.28,1.2,-now*.9);c.strokeStyle=rgba(col,.14);c.lineWidth=5;c.beginPath();c.arc(0,0,R*1.04,0,6.283);c.stroke();}}
   // viền hào quang khi Bạo Tẩu: bóng mờ màu hệ to hơn thân 7 %, vẽ SAU thân → chỉ lộ thành viền
-  if(sp){const h=halo(id,f);if(h){const S=F*k*1.07;c.globalAlpha=.30+.15*(.5+.5*Math.sin(now*6));c.drawImage(h,-S/2,-S/2,S,S);c.globalAlpha=1;}}
+  if(sp){const h=halo(id,f);if(h){const S=F*k*1.07;c.globalAlpha=(.30+.15*(.5+.5*Math.sin(now*6)))*(window.V22!==false&&window.AG22!==false?.55:1);c.drawImage(h,-S/2,-S/2,S,S);c.globalAlpha=1;}}
   // phản lực 2 luồng ở đáy thân
   const jy=u(B[5])-2,jx=u(B[4]),jl=u(.17)*(sp?1.5:1)*(ti>=2?1.12:1),jw=Math.max(3.5,u(.028))*(sp?1.25:1);
   for(const s of [-1,1])flame(c,s*jx,jy,jw,jl,col,now,s);
-  if(sp)for(const s of [-1,1]){c.fillStyle='rgba(255,255,255,.55)';c.beginPath();c.ellipse(s*jx,jy+2,jw*.6,jw*1.1,0,0,6.283);c.fill();}
+  if(sp&&!(window.V22!==false&&window.AG22!==false))for(const s of [-1,1]){c.fillStyle='rgba(255,255,255,.55)';c.beginPath();c.ellipse(s*jx,jy+2,jw*.6,jw*1.1,0,0,6.283);c.fill();}
   // tia lửa phụ ở mép cánh (Lam+)
   if(ti>=1&&!lite&&!window.__L42)for(const s of [-1,1])flame(c,s*u(s<0?-B[0]:B[2])*.92,u(B[6])+2,Math.max(1.6,jw*.45),jl*.45,col,now,s*3);
   c.restore();}

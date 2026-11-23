@@ -4,11 +4,23 @@ const End78=(()=>{
  const isEnd=()=>typeof mode!=='undefined'&&['reward','over'].includes(mode);
  let shown=false;
  function goLobby(){
-  try{if(typeof mode!=='undefined'&&(mode==='pause'||mode==='reward'))document.getElementById('dock-return')?.click();}catch{}
+  /* V2.2 (máy thật 24/11): trước đây bấm #dock-return → ở mode 'reward' gọi end(false) → game sang 'over' (THẤT BẠI) và vòng 250 ms
+     của apply() bật lại màn kết quả (nảy ngược). Nay thoát sạch: dọn trận, mode='menu', ẩn overlay rồi mới về sảnh. Tắt: window.END22=false */
+  if(window.END22!==false)clean();
+  else try{if(typeof mode!=='undefined'&&(mode==='pause'||mode==='reward'))document.getElementById('dock-return')?.click();}catch{}
   try{Lobby.show();}catch{}
   try{const g=document.getElementById('gamemode');if(g&&g.value!=='campaign'){g.value='campaign';g.dispatchEvent(new Event('change'));}}catch{}
-  setTimeout(()=>{try{Nav74.tab('combat');setTimeout(()=>{try{Nav74.sub('map');}catch{}},80);}catch{}},120);
+  setTimeout(()=>{try{if(window.END22!==false&&!goLobby.map)Nav74.tab('home');else{Nav74.tab('combat');setTimeout(()=>{try{Nav74.sub('map');}catch{}},80);}}catch{}},120);
   document.body.classList.remove('res78');}
+ function clean(keepScreen){/* keepScreen: vào ải tiếp/chơi lại ngay — giữ toàn màn hình (thoát rồi sự kiện fullscreenchange tới muộn sẽ tạm dừng trận mới) */
+  try{Revive393.close();}catch{}try{Missions393.flush();}catch{}try{Progress.flush();}catch{}try{Combat26.cancelSkill();}catch{}try{Dungeons.finish();}catch{}
+  try{bulletShieldTime=0;superTime=0;bullets=[];beams=[];enemies=[];boss=null;drops=[];}catch{}
+  try{if(!keepScreen&&typeof PlayScreen!=='undefined')PlayScreen.exit(false);}catch{}try{lockCraft(false);}catch{}
+  try{if(score>best){best=score;localStorage.setItem('saobang-best',String(best));}}catch{}
+  try{mode='menu';}catch{}try{Progress.setLocked(false);}catch{}
+  const ov=document.getElementById('overlay');if(ov){ov.hidden=true;ov.dataset.state='menu';}
+  for(const id of ['reward-display','dock-return'])try{document.getElementById(id).hidden=true;}catch{}
+  document.body.classList.remove('res78');try{document.getElementById('next79')?.remove();}catch{}window.__end22t=Date.now();}
  function apply(){
   if(window.END78===false)return;
   const on=isEnd()&&!window.__m78;
@@ -22,7 +34,7 @@ const End78=(()=>{
   const rs=ov.querySelector('#rs');if(lb&&rs&&lb.previousElementSibling!==rs)rs.after(lb);else if(lb&&lb.parentElement!==ov)ov.appendChild(lb);
   // V79B (Gemini, chủ dự án đồng ý): ải 1, 2, 4 thắng xong được bay tiếp ngay ải sau — các ải khác vẫn bắt buộc về sảnh
   try{let nx=document.getElementById('next79');const camp=gameMode==='campaign'&&mode==='reward'&&!(typeof lastReward!=='undefined'&&lastReward&&lastReward.dungeon)&&!(typeof Dungeons!=='undefined'&&Dungeons.active());
-   const okLv=camp&&(window.NEXT79||[1,2,4]).includes(level|0);
+   const okLv=camp&&window.END22===false&&(window.NEXT79||[1,2,4]).includes(level|0);
    if(okLv&&lb){if(!nx){nx=document.createElement('button');nx.type='button';nx.id='next79';nx.textContent='▶ ẢI TIẾP THEO · ẢI '+((level|0)+1);nx.addEventListener('click',e=>{e.preventDefault();e.stopPropagation();const s0=document.getElementById('start');if(s0)s0.click();});}
     nx.textContent='▶ ẢI TIẾP THEO · ẢI '+((level|0)+1);if(nx.previousElementSibling!==lb)lb.after(nx);}
    else if(nx)nx.remove();}catch{}
@@ -54,5 +66,5 @@ const End78=(()=>{
 
  // phím Enter/Space trên máy tính ở màn kết quả cũng về sảnh thay vì vào ải tiếp
  document.addEventListener('keydown',e=>{if(!shown||window.END78===false)return;if(e.key==='Enter'||e.key===' '){e.preventDefault();e.stopPropagation();goLobby();}},true);
- return {goLobby,on:()=>shown};
+ return {goLobby,clean,on:()=>shown};
 })();

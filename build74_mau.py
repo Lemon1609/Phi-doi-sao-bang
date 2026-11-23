@@ -1218,6 +1218,11 @@ for _a,_b in PAIRS:rep(_a,_b)
 rep("</body>","<style id=\"v2142ui-css\">"+open('src/v2142ui.css',encoding='utf-8').read().replace('@V ','html.v2142.ui42 body'+':not(#_v42)'*72+' ')+"</style></body>")
 h=h.replace('<head>','<head><script id="v2142pre-js">'+open('src/v2142pre.js',encoding='utf-8').read()+'</script>',1)
 rep("</body>","<script id=\"v2142-js\">"+open('src/v2142.js',encoding='utf-8').read()+"</script></body>")
+# V2.2.0 · đội hình chữ V + P trong Bạo Tẩu (claude_tools/v22_rep.py), màn kết quả gọn (src/end22.js), giao diện & xưởng (src/v22.js + src/ui22img)
+exec(open('claude_tools/v22_rep.py',encoding='utf-8').read())
+for _a,_b in PAIRS22:rep(_a,_b)
+exec(open('claude_tools/v22_embed.py',encoding='utf-8').read())
+rep("</body>",ui22_script('.')+"<script id=\"end22-js\">"+open('src/end22.js',encoding='utf-8').read()+"</script><script id=\"v22-js\">"+open('src/v22.js',encoding='utf-8').read()+"</script></body>")
 open('Phi_Doi_Sao_Bang_V74_mau.html','w',encoding='utf-8').write(h)
 # V309 Lượt 15 · giảm dung lượng sau khi dựng: PNG→WebP q90 + gộp ảnh trùng (claude_tools/opt15_assets.py). Bỏ qua: OPT15_ANH=0
 if os.environ.get('OPT15_ANH','1')!='0':
