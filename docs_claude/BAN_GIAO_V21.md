@@ -2,9 +2,12 @@
 
 Đọc tệp này TRƯỚC, sau đó `CLAUDE.md` (mục nhật ký cuối: V2.1 Đợt 1 → Đợt 3b + SFX).
 
-## 1. Trạng thái (23/11 21:40)
-- Chủ dự án **"Duyệt xuất bản" lúc 21:31**. Đã push: nguồn `nguon-v212` = `9ddb70f` (gộp L13 → V2.1, không xóa tệp) và bản phát hành `build-apk-v198` = `ecbe8e1` (`www/` tách từ bản thử `l21j` đã qua t156 14/14 + t209 20/20, `VERSION` = `V2.1`).
-- **APK CHƯA CÓ**: workflow `Build APK` lần 40–41 (mới nhất https://github.com/Lemon1609/Phi-doi-sao-bang/actions/runs/45196720570, commit a986f14 = V2.1 + giữ artifact 1 ngày; 35 artifact cũ ~2,08 GB đã xóa 23/11 21:40) không khởi động — GitHub báo "recent account payments have failed or your spending limit needs to be increased" (Billing & plans). Chờ chủ dự án sửa thanh toán / giới hạn chi tiêu, rồi chạy lại: `gh api -X POST repos/Lemon1609/Phi-doi-sao-bang/actions/runs/45196720570/rerun` → theo dõi → lấy link + dung lượng APK (mục 5 bước 4). KHÔNG đổi repo sang public để né phí (khóa ký nằm trong repo).
+## 1. Trạng thái (23/11 21:55) — V2.1 ĐÃ XUẤT BẢN
+- Chủ dự án "Duyệt xuất bản" 21:31. **APK `PhiDoiSaoBang-V2.1.41.apk` = 72.739.835 byte (72,7 MB)**, Release https://github.com/Lemon1609/Phi-doi-sao-bang/releases/tag/V2.1.41 (tải: …/releases/download/V2.1.41/PhiDoiSaoBang-V2.1.41.apk), sha256 `b7b3cb4184aada4efb5f599e8bdfa4a0a30c61484fa8e4fe2d2009950b8e3e9d`, versionName V2.1.41, versionCode 41.
+- Chữ ký: Owner `CN=Phi Doi Sao Bang, O=Lemon1609, C=VN`, SHA256 `B1:34:1B:9F:…:DC:0E` — **trùng V306.39** → cài đè giữ dữ liệu. `assets/public` trong APK trùng từng tệp với `www/` đã kiểm (59 tệp + index, 86,8 MB).
+- Nhánh: `build-apk-v198` = `a986f14` (www V2.1 + `apk.yml` giữ artifact 1 ngày), `nguon-v212` = nguồn đầy đủ (gộp L13 → V2.1, không xóa tệp).
+- Sự cố đã qua: run 40/41 lần 1 không khởi động vì lỗi thanh toán GitHub; chủ dự án sửa → rerun 41 (lần 2) xong 3 phút. Đã xóa 35 artifact cũ (~2,08 GB, APK vẫn ở Releases). Releases 33 bản (~2 GB, không tính phí Actions); repo git ~1,37 GB.
+- Bước kế: chủ dự án cài thử máy thật (FPS, âm thanh, cảm ứng). Mọi lần xuất bản sau chỉ làm khi có câu "duyệt xuất bản".
 
 ## 2. Mã nguồn ở đâu
 - GitHub `Lemon1609/Phi-doi-sao-bang` (PRIVATE), nhánh **`nguon-v212`** (`9ddb70f`) = nguồn đầy đủ mới nhất. Gói `nguon_V21_day_du.zip` chỉ là bản sao dự phòng (thiếu ảnh cũ).
@@ -30,13 +33,12 @@
 - LED: chi phí ≈0,5 ms/khung (CPU); FPS headless không GPU ~11 ở mọi cấu hình → **chưa có số ≥60 FPS trên máy thật**.
 - Vùng dư robot: 1,5 × đơn vị/giây (đo 15–16/s với đơn vị 10), vệt lửa #6 4,00/nhịp 0,2 s.
 
-## 5. XUẤT BẢN APK (việc kế tiếp, CHỈ khi chủ dự án xác nhận lại "duyệt xuất bản")
-Quy trình phát hành thật nằm ở nhánh **`build-apk-v198`** (KHÔNG phải main — main chỉ có README):
-1. Dựng HTML đầy đủ từ `nguon-v212` ĐÃ gộp zip nguồn (mục 2): `BAN_THU=1 python3 build74_mau.py` (cần mọi ảnh trong repo; phải checkout đủ — clone đang là partial `--filter=blob:none`, chỉ mục làm việc cũ bị hỏng: index toàn "D", chỉ có `src/` → nên clone mới vào thư mục khác). **Chưa từng dựng V2.1 bằng build74 đầy đủ** — các bản thử đều vá từ `l17e.html`. Phải chạy t156 + t209 trên bản dựng mới; nếu lệch thì dùng `l21j.html` (đã kiểm) làm bản phát hành.
-2. `python3 claude_tools/split.py <thư mục www> <html>` → tách khối > 100 KB thành `www/a/*.js|css` (khối > 14 MB tách nhiều tệp).
-3. Trên nhánh `build-apk-v198`: thay `www/` bằng kết quả, sửa `VERSION` (đang `V306`; đề xuất `V2.1` hoặc `V310` — hỏi chủ dự án), commit + push → workflow `.github/workflows/apk.yml` tự build, ký bằng `signing/debug.keystore` (KHÔNG đổi phần ký), kiểm chữ ký có "Lemon1609", tạo Release `<VERSION>.<số lần chạy>`.
-4. Theo dõi: `gh api repos/Lemon1609/phi-doi-sao-bang/actions/runs --jq '.workflow_runs[0]|.status,.conclusion,.html_url'`; lấy link + dung lượng: `gh api repos/Lemon1609/phi-doi-sao-bang/releases --jq '.[0]|.html_url,(.assets[0]|.name,.size,.browser_download_url)'`. Release gần nhất: V306.39 (APK 74,3 MB).
-5. Gửi chủ dự án: HTML offline + APK (đã kiểm chữ ký) + ảnh chụp + báo cáo ngắn (CLAUDE.md).
+## 5. Quy trình xuất bản APK (đã chạy được cho V2.1)
+1. HTML phát hành: hiện dùng bản thử đã kiểm (`l21j`). Lần sau nên dựng đầy đủ từ `nguon-v212`: `BAN_THU=1 python3 build74_mau.py` → chạy LẦN LƯỢT t156 + t209 (cả bản chèn `window.EVO21=false`).
+2. Tách: `KIT=<thư mục có src/ui19/{loading_background,loading_logo,loading_track,loading_fill,app_icon}.png> python3 claude_tools/split.py <www_ra> <html>` (split.py đã sửa cho đầu trang opt15). Mở thử `www/index.html` bằng Playwright: vào `mode==='menu'`, 0 lỗi.
+3. Clone nhánh `build-apk-v198` (`git clone --depth 1 --single-branch --branch build-apk-v198 …`), thay `www/`, sửa `VERSION`, commit, push → workflow `apk.yml` tự build ~3 phút, ký `signing/debug.keystore` (KHÔNG đổi), kiểm "Lemon1609", tạo Release `<VERSION>.<run>`.
+4. Theo dõi: `gh api "repos/Lemon1609/Phi-doi-sao-bang/actions/runs?branch=build-apk-v198&per_page=1"`; nếu job không khởi động, xem annotations của check-run (lỗi thanh toán). Lấy link + dung lượng: `gh api repos/Lemon1609/Phi-doi-sao-bang/releases --jq '.[0]|.html_url,(.assets[0]|.name,.size)'`. Tự kiểm chữ ký: tải asset (`gh api -H "Accept: application/octet-stream" repos/…/releases/assets/<id>`) rồi `keytool -printcert -jarfile` so SHA256 với bản trước.
+5. Gửi chủ dự án: link + dung lượng APK, kết quả kiểm chữ ký, HTML offline, ảnh, báo cáo ngắn.
 
 ## 6. Còn mở / chưa làm
 - Chưa đo FPS / âm thanh trên điện thoại thật (chủ dự án tự thử).
