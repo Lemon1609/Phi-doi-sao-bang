@@ -10,7 +10,7 @@
   const mix=(c,w)=>c.map(v=>Math.round(v+(255-v)*w));
   function gradeOf(item){try{return Math.max(0,Workshop.index(item.grade)|0);}catch{}return Math.max(0,(item&&item.spec&&item.spec.rank)|0);}
   function blade(g,len,wid,bend){g.beginPath();g.moveTo(0,0);g.quadraticCurveTo(wid*1.1,-len*.45,bend*len,-len);g.quadraticCurveTo(wid*.15,-len*.5,-wid*.25,-len*.08);g.closePath();}
-  function under(g,item,pod,size){
+  function under(g,item,pod,size){if(window.__L42)return;/* V2.1.42: quầng đa giác cũ dưới tàu con */
     if(window.EQGLOW264===false||!item||!pod)return;
     let st=0;try{st=superTime;}catch{}
     const now=performance.now()/1000,key=(item.id||item.variant||'x')+':'+(()=>{try{return pod.x<player.x?'L':'R';}catch{return pod.x<240?'L':'R';}})();

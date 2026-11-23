@@ -1208,6 +1208,16 @@ if os.path.isdir(_e21d) and os.environ.get('E21NEN','1')!='0':
 _e21={os.path.splitext(f)[0]:'data:image/webp;base64,'+base64.b64encode(open(_e21d+'/'+f,'rb').read()).decode() for f in sorted(os.listdir(_e21d)) if f.endswith('.webp')} if os.path.isdir(_e21d) else {}
 _e21h=json.load(open(_e21d+'/_h0.json')) if os.path.exists(_e21d+'/_h0.json') else {}
 rep("</body>","<script id=\"evo21-img-js\">window.EVO21_IMG="+json.dumps(_e21)+";window.EVO21_H="+json.dumps(_e21h)+";</script><script id=\"evo21-js\">"+open('src/evo21.js',encoding='utf-8').read()+"</script><script id=\"evo21-led-js\">"+open('src/evo21_led.js',encoding='utf-8').read()+"</script><script id=\"evo21-sfx-js\">"+open('src/evo21_sfx.js',encoding='utf-8').read()+"</script></body>")  # V2.1 EVO21_LED (tắt window.EVO21LED=false)
+# V2.1.42 · vùng an toàn Android: mọi env(safe-area-inset-top) → var(--sat42) (= max(env, --satn do MainActivity báo), định nghĩa trong v2142.js). Bỏ qua: SAFE42=0
+import re as _re42
+if os.environ.get('SAFE42','1')!='0':
+  _n42=len(_re42.findall(r'env\(\s*safe-area-inset-top\s*(?:,\s*0(?:px)?\s*)?\)',h));h=_re42.sub(r'env\(\s*safe-area-inset-top\s*(?:,\s*0(?:px)?\s*)?\)','var(--sat42,0px)',h);print('SAFE42',_n42)
+exec(open('claude_tools/v2142_rep.py',encoding='utf-8').read())
+for _a,_b in PAIRS:rep(_a,_b)
+# V2.1.42 · Final Polish (src/v2142.js, tắt window.V2142=false): dòng năng lượng viền cánh, FX −15 % khi dày, vệt sao tốc độ, tia lửa trúng, chớp nòng, rung nhẹ, tự hút [P]/[+], Kho không nháy, vùng an toàn
+rep("</body>","<style id=\"v2142ui-css\">"+open('src/v2142ui.css',encoding='utf-8').read().replace('@V ','html.v2142.ui42 body'+':not(#_v42)'*72+' ')+"</style></body>")
+h=h.replace('<head>','<head><script id="v2142pre-js">'+open('src/v2142pre.js',encoding='utf-8').read()+'</script>',1)
+rep("</body>","<script id=\"v2142-js\">"+open('src/v2142.js',encoding='utf-8').read()+"</script></body>")
 open('Phi_Doi_Sao_Bang_V74_mau.html','w',encoding='utf-8').write(h)
 # V309 Lượt 15 · giảm dung lượng sau khi dựng: PNG→WebP q90 + gộp ảnh trùng (claude_tools/opt15_assets.py). Bỏ qua: OPT15_ANH=0
 if os.environ.get('OPT15_ANH','1')!='0':

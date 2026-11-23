@@ -5,6 +5,7 @@
 (()=>{
  const ON=()=>window.EVO21!==false&&window.EVO21LED!==false;
  const NOW=()=>performance.now()/1000;
+ const FK=()=>{try{return window.FXK42?FXK42():1;}catch{return 1;}};/* V2.1.42: giảm 15 % khi FX dày (đạn địch luôn nổi) */
  // ---------- sprite dựng sẵn theo màu (bộ đệm) ----------
  const C={};
  const rgb=h=>{h=String(h||'#7dd3fc').replace('#','');if(h.length===3)h=h.split('').map(x=>x+x).join('');const n=parseInt(h.slice(0,6),16)||0x7dd3fc;return [n>>16&255,n>>8&255,n&255];};
@@ -14,10 +15,10 @@
    /* 4 tia chữ thập mảnh cho LED sắc */g.globalCompositeOperation='lighter';const l=g.createLinearGradient(0,0,64,0);l.addColorStop(0,rgba(col,0));l.addColorStop(.5,'rgba(255,255,255,.7)');l.addColorStop(1,rgba(col,0));g.fillStyle=l;g.fillRect(0,31,64,2);const v=g.createLinearGradient(0,0,0,64);v.addColorStop(0,rgba(col,0));v.addColorStop(.5,'rgba(255,255,255,.55)');v.addColorStop(1,rgba(col,0));g.fillStyle=v;g.fillRect(31,8,2,48);}));}
  function streak(col){const k='s'+col;return C[k]||(C[k]=mk(128,16,(g,w,h)=>{g.save();g.translate(64,8);g.scale(1,.125);const r=g.createRadialGradient(0,0,0,0,0,64);r.addColorStop(0,'rgba(255,255,255,1)');r.addColorStop(.25,rgba(col,.85));r.addColorStop(.6,rgba(col,.25));r.addColorStop(1,rgba(col,0));g.fillStyle=r;g.fillRect(-64,-64,128,128);g.restore();}));}
  function ring(col){const k='r'+col;return C[k]||(C[k]=mk(96,96,(g)=>{const r=g.createRadialGradient(48,48,0,48,48,48);r.addColorStop(0,rgba(col,0));r.addColorStop(.66,rgba(col,0));r.addColorStop(.78,rgba(col,.55));r.addColorStop(.83,'rgba(255,255,255,.8)');r.addColorStop(.88,rgba(col,.5));r.addColorStop(1,rgba(col,0));g.fillStyle=r;g.fillRect(0,0,96,96);}));}
- function dot(g,x,y,r,col,a){if(a<=.01||r<=.5)return;g.globalAlpha=Math.min(1,a);g.drawImage(flare(col),x-r,y-r,r*2,r*2);}
- function vein(g,x1,y1,x2,y2,w,col,a,run){if(a<=.01)return;const L=Math.hypot(x2-x1,y2-y1);if(L<2)return;g.save();g.translate(x1,y1);g.rotate(Math.atan2(y2-y1,x2-x1));g.globalAlpha=Math.min(1,a);g.drawImage(streak(col),0,-w/2,L,w);
+ function dot(g,x,y,r,col,a){a*=FK();if(a<=.01||r<=.5)return;g.globalAlpha=Math.min(1,a);g.drawImage(flare(col),x-r,y-r,r*2,r*2);}
+ function vein(g,x1,y1,x2,y2,w,col,a,run){a*=FK();if(a<=.01)return;const L=Math.hypot(x2-x1,y2-y1);if(L<2)return;g.save();g.translate(x1,y1);g.rotate(Math.atan2(y2-y1,x2-x1));g.globalAlpha=Math.min(1,a);g.drawImage(streak(col),0,-w/2,L,w);
    if(run!=null){/* xung neon chạy dọc mạch (Bạo Tẩu) */const u=run-Math.floor(run);g.globalAlpha=Math.min(1,a*1.4);g.drawImage(flare(col),L*u-w*1.4,-w*1.4,w*2.8,w*2.8);}g.restore();}
- function ringAt(g,x,y,r,col,a){if(a<=.01)return;g.globalAlpha=Math.min(1,a);g.drawImage(ring(col),x-r,y-r,r*2,r*2);}
+ function ringAt(g,x,y,r,col,a){a*=FK();if(a<=.01)return;g.globalAlpha=Math.min(1,a);g.drawImage(ring(col),x-r,y-r,r*2,r*2);}
  // ---------- nhịp thở theo bậc ----------
  const TB={thuong:[.25,.45,1.6],luc:[.30,.55,1.8],lam:[.38,.65,2.0],tim:[.45,.80,2.4],tim5:[.48,.80,2.4],ss:[.50,.82,2.4],sss:[.50,.85,2.4]};
  const ACC={thuong:'#e2e8f0',luc:'#4ade80',lam:'#38bdf8',ss:'#fde047',sss:'#fde047'};
@@ -29,7 +30,23 @@
  const supNow=()=>{try{return superTime>0;}catch{return false;}};
  // ---------- chiến cơ: lõi + 2 mạch cánh + 2 đèn chóp cánh (theo SHIP309BB) ----------
  const CNT={ship:0,ct:0,pod:0,mis:0,miss:0};
- function shipLED(g,id,tier,F,t,sp,boost,cx,cy){const bb=window.SHIP309BB&&SHIP309BB[id]&&(SHIP309BB[id][tier]||SHIP309BB[id].tim);if(!bb){CNT.miss++;return false;}CNT.ship++;
+ const formed=id=>{try{return !!(window.TH17API&&TH17API.formed(id));}catch{return false;}};
+ // ---------- V2.1.42: chiến cơ THẦN HÓA #11–#13 dùng chung mạch LED (neo dò từ tranh thần hóa, tạo 1 lần/ảnh) ----------
+ const ABB=new WeakMap();
+ function awakeBB(im){let b=ABB.get(im);if(b)return b;const iw=im.naturalWidth||im.width,ih=im.naturalHeight||im.height;if(!iw||!ih)return null;const N=96,sc=N/Math.max(iw,ih),w=Math.max(1,Math.round(iw*sc)),h=Math.max(1,Math.round(ih*sc));
+   let d;try{const c=mk(w,h,g=>g.drawImage(im,0,0,w,h));d=c.getContext('2d').getImageData(0,0,w,h).data;}catch{return null;}
+   let best=-1,by=0,lx=0,rx=0,top=h,bot=0;for(let y=0;y<h;y++){let l=-1,r=-1;for(let x=0;x<w;x++){if(d[(y*w+x)*4+3]>80){if(l<0)l=x;r=x;}}if(l<0)continue;if(y<top)top=y;bot=y;if(r-l>best){best=r-l;by=y;lx=l;rx=r;}}
+   if(best<0)return null;const M=Math.max(w,h),cx=w/2,cy=h/2;b={lx:(lx-cx)/M,rx:(rx-cx)/M,wy:(by-cy)/M,ny:(top-cy)/M,ty:(bot-cy)/M};ABB.set(im,b);return b;}
+ // D = cỡ vẽ cạnh dài, gốc toạ độ = tâm thân (đã xoay)
+ function awake(g,i,im,D,t,sp,boost){if(!ON()||!im)return false;const b=awakeBB(im);if(!b)return false;CNT.awake=(CNT.awake||0)+1;const tier=tierOf(i),col=(window.TH17API&&TH17API.CORE&&TH17API.CORE[i]&&TH17API.CORE[i][0])||'#7dd3fc',acc=(window.TH17API&&TH17API.CORE[i]&&TH17API.CORE[i][1])||col;
+   const P=TB[tier]||TB.tim,sz=D*.05,gx=0,gy=-D*.004,lx=b.lx*D*.94,rx=b.rx*D*.94,wy=b.wy*D,a=pulse(tier,t,0,sp,boost),a2=pulse(tier,t,1.1,sp,boost),run=sp?t*3.2:null;
+   g.save();g.globalCompositeOperation='lighter';
+   vein(g,gx+(lx-gx)*.2,gy+(wy-gy)*.2,gx+(lx-gx)*.85,gy+(wy-gy)*.85,sz*1.7,col,a2,run);vein(g,gx+(rx-gx)*.2,gy+(wy-gy)*.2,gx+(rx-gx)*.85,gy+(wy-gy)*.85,sz*1.7,col,a2,run==null?null:run+.5);
+   vein(g,0,gy-sz,0,b.ny*D*.8,sz*1.4,acc,a2*.8,run==null?null:run+.25);
+   dot(g,gx,gy,sz*(3.0+.8*a),col,a);dot(g,gx,gy,sz*.9,'#ffffff',a*.6);
+   const blink=.55+.45*Math.max(0,Math.sin(t*6.2832*P[2]*.5+(sp?t*20:0)));dot(g,lx,wy,sz*2,acc,a*blink);dot(g,rx,wy,sz*2,acc,a*blink);dot(g,0,b.ny*D*.85,sz*1.5,acc,a2);
+   if(sp)ringAt(g,gx,gy,sz*(3.8+1.3*Math.sin(t*14)),col,.35+.25*a);g.restore();return true;}
+ function shipLED(g,id,tier,F,t,sp,boost,cx,cy){if(formed(id))return false;/* V2.1.42: #11–#13 thần hóa do TH17 gọi EvoLED.awake (đúng neo tranh mới) */const bb=window.SHIP309BB&&SHIP309BB[id]&&(SHIP309BB[id][tier]||SHIP309BB[id].tim);if(!bb){CNT.miss++;return false;}CNT.ship++;
    const col=(window.SHIP309COL&&SHIP309COL[id])||'#7dd3fc',acc=ACC[tier]||col,k=F,ox=cx||0,oy=cy||0;
    const gx=ox+bb[7]*k,gy=oy+bb[8]*k,lx=ox+bb[0]*k*.9,rx=ox+bb[2]*k*.9,wy=oy+bb[6]*k,P=TB[tier]||TB.tim,sz=k*(.055+.012*(tier==='tim'||tier==='tim5'||tier==='ss'?1:0));
    const a=pulse(tier,t,0,sp,boost),a2=pulse(tier,t,1.1,sp,boost),run=sp?t*3.2:null;
@@ -84,7 +101,7 @@
  // ---------- Xưởng SSS: khung xem trước có nhịp LED ----------
  const PV=new Set();
  function preview(cv,opt){if(!cv||!opt||!opt.src)return;cv.__o=opt;const im=new Image();im.src=opt.src;cv.__im=im;if(PV.has(cv))return;PV.add(cv);
-   const loop=()=>{if(!cv.isConnected){PV.delete(cv);return;}requestAnimationFrame(loop);const W=cv.clientWidth||cv.width,H=cv.clientHeight||cv.height;if(!W||!H)return;const d=Math.min(2,window.devicePixelRatio||1);if(cv.width!==Math.round(W*d)){cv.width=Math.round(W*d);cv.height=Math.round(H*d);}
+   const loop=()=>{if(!cv.isConnected){PV.delete(cv);return;}requestAnimationFrame(loop);if(window.V2142!==false){const n42=performance.now();if(n42-(cv.__l42||0)<31)return;cv.__l42=n42;}const W=cv.clientWidth||cv.width,H=cv.clientHeight||cv.height;if(!W||!H)return;const d=Math.min(window.V2142!==false?1.5:2,window.devicePixelRatio||1);if(cv.width!==Math.round(W*d)){cv.width=Math.round(W*d);cv.height=Math.round(H*d);}
      const g=cv.getContext('2d'),o=cv.__o,im=cv.__im,t=NOW();g.setTransform(d,0,0,d,0,0);g.clearRect(0,0,W,H);
      const rg=g.createRadialGradient(W/2,H*.55,0,W/2,H*.55,W*.6);rg.addColorStop(0,'rgba(30,64,175,.35)');rg.addColorStop(1,'rgba(2,6,23,0)');g.fillStyle=rg;g.fillRect(0,0,W,H);
      g.save();g.globalCompositeOperation='lighter';ringAt(g,W/2,H*.82,W*.30,o.c1||'#38bdf8',.35+.15*Math.sin(t*2.4));g.restore();
@@ -99,5 +116,5 @@
  setInterval(scan,350);
  // ---------- móc ----------
  const HK={};const iv=setInterval(()=>{const a=hookShip(),b=hookCT();if(a&&b)clearInterval(iv);},400);setTimeout(()=>clearInterval(iv),60000);
- window.EvoLED={pod,mis,stageShip,stageCT,preview,shipLED,ctLED,dot,vein,ringAt,state:()=>({...HK,...CNT,cache:Object.keys(C).length,boost:MV.b})};
+ window.EvoLED={awake,awakeBB,moveBoost,pod,mis,stageShip,stageCT,preview,shipLED,ctLED,dot,vein,ringAt,state:()=>({...HK,...CNT,cache:Object.keys(C).length,boost:MV.b})};
 })();

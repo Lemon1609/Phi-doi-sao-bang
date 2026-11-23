@@ -46,8 +46,17 @@
  function pod(key,sss,sup){if(!ON())return;const el=EL(key);if(!cd('p',120))return;if(!ready())return;const n=tierIdx(key,null,sss),k=sup?1.12:1,t=ac.currentTime+.005;
    try{/* tàu con: phiên bản nhẹ của tiếng phóng theo hệ */if(el==='fire')osc('sine',260*k,120*k,t,.06,.035);else if(el==='ice')partials('triangle',2200*k,t,.08,.02,1+(n>1?1:0),[1,2.76]);else if(el==='zap')noi(t,.04,.025,'bandpass',4800,5);else if(el==='void')osc('sine',300*k,140*k,t,.09,.03);else partials('sine',1200*k,t,.09,.018,1+(n>1?1:0),[1,1.5]);}catch{}}
  function hit(key,big,mis){if(!ON())return;const el=EL(key);if(!cd('h'+el+(big?'B':''),big?120:70))return;if(!ready())return;const k=supNow()?1.08:1;try{P[el].hit(ac.currentTime+.005,k,!!big);}catch{}if(big&&mis)duck(.2,.25);}
- // ---------- hạ nhạc ----------
- function duck(a,d){if(!ON())return;try{if(window.Music96&&Music96.duckFx)Music96.duckFx(a,d);}catch{}}
+ // ---------- V2.1.42: chuông nhặt [P] / [+] riêng + sóng dâng vào Bạo Tẩu ----------
+ function pick(type){if(!ON())return;if(type!=='power'&&type!=='heal'&&type!=='shield'&&type!=='super')return;if(!cd('pk'+type,90))return;if(!ready())return;const t=ac.currentTime+.005;
+   if(type==='power'){/* [P]: hợp âm rải đi lên sáng, kim loại */for(const [i,f] of [[0,784],[1,1046.5],[2,1318.5]])osc('square',f,f,t+i*.045,.09,.022);partials('triangle',1568,t+.13,.22,.035,3,[1,2,3]);}
+   else if(type==='heal'){/* [+]: quãng ba trưởng êm, ngân dài */osc('sine',659.25,659.25,t,.32,.05);osc('sine',830.6,830.6,t+.07,.36,.045);osc('sine',1318.5,1318.5,t+.14,.3,.02);}
+   else if(type==='shield'){partials('triangle',1046.5,t,.25,.035,3,[1,1.5,2]);}
+   else {osc('sawtooth',300,1200,t,.25,.03);partials('sine',1200,t+.2,.35,.04,3,[1,1.5,2]);}}
+ function surge(){if(!ON()||!cd('surge',600))return;if(!ready())return;const t=ac.currentTime+.01;
+   noi(t,.42,.08,'bandpass',300,1.4,4200);/* quét nhiễu dâng 0,4 s */osc('sawtooth',110,440,t,.38,.035);osc('sawtooth',111.5,446,t,.38,.025);
+   osc('sine',55,38,t+.36,.55,.2);/* sub-bass khi bung */partials('sine',880,t+.36,.4,.035,3,[1,1.5,2]);duck(.25,.6);}
+ // ---------- hạ nhạc (V2.1.42: tối đa 25 % khi nổ lớn / Tuyệt kỹ E) ----------
+ function duck(a,d){if(!ON())return;if(window.V2142!==false)a=Math.min(a,.25);try{if(window.Music96&&Music96.duckFx)Music96.duckFx(a,d);}catch{}}
  // ---------- Chiến Thần: biến hình + Tuyệt kỹ E ----------
  function transform(m){if(!ready())return;const t=ac.currentTime+.01;
    osc('square',2300,2300,t,.025,.05);osc('square',1700,1700,t+.07,.025,.05);/* khóa cơ khí 2 nhịp */noi(t+.03,.08,.05,'bandpass',2600,6);
@@ -67,5 +76,5 @@
  document.addEventListener('click',e=>{try{const b=e.target&&e.target.closest&&e.target.closest('button,[data-pick],.e21t span,[data-g],.k307-ic,.c9ship,.hb-slot');if(!b||!ON())return;
    const g=b.getAttribute('data-g');if(g==='fuse')ui('fuse');else if(g==='up'||g==='forge')ui('enh');else if(b.matches('[data-pick],.e21t span'))ui('tier');else if(b.closest('#hub40,.g44,#nc307,#k307,#hdr9'))ui('tick');}catch{}},{capture:true,passive:true});
  window.addEventListener('nc10',e=>{try{ui(e.detail==='adv'?'fuse':'enh');}catch{}});
- window.EvoSFX={fire,pod,hit,duck,transform,ult,ui,unlock,state:()=>({ctx:ac&&ac.state,voices,played,dropped,peak,on:ON(),sfx:sfxOn(),bus:!!bus})};
+ window.EvoSFX={pick,surge,fire,pod,hit,duck,transform,ult,ui,unlock,state:()=>({ctx:ac&&ac.state,voices,played,dropped,peak,on:ON(),sfx:sfxOn(),bus:!!bus})};
 })();

@@ -161,7 +161,7 @@ const Evo53=(()=>{
   if(c>=4){if(!shReady){shCD-=dt;if(shCD<=0)shReady=true;}}else shReady=false;
   if(shFlash>0)shFlash-=dt;}
  try{const od=window.damage;if(typeof od==='function'){damage=function(source){if(source==='bullet'&&shReady&&mode==='play'&&invuln<=0&&!(bulletShieldTime>0)){shReady=false;shCD=15;shFlash=.35;PERK.blocks++;try{VisualFX.impact(player.x,player.y,'#ffffff');}catch{}invuln=Math.max(invuln,.25);return;}const s0=shield;const rv=od.apply(this,arguments);try{if(s0>0&&shield<=0&&(T.armor||{}).t>=4&&armorUsed!==level){armorUsed=level;bullets=bullets.filter(b=>Math.hypot(b.x-player.x,b.y-player.y)>120);ring(player.x,player.y,'#ffffff',120);PERK.armorClears=(PERK.armorClears||0)+1;}}catch{}return rv;};}}catch{}
- function drawShield(){if(!shReady&&shFlash<=0)return;const x=player.x,y=player.y,r=40;ctx.save();ctx.globalCompositeOperation='lighter';
+ function drawShield(){if(!shReady&&shFlash<=0)return;if(window.__L42)return;/* V2.1.42: vòng cầu vồng cũ → khiên tb309 */const x=player.x,y=player.y,r=40;ctx.save();ctx.globalCompositeOperation='lighter';
   if(shReady){ctx.globalAlpha=.55;ctx.lineWidth=2;const n=6;for(let i=0;i<n;i++){const a0=time*1.2+i*TAU/n;ctx.strokeStyle=hue(time,i*60);ctx.beginPath();ctx.arc(x,y,r,a0,a0+TAU/n*.7);ctx.stroke();}}
   if(shFlash>0){ctx.globalAlpha=shFlash/.35;ctx.strokeStyle='#ffffff';ctx.lineWidth=4;ctx.beginPath();ctx.arc(x,y,r+(.35-shFlash)*60,0,TAU);ctx.stroke();}ctx.restore();}
  // Trang bị +5 (MAX): Tên lửa ×1,2 sát thương (≈ +1 tên lửa/loạt) · Tàu con ×1,15 khi Bạo Tẩu · Giáp: vỡ giáp xóa đạn 120 px (1 lần/ải)

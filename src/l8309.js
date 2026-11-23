@@ -176,7 +176,7 @@ const L8309=(()=>{
    const hx=a=>'#'+a.map(v=>(v|0).toString(16).padStart(2,'0')).join('');g.globalCompositeOperation='lighter';g.globalAlpha=.55;g.drawImage(dot(hx(b[1])),x-8,y-len*.6,16,len*1.2);
    const gr=g.createLinearGradient(x,y-len/2,x,y+len/2);gr.addColorStop(0,rgb(b[0]));gr.addColorStop(.35,rgb(b[1]));gr.addColorStop(1,rgb(b[2]).replace('rgb','rgba').replace(')',',0)'));
    g.globalAlpha=.95;g.fillStyle=gr;g.beginPath();g.ellipse(x,y,3.6,len/2,0,0,TAU);g.fill();g.fillStyle='#ffffff';g.globalAlpha=.9;g.beginPath();g.ellipse(x,y-len*.18,1.4,len*.22,0,0,TAU);g.fill();}
- function loop(){if(!el||el.hidden){raf=0;return;}raf=requestAnimationFrame(loop);const c=pv.c,g=c.getContext('2d'),W2=c.width,H2=c.height,t=now()/1000,dt=Math.min(.05,pv.lt?t-pv.lt:.016);pv.lt=t;
+ function loop(){if(!el||el.hidden){raf=0;return;}raf=requestAnimationFrame(loop);if(window.V2142!==false){const n42=performance.now();if(n42-(pv.l42||0)<31)return;pv.l42=n42;}/* V2.1.42: xem trước 30 FPS */const c=pv.c,g=c.getContext('2d'),W2=c.width,H2=c.height,t=now()/1000,dt=Math.min(.05,pv.lt?t-pv.lt:.016);pv.lt=t;
    g.globalCompositeOperation='source-over';g.globalAlpha=1;const bg=g.createLinearGradient(0,0,0,H2);bg.addColorStop(0,'#05081a');bg.addColorStop(1,'#0b1a33');g.fillStyle=bg;g.fillRect(0,0,W2,H2);
    for(const s of pv.st){s.y+=s.v*dt;if(s.y>H2)s.y=0;g.fillStyle=`rgba(200,225,255,${s.a})`;g.fillRect(s.x,s.y,s.s,s.s);}
    const sel=k=>oget((tab===k?pick[k]:null)||S.o[k]);const oS=tab==='av'?wear('ship'):sel('ship'),oP=sel('pod'),oM=sel('mis');const okS=oS.id==='def'||oOwned(oS)||tab==='ship';

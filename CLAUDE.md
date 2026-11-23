@@ -38,6 +38,7 @@ Luật phong cách chi tiết + nhật ký quyết định: `docs_claude/CHUAN_P
 - Chỉ lưu ảnh gốc của bản ĐÃ CHỐT vào `src/ship118_cho/V<số>_*` (lượt bị loại không lưu); ghi quyết định vào `CHUAN_PHONG_CACH_DA_CHOT.md`.
 
 ## Trạng thái (cập nhật 23/11/2026 21:30)
+- **V2.1.42 (24/11)**: Final Polish dựng ĐẦY ĐỦ bằng `build74_mau.py` — chi tiết mục 8 `docs_claude/BAN_GIAO_V21.md` (v2142.js / v2142pre.js / v2142ui.css, MainActivity ở `android_patch/` + bước workflow nhánh build). Bảng `docs_claude/T12_ra_soat_toan_bo.jpg`. Kế tiếp: V2.2 (chờ làm).
 - **ĐỌC TRƯỚC NHẤT: `docs_claude/BAN_GIAO_V21.md`** — **V2.1 ĐÃ XUẤT BẢN 23/11 21:53**: Release `V2.1.41` (APK 72,7 MB, chữ ký trùng V306.39, cài đè giữ dữ liệu). Nhánh `build-apk-v198` = a986f14, nguồn `nguon-v212`. Bước kế: chủ dự án thử máy thật.
 - **ĐỌC TRƯỚC: `docs_claude/BAN_GIAO_V309_CHOT_HA_V1.md`** — V309 xong 12 lượt, chủ dự án "Chốt" Lượt 12 (commit `f8d2060`) = bản V1 thiết kế hoàn chỉnh, CHƯA xuất bản (vẫn V306). Bước kế: chủ dự án cài thử máy thật đo FPS / cảm ứng; chỉ xuất bản khi có câu "duyệt xuất bản". Các mục bên dưới là nhật ký lịch sử theo thời gian.
 - Bản phát hành gần nhất: APK **V2.1.41** (23/11/2026; trước đó V306.39). Phần dưới là nhật ký cũ. Chưa xuất bản gì sau đó; V307 đang làm (chưa "duyệt xuất bản").

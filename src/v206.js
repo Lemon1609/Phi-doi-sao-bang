@@ -57,6 +57,8 @@ const V206=(()=>{
  function cmp(n,o,better,unit,fmt){if(o==null||n==null)return '';const d=n-o;if(Math.abs(d)<(unit==='%'?.005:unit==='s'?.05:.5))return '<i class="eq">= như lần trước</i>';
   const good=better==='up'?d>0:d<0;const v=unit==='%'?Math.abs(d*100).toFixed(1).replace('.',',')+' điểm':unit==='s'?Math.abs(d).toFixed(1).replace('.',',')+' giây':fmt?fmt(Math.abs(d)):String(Math.round(Math.abs(d)));
   return `<i class="${good?'up':'dn'}">${d>0?'▲':'▼'} ${v} — ${good?(unit==='s'?'nhanh hơn':'tốt hơn'):(unit==='s'?'chậm hơn':'kém hơn')}</i>`;}
+ /* V2.1.42: nhãn trang bị gọn — chưa mặc món SSS: "Trang bị"; có SSS: "Trang bị · SSS" (máy thật từng hiện "Trang bị 0 SSS 15%") */
+ function tbN(){let s3=false;try{if(window.V2142!==false&&typeof Gear44!=='undefined')s3=['armor','missiles','sidearm'].some(k=>{try{return String(Gear44.activeId(k)||'').startsWith('sss_');}catch{return false;}});else return 'Trang bị &amp; SSS';}catch{}return s3?'Trang bị · SSS':'Trang bị';}
  function html(x){if(!x)return '';const k=x.mode+':'+x.stage,L=S.last[k]||null,same=L&&L.cfg===x.cfg;const p=v=>x.tot?Math.round(v/x.tot*100):0;
   const tile=(n,v,c)=>`<div class="t206"><span>${n}</span><b>${v}</b>${c||''}</div>`;
   const head=L?`<p class="h206">So với lần trước${same?'':' · đã đổi cấu hình'}</p>`:`<p class="h206">Lần ghi nhận đầu tiên</p>`;
@@ -66,10 +68,10 @@ const V206=(()=>{
    ${tile('Sượt đạn',String(x.gz),L?cmp(x.gz,L.gz,'up'):'')}
    ${tile('Trúng đòn',String(x.hits)+(x.blk?` <small>(khiên đỡ ${x.blk})</small>`:''),L?cmp(x.hits,L.hits,'down'):'')}</div>
    <div class="b206" title="Cơ cấu sát thương"><i style="width:${p(x.src.chinh)}%" class="c1"></i><i style="width:${p(x.src.tb)}%" class="c2"></i><i style="width:${p(x.src.kn)}%" class="c3"></i></div>
-   <p class="l206"><span class="c1">■</span> Đạn chiến cơ ${p(x.src.chinh)}% · <span class="c2">■</span> Trang bị & SSS ${p(x.src.tb)}% · <span class="c3">■</span> Kỹ năng & VKTT ${p(x.src.kn)}%</p>
+   <p class="l206"><span class="c1">■</span> Đạn chiến cơ ${p(x.src.chinh)}% · <span class="c2">■</span> ${tbN()} ${p(x.src.tb)}% · <span class="c3">■</span> Kỹ năng · VKTT ${p(x.src.kn)}%</p>
    ${x.rate!=null?`<p class="l206">Loạt đạn chính trúng đích: <b>${Math.round(x.rate*100)}%</b> <small>(một loạt tính là trúng nếu có ít nhất 1 viên chạm địch)</small></p>`:''}</div>`;}
  function detail(x){if(!x)return '';const r=(n,v)=>`<div><span>${n}</span><b>${nf(v)}</b><em>${x.tot?Math.round(v/x.tot*100):0}%</em></div>`;
-  return `<div class="d206">${r('Đạn chiến cơ',x.src.chinh)}${r('Trang bị & SSS',x.src.tb)}${r('Kỹ năng & VKTT (kể cả bom)',x.src.kn)}<div><span>Tổng · ${Math.round(x.sec)} giây</span><b>${nf(x.tot)}</b><em>100%</em></div></div>`;}
+  return `<div class="d206">${r('Đạn chiến cơ',x.src.chinh)}${r(tbN(),x.src.tb)}${r('Kỹ năng · VKTT (kể cả bom)',x.src.kn)}<div><span>Tổng · ${Math.round(x.sec)} giây</span><b>${nf(x.tot)}</b><em>100%</em></div></div>`;}
  function record(x){if(!x)return;const k=x.mode+':'+x.stage;S.last[k]={bossT:x.bossT,dps:x.dps,gz:x.gz,hits:x.hits,rate:x.rate,cfg:x.cfg};const ks=Object.keys(S.last);if(ks.length>60)delete S.last[ks[0]];save();}
  // Chèn vào thẻ kết quả ResultFX (#rs): 4 ô ngay trên phần "Chi tiết sát thương"; chi tiết thay bằng bảng 4 dòng.
  try{const o=Report392.html;Report392.html=function(){if(!on())return o.apply(this,arguments);const x=snap();LAST=x;return detail(x)||o.apply(this,arguments);};}catch{}

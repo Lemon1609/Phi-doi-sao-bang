@@ -70,7 +70,7 @@ const WING10=(()=>{
  // gọi thay cho ctx.drawImage(atlas, ô…) trong v118.put
  function put(g,img,sx,sy,sw,sh,dx,dy,dw,dh,u,id){if(!on()){g.drawImage(img,sx,sy,sw,sh,dx,dy,dw,dh);return;}const a=angle(u,id*.37);split9(g,img,sx,sy,sw,sh,dx,dy,dw,dh,a,.5);}
  // gọi sau khi vẽ thân (đã ở toạ độ tàu): LED luôn, hồ quang khi Bạo Tẩu
- function fx(g,S,u,id){if(!on())return;const a=angle(u,id*.37),col=colOf(id),bb=bbOf(id);led(g,S,a,col,bb,.5);if(u>.5)tipArc(g,S,a,col,bb,.5,'p'+id);}
+ function fx(g,S,u,id){if(!on()||window.__L42)return;/* V2.1.42: LED 3 chấm + hồ quang chóp cánh cũ → EVO21_LED */const a=angle(u,id*.37),col=colOf(id),bb=bbOf(id);led(g,S,a,col,bb,.5);if(u>.5)tipArc(g,S,a,col,bb,.5,'p'+id);}
  // ---------- Chiến Thần dạng chiến cơ (SSSGame) ----------
  function hookSSS(){try{if(typeof SSSGame==='undefined'||SSSGame.__a10||!SSSGame.draw)return;const od=SSSGame.draw;SSSGame.draw=function(r,bank){if(!on())return od.apply(this,arguments);const g=ctx,raw=g.drawImage,self=this;let hit=null;
    const a=angle((typeof superTime==='number'&&superTime>0)?1:0,1.7);
@@ -95,7 +95,7 @@ const WING10=(()=>{
  function Stage(c,cfg){const K={c,raf:0,b:[],pb:[],m:[],fx:[],sh:0,ps:0,ms:.4,lt:0,src:'',im:null,st:null,cfg,alive:()=>c.isConnected};
    function img(src){if(!src)return null;if(K.src!==src){K.src=src;K.im=new Image();K.im.src=src;}return K.im;}
    const okI=im=>im&&im.complete!==false&&(im.naturalWidth||im.width);
-   function frame(){if(!K.alive()||!(K.cfg.visible?K.cfg.visible():true)){K.raf=0;return;}K.raf=requestAnimationFrame(frame);const W=c.clientWidth,H=c.clientHeight;if(!W||!H)return;const dpr=Math.min(2,window.devicePixelRatio||1);
+   function frame(){if(!K.alive()||!(K.cfg.visible?K.cfg.visible():true)){K.raf=0;return;}K.raf=requestAnimationFrame(frame);if(window.V2142!==false){/* V2.1.42: sân khấu 30 FPS, dừng khi có bảng che, DPR ≤ 1,5 */if(window.__modal42)return;const n42=performance.now();if(n42-(K.l42||0)<31)return;K.l42=n42;}const W=c.clientWidth,H=c.clientHeight;if(!W||!H)return;const dpr=Math.min(window.V2142!==false?1.5:2,window.devicePixelRatio||1);
      if(c.width!==Math.round(W*dpr)||c.height!==Math.round(H*dpr)){c.width=Math.round(W*dpr);c.height=Math.round(H*dpr);}const g=c.getContext('2d');g.setTransform(dpr,0,0,dpr,0,0);g.clearRect(0,0,W,H);
      const t=T(),dt=Math.min(.05,K.lt?t-K.lt:.016);K.lt=t;const o=K.cfg.get()||{};
      if(!K.st)K.st=Array.from({length:46},()=>({x:Math.random(),y:Math.random(),v:.03+Math.random()*.09,a:.25+Math.random()*.6,s:Math.random()<.2?2:1}));

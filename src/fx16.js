@@ -77,7 +77,7 @@ const FX16Run=(()=>{
   let al=Math.abs(s.x-frameCx)>16*(k||1)?H.playerSideBulletAlpha:H.playerMainBulletAlpha;if(frameN>48)al*=H.playerOverlapDecay;else if(frameN>28)al*=.86;return al;}
  function shotA2(s){const H=C.hierarchy;let n=0;try{n=shots.length;}catch{}let al=1;try{al=Math.abs(s.x-player.x)>22*SC()?H.playerSideBulletAlpha:H.playerMainBulletAlpha;}catch{}if(n>60)al*=H.playerOverlapDecay;else if(n>34)al*=.86;if(window.HANGAR_DEMO)al*=.62;return Math.max(.5,al);}
  // ---------- 3) tia lửa + chớp ----------
- const sparks=[];const MAXP=()=>lite()?45:180;
+ const sparks=[];const MAXP=()=>lite()?45:(window.V2142!==false?140:180)/* V2.1.42: trần 140 hạt */;
  function addSpark(x,y,col,n,spd=1,life){const F=C.feedback.hitSpark,k=SC();for(let i=0;i<n;i++){if(sparks.length>=MAXP())sparks.shift();const a=-Math.PI/2+(Math.random()-.5)*TAU*(55/180)+(Math.random()<.5?0:Math.PI),v=(F.speedMin+Math.random()*(F.speedMax-F.speedMin))*k*spd;sparks.push({x,y,vx:Math.cos(a)*v,vy:Math.sin(a)*v,t:0,life:(life||F.lifeMs)/1000,c:col});}}
  function onHit(e,amount,s){if(!e||calm())return;const t=now(),F=C.feedback;
   if(!e.fx16c||t>e.fx16c){e.fx16c=t+F.hitSpark.spawnCooldownPerEnemyMs;const col=(s&&(s.color||s.col))||'#ffc86a';{const cc=typeof col==='string'&&col[0]==='#'?col.slice(0,7):'#ffc86a';if(Math.random()<.45)addSpr(sparkKind(cc),e.x+(Math.random()-.5)*16,e.y+6+(Math.random()-.5)*10,(22+Math.random()*12)*SC(),150);}addSpark(e.x+(Math.random()-.5)*14,e.y+8,typeof col==='string'?col.slice(0,7):'#ffc86a',F.hitSpark.countMin+Math.floor(Math.random()*(F.hitSpark.countMax-F.hitSpark.countMin+1)));}

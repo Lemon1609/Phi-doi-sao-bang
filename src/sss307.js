@@ -8,7 +8,7 @@
  const IM={};const img=k=>{if(!k||!window.DAN307_IMG||!DAN307_IMG[k])return null;if(!IM[k]){IM[k]=new Image();IM[k].src=DAN307_IMG[k];}return IM[k];};
  const RING='<svg viewBox="0 0 200 200" aria-hidden="true"><g fill="none"><circle cx="100" cy="100" r="92" stroke="#FFD600" stroke-width="1.6"/><circle cx="100" cy="100" r="84" stroke="#FFD600" stroke-width="5" stroke-dasharray="1.2 5.4"/><circle cx="100" cy="100" r="66" stroke="#18C8FF" stroke-width="1.4"/><circle cx="100" cy="100" r="58" stroke="#18C8FF" stroke-width="4" stroke-dasharray="8 6"/></g></svg>';
  let cv=null,ctx=null,bul=[],last=0,raf=0,ids=[1,4],fx=0;
- function loop(t){raf=requestAnimationFrame(loop);const hero=document.querySelector('.ht197 .ht-hero');if(!hero||!cv||!cv.isConnected||!hero.offsetParent){cancelAnimationFrame(raf);raf=0;return;}
+ function loop(t){raf=requestAnimationFrame(loop);if(window.V2142!==false){if(window.__modal42&&!document.querySelector('.ht197 .ht-hero'))return;const n42=performance.now();if(n42-(loop.l42||0)<31)return;loop.l42=n42;}/* V2.1.42: 30 FPS */const hero=document.querySelector('.ht197 .ht-hero');if(!hero||!cv||!cv.isConnected||!hero.offsetParent){cancelAnimationFrame(raf);raf=0;return;}
   const W=cv.clientWidth,H=cv.clientHeight;if(cv.width!==W*2){cv.width=W*2;cv.height=H*2;}const dt=Math.min(.05,(t-(last||t))/1000);last=t;ctx.setTransform(2,0,0,2,0,0);ctx.clearRect(0,0,W,H);
   fx+=dt;if(fx>.16){fx=0;ids.forEach((id,j)=>{const side=j?1:-1;for(const dx of [-8,8])bul.push({x:W/2+side*26+dx*.5,y:110+(H-110)*.18,vy:-560,vx:side*12+dx*.6,id,a:0});});}
   ctx.globalCompositeOperation='lighter';

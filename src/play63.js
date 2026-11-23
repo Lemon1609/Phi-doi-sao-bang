@@ -20,7 +20,10 @@ const Play63=(()=>{
  const ST79=Object.assign({hp:[.6,.6,.55,.5,.45,.45,.4,.4],mini:[65,6],major:[95,10],graze:[3,1],elite:.65,od:1,odMaxPass:true},window.STAR79||{});
  const hpNeed=lv=>ST79.hp[Math.min(7,chOf(lv)-1)];
  const hpTxt=lv=>'Còn ≥ '+Math.round(hpNeed(lv)*100)+'% máu';
- window.STAR79TXT=lv=>({hp:hpTxt(lv),o3:obj3(lv).txt});
+ window.STAR79TXT=lv=>{const o={hp:hpTxt(lv),o3:obj3(lv).txt};
+  /* V2.1.42: gợi ý "Để đủ 3★" đánh dấu điều kiện ĐÃ ĐẠT (✓ xanh) / CHƯA ĐẠT (✗ cam) theo kết quả lượt vừa chơi */
+  try{if(window.V2142!==false&&S.on&&S.lv===lv){const r=result();const m=(ok,t)=>ok?`<span style="color:#5ef08a">✓ ${t} (đã đạt)</span>`:`<span style="color:#ffb35c">✗ ${t}</span>`;o.hp=m(r.hp,o.hp);o.o3=m(r.m3,o.o3);}}catch{}
+  return o;};
  function obj3(lv){const ch=chOf(lv);let k=null;try{k=Campaign36.bossKind(lv);}catch{}
   if(k){const lim=k==='major'?ST79.major[0]+ch*ST79.major[1]:ST79.mini[0]+ch*ST79.mini[1];return {id:'boss',lim,txt:'Hạ boss trong '+lim+' giây'};}
   const idx=(lv-Math.floor(lv/5))%4;

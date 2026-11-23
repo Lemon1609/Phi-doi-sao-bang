@@ -16,6 +16,8 @@ const TH17=(()=>{
  // vẽ lớp hiệu ứng trong hệ tọa độ (cx,cy) = tâm thân, D = cỡ vẽ, rot = góc
  function fx(g,i,im,cx,cy,D,rot,t,noEng){const c=CORE[i];if(!c)return;t=t==null?performance.now()/1000:t;g.save();g.translate(cx,cy);if(rot)g.rotate(rot);
   try{if(!noEng&&window.FX18API&&window.FX18!==false){const inf=FX18API.shipInfo(im);FX18API.engine(g,0,0,D,D,inf,(inf&&inf.col)||c[1],t);}}catch{}
+  /* V2.1.42: dùng chung mạch LED EVO21 (lõi + 2 mạch cánh + đèn chóp + mũi, nhịp theo bậc, Bạo Tẩu chớp 9 Hz) */
+  try{if(window.EvoLED&&EvoLED.awake&&window.EVO21!==false&&window.EVO21LED!==false){let sp=false;try{sp=superTime>0&&mode==='play';}catch{}if(EvoLED.awake(g,i,im,D,t,sp,EvoLED.state?(EvoLED.state().boost||1):1)){g.restore();return;}}}catch{}
   const k=.62+.38*Math.sin(t*2.6+i),r=D*(.17+.025*Math.sin(t*2.6+i));g.globalCompositeOperation='lighter';g.globalAlpha=.55+.45*k;g.drawImage(glow(c[0],c[1]),-r,-r-D*.004,r*2,r*2);
   g.globalAlpha=.25*k;g.drawImage(glow(c[0],c[1]),-r*1.9,-r*1.9,r*3.8,r*3.8);g.restore();}
  // trận: bọc craftSprite (sau lớp ship83)

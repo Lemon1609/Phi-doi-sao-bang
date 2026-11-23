@@ -62,7 +62,7 @@ const NC307=(()=>{
   const f=(k,v)=>k==='interval'?v.toFixed(2)+' s':k==='auxDamage'?v.toFixed(2):v.toFixed(1);
   const nm={armor:'Giáp',hp:'Máu',auxDamage:'Sát thương/viên',interval:'Nhịp bắn'};
   return Object.keys(a).slice(0,2).map(k=>[nm[k]||k,f(k,a[k]),f(k,b[k]),k==='interval'?b[k]<a[k]-1e-9:b[k]>a[k]+1e-9]);}
- function stars(it){const n=nOf(it),fr=[0,1,2,2,2,2,3,3,3,3,3,3][n],plus=n<2?0:n<6?n-2:n-6;return '★'.repeat(fr+1)+'<span style="color:#ffd166">'+'✦'.repeat(plus)+'</span>';}
+ function stars(it){if(!(window.V2142===false||window.UI42B===false))return '';/* V2.1.42: bỏ sao, bậc = màu khung + +N */const n=nOf(it),fr=[0,1,2,2,2,2,3,3,3,3,3,3][n],plus=n<2?0:n<6?n-2:n-6;return '★'.repeat(fr+1)+'<span style="color:#ffd166">'+'✦'.repeat(plus)+'</span>';}
  const FORM=['thuong','luc','lam','lam','lam','lam','tim','tim','tim','tim','tim','tim5'];
  function artOf(it){if(it&&it.kind==='craft'){let src='';try{const S=SHIP118[it.idx];let f=FORM[nOf(it)];try{if(S.ss&&window.SS122!==false&&Workshop.craftGrade(it.idx)==='SS')f='ss';}catch{}src=S[f]||S.tim||S.lam||S.thuong;}catch{}return src?`<span class="nc307-ship"><img src="${src}" alt=""></span>`:'';}try{return String(Progress.art(it)).replace(/<b>[\s\S]*?<\/b>/g,'');}catch{return '';}}
  function colorOf(it){if(it&&(it.kind==='craft'||it.copy)){try{return TIER70.fcol[TIER70.frame[nOf(it)]];}catch{return '#d6e0ea';}}try{return V70C(it);}catch{return '#d6e0ea';}}
