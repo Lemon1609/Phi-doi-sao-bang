@@ -4,7 +4,7 @@
 
 ## 1. Trạng thái (23/11 21:40)
 - Chủ dự án **"Duyệt xuất bản" lúc 21:31**. Đã push: nguồn `nguon-v212` = `9ddb70f` (gộp L13 → V2.1, không xóa tệp) và bản phát hành `build-apk-v198` = `ecbe8e1` (`www/` tách từ bản thử `l21j` đã qua t156 14/14 + t209 20/20, `VERSION` = `V2.1`).
-- **APK CHƯA CÓ**: workflow `Build APK` lần 40 (https://github.com/Lemon1609/Phi-doi-sao-bang/actions/runs/45195442013) không khởi động — GitHub báo "recent account payments have failed or your spending limit needs to be increased" (Billing & plans). Chờ chủ dự án sửa thanh toán / giới hạn chi tiêu, rồi chạy lại: `gh api -X POST repos/Lemon1609/Phi-doi-sao-bang/actions/runs/45195442013/rerun` → theo dõi → lấy link + dung lượng APK (mục 5 bước 4). KHÔNG đổi repo sang public để né phí (khóa ký nằm trong repo).
+- **APK CHƯA CÓ**: workflow `Build APK` lần 40–41 (mới nhất https://github.com/Lemon1609/Phi-doi-sao-bang/actions/runs/45196720570, commit a986f14 = V2.1 + giữ artifact 1 ngày; 35 artifact cũ ~2,08 GB đã xóa 23/11 21:40) không khởi động — GitHub báo "recent account payments have failed or your spending limit needs to be increased" (Billing & plans). Chờ chủ dự án sửa thanh toán / giới hạn chi tiêu, rồi chạy lại: `gh api -X POST repos/Lemon1609/Phi-doi-sao-bang/actions/runs/45196720570/rerun` → theo dõi → lấy link + dung lượng APK (mục 5 bước 4). KHÔNG đổi repo sang public để né phí (khóa ký nằm trong repo).
 
 ## 2. Mã nguồn ở đâu
 - GitHub `Lemon1609/Phi-doi-sao-bang` (PRIVATE), nhánh **`nguon-v212`** (`9ddb70f`) = nguồn đầy đủ mới nhất. Gói `nguon_V21_day_du.zip` chỉ là bản sao dự phòng (thiếu ảnh cũ).
