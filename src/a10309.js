@@ -103,7 +103,7 @@ const WING10=(()=>{
      const col=o.col||'#7dd3fc',x=W/2+Math.sin(t*.9)*W*.06,y=H*(o.cy||.66)+Math.sin(t*1.9)*5,S=Math.min(W*(o.sw||.46),H*(o.sh||.5));
      const fx18=window.FX18!==false&&window.FX18API;const im0=img(o.src),sh0=okI(im0)?S*Math.min(1,(im0.naturalHeight||im0.height)/(im0.naturalWidth||im0.width)):S,noseY=y-sh0*.44;
      if(o.ring!==false&&fx18)FX18API.disk(g,W/2,y+S*.43,S*.84,S*.17,t);else if(o.ring!==false){g.save();g.globalAlpha=.55;g.strokeStyle=col;g.lineWidth=1.5;g.beginPath();g.ellipse(W/2,y+S*.42,S*.7,S*.13,0,0,Math.PI*2);g.stroke();g.globalAlpha=.25;g.beginPath();g.ellipse(W/2,y+S*.42,S*.95,S*.18,0,0,Math.PI*2);g.stroke();g.restore();}
-     if(o.fire!==false){K.sh-=dt;if(K.sh<=0){const R=fx18&&o.id!=null&&window.Dan307&&Dan307.hangar?Dan307.hangar.rays(o.id):null;if(R){K.sh=.2;const n=Math.min(R.n,7),tot=Math.min(R.tot,.9),sp=760;for(let k=0;k<n;k++){const a=n>1?-tot/2+tot*k/(n-1):0;K.b.push({x:x+(k-(n-1)/2)*3,y:noseY,vx:Math.sin(a)*sp,vy:-Math.cos(a)*sp,age:0,d:1});}}
+     if(o.fire!==false&&o.shoot!==false){K.sh-=dt;if(K.sh<=0){const R=fx18&&o.id!=null&&window.Dan307&&Dan307.hangar?Dan307.hangar.rays(o.id):null;if(R){K.sh=.2;const n=Math.min(R.n,7),tot=Math.min(R.tot,.9),sp=760;for(let k=0;k<n;k++){const a=n>1?-tot/2+tot*k/(n-1):0;K.b.push({x:x+(k-(n-1)/2)*3,y:noseY,vx:Math.sin(a)*sp,vy:-Math.cos(a)*sp,age:0,d:1});}}
        else if(fx18){K.sh=.11;K.b.push({x:x,y:noseY,vx:0,vy:-900,age:0,lz:1});}else{K.sh=.12;K.b.push({x:x-S*.07,y:y-S*.36},{x:x+S*.07,y:y-S*.36});}}}
      const pim=okI(o.pod)?o.pod:null,mim=okI(o.mis)?o.mis:null;const burst=o.burst?(o.burst()):0;
      if(pim){K.ps-=dt;if(K.ps<=0){K.ps=.3;K.pb.push({x:x-S*.62,y:y-S*.1},{x:x+S*.62,y:y-S*.1});}}

@@ -37,5 +37,14 @@ const HUD22=(()=>{
   const ds=[...card.querySelectorAll(':scope > [data-f88]')];for(let i=1;i<ds.length;i++)ds[i].remove();
   const f=card.querySelector(':scope > [data-f88] .st66-l');if(f&&f.textContent!=='CHẨN ĐOÁN')f.textContent='CHẨN ĐOÁN';}
  if(on())setInterval(()=>{if(playing())return;const m=document.querySelector('.st66');if(m&&!m.hidden)try{dedupe();}catch{}},400);
+ // TỰ ĐỘNG hạ NHẸ (V2.2.1): bộ đo cũ BloomQualityC.sample chỉ chạy trong đường vẽ ánh sáng lan → trên máy thật có thể không được gọi
+ //  (video: ~37 FPS mà vẫn ĐẸP). Nay: chế độ TỰ ĐỘNG + đang ĐẸP + trong trận, FPS từng cửa sổ 250 ms < 48 liên tục 2 s → hạ NHẸ (1 lần/lượt chơi). Tắt: window.AUTO22=false
+ let aLast=0,aEl=0,aFr=0,aSlow=0,aRun=false;const A=window.AUTO22CFG={fps:48,ms:2000};
+ const autoOn=()=>{if(window.AUTO22===false||!on())return false;let pref='auto';try{pref=localStorage.getItem('saobang-gfx-v66')||'auto';}catch{}if(pref!=='auto')return false;
+  let q='high';try{q=VisualFX.counts().quality;}catch{}if(q==='light'||q==='auto-light')return false;try{return mode==='play';}catch{return false;}};
+ function aTick(t){if(!autoOn()){aRun=false;aLast=0;aEl=aFr=aSlow=0;return;}requestAnimationFrame(aTick);if(document.hidden){aLast=0;return;}
+  if(aLast){const d=t-aLast;if(d>0&&d<500){aEl+=d;aFr++;}}aLast=t;if(aEl<250)return;const f=aFr*1000/aEl;aSlow=f<A.fps?aSlow+aEl:0;aEl=aFr=0;
+  if(aSlow>=A.ms){aSlow=0;try{VisualFX.setQuality('auto-light');}catch{}try{toast('MÁY GIẬT · TỰ CHUYỂN HÌNH ẢNH NHẸ');}catch{}window.__auto22=(window.__auto22|0)+1;}}
+ setInterval(()=>{if(!aRun&&autoOn()){aRun=true;requestAnimationFrame(aTick);}},500);
  return {on,paint,dedupe};
 })();

@@ -131,7 +131,10 @@
    if(!opened.length)return;UB=true;try{for(const e of opened)e.classList.add('v42hold');runUI();try{khoNow();}catch{}}finally{for(const e of opened)e.classList.remove('v42hold');try{mo2&&mo2.takeRecords();mo&&mo.takeRecords();}catch{}UB=false;}}
  let mo2=null;try{mo2=new MutationObserver(()=>{try{uiNow();}catch{}});mo2.observe(document.documentElement,{subtree:true,childList:true,attributes:true,attributeFilter:['hidden','style','class']});}catch{}
  // bảng che sân khấu? (điểm giữa màn hình không thuộc sân khấu Sảnh / Kho)
- function modalOpen(){try{const e=document.elementFromPoint(innerWidth/2,innerHeight*.45);if(!e)return false;return !e.closest('#hgr41,#hub40 .stg9,#hub40 .hb-doll,canvas#game,#hdr9,#lb68');}catch{return false;}}
+ // V2.2.1: thêm danh sách hộp tường minh (hộp không phủ điểm giữa màn vẫn tính là đang che) → sân khấu Sảnh / Kho dừng hẳn khi mở bất kỳ hộp nào
+ const MOD22='.m63:not([hidden]),#k307:not([hidden]),#nc307:not([hidden]),#q307:not([hidden]),#c74:not([hidden]),#cmap:not([hidden]),#m40:not([hidden]),#nav74p:not([hidden]),#w74:not([hidden]),#cd9:not([hidden]),#ch10:not([hidden]),#cp9:not([hidden])';
+ const vis22=e=>{const c=getComputedStyle(e);return c.display!=='none'&&c.visibility!=='hidden'&&e.getClientRects().length>0;};
+ function modalOpen(){try{if(window.MOD22!==false){for(const e of document.querySelectorAll(MOD22))if(vis22(e))return true;}const e=document.elementFromPoint(innerWidth/2,innerHeight*.45);if(!e)return false;return !e.closest('#hgr41,#hub40 .stg9,#hub40 .hb-doll,canvas#game,#hdr9,#lb68');}catch{return false;}}
  setInterval(()=>{try{window.__modal42=ON()&&window.UI42!==false&&!play()&&modalOpen();window.__hub42=ON()&&!play()&&shown(document.getElementById('hub40'));}catch{window.__modal42=false;}},150);
  // vòng lặp chính ngoài trận (sân khấu Sảnh chép từ canvas trận): 30 FPS, dừng hẳn khi có bảng / Kho / Bản đồ che
  let mAcc=0,mLast=0;function hookMain(){try{if(typeof runGameFrameC!=='function')return false;if(runGameFrameC.__m42)return true;const o=runGameFrameC;const f=function(){let m='';try{m=mode;}catch{}if(!ON()||window.UI42===false||m==='play'||m==='pause'||m==='win'||m==='lose'||m==='reward')return o.apply(this,arguments);

@@ -3,7 +3,8 @@
 (()=>{
   // V109: giữ nét — ĐẸP chỉ hạ tới 1,5×; NHẸ 1,5× → 1,25×. Chỉ hạ khi dưới 40 FPS liên tục 3 giây.
   const N42=window.V2142!==false;/* V2.1.42: trần DPR 1,75 → 1,5 → 1,35 khi trung bình 30 khung > 17,5 ms */
-  const LVH=N42?[1.75,1.5,1.35]:[2,1.7,1.5],LVL=N42?[1.35,1.25]:[1.5,1.25];const lite=()=>{try{return VisualFX.counts().quality==='light';}catch{return false;}};let LV=lite()?LVL:LVH;let i=0,fr=0,acc=0,lowS=0,hiS=0,hold=0,last=0,changes=0;
+  const D22=window.DPR22!==false;/* V2.2.1: trần DPR trận ĐẸP 1,35 → 1,25 → 1,1 · NHẸ 1,0 (máy thật ~37 FPS ở 1,75). Tắt: window.DPR22=false */
+  const LVH=D22?[1.35,1.25,1.1]:N42?[1.75,1.5,1.35]:[2,1.7,1.5],LVL=D22?[1.0]:N42?[1.35,1.25]:[1.5,1.25];const lite=()=>{try{return VisualFX.counts().quality==='light';}catch{return false;}};let LV=lite()?LVL:LVH;let i=0,fr=0,acc=0,lowS=0,hiS=0,hold=0,last=0,changes=0;
   const apply=()=>{window.RS105=LV[i];try{resize();}catch{}};apply();setInterval(()=>{const L=lite()?LVL:LVH;if(L!==LV){LV=L;i=0;apply();}},1000);
   function tick(t){requestAnimationFrame(tick);const dt=last?(t-last)/1000:0;last=t;let p=false;try{p=mode==='play';}catch{}
     if(!p||window.DRS105===false||document.hidden||!(dt>0&&dt<.5)){fr=0;acc=0;return;}
