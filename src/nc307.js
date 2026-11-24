@@ -45,7 +45,8 @@ const NC307=(()=>{
  const xpOf=id=>S.x[id]|0;
  function invested(it){let s=0;for(let L=1;L<(it.level|0||1);L++)s+=C.need(L);return s+xpOf(it.id);}
  const feedXp=it=>C.feed[Math.min(11,nOf(it))]+Math.floor(C.refund*invested(it));
- const usable=(it,tg)=>it&&tg&&it.copy?(!it.copy.lk&&!tg.copy&&(tg.kind==='craft'?it.copy.k==='craft'&&(it.copy.m|0)===tg.idx:it.copy.k==='gear'&&it.copy.m===tg.variant)):it&&tg&&tg.kind!=='craft'&&it.kind!=='craft'&&it.id!==tg.id&&(it.variant||null)===(tg.variant||null)&&it.kind===tg.kind&&!eqIds().includes(it.id)&&!it.super&&!it.key;
+ const NB22=()=>window.NOBS22!==false;/* V2.2.1: nâng cấp chỉ bằng Đá XP (bỏ bản sao/đồ cùng mẫu làm vật liệu) */
+const usable=(it,tg)=>!NB22()&&it&&tg&&it.copy?(!it.copy.lk&&!tg.copy&&(tg.kind==='craft'?it.copy.k==='craft'&&(it.copy.m|0)===tg.idx:it.copy.k==='gear'&&it.copy.m===tg.variant)):it&&tg&&tg.kind!=='craft'&&it.kind!=='craft'&&it.id!==tg.id&&(it.variant||null)===(tg.variant||null)&&it.kind===tg.kind&&!eqIds().includes(it.id)&&!it.super&&!it.key;
  const D=XPDA307,T4=D.types;
  const zero=()=>({1:0,2:0,3:0,4:0});
  const stXp=()=>T4.reduce((a,t)=>a+(st[t]|0)*D.XP[t],0),stN=()=>T4.reduce((a,t)=>a+(st[t]|0),0);
@@ -89,8 +90,8 @@ const NC307=(()=>{
   <div class="nc307-xp2"><div><span>${window.UX9!==false?'XP cần lên 1 cấp':'XP cần lên cấp'}: <b>${r0.need?fmt(r0.need-r0.x):'—'}</b></span><span>${window.UX9!==false?'XP cần lên đầy cấp':'XP tới trần'}: <b>${fmt(toCap)}</b></span></div>
    <div class="nc307-bar"><i style="width:${r.L>(it.level|0)?0:pct0}%"></i><u style="width:${pct}%"></u><em>XP nhận: ${fmt(g)}</em></div></div>
   ${r.over>C.overWarn?`<p class="nc307-w">Dư ${fmt(r.over)} XP sẽ mất do chạm trần Lv${r.cap}.</p>`:''}
-  <div class="nc307-row2"><span>${it.kind==='craft'?'Vật liệu: bản sao cùng chiến cơ':'Vật liệu: trang bị / bản sao cùng mẫu'}</span><button data-nc="auto" class="nc307-auto">${window.UX9!==false?'Tự động chọn':'Tự chọn'}</button></div>
-  ${it.kind==='craft'&&!cpOn()?'':`<div class="nc307-mats">${Array.from({length:C.slots},(_,k)=>{const m=get(mats[k]);return m?`<button data-nc="un" data-id="${esc(m.id)}" class="f">${card(m,'nc307-mini')}<em>+${fmt(feedXp(m))}</em></button>`:`<button data-nc="slot" class="e">+</button>`;}).join('')}</div>`}
+  <div class="nc307-row2"><span>${NB22()?'Nguyên liệu: Đá XP':it.kind==='craft'?'Vật liệu: bản sao cùng chiến cơ':'Vật liệu: trang bị / bản sao cùng mẫu'}</span><button data-nc="auto" class="nc307-auto">${window.UX9!==false?'Tự động chọn':'Tự chọn'}</button></div>
+  ${NB22()||(it.kind==='craft'&&!cpOn())?'':`<div class="nc307-mats">${Array.from({length:C.slots},(_,k)=>{const m=get(mats[k]);return m?`<button data-nc="un" data-id="${esc(m.id)}" class="f">${card(m,'nc307-mini')}<em>+${fmt(feedXp(m))}</em></button>`:`<button data-nc="slot" class="e">+</button>`;}).join('')}</div>`}
   <div class="nc307-stones">${T4.map(t=>`<div class="nc307-gem" style="--g:${D.COL[t]}" title="${esc(D.NAME[t])} · ${fmt(D.XP[t])} XP">${D.IMG(t)?`<img class="nc307-gi" src="${D.IMG(t)}" alt="">`:'<i></i>'}<small>${fmt(D.have(t))}</small><div class="nc307-gb"><button data-nc="s-" data-id="${t}">−</button><b>${st[t]|0}</b><button data-nc="s+" data-id="${t}">+</button></div></div>`).join('')}</div>
   <div class="nc307-bot"><button data-nc="adv" class="nc307-b2">${window.UX9!==false?'⇄ TIẾN BẬC':'TIẾN KHUNG'}</button><button data-nc="go" class="nc307-go" ${g&&r0.need?'':'disabled'}>NÂNG CẤP</button><button data-nc="x" class="nc307-b3">VỀ</button></div>
   ${msg?`<p class="nc307-m">${esc(msg)}</p>`:''}${flash?`<div class="nc307-ok" key="${Date.now()}">${esc(flash)}</div>`:''}
@@ -146,7 +147,7 @@ const NC307=(()=>{
   const pool=items().concat(copies()).filter(m=>usable(m,it)&&!mats.includes(m.id)&&!needsAsk(m)).sort((a,b)=>feedXp(a)-feedXp(b));
   for(const m of pool){if(mats.length>=C.slots)break;const r=sim(it,gainNow());if(r.L>=r.cap)break;if(sim(it,gainNow()+feedXp(m)).over>C.overWarn&&mats.length)break;mats.push(m.id);}
   st=zero();for(const t of T4){let r=sim(it,gainNow());while(r.L<r.cap&&st[t]<D.have(t)){st[t]++;r=sim(it,gainNow());if(r.over>C.overWarn){st[t]--;break;}}}
-  if(!mats.length&&!stN())msg='Không có vật liệu phù hợp (món đang mặc, Tím trở lên và món từ Lv'+C.warnLv+' không tự chọn).';}
+  if(!mats.length&&!stN())msg=NB22()?'Không đủ Đá XP.':'Không có vật liệu phù hợp (món đang mặc, Tím trở lên và món từ Lv'+C.warnLv+' không tự chọn).';}
  function go(){const it=get(cur);if(!it)return;const g=gainNow();if(!g)return;const r=sim(it,g),old=it.level|0;
   if(stN()&&!D.spend(st)){msg='Không đủ Đá XP';return;}
   for(const id of mats){if(isCp(id)){try{Evo82.take(+id.slice(5));}catch{}}else Progress.v70.remove(id);delete S.x[id];}

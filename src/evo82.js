@@ -64,7 +64,10 @@ const Evo82=(()=>{
  function virt(kind,ref){if(kind!=='gear'||window.TB307V===false)return [];let eq=[];try{eq=Object.values(Progress.v70.equipped()||{});}catch{}let L=[];try{L=Progress.v70.items();}catch{}
   return L.filter(i=>i.id!==ref&&!eq.includes(i.id)&&!i.super&&!i.key&&!i.fusion&&!i.directFusion).map(i=>{let t=0;try{t=V70.nOf(i)|0;}catch{}return {u:'i:'+i.id,vi:i.id,k:'gear',m:i.variant,t,lv:i.level|0||1,lk:0,cr:0,st:0};});}
  const elig=(c,min,ex)=>!c.lk&&c.u!==ex&&c.t>=min.t&&c.lv>=min.lv;
- function plan(kind,ref){const x=tgt(kind,ref);if(!x)return null;if(x.t>=11)return {x,max:true};const st=EVO82.step[x.t],K=x.k==='craft'?0:1,ex=x.copy?x.copy.u:-1;
+ // V2.2.1 (chủ dự án 24/11 "bỏ hẳn bản sao"): bước nào trước đây đòi bản sao cùng mẫu → đòi bộ nguyên liệu cùng màu (mỗi loại ×n). Tắt: window.NOBS22=false
+ const NB22=()=>window.NOBS22!==false,NB22STEP={2:[2,2],3:[2,2],4:[2,4],6:[3,1],7:[3,1],8:[3,2],9:[3,2],10:[3,3]};
+ function stepOf(t){const s0=EVO82.step[t];if(!NB22()||!s0)return s0;const q=NB22STEP[t];return Object.assign({},s0,{same:0,any:0},q?{mat:q[0],mn:q[1]}:{});}
+ function plan(kind,ref){const x=tgt(kind,ref);if(!x)return null;if(x.t>=11)return {x,max:true};const st=stepOf(x.t),K=x.k==='craft'?0:1,ex=x.copy?x.copy.u:-1;
   const same=S.c.concat(virt(x.k,ref)).filter(c=>c.k===x.k&&c.m==x.m&&elig(c,st.min,ex)).sort((a,b)=>a.t-b.t||(!!a.vi)-(!!b.vi)||a.lv-b.lv);
   // V307 (chủ dự án chốt 17/11): tiến khung CHỈ nhận bản sao CÙNG MẪU — phần 'cùng loại' cũ gộp vào số bản sao cùng mẫu. Tắt: window.CUNGMAU307=false
   const CM=window.CUNGMAU307!==false;const pick=[];let needSame=CM?st.same+st.any:st.same,needAny=CM?0:st.any;const useS=same.slice(0,needSame);pick.push(...useS);let miss=needSame-useS.length;
@@ -74,7 +77,7 @@ const Evo82=(()=>{
   // ứng viên chưa đủ cấp (đúng khung) → nâng nhanh
   const low=(arr)=>arr.filter(c=>!c.lk&&c.u!==ex&&c.t>=st.min.t&&c.lv<st.min.lv&&!pick.includes(c)).sort((a,b)=>b.lv-a.lv);
   const lowSame=low(S.c.filter(c=>c.k===x.k&&c.m==x.m)),lowAny=low(S.c.filter(c=>slotOf(c.k,c.m)===x.slot));
-  const mats=st.mat?MAT69.types.map(ty=>({id:ty.id+st.mat,n:1,have:V70.have(ty.id+st.mat)})):[];
+  const mats=st.mat?MAT69.types.map(ty=>({id:ty.id+st.mat,n:st.mn||1,have:V70.have(ty.id+st.mat)})):[];
   const cr=st.cr[K],stone=st.st[K];let rf={cr:0,st:0};for(const c of pick){rf.cr+=Math.floor(c.cr*EVO82.refund.cr);rf.st+=Math.floor(c.st*EVO82.refund.st);}
   const L=[];if(x.lv<st.mainLv)L.push('Cấp món chính '+x.lv+'/'+st.mainLv);if(miss>0)L.push('Thiếu '+miss+' bản sao cùng mẫu');if(missA>0)L.push('Thiếu '+missA+' món cùng loại');
   for(const q of mats)if(q.have<q.n)L.push('Thiếu '+V70.matName(q.id));let bal=0,ex2=0;try{bal=Progress.balance();ex2=Workshop.getState().exp|0;}catch{}if(bal<cr)L.push('Thiếu hợp kim');if(ex2<stone)L.push('Thiếu đá');
@@ -152,6 +155,6 @@ const Evo82=(()=>{
  setTimeout(()=>{try{migrate();installDrops();}catch(e){console.warn('evo82',e);}},900);
  // nút mở kho bản sao ở Kho (cạnh NGUYÊN LIỆU)
  setInterval(()=>{try{if(!on())return;const fx=document.querySelector('#hgr41 .h1-fx');if(fx&&!fx.querySelector('[data-ev82]')){const b=document.createElement('button');b.dataset.ev82='inv';b.className='adv69b';b.textContent='KHO BẢN SAO';b.addEventListener('click',e=>{e.stopPropagation();inv();});fx.appendChild(b);}}catch{}},900);
- return {on,open,inv,plan,doBreak,addCopy,take:u=>{const c=get(u);if(!c||c.lk)return false;removeCopy(u);save();return true;},levelCopy,salvage,fromPh,count,btnTxt,list:()=>S.c.slice(),state:()=>({n:S.c.length,mig:S.mig}),groupOf,_reset:()=>{S={v:1,c:[],seq:0,mig:1};save();}};
+ return {on,open,inv,plan,doBreak,stepOf,NB22STEP,addCopy,take:u=>{const c=get(u);if(!c||c.lk)return false;removeCopy(u);save();return true;},levelCopy,salvage,fromPh,count,btnTxt,list:()=>S.c.slice(),state:()=>({n:S.c.length,mig:S.mig}),groupOf,_reset:()=>{S={v:1,c:[],seq:0,mig:1};save();}};
 })();
 window.Evo82=Evo82;

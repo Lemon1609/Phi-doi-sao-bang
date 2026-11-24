@@ -35,7 +35,7 @@ const L14309=(()=>{
  const owns=(k,m)=>{try{return k==='craft'?Campaign36.ownsCraft(m):Campaign36.ownsModel(m)&&(Progress.getState().items||[]).some(x=>x.variant===m);}catch{return false;}};
  // trao 1 món ở bậc f (0 Trắng · 1 Lục · 2 Lam). Chưa có → mở khóa + đặt bậc · đã có → 1 bản sao bậc f. f bị kẹp ≤ 2 (không Tím).
  function grantItem(kind,model,f,src){f=Math.max(0,Math.min(2,f|0));const ev=!!(window.Evo82&&Evo82.on());const t=ev?(EVO82.phTier[f]|0):f;
-  if(!owns(kind,model)){let ok=null;try{ok=Campaign36.acquire(kind,model,'',src||'l14');}catch{}
+  if(!owns(kind,model)){let ok=null;try{ok=Campaign36.acquire(kind,model,'',window.NOBS22!==false?'equipment':(src||'l14'));/* V2.2.1: nguồn 'l14' bị Campaign36.permitted chặn → món rơi vào bản sao */}catch{}
    if(ok){if(t>0){try{V70.setTier(kind,kind==='craft'?model:ok.item&&ok.item.id,t);}catch{}}return {kind,model,unlock:1,f};}}
   try{if(ev)Evo82.addCopy(kind,model,t,1,true);else V70.phAdd(kind,model,f,1);}catch{}return {kind,model,copy:1,f};}
  function roll(k){const R=RK[k];const vip=Math.random()<R.vip;let kinds=R.kinds;let P=[];for(const kd of kinds)P=P.concat(pool(kd,vip));

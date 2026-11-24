@@ -1222,7 +1222,7 @@ rep("</body>","<script id=\"v2142-js\">"+open('src/v2142.js',encoding='utf-8').r
 exec(open('claude_tools/v22_rep.py',encoding='utf-8').read())
 for _a,_b in PAIRS22:rep(_a,_b)
 exec(open('claude_tools/v22_embed.py',encoding='utf-8').read())
-rep("</body>",ui22_script('.')+plume22_script('.')+"<script id=\"end22-js\">"+open('src/end22.js',encoding='utf-8').read()+"</script><script id=\"v22-js\">"+open('src/v22.js',encoding='utf-8').read()+"</script><script id=\"u22-js\">"+open('src/u22.js',encoding='utf-8').read()+"</script></body>")
+rep("</body>",ui22_script('.')+plume22_script('.')+"<script id=\"nobs22-js\">"+open('src/nobs22.js',encoding='utf-8').read()+"</script><script id=\"end22-js\">"+open('src/end22.js',encoding='utf-8').read()+"</script><script id=\"v22-js\">"+open('src/v22.js',encoding='utf-8').read()+"</script><script id=\"u22-js\">"+open('src/u22.js',encoding='utf-8').read()+"</script></body>")
 open('Phi_Doi_Sao_Bang_V74_mau.html','w',encoding='utf-8').write(h)
 # V309 Lượt 15 · giảm dung lượng sau khi dựng: PNG→WebP q90 + gộp ảnh trùng (claude_tools/opt15_assets.py). Bỏ qua: OPT15_ANH=0
 if os.environ.get('OPT15_ANH','1')!='0':

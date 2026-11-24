@@ -53,7 +53,9 @@ const OC17=(()=>{
  function vlPick(n){const h={};for(const id of VL())h[id]=vlHave(id);const use={};let left=n;
   while(left>0){let best=null;for(const id in h)if(h[id]>0&&(best==null||h[id]>h[best]))best=id;if(!best)break;h[best]--;use[best]=(use[best]|0)+1;left--;}
   return {use,miss:left};}
- function plan(it){const e=elig(it);if(!e.ok)return {e,ok:false};const nx=oc(it)+1,c=COST[nx],cs=cands(it),pick=cs.slice(0,c.cp),v=vlPick(c.vl);let b=0;try{b=Progress.balance();}catch{}
+ // V2.2.1 (bỏ bản sao): mỗi bản sao cùng mẫu trước đây → +2 VL Tím (OC+1..+5 = 5/7/12/16/22 VL Tím). Tắt: window.NOBS22=false
+ function cost22(c){return window.NOBS22!==false?Object.assign({},c,{cp:0,vl:c.vl+2*(c.cp|0)}):c;}
+ function plan(it){const e=elig(it);if(!e.ok)return {e,ok:false};const nx=oc(it)+1,c=cost22(COST[nx]),cs=window.NOBS22!==false?[]:cands(it),pick=cs.slice(0,c.cp),v=vlPick(c.vl);let b=0;try{b=Progress.balance();}catch{}
   const lacks=[];if(b<c.hk)lacks.push('Thiếu '+fmt(c.hk-b)+' hợp kim');if(pick.length<c.cp)lacks.push('Thiếu '+(c.cp-pick.length)+' bản sao cùng mẫu');if(v.miss>0)lacks.push('Thiếu '+v.miss+' VL Tím');
   return {e,nx,c,pick,vl:v.use,have:{hk:b,cp:cs.length,vl:VL().reduce((a,id)=>a+vlHave(id),0)},lacks,ok:!lacks.length};}
  function doOC(it){if(!on())return false;const p=plan(it);if(!p.ok){T((p.lacks&&p.lacks[0]||p.e.why[0]||'Chưa đủ điều kiện').toUpperCase());return false;}
@@ -67,10 +69,10 @@ const OC17=(()=>{
  function xpStones(x){const out={};x=Math.max(0,Math.round(x));for(const [t,v] of [[4,1000],[3,240],[2,60],[1,15]]){const n=Math.floor(x/v);if(n){out[t]=n;x-=n*v;}}if(x>0)out[1]=(out[1]|0)+1;return out;}
  function refundOf(it){const r=rec(keyOf(it));if(!r)return null;const vl={};for(const id in r.sp.vl)vl[id]=Math.floor(r.sp.vl[id]*REF.vl);return {cp:r.sp.cp|0,hk:Math.floor(r.sp.hk*REF.hk),vl,xp:r.sp.xp|0,st:xpStones(r.sp.xp|0)};}
  function restore(it){if(!on())return false;const k=keyOf(it),r=rec(k);if(!r||!(r.oc>0))return false;const f=refundOf(it);const cr=isCraft(it),m=cr?(it.idx|0):it.variant;
-  for(let i=0;i<f.cp;i++){try{Evo82.addCopy(cr?'craft':'gear',m,0,1,true);}catch{}}
+  if(window.NOBS22!==false){const v=vlPick(0);const ids=VL();for(let i=0;i<2*f.cp;i++){try{V70.add(ids[i%ids.length],1);}catch{}}}else for(let i=0;i<f.cp;i++){try{Evo82.addCopy(cr?'craft':'gear',m,0,1,true);}catch{}}
   try{Progress.grantCredits(f.hk);}catch{}for(const id in f.vl)if(f.vl[id]>0){try{V70.add(id,f.vl[id]);}catch{}}
   for(const t in f.st){try{XPDA307.add(+t,f.st[t]);}catch{}}
-  delete S.g[k];save();try{Progress.render();}catch{}T('HOÀN NGUYÊN · +'+f.cp+' BẢN SAO · +'+fmt(f.hk)+' HỢP KIM');return f;}
+  delete S.g[k];save();try{Progress.render();}catch{}T('HOÀN NGUYÊN · '+(window.NOBS22!==false?(f.cp?'+'+2*f.cp+' VL TÍM · ':''):'+'+f.cp+' BẢN SAO · ')+'+'+fmt(f.hk)+' HỢP KIM');return f;}
  // ---------- hiệu ứng trong trận ----------
  const eqItem=kind=>{try{const id=(Progress.v70.equipped()||{})[kind];return id?Progress.v70.get(id):null;}catch{return null;}};
  const launchIdx=()=>{try{return typeof launchCraft!=='undefined'&&launchCraft!=null?launchCraft:selected;}catch{try{return selected;}catch{return 0;}}};
@@ -153,7 +155,7 @@ const OC17=(()=>{
   let body='';
   if(!e.ok&&!e.max){body=`<div class="cond">${(e.cond||[]).map(c=>`<div><span>${esc(c[0])}</span><span class="${c[1]?'y':'n'}">${c[1]?'Đạt':'Chưa'} · ${esc(c[2])}</span></div>`).join('')||`<div><span>${esc(e.why[0]||'')}</span></div>`}</div>`;}
   else if(e.max){body=`<p class="msg">Đã đạt OC+5 — tối đa. Chỉ số chính +15 % · ${esc(SUB[kind].n)} +${pct(SUB[kind].v*2)}.</p>`;}
-  else{const c=p.c,cpH=p.have.cp,vlH=p.have.vl;body=`<div class="cost"><div class="${p.have.hk<c.hk?'no':''}"><small>Hợp kim</small><b>${fmt(c.hk)} ◈</b></div><div class="${cpH<c.cp?'no':''}"><small>Bản sao cùng mẫu</small><b>${Math.min(cpH,99)}/${c.cp}</b></div><div class="${vlH<c.vl?'no':''}"><small>VL Tím</small><b>${Math.min(vlH,999)}/${c.vl}</b></div></div>${p.lacks.length?`<p class="msg">${esc(p.lacks.join(' · '))}</p>`:''}`;}
+  else{const c=p.c,cpH=p.have.cp,vlH=p.have.vl;body=`<div class="cost"><div class="${p.have.hk<c.hk?'no':''}"><small>Hợp kim</small><b>${fmt(c.hk)} ◈</b></div>${c.cp?`<div class="${cpH<c.cp?'no':''}"><small>Bản sao cùng mẫu</small><b>${Math.min(cpH,99)}/${c.cp}</b></div>`:''}<div class="${vlH<c.vl?'no':''}"><small>VL Tím</small><b>${Math.min(vlH,999)}/${c.vl}</b></div></div>${p.lacks.length?`<p class="msg">${esc(p.lacks.join(' · '))}</p>`:''}`;}
   const btn=`<div class="bt"><button type="button" class="alt" data-oc="rs" ${o>0?'':'disabled'}>HOÀN NGUYÊN</button><button type="button" data-oc="go" ${p&&p.ok?'':'disabled'}>${e.max?'TỐI ĐA':'ÉP XUNG +'+nx}</button></div>`;
   const note=`<p class="note">Chi phí nấc +1→+5: 15k/1/3 · 25k/1/5 · 40k/2/8 · 60k/2/12 · 85k/3/16 (hợp kim / bản sao / VL Tím). Phôi tự chọn ưu tiên bản Trắng Lv1. Hoàn nguyên trả 100 % bản sao (Trắng Lv1), 85 % hợp kim và VL Tím, 100 % XP (bằng Đá XP).</p>`;
   return `<div class="oc17">${hd}${tbl}${body}${msg?`<p class="msg">${esc(msg)}</p>`:''}${btn}${note}${ask?askHtml(it,p):''}</div>`;}
