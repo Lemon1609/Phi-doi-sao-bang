@@ -24,10 +24,10 @@ const L9309=(()=>{
    {k:'season',n:'MÙA GIẢI',go:()=>{try{S77.open();}catch{}}}]},
   bst:{n:'BỘ SƯU TẬP',t:[
    {k:'codex',n:'BÁCH KHOA',go:()=>{try{L7309.open();}catch{}}},
-   {k:'skin',n:'TRANG PHỤC',go:()=>{try{L8309.open();}catch{try{Skin69.open();}catch{}}}},
+   {k:'skin',n:'TRANG PHỤC',go:()=>{/* V2.2: dùng màn Trang phục & Khung avatar mới (12–13); tắt bằng window.V22=false */try{if(window.V22!==false&&window.V22UI&&V22UI.frOpen){V22UI.frOpen();return;}}catch{}try{L8309.open();}catch{try{Skin69.open();}catch{}}}},
    {k:'story',n:'CỐT TRUYỆN',go:()=>{try{Story80.journal();}catch{}}}]}};
  const OV='#m40,#nav74p,#w74,.m63';
- function closeOv(){try{Nav74.closeAll();}catch{}document.querySelectorAll(OV).forEach(e=>{if(!e.classList.contains('g74keep'))e.hidden=true;});}
+ function closeOv(){try{Nav74.closeAll();}catch{}try{if(window.V22UI){V22UI.frClose();V22UI.hsClose();}}catch{}document.querySelectorAll(OV).forEach(e=>{if(!e.classList.contains('g74keep'))e.hidden=true;});}
  const anyOv=()=>[...document.querySelectorAll(OV)].some(e=>!e.hidden&&getComputedStyle(e).display!=='none');
  let hub=null,hk=null,hi=0,armed=0;
  function strip(){if(!hub){hub=document.createElement('div');hub.id='hub9';hub.hidden=true;document.body.appendChild(hub);

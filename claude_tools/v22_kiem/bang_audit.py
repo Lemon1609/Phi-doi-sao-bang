@@ -23,7 +23,7 @@ def summ(k):
   if r['im']:p.append(f"{len(r['im'])} ảnh hỏng")
   if r['js']:p.append(f"{len(r['js'])} lỗi JS")
   if r['miss']:p.append('không mở được')
-  return ('⚠ '+' · '.join(p),(255,170,60)) if p else ('✓ đạt 4 tiêu chí',(110,231,160))
+  return ('⚠ '+' · '.join(p),(255,170,60)) if p else ('✓ đạt 4/4 tiêu chí · 0 lỗi',(110,231,160))
 def panel(k):
   if k=='27':
     a=Image.open(A+'/png/27a.png').convert('RGB').resize((PW//2-3,PH//2*1)) if os.path.exists(A+'/png/27a.png') else None
