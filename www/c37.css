@@ -1,0 +1,241 @@
+/* V306 · Giao diện đợt 1: khung chung học bố cục từ video mẫu (thanh tài nguyên một dải, dải icon gọn, tab tiêu đề nhô, đáy cơ khí). Chỉ CSS, không tranh ngoài. */
+html body #hgr41#hgr41#hgr41 .h1-res{gap:0!important;padding:0 4px!important;border-radius:6px!important;border:1px solid #5a7898!important;background:linear-gradient(#1a2a40,#0a1424 60%,#101c30)!important;box-shadow:inset 0 1px 0 #ffffff40,inset 0 -2px 0 #00000080,0 2px 6px #000a!important;height:30px!important;align-items:center!important}
+html body #hgr41#hgr41#hgr41 .h1-res .h1-chip{background:none!important;border:0!important;border-image:none!important;border-radius:0!important;box-shadow:none!important;height:26px!important;min-height:0!important;position:relative}
+html body #hgr41#hgr41#hgr41 .h1-res .h1-chip+.h1-chip::before{content:"";position:absolute;left:0;top:5px;bottom:5px;width:1px;background:linear-gradient(transparent,#6aa4d8aa,transparent)}
+html body #hgr41#hgr41#hgr41 .h1-res .h1-chip b{color:#ffe9a0!important;font-size:12px!important;text-shadow:0 1px 0 #000}
+html body #hgr41#hgr41#hgr41 .h1-ribbon{gap:5px!important;height:46px!important;min-height:0!important}
+html body #hgr41#hgr41#hgr41 .h1-ribbon .h1-ic{height:46px!important;min-height:0!important;padding:2px 0!important;border-radius:6px!important;border:1px solid #9fdcff!important;border-image:none!important;flex-direction:column!important;gap:0!important;justify-content:center!important;background:linear-gradient(#3aa0ff,#1456c0 55%,#0b3c92)!important;box-shadow:inset 0 1px 0 #ffffffaa,inset 0 -2px 0 #05245a,0 2px 0 #031634!important;font-size:10px!important}
+html body #hgr41#hgr41#hgr41 .h1-ribbon .h1-ic img.ic74{height:24px!important;width:auto!important;max-width:60%!important;margin:0!important}
+html body #hgr41#hgr41#hgr41 .h1-ribbon .h1-ic span,html body #hgr41#hgr41#hgr41 .h1-ribbon .h1-ic small{font-size:10px!important;line-height:1.1!important;margin:0!important;position:static!important}
+html body #hgr41#hgr41#hgr41 .h1-ribbon .h1-ic.lk{filter:grayscale(.6) brightness(.8)}
+html body #hgr41#hgr41#hgr41 .h1-stage{position:relative}
+html body #hgr41#hgr41#hgr41 .h1-stage::before{content:"XƯỞNG";position:absolute;z-index:6;top:0;left:50%;transform:translateX(-50%);padding:3px 22px;font:900 11px/1 'Neo','Be Vietnam Pro',sans-serif;letter-spacing:2px;color:#e6f4ff;text-shadow:0 1px 0 #000;background:linear-gradient(#34506e,#16263c);border:1px solid #9fb6cc;border-radius:0 0 8px 8px;clip-path:polygon(0 0,100% 0,calc(100% - 8px) 100%,8px 100%);box-shadow:0 2px 4px #000a;pointer-events:none}
+html body #nav74{background:linear-gradient(#3a4a60,#1a2536 12%,#0c1422 40%,#060b14)!important;border-top:2px solid #8aa2bc!important;box-shadow:0 -3px 8px #000b,inset 0 1px 0 #ffffff55!important}
+html body #lb68 .cta{filter:drop-shadow(0 3px 0 #000a)}
+/* 1b · hai nút chế độ vát chéo (trái đỏ cam = Vô Tận, phải vàng = Xuất Kích) trên đáy cơ khí */
+html body #lb68#lb68 .lb68-cta{gap:4px!important;padding:0 2px!important}
+html body #lb68#lb68 .cta{background:none!important;border:0!important;border-image:none!important;box-shadow:none!important;filter:none!important;min-height:64px!important;position:relative;overflow:visible!important;clip-path:none!important}
+html body #lb68#lb68 .cta::before{content:"";position:absolute;inset:0;z-index:0;border:2px solid #ffffffcc;box-shadow:inset 0 3px 0 #ffffffaa,inset 0 -5px 0 #0004,0 4px 0 #000b;clip-path:polygon(16px 0,100% 0,calc(100% - 16px) 100%,0 100%);border-radius:0}
+html body #lb68#lb68 .cta.e::before{background:linear-gradient(#ffb15c,#f2551f 52%,#b01c0c);}
+html body #lb68#lb68 .cta.c::before{background:linear-gradient(#fff4a8,#ffc83c 50%,#e8830a);clip-path:polygon(0 0,calc(100% - 16px) 0,100% 100%,16px 100%)}
+html body #lb68#lb68 .cta>*{position:relative;z-index:1}
+html body #lb68#lb68 .cta b{font:900 21px/1 'Neo','Be Vietnam Pro',sans-serif!important;font-style:italic;letter-spacing:1px!important;filter:none!important}
+html body #lb68#lb68 .cta.e b,html body #lb68#lb68 .cta.e small{color:#fff!important;text-shadow:0 2px 0 #7a1000,0 0 8px #ff6a2a!important;filter:none!important}
+html body #lb68#lb68 .cta.c b,html body #lb68#lb68 .cta.c small{color:#4a2000!important;text-shadow:0 1px 0 #fff6c0!important}
+html body #lb68#lb68 .cta.lk66::before,html body #lb68#lb68 .cta.lk66{filter:grayscale(.75) brightness(.8)}
+html body #lb68#lb68 .cta:active::before{filter:brightness(.88);transform:translateY(2px)}
+/* tab đáy: hình thang, tab đang chọn sáng viền vàng */
+html body #nav74#nav74{gap:3px!important;padding:5px 4px 0!important}
+html body #nav74#nav74 button{background:linear-gradient(#22344f,#0d1828)!important;clip-path:polygon(10px 0,calc(100% - 10px) 0,100% 100%,0 100%)!important;box-shadow:inset 0 1px 0 #9fb6cc!important}
+html body #nav74#nav74 button.on{background:linear-gradient(#58b6ff,#1766d0 55%,#0b3c92)!important;box-shadow:inset 0 2px 0 #fff,inset 0 -2px 0 #05245a!important}
+html body #nav74#nav74 button.on::before{left:12%;right:12%;top:1px;height:2px}
+html body #lb68#lb68 .cta.c b,html body #lb68#lb68 .cta.c small{-webkit-text-fill-color:#4a2000!important;color:#4a2000!important}
+html body #lb68#lb68 .cta.e b,html body #lb68#lb68 .cta.e small{-webkit-text-fill-color:#fff!important}
+html body #lb68#lb68 .cta.lk66 b,html body #lb68#lb68 .cta.lk66 small{-webkit-text-fill-color:#e8e8e8!important;color:#e8e8e8!important}
+/* Đợt 2 · kho trang bị: tab lọc + tab con hình thang (quy tắc cũ dùng 4 lớp id → dùng 5) */
+html body #hub40#hub40 .hb-filter{gap:2px!important}
+html body #hub40#hub40 .hb-filter button,html body #nav74s#nav74s#nav74s#nav74s#nav74s .n74s button{border:0!important;border-image:none!important;border-radius:0!important;clip-path:polygon(9px 0,calc(100% - 9px) 0,100% 100%,0 100%)!important;background:linear-gradient(#22405f,#0d1d33)!important;box-shadow:inset 0 1px 0 #9fc4e8!important;color:#b8d4ee!important}
+html body #hub40#hub40 .hb-filter button.on,html body #hub40#hub40 .hb-filter button.sel,html body #hub40#hub40 .hb-filter button[aria-pressed="true"],html body #nav74s#nav74s#nav74s#nav74s#nav74s .n74s button.on{background:linear-gradient(#58b6ff,#1766d0 55%,#0b3c92)!important;color:#fff!important;box-shadow:inset 0 2px 0 #fff,inset 0 -2px 0 #05245a!important}
+/* V306 đợt 3 · bản đồ ải: nút ải là đĩa phát sáng (nhịp thở ở ải hiện tại), đường nối sáng hơn */
+html body #cmap#cmap .cm-node:not(.mini){border:2px solid #5fd0ff!important;background:radial-gradient(circle at 50% 35%,#2b6fb0,#0d2a55 70%)!important;box-shadow:0 0 0 3px #0a1a3acc,0 0 14px #2fa8ff99,inset 0 2px 0 #ffffff55!important;color:#fff!important;text-shadow:0 1px 2px #000}
+html body #cmap#cmap .cm-node.lock:not(.mini){border-color:#4a6784!important;background:radial-gradient(circle at 50% 35%,#27384e,#101b2c 70%)!important;box-shadow:0 0 0 3px #0a1a3a99,inset 0 2px 0 #ffffff22!important;color:#9bb3cc!important}
+html body #cmap#cmap .cm-node.cur:not(.mini){border-color:#fff3b0!important;background:radial-gradient(circle at 50% 35%,#ffd66a,#e08a10 70%)!important;box-shadow:0 0 0 4px #ffcf5e55,0 0 20px #ffb62e!important;animation:ui306pulse 1.6s ease-in-out infinite}
+@keyframes ui306pulse{50%{box-shadow:0 0 0 7px #ffcf5e33,0 0 30px #ffb62e}}
+@media (prefers-reduced-motion:reduce){html body #cmap#cmap .cm-node.cur:not(.mini){animation:none}}
+
+/* V306 · dùng tranh bộ UI mới (Gemini/GPT, cắt từ tấm tổng hợp): nút chế độ + tab tiêu đề */
+html body #lb68#lb68 .cta::before{background:center/100% 100% no-repeat!important;border:0!important;box-shadow:none!important;clip-path:none!important;filter:drop-shadow(0 3px 0 #000a)}
+html body #lb68#lb68 .cta.e::before{background-image:url(assets/ff127706674b.webp)!important}
+html body #lb68#lb68 .cta.c::before{background-image:url(assets/f7b0bf7f2c35.webp)!important}
+html body #lb68#lb68 .cta.lk66::before{background-image:url(assets/fa01c88c26cb.webp)!important;filter:drop-shadow(0 3px 0 #000a)}
+html body #hgr41#hgr41#hgr41 .h1-stage::before{background:url(assets/39954410b161.webp) center/100% 100% no-repeat!important;border:0!important;clip-path:none!important;box-shadow:none!important;padding:6px 26px 12px!important;color:#e6f4ff!important}
+html body #lb68#lb68 .cta.lk66 b,html body #lb68#lb68 .cta.lk66 small{text-shadow:0 2px 2px #000,0 0 6px #000!important}
+/* V306f · bộ giao diện NEON LED (Gemini, đợt 1): thanh tài nguyên kính, tab tiêu đề, tab đáy */
+html body #hgr41#hgr41#hgr41 .h1-res{background:url(assets/c5848047c1be.webp) center/100% 100% no-repeat!important;border:0!important;box-shadow:none!important;height:40px!important;border-radius:0!important}
+html body #hgr41#hgr41#hgr41 .h1-res .h1-chip+.h1-chip::before{display:none}
+html body #hgr41#hgr41#hgr41 .h1-stage::before{background:var(--i15_16) center/100% 100% no-repeat!important;padding:6px 28px 12px!important}
+html body #nav74#nav74 button{clip-path:none!important;background:url(assets/6a62aec6f1c3.webp) center/100% 100% no-repeat!important;box-shadow:none!important}
+html body #nav74#nav74 button.on{background:url(assets/37b6af2e9d7c.webp) center/100% 100% no-repeat!important;box-shadow:none!important}
+/* V306g · nút NEON LED (Gemini, đợt 2): hai nút chế độ + dải 3 nút sảnh; chữ trắng trên nền kính màu */
+html body #lb68#lb68 .cta::before{background-size:100% 100%!important;filter:none!important}
+html body #lb68#lb68 .cta.e::before{background-image:var(--i15_17)!important}
+html body #lb68#lb68 .cta.c::before{background-image:var(--i15_17)!important}
+html body #lb68#lb68 .cta.lk66::before{background-image:var(--i15_18)!important}
+html body #lb68#lb68 .cta.c b,html body #lb68#lb68 .cta.c small{-webkit-text-fill-color:#fff!important;color:#fff!important;text-shadow:0 2px 3px #5a3600,0 0 8px #000a!important}
+html body #lb68#lb68 .cta.e b,html body #lb68#lb68 .cta.e small{-webkit-text-fill-color:#fff!important;text-shadow:0 2px 3px #3a0600,0 0 8px #000a!important}
+html body #lb68#lb68 .cta:active::before{filter:brightness(.8)!important;transform:translateY(2px)}
+html body #hgr41#hgr41#hgr41 .h1-ribbon .h1-ic{background:var(--i15_19) center/100% 100% no-repeat!important;border:0!important;border-image:none!important;box-shadow:none!important;padding:4px 10px!important}
+html body #hgr41#hgr41#hgr41 .h1-ribbon .h1-ic.lk{background-image:var(--i15_18)!important;filter:none!important}
+/* V306h · hộp thoại m63 (khung + nút xác nhận) theo neon; ui79 dùng 20 lớp :not(#_u79) nên cần 26 */
+html body .m63 > .m63-card:not(#_u79):not(#_u79):not(#_u79):not(#_u79):not(#_u79):not(#_u79):not(#_u79):not(#_u79):not(#_u79):not(#_u79):not(#_u79):not(#_u79):not(#_u79):not(#_u79):not(#_u79):not(#_u79):not(#_u79):not(#_u79):not(#_u79):not(#_u79):not(#_u79):not(#_u79):not(#_u79):not(#_u79):not(#_u79):not(#_u79){background:none!important;border:26px solid transparent!important;border-image:var(--i15_20) 64 fill / 26px stretch!important;box-shadow:none!important;border-radius:0!important}
+html body .m63 .m63-go:not(#_u79):not(#_u79):not(#_u79):not(#_u79):not(#_u79):not(#_u79):not(#_u79):not(#_u79):not(#_u79):not(#_u79):not(#_u79):not(#_u79):not(#_u79):not(#_u79):not(#_u79):not(#_u79):not(#_u79):not(#_u79):not(#_u79):not(#_u79):not(#_u79):not(#_u79):not(#_u79):not(#_u79):not(#_u79):not(#_u79){background:var(--i15_17) center/100% 100% no-repeat!important;border:0!important;border-image:none!important;border-radius:0!important;box-shadow:none!important;min-height:48px;padding:8px 24px;color:#fff!important;-webkit-text-fill-color:#fff!important;text-shadow:0 2px 3px #5a3600,0 0 8px #000a!important}
+html body .m63 .m63-go:active:not(#_u79):not(#_u79):not(#_u79):not(#_u79):not(#_u79):not(#_u79):not(#_u79):not(#_u79):not(#_u79):not(#_u79):not(#_u79):not(#_u79):not(#_u79):not(#_u79):not(#_u79):not(#_u79):not(#_u79):not(#_u79):not(#_u79):not(#_u79):not(#_u79):not(#_u79):not(#_u79):not(#_u79):not(#_u79):not(#_u79){filter:brightness(.8);transform:translateY(2px)}
+/* V306h · dải chân màn hình: bỏ viền kim loại, dùng dải neon */
+html body #nav74#nav74{background:url(assets/fb50d93fc5ad.webp) center/100% 100% no-repeat!important;border:0!important;box-shadow:none!important}
+html body #nav74#nav74::before,html body #nav74#nav74 button::after{display:none!important}
+/* V306i · bản nhấn của GPT + đĩa ải neon */
+html body #lb68#lb68 .cta.c:active::before{background-image:var(--i15_21)!important;filter:none!important;transform:translateY(1px)}
+html body #lb68#lb68 .cta.e:not(.lk66):active::before{background-image:var(--i15_21)!important;filter:none!important;transform:translateY(1px)}
+html body #hgr41#hgr41#hgr41 .h1-ribbon .h1-ic:not(.lk):active{background-image:var(--i15_22)!important}
+html body #cmap#cmap .cm-node:not(.mini){background:var(--i15_23) center/100% 100% no-repeat!important;border:0!important;box-shadow:none!important;color:#fff!important}
+html body #cmap#cmap .cm-node.lock:not(.mini){background-image:var(--i15_24)!important;color:#a9bdd2!important}
+html body #cmap#cmap .cm-node.done:not(.mini){background-image:var(--i15_25)!important}
+html body #cmap#cmap .cm-node.cur:not(.mini){background-image:var(--i15_26)!important;box-shadow:none!important}
+html body #cmap#cmap .cm-node.major:not(.mini){background-image:var(--i15_27)!important}
+html body #cmap#cmap .cm-node.major.lock:not(.mini){background-image:var(--i15_24)!important}
+html body #cmap#cmap .cm-node.major.done:not(.mini){background-image:var(--i15_25)!important}
+html body #cmap#cmap#cmap .cm-node:not(.mini):not(#_a):not(#_b):not(#_c){background-size:100% 100%!important;background-position:center!important;background-repeat:no-repeat!important;background-origin:border-box!important}
+html body #cmap#cmap .cm-node:not(.mini):not(.major){width:56px!important;height:56px!important}
+html body #cmap#cmap .cm-node.cur:not(.mini):not(.major){width:66px!important;height:66px!important;filter:drop-shadow(0 0 8px #ffb62e)}
+html body #cmap#cmap .cm-node:not(.mini) b,html body #cmap#cmap .cm-node:not(.mini) span{font-weight:900}
+/* V306j · ruột đĩa sáng hơn + đĩa boss tròn thay thoi */
+html body #cmap#cmap .cm-node:not(.mini):not(.major){background-image:var(--i15_23),radial-gradient(circle at 50% 38%,#2f78c8 0,#143a74 55%,#0a1c3d 78%)!important}
+html body #cmap#cmap .cm-node.lock:not(.mini){background-image:var(--i15_24),radial-gradient(circle at 50% 38%,#3a4d66 0,#1f2d42 60%,#121b2a 80%)!important}
+html body #cmap#cmap .cm-node.done:not(.mini){background-image:var(--i15_25),radial-gradient(circle at 50% 38%,#2fa56e 0,#12583c 58%,#0a2c22 80%)!important}
+html body #cmap#cmap .cm-node.cur:not(.mini){background-image:var(--i15_26),radial-gradient(circle at 50% 38%,#ffd66a 0,#e08a10 62%,#8a4a06 82%)!important}
+html body #cmap#cmap .cm-node.mini{width:78px!important;height:78px!important;border-radius:50%!important;transform:translate(-50%,-50%)!important;border:0!important;box-shadow:none!important;background:var(--i15_27) center/100% 100% no-repeat,radial-gradient(circle at 50% 38%,#6a2a1a 0,#2a0e0a 70%)!important}
+html body #cmap#cmap .cm-node.mini>*{transform:none!important}
+html body #cmap#cmap .cm-node.mini canvas{border-radius:50%!important;width:62%!important;height:62%!important;position:absolute;left:19%;top:19%}
+html body #cmap#cmap .cm-node.mini b{transform:none!important;left:50%!important;right:auto!important;bottom:-12px!important;margin-left:-17px!important}
+/* V306k · nút Xuất kích trong thẻ ải theo neon */
+html body #cmap#cmap .cm-sheet .cm-go:not(#_a):not(#_b):not(#_c):not(#_d){background:var(--i15_17) center/100% 100% no-repeat!important;border:0!important;border-radius:0!important;box-shadow:none!important;min-height:52px;color:#fff!important;-webkit-text-fill-color:#fff!important;text-shadow:0 2px 3px #5a3600,0 0 8px #000a!important}
+html body #cmap#cmap .cm-sheet .cm-go:active:not(#_a):not(#_b):not(#_c):not(#_d){background-image:var(--i15_21)!important}
+html body #cmap#cmap .cm-sheet .cm-go:disabled:not(#_a):not(#_b):not(#_c):not(#_d){background-image:var(--i15_18)!important;filter:none!important;opacity:1!important}
+/* V306k · icon LED thay emoji trong thẻ ải / hộp thoại */
+.ic306{display:inline-block;width:1.4em;height:1.4em;filter:drop-shadow(0 0 3px #38d6ff);vertical-align:-.28em;background-size:contain;background-repeat:no-repeat;background-position:center;margin:0 .1em}
+.ic306-nl{background-image:url(assets/f856bfe063fd.webp)}.ic306-khoa{background-image:url(assets/eaf4e5542c7c.webp)}.ic306-qua{background-image:var(--i15_28)}
+.ic306-kc{background-image:url(assets/7c752ff7eaee.webp)}.ic306-bom{background-image:url(assets/8fa5fad7b0b9.webp)}.ic306-cb{background-image:url(assets/7eec6d9621bf.webp)}.ic306-tich{background-image:url(assets/4623cdcc7789.webp)}
+/* V306k · phản hồi chạm: nút lún nhẹ + sáng */
+html body :is(#nav74 button,.h1-ic,#lb68 .cta,.hb-it,#hub40 .hb-filter button,#nav74s .n74s button,.m63 .m63-go){transition:transform .08s ease,filter .08s ease}
+html body :is(#nav74 button,.h1-ic,.hb-it,#hub40 .hb-filter button,#nav74s .n74s button):active{transform:scale(.96);filter:brightness(1.25)}
+/* V306k · ải hiện tại bung ra khi hiện + màn kết quả nảy điểm */
+@keyframes ui306pop{0%{transform:translate(-50%,-50%) scale(.6);opacity:0}60%{transform:translate(-50%,-50%) scale(1.12);opacity:1}100%{transform:translate(-50%,-50%) scale(1)}}
+@keyframes ui306score{0%{transform:scale(.7);opacity:0}55%{transform:scale(1.15);opacity:1}100%{transform:scale(1)}}
+@keyframes ui306slide{0%{transform:translateY(-14px);opacity:0}100%{transform:none;opacity:1}}
+html body #overlay.rs-on #rs .rs-score{animation:ui306score .7s cubic-bezier(.2,.9,.3,1.2) both .15s}
+html body #overlay.rs-on #rs .rs-rib{animation:ui306slide .4s ease-out both}
+@media (prefers-reduced-motion:reduce){html body #overlay.rs-on #rs .rs-score,html body #overlay.rs-on #rs .rs-rib{animation:none}}
+/* V306l · dải cảnh báo boss */
+@keyframes ui306bw{0%{transform:translateX(-100%);opacity:0}12%{transform:none;opacity:1}80%{transform:none;opacity:1}100%{transform:translateX(40%);opacity:0}}
+@keyframes ui306bwpulse{0%,100%{box-shadow:0 0 14px #ff3a1fcc,inset 0 0 18px #ff3a1f88}50%{box-shadow:0 0 26px #ff3a1f,inset 0 0 30px #ff3a1fbb}}
+#game-field #bw306{position:absolute;left:0;right:0;top:34%;height:58px;z-index:30;pointer-events:none;display:flex;flex-direction:column;align-items:center;justify-content:center;color:#fff;background:repeating-linear-gradient(115deg,#6a0c06cc 0 14px,#3a0603cc 14px 28px);border-top:2px solid #ff5a2a;border-bottom:2px solid #ff5a2a;animation:ui306bw 2.3s ease-out both,ui306bwpulse .6s ease-in-out infinite;text-shadow:0 0 8px #ff3a1f,0 2px 2px #000}
+#game-field #bw306 b{font:900 22px/1 'Neo',sans-serif;letter-spacing:6px}
+#game-field #bw306 small{font:800 11px/1.3 'Neo',sans-serif;letter-spacing:2px;color:#ffd2c4;margin-top:3px}
+@media (prefers-reduced-motion:reduce){#game-field #bw306{animation:none}}
+/* V306m · màn kết quả neon: khung, tiêu đề, điểm lớn */
+html body #overlay #rs:not(#_u79):not(#_u79):not(#_u79):not(#_u79):not(#_u79):not(#_u79):not(#_u79):not(#_u79):not(#_u79):not(#_u79):not(#_u79):not(#_u79):not(#_u79):not(#_u79):not(#_u79):not(#_u79):not(#_u79):not(#_u79):not(#_u79):not(#_u79):not(#_u79):not(#_u79):not(#_u79):not(#_u79):not(#_u79):not(#_u79){background:none!important;border:26px solid transparent!important;border-image:var(--i15_20) 64 fill / 26px stretch!important;box-shadow:none!important;border-radius:0!important}
+html body #overlay #rs .rs-rib.rs-rib:not(#_u79):not(#_u79):not(#_u79):not(#_u79):not(#_u79):not(#_u79):not(#_u79):not(#_u79):not(#_u79):not(#_u79):not(#_u79):not(#_u79):not(#_u79):not(#_u79):not(#_u79):not(#_u79):not(#_u79):not(#_u79):not(#_u79):not(#_u79):not(#_u79):not(#_u79):not(#_u79):not(#_u79):not(#_u79):not(#_u79){background:var(--i15_16) center/100% 100% no-repeat!important;border:0!important;box-shadow:none!important;min-width:230px;padding:14px 26px!important;margin-top:0;color:#fff!important;text-shadow:0 0 10px #38d6ff,0 2px 2px #000!important}
+html body #overlay #rs .rs-rib::before,html body #overlay #rs .rs-rib::after{display:none!important}
+html body #overlay #rs .rs-score b{font-size:46px!important;letter-spacing:2px;text-shadow:0 0 14px #38d6ff99,0 2px 3px #000}
+html body #overlay #start:not(#_u79):not(#_u79):not(#_u79):not(#_u79):not(#_u79):not(#_u79):not(#_u79):not(#_u79):not(#_u79):not(#_u79):not(#_u79):not(#_u79):not(#_u79):not(#_u79):not(#_u79):not(#_u79):not(#_u79):not(#_u79):not(#_u79):not(#_u79):not(#_u79):not(#_u79):not(#_u79):not(#_u79):not(#_u79):not(#_u79){background:var(--i15_17) center/100% 100% no-repeat!important;border:0!important;border-image:none!important;border-radius:0!important;box-shadow:none!important;min-height:54px;color:#fff!important;-webkit-text-fill-color:#fff!important;text-shadow:0 2px 3px #5a3600,0 0 8px #000a!important}
+html body #overlay #start:active:not(#_u79):not(#_u79):not(#_u79):not(#_u79):not(#_u79):not(#_u79):not(#_u79):not(#_u79):not(#_u79):not(#_u79):not(#_u79):not(#_u79):not(#_u79):not(#_u79):not(#_u79):not(#_u79):not(#_u79):not(#_u79):not(#_u79):not(#_u79):not(#_u79):not(#_u79):not(#_u79):not(#_u79):not(#_u79):not(#_u79){background-image:var(--i15_21)!important}
+html body #overlay #dock-return:not(#_u79):not(#_u79):not(#_u79):not(#_u79):not(#_u79):not(#_u79):not(#_u79):not(#_u79):not(#_u79):not(#_u79):not(#_u79):not(#_u79):not(#_u79):not(#_u79):not(#_u79):not(#_u79):not(#_u79):not(#_u79):not(#_u79):not(#_u79):not(#_u79):not(#_u79):not(#_u79):not(#_u79):not(#_u79):not(#_u79){background:var(--i15_19) center/100% 100% no-repeat!important;border:0!important;border-image:none!important;border-radius:0!important;box-shadow:none!important;min-height:50px;color:#fff!important;-webkit-text-fill-color:#fff!important;text-shadow:0 2px 3px #00204a,0 0 8px #000a!important}
+html body #overlay #dock-return:active:not(#_u79):not(#_u79):not(#_u79):not(#_u79):not(#_u79):not(#_u79):not(#_u79):not(#_u79):not(#_u79):not(#_u79):not(#_u79):not(#_u79):not(#_u79):not(#_u79):not(#_u79):not(#_u79):not(#_u79):not(#_u79):not(#_u79):not(#_u79):not(#_u79):not(#_u79):not(#_u79):not(#_u79):not(#_u79):not(#_u79){background-image:var(--i15_22)!important}
+/* V306n · băng 3 sao ở màn kết quả */
+@keyframes ui306star{0%{transform:scale(0) rotate(-40deg);opacity:0}65%{transform:scale(1.25) rotate(8deg);opacity:1}100%{transform:scale(1) rotate(0)}}
+#rs .rs306-stars{display:flex;justify-content:center;align-items:flex-end;gap:6px;margin:6px 0 2px}
+#rs .rs306-stars i{width:52px;height:48px;background:var(--i15_29) center/contain no-repeat;opacity:.9}
+#rs .rs306-stars i:nth-child(2){width:64px;height:59px;margin-bottom:6px}
+#rs .rs306-stars i.on{background-image:var(--i15_30);filter:drop-shadow(0 0 8px #ffb62e);animation:ui306star .5s cubic-bezier(.2,.9,.3,1.3) both;animation-delay:var(--d,.4s)}
+html body #rs .summary392 b{font-size:11px;letter-spacing:1px;opacity:.85}
+@media (prefers-reduced-motion:reduce){#rs .rs306-stars i.on{animation:none}}
+/* V306n · nút nhân đôi hợp kim */
+#rs #rs306-x2{display:flex;flex-direction:column;align-items:center;gap:2px;margin:8px auto 4px;min-width:250px;padding:10px 22px;border:0;border-radius:0;background:var(--i15_19) center/100% 100% no-repeat;color:#fff;cursor:pointer;text-shadow:0 2px 3px #00204a,0 0 8px #000a}
+#rs #rs306-x2 b{font:900 14px/1.1 'Neo',sans-serif;letter-spacing:1px}
+#rs #rs306-x2 small{font:700 11px/1.2 'Neo',sans-serif;color:#cfeaff}
+#rs #rs306-x2:active{background-image:var(--i15_22)}
+#rs #rs306-x2:disabled{background-image:var(--i15_18);cursor:default}
+#rs #rs306-x2.done{background-image:var(--i15_17)}
+/* V306r · hàng 3 sao trong thẻ chạm ải */
+#cm-sheet .c306-stars{display:inline-flex;gap:4px;align-items:flex-end}
+#cm-sheet .c306-stars i{width:24px;height:22px;background:var(--i15_29) center/contain no-repeat;opacity:.9}
+#cm-sheet .c306-stars i:nth-child(2){width:28px;height:26px}
+#cm-sheet .c306-stars i.on{background-image:var(--i15_30);filter:drop-shadow(0 0 5px #ffb62e)}
+/* V306s · hàng 3 ô thưởng màn kết quả */
+#rs .rw306{display:flex;justify-content:center;gap:10px;margin:8px 0 4px}
+#rs .rw306-c{display:flex;flex-direction:column;align-items:center;width:84px}
+#rs .rw306-s{position:relative;display:block;width:64px;height:64px;background:center/100% 100% no-repeat}
+#rs .rw306-s.o_vat_pham_lam{background-image:var(--i15_31)}
+#rs .rw306-s.o_vat_pham_tim{background-image:var(--i15_32)}
+#rs .rw306-s.o_vat_pham_vang{background-image:var(--i15_33)}
+#rs .rw306-s i{position:absolute;inset:14px;background:center/contain no-repeat;filter:drop-shadow(0 0 5px #7fe9ff)}
+#rs .rw306-s i.vang{background-image:url(assets/88b10d4343df.webp)}#rs .rw306-s i.trang_bi{background-image:url(assets/5337597b7063.webp)}#rs .rw306-s i.qua{background-image:var(--i15_28)}
+#rs .rw306-c b{margin-top:2px;font:900 17px/1.1 'Neo',sans-serif;color:#fff;text-shadow:0 0 8px #38d6ff}
+#rs .rw306-c small{font:800 9.5px/1.2 'Neo',sans-serif;color:#9fc2dc;letter-spacing:.04em}
+#rs .rw306-c.zero{opacity:.45;filter:grayscale(.6)}
+/* V306t · khung ô trang bị theo bậc: đổi biến khung --u15-fq của ::after (game đã dùng sẵn theo data-q) */
+html body #hub40#hub40 .hb-it[data-t306=xam]{--u15-fq:var(--i15_34)}
+html body #hub40#hub40 .hb-it[data-t306=luc]{--u15-fq:var(--i15_35)}
+html body #hub40#hub40 .hb-it[data-t306=lam]{--u15-fq:var(--i15_31)}
+html body #hub40#hub40 .hb-it[data-t306=tim]{--u15-fq:var(--i15_32)}
+html body #hub40#hub40 .hb-it[data-t306=vang]{--u15-fq:var(--i15_33)}
+html body #hub40#hub40 .hb-it[data-t306]::after{z-index:0!important}
+html body #hub40#hub40 .hb-it[data-t306] .gear25-art{z-index:1}
+html body #hub40#hub40 .hb-it[data-t306] :is(.lv,.eq,.hb-dot){z-index:3}
+/* V306u · thanh chỉ số neon (hb-bar, q77-bar, fx68-bar): ảnh khung + ảnh lấp cắt theo --p; ::before để mốc nằm trên */
+html body :is(.hb-bar,.q77-bar,#rs .fx68-bar):not(#_a):not(#_b):not(#_c){height:14px;background:var(--i15_36) center/100% 100% no-repeat!important;overflow:visible!important;border:0!important;border-radius:0!important}
+html body :is(.hb-bar,.q77-bar,#rs .fx68-bar):not(#_a):not(#_b):not(#_c)>:is(i,.q77-fill){opacity:0}
+html body :is(.hb-bar,.q77-bar,#rs .fx68-bar):not(#_a):not(#_b):not(#_c)::before{content:'';position:absolute;inset:0;background:var(--i15_37) center/100% 100% no-repeat;clip-path:inset(0 calc(100% - var(--p,0%)) 0 0);pointer-events:none}
+html body .hb-bar:not(#_a):not(#_b):not(#_c)>em{z-index:2;top:3px;bottom:3px}
+html body .q77-pb:not(#_a):not(#_b):not(#_c){position:relative;height:11px!important;margin-top:4px;background:var(--i15_36) center/100% 100% no-repeat!important;border:0!important;border-radius:0!important;overflow:visible!important}
+html body .q77-pb:not(#_a):not(#_b):not(#_c)>i{opacity:0}
+html body .q77-pb:not(#_a):not(#_b):not(#_c)::before{content:'';position:absolute;inset:0;background:var(--i15_37) center/100% 100% no-repeat;clip-path:inset(0 calc(100% - var(--p,0%)) 0 0)}
+/* V307 · sảnh: chip gợi ý mục tiêu không đè hàng tab nền/hạng; đặt dưới tab XƯỞNG */
+html body .h1-stage .nx66:not(#_a):not(#_b){top:46px!important;bottom:auto!important;font-size:10.5px;box-shadow:0 0 10px rgba(255,200,80,.25)}
+/* V307 · sảnh: lớp tinh vân nhiều màu + sao lấp lánh quanh sân khấu (tâm để trống cho chiến cơ; chỉ CSS, nhẹ) */
+html body .h1-stage:not(#_a):not(#_b)::after{content:'';position:absolute;inset:0;pointer-events:none;z-index:1;mix-blend-mode:screen;
+ background:
+  radial-gradient(circle at 12% 18%,rgba(190,70,255,.38) 0,transparent 34%),
+  radial-gradient(circle at 90% 30%,rgba(40,210,255,.34) 0,transparent 36%),
+  radial-gradient(circle at 78% 92%,rgba(255,150,60,.30) 0,transparent 34%),
+  radial-gradient(circle at 6% 86%,rgba(60,120,255,.34) 0,transparent 38%),
+  radial-gradient(1.4px 1.4px at 22% 12%,#fff 50%,transparent 52%),radial-gradient(1.2px 1.2px at 68% 8%,#cfeaff 50%,transparent 52%),
+  radial-gradient(1.6px 1.6px at 88% 58%,#fff 50%,transparent 52%),radial-gradient(1.2px 1.2px at 8% 55%,#ffe9c4 50%,transparent 52%),
+  radial-gradient(1.4px 1.4px at 35% 90%,#fff 50%,transparent 52%),radial-gradient(1.2px 1.2px at 58% 94%,#cfeaff 50%,transparent 52%),
+  radial-gradient(1.2px 1.2px at 94% 82%,#fff 50%,transparent 52%),radial-gradient(1.2px 1.2px at 16% 36%,#cfeaff 50%,transparent 52%);
+ -webkit-mask-image:radial-gradient(ellipse 52% 46% at 50% 54%,transparent 45%,#000 100%);mask-image:radial-gradient(ellipse 52% 46% at 50% 54%,transparent 45%,#000 100%);
+ animation:ui307neb 14s ease-in-out infinite alternate}
+@keyframes ui307neb{from{opacity:.75;transform:scale(1)}to{opacity:1;transform:scale(1.04)}}
+@media (prefers-reduced-motion:reduce){html body .h1-stage::after{animation:none}}
+body.lite79 .h1-stage::after{animation:none}
+html body .h1-stage .nx66:not(#_a):not(#_b){left:auto!important;right:8px;transform:none!important;max-width:52%}
+html body .h1-stage .nx66:not(#_a):not(#_b){max-width:58%;font-size:9.5px;padding:3px 7px;letter-spacing:-.01em}
+/* V307 · dấu cảnh báo ▲ đỏ mép trên (quái lớn/tinh anh sắp vào); không chắn thao tác */
+#game-field .wt307{position:absolute;top:34px;width:0;height:0;margin-left:-11px;border-left:11px solid transparent;border-right:11px solid transparent;border-bottom:19px solid #ff2d3a;filter:drop-shadow(0 0 6px #ff2d3a);pointer-events:none;z-index:30;animation:ui307wt .3s steps(2,end) 5}
+#game-field .wt307::after{content:'';position:absolute;left:-2px;top:6px;width:4px;height:8px;background:#fff;border-radius:2px;box-shadow:0 10px 0 -1px #fff}
+#game-field .wt307.el{border-bottom-color:#ff7a1a;filter:drop-shadow(0 0 6px #ff7a1a)}
+@keyframes ui307wt{50%{opacity:.25}}
+@media (prefers-reduced-motion:reduce){#game-field .wt307{animation:none}}
+
+/* V307 · nền sảnh tạm bằng mã (sanh307.js): xưởng + ngân hà + hố đen */
+html body .h1-stage .sk307{position:absolute;inset:0;z-index:0;pointer-events:none;overflow:hidden}
+html body .h1-stage .sk307 svg{width:100%;height:100%;display:block}
+html body .h1-stage .sk307 .sk-sp{animation:sk307sp 2.4s ease-in-out infinite}
+html body .h1-stage .sk307 .sk-sp.s1{animation-delay:.8s}html body .h1-stage .sk307 .sk-sp.s2{animation-delay:1.6s}
+@keyframes sk307sp{0%,100%{opacity:.15}50%{opacity:1}}
+@media (prefers-reduced-motion:reduce){html body .h1-stage .sk307 .sk-sp{animation:none}}
+body.lite79 .h1-stage .sk307 .sk-sp{animation:none}
+
+/* V307 · thẻ "mục tiêu kế tiếp" trong Vô tận (target307.js) */
+html body #game-field .tg307{position:absolute;right:8px;top:46px;z-index:6;min-width:104px;max-width:140px;padding:5px 8px 6px;border-radius:8px;pointer-events:none;
+ background:linear-gradient(180deg,rgba(8,20,48,.86),rgba(4,10,28,.86));border:1.5px solid rgba(80,170,255,.7);box-shadow:0 0 10px rgba(40,120,255,.35);text-align:right;font-family:'Be Vietnam Pro',sans-serif;line-height:1.1}
+html body #game-field .tg307[hidden]{display:none}
+html body #game-field .tg307 small{display:block;font-size:8.5px;letter-spacing:.06em;color:#9fd2ff;font-weight:700}
+html body #game-field .tg307 b{display:block;font-size:15px;color:#ffd56a;font-weight:800;text-shadow:0 1px 2px #000;margin-top:1px}
+html body #game-field .tg307 i{display:block;height:4px;border-radius:2px;background:rgba(255,255,255,.14);margin-top:4px;overflow:hidden}
+html body #game-field .tg307 u{display:block;height:100%;background:linear-gradient(90deg,#27d6ff,#ffd56a);transition:width .25s}
+html body #game-field .tg307.pass{border-color:#ffd56a;box-shadow:0 0 16px rgba(255,200,60,.8)}
+
+/* V307 · sảnh: hai nút chế độ lớn theo bộ GPT (vàng = XUẤT KÍCH, tím = VÔ TẬN); nút khóa xám; XUẤT KÍCH thở nhẹ */
+html body #lb68#lb68 .cta.c::before{background-image:url(assets/6ba5a0d9fbc6.webp)!important}
+html body #lb68#lb68 .cta.e::before{background-image:url(assets/ed6683e40eae.webp)!important}
+html body #lb68#lb68 .cta.lk66::before{background-image:var(--i15_18)!important}
+html body #lb68#lb68 .cta.e b{text-shadow:0 2px 3px #1a0630,0 0 8px #000a!important}
+html body #lb68#lb68 .cta.c::before{animation:lb307br 2.4s ease-in-out infinite}
+@keyframes lb307br{50%{transform:scale(1.035);filter:brightness(1.12)}}
+@media (prefers-reduced-motion:reduce){html body #lb68#lb68 .cta.c::before{animation:none}}
+html body.lite79 #lb68#lb68 .cta.c::before{animation:none}
+
+/* V307 · thanh 5 tab luôn hiện đủ (như game gốc); tab chưa mở thì mờ + ổ khóa + "ẢI n" */
+html body #nav74#nav74 button.ux75-lk{display:flex!important;opacity:.55;filter:grayscale(.6);position:relative}
+html body #nav74#nav74 button.ux75-lk::before{content:'🔒 ẢI ' attr(data-need);position:absolute;left:50%;top:4px;transform:translateX(-50%);font:800 8px/1 'Be Vietnam Pro',sans-serif;color:#ffd56a;background:#000a;border-radius:6px;padding:2px 5px;white-space:nowrap}
