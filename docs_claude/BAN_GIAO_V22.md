@@ -1,3 +1,30 @@
+# BÀN GIAO V2.2.1 — CHỜ DUYỆT (24/11/2026 ~20:30), CHƯA dựng APK, CHƯA xuất bản
+
+Nhánh `v22-dang-lam` (a124384 → 23f31b9 + commit tài liệu). Không đụng `nguon-v212`, không đụng workflow ký / khóa.
+Dựng sạch `BAN_THU=1 python3 build74_mau.py` → `Phi_Doi_Sao_Bang_V74_mau.html` 86.703.881 byte.
+
+## Đã làm
+- **C · bỏ hẳn bản sao** (`src/nobs22.js`, cờ `window.NOBS22=false`): đồ trùng mẫu → chưa có thì mở khóa; bậc cao hơn món chính thì nâng món chính + hoàn phần thừa; còn lại quy đổi (`CONV`: Tím XP III×2 + 2 VL Tím + 6.000 ◈ · Lam XP II×2 + 2 VL Lam + 2.000 ◈ · Lục XP II + 1 VL Lục + 800 ◈ · Trắng XP I×2 + 300 ◈, + 85 % hợp kim / 90 % Đá XP đã nuôi). Kho bản sao cũ đổi 1 lần (khóa mới `saobang-nobs22-v1`). Nâng cấp chỉ Đá XP (`nc307`), Tiến bậc theo `Evo82.NB22STEP` (Lam+1..3 = 2/2/4 bộ NL Lam, Tím+1..5 = 1/1/2/2/3 bộ NL Tím), Ép Xung `oc17.cost22` (OC+1..5 = 5/7/12/16/22 VL Tím). Sửa gốc lỗi đồ Lam điểm danh kẹt: `l14309` mở khóa bằng nguồn 'equipment'.
+- **A · nhảy màn**: màn kết quả gắn khung mới NGAY (`end22.js` MutationObserver cả cây con `#overlay`, có `takeRecords` chặn lặp — bản đầu thiếu chặn làm treo trang khi thắng ải, đã sửa); Cửa hàng › Rương giữ thanh tab + bảng CHÚC MỪNG khi MỞ TẤT CẢ (`l9309` HUBFIX22, `qua307`); Nhiệm vụ chèn băng tranh cùng khung (`fix22.js` MIS22); Phân giải nổi trên Túi đồ (`kho307` QM22); Cài đặt còn 1 công tắc FPS.
+- **Bản đồ chọn ải** (`fix22.js` MAP22): kéo > 10 px hủy chạm, khóa XUẤT KÍCH 400 ms (chỉ chạm thật), 3 s đầu trận chặn lệnh kéo về Sảnh/bản đồ trừ khi đi kèm cú chạm thật (≤ 0,8 s); `FIX22.blocked()` ghi nhật ký. Trên Chrome máy tính CHƯA dựng lại được hiện tượng bị kéo về (10/10 cả bản cũ) → lớp chặn là phòng ngừa, cần thử máy thật.
+- **HUD chẩn đoán** (`hud22.js`): `FPS: 58 | 16.4ms | DPR 1.25 | P:42 B:28 | ĐẸP`, 500 ms, dưới vùng an toàn trên, chỉ khi bật HIỆN FPS KHI CHƠI (Fps88); ẩn #perf15b/#fps88/#perf15. AUTO22: chế độ tự động + ĐẸP, FPS < 48 liên tục 2 s → NHẸ (`window.AUTO22CFG`).
+- **Hiệu năng**: độ nét `v105` ĐẸP 1,35/1,25/1,1, NHẸ 1,0 (`window.DPR22=false` quay lại); trần hạt 90 trên máy cảm ứng (`pcap22-js`, `PCAP22=false`); quầng cộng sáng đạn chính tối đa 40/khung (NHẸ 18; `dan307` GLOW22) — diện tích cộng sáng khi Bạo Tẩu 1,18 → 1,05 màn hình (`tests/dem_sang22.py`); Kho không bắn đạn (`KHOBAN22=true` bật lại); `v2142` MOD22 danh sách hộp tường minh để dừng nền; Kho/Túi bớt ép tính lại style: `v2142.khoNow` xét điều kiện rẻ trước `getComputedStyle`, `kho307`/`l7309`/`ui17`/`v22` chỉ ghi chữ/lớp khi đổi; Sảnh cũ `#lobby` (bị CSS ẩn) thôi vẽ mỗi khung (IntersectionObserver, `LOB221=false`); `#arsenal` content-visibility (`OFF22=false`).
+- **Ảnh ra tệp ngoài** (`claude_tools/ext22.py <www>`, chạy SAU split.py): base64 ≥ 2.048 ký tự → `www/assets/<sha1>.<đuôi>` (3.021 tệp, 60,5 MB), CSS dời từ `a/` lên gốc www (biến CSS `url(assets/…)` phân giải theo tệp CSS dùng biến — bản đầu lỗi 404 `a/assets/…`), thêm `<meta charset="UTF-8">` (máy chủ không ghi charset sẽ hiện chữ lỗi). Mã 86,8 → 5,7 MB.
+
+## Số đo (máy Claude, Chromium không GPU — KHÔNG thay số máy thật)
+- www: 86,77 MB → 66,16 MB (assets 60,48 + mã 5,68). Nén zip ≈ dung lượng trong APK: 62,67 → 62,87 MB (base64 vốn nén lại được, APK gần như không nhỏ đi). Lợi thật ở nạp: vào Sảnh 9,4 → 5,1 s, bộ nhớ JS 177 → 22 MB.
+- Trận ải 1 Bạo Tẩu liên tục, giả lập điện thoại DPR 3: V2.2.0 25–26 FPS (khung 39–40 ms, p95 67) → V2.2.1 55–58 FPS (17–18 ms, p95 17–33), DPR 1,54 → 1,23 (`/tmp/r22/fps.py`, chạy 2 lần mỗi bản).
+- Kho / Túi: thời gian tác vụ trình duyệt 559/590 → ~400/360 ms mỗi giây; Sảnh không đổi (~780 ms/s, phần lớn là sân khấu canvas).
+- Rò rỉ (`tests/t_ro22.py`, 6 vòng Sảnh ↔ trận): setInterval 204, listener 194, DOM 3.847, 12 vòng rAF — không tăng theo số vòng.
+
+## Kiểm thử trên bản dựng sạch (chạy LẦN LƯỢT)
+t156 14/14 · t209 20/20 (lần 1) · t_v22 18/18 (thêm 4 mục V2.2.1) · t_nobs22 9/9 · t_map22 4/4 (10/10 lần vào trận, BLK []) · t_ro22 7/7 · audit_ui 28/28 (0 lỗi mọi màn) · www qua http: 0 ảnh hỏng, 0 lỗi JS, 0 phản hồi ≥ 400, vào trận được.
+
+## Chưa làm / để chủ dự án quyết
+- Dọn mã / ảnh không dùng: 0 mô-đun, 0 hàm, 0 ảnh bị xóa. Đọc tĩnh thì các khối đều còn được tham chiếu; dò theo thời gian chạy chỉ phủ được các màn đã chạy, nên xóa sẽ có nguy cơ mất ảnh của nội dung hiếm gặp. Đường dự phòng V2.0 (cờ `=false`) giữ nguyên.
+- Còn 12 vòng rAF + 204 setInterval chạy thường trực (không rò, nhưng là chỗ tối ưu tiếp).
+- Quy trình xuất bản V2.2.1 (khi có "duyệt xuất bản"): dựng sạch → `KIT=$PWD python3 claude_tools/split.py <www> <html>` → `python3 claude_tools/ext22.py <www>` → thay `www/` ở `build-apk-v198`, `VERSION`=`V2.2.1`.
+
 # BÀN GIAO V2.2.0 — ĐÃ XUẤT BẢN 24/11/2026 ~14:40
 
 ## Xuất bản (chủ dự án "Duyệt xuất bản V2.2.0" 13:24)
