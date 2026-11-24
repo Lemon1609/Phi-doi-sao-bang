@@ -86,7 +86,7 @@ const V22=(()=>{
   let pl=b.querySelector('.pl22');if(plus){if(!pl){pl=document.createElement('em');pl.className='pl22';b.appendChild(pl);}if(pl.textContent!==plus)pl.textContent=plus;}else pl?.remove();
   const gh=key?gems(key):'';let gm=b.querySelector('.gm22');if(gh){if(!gm||gm.outerHTML!==gh){gm?.remove();b.insertAdjacentHTML('beforeend',gh);}}else gm?.remove();}
  // ---------------- 3 ô VKTT ----------------
- function vkRow(){let st=null;try{st=Ult72.state();}catch{}const C=window.ULT72||{};const lv=ST.cleared();const supU=Array.isArray(C.sup)?C.sup:[100,120];
+ function vkRow(){let st=null;try{st=Ult72.state();}catch{}const C=window.ULT72||(typeof Ult72!=='undefined'&&Ult72.C)||{};/* ULT72 là const, không có trên window */const lv=ST.cleared();const supU=Array.isArray(C.sup)?C.sup:[100,120];
   const cell=(id,idx)=>{const main=idx===0;const shape=main?'ci':'hx';
    const lockAt=main?((C.unlock&&C.unlock.lv)||0):(Array.isArray(supU)?supU[idx-1]:[100,120][idx-1]);
    if(!main&&lv<(lockAt|0))return `<button type="button" class="vk22 ${shape} lk" data-v22vk="1"><span class="vb"><i class="lock22"></i></span><small>MỞ Ở ẢI ${lockAt}</small></button>`;
@@ -189,7 +189,7 @@ const V22=(()=>{
  let lastR=null;
  function asWatch(){const u=document.querySelector('.u72');if(!u||u.hidden||getComputedStyle(u).display==='none'){lastR=null;return;}let st;try{st=Ult72.state();}catch{return;}
   const now={};for(const k in st.w)now[k]=st.w[k].r|0;if(lastR)for(const k in now)if(st.w[k].own&&now[k]>(lastR[k]|0)){asShow(k,lastR[k]|0,now[k]);break;}lastR=now;}
- function asShow(id,r0,r1){if(!on('V22HS'))return;const C=window.ULT72||{};let tx={};try{tx=Ult72.skillText(id,r1)||{};}catch{}
+ function asShow(id,r0,r1){if(!on('V22HS'))return;const C=window.ULT72||(typeof Ult72!=='undefined'&&Ult72.C)||{};/* ULT72 là const, không có trên window */let tx={};try{tx=Ult72.skillText(id,r1)||{};}catch{}
   const col=C.fcol?C.fcol[C.rf[r1]]:'#ffd23f',nm=(C.nm&&C.nm[id])||id,st=g(()=>Ult72.state().w[id],{lv:1});
   let el=document.getElementById('as22');if(!el){el=document.createElement('div');el.id='as22';el.className='m22';document.body.appendChild(el);el.addEventListener('click',e=>{if(!e.target.closest('.as22b')||e.target.closest('[data-as=x]')){el.hidden=true;if(!document.querySelector('.m22:not([hidden])'))document.documentElement.classList.remove('m22on');}});}
   const cell=(n,a,b)=>`<div><small>${n}</small><b>${esc(a)}${b!=null?` <i>→</i> <em>${esc(b)}</em>`:''}</b></div>`;
@@ -233,7 +233,7 @@ ${P}#hub40 .k22 .kh42{display:grid!important;grid-template-columns:1fr auto;grid
 ${P}#hub40 .k22 .kh42 .r42{grid-column:1;grid-row:1;justify-self:start}
 ${P}#hub40 .k22 .kh42 .l42{grid-column:1;grid-row:2}
 ${P}#hub40 .k22 .kh42 :is(.r42,.cp42){width:auto!important;min-width:0!important;white-space:nowrap}
-${P}#hub40 .k22 .kh42 .cp42{background:none!important;border:0!important;box-shadow:none!important;padding:0!important;text-align:left!important}
+${P}#hub40 .k22 .kh42 .cp42{background:none!important;border:0!important;box-shadow:none!important;padding:0!important;text-align:left!important;clip-path:none!important}
 ${P}#hub40 .k22 .kh42 .cp42 :is(small,b){display:block!important;text-align:left!important;width:auto!important;margin:0!important;transform:none!important}
 ${P}#hub40 .k22 .kh42 .cp42 small{color:#ffe08a!important;font:800 9px/1 inherit!important;letter-spacing:.14em}
 ${P}#hub40 .k22 .kh42 .cp42 b{font:900 24px/1.05 inherit!important;background:linear-gradient(180deg,#fff6c4,#ffd23f 50%,#e0900c);-webkit-background-clip:text;background-clip:text;color:transparent!important}

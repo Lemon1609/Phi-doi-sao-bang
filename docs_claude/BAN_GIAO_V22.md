@@ -1,6 +1,16 @@
-# BÀN GIAO V2.2.0 (đang làm, CHƯA xuất bản) — 24/11/2026 06:45
+# BÀN GIAO V2.2.0 (CHỜ DUYỆT, CHƯA xuất bản) — 24/11/2026 09:20
 
 Nền: V2.1.42 đã xuất bản (Release `V2.1.42`, APK 71.884.363 byte, chữ ký trùng V306.39). Nhánh nguồn V2.2: `v22-dang-lam` (tách từ `nguon-v212` 0ec531c). **Chưa dựng sạch, chưa chạy t156/t209 cho V2.2.** Chỉ kiểm trên bản vá nhanh (`claude_tools/v22_kiem/va22.py` vá lên HTML V2.1.42).
+
+## 0. Cập nhật 24/11 09:20 (phiên 2) — chủ dự án chốt 4 ý 07:01
+- (1) ĐỒNG Ý luật trúng đòn: mất máu khi không khiên → hạ 1 cấp đạn (không khi Bạo Tẩu, tối thiểu Lv1; đòn bị nội tại giáp chặn không mất máu → giữ cấp). Cặp thứ 4 trong `claude_tools/v22_rep.py`, cờ `window.LV22=false`.
+- (2) Thanh ngọc 5 ô (đúng số lỗ) — giữ như đã làm.
+- (3) Đồng Hồ giữ "ngưng đọng thời gian", 2 tầng KÍCH HOẠT THƯỜNG / QUÁ TẢI (đã có; sửa lỗi màn `#as22` + tab VKTT Kho hiện mã "world" và ô Bậc/Cấp trống: `ULT72` là const → dùng `Ult72.C`, `src/v22.js`).
+- (4) Đội hình tàu con: tâm = mép cánh thật (×1,22) + nửa phần ĐẶC tàu con (`tb309.js` ghi `window.__podh22`, quét alpha>60, đệm WeakMap) + khe `GAP22` 10 px, trong [62, 100] (trần 100 thay 96 vì tàu 10 Bạo Tẩu cánh 71,7 px — ưu tiên không đè cánh). Đo `claude_tools/v22_kiem/do_khe22.py`: khe Thường 10–23 px, Bạo Tẩu 10–16 px.
+- VKTT đo (`job_vktt_do2.json`, Vô tận 120 s, cộng `spend()` thật qua bộ đếm `Ult72._B.sp22`): Lưới Điện cũ 0,122 / mới 0,670 d0 → `VKK` ×0,2 (đo ×0,3 = 0,225); Pháo Đài mới 0,31 (cũ không vào được trận trong job — bước `reset()` lúc được lúc không, không phải do VK22; tính ≈0,24 khi ném bom mỗi 20 s) → ×0,8; Săn Sao ×0,9 (đo 0,198 vs cũ 0,180); Đồng Hồ giữ. Chỉ kỹ năng cơ bản; đổi bằng `window.VKK22={web,fortress,hunter}`.
+- Sửa nhãn TỔNG LỰC CHIẾN ở Kho bị cắt góc (clip-path `.cp42` của V2.1.42) → `clip-path:none` trong `v22.js`.
+- Dựng sạch `BAN_THU=1 build74_mau.py` (86,6 MB / thử 100,2 MB): t156 14/14, t209 20/20, `tests/t_v22.py` 13/13 — cả EVO21 bật và tắt. (2 sửa v22.js sau đó vá thẳng vào HTML, đã có trong nguồn.)
+- Bảng `docs_claude/T13_giao_dien_V22.jpg`, `T14_tong_hop_V22.jpg` (job `claude_tools/v22_kiem/job_t13.json`, ghép `bang_t13_t14.py`). Chờ chủ dự án duyệt / "duyệt xuất bản".
 
 ## 1. Đã làm (mã nằm trong nhánh)
 
@@ -35,7 +45,7 @@ Nền: V2.1.42 đã xuất bản (Release `V2.1.42`, APK 71.884.363 byte, chữ 
 5. Chỉ xuất bản khi chủ dự án nói "duyệt xuất bản": build-apk-v198 đặt `VERSION` = `V2.2` (tag sẽ là `V2.2.<run>`), split.py, push, kiểm chữ ký.
 6. Cập nhật CLAUDE.md + tài liệu này; hợp nhánh `v22-dang-lam` → `nguon-v212` khi xong.
 
-## 3. Câu cần hỏi chủ dự án
+## 3. Câu cần hỏi chủ dự án (ĐÃ CHỐT 24/11 07:01 — xem mục 0)
 - Có thêm luật "trúng đòn không khiên hạ 1 cấp đạn" không (game hiện không có)?
 - Thanh ngọc 5 ô (đúng số lỗ thật) thay 6 ô được không?
 - Đồng Hồ: giữ "ngưng đọng" hay đổi thành "vùng chậm 45 %"?

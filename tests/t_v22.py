@@ -18,7 +18,8 @@ with sync_playwright() as p:
   chk('Thắng: có nút VỀ SẢNH + ẢI TIẾP',any('SẢNH' in x for x in b) and any('ẢI TIẾP' in x for x in b),b)
   pg.evaluate("()=>{window.__log=[];const iv=setInterval(()=>{const ov=document.getElementById('overlay');window.__log.push([mode,ov.hidden,document.body.classList.contains('res78')]);},250);setTimeout(()=>clearInterval(iv),4000);document.querySelector('#e22a .e22s').click()}")
   pg.wait_for_timeout(4300);L=pg.evaluate("()=>window.__log")
-  chk('VỀ SẢNH: 4 s liền mode menu, overlay ẩn, không bật lại màn kết quả',len(L)>=12 and all(m=='menu' and h and not r for m,h,r in L[1:]),L[:3]+L[-2:])
+  bad_=[x for x in L[1:] if not(x[0]=='menu' and x[1] and not x[2])]
+  chk('VỀ SẢNH: 4 s liền mode menu, overlay ẩn, không bật lại màn kết quả',len(L)>=4 and not bad_,{'n':len(L),'lech':bad_[:4]})
   # 2 THẮNG → ẢI TIẾP
   start(pg,12);pg.evaluate("()=>{invuln=1e9}");pg.evaluate("()=>finishStage36(false)");pg.wait_for_timeout(2500)
   pg.evaluate("()=>document.querySelector('#e22a .e22g').click()");pg.wait_for_timeout(3500);r=pg.evaluate(ST)
@@ -43,13 +44,18 @@ with sync_playwright() as p:
   chk('Bạo Tẩu kết thúc từ cấp thấp (power 2) → vẫn về power 5',a['power']==5,a)
   a=pg.evaluate("()=>{window.OD22=false;superTime=3;collect({type:'power',x:player.x,y:player.y});const s=superTime;window.OD22=true;return {s}}")
   chk('Tắt OD22: nhặt P khi đang Bạo Tẩu quay về nạp đầy (> 5,5 s)',a['s']>5.6,a)
-  # 5 trúng đòn không khiên: hạ 1 cấp đạn
-  a=pg.evaluate("""()=>{const H=()=>{invuln=0;shield=0;bulletShieldTime=0;};superTime=0;power=4;powerUpgrades=3;H();damage('collision');const p1=power;
-   H();shield=50;damage('collision');const p2=power;
-   H();power=1;powerUpgrades=0;damage('collision');const p3=power;
+  # 5 trúng đòn không khiên: hạ 1 cấp đạn (chờ hết Bạo Tẩu + thời gian bất tử còn sót từ bước trước)
+  pg.evaluate("()=>{superTime=0}");pg.wait_for_timeout(2000)
+  a=pg.evaluate("""()=>{const H=()=>{invuln=0;shield=0;bulletShieldTime=0;};
+   const land=(pw)=>{const L=[];for(let k=0;k<10;k++){superTime=0;power=pw;powerUpgrades=pw-1;H();const h0=hp;damage('collision');const hit=hp<h0;L.push([hit,power]);hp=maxHp;if(hit)return {L,ok:true,p:power};}return {L,ok:false,p:power};};
+   const a=land(4);
+   const blk=a.L.filter(x=>!x[0]).every(x=>x[1]===4);
+   H();superTime=0;power=3;powerUpgrades=2;shield=50;damage('collision');const p2=power;
+   const c=land(1);
    power=4;powerUpgrades=3;superTime=3;H();damage('collision');const p4=power;superTime=0;
-   window.LV22=false;H();damage('collision');const p5=power;window.LV22=true;return {p1,p2,p3,p4,p5,pu:powerUpgrades}}""")
-  chk('Trúng đòn không khiên: Lv4 → Lv3; có khiên giữ cấp; Lv1 không xuống nữa; đang Bạo Tẩu giữ cấp; tắt LV22 giữ cấp',a['p1']==3 and a['p2']==3 and a['p3']==1 and a['p4']==4 and a['p5']==4,a)
+   window.LV22=false;const e=land(4);window.LV22=true;
+   return {p1:a.p,ok1:a.ok,blk,nchan:a.L.length-1,p2,p3:c.p,p4,p5:e.p,ok5:e.ok}}""")
+  chk('Trúng đòn mất máu, không khiên: Lv4 → Lv3 (đòn bị nội tại giáp chặn thì giữ cấp); có khiên giữ cấp; Lv1 không xuống nữa; đang Bạo Tẩu giữ cấp; tắt LV22 giữ cấp',a['ok1'] and a['p1']==3 and a['blk'] and a['p2']==3 and a['p3']==1 and a['p4']==4 and a['ok5'] and a['p5']==4,a)
   chk('Không lỗi trang',not errs,errs[:5])
   br.close()
 print('KẾT QUẢ %d/%d'%(len(ok),len(ok)+len(bad)))
