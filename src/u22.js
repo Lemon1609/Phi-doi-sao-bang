@@ -131,7 +131,8 @@ ${P}.pl67 .pl67-st > *{${CARD};padding:3px 7px!important;font-size:10px!importan
 ${P}.cx7-detail{min-height:0!important;padding:8px!important}
 ${P}.cx7-c small{white-space:normal!important;overflow:hidden!important;text-overflow:clip!important;display:-webkit-box!important;-webkit-line-clamp:2!important;-webkit-box-orient:vertical!important;line-height:1.12!important;text-align:center!important;font-size:8.5px!important;min-height:2.3em!important;word-break:normal!important}
 /* ---------- Cửa hàng: nút quay không tràn ---------- */
-${P}.w74btns .e74go{font-size:11px!important;letter-spacing:.02em!important;white-space:nowrap!important;padding:0 6px!important}
+${P}.w74btns .e74go{font-size:11px!important;letter-spacing:0!important;white-space:nowrap!important;padding:0 3px!important}
+${P}.w74btns .e74go .e17{margin:0 0 0 1px!important}
 /* ---------- thanh trượt: tia laser mảnh + núm kim loại vát ---------- */
 ${P}.st66 input[type=range]{-webkit-appearance:none!important;appearance:none!important;height:4px!important;min-height:0!important;max-height:4px!important;align-self:center!important;padding:0!important;border:0!important;background:linear-gradient(90deg,#67e8f9 0,#22d3ee var(--p,50%),#0b1b38 var(--p,50%),#0b1b38 100%)!important;box-shadow:0 0 6px rgba(34,211,238,.55),inset 0 0 0 1px rgba(56,189,248,.35)!important;border-radius:2px!important;outline:0!important}
 ${P}.st66 input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;appearance:none;width:14px;height:18px;border:0;background:linear-gradient(180deg,#e2e8f0,#64748b 48%,#cbd5e1);clip-path:${CH4(4)};box-shadow:0 0 6px #22d3ee}
