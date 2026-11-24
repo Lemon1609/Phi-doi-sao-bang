@@ -1,4 +1,10 @@
-# BÀN GIAO V2.2.1 — CHỜ DUYỆT (24/11/2026 ~20:30), CHƯA dựng APK, CHƯA xuất bản
+# BÀN GIAO V2.2.1 — ĐÃ XUẤT BẢN 24/11/2026 ~20:30 (chủ dự án "Duyệt xuất bản V2.2.1" 20:20)
+
+- Release **`V2.2.1.44`** (workflow run 45402530610): APK `PhiDoiSaoBang-V2.2.1.44.apk` 71.516.195 byte, sha256 `315ab15fe8b26b08701ae42eb5e3e649a0bb8c12dfd4081cc7b55edf02bd84c0`; chữ ký `CN=Phi Doi Sao Bang, O=Lemon1609, C=VN` SHA256 `B1:34:…:DC:0E` TRÙNG V2.2.0 / V2.1.42 → cài đè giữ dữ liệu.
+- `build-apk-v198` = 0fc6060 (`www/` = split.py + ext22.py từ bản dựng sạch 23f31b9, `VERSION`=`V2.2.1`; phần ký / workflow / android_patch không đổi). `assets/public` trong APK trùng từng tệp với `www/` (+ cordova.js / cordova_plugins.js), có `assets/` 3.021 ảnh; chạy thử qua http: 0 ảnh hỏng, 0 lỗi JS, 0 phản hồi ≥ 400, vào trận được.
+- HTML offline gửi trong chat (zip 62,7 MB).
+
+## (Báo cáo lúc chờ duyệt)
 
 Nhánh `v22-dang-lam` (a124384 → 23f31b9 + commit tài liệu). Không đụng `nguon-v212`, không đụng workflow ký / khóa.
 Dựng sạch `BAN_THU=1 python3 build74_mau.py` → `Phi_Doi_Sao_Bang_V74_mau.html` 86.703.881 byte.
