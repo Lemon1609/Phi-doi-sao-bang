@@ -93,7 +93,7 @@ const V22=(()=>{
    if(!id)return `<button type="button" class="vk22 ${shape} em" data-v22vk="1"><span class="vb"><i class="plus22">+</i></span><small>${main?'CHỦ CHIẾN':'HỖ TRỢ'}</small></button>`;
    const w=(st&&st.w&&st.w[id])||{r:0,lv:1};const r=w.r|0,f=C.rf?C.rf[r]:0,col=C.fcol?C.fcol[f]:'#9fd2ff';
    return `<button type="button" class="vk22 ${shape}" data-v22vk="1" style="--vc:${col}"><span class="vb"><img src="${vkImg(id,r)}" alt=""></span><small>${esc((C.nm&&C.nm[id])||id)}</small><em>${esc((C.rn&&C.rn[r])||'')} · Lv.${w.lv|0}</em></button>`;};
-  return `<div class="vkr22">${cell(st&&st.main,0)}${cell(st&&st.sup&&st.sup[0],1)}${cell(st&&st.sup&&st.sup[1],2)}</div><button type="button" class="vgo22" data-v22vk="1">MỞ VŨ KHÍ TỐI THƯỢNG ›</button>`;}
+  return `<div class="vkr22">${cell(st&&st.sup&&st.sup[0],1)}${cell(st&&st.main,0)}${cell(st&&st.sup&&st.sup[1],2)}</div><button type="button" class="vgo22" data-v22vk="1">MỞ VŨ KHÍ TỐI THƯỢNG ›</button>`;}
  // ---------------- KHO ----------------
  let tabB=false;
  function kho(){const d=document.querySelector('#hub40 .hb-doll.d9');const hub=document.getElementById('hub40');if(!d||!hub||hub.hidden){return;}
@@ -275,7 +275,6 @@ ${P}#hub40 .k22 .hb-slot .gm22 .gx{background:rgba(0,0,0,.55)}
 ${P}#hub40 .k22 .hb-slot .bd42.dot{display:none!important}
 /* 3 ô VKTT: lục giác – tròn – lục giác */
 ${P} .vkr22{display:grid;grid-template-columns:1fr 1.15fr 1fr;gap:8px;align-items:end;padding:6px 10px 2px}
-${P} .vkr22 .vk22:nth-child(1){order:2}
 ${P} .vk22{display:flex;flex-direction:column;align-items:center;gap:3px;background:none;border:0;color:#cfe6ff;cursor:pointer;min-width:0}
 ${P} .vk22 .vb{width:72px;aspect-ratio:1;display:grid;place-items:center;background:radial-gradient(circle at 50% 40%,color-mix(in srgb,var(--vc,#2496ff) 45%,#0a1e42),#040d21 72%);box-shadow:inset 0 0 0 2px var(--vc,#2496ff)}
 ${P} .vk22.ci .vb{width:84px;border-radius:50%;box-shadow:inset 0 0 0 3px var(--vc,#ffd23f),0 0 0 2px rgba(255,210,63,.35)}

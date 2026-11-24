@@ -48,14 +48,14 @@ with sync_playwright() as p:
   pg.evaluate("()=>{superTime=0}");pg.wait_for_timeout(2000)
   a=pg.evaluate("""()=>{const H=()=>{invuln=0;shield=0;bulletShieldTime=0;};
    const land=(pw)=>{const L=[];for(let k=0;k<10;k++){superTime=0;power=pw;powerUpgrades=pw-1;H();const h0=hp;damage('collision');const hit=hp<h0;L.push([hit,power]);hp=maxHp;if(hit)return {L,ok:true,p:power};}return {L,ok:false,p:power};};
-   const a=land(4);
-   const blk=a.L.filter(x=>!x[0]).every(x=>x[1]===4);
+   delete window.LV22;const d=land(4);
+   window.LV22=true;const a=land(4);const blk=a.L.filter(x=>!x[0]).every(x=>x[1]===4);
    H();superTime=0;power=3;powerUpgrades=2;shield=50;damage('collision');const p2=power;
    const c=land(1);
-   power=4;powerUpgrades=3;superTime=3;H();damage('collision');const p4=power;superTime=0;
-   window.LV22=false;const e=land(4);window.LV22=true;
-   return {p1:a.p,ok1:a.ok,blk,nchan:a.L.length-1,p2,p3:c.p,p4,p5:e.p,ok5:e.ok}}""")
-  chk('Trúng đòn mất máu, không khiên: Lv4 → Lv3 (đòn bị nội tại giáp chặn thì giữ cấp); có khiên giữ cấp; Lv1 không xuống nữa; đang Bạo Tẩu giữ cấp; tắt LV22 giữ cấp',a['ok1'] and a['p1']==3 and a['blk'] and a['p2']==3 and a['p3']==1 and a['p4']==4 and a['ok5'] and a['p5']==4,a)
+   power=4;powerUpgrades=3;superTime=3;H();damage('collision');const p4=power;superTime=0;delete window.LV22;
+   return {pDef:d.p,okDef:d.ok,p1:a.p,ok1:a.ok,blk,p2,p3:c.p,p4}}""")
+  chk('Mặc định (LV22 chưa bật): trúng đòn mất máu GIỮ cấp đạn như game gốc',a['okDef'] and a['pDef']==4,a)
+  chk('Bật LV22=true: mất máu không khiên Lv4 → Lv3; đòn bị giáp chặn / có khiên / Bạo Tẩu giữ cấp; Lv1 không xuống',a['ok1'] and a['p1']==3 and a['blk'] and a['p2']==3 and a['p3']==1 and a['p4']==4,a)
   chk('Không lỗi trang',not errs,errs[:5])
   br.close()
 print('KẾT QUẢ %d/%d'%(len(ok),len(ok)+len(bad)))

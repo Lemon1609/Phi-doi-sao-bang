@@ -11,7 +11,7 @@ PAIRS22=[
  # 3) hết Bạo Tẩu: luôn về cấp ngay dưới (P4/4, power 5) — nhặt thêm 1 P là Bạo Tẩu lại
  ("if(wasSuper&&superTime<=0)toast('SUPER KẾT THÚC · GIỮ P4');",
   "if(wasSuper&&superTime<=0){if(window.V22!==false&&window.OD22!==false&&power<5&&!window.HANGAR_DEMO){power=5;powerUpgrades=4;}toast('SUPER KẾT THÚC · GIỮ P4');}"),
- # 4) trúng đòn khi KHÔNG có khiên (mất máu): hạ 1 cấp đạn (không khi đang Bạo Tẩu, tối thiểu Lv1). Chủ dự án chốt 24/11. Tắt: window.LV22=false
+ # 4) trúng đòn khi KHÔNG có khiên (mất máu): hạ 1 cấp đạn (không khi đang Bạo Tẩu, tối thiểu Lv1). Chủ dự án 24/11 09:24: MẶC ĐỊNH TẮT (giữ luật gốc: trúng đòn không hạ cấp). Bật: window.LV22=true
  ("flash=.13;VisualFX.impact(player.x,player.y,'#ffafa1');tone(110,.2,'sawtooth');}",
-  "flash=.13;VisualFX.impact(player.x,player.y,'#ffafa1');tone(110,.2,'sawtooth');if(window.V22!==false&&window.LV22!==false&&superTime<=0&&power>1&&!window.HANGAR_DEMO){power--;powerUpgrades=power-1;toast('TRÚNG ĐÒN · ĐẠN LV '+power);}}"),
+  "flash=.13;VisualFX.impact(player.x,player.y,'#ffafa1');tone(110,.2,'sawtooth');if(window.V22!==false&&window.LV22===true&&superTime<=0&&power>1&&!window.HANGAR_DEMO){power--;powerUpgrades=power-1;toast('TRÚNG ĐÒN · ĐẠN LV '+power);}}"),
 ]
