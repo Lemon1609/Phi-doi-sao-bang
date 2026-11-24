@@ -104,6 +104,19 @@ ${P}#k307 .k307-row .k307-ri > small{font-size:9.5px!important;letter-spacing:.0
 ${P}#k307 .k307-row .k307-ic > .gear25-art{width:100%!important;max-width:100%!important;min-width:0!important;box-sizing:border-box!important}
 ${P}#k307 .k307-row .k307-ic .c9e{right:3px!important;left:auto!important;max-width:calc(100% - 6px)!important}
 ${P}#k307 :is(.k307-row,.k307-rr) button{min-height:24px!important;height:auto!important;padding:4px 8px!important;font-size:10px!important}
+/* Túi đồ (chủ dự án 11:29): bỏ nhãn +X ở góc ô (đã có TÍM +N ở cột giữa) · ϟ Siêu Tần Tuần thành dấu cạnh tên · cột phải chừa lề 6 px · nút + nhãn vát 45° · đơn vị s viết thường */
+${P}#k307 .k307-row .k307-ic :is(.c9e,.c9s){display:none!important}
+${P}#k307 .k307-row .k307-ic > .oc10i{display:none!important}
+${P}#k307 .k307-row:has(.oc10i) .k307-ri > b::after{content:' ϟ';color:#fde047;-webkit-text-fill-color:#fde047;text-shadow:0 0 6px rgba(253,224,71,.6)}
+${P}#k307 .k307-row .u22s{font-style:normal!important;text-transform:none!important;margin-left:1px}
+${P}#k307 .k307-row .k307-rr{display:flex!important;flex-direction:column!important;align-items:flex-end!important;justify-content:center!important;gap:4px!important;padding:6px 2px 6px 0!important;box-sizing:border-box!important;align-self:stretch!important}
+${P}#k307 .k307-row[data-f]{min-height:86px!important;padding-top:8px!important;padding-bottom:8px!important}
+${P}#k307 .k307-row .k307-rr > *{flex-shrink:0!important}
+${P}#k307 .k307-row .k307-rr > b{font-size:13px!important;line-height:1!important;margin:0!important}
+${P}#k307 .k307-row .k307-rr > s{display:inline-block!important;text-decoration:none!important;margin:0!important;padding:2px 8px!important;font:900 9px/1.1 inherit!important;letter-spacing:.06em!important;border-radius:0!important;clip-path:${CH4(4)}!important;background:linear-gradient(180deg,#15803d,#0b4f27)!important;box-shadow:inset 0 0 0 1px #4ade80!important;color:#dcfce7!important;-webkit-text-fill-color:#dcfce7!important}
+${P}#k307 .k307-row .k307-rr > .k9a{margin:0!important;height:20px!important;min-height:0!important;line-height:20px!important;padding:0 10px!important;font:900 9.5px/20px inherit!important;letter-spacing:.06em!important;border:0!important;border-radius:0!important;clip-path:${CH4(5)}!important;background:linear-gradient(180deg,rgba(255,255,255,.3) 0,rgba(255,255,255,.3) 1px,transparent 1px),linear-gradient(180deg,#f5c249,#d98a16)!important;box-shadow:inset 0 0 0 1px #fde68a!important;color:#0b1a33!important;-webkit-text-fill-color:#0b1a33!important;text-shadow:none!important}
+${P}#k307 .k307-row .k307-rr > .k9a.m{background:linear-gradient(180deg,#334155,#1e293b)!important;box-shadow:inset 0 0 0 1px #64748b!important;color:#cbd5e1!important;-webkit-text-fill-color:#cbd5e1!important}
+${P}#k307 .k307-row .k307-rr > .k9a.b{background:linear-gradient(180deg,rgba(255,255,255,.22) 0,rgba(255,255,255,.22) 1px,transparent 1px),linear-gradient(180deg,#184888,#0d2852)!important;box-shadow:inset 0 0 0 1px #38bdf8!important;color:#e8f6ff!important;-webkit-text-fill-color:#e8f6ff!important}
 /* ---------- Phúc lợi: ô 7 ngày ---------- */
 ${P}.l14d .day{position:relative!important;${CARD};box-shadow:inset 0 1px 0 rgba(148,197,255,.45),inset 0 0 0 1.5px var(--dc,#1d4f8f)!important;padding:6px 4px!important;gap:3px!important;font-size:9.5px!important;line-height:1.2!important}
 ${P}.l14d .day:nth-child(-n+2){--dc:#3b82f6}${P}.l14d .day:nth-child(3),${P}.l14d .day:nth-child(4){--dc:#22c55e}${P}.l14d .day:nth-child(5),${P}.l14d .day:nth-child(6){--dc:#a855f7}${P}.l14d .day.d7{--dc:#f59e0b}

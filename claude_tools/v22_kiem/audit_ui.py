@@ -106,6 +106,7 @@ with sync_playwright() as p:
     except Exception as ex:miss.append('lỗi bước: '+str(ex)[:120])
     pg.evaluate("()=>{const q=document.getElementById('q307');if(q)q.style.display='none';document.getElementById('tutorial392')?.remove()}")
     r=pg.evaluate(CHECK,[SAFE_T,SAFE_B]);r['js']=errs[e0:];r['miss']=miss;r['lab']=lab;r['sheet']=sheet
+    if os.environ.get('DBG'):print(pg.evaluate('()=>{'+os.environ['DBG']+'}'))
     pg.evaluate(GUIDE,[SAFE_T,SAFE_B]);pg.screenshot(path=f'{OUT}/png/{sid}.png');pg.evaluate("()=>document.querySelectorAll('.au22').forEach(e=>e.remove())")
     res[sid]=r;print(sid,lab,json.dumps({k:(v if not isinstance(v,list) else len(v)) for k,v in r.items() if k not in('lab','sheet')},ensure_ascii=False),flush=True)
   br.close()
