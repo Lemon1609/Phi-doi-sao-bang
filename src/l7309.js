@@ -84,7 +84,7 @@ const L7309=(()=>{
    if(lrow.parentNode!==card.parentNode||lrow.nextSibling!==card)card.parentNode.insertBefore(lrow,card);lrow.hidden=false;lpaint();}
  function lpaint(){if(!lrow)return;lrow.querySelectorAll('[data-ld7]').forEach(b=>{const k=b.dataset.ld7;if(k==='s')return;const i=+k,o=LS.sets[i];b.classList.toggle('on',i===LS.act&&!!o);b.classList.toggle('em',!o);
    let sub='';if(o){try{sub=o.fus&&Fusion.resolve(o.fus)?(FusionBlueprints.names[Fusion.resolve(o.fus).model]||'Chiến Thần'):(Fighters28.profiles[o.craft]||{}).name||'';}catch{}}
-   b.innerHTML=`<b>BỘ ${i+1}</b><small>${o?sub:'+ lưu'}</small>`;});}
+   const h22=`<b>BỘ ${i+1}</b><small>${o?sub:'+ lưu'}</small>`;if(b.__h22!==h22){b.__h22=h22;b.innerHTML=h22;}/* V2.2.1: ghi lại cùng nội dung → mutation + tính lại style */});}
  // =============== CODEX7 ===============
  const IMG=typeof CODEX7_IMG!=='undefined'?CODEX7_IMG:{};
  const cOn=()=>window.CODEX7!==false;

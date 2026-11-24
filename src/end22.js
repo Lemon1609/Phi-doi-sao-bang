@@ -84,11 +84,11 @@ ${P}#e22a button:active{filter:brightness(.86)}`;
   setInterval(()=>{try{paint();}catch{}},150);
   // V2.2.1: gắn màn mới NGAY khi #overlay hiện / đổi nội dung (MutationObserver chạy trước khung vẽ kế tiếp) → không còn chớp màn cũ ~0,4–1,5 s
   //  trước đây chờ 2 vòng kiểm: end78 (250 ms, bật res78) rồi end22 (150 ms). Tắt riêng: window.END22MO=false
-  const sync=()=>{if(window.END22MO===false)return;try{End78.apply();}catch{}try{paint();}catch{}};
+  //  Theo dõi cả cây con của #overlay; tự sửa DOM trong paint() cũng sinh mutation → bỏ bản ghi của chính mình (takeRecords) để không lặp vô hạn
+  let mo0=null,busy=false;const sync=()=>{if(window.END22MO===false||busy)return;busy=true;try{try{End78.apply();}catch{}try{paint();}catch{}}finally{try{mo0&&mo0.takeRecords();}catch{}busy=false;}};
   const hook=()=>{const ov=document.getElementById('overlay');if(!ov){setTimeout(hook,200);return;}
-   new MutationObserver(sync).observe(ov,{attributes:true,attributeFilter:['hidden','class','style'],childList:true});
-   const rs=()=>{const r=ov.querySelector('#rs');if(r&&!r.__e22o){r.__e22o=1;new MutationObserver(sync).observe(r,{childList:true});}};
-   new MutationObserver(rs).observe(ov,{childList:true});rs();};
+   mo0=new MutationObserver(sync);mo0.observe(ov,{attributes:true,attributeFilter:['hidden','class','style'],childList:true,subtree:true});
+   /* #rs nằm trong cây con của #overlay → đã được mo0 (subtree) theo dõi, không cần observer riêng */};
   hook();}
  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',init);else init();
  return {paint,launch,run:()=>run,plainNow};

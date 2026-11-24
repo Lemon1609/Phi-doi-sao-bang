@@ -12,6 +12,8 @@ const HUD22=(()=>{
  const playing=()=>{try{return mode==='play'||mode==='pause';}catch{return false;}};
  if(on()){const st=document.createElement('style');st.id='hud22-css';
   st.textContent='html body #perf15b,html body #fps88,html body #perf15{display:none!important}'+
+   /* V2.2.1 OFF22: trang #arsenal cũ nằm dưới màn hình (y≈13.000) vẫn chạy 39 hoạt ảnh xoay → trình duyệt bỏ qua phần ngoài màn hình (window.OFF22=false để tắt) */
+   (window.OFF22===false?'':'#arsenal{content-visibility:auto;contain-intrinsic-size:auto 2000px}')+
   '#hud22{position:fixed;left:calc(env(safe-area-inset-left,0px) + 4px);top:calc(env(safe-area-inset-top,0px) + 2px);z-index:2147483100;pointer-events:none;'+
   'font:700 9.5px/1.2 ui-monospace,Menlo,Consolas,monospace;color:#d8fbff;background:rgba(2,8,18,.72);border:1px solid rgba(63,230,255,.5);padding:2px 4px;white-space:pre;contain:layout paint;transform:translateZ(0)}';
   (document.head||document.documentElement).appendChild(st);window.PERF_HUD=false;}

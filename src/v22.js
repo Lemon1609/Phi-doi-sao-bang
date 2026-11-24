@@ -74,7 +74,7 @@ const V22=(()=>{
    for(let i=0;i<n;i++){const x=st.find(z=>z.on&&z.on.s===i);const t=x?(x.q!=null?x.q:x.t!=null?x.t:x.tier!=null?x.tier:0):-1;s+=i>=h.open?'<i class="gx"></i>':x?`<i class="gf" style="--gc:${tc[Math.max(0,Math.min(tc.length-1,t|0))]}"></i>`:'<i class="ge"></i>';}
    return `<span class="gm22">${s}</span>`;}catch{return '';}}
  const crest='<i class="cr22" aria-hidden="true"><svg viewBox="0 0 40 26"><defs><linearGradient id="cg22" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fff6c4"/><stop offset=".5" stop-color="#ffd23f"/><stop offset="1" stop-color="#c47a0c"/></linearGradient></defs><path d="M20 25 9 8 1 6l6-4 7 1 6 11 6-11 7-1 6 4-8 2z" fill="url(#cg22)" stroke="#5a3200" stroke-width="1.2" stroke-linejoin="round"/><path d="M20 21l-5-9h10z" fill="#fff8d6" opacity=".7"/></svg></i>';
- function decorSlot(b){const t=Math.max(0,Math.min(5,+(b.dataset.f17||0)));for(const c of TIER)b.classList.remove('r22-'+c);b.classList.add('r22-'+TIER[t],'c22');
+ function decorSlot(b){const t=Math.max(0,Math.min(5,+(b.dataset.f17||0)));/* V2.2.1: chỉ đổi lớp khi khác (remove/add luôn sinh mutation) */for(const c of TIER)b.classList.toggle('r22-'+c,c===TIER[t]);b.classList.toggle('c22',true);
   const kind=b.dataset.k307k,it=b.dataset.it;let sss=false,key='';
   if(kind){sss=g(()=>String(Gear44.activeId(kind)||'').startsWith('sss_'),false);if(it)key='g:'+it;}
   else if(b.classList.contains('c9ship')){const i=g(()=>launchCraft!=null?launchCraft:selected,0);sss=g(()=>!!SSS87.state().done[i],false);key='c'+i;}

@@ -1,4 +1,8 @@
 'use strict';
+/* V2.2.1 GLOW22: trần số quầng cộng sáng của đạn chính mỗi khung (Bạo Tẩu phủ ~0,6 màn hình cộng sáng). document.timeline.currentTime không đổi trong 1 khung rAF.
+   ĐẸP 40 · NHẸ 18 · tắt: window.GLOW22=false · đổi trần: window.GLOW22CAP */
+const G22={f:-1,n:0};function glow22(){if(window.GLOW22===false)return true;const f=document.timeline?document.timeline.currentTime:performance.now();if(f!==G22.f){G22.f=f;G22.n=0;}
+ let lite=false;try{lite=VisualFX.counts().quality==='light'}catch(e){}return ++G22.n<=(window.GLOW22CAP||(lite?18:40));}
 // V307 · ĐẠN CHÍNH KIỂU MỚI theo Gemini (docs_claude/de_xuat_cho/GEMINI_TRA_LOI_THIET_KE_DAN_13_TAU_V307.md) · 13 TÀU (tàu có tia laser liền giữ laser cũ)
 //  • Cơ chế: gom sát thương của các loạt bắn cũ (giữ nguyên tổng sát thương mỗi giây), phát lại theo nhịp mới thành quạt N tia, bay nhanh, thưa.
 //  • Hình: vệt lông vũ lửa vẽ bằng mã (chưa có sprite GPT) — 3 lớp: quầng (đè thường, mờ) · thân màu bão hòa + đuôi mờ dần · lõi sáng nhỏ (cộng sáng).
@@ -72,7 +76,7 @@
    if(e21){try{if(Evo21.spin(s.art28))a+=(s.age||0)*10;}catch{}}/* V2.1: đĩa cưa xoay tròn */
    try{const ot=window.SK8T&&window.SK8T();if(ot&&!alt&&!e21&&window.DAN309!==false){const kk=sp[s.bt307?1:0];if(IM[kk]&&IM[kk].complete){const r8=recolor(IM[kk],kk,ot);if(r8)im=r8;}}}catch{}/* V309 Lượt 8: trang phục chiến cơ đổi màu đạn chính (bảng sk8_<hạng> trong MAU309) */const fa=Math.min(1,(s.age||0)/.07);/* V307: hiện dần 0,07 s đầu để loạt đạn vừa bắn không chồng thành khối sát mũi tàu */
    g.save();g.translate(s.x,s.y);g.rotate(a);g.globalCompositeOperation='source-over';g.globalAlpha=(wd21&&s.art28===11?.85:.95)*fa;g.drawImage(im,-w/2,wd21?-h/2:-h*.12,w,h);
-   g.globalCompositeOperation='lighter';if(wd21){/* V2.1: đĩa / trăng khuyết không thêm quầng cộng sáng (chồng nhiều viên thành cục trắng) */}else if(window.MAU309B!==false&&window.DAN309!==false){/* V309b: chỉ quầng ngoài cộng sáng, alpha .35 (Gemini) */g.globalAlpha=(s.bt307?.3:.35)*fa*(window.FXK42?FXK42():1);/* V2.1.42: −15 % khi FX dày */g.drawImage(im,-w*.62,-h*.18,w*1.24,h*1.08);}else{g.globalAlpha=(s.bt307?.35:.22)*fa*(window.DAN309===false?1:2);g.drawImage(im,-w*.3,-h*.1,w*.6,h*.5);if(window.DAN309!==false){g.globalAlpha=.3*fa;g.drawImage(im,-w*.62,-h*.18,w*1.24,h*1.08);}}g.restore();return;}
+   g.globalCompositeOperation='lighter';if(wd21){/* V2.1: đĩa / trăng khuyết không thêm quầng cộng sáng (chồng nhiều viên thành cục trắng) */}else if(window.MAU309B!==false&&window.DAN309!==false){/* V309b: chỉ quầng ngoài cộng sáng, alpha .35 (Gemini) */if(glow22()){g.globalAlpha=(s.bt307?.3:.35)*fa*(window.FXK42?FXK42():1);/* V2.1.42: −15 % khi FX dày */g.drawImage(im,-w*.62,-h*.18,w*1.24,h*1.08);}}else{g.globalAlpha=(s.bt307?.35:.22)*fa*(window.DAN309===false?1:2);g.drawImage(im,-w*.3,-h*.1,w*.6,h*.5);if(window.DAN309!==false){g.globalAlpha=.3*fa;g.drawImage(im,-w*.62,-h*.18,w*1.24,h*1.08);}}g.restore();return;}
   drawCode(g,s);}
  function drawCode(g,s){const L=s.L307,c=s.c307,w=s.bt307?6:4.5,a=Math.atan2(s.vy,s.vx)+Math.PI/2,fl=Math.sin((s.age||0)*40);
   g.save();g.translate(s.x,s.y);g.rotate(a);

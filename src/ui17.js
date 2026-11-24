@@ -40,7 +40,7 @@ const UI17=(()=>{
  const frameN=n=>{try{return TIER70.frame[Math.max(0,Math.min(11,n|0))]|0;}catch{return 0;}};
  const ocOf=k=>{try{return typeof OC17API!=='undefined'&&window.OC17!==false?(OC17API.state().g[k]||{}).oc|0:0;}catch{return 0;}};
  function pickF(base,ock,sss){if(sss)return 5;if(ock&&ocOf(ock)>=5)return 4;return base;}
- function frameOn(host,f,cls){if(!host)return;const u=IMG()[FK[f]];if(!u)return;let x=host.querySelector(':scope > i.f17x');if(!x){x=document.createElement('i');x.className='f17x';host.appendChild(x);}if(x.dataset.f!==String(f)){x.dataset.f=f;x.style.backgroundImage='url("'+u+'")';}host.classList.add('f17h');if(cls)host.classList.add(cls);host.dataset.f17=f;}
+ function frameOn(host,f,cls){if(!host)return;const u=IMG()[FK[f]];if(!u)return;let x=host.querySelector(':scope > i.f17x');if(!x){x=document.createElement('i');x.className='f17x';host.appendChild(x);}if(x.dataset.f!==String(f)){x.dataset.f=f;x.style.backgroundImage='url("'+u+'")';}/* V2.2.1: chỉ ghi khi đổi (add/ghi dataset luôn sinh mutation → tính lại style mỗi 700 ms) */const cl=host.classList;if(!cl.contains('f17h'))cl.add('f17h');if(cls&&!cl.contains(cls))cl.add(cls);if(host.dataset.f17!==String(f))host.dataset.f17=f;}
  const itemOf=id=>{try{return Progress.v70.get(id);}catch{return null;}};
  const isSSS=it=>!!(it&&(it.super||it.sss||it.grade==='SSS'));
  function curShip(){try{const t=(document.querySelector('.np9')||{}).textContent||'';for(let i=0;i<13;i++){try{if(t.startsWith(Fighters28.profiles[i].name))return i;}catch{}}}catch{}try{return Hub40.cur307();}catch{}try{return launchCraft;}catch{return 0;}}

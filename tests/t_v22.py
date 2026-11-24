@@ -1,3 +1,4 @@
+# V2.2.1: thêm 4 mục cuối (màn kết quả gắn ngay · HUD chẩn đoán · độ nét · tạm dừng nền khi mở Túi). Chạy kèm tests/t_nobs22.py và tests/t_map22.py.
 # V2.2 · kiểm hồi quy: màn kết quả (VỀ SẢNH không nảy ngược, ẢI TIẾP, CHƠI LẠI) + P Bạo Tẩu (hết → P4, +1 P → Bạo Tẩu, nhặt P khi đang Bạo Tẩu +2,5 s, trần 9 s ở SS).
 # Chạy: python3 tests/t_v22.py <html tuyệt đối>   (chạy LẦN LƯỢT, không song song với t156/t209)
 import sys,os,json
@@ -56,6 +57,20 @@ with sync_playwright() as p:
    return {pDef:d.p,okDef:d.ok,p1:a.p,ok1:a.ok,blk,p2,p3:c.p,p4}}""")
   chk('Mặc định (LV22 chưa bật): trúng đòn mất máu GIỮ cấp đạn như game gốc',a['okDef'] and a['pDef']==4,a)
   chk('Bật LV22=true: mất máu không khiên Lv4 → Lv3; đòn bị giáp chặn / có khiên / Bạo Tẩu giữ cấp; Lv1 không xuống',a['ok1'] and a['p1']==3 and a['blk'] and a['p2']==3 and a['p3']==1 and a['p4']==4,a)
+  # ---- V2.2.1 ----
+  start(pg,12);pg.evaluate("()=>{invuln=1e9}");pg.evaluate("()=>{window.__t0=performance.now();window.__rsAt=0;window.__ovAt=0;const mo=new MutationObserver(()=>{const ov=document.getElementById('overlay');const n=performance.now()-window.__t0;if(!window.__ovAt&&!ov.hidden&&document.body.classList.contains('res78'))window.__ovAt=n;if(!window.__rsAt&&ov.classList.contains('e22'))window.__rsAt=n;});mo.observe(document.getElementById('overlay'),{attributes:true,childList:true,subtree:true});finishStage36(false)}");pg.wait_for_timeout(1500)
+  r=pg.evaluate("()=>({ov:window.__ovAt,e22:window.__rsAt})")
+  chk('V2.2.1 Màn kết quả: khung mới gắn ngay khi bảng hiện (lệch ≤ 50 ms, không hiện khung cũ rồi nhảy)',r['e22']>0 and r['ov']>0 and r['e22']-r['ov']<=50,r)
+  pg.evaluate("()=>{try{End78.goLobby()}catch{}}");pg.wait_for_timeout(1200)
+  start(pg,12);pg.evaluate("()=>{invuln=1e9;Fps88._set({on:true})}");pg.wait_for_timeout(1600)
+  r=pg.evaluate("()=>{const e=document.getElementById('hud22');return {t:e?e.textContent:'',v:!!(e&&e.getClientRects().length),cu:[...document.querySelectorAll('#perf15b,#fps88,#perf15')].filter(x=>x.offsetParent).length,dpr:Math.round(canvas.width/canvas.clientWidth*100)/100}}")
+  import re as _re
+  chk('V2.2.1 HUD chẩn đoán đúng khuôn "FPS: n | n.nms | DPR x | P:n B:n | ĐẸP/NHẸ", không còn HUD cũ',r['v'] and bool(_re.match(r'^FPS: \d+ \| [\d.]+ms \| DPR [\d.]+ \| P:\d+ B:\d+ \| (ĐẸP|NHẸ)$',r['t'])) and r['cu']==0,r)
+  chk('V2.2.1 Độ nét trận ≤ 1,35 (ĐẸP)',r['dpr']<=1.36,r['dpr'])
+  pg.evaluate("()=>{Fps88._set({on:false});try{End78.goLobby()}catch{mode='menu';Lobby.show()}}");pg.wait_for_timeout(1500)
+  r=pg.evaluate("()=>{Nav74.tab('equip');KHO307.bag();return new Promise(res=>setTimeout(()=>res({m:!!window.__modal42}),900))}")
+  chk('V2.2.1 Mở Túi đồ → tạm dừng nền (__modal42)',r['m'],r)
+  pg.evaluate("()=>{try{KHO307.close()}catch{}}")
   chk('Không lỗi trang',not errs,errs[:5])
   br.close()
 print('KẾT QUẢ %d/%d'%(len(ok),len(ok)+len(bad)))

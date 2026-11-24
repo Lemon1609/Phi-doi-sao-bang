@@ -116,8 +116,10 @@
  // ======================= 5) Kho không nháy =======================
  const KH={busy:false,t:0};
  const visHub=()=>{const h=document.getElementById('hub40');if(!h||h.hidden)return false;const cs=getComputedStyle(h);return cs.display!=='none'&&cs.visibility!=='hidden';};
- function khoNow(){if(!ON()||window.KHO42===false||KH.busy||play())return;if(!visHub())return;const body=document.getElementById('hb-body');if(!body||!body.querySelector(':scope>.hb-doll'))return;
-   const n=performance.now(),doll=body.querySelector(':scope>.hb-doll'),fresh=!doll.classList.contains('d9b');if(!fresh&&n-KH.t<250)return;KH.busy=true;KH.t=n;
+ function khoNow(){if(!ON()||window.KHO42===false||KH.busy||play())return;
+   /* V2.2.1 KHO221: xét điều kiện rẻ trước — getComputedStyle trong visHub ép tính lại style (~17 ms/lần, đo trace 46 lần/3 s ở Túi đồ) */
+   const h0=document.getElementById('hub40');if(!h0||h0.hidden)return;const body=document.getElementById('hb-body');const doll=body&&body.querySelector(':scope>.hb-doll');if(!doll)return;
+   const n=performance.now(),fresh=!doll.classList.contains('d9b');if(!fresh&&n-KH.t<250)return;if(!visHub())return;KH.busy=true;KH.t=n;
    try{try{KHO307.patch();}catch{}try{L9309.kho();}catch{}try{L9B309.kho();}catch{}try{if(typeof UI17!=='undefined'&&UI17.frames)UI17.frames();}catch{}}finally{try{mo&&mo.takeRecords();}catch{}KH.busy=false;}
 }
  let mo=null;try{mo=new MutationObserver(()=>{try{khoNow();}catch{}});mo.observe(document.documentElement,{subtree:true,childList:true,attributes:true,attributeFilter:['hidden','style','class']});}catch{}
