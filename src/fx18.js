@@ -36,7 +36,7 @@ const FX18=(()=>{
     const a=Math.min(1,ao+ac);if(a<.004)continue;const t=ac/(ao+ac+1e-6),i=(y*W+x)*4,mid=v<.25?cw:c;
     d[i]=mid[0]+(255-mid[0])*t;d[i+1]=mid[1]+(255-mid[1])*t;d[i+2]=mid[2]+(255-mid[2])*t;d[i+3]=a*255;}}
   g.putImageData(id,0,0);PL.set(k,cv);if(PL.size>48)PL.delete(PL.keys().next().value);return cv;}
- function flame(g,x,y,ang,len,wid,col,t,seed,hot){const p22=(window.V22!==false&&window.PLUME22!==false),im=p22?plumeImg(col):flameImg(col,hot),T0=(t||performance.now()/1000),fl=p22?len*1.12*(1+.06*Math.sin(T0*41+(seed||0))+.02*Math.sin(T0*73+(seed||0)*3)):len*(1+.12*Math.sin(T0*38+(seed||0))+.05*Math.sin((t||0)*71+(seed||0)*3));if(p22)wid*=1.15;
+ function flame(g,x,y,ang,len,wid,col,t,seed,hot){if(window.Plume22&&Plume22.on()&&Plume22.flame(g,x,y,ang,len,wid,col,t,seed))return;const p22=(window.V22!==false&&window.PLUME22!==false),im=p22?plumeImg(col):flameImg(col,hot),T0=(t||performance.now()/1000),fl=p22?len*1.12*(1+.06*Math.sin(T0*41+(seed||0))+.02*Math.sin(T0*73+(seed||0)*3)):len*(1+.12*Math.sin(T0*38+(seed||0))+.05*Math.sin((t||0)*71+(seed||0)*3));if(p22)wid*=1.15;
   const pc=g.globalCompositeOperation,pa=g.globalAlpha;g.save();g.translate(x,y);if(ang)g.rotate(ang);g.globalCompositeOperation='lighter';g.drawImage(im,-wid/2,0,wid,fl);g.restore();g.globalCompositeOperation=pc;g.globalAlpha=pa;}
  // ---------- đĩa hologram ----------
  const DK=new Map();
@@ -95,10 +95,10 @@ const FX18=(()=>{
  function battleIm(i){try{const id=i!=null?i:(typeof selected!=='undefined'?selected:0);if((window.KHO_SSS87===true||(window.TH17!==false&&window.KHO_SSS87!==false))&&window.SSS87&&SSS87.hull){const h=SSS87.hull(id);if(h&&(h.naturalWidth||h.width))return h;}const S=SHIP118[String(id)];const n=V70.craftN(id)|0;return imgOf(S[FORM[n]]||S.tim||S.thuong);}catch{return null;}}
  function tone(i){if(window.FX17B===false)return shipCol(i);const im=battleIm(i);const inf=im&&im.complete!==false?shipInfo(im):null;return (inf&&inf.col)||shipCol(i);}
  // lửa động cơ gắn khít họng xả: (cx,cy) tâm ảnh tàu, sw×sh cỡ vẽ
- function engine(g,cx,cy,sw,sh,inf,col,t){const yb=cy-sh/2+sh*(inf?inf.y:.92)-sh*.035,L=sh*.3,Wd=Math.max(6,sw*.085);for(const [k,xf] of (inf?inf.xs:[-.05,.05]).entries()){const x=cx+xf*sw;
+ function engine(g,cx,cy,sw,sh,inf,col,t){if(window.Plume22&&Plume22.on()&&Plume22.engine(g,cx,cy,sw,sh,inf,col,t))return;const yb=cy-sh/2+sh*(inf?inf.y:.92)-sh*.035,L=sh*.3,Wd=Math.max(6,sw*.085);for(const [k,xf] of (inf?inf.xs:[-.05,.05]).entries()){const x=cx+xf*sw;
    flame(g,x,yb,0,L,Wd,col,t,k*2.3,true);}}
  // tàu con: bỏ chùm gai → chỉ tia đẩy mini phụt xuống từ đuôi
- function podFx(g,x,y,w,sp,col,t){/* chủ dự án 23/11: bỏ vòng hào quang quanh tàu con, chỉ giữ tia đẩy mini dưới đuôi */
+ function podFx(g,x,y,w,sp,col,t){if(window.Plume22&&Plume22.on()&&Plume22.pod(g,x,y,w,sp,col,t))return;/* chủ dự án 23/11: bỏ vòng hào quang quanh tàu con, chỉ giữ tia đẩy mini dưới đuôi */
   flame(g,x,y+w*.36,0,w*(sp?1.05:.8),Math.max(5,w*.3),col,t||performance.now()/1000,x*.02,true);}
  return {on,flame,flameImg,plumeImg,disk,wingImg,pal,podCols,shipCol,hex,shipInfo,battleIm,tone,engine,podFx,imgOf};
 })();window.FX18API=FX18;

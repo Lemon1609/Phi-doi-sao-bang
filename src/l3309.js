@@ -36,10 +36,11 @@
   if(sp){const h=halo(id,f);if(h){const S=F*k*1.07;c.globalAlpha=(.30+.15*(.5+.5*Math.sin(now*6)))*(window.V22!==false&&window.AG22!==false?.55:1);c.drawImage(h,-S/2,-S/2,S,S);c.globalAlpha=1;}}
   // phản lực 2 luồng ở đáy thân
   const jy=u(B[5])-2,jx=u(B[4]),jl=u(.17)*(sp?1.5:1)*(ti>=2?1.12:1),jw=Math.max(3.5,u(.028))*(sp?1.25:1);
-  for(const s of [-1,1])flame(c,s*jx,jy,jw,jl,col,now,s);
+  const p22=!!(window.Plume22&&Plume22.on()&&Plume22.ship(c,id,f,sp,F*k,col));/* V2.2: đuôi lửa ion-plasma theo THRUSTER_ANCHORS */
+  if(!p22)for(const s of [-1,1])flame(c,s*jx,jy,jw,jl,col,now,s);
   if(sp&&!(window.V22!==false&&window.AG22!==false))for(const s of [-1,1]){c.fillStyle='rgba(255,255,255,.55)';c.beginPath();c.ellipse(s*jx,jy+2,jw*.6,jw*1.1,0,0,6.283);c.fill();}
   // tia lửa phụ ở mép cánh (Lam+)
-  if(ti>=1&&!lite&&!window.__L42)for(const s of [-1,1])flame(c,s*u(s<0?-B[0]:B[2])*.92,u(B[6])+2,Math.max(1.6,jw*.45),jl*.45,col,now,s*3);
+  if(!p22&&ti>=1&&!lite&&!window.__L42)for(const s of [-1,1])flame(c,s*u(s<0?-B[0]:B[2])*.92,u(B[6])+2,Math.max(1.6,jw*.45),jl*.45,col,now,s*3);
   c.restore();}
  function front(id,f,sp,F,now,dt){const B=BB[id]&&BB[id][f];if(!B)return;const col=colorOf(id),c=ctx,ti={thuong:0,luc:0,lam:1,tim:2,tim5:3,ss:4}[f]||0,u=v=>v*F;
   c.save();c.globalCompositeOperation='lighter';
