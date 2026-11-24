@@ -1,4 +1,12 @@
-# BÀN GIAO V2.2.0 (CHỜ DUYỆT, CHƯA xuất bản) — 24/11/2026 09:20
+# BÀN GIAO V2.2.0 — ĐÃ XUẤT BẢN 24/11/2026 ~14:40
+
+## Xuất bản (chủ dự án "Duyệt xuất bản V2.2.0" 13:24)
+- Dựng sạch từ `v22-dang-lam` 59e374f (`BAN_THU=1 python3 build74_mau.py`, 86.679.545 byte). Hồi quy LẦN LƯỢT: t156 14/14 · t209 20/20 · t_v22 14/14, cả bản chèn `window.EVO21=false`.
+- `www/` (split.py, 60 tệp + index, 81,3 MB) mở được: menu, Plume22 + U22 bật, 0 lỗi. Nhánh `build-apk-v198` = 0af1739, `VERSION`=`V2.2.0` → workflow run 43 → Release **`V2.2.0.43`** (tag = VERSION.run; versionCode 43, versionName V2.2.0.43).
+- APK `PhiDoiSaoBang-V2.2.0.43.apk` 72.443.105 byte, sha256 `267bc75af447d9f9da4dc730f94d822b3b61b02429f677be3fce7d1bcb67483b`; chữ ký `CN=Phi Doi Sao Bang, O=Lemon1609, C=VN` SHA256 `B1:34:…:DC:0E` TRÙNG V2.1.42 → cài đè giữ dữ liệu. `assets/public` trùng từng tệp với `www/` đã kiểm.
+- HTML offline: gửi trực tiếp trong chat (zip 62,7 MB) — phiên Claude không tải tệp nhị phân lên Release được (proxy chỉ nhận thân JSON).
+- PHÁT HIỆN: repo `Lemon1609/Phi-doi-sao-bang` đang CÔNG KHAI (`visibility: public`), trái luật khóa — đã báo chủ dự án, chưa tự đổi.
+
 
 Nền: V2.1.42 đã xuất bản (Release `V2.1.42`, APK 71.884.363 byte, chữ ký trùng V306.39). Nhánh nguồn V2.2: `v22-dang-lam` (tách từ `nguon-v212` 0ec531c). **Chưa dựng sạch, chưa chạy t156/t209 cho V2.2.** Chỉ kiểm trên bản vá nhanh (`claude_tools/v22_kiem/va22.py` vá lên HTML V2.1.42).
 
