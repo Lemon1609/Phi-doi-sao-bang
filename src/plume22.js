@@ -32,10 +32,12 @@
    draw(g,cx+rx*D,cy+ry*D-tuck,L,Wd,e,(seed||0)+i*2.17,boost,ang);}return true;}
  // ---- chiến cơ (gọi từ l3309 back(), hệ toạ độ đã ở tâm tàu, đã xoay theo nghiêng thân) ----
  function ship(g,id,tf,sp,F,col){if(!ON())return false;const A=T().ship&&T().ship[id];if(!A)return false;const list=(sp&&A[tf+'_bt'])||A[tf]||A.tim;const e=(T().el&&T().el.ship&&T().el.ship[id])||el(col);
-  return unit(g,list,0,0,F,F*.42,'ship',e,sp,sway(),id*.9);}
+  /* V2.2.1 PL221: lửa thường ≤ 60 % chiều cao phần ĐẶC thân (Bạo Tẩu vẫn ×1,45 trong draw). Tắt: window.PL221=false */
+  const bh=window.__bh221,base=(window.PL221!==false&&bh>0)?Math.min(F*.42,bh*(window.PL221K||.6)):F*.42;window.__bh221=0;
+  return unit(g,list,0,0,F,base,'ship',e,sp,sway(),id*.9);}
  // ---- Kho / Sảnh: tàu id vẽ ở (x,y) cỡ S (khung vuông) ----
  function stageShip(g,id,x,y,S,boost){if(!ON())return false;const A=T().ship&&T().ship[id];if(!A)return false;let tf='tim';try{tf=L3309S.tierOf(id)||'tim';}catch{}
-  const e=(T().el&&T().el.ship&&T().el.ship[id])||'cyan';return unit(g,A[tf]||A.tim,x,y,S,S*.42,'ship',e,boost,0,id*.9);}
+  const e=(T().el&&T().el.ship&&T().el.ship[id])||'cyan';let base=S*.42;try{const B=window.PL221!==false&&L3309S.BB[id]&&L3309S.BB[id][tf];if(B)base=Math.min(base,(B[3]-B[1])*S*(window.PL221K||.6));}catch{}return unit(g,A[tf]||A.tim,x,y,S,base,'ship',e,boost,0,id*.9);}
  // ---- tàu con: ảnh thân đang vẽ đặt ở window.__pim22 ngay trước podWing ----
  const PK=new WeakMap();let RS=null;
  function podKey(im){if(!im)return null;let k=PK.get(im);if(k!==undefined)return k;k=null;try{const src=im.src||'';if(src&&window.EVO21_IMG){if(!RS){RS=new Map();for(const [kk,v] of Object.entries(EVO21_IMG))if(/^(wg_|sw_)/.test(kk))RS.set(v,kk);}k=RS.get(src)||null;}}catch{}PK.set(im,k);return k;}

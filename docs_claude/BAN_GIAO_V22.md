@@ -1,3 +1,13 @@
+# V2.2.2 — CHỜ DUYỆT (25/11/2026 ~00:30), CHƯA tăng phiên bản / APK
+
+Nhánh `v22-dang-lam`. 
+- **Sảnh kiểu cổ điển** `src/lob222.js` (tắt `window.LOB222=false`, `html.lob222` khi đang ở Sảnh): đầu trang 1 hàng (avatar + khung → HỒ SƠ · 3 ô tài nguyên · ô CÀI ĐẶT), ray trái NHIỆM VỤ · PHÚC LỢI · BỘ SƯU TẬP · BÁCH KHOA (sách SVG ánh kim) · TUẦN TRA (thay nút `.pt10` đè bảng tên; chấm đỏ khi đủ 6 giờ), ray phải CỬA HÀNG viền vàng · BỘ 1/2/3 · LƯU, giữa sân khấu mở + bảng tên hologram, đáy KHO ĐỒ | PHI CÔNG | VKTT · VÔ TẬN | CHIẾN ĐẤU · ẢI X. Nút mới chỉ chuyển tiếp sang nút / hàm cũ (giữ id, data-*) nên test cũ không đổi. Bẫy: lớp `gold` trúng luật chung `[class*="gold"]` của neo-theme (nền vàng phẳng) → đổi thành `g22c`.
+- **4 tấm nút kim loại** (tranh gốc `src/ship118_cho/V222_gpt_lobby_buttons_4plates.png`) cắt bằng `claude_tools/lob222_cat.py` → `src/lob222img/{btn_cta_gold,btn_cta_crimson,btn_nav_navy,btn_dock_sq}.webp` (flood-fill từ mép ngoài, lòng tối đục 100 %, viền mềm 1,5 px) → global `LOB222_IMG`; ext22 tự đưa ra `www/assets/` lúc đóng gói (tên băm).
+- **Chiến cơ bậc thấp to lên** (`SZ221`, tắt `window.SZ221=false`): `v2142.js` `SZ221K(id,'kho'|'tran')` = min(trần, max(1, mục tiêu / tỉ lệ phần ĐẶC so với Tím cùng tàu)); mục tiêu .82/.88/.94, trần Sảnh-Kho 1,35/1,22/1,14 · trận 1,26/1,22/1,14. Trận: nhân vào lớp SCALE42 (×1,22) quanh `player`; Sảnh (HANGAR_DEMO): chỉ hệ số này; Kho: `a10309` Stage co/giãn riêng thân + lửa + LED (bệ, tàu con giữ). Chấm hitbox vẽ ngoài drawShip → không đổi. Tàu 2, 6 Thường chỉ tới 0,62–0,71 lần Tím vì chạm trần.
+- Đội hình tàu con tính thêm `__sz221` (v22_rep); `tb309` POD221 thu tàu con nếu > 48 % bề ngang đặc của chiến cơ (đo tàu 1 Thường: tàu con 33 % → không thu). Lửa động cơ thường ≤ 60 % chiều cao đặc thân (`plume22` PL221, cả Kho), Bạo Tẩu vẫn ×1,45.
+- Chữ hướng dẫn chấm sáng ải 1 (`tut90.js` HINT221) xuống dưới hàng tàu con, nền viên thuốc tối, kẹp trong màn.
+- Kiểm (bản dựng sạch 23:34 + thay khối lob222 cuối): t156 14/14 · t209 20/20 (lần 1 19/20) · t_v22 18/18 · t_nobs22 9/9 · t_map22 4/4 · t_ro22 7/7 · audit 28/28. Bảng so `/home/claude/anh/sz221/V222_so_sanh_sanh.jpg`.
+
 # BÀN GIAO V2.2.1 — ĐÃ XUẤT BẢN 24/11/2026 ~20:30 (chủ dự án "Duyệt xuất bản V2.2.1" 20:20)
 
 - Release **`V2.2.1.44`** (workflow run 45402530610): APK `PhiDoiSaoBang-V2.2.1.44.apk` 71.516.195 byte, sha256 `315ab15fe8b26b08701ae42eb5e3e649a0bb8c12dfd4081cc7b55edf02bd84c0`; chữ ký `CN=Phi Doi Sao Bang, O=Lemon1609, C=VN` SHA256 `B1:34:…:DC:0E` TRÙNG V2.2.0 / V2.1.42 → cài đè giữ dữ liệu.

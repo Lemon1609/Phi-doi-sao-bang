@@ -2,7 +2,7 @@
 PAIRS22=[
  # 1) đội hình chữ V: tâm tàu con = mép cánh thật (l3309 ghi window.__half22, ×1,22 thân) + nửa phần ĐẶC tàu con (tb309 ghi window.__podh22) + khe 10 px (chủ dự án chốt 24/11: khe 8–12), trong [62, 100] (nửa trên [52, 100]; trần 100 thay 96 để tàu 10 Bạo Tẩu cánh 71,7 px vẫn hở 10 px — đo 24/11); lùi sau 40 px (cũ 26). Tắt: window.FORM22=false; chỉnh khe window.GAP22, trần window.SPMAX22
  ("space=(window.SPREAD134===false?(upper?29:59):(upper?46:(window.SIDE138===false?86:100)))*(window.__L42&&window.SCALE42!==false?1.18:1)",
-  "space=(window.V22!==false&&window.FORM22!==false)?Math.min(window.SPMAX22||100,Math.max(upper?52:62,(window.__half22||0)*(window.__L42&&window.SCALE42!==false?1.22:1)+(window.__podh22||20)+(window.GAP22||10))):(window.SPREAD134===false?(upper?29:59):(upper?46:(window.SIDE138===false?86:100)))*(window.__L42&&window.SCALE42!==false?1.18:1)"),
+  "space=(window.V22!==false&&window.FORM22!==false)?Math.min(window.SPMAX22||100,Math.max(upper?52:62,(window.__half22||0)*(window.__L42&&window.SCALE42!==false?1.22:1)*(window.SZ221!==false?(window.__sz221||1):1)+(window.__podh22||20)+(window.GAP22||10))):(window.SPREAD134===false?(upper?29:59):(upper?46:(window.SIDE138===false?86:100)))*(window.__L42&&window.SCALE42!==false?1.18:1)"),
  ("pods[i].y+=(player.y+(window.FORM122!==false?26:12)+",
   "pods[i].y+=(player.y+((window.V22!==false&&window.FORM22!==false)?40:window.FORM122!==false?26:12)+"),
  # 2) nhặt P khi đang Bạo Tẩu: +2,5 s (trần 6 / 9 s) thay vì nạp lại đầy. Tắt: window.OD22=false

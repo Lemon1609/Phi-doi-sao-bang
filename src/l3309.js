@@ -36,6 +36,7 @@
   if(sp){const h=halo(id,f);if(h){const S=F*k*1.07;c.globalAlpha=(.30+.15*(.5+.5*Math.sin(now*6)))*(window.V22!==false&&window.AG22!==false?.55:1);c.drawImage(h,-S/2,-S/2,S,S);c.globalAlpha=1;}}
   // phản lực 2 luồng ở đáy thân
   const jy=u(B[5])-2,jx=u(B[4]),jl=u(.17)*(sp?1.5:1)*(ti>=2?1.12:1),jw=Math.max(3.5,u(.028))*(sp?1.25:1);
+  window.__bh221=(B[3]-B[1])*F*k;/* V2.2.1: chiều cao phần ĐẶC thân → trần dài lửa động cơ */
   const p22=!!(window.Plume22&&Plume22.on()&&Plume22.ship(c,id,f,sp,F*k,col));/* V2.2: đuôi lửa ion-plasma theo THRUSTER_ANCHORS */
   if(!p22)for(const s of [-1,1])flame(c,s*jx,jy,jw,jl,col,now,s);
   if(sp&&!(window.V22!==false&&window.AG22!==false))for(const s of [-1,1]){c.fillStyle='rgba(255,255,255,.55)';c.beginPath();c.ellipse(s*jx,jy+2,jw*.6,jw*1.1,0,0,6.283);c.fill();}
