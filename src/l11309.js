@@ -190,6 +190,6 @@ const L11309=(()=>{
  function tick(){document.documentElement.classList.toggle('ux11',on());if(!on())return;hookRev();hookPilot();hookHub();fixPl();hookHeroRun();hookMis();
   try{epTick();}catch{}try{hTick();}catch{}if(md()!=='play'){try{seasonCard();}catch{}try{hPaint();}catch{}try{hSheet();}catch{}}}
  setInterval(tick,250);setTimeout(tick,600);
- return {epOpen,plOpen,heroToggle,heroSweep,hStars,HS,HC,EP,state:()=>({pend,hRun,hPend,HS:JSON.parse(JSON.stringify(HS))}),skipScore};
+ return {seasonCard:()=>{try{seasonCard();}catch{}},epOpen,plOpen,heroToggle,heroSweep,hStars,HS,HC,EP,state:()=>({pend,hRun,hPend,HS:JSON.parse(JSON.stringify(HS))}),skipScore};
 })();
 window.L11309=L11309;

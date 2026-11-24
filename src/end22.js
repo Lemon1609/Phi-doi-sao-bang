@@ -7,6 +7,7 @@ const End22=(()=>{
  const on=()=>window.END22!==false;
  const NOT=':not(#_e22)'.repeat(80),P='html.end22 body'+NOT+' ';
  const css=`
+html.end22 body.res78 #overlay:not(.e22) #rs{visibility:hidden}
 ${P}#overlay.e22 :is(.rs-grid,.rs-hint,.s206,details,.dps98,.q7tem,.v77r small,.rw306-c.zero,.rw78.e22h,#lobby-back,#next79){display:none!important}
 ${P}#overlay.e22.e22l :is(.rs-score,.v77r){display:none!important}
 ${P}#overlay.e22 .rw306.e22z{display:none!important}
@@ -80,7 +81,15 @@ ${P}#e22a button:active{filter:brightness(.86)}`;
   else if(row.previousElementSibling!==rs)rs.after(row);}
  function init(){if(!on())return;document.documentElement.classList.add('end22');
   const st=document.createElement('style');st.id='end22-css';st.textContent=css;document.head.appendChild(st);
-  setInterval(()=>{try{paint();}catch{}},150);}
+  setInterval(()=>{try{paint();}catch{}},150);
+  // V2.2.1: gắn màn mới NGAY khi #overlay hiện / đổi nội dung (MutationObserver chạy trước khung vẽ kế tiếp) → không còn chớp màn cũ ~0,4–1,5 s
+  //  trước đây chờ 2 vòng kiểm: end78 (250 ms, bật res78) rồi end22 (150 ms). Tắt riêng: window.END22MO=false
+  const sync=()=>{if(window.END22MO===false)return;try{End78.apply();}catch{}try{paint();}catch{}};
+  const hook=()=>{const ov=document.getElementById('overlay');if(!ov){setTimeout(hook,200);return;}
+   new MutationObserver(sync).observe(ov,{attributes:true,attributeFilter:['hidden','class','style'],childList:true});
+   const rs=()=>{const r=ov.querySelector('#rs');if(r&&!r.__e22o){r.__e22o=1;new MutationObserver(sync).observe(r,{childList:true});}};
+   new MutationObserver(rs).observe(ov,{childList:true});rs();};
+  hook();}
  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',init);else init();
  return {paint,launch,run:()=>run,plainNow};
 })();

@@ -153,7 +153,8 @@ const KHO307=(()=>{
   else if(k==='ship'){close();try{NC307.open('craft:'+id);}catch{}return;}
   else if(k==='copy'){msg='Bản sao: đặt vào ô vật liệu khi NÂNG CẤP hoặc tự tính khi TIẾN KHUNG món / tàu cùng mẫu.';}
   else if(k==='qadv'){const n=quickAdv();msg=n?'Đã tiến khung '+n+' lần cho đồ đang mặc.':'Đồ đang mặc chưa đủ điều kiện tiến khung (trần cấp, bản sao, hợp kim).';}
-  else if(k==='qm'){const q=document.getElementById('hb-qm');if(q){q.click();msg='Đã phân giải đồ Trắng/Lục thừa.';}}
+  else if(k==='qm'){const q=document.getElementById('hb-qm');if(q){q.click();/* V2.2.1: hộp PHÂN GIẢI NHANH (.adv70, z 2147483000) mở DƯỚI túi (z 2147483250) → nâng lên trên, túi giữ nguyên; đóng hộp thì vẽ lại túi */
+   if(window.QM22!==false){msg='';const up=()=>{const d=[...document.querySelectorAll('.m63.adv70:not([hidden])')].pop();if(!d)return false;d.style.setProperty('z-index','2147483300','important');if(!d.__qm22){d.__qm22=1;new MutationObserver(()=>{if(d.hidden){d.style.removeProperty('z-index');d.__qm22=0;try{render();}catch{}}}).observe(d,{attributes:true,attributeFilter:['hidden']});}return true;};if(!up())requestAnimationFrame(up);}else msg='Đã phân giải đồ Trắng/Lục thừa.';}}
   else if(k==='best'){const q=document.getElementById('hb-best');if(q){q.click();msg='Đã mặc bộ tốt nhất.';}}
   render();}
  function bag(md){if(!on())return;bm=md==='cai'?'cai':'bag';if(bm==='cai'){if(tab!=='hop'&&tab!=='mel')tab='hop';}else if(u9()&&(tab==='hop'||tab==='mel'))tab='gear';if(!el){el=document.createElement('div');el.id='k307';el.innerHTML='<div class="k307-in"></div>';el.addEventListener('click',click);document.body.appendChild(el);}el.classList.add('open');render();}

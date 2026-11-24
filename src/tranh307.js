@@ -38,5 +38,5 @@
   if(img){img.classList.add('pl307-hero');const full=id&&A['phi_cong_'+id];if(full&&img.dataset.full!==id){img.dataset.full=id;img.src=full;img.classList.add('full');}}
   const on=list.querySelector('button[aria-pressed="true"]');if(on&&on.dataset.v!==list.dataset.sc307){list.dataset.sc307=on.dataset.v;try{on.scrollIntoView({block:'nearest',inline:'center'});}catch{}}}
  setInterval(()=>{try{banners();pilot();}catch(e){}},400);
- window.Tranh307={keys:()=>Object.keys(B),has:k=>!!A[k]};
+ window.Tranh307={keys:()=>Object.keys(B),has:k=>!!A[k],banners:()=>{try{banners();}catch(e){}}};
 }catch(e){console.warn('TRANH307',e);}})();

@@ -27,13 +27,15 @@ const L9309=(()=>{
    {k:'skin',n:'TRANG PHỤC',go:()=>{/* V2.2: dùng màn Trang phục & Khung avatar mới (12–13); tắt bằng window.V22=false */try{if(window.V22!==false&&window.V22UI&&V22UI.frOpen){V22UI.frOpen();return;}}catch{}try{L8309.open();}catch{try{Skin69.open();}catch{}}}},
    {k:'story',n:'CỐT TRUYỆN',go:()=>{try{Story80.journal();}catch{}}}]}};
  const OV='#m40,#nav74p,#w74,.m63';
+ // V2.2.1: màn trong thanh tab có thể nằm ngoài OV (Rương = #hub40, Túi đồ #k307, Cường hóa #nc307, Quỹ/Q10…) → coi là đang mở để thanh tab không tự đóng sau 0,7 s
+ const OV2=OV+',#hub40,#k307,#nc307,#c74,#q307,#cx7,.qf10,#v22fr,#v22hs';
  function closeOv(){try{Nav74.closeAll();}catch{}try{if(window.V22UI){V22UI.frClose();V22UI.hsClose();}}catch{}document.querySelectorAll(OV).forEach(e=>{if(!e.classList.contains('g74keep'))e.hidden=true;});}
- const anyOv=()=>[...document.querySelectorAll(OV)].some(e=>!e.hidden&&getComputedStyle(e).display!=='none');
+ const anyOv=()=>[...document.querySelectorAll(window.HUBFIX22===false?OV:OV2)].some(e=>!e.hidden&&getComputedStyle(e).display!=='none');
  let hub=null,hk=null,hi=0,armed=0;
  function strip(){if(!hub){hub=document.createElement('div');hub.id='hub9';hub.hidden=true;document.body.appendChild(hub);
    hub.addEventListener('click',e=>{const b=e.target.closest('[data-h9]');if(!b)return;e.stopPropagation();if(b.dataset.h9==='x'){closeOv();hub.hidden=true;hk=null;document.documentElement.classList.remove('hub9on');return;}go(hk,+b.dataset.h9);});}return hub;}
  function paintStrip(){const s=strip();if(!hk){s.hidden=true;document.documentElement.classList.remove('hub9on');return;}const h=H[hk];
-   document.documentElement.classList.add('hub9on');s.innerHTML=`<b class="h9t">${h.n}</b><div class="h9tabs">${h.t.map((t,i)=>{const st=itm(t.k);return `<button type="button" data-h9="${i}" class="${i===hi?'on':''}${st.lk?' lk':''}">${t.n}${st.dot&&i!==hi?'<em></em>':''}</button>`;}).join('')}</div><button type="button" class="h9x" data-h9="x" aria-label="Đóng">✕</button>`;s.hidden=false;}
+   document.documentElement.classList.add('hub9on');const _h=`<b class="h9t">${h.n}</b><div class="h9tabs">${h.t.map((t,i)=>{const st=itm(t.k);return `<button type="button" data-h9="${i}" class="${i===hi?'on':''}${st.lk?' lk':''}">${t.n}${st.dot&&i!==hi?'<em></em>':''}</button>`;}).join('')}</div><button type="button" class="h9x" data-h9="x" aria-label="Đóng">✕</button>`;if(s.__h!==_h){s.innerHTML=_h;s.__h=_h;}s.hidden=false;}
  function go(k,i){const h=H[k];if(!h)return;const t=h.t[i];if(!t)return;const st=itm(t.k);if(st.lk){toastS(t.n+' MỞ Ở ẢI '+(t.lv||''));if(hk)return;}
    closeOv();hk=k;hi=i;armed=performance.now()+700;try{t.go();}catch{}paintStrip();}
  function open(k){const h=H[k];if(!h)return;let i=h.t.findIndex(t=>{const s=itm(t.k);return s.dot&&!s.lk;});if(i<0)i=h.t.findIndex(t=>!itm(t.k).lk);go(k,Math.max(0,i));}

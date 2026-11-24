@@ -66,5 +66,5 @@ const End78=(()=>{
 
  // phím Enter/Space trên máy tính ở màn kết quả cũng về sảnh thay vì vào ải tiếp
  document.addEventListener('keydown',e=>{if(!shown||window.END78===false)return;if(e.key==='Enter'||e.key===' '){e.preventDefault();e.stopPropagation();goLobby();}},true);
- return {goLobby,clean,on:()=>shown};
+ return {goLobby,clean,apply,on:()=>shown};
 })();

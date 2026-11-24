@@ -24,10 +24,10 @@ const QUA307=(()=>{
   try{wrap(V75,'addTk',a=>{if(a[0]>0)push('tk',{n:a[0]|0});});}catch{}
   try{wrap(V75,'addEn',a=>{if(a[0]>0)push('en',{n:a[0]|0});});}catch{}
   try{wrap(Meta407,'addCores',a=>{if(a[0]>0)push('core',{n:a[0]|0});});}catch{}
-  try{wrap(Evo82,'addCopy',(a,r)=>{if(r)push('copy',{sub:r.k+':'+r.m+':'+r.t,c:r});});}catch{}
+  try{wrap(Evo82,'addCopy',(a,r)=>{if(r&&!r.nb22)push('copy',{sub:r.k+':'+r.m+':'+r.t,c:r});});}catch{}
   try{wrap(Progress,'grantChestGear',(a,r)=>{if(r)push('gear',{sub:r.id,it:r});});}catch{}}
  hook();setTimeout(hook,3000);setTimeout(hook,8000);
- const RX=/NHẬN|ĐIỂM DANH|LĨNH|MỞ RƯƠNG|MỞ QUÀ/i;
+ const RX=/NHẬN|ĐIỂM DANH|LĨNH|MỞ RƯƠNG|MỞ TẤT CẢ|MỞ QUÀ/i;/* V2.2.1: nút "MỞ TẤT CẢ RƯƠNG" trước đây không khớp → không hiện bảng thưởng */
  document.addEventListener('click',e=>{if(!on()||inPlay()||bag)return;const b=e.target.closest&&e.target.closest('button,[role=button],.btn');if(!b||!RX.test(b.textContent||''))return;if(b.closest('#q307,#nc307,#k307'))return;
   bag=[];hook();clearTimeout(tm);tm=setTimeout(()=>{const got=bag;bag=null;if(got&&got.length)show(got);},700);},true);
  // ---------- hiển thị ----------
