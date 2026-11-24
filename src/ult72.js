@@ -111,12 +111,14 @@ const Ult72=(()=>{
  const sc=()=>(typeof W==='number'?W/400:1.2);
  /* V2.2 · 5C (chủ dự án 24/11): kích hoạt riêng từng mẫu — Săn Sao 8 vật phẩm · Lưới Điện 20 lần hạ địch (khóa mục tiêu nhiều máu nhất) · Pháo Đài trúng đòn hoặc mỗi 18 s (tháp chắn 6 s + xóa đạn quanh tàu) · Đồng Hồ khi vào Bạo Tẩu; Tối thượng choáng boss 1,2 s (trong trần khống chế boss). Tắt: window.VK22=false */
  const VK=()=>window.V22!==false&&window.VK22!==false;
+ /* V2.2 · bù tần suất kích hoạt mới (đo 24/11, Vô tận 120 s, trần spend): Lưới Điện 20 lần hạ địch ra lưới ~5,5× bản cũ (hồi 26 s) → ×0,2 (đo ×0,3 còn 1,5×); Pháo Đài trúng đòn/18 s ≈ +30 % so với kích theo bom → ×0,8; Săn Sao 8 vật phẩm (cũ 9) → ×0,9. Chỉ áp kỹ năng cơ bản, Tối thượng giữ nguyên. Đổi: window.VKK22={web,fortress,hunter} */
+ const VKK=new Proxy({},{get:(o,k)=>{const d={web:.2,fortress:.8,hunter:.9}[k];const u=window.VKK22&&window.VKK22[k];return u>0?u:d;}});
  function begin(){const id=mainW();B.on=!!id;B.tok=0;B.ev=0;B.t=0;B.ready=0;B.useAt=-99;B.ents=[];B.cc=[];B.picks=0;B.basicT=0;B.credit=(()=>{try{return typeof Stone71!=='undefined'?Math.min(.2,Stone71.ef('s1')+Stone71.ef('w1')):0;}catch{return 0;}})();B.ultN=0;B.tl6=0;B.hc=0;B.hcT=0;B.hc6=0;B.tvAt=-99;B.kc22=0;B.fT22=18;B.aAt22=-99;B.wAt22=-99;B.stopE.clear();B.slowE.clear();B.frozenB=null;B.last=-1;
   try{B.d0=C.d0k*Combat.stats().attack/(1+bonus());}catch{B.d0=10;}
   if(id){const r=WP(id).r;if(id==='world')B.basicT=cdOf('world',skIdx(r))*.5;if(id==='web')B.basicT=cdOf('web',skIdx(r))*.5;}}
  try{const ob=Combat.begin;Combat.begin=function(){const r=ob.apply(this,arguments);try{begin();}catch{}return r;};}catch{}
  const D0=()=>{let f=1;try{f=Combat.factor()/(1+bonus());}catch{}return B.d0*f;};
- function spend(a){if(!(a>0))return 0;a*=1+(X.mod('skill')||0);const t=Math.min(a,B.tok);B.tok-=t;return t;}
+ function spend(a){if(!(a>0))return 0;a*=1+(X.mod('skill')||0);const t=Math.min(a,B.tok);B.tok-=t;B.sp22=(B.sp22||0)+t;return t;}
  function hitE(e,amt){if(!e||e.dead||!(amt>0))return 0;if(e.vul72>time)amt*=1+(e.vulV||0);if(e===boss||e.bossPart){amt*=1+(X.mod('boss')||0);try{return damageBoss(amt,'ult72',e)||0;}catch{return 0;}}
   e.hp-=amt;try{Report392.hit(amt,'ult72');}catch{}try{Feedback31.damage(e,amt,'ult72');}catch{}if(e.hp<=0)try{kill(e);}catch{}return amt;}
  const live=()=>{const L=enemies.filter(e=>!e.dead);try{if(boss&&!boss.dead)L.push(...bossDamageTargets());}catch{}return L;};
@@ -138,7 +140,7 @@ const Ult72=(()=>{
  const img={};function I(k){if(!ART[k])return null;let im=img[k];if(!im){im=new Image();im.src=ART[k];img[k]=im;}return im.complete&&im.naturalWidth?im:null;}
  const near=(x,y,pred)=>{let best=null,bd=1e12;for(const e of live()){if(pred&&!pred(e))continue;const d=dist2(e,x,y);if(d<bd){bd=d;best=e;}}return best;};
  // Pháo Đài
- function aegis22(){const k=skIdx(WP('fortress').r),s=C.sk.fortress;turrets(s.n[k],s.blk[k],6,s.dps[k],false);B.fT22=18;B.aAt22=time;try{for(const b of bullets)if(!b.dead&&Math.hypot(b.x-player.x,b.y-player.y)<120)b.dead=true;}catch{}}
+ function aegis22(){const k=skIdx(WP('fortress').r),s=C.sk.fortress;turrets(s.n[k],s.blk[k],6,s.dps[k]*VKK.fortress,false);B.fT22=18;B.aAt22=time;try{for(const b of bullets)if(!b.dead&&Math.hypot(b.x-player.x,b.y-player.y)<120)b.dead=true;}catch{}}
  function turrets(n,blk,life,dps,big){const list=[];const ys=big?H*.8:player.y+10;for(let k=0;k<n;k++){const x=big?W*(k+1)/(n+1):clamp(player.x+(k-(n-1)/2)*58,30,W-30),y=big?ys:clamp(player.y-48-(k%2)*16,60,H-40);list.push({ty:big?'tower':'turret',x,y,blk:blk+(X.has('fortress_1',3)?(big?2:1):0),life:Math.min(7,life+(X.has('fortress_2',3)?1:0)),t:0,dps:dps/n,fl:0,tk:0,tgt:null});}B.ents=B.ents.filter(e=>e.ty!=='turret'&&e.ty!=='tower').concat(list);}
  function onBomb(){const id=mainW();if(id==='fortress'&&!VK()){const k=skIdx(WP(id).r),s=C.sk.fortress;turrets(s.n[k],s.blk[k],s.life[k],s.dps[k],false);if(X.has('fortress_2',6)){const t0=B.ents.find(e=>e.ty==='turret');if(t0){t0.ty='tower';t0.life=Math.min(3,t0.life);}}}
   if(id==='web'&&X.has('web_2',3)&&B.basicT<=0&&time-(B.tvAt||-99)>=45){B.tvAt=time;net(false);B.basicT=cdOf('web',skIdx(WP('web').r));}if(time-B.lastBomb>=8){B.lastBomb=time;if(id==='fortress')addEv();}}
@@ -149,9 +151,9 @@ const Ult72=(()=>{
  // Săn Sao
  function saw(ult,i,mul=1,keep=false){const s=C.sk.hunter,k=skIdx(WP('hunter').r);const a=Math.random()*Math.PI*2,sp=240*sc();const o=ult?{ty:'saw',ult:1,form:0,evoN:0,life:s.u.life[i],maxAge:s.u.life[i]+6,dps:s.u.dps[i],vul:s.u.vul[i],R:44*sc()}:{ty:'saw',ult:0,form:0,life:s.life[k],maxAge:X.has('hunter_2',3)?12:s.maxAge[k],add:s.add[k]+(X.has('hunter_2',3)?.25:0),dps:s.dps[k]*mul,R:32*sc()};if(ult)o.vul=Math.min(.09,o.vul+(X.has('hunter_2',6)?.03:0));
   Object.assign(o,{x:player.x,y:player.y-30,vx:Math.cos(a)*sp,vy:-Math.abs(Math.sin(a))*sp,t:0,tk:0,rot:0});if(!keep)B.ents=B.ents.filter(e=>!(e.ty==='saw'&&(ult||!e.ult)));B.ents.push(o);return o;}
- function sawBasic(){if(X.has('hunter_1',3)){saw(false,0,.65);saw(false,0,.65,true);}else saw(false);}
+ function sawBasic(){const m=VK()?VKK.hunter:1;if(X.has('hunter_1',3)){saw(false,0,.65*m);saw(false,0,.65*m,true);}else saw(false,0,m);}
  // Lưới Điện
- function net(ult,i,tg){const s=C.sk.web,k=skIdx(WP('web').r);const d=(ult?s.u.diag[i]:s.diag[k])*sc();const o={ty:'net',x:clamp(tg?tg.x:player.x,d/2,W-d/2),y:clamp(tg?tg.y:player.y-d*.45,d/2,H-d/2),d,life:ult?s.u.life[i]:s.life[k],dps:ult?s.u.dps[i]:s.dps[k],slow:ult?s.u.slow[i]:s.slow[k],ult:!!ult,t:0,tk:0};B.ents=B.ents.filter(e=>e.ty!=='net');B.ents.push(o);if(!ult)addEv();return o;}
+ function net(ult,i,tg){const s=C.sk.web,k=skIdx(WP('web').r);const d=(ult?s.u.diag[i]:s.diag[k])*sc();const o={ty:'net',x:clamp(tg?tg.x:player.x,d/2,W-d/2),y:clamp(tg?tg.y:player.y-d*.45,d/2,H-d/2),d,life:ult?s.u.life[i]:s.life[k],dps:ult?s.u.dps[i]:s.dps[k]*(VK()?VKK.web:1),slow:ult?s.u.slow[i]:s.slow[k],ult:!!ult,t:0,tk:0};B.ents=B.ents.filter(e=>e.ty!=='net');B.ents.push(o);if(!ult)addEv();return o;}
  const ULT={
   fortress(i){const u=C.sk.fortress.u;turrets(u.towers,u.blk[i],u.life[i],u.dps[i],true);flashText('MÁI VÒM SẮT');},
   world(i){const u=C.sk.world.u;const ex=X.has('world_2',6)?1.2:0;if(X.has('world_1',6)&&!B.tl6){B.tl6=1;try{activateSuper();}catch{}invuln=Math.max(invuln,boss&&!boss.dead?1.5:2.5);}const f={ty:'tfield',x:W/2,y:H/2,R:Math.max(W,H),life:u.stop[i]+ex,t:0,rate:u.rate[i]+(X.has('world_1',3)?.12:0),cap:u.capD[i],rec:new Map(),big:true};
