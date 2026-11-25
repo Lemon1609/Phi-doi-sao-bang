@@ -1229,6 +1229,8 @@ exec(open('claude_tools/v22_embed.py',encoding='utf-8').read())
 rep("</body>",ui22_script('.')+plume22_script('.')+"<script id=\"nobs22-js\">"+open('src/nobs22.js',encoding='utf-8').read()+"</script><script id=\"hud22-js\">"+open('src/hud22.js',encoding='utf-8').read()+"</script><script id=\"fix22-js\">"+open('src/fix22.js',encoding='utf-8').read()+"</script><script id=\"end22-js\">"+open('src/end22.js',encoding='utf-8').read()+"</script><script id=\"v22-js\">"+open('src/v22.js',encoding='utf-8').read()+"</script><script id=\"u22-js\">"+open('src/u22.js',encoding='utf-8').read()+"</script></body>")
 # V2.2.2 · Sảnh kiểu cổ điển + 4 tấm nút kim loại (src/lob222img cắt bằng claude_tools/lob222_cat.py) · tắt window.LOB222=false
 rep("</body>","<script id=\"lob222-img-js\">window.LOB222_IMG="+json.dumps({os.path.splitext(f)[0]:'data:image/webp;base64,'+base64.b64encode(open('src/lob222img/'+f,'rb').read()).decode() for f in sorted(os.listdir('src/lob222img')) if f.endswith('.webp')})+";</script><script id=\"lob222-js\">"+open('src/lob222.js',encoding='utf-8').read()+"</script></body>")
+# V2.2.3 · Bản đồ sao đồng bộ Sảnh cổ điển (tấm nút LOB222_IMG) + khóa tâm ô ải · tắt window.MAP222=false
+rep("</body>","<script id=\"map222-js\">"+open('src/map222.js',encoding='utf-8').read()+"</script></body>")
 open('Phi_Doi_Sao_Bang_V74_mau.html','w',encoding='utf-8').write(h)
 # V309 Lượt 15 · giảm dung lượng sau khi dựng: PNG→WebP q90 + gộp ảnh trùng (claude_tools/opt15_assets.py). Bỏ qua: OPT15_ANH=0
 if os.environ.get('OPT15_ANH','1')!='0':

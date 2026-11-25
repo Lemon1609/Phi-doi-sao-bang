@@ -23,7 +23,8 @@ html.cs10 body #cmap svg.cs10s circle.st{fill:#e0f2fe;opacity:.55}
 @Q10 #cmap .cm-node.major,@Q10 #cmap .cm-node.sk10{background:radial-gradient(circle,#fff 0,#fecaca 8%,rgba(239,68,68,.8) 18%,rgba(239,68,68,.22) 32%,rgba(239,68,68,0) 48%)!important}
 @Q10 #cmap .cm-node.major::before,@Q10 #cmap .cm-node.sk10::before{width:62px;height:62px;margin:-31px 0 0 -31px;border:2px solid rgba(248,113,113,.9);box-shadow:0 0 18px rgba(239,68,68,.75),inset 0 0 12px rgba(239,68,68,.5)}
 @Q10 #cmap .cm-node.major::after,@Q10 #cmap .cm-node.sk10::after{content:'☠';position:absolute;z-index:8;left:50%;top:-16px;transform:translateX(-50%);font:900 20px/1 sans-serif;color:#ff3b3b;text-shadow:0 0 6px #ff0000,0 0 12px rgba(255,0,0,.8),0 1px 1px #000;animation:cs10s 1.6s ease-in-out infinite;pointer-events:none}
-@keyframes cs10p{50%{transform:scale(1.08)}}
+/* V2.2.3: chỉ đổi thuộc tính scale (không ghi đè transform translate(-50%,-50%) → tâm ô không trôi) */
+@keyframes cs10p{50%{scale:1.08}}
 @keyframes cs10s{50%{text-shadow:0 0 10px #ff0000,0 0 20px rgba(255,0,0,.9),0 1px 1px #000}}
 @Q10 #cmap .cm-st{color:#fde68a!important;font-size:11px!important;letter-spacing:1px!important}
 @Q10 #cmap .n74pat{display:none!important}

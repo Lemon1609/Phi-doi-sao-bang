@@ -28,6 +28,15 @@ with sync_playwright() as p:
     const ev=(t,yy)=>n.dispatchEvent(new PointerEvent(t,{bubbles:true,clientX:x,clientY:yy,pointerType:'touch'}));ev('pointerdown',y);ev('pointermove',y-14);ev('pointerup',y-14);n.click();
     return {sheet:!!document.querySelector('#cmap .cm-sheet .cm-go'),m:mode}}""")
   chk('Kéo 14 px rồi WebView vẫn bắn click: bị hủy (không mở thẻ)',not r['sheet'] and r['m']!='play',r)
+  # 1b) V2.2.3: tâm ô ải đang tới đứng yên (20 mẫu / 2 s, lệch ≤ 1,0 px); chiến cơ chỉ đường thẳng tâm ô, chỉ nhún dọc ±3 px; thanh đầu mảnh
+  pg.evaluate("()=>{try{document.querySelector('#cmap .cm-sheet').innerHTML=''}catch(e){}}");pg.evaluate(OPEN);pg.wait_for_timeout(1200)
+  r=pg.evaluate("""()=>new Promise(res=>{const n=document.querySelector('#cmap .cm-node.cur');const sh=document.querySelector('#cmap .cm-ship');if(!n)return res(null);n.scrollIntoView({block:'center'});const c=[],s=[];let k=0;
+    const t=setInterval(()=>{const r=n.getBoundingClientRect();c.push([r.left+r.width/2,r.top+r.height/2]);if(sh){const q=sh.getBoundingClientRect();s.push([q.left+q.width/2,q.top+q.height/2]);}if(++k>=20){clearInterval(t);
+     const d=a=>a.length?[Math.max(...a.map(p=>p[0]))-Math.min(...a.map(p=>p[0])),Math.max(...a.map(p=>p[1]))-Math.min(...a.map(p=>p[1]))]:[0,0];
+     res({node:d(c),ship:d(s),dx:s.length?Math.abs(s[0][0]-c[0][0]):0,bar:!!document.querySelector('#map22:not([hidden])'),hdr9:(()=>{const h=document.getElementById('hdr9');return !!h&&getComputedStyle(h).display!=='none'})()})}},100)})""")
+  chk('Ô ải đang tới: tâm lệch ≤ 1,0 px trong 2 s (20 mẫu)',r and max(r['node'])<=1.0,r)
+  chk('Chiến cơ chỉ đường: thẳng tâm ô (≤1 px), không trôi ngang, nhún dọc ≤ 6,5 px',r and r['dx']<=1.0 and r['ship'][0]<=1.0 and r['ship'][1]<=6.5,r)
+  if not os.environ.get('MAP22OFF'):chk('Bản đồ: thanh đầu mảnh ← SẢNH + 3 ô tài nguyên, ẩn hàng 5 nút #hdr9',r and r['bar'] and not r['hdr9'],r)
   # 2) 10 lần chọn ải → XUẤT KÍCH
   res=[]
   for i in range(10):
