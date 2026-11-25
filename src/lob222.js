@@ -153,7 +153,7 @@ ${P} #hgr41 .h1-chev.r{right:64px!important;left:auto!important}
 #lob22 .l22set.on{filter:drop-shadow(0 0 5px #45e1ff)}
 #lob22 .l22set.on b{color:#7ff0ff}
 #lob22 .l22set[data-l22="ld:s"] b{color:#8dffcf}
-#lob22 .l22deck{position:absolute;left:10px;right:10px;bottom:calc(var(--sab42,0px) + 10px);display:flex;flex-direction:column;gap:8px}
+#lob22 .l22deck{position:absolute;left:10px;right:10px;bottom:calc(var(--sab42,0px) + 14px);display:flex;flex-direction:column;gap:8px}
 #lob22 .l22plate{align-self:center;text-align:center;line-height:1.15;pointer-events:none;margin-bottom:2px}
 #lob22 .l22plate b{display:block;font-size:13px;font-weight:900;letter-spacing:.4px;color:#eaf6ff;text-shadow:0 0 8px #3fb6ff,0 1px 2px #000}
 #lob22 .l22plate small{display:block;font-size:10px;font-weight:700;color:#bfe3ff;text-shadow:0 1px 2px #000}

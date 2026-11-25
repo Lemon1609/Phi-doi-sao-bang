@@ -212,7 +212,9 @@ html.ux9b.v2142 #hub40 #hb-body>.hb-doll:not(.d9b){visibility:hidden}`;(document
  //  Tắt: window.SZ221=false
  const SZR={"0":[0.56,0.675,0.812],"1":[0.529,0.63,0.786],"2":[0.75,0.841,0.932],"3":[0.655,0.811,0.871],"4":[0.565,0.727,0.795],"5":[0.489,0.633,0.811],"6":[0.742,0.788,0.941],"7":[0.787,0.893,0.959],"8":[0.726,0.805,0.982],"9":[0.579,0.764,0.952],"10":[0.572,0.728,0.831],"11":[0.665,0.756,0.933],"12":[0.667,0.733,0.909]};
  const SZT=[.82,.88,.94],SZC={kho:[1.35,1.22,1.14],tran:[1.26,1.22,1.14]},SZI={thuong:0,luc:1,lam:2};
- function szK(id,where,tier){if(window.SZ221===false)return 1;try{const t=tier||(window.L3309S&&L3309S.tierOf?L3309S.tierOf(id):null),i=SZI[t];if(i===undefined)return 1;const r=SZR[id]&&SZR[id][i];if(!r)return 1;const c=(window.SZ221C||SZC)[where]||SZC.tran;return Math.min(c[i],Math.max(1,SZT[i]/r));}catch{return 1;}}
+ function szK(id,where,tier){if(window.SZ221===false)return 1;try{const t=tier||(window.L3309S&&L3309S.tierOf?L3309S.tierOf(id):null),i=SZI[t];if(i===undefined)return 1;const r=SZR[id]&&SZR[id][i];if(!r)return 1;const c=(window.SZ221C||SZC)[where]||SZC.tran;let cap=c[i];if(i===0&&SZX[id])cap=Math.max(cap,SZX[id][where]||0);return Math.min(cap,Math.max(1,SZT[i]/r));}catch{return 1;}}
+ /* V2.2.2: tàu 2 và tàu 6 (dáng hẹp nhất) bậc Thường được nới trần — Sảnh/Kho +45 %, trận +32 % (chủ dự án 25/11) */
+ const SZX={1:{kho:1.45,tran:1.32},5:{kho:1.45,tran:1.32}};
  window.SZ221K=szK;
  const curId=()=>{try{if(typeof Fusion!=='undefined'&&Fusion.getSelected&&Fusion.getSelected())return -1;}catch{}try{return typeof launchCraft!=='undefined'&&launchCraft!=null?launchCraft:selected;}catch{return -1;}};
  function hookScale(){let a=false,b=false;

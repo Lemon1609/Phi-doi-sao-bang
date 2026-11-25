@@ -32,6 +32,37 @@ const HOLO212=(()=>{
    const l=(p)=>A[p]*.3+A[p+1]*.59+A[p+2]*.11,p=(Y*N+X)*4;const li=c0>80?Math.abs(l(p+4)-l(p-4))+Math.abs(l(p+N*4)-l(p-N*4)):0;
    const e=Math.min(255,Math.hypot(gx,gy)*1.4+(li>70?110:0));if(e>60){O[p]=r;O[p+1]=g;O[p+2]=b;O[p+3]=e;}}
   x.clearRect(0,0,N,N);x.putImageData(o,0,0);return WF[k]=a;}
+ // ---- V2.2.2 HOLO22: hologram bản vẽ ĐÚNG chiến cơ đang chọn (ảnh SHIPCUR17 theo bậc hiện tại) — thay hình nét cũ lấy từ atlas cũ / tranh HOLO212_ART
+ //  Dựng 1 lần cho mỗi (tàu, ảnh bậc): Sobel kênh alpha (viền) + gân sáng bên trong + lòng mờ + vạch quét ngang + vòng ngắm. Mỗi khung chỉ 1 drawImage 'lighter'.
+ //  Màu theo hệ (sắc độ màu chủ đạo SHIP309COL): đỏ thẫm #FF4D4D · vàng hổ phách #FFB84D · lam điện #38E4FF · tím #B86BFF. Tắt: window.HOLO22=false
+ const H22={},HIM={};
+ function hcol(i){let c='#38E4FF';try{const v=(window.SHIP309COL||{})[i];if(!v)return c;const r=parseInt(v.slice(1,3),16)/255,g=parseInt(v.slice(3,5),16)/255,b=parseInt(v.slice(5,7),16)/255,mx=Math.max(r,g,b),mn=Math.min(r,g,b),d=mx-mn;if(d<.08)return c;
+   let h=mx===r?((g-b)/d)%6:mx===g?(b-r)/d+2:(r-g)/d+4;h=(h*60+360)%360;return h>=345||h<15?'#FF4D4D':h<65?'#FFB84D':h<250?'#38E4FF':'#B86BFF';}catch{return c;}}
+ function holo22(i){const url=typeof window.SHIPCUR17==='function'?SHIPCUR17(i):'';if(!url)return null;const key=i+'|'+url.length+'|'+url.slice(-32);if(H22[key])return H22[key];
+  let im=HIM[url];if(!im){im=HIM[url]=new Image();im.src=url;}if(!im.complete||!im.naturalWidth)return null;
+  const col=hcol(i),R=parseInt(col.slice(1,3),16),G=parseInt(col.slice(3,5),16),B=parseInt(col.slice(5,7),16);
+  const N=256,sc=N/Math.max(im.naturalWidth,im.naturalHeight),w0=Math.round(im.naturalWidth*sc),h0=Math.round(im.naturalHeight*sc);
+  const a=document.createElement('canvas');a.width=w0;a.height=h0;const x=a.getContext('2d');x.drawImage(im,0,0,w0,h0);let d;try{d=x.getImageData(0,0,w0,h0);}catch{return null;}
+  const A=d.data;let bx0=w0,by0=h0,bx1=0,by1=0;for(let Y=0;Y<h0;Y++)for(let X=0;X<w0;X++)if(A[(Y*w0+X)*4+3]>90){if(X<bx0)bx0=X;if(X>bx1)bx1=X;if(Y<by0)by0=Y;if(Y>by1)by1=Y;}
+  if(bx1<=bx0)return null;const bw=bx1-bx0+1,bh=by1-by0+1;
+  const o=x.createImageData(w0,h0),O=o.data;const al=(X,Y)=>A[(Y*w0+X)*4+3],lu=(X,Y)=>{const q=(Y*w0+X)*4;return A[q]*.3+A[q+1]*.59+A[q+2]*.11;};
+  for(let Y=1;Y<h0-1;Y++)for(let X=1;X<w0-1;X++){const q=(Y*w0+X)*4,c0=al(X,Y);
+   const gx=(al(X+1,Y-1)+2*al(X+1,Y)+al(X+1,Y+1))-(al(X-1,Y-1)+2*al(X-1,Y)+al(X-1,Y+1)),gy=(al(X-1,Y+1)+2*al(X,Y+1)+al(X+1,Y+1))-(al(X-1,Y-1)+2*al(X,Y-1)+al(X+1,Y-1));
+   let e=Math.min(255,Math.hypot(gx,gy)*.55);
+   if(c0>110){const li=Math.abs(lu(X+1,Y)-lu(X-1,Y))+Math.abs(lu(X,Y+1)-lu(X,Y-1));if(li>58)e=Math.max(e,Math.min(200,li*1.4));e=Math.max(e,26);}
+   if(Y%3===0)e*=.5;if(e<14)continue;O[q]=R;O[q+1]=G;O[q+2]=B;O[q+3]=e;}
+  x.clearRect(0,0,w0,h0);x.putImageData(o,0,0);
+  // khung đệm + vòng ngắm kỹ thuật phía sau
+  const S=Math.ceil(Math.max(bw,bh)*1.22),c=document.createElement('canvas');c.width=c.height=S;const y=c.getContext('2d'),m=S/2;
+  y.strokeStyle=col;y.lineWidth=1.4;y.globalAlpha=.34;y.beginPath();y.arc(m,m,S*.46,0,Math.PI*2);y.stroke();y.globalAlpha=.22;y.setLineDash([3,5]);y.beginPath();y.arc(m,m,S*.40,0,Math.PI*2);y.stroke();y.setLineDash([]);
+  y.globalAlpha=.42;for(let j=0;j<48;j++){const t=j/48*Math.PI*2,l=j%4?S*.018:S*.045;y.beginPath();y.moveTo(m+Math.cos(t)*S*.46,m+Math.sin(t)*S*.46);y.lineTo(m+Math.cos(t)*(S*.46-l),m+Math.sin(t)*(S*.46-l));y.stroke();}
+  y.globalAlpha=.30;y.lineWidth=2;for(const t0 of [-.6,Math.PI-.6]){y.beginPath();y.arc(m,m,S*.43,t0,t0+1.2);y.stroke();}
+  y.globalAlpha=1;y.drawImage(a,bx0,by0,bw,bh,m-bw/2,m-bh/2,bw,bh);
+  return H22[key]={c,bw,bh,S};}
+ function draw22(g,SW,SH,py,k,clock,i){const h=holo22(i);if(!h)return false;
+  let ow=0;try{ow=2*(window.__half22||0)*(window.__sz221||1);}catch{}if(!(ow>20&&ow<400))ow=86;
+  const sw=ow*k*(window.HOLO22K||1.55),f=sw/h.bw,D=h.S*f,cy=(py-40*k)-h.bh*f*.16+Math.sin(clock*1.1)*3*k;
+  g.save();g.globalCompositeOperation='lighter';g.globalAlpha=.49+.07*Math.sin(clock*1.6);g.drawImage(h.c,SW/2-D/2,cy-D/2,D,D);g.restore();return true;}
  // ---- vẽ nền (gọi từ sân khấu sảnh thay cho ảnh xưởng). Trả true nếu đã vẽ.
  function draw(g,SW,SH,py,k,clock,P){if(!on())return false;const T=tierCol(P,S.tier||1);LP=P;
   const sk=window.SANH307!==false&&!!document.querySelector('.sk307'); // V307: có nền sảnh vẽ bằng mã (xưởng + hố đen) thì để trong suốt cho nền đó lộ ra
@@ -45,7 +76,8 @@ const HOLO212=(()=>{
   g.restore();
   // hình nét lớn mờ phía sau chiến cơ
   const i=P&&P.t==='c'?P.i:(P&&P.t==='s'?((typeof SSS_MODELS!=='undefined'&&SSS_MODELS[P.i]&&SSS_MODELS[P.i].base)|0):0);
-  const wf=wire(i,'#3FA9FF');if(wf){const sz=Math.min(SW*.86,SH*.62);g.save();g.globalAlpha=.42+.06*Math.sin(clock*1.6);g.globalCompositeOperation='lighter';g.drawImage(wf,SW/2-sz/2,py-sz*.95,sz,sz);g.restore();}
+  const h22=window.HOLO22!==false&&P&&P.t==='c'&&draw22(g,SW,SH,py,k,clock,i);
+  const wf=!h22&&!(window.HOLO22!==false&&P&&P.t==='c')&&wire(i,'#3FA9FF');if(wf){const sz=Math.min(SW*.86,SH*.62);g.save();g.globalAlpha=.42+.06*Math.sin(clock*1.6);g.globalCompositeOperation='lighter';g.drawImage(wf,SW/2-sz/2,py-sz*.95,sz,sz);g.restore();}
   // tia năng lượng / hào quang theo nấc (phía sau tàu)
   if(S.tier>=2){g.save();g.globalCompositeOperation='lighter';const cx=SW/2,cy=py-80*k;for(let j=0;j<(S.tier===3?22:14);j++){const side=j%2?1:-1,ang=-Math.PI/2+side*(.35+Math.floor(j/2)*.16)+Math.sin(clock*1.4+j)*.03,len=(150+((j*53)%60))*k;
     const gr=g.createLinearGradient(cx,cy,cx+Math.cos(ang)*len,cy+Math.sin(ang)*len);gr.addColorStop(0,T.b+'cc');gr.addColorStop(1,T.a+'00');g.strokeStyle=gr;g.lineWidth=(10-Math.floor(j/2))*k*.55;g.lineCap='round';g.beginPath();g.moveTo(cx,cy);g.lineTo(cx+Math.cos(ang)*len,cy+Math.sin(ang)*len);g.stroke();}
