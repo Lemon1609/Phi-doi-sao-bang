@@ -1,4 +1,10 @@
-# V2.2.2 — CHỜ DUYỆT (25/11/2026 ~00:30), CHƯA tăng phiên bản / APK
+# V2.2.2 — ĐÃ XUẤT BẢN 25/11/2026 ~11:45 (chủ dự án "Duyệt xuất bản V2.2.2" 11:15)
+
+- Release **`V2.2.2.45`** (run 45545722425): APK `PhiDoiSaoBang-V2.2.2.45.apk` 71.592.788 byte, sha256 `b474b273956a06dfa7b63a4ac4a384eb2c6b8799427992445422948c62bd6365`; chữ ký `CN=Phi Doi Sao Bang, O=Lemon1609, C=VN` SHA256 `B1:34:…:DC:0E` trùng V2.2.1 → cài đè giữ dữ liệu.
+- `build-apk-v198` = f2cac1f (`www/` = split.py + ext22.py từ bản dựng sạch 25/11 07:17 của nguồn e378a8f, `VERSION`=`V2.2.2`; phần ký / workflow không đổi). `assets/public` trong APK trùng từng tệp với `www/` (+ cordova), 3.025 ảnh trong `assets/`; chạy qua http: 0 ảnh hỏng, 0 lỗi JS, 0 phản hồi ≥ 400, vào trận được.
+- Chủ dự án chốt: tàu 6 giữ trần +45 % / +32 %; Chiến Thần (hình nét cũ ở Sảnh) để đợt sau.
+
+## (Báo cáo lúc chờ duyệt)
 
 Nhánh `v22-dang-lam`. 
 - **Hologram sân khấu theo chiến cơ (25/11)**: hình nét xanh sau tàu KHÔNG nằm trong `hangar_bg` (ảnh `src/ui22img/hangar_bg.webp` sạch) mà do `holo212.js` dò mép atlas cũ / `HOLO212_ART` (tàu cũ, màu cố định). Nay `holo212.js` HOLO22 (tắt `window.HOLO22=false`, cỡ `window.HOLO22K`=1,55): dựng 1 lần cho mỗi (tàu, ảnh bậc `SHIPCUR17`) — Sobel alpha + gân sáng + lòng mờ + vạch quét mỗi 3 dòng + vòng ngắm nét đứt có vạch chia; màu theo sắc độ `SHIP309COL` (đỏ thẫm / vàng hổ phách / lam điện / tím; tàu 4 xanh lá → lam điện). Mỗi khung 1 drawImage 'lighter', α .42–.56 + nhún ±3 px, rộng = 1,55 × bề ngang đặc tàu (`__half22·__sz221`), nhích lên 16 % chiều cao. Chiến Thần (P.t='s') vẫn dùng hình nét cũ. Ảnh `/home/claude/anh/t16/T16_hologram_dong_bo.jpg`.
