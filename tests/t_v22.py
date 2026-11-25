@@ -17,8 +17,9 @@ with sync_playwright() as p:
   start(pg,12);pg.evaluate("()=>{invuln=1e9}");pg.evaluate("()=>finishStage36(false)");pg.wait_for_timeout(2500)
   b=pg.evaluate(BTN)
   chk('Thắng: có nút VỀ SẢNH + ẢI TIẾP',any('SẢNH' in x for x in b) and any('ẢI TIẾP' in x for x in b),b)
-  pg.evaluate("()=>{window.__log=[];const iv=setInterval(()=>{const ov=document.getElementById('overlay');window.__log.push([mode,ov.hidden,document.body.classList.contains('res78')]);},250);setTimeout(()=>clearInterval(iv),4000);document.querySelector('#e22a .e22s').click()}")
-  pg.wait_for_timeout(4300);L=pg.evaluate("()=>window.__log")
+  pg.evaluate("()=>{window.__log=[];window.__fl23={f:0,bad:0};const iv=setInterval(()=>{const ov=document.getElementById('overlay');window.__log.push([mode,ov.hidden,document.body.classList.contains('res78')]);},250);setTimeout(()=>clearInterval(iv),4000);const t0=performance.now();const fr=()=>{const h=document.getElementById('hgr41');const lob=mode==='menu'&&h&&h.getClientRects().length&&getComputedStyle(h).display!=='none';window.__fl23.f++;if(lob&&!document.documentElement.classList.contains('lob222'))window.__fl23.bad++;if(performance.now()-t0<1500)requestAnimationFrame(fr);};document.querySelector('#e22a .e22s').click();fr();}")
+  pg.wait_for_timeout(4300);L=pg.evaluate("()=>window.__log");F23=pg.evaluate("()=>window.__fl23")
+  if pg.evaluate("()=>window.LOB222!==false&&window.CLEAN23!==false"):chk('V2.2.3 VỀ SẢNH từ màn Thắng: 0 khung hiện Sảnh cũ (Sảnh cổ điển gắn ngay khung đầu)',F23['f']>=5 and F23['bad']==0,F23)
   bad_=[x for x in L[1:] if not(x[0]=='menu' and x[1] and not x[2])]
   chk('VỀ SẢNH: 4 s liền mode menu, overlay ẩn, không bật lại màn kết quả',len(L)>=4 and not bad_,{'n':len(L),'lech':bad_[:4]})
   # 2 THẮNG → ẢI TIẾP
@@ -67,10 +68,33 @@ with sync_playwright() as p:
   import re as _re
   chk('V2.2.1 HUD chẩn đoán đúng khuôn "FPS: n | n.nms | DPR x | P:n B:n | ĐẸP/NHẸ", không còn HUD cũ',r['v'] and bool(_re.match(r'^FPS: \d+ \| [\d.]+ms \| DPR [\d.]+ \| P:\d+ B:\d+ \| (ĐẸP|NHẸ)$',r['t'])) and r['cu']==0,r)
   chk('V2.2.1 Độ nét trận ≤ 1,35 (ĐẸP)',r['dpr']<=1.36,r['dpr'])
+  if pg.evaluate("()=>window.CLEAN23!==false"):
+    r2=pg.evaluate("()=>{const t=document.getElementById('tele07'),h=document.getElementById('hud22');const a=t&&t.getBoundingClientRect(),b=h&&h.getBoundingClientRect();return {hp:a?Math.round(a.bottom):0,hud:b?Math.round(b.top):0}}")
+    chk('V2.2.3 HUD FPS nằm dưới thanh máu / P (không đè)',r2['hud']>=r2['hp']-1,r2)
+    q0=pg.evaluate("()=>Gfx66.pref()")
+    pg.evaluate("()=>Gfx66.set('light')");pg.wait_for_timeout(700)
+    d1=pg.evaluate("()=>({dpr:Math.round(canvas.width/canvas.clientWidth*100)/100,q:VisualFX.counts().quality})")
+    pg.evaluate("()=>Gfx66.set('high')");pg.wait_for_timeout(700)
+    d2=pg.evaluate("()=>({dpr:Math.round(canvas.width/canvas.clientWidth*100)/100,q:VisualFX.counts().quality})")
+    pg.evaluate("(q)=>Gfx66.set(q)",q0)
+    chk('V2.2.3 NHẸ: canvas trận đúng DPR 1,00 (theo điểm ảnh CSS) · ĐẸP ≤ 1,20',abs(d1['dpr']-1)<=.011 and d1['q']=='light' and d2['dpr']<=1.205,{'nhe':d1,'dep':d2})
   pg.evaluate("()=>{Fps88._set({on:false});try{End78.goLobby()}catch{mode='menu';Lobby.show()}}");pg.wait_for_timeout(1500)
   r=pg.evaluate("()=>{Nav74.tab('equip');KHO307.bag();return new Promise(res=>setTimeout(()=>res({m:!!window.__modal42}),900))}")
   chk('V2.2.1 Mở Túi đồ → tạm dừng nền (__modal42)',r['m'],r)
   pg.evaluate("()=>{try{KHO307.close()}catch{}}")
+  # V2.2.3 vòng vẽ trận: 0 shadowBlur, 0 ctx.filter, 0 canvas mới mỗi lần trúng (15 quái + Bạo Tẩu, đo 3 s sau 2,5 s khởi động)
+  if pg.evaluate("()=>window.CLEAN23!==false"):
+    pg.evaluate("()=>{try{End78.goLobby()}catch{}}");pg.wait_for_timeout(800);start(pg,45)
+    pg.evaluate("""()=>{clearInterval(window.__hz);invuln=1e9;const P=CanvasRenderingContext2D.prototype;const S=window.__a23={sb:0,fl:0,cv:0,hit:0,on:false};
+     const d1=Object.getOwnPropertyDescriptor(P,'shadowBlur'),d2=Object.getOwnPropertyDescriptor(P,'filter');
+     Object.defineProperty(P,'shadowBlur',{configurable:true,get(){return d1.get.call(this)},set(v){if(S.on&&v>0)S.sb++;d1.set.call(this,v)}});
+     Object.defineProperty(P,'filter',{configurable:true,get(){return d2.get.call(this)},set(v){if(S.on&&v&&v!=='none')S.fl++;d2.set.call(this,v)}});
+     const ce=document.createElement.bind(document);document.createElement=function(t,...a){if(S.on&&String(t).toLowerCase()==='canvas')S.cv++;return ce(t,...a)};
+     try{const o=Render27.hit;Render27.hit=function(){if(S.on)S.hit++;return o.apply(this,arguments)}}catch(e){}
+     window.__sp23=setInterval(()=>{if(mode!=='play')return;const n=enemies.filter(e=>!e.dead).length;for(let i=n;i<15;i++)addEnemy({x:40+Math.random()*400,y:60+Math.random()*260,v:8,type:i%4,large:false,elite:i%7==0,guard:0,hp:25,fire:1.2+Math.random(),age:0,phase:Math.random()*6,dead:false})},200);
+     try{activateSuper();superTime=8}catch(e){}}""")
+    pg.wait_for_timeout(2500);pg.evaluate("()=>{__a23.on=true}");pg.wait_for_timeout(3000);r=pg.evaluate("()=>{__a23.on=false;clearInterval(window.__sp23);return {...__a23,en:enemies.length}}")
+    chk('V2.2.3 Vòng vẽ trận: 0 shadowBlur · 0 ctx.filter · 0 canvas mới (có trúng đạn liên tục)',r['hit']>20 and r['sb']==0 and r['fl']==0 and r['cv']==0,r)
   chk('Không lỗi trang',not errs,errs[:5])
   br.close()
 print('KẾT QUẢ %d/%d'%(len(ok),len(ok)+len(bad)))

@@ -14,9 +14,10 @@
  const PAL=['#8b97a8','#5d6878','#b9c4d2','#ff9a4a','#ffd08a'];
  // 1) chớp sáng
  function wrapHit(){try{if(typeof Render27==='undefined'||Render27.__192)return;const o=Render27.hit;Render27.hit=function(e){try{if(on()&&e&&!e.bossPart&&e!==boss){const t=now();if(!e.f192l||t-e.f192l>150){e.f192=t;e.f192l=t;}}}catch{}return o.apply(this,arguments);};Render27.__192=1;}catch{}}
- function wrapDraw(){try{if(typeof EnemyFleet==='undefined'||EnemyFleet.__192)return;const o=EnemyFleet.drawEnemy;EnemyFleet.drawEnemy=function(e){const r=o.apply(this,arguments);try{if(on()&&e&&e.f192&&now()-e.f192<60&&!reduced()){ctx.save();ctx.globalCompositeOperation='lighter';ctx.globalAlpha=.55;o.apply(this,arguments);ctx.restore();}}catch{}return r;};EnemyFleet.__192=1;}catch{}}
+ function wrapDraw(){try{if(typeof EnemyFleet==='undefined'||EnemyFleet.__192)return;const o=EnemyFleet.drawEnemy;EnemyFleet.drawEnemy=function(e){const r=o.apply(this,arguments);try{if(on()&&window.CLEAN23===false&&e&&e.f192&&now()-e.f192<60&&!reduced()){ctx.save();ctx.globalCompositeOperation='lighter';ctx.globalAlpha=.55;o.apply(this,arguments);ctx.restore();}}catch{}return r;};EnemyFleet.__192=1;}catch{}}
  // 2) mảnh vỡ
- function burst(e){const n=light()?4:(e.large||e.elite?10:7);const sz=e.large||e.elite?1.4:1;
+ function burst(e){if(window.CLEAN23!==false){/* V2.2.3 CLEAN23: bỏ mảnh kim loại văng (nhiễu) → 4–5 chấm sáng tròn ≤ 0,24 s */const m=e.large||e.elite?5:4;for(let k=0;k<m&&shards.length<60;k++){const a=Math.random()*6.283,sp=70+Math.random()*90;shards.push({x:e.x,y:e.y,vx:Math.cos(a)*sp,vy:Math.sin(a)*sp,r:0,vr:0,s:1.4+Math.random()*1.2,t:0,life:.16+Math.random()*.08,c:k%2?'#ffe9c4':'#ffb460',dot:1});}return;}
+  const n=light()?4:(e.large||e.elite?10:7);const sz=e.large||e.elite?1.4:1;
   for(let k=0;k<n&&shards.length<140;k++){const a=Math.random()*Math.PI*2,sp=(90+Math.random()*170)*sz;
    shards.push({x:e.x,y:e.y,vx:Math.cos(a)*sp,vy:Math.sin(a)*sp-40,r:Math.random()*6,vr:(Math.random()-.5)*14,s:(3+Math.random()*5)*sz,t:0,life:.45+Math.random()*.35,c:PAL[(Math.random()*PAL.length)|0]});}}
  function wrapKill(){try{if(typeof kill!=='function'||kill.__192)return;const o=kill;const f=function(e){const was=e&&!e.dead;const r=o.apply(this,arguments);try{if(on()&&was&&e.dead&&!e.meteor&&!e.rescue28&&!e.bossPart&&mode==='play'){burst(e);if((e.elite||e.large)&&!reduced()){hs=Math.max(hs,.045);try{shake=Math.max(shake,.08);}catch{}}}}catch{}return r;};f.__192=1;kill=f;}catch{}}
@@ -27,7 +28,7 @@
  let last=0;
  function drawShards(){if(!shards.length)return;const t=now(),dt=last?Math.min(.05,(t-last)/1000):.016;last=t;const k=hs>0?.08:1;
   ctx.save();for(let i=shards.length-1;i>=0;i--){const s=shards[i];s.t+=dt*k;if(s.t>=s.life){shards.splice(i,1);continue;}s.vy+=420*dt*k;s.vx*=1-1.6*dt*k;s.x+=s.vx*dt*k;s.y+=s.vy*dt*k;s.r+=s.vr*dt*k;
-   const a=1-s.t/s.life;ctx.globalAlpha=a;ctx.fillStyle=s.c;ctx.setTransform(1,0,0,1,0,0);try{const m=ctx.__base192;if(m)ctx.setTransform(m);}catch{}ctx.translate(s.x,s.y);ctx.rotate(s.r);ctx.beginPath();ctx.moveTo(-s.s,-s.s*.4);ctx.lineTo(s.s,0);ctx.lineTo(-s.s*.3,s.s*.6);ctx.closePath();ctx.fill();}
+   const a=1-s.t/s.life;ctx.globalAlpha=a;ctx.fillStyle=s.c;ctx.setTransform(1,0,0,1,0,0);try{const m=ctx.__base192;if(m)ctx.setTransform(m);}catch{}if(s.dot){ctx.globalCompositeOperation='lighter';ctx.beginPath();ctx.arc(s.x,s.y,s.s,0,6.283);ctx.fill();ctx.globalCompositeOperation='source-over';continue;}ctx.translate(s.x,s.y);ctx.rotate(s.r);ctx.beginPath();ctx.moveTo(-s.s,-s.s*.4);ctx.lineTo(s.s,0);ctx.lineTo(-s.s*.3,s.s*.6);ctx.closePath();ctx.fill();}
   ctx.restore();}
  function wrapLoot(){try{if(typeof Loot40==='undefined'||Loot40.__192)return;const o=Loot40.draw;Loot40.draw=function(){try{if(on()){ctx.__base192=ctx.getTransform();drawShards();}}catch{}return o.apply(this,arguments);};Loot40.__192=1;}catch{}}
  function all(){wrapHit();wrapDraw();wrapKill();wrapWing();wrapUpdate();wrapLoot();}

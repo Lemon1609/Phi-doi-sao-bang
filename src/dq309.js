@@ -4,8 +4,8 @@
 //  · Đỏ Tía Mận (đặc biệt, phe Nhật Thực/Hư Không/Thánh Đường) · Đỏ Quá Tải (cầu lớn, laser). Hitbox giữ nguyên; chỉ đổi hình vẽ.
 //  Ảnh: global DQ309_IMG (src/dq309img), laser dùng FX309 (beam/flare/ring_e1..e3). Tắt đạn: window.DQ309=false · tắt laser: window.DQL309=false
 (function(){
- const IM={},BR={};function im(k){const A=window.DQ309_IMG;if(!A||!A[k])return null;let i=IM[k];if(!i){i=new Image();i.src=A[k];IM[k]=i;}if(!(i.complete&&i.naturalWidth))return null;if(BR[k])return BR[k];
-  try{const c=document.createElement('canvas');c.width=i.naturalWidth;c.height=i.naturalHeight;const g=c.getContext('2d');g.filter='brightness(1.18) saturate(1.1)';g.drawImage(i,0,0);return BR[k]=c;}catch{return BR[k]=i;}}/* +18 % sáng (Gemini: sprite 3D nhỏ dễ tối cạnh đạn Bạo Tẩu) */
+ const IM={},BR={};window.__dq309im=k=>im(k);function im(k){const A=window.DQ309_IMG;if(!A||!A[k])return null;let i=IM[k];if(!i){i=new Image();i.src=A[k];IM[k]=i;}if(!(i.complete&&i.naturalWidth))return null;if(BR[k])return BR[k];
+  try{const c=document.createElement('canvas');c.width=i.naturalWidth;c.height=i.naturalHeight;const g=c.getContext('2d');g.drawImage(i,0,0);g.globalCompositeOperation='lighter';g.globalAlpha=.18;g.drawImage(i,0,0);return BR[k]=c;/* V2.2.3: bỏ ctx.filter (sáng +18 % bằng cộng sáng chính ảnh) */}catch{return BR[k]=i;}}/* +18 % sáng (Gemini: sprite 3D nhỏ dễ tối cạnh đạn Bạo Tẩu) */
  // phe theo chương (tên boss từng chương): o = Lò Rèn/Huyết Giác · b = Nhật Thực/Hư Không/Thánh Đường · r = khác
  const CH={1:'o',2:'o',3:'b',4:'r',5:'b',6:'b',7:'b',8:'o',9:'b',10:'b'};
  function grp(){let lv=1;try{lv=gameMode==='endless'?150:(level|0)||1;}catch{}return CH[Math.max(1,Math.min(10,Math.ceil(lv/20)))]||'r';}

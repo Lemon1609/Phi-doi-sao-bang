@@ -150,6 +150,18 @@ if os.environ.get('DROP5','1')!='0':
             DROP309[_k]=_w8(_pp,128)
             if _k!='star':_o=PK.get(_k,{'burst':''});PK[_k]={'base':DROP309[_k],'idle':'','burst':_o.get('burst','')}
 print('vat pham L5:',len(DROP309))
+# V2.2.3 · VFX đợt 1: 4 ngọc nhặt + tia sáng (90239 hàng 2, claude_tools/vfx23_cat.py). Tắt: VFX23=0 khi dựng (hoặc window.VFX23=false lúc chạy cho phần hiệu ứng)
+VFX23IMG={}
+if os.environ.get('VFX23','1')!='0':
+    import base64 as _b64
+    for _f in sorted(os.listdir('src/vfx23img')):
+        if _f.endswith('.webp'):VFX23IMG[_f[:-5]]='data:image/webp;base64,'+_b64.b64encode(open('src/vfx23img/'+_f,'rb').read()).decode()
+    for _k,_o in (('power','orb_power_p'),('shield','orb_shield'),('heal','orb_heal')):
+        if _o in VFX23IMG:
+            _q=PK.get(_k,{'burst':''});PK[_k]={'base':VFX23IMG[_o],'idle':'','burst':_q.get('burst','')}
+            if _k in DROP309:DROP309[_k]=VFX23IMG[_o]
+    if 'orb_crystal' in VFX23IMG:DROP309['star']=VFX23IMG['orb_crystal']
+print('vfx23 anh:',len(VFX23IMG))
 HUD113={k:_w8('src/hud113/'+k+'.png',64) for k in ['graze','warn'] if os.path.exists('src/hud113/'+k+'.png')}
 BUL78A={}
 for _c in ['red','orange','purple','blue','green','white']:
@@ -1231,6 +1243,17 @@ rep("</body>",ui22_script('.')+plume22_script('.')+"<script id=\"nobs22-js\">"+o
 rep("</body>","<script id=\"lob222-img-js\">window.LOB222_IMG="+json.dumps({os.path.splitext(f)[0]:'data:image/webp;base64,'+base64.b64encode(open('src/lob222img/'+f,'rb').read()).decode() for f in sorted(os.listdir('src/lob222img')) if f.endswith('.webp')})+";</script><script id=\"lob222-js\">"+open('src/lob222.js',encoding='utf-8').read()+"</script></body>")
 # V2.2.3 · Bản đồ sao đồng bộ Sảnh cổ điển (tấm nút LOB222_IMG) + khóa tâm ô ải · tắt window.MAP222=false
 rep("</body>","<script id=\"map222-js\">"+open('src/map222.js',encoding='utf-8').read()+"</script></body>")
+# V2.2.3 · VFX đợt 1 (ngọc nảy/hút, tia nòng/trúng, Bạo Tẩu siêu thanh) · tắt window.VFX23=false
+rep("</body>","<script id=\"vfx23-js\">window.VFX23_IMG="+json.dumps(VFX23IMG,separators=(',',':'))+";"+open('src/vfx23.js',encoding='utf-8').read()+"</script></body>")
+# V2.2.3 · VFX đợt 2 (hợp thể 1,3 s, dải chèn hình, cảnh báo boss, hào quang Chiến Thần Sảnh) · tắt window.VFX23B=false
+rep("</body>","<script id=\"vfx23b-js\">"+open('src/vfx23b.js',encoding='utf-8').read()+"</script></body>")
+# V2.2.3 · VFX đợt 3 (khiên tổ ong, máu thấp, hiệu ứng giáp, ánh kim thẻ theo bậc, tiến bậc 0,9 s) · tắt window.VFX23C=false
+rep("</body>","<script id=\"vfx23c-js\">"+open('src/vfx23c.js',encoding='utf-8').read()+"</script></body>")
+# V2.2.3 · RIG23 chuẩn hóa toàn hệ (cánh gọn/vểnh/nhuộm, lớp sau-thân trước đạn ta, tàu con dạt ra, không mất tàu) · tắt window.RIG23=false
+rep("ctx.globalAlpha=.35;const rankColor=","ctx.globalAlpha=(window.RIG23!==false?.45:.35);/* V2.2.3: nhấp nháy bất tử không mờ dưới .45 */const rankColor=")
+rep("</body>","<script id=\"rig23-js\">"+open('src/rig23.js',encoding='utf-8').read()+"</script></body>")
+# V2.2.3 · CLEAN23 trận sạch + nhẹ (chớp trúng, mảnh vụn, chớp Bạo Tẩu, tia tàu con, DPR theo CSS, HUD/thông báo, Sảnh không nháy) · tắt window.CLEAN23=false
+rep("</body>","<script id=\"clean23-js\">"+open('src/clean23.js',encoding='utf-8').read()+"</script></body>")
 open('Phi_Doi_Sao_Bang_V74_mau.html','w',encoding='utf-8').write(h)
 # V309 Lượt 15 · giảm dung lượng sau khi dựng: PNG→WebP q90 + gộp ảnh trùng (claude_tools/opt15_assets.py). Bỏ qua: OPT15_ANH=0
 if os.environ.get('OPT15_ANH','1')!='0':

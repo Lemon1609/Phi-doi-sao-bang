@@ -22,7 +22,7 @@
  // ---- 1 luồng ----
  function draw(g,x,y,len,wid,e,seed,boost,ang,alpha){const im=img(e)||img('cyan');if(!im)return false;const t=performance.now()/1000,s=seed||0;
   const sy=1.02+.08*Math.sin(t*29+s)+.04*Math.sin(t*53+s*2.3),sx=1+.035*Math.sin(t*37+s*1.7)+.015*Math.sin(t*61+s);
-  const L=len*sy*(boost?1.45:1),W=wid*sx*(boost?1.06:1);
+  const L=len*sy*(boost?1.45:1)*(window.VFX23!==false&&window.__vy23K?window.__vy23K:1),W=wid*sx*(boost?1.06:1);/* V2.2.3: lên +18 % / xuống −18 % theo vận tốc dọc (vfx23) */
   const pc=g.globalCompositeOperation,pa=g.globalAlpha;g.save();g.translate(x,y);if(ang)g.rotate(ang);g.globalCompositeOperation='lighter';g.globalAlpha=pa*(alpha!=null?alpha:(boost?.95:.82));
   g.drawImage(im,-W/2,-L*.03,W,L);g.restore();g.globalCompositeOperation=pc;g.globalAlpha=pa;return true;}
  // ---- 1 đơn vị theo bảng neo ----

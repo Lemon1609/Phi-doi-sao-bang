@@ -7,6 +7,7 @@ const Perf88=(()=>{
  if(window.PERF88===false)return {on:false};
  const MAX=500,Q=2;let hit=0,miss=0,skip=0,fT=0,fM=0;const C=new Map();
  const off=document.createElement('canvas'),og=off.getContext('2d');
+ const FREE88=[];function refill88(){setTimeout(()=>{try{let pl=false;try{pl=mode==='play';}catch{}if(pl){refill88.p||(refill88.p=setTimeout(()=>{refill88.p=0;refill88();},2000));return;}/* chỉ bù bể ngoài trận */let n=0;while(FREE88.length<32&&n++<32)FREE88.push(document.createElement('canvas'));}catch{}},0);}refill88();
  function ent(kind,text,g){const fs=g.fillStyle,ss=g.strokeStyle,st=kind?ss:fs;if(typeof st!=='string')return null;
   const key=kind+'|'+text+'|'+g.font+'|'+st+'|'+(kind?g.lineWidth+'|'+g.lineJoin:'')+'|'+g.textAlign+'|'+g.textBaseline;let e=C.get(key);
   if(e){C.delete(key);C.set(key,e);hit++;return e;}
@@ -14,9 +15,9 @@ const Perf88=(()=>{
   og.font=g.font;og.textAlign=g.textAlign;og.textBaseline=g.textBaseline;const m=og.measureText(text);
   const lw=kind?Math.ceil(g.lineWidth||1):0,pad=2+lw;const L=Math.ceil(m.actualBoundingBoxLeft||0),R=Math.ceil(m.actualBoundingBoxRight||m.width),A=Math.ceil(m.actualBoundingBoxAscent||12),D=Math.ceil(m.actualBoundingBoxDescent||4);
   const w=L+R+pad*2,h=A+D+pad*2;if(!(w>0&&h>0)||w*h>200000)return null;
-  const c=document.createElement('canvas');c.width=Math.ceil(w*Q);c.height=Math.ceil(h*Q);const x=c.getContext('2d');x.scale(Q,Q);x.font=g.font;x.textAlign=g.textAlign;x.textBaseline=g.textBaseline;
+  const c=FREE88.pop()||document.createElement('canvas');c.width=Math.ceil(w*Q);c.height=Math.ceil(h*Q);const x=c.getContext('2d');x.setTransform(1,0,0,1,0,0);x.scale(Q,Q);/* V2.2.3: lấy canvas từ bể (không tạo mới trong trận) */x.font=g.font;x.textAlign=g.textAlign;x.textBaseline=g.textBaseline;
   if(kind){x.strokeStyle=st;x.lineWidth=g.lineWidth;x.lineJoin=g.lineJoin;x.strokeText(text,pad+L,pad+A);}else{x.fillStyle=st;x.fillText(text,pad+L,pad+A);}
-  e={c,ax:pad+L,ay:pad+A,w,h};C.set(key,e);miss++;if(C.size>MAX)C.delete(C.keys().next().value);return e;}
+  e={c,ax:pad+L,ay:pad+A,w,h};C.set(key,e);miss++;if(C.size>MAX){const k0=C.keys().next().value,o0=C.get(k0);C.delete(k0);if(o0&&o0.c&&FREE88.length<64)FREE88.push(o0.c);}if(FREE88.length<4)refill88();return e;}
  function wrap(g){if(!g||g.__p88)return;g.__p88=1;const F=g.fillText.bind(g),S=g.strokeText.bind(g);
   g.fillText=function(t,x,y,mw){if(mw!==undefined||g.shadowBlur>0||t==null){skip++;return F(t,x,y,mw);}const e=ent(0,String(t),g);if(!e){skip++;return F(t,x,y);}g.drawImage(e.c,x-e.ax,y-e.ay,e.w,e.h);};
   g.strokeText=function(t,x,y,mw){if(mw!==undefined||g.shadowBlur>0||t==null){skip++;return S(t,x,y,mw);}const e=ent(1,String(t),g);if(!e){skip++;return S(t,x,y);}g.drawImage(e.c,x-e.ax,y-e.ay,e.w,e.h);};}

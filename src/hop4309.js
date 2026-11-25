@@ -8,7 +8,7 @@
 (()=>{const ON=()=>window.HOP4309!==false;
  // nút chính màn Hợp thể khi chưa đủ điều kiện: khung nút tím B5 (khóa) thay khung bạc
  try{if(ON()&&window.HOP307_IMG&&HOP307_IMG.nut_tim_khoa){const n=':not(#_h4)'.repeat(36),st=document.createElement('style');st.id='hop4309-css';st.textContent=`html body #ht-x${n}:disabled{background-image:url(${HOP307_IMG.nut_tim_khoa})!important;color:#e9d5ff!important;text-shadow:0 1px 2px #000!important;filter:none!important;opacity:1!important}`;document.head.appendChild(st);}}catch{}
- const KF=1.35,KR=1.0;
+ const KF=1.35,KR0=1.0;/* V2.2.3 VFX đợt 2: Chiến Thần dạng robot 1,18× (window.KR23) */
  const st={on:false,tOn:-9,parts:[],last:0,i:-1};
  const rgba=(h,a)=>{const n=parseInt(String(h).slice(1,7),16)||0;return 'rgba('+(n>>16&255)+','+(n>>8&255)+','+(n&255)+','+a+')';};
  const now=()=>typeof time==='number'?time:performance.now()/1000;
@@ -16,7 +16,7 @@
  let FR=null;function front(){if(FR)return FR;if(typeof SSS_ATLAS==='undefined')return null;FR=new Image();FR.src=SSS_ATLAS;return FR;}
  function scale(f,on){if(!ON())return 1;let b=0;try{b=f.bloom();}catch{}const t=now();
   if(on&&!st.on)st.tOn=t;st.on=!!on;
-  let k=KF*(1-b)+KR*b;if(b>.5)k*=1.015+.015*Math.sin(t*2.4);
+  const KR=window.KR23||KR0;let k=KF*(1-b)+KR*b;if(b>.5)k*=1.015+.015*Math.sin(t*2.4);
   const ta=t-st.tOn;if(on&&ta>=.15&&ta<.6)k*=1+.17*(1-eob((ta-.15)/.3));
   return k;}
  function col(i){try{return SSS_MODELS[i].color||'#c084fc';}catch{return '#c084fc';}}

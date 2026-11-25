@@ -61,7 +61,7 @@
 
  // ---------------- 2) VFX đạn chính + kỹ năng S ----------------
  const P=[];const MAXP=150;let flash=[];
- function sparks(x,y,col,n,sp,life){if(lite())n=Math.ceil(n/2);for(let k=0;k<n&&P.length<MAXP;k++){const a=Math.random()*Math.PI*2,v=sp*(.4+Math.random()*.8);P.push({x,y,vx:Math.cos(a)*v,vy:Math.sin(a)*v-sp*.25,t:0,life:life*(.7+Math.random()*.6),col,s:3+Math.random()*3});}}
+ function sparks(x,y,col,n,sp,life){if(lite())n=Math.ceil(n/2);for(let k=0;k<n&&P.length<MAXP;k++){const a=Math.random()*Math.PI*2,v=sp*(.4+Math.random()*.8);P.push({x,y,vx:Math.cos(a)*v,vy:Math.sin(a)*v-sp*.25,t:0,life:window.CLEAN23!==false?Math.min(.25,life*(.7+Math.random()*.6)):life*(.7+Math.random()*.6),col,s:window.CLEAN23!==false?1.6+Math.random()*1.6:3+Math.random()*3});}}
  function onEmit(id,s,k,n){if(!on('EVO21FX')||!playing()||k!==0)return;const V=VK[tierOf(id)]??1,col=colOf(id);
   flash.push({x:player.x,y:player.y-30,t:0,life:.06+.06*V,R:12+24*V,col,V,streak:V>=.8});if(flash.length>6)flash.shift();}
  const hitT=new WeakMap();
@@ -146,12 +146,12 @@
  const sk=I=>I&&I.sss&&I.sss.id;
  const ti=I=>{if(!I)return -1;if(I.sss)return ts(I);if(window.__ti21!=null)return window.__ti21;/* chỉ để chụp ảnh thử */return TI[I.tier]!=null?TI[I.tier]:-1;};
  function gearImg(mis,I){if(!gOn())return null;const t=ti(I);if(t<0)return null;const s3=sk(I),im=IMG[s3?(mis?`st_${s3}_${t}`:`sw_${s3}_b${t}`):(mis?`tl_${I.v}_${t}`:`wg_${I.v}_b${t}`)];return ok(im)?im:null;}
- function gearTrail(c,I,sup,L,W){const t=ti(I);if(t<0)return false;const s3=sk(I),im=IMG[s3?`st_${s3}_tr${sup?2:t}`:`tl_${I.v}_tr${sup?3:t}`];if(!ok(im))return false;
+ function gearTrail(c,I,sup,L,W){if(window.CLEAN23!==false)sup=false;/* V2.2.3 CLEAN23: Bạo Tẩu giữ vệt tên lửa theo bậc (bỏ vệt lửa to) */const t=ti(I);if(t<0)return false;const s3=sk(I),im=IMG[s3?`st_${s3}_tr${sup?2:t}`:`tl_${I.v}_tr${sup?3:t}`];if(!ok(im))return false;
   const ln=L*(1.05+.12*(sk(I)?t*1.5:t))*(sup?1.3:1)*(1+.08*Math.sin(performance.now()/1000*40)),w=ln*im.naturalWidth/im.naturalHeight;c.globalCompositeOperation='lighter';c.globalAlpha=.95;c.drawImage(im,-w/2,L*.3,w,ln);c.globalAlpha=1;return true;}
  const GT=new Map(),BURST=[];
  function gearTrack(ref,o,I,mis,sup){const s3=sk(I),t=ti(I);if(!GT.has(ref)&&window.EvoSFX)try{EvoSFX.fire(s3||I.v,t,!!s3,!!sup,mis);}catch{}/* V2.1 EVO21_SFX: phóng tên lửa / đạn tàu con theo hệ */GT.set(ref,{x:o.x,y:o.y,t:performance.now(),v:I.v,s3,mis,big:sup||(s3?t>=2:t>=3),k10:s3&&t>=2});}
  function podImg(v,I){if(!gOn()||!I)return null;const t=ti(I);if(t<0)return null;const s3=sk(I),im=IMG[s3?`sw_${s3}_${t}`:`wg_${v}_${t}`];return ok(im)?im:null;}
- function podWings(c,v,x,y,w,t,I){const s3=sk(I),im=IMG[s3?`sw_${s3}_wing`:`wg_${v}_wing`];if(!ok(im)||!gOn())return false;const ST=window.WSTATIC42!==false;let op=1;if(ST){const n=performance.now()/1000;if(!PW.on)PW.t0=n;PW.on=true;PW.seen=n;const u=(n-PW.t0)/.15;op=u<1?.55+.45*(1-Math.pow(1-u,3)):1;}
+ function podWings(c,v,x,y,w,t,I){if(window.CLEAN23!==false)return false;/* V2.2.3 CLEAN23: bỏ cánh/vòng xanh quanh tàu con khi Bạo Tẩu */const s3=sk(I),im=IMG[s3?`sw_${s3}_wing`:`wg_${v}_wing`];if(!ok(im)||!gOn())return false;const ST=window.WSTATIC42!==false;let op=1;if(ST){const n=performance.now()/1000;if(!PW.on)PW.t0=n;PW.on=true;PW.seen=n;const u=(n-PW.t0)/.15;op=u<1?.55+.45*(1-Math.pow(1-u,3)):1;}
   const br=ST?op:1+Math.sin(t*5)*.04,ww=w*2.3*br,hh=ww*im.naturalHeight/im.naturalWidth,FK=window.FXK42?FXK42():1;
   /* V2.1.42: cánh mini tĩnh 1,0× (bung 0,15 s), vẽ DƯỚI thân tàu con α .55 để thân 3D luôn rõ */
   c.save();c.globalCompositeOperation='lighter';const AG22=window.V22!==false&&window.AG22!==false;c.globalAlpha=(ST?.55:.65)*FK;c.drawImage(AG22?feather22(im,.55):im,x-ww/2,y-hh*.55,ww,hh);if(ST&&op>=1&&window.Flow42)try{Flow42.wing(c,im,x-ww/2,y-hh*.55,ww,hh,-1,t,FK,I);}catch{}c.restore();return true;}
@@ -171,11 +171,12 @@
  const FW22=new WeakMap();
  function feather22(im,cyf){cyf=cyf||.42;let M=FW22.get(im);if(!M){M={};FW22.set(im,M);}let c=M[cyf];if(c)return c;const iw=im.naturalWidth||im.width,ih=im.naturalHeight||im.height;if(!iw||!ih)return im;c=document.createElement('canvas');c.width=iw;c.height=ih;const g=c.getContext('2d');g.drawImage(im,0,0,iw,ih);
   g.globalCompositeOperation='destination-out';const cx=iw/2,cy=ih*cyf,R=iw*.22,gr=g.createRadialGradient(cx,cy,R*.25,cx,cy,R*1.35);gr.addColorStop(0,'rgba(0,0,0,.94)');gr.addColorStop(.5,'rgba(0,0,0,.62)');gr.addColorStop(1,'rgba(0,0,0,0)');g.fillStyle=gr;g.fillRect(0,0,iw,ih);M[cyf]=c;return c;}
- function drawWing(g,id,size,isOn,now){if(window.EVO21===false||window.EVO21IMG===false||!isOn)return false;const im=pick('canh',id);if(!im)return false;
+ function drawWing(g,id,size,isOn,now){const LW=window.Rig23&&Rig23.wing2&&window.RIG23!==false&&window.CANH23!==false;if(window.EVO21===false||window.EVO21IMG===false||(!isOn&&!LW))return false;const im=pick('canh',id);if(!im)return false;
+  if(LW){/* V2.2.3 VFX đợt 2: cánh sống (vỗ / trễ theo lách / bung Bạo Tẩu), cả lúc bay thường */try{const AG0=(window.V22!==false&&window.AG22!==false);return Rig23.wing2(g,AG0?feather22(im):im,im,id,size,!!isOn,now,window.FXK42?FXK42():1);}catch(e){if(!isOn)return false;}}
   if(!WS.on){WS.t0=now;WS.ring=1;}WS.on=true;const ta=now-WS.t0,ST=window.WSTATIC42!==false,UF=ST?.15:.3,open=ta<UF?.55+.45*(1-Math.pow(1-ta/UF,3)):1,
    sx=ST?1:1+Math.sin(now*5.2)*.04,sy=ST?1:1+Math.sin(now*5.2+1.3)*.04,w=size*2.35*open*sx,h=w*im.naturalHeight/im.naturalWidth*sy/sx,y0=-h*.42;
   /* V2.1.42: cánh tĩnh 1,0× sau 0,15 s bung (không nhịp thở ±4 %, không lớp bóng ×1,06 làm nhòe chi tiết); dòng năng lượng chạy dọc viền (Flow42) */
-  const FK=window.FXK42?FXK42():1,AG=(window.V22!==false&&window.AG22!==false);g.save();g.globalCompositeOperation='lighter';g.globalAlpha=(AG?.66:.9)*FK;g.drawImage(AG?feather22(im):im,-w/2,y0,w,h);if(!ST){g.globalAlpha=.18+.08*Math.sin(now*5.2);g.drawImage(im,-w*.53,y0-h*.03,w*1.06,h*1.06);}
+  const FK=window.FXK42?FXK42():1,AG=(window.V22!==false&&window.AG22!==false);if(window.Rig23&&window.RIG23!==false){/* V2.2.3 RIG23: cánh gọn, vểnh, nâng chân, nhuộm màu tàu, không vòng bung */try{Rig23.wing(g,Rig23.tint(AG?feather22(im):im,id),Rig23.info(im),size,open,FK);return true;}catch{}}g.save();g.globalCompositeOperation='lighter';g.globalAlpha=(AG?.66:.9)*FK;g.drawImage(AG?feather22(im):im,-w/2,y0,w,h);if(!ST){g.globalAlpha=.18+.08*Math.sin(now*5.2);g.drawImage(im,-w*.53,y0-h*.03,w*1.06,h*1.06);}
   if(ST&&open>=1&&window.Flow42)try{Flow42.wing(g,im,-w/2,y0,w,h,id,now,FK);}catch{}
   if(ta<.45){const u=ta/.45,R=size*(.4+1.6*u);g.globalAlpha=.7*(1-u);g.strokeStyle=colOf(id);g.lineWidth=6*(1-u)+1;g.beginPath();g.arc(0,0,R,0,Math.PI*2);g.stroke();g.globalAlpha=.4*(1-u);const d=dot('#ffffff');g.drawImage(d,-R*.5,-R*.5,R,R);}
   g.restore();return true;}
