@@ -94,6 +94,7 @@
   '#bs25{position:fixed;left:6px;top:38%;z-index:60;display:flex;flex-direction:column;gap:6px;pointer-events:none}#bs25 i{position:relative;display:block;width:34px;height:34px;border-radius:9px;background:rgba(6,14,28,.72) center/26px no-repeat;border:1px solid rgba(160,200,255,.35)}'+
   '#bs25 i b{position:absolute;right:-2px;bottom:-4px;font:800 10px/1 sans-serif;color:#fff;background:rgba(0,0,0,.75);border-radius:6px;padding:2px 3px}#bs25 i.tx{background-image:none;color:#fde68a;font:900 13px/34px sans-serif;text-align:center}'+
   '#rg25{position:fixed;z-index:61;pointer-events:none;border-radius:50%;--p:1;background:conic-gradient(#5fe8ff calc(var(--p)*360deg),rgba(255,255,255,.12) 0);-webkit-mask:radial-gradient(circle,transparent 62%,#000 64%);mask:radial-gradient(circle,transparent 62%,#000 64%)}#rg25.full{background:conic-gradient(#fde047 360deg,#fde047 0)}'+
+  'body #robot-skill.fit26 small,body #bomb.fit26 small,body #missile-action.fit26 small{font-size:6.5px!important;letter-spacing:-.25px!important;max-width:100%!important}'+
   '#rv25{position:fixed;left:50%;transform:translateX(-50%);top:calc(var(--sat42,0px) + 64px);z-index:60;pointer-events:none;font:800 11px/1 sans-serif;color:#e6f4ff;background:rgba(6,14,28,.78);border:1px solid rgba(253,224,71,.45);border-radius:10px;padding:5px 10px;white-space:nowrap}#rv25 b{color:#fde047}#rv25 em{font-style:normal;color:#86efac}'+
   '#overlay.rs-on #rs{animation:iris25 .55s cubic-bezier(.2,.8,.2,1) both}@keyframes iris25{0%{clip-path:polygon(50% 45%,52% 46%,52% 48%,50% 49%,48% 48%,48% 46%)}100%{clip-path:polygon(50% -60%,160% -5%,160% 105%,50% 160%,-60% 105%,-60% -5%)}}'+
   '.rs25{margin:8px 10px 4px;padding:8px 10px;border-radius:10px;background:rgba(6,14,30,.72);border:1px solid rgba(120,180,255,.28);font:600 11px/1.45 sans-serif;color:#cfe3ff;text-align:left}.rs25 .f b{color:#fde68a}.rs25 .cap{display:flex;align-items:center;gap:6px;margin-top:5px}.rs25 .cap span{flex:0 0 118px}.rs25 .cap i{flex:1;height:6px;border-radius:4px;background:rgba(255,255,255,.12);overflow:hidden}.rs25 .cap i u{display:block;height:100%;background:linear-gradient(90deg,#38bdf8,#fde047)}.rs25 .cap em{font-style:normal;flex:0 0 44px;text-align:right}.rs25 .rv{margin-top:6px;color:#fde68a}';
@@ -105,10 +106,20 @@
   // bom sang trái dưới (chỗ tên lửa), tên lửa lên trên bom, tuyệt kỹ xuống phải dưới (chỗ bom cũ)
   const set=(el,dx,dy)=>{const t=tr(el);el.style.setProperty('translate',(t[0]+dx)+'px '+(t[1]+dy)+'px','important');};
   set(b,rm.left-rb.left,rm.top-rb.top);if(c)set(c,rm.left-rb.left,rm.top-rb.top);set(m,0,-(rb.top-rk.top)-6);set(k,rb.left-rk.left,rb.top-rk.top);moved=1;}
+ // V2.2.3 (sửa audit màn Tạm dừng): kẹp 3 nút trong khung nhìn (lề 6 px, đáy chừa safe-area) mỗi nhịp khi đang dời;
+ //  đổi cỡ khung nhìn (vào/ra toàn màn hình, xoay máy) → trả về chỗ gốc rồi đo lại. Tắt riêng: window.CLAMP26=false
+ function clampHud(){if(window.CLAMP26===false||!moved)return;const W=innerWidth,H=innerHeight;let sb=0;try{sb=parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--sab42'))||0;}catch{}
+  for(const id of ['bomb','missile-action','robot-skill','bombcount']){const el=document.getElementById(id);if(!el||!el.offsetParent)continue;const r=el.getBoundingClientRect();if(!r.width)continue;
+   const dx=r.left<6?6-r.left:r.right>W-6?W-6-r.right:0,dy=r.top<6?6-r.top:r.bottom>H-6-sb?H-6-sb-r.bottom:0;
+   if(dx||dy){const v=getComputedStyle(el).translate,p=(!v||v==='none')?[0,0]:v.split(' ').map(parseFloat);el.style.setProperty('translate',((p[0]||0)+dx)+'px '+((p[1]||0)+dy)+'px','important');window.__clamp26=(window.__clamp26||0)+1;}}}
+ let vw0=innerWidth,vh0=innerHeight;addEventListener('resize',()=>{if(Math.abs(innerWidth-vw0)<2&&Math.abs(innerHeight-vh0)<2)return;vw0=innerWidth;vh0=innerHeight;if(moved){hudReset();}});
  function hudReset(){for(const id of ['bomb','missile-action','robot-skill','bombcount']){const el=document.getElementById(id);if(el)el.style.removeProperty('translate');}moved=null;}
  function tick(){if(!ON()){if(bs)bs.hidden=true;if(rg)rg.hidden=true;if(rv)rv.hidden=true;return;}css();const P=play();
   // nút
   if(on('HUD25')&&P){if(!moved)setTimeout(()=>{if(play()&&!moved)hudMove();},300);}else if(moved&&!P){let m='';try{m=mode;}catch{}if(m!=='pause')hudReset();}
+  try{clampHud();}catch{}
+  // chữ dưới nút Tuyệt kỹ (TUYỆT KỸ / KỸ NĂNG / 12s, v121 ghi lại mỗi nhịp) không được tràn khỏi nút 50 px: nếu tràn → chữ nhỏ hơn (lớp fit26)
+  try{if(window.CLAMP26!==false)for(const id of ['robot-skill','bomb','missile-action']){const el=document.getElementById(id);if(!el||!el.offsetParent)continue;if(el.scrollWidth>el.clientWidth+1)el.classList.add('fit26');}}catch{}
   // vòng %
   const k=document.getElementById('robot-skill');if(on('HUD25')&&P&&k&&k.offsetParent){if(!rg){rg=document.createElement('div');rg.id='rg25';}if(rg.parentNode!==host())host().appendChild(rg);rg.hidden=false;const c=cool();if(c>lastCool+.3||c>peak)peak=c;lastCool=c;const p=peak>0?Math.max(0,Math.min(1,1-c/peak)):1;
    const r=k.getBoundingClientRect(),pad=4;rg.style.left=(r.left-pad)+'px';rg.style.top=(r.top-pad)+'px';rg.style.width=rg.style.height=(r.width+pad*2)+'px';rg.style.setProperty('--p',p.toFixed(3));rg.classList.toggle('full',p>=1);}else if(rg)rg.hidden=true;
