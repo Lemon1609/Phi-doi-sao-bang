@@ -27,7 +27,7 @@ const Music96=(()=>{
  const save=()=>{try{localStorage.setItem(KEY,JSON.stringify(S));}catch{}};
  const hz=m=>440*Math.pow(2,(m-69)/12);
  let dly=null,rvb=null,pump=null,dlyT=null;
- let dk21=null,ctx=null,master=null,mlp=null,jg=null,comp0=null,noise=null,cur=null,trk=null,nextT=0,step=0,bar=0,timer=null,lastWant='',hold=0,lastMode='',stat={jw:0,jl:0};
+ let tg=null,oldX=null,dk21=null,ctx=null,master=null,mlp=null,jg=null,comp0=null,noise=null,cur=null,trk=null,nextT=0,step=0,bar=0,timer=null,lastWant='',hold=0,lastMode='',stat={jw:0,jl:0};
  function init(){if(ctx||!on())return;const AC=window.AudioContext||window.webkitAudioContext;if(!AC)return;try{ctx=new AC();}catch{return;}
   master=ctx.createGain();master.gain.value=0;const comp=ctx.createDynamicsCompressor();comp.threshold.value=-14;comp.ratio.value=4;mlp=ctx.createBiquadFilter();mlp.type='lowpass';mlp.frequency.value=18000;dk21=ctx.createGain();dk21.gain.value=1;master.connect(dk21);dk21.connect(mlp);/* V2.1: nút hạ nhạc (ducking) cho nổ lớn / Tuyệt kỹ */mlp.connect(comp);comp.connect(ctx.destination);comp0=comp;jg=ctx.createGain();jg.gain.value=0;jg.connect(comp);
   const n=ctx.sampleRate;noise=ctx.createBuffer(1,n,n);const d=noise.getChannelData(0);for(let i=0;i<n;i++)d[i]=Math.random()*2-1;
@@ -39,10 +39,10 @@ const Music96=(()=>{
  // nhạc cụ thế hệ mới: bao lọc, gửi delay/reverb, chọn đường ra (pump để nén theo kick)
  function syn(type,f,t,d,v,o={}){const x=ctx.createOscillator(),g=ctx.createGain();x.type=type;x.frequency.setValueAtTime(f,t);if(o.det)x.detune.setValueAtTime(o.det,t);
   let n=x;if(o.filt){const lp=ctx.createBiquadFilter();lp.type='lowpass';lp.Q.value=o.q||1;if(o.fenv){lp.frequency.setValueAtTime(o.fenv[0],t);lp.frequency.exponentialRampToValueAtTime(o.fenv[1],t+(o.fenv[2]||d));}else lp.frequency.setValueAtTime(o.filt,t);x.connect(lp);n=lp;}
-  n.connect(g);g.connect(o.pump&&pump?pump:master);if(o.dl&&dly){const s1=ctx.createGain();s1.gain.value=o.dl;g.connect(s1);s1.connect(dly);}if(o.rv&&rvb){const s2=ctx.createGain();s2.gain.value=o.rv;g.connect(s2);s2.connect(rvb);}
+  n.connect(g);g.connect(o.pump&&pump?pump:OUT());if(o.dl&&dly){const s1=ctx.createGain();s1.gain.value=o.dl;g.connect(s1);s1.connect(dly);}if(o.rv&&rvb){const s2=ctx.createGain();s2.gain.value=o.rv;g.connect(s2);s2.connect(rvb);}
   env(g,t,o.a||.005,v,d);x.start(t);x.stop(t+d+.05);x.onended=()=>{try{x.disconnect();g.disconnect();}catch{}};}
  function nz2(t,v,d,type,f,o={}){const s=ctx.createBufferSource(),fl=ctx.createBiquadFilter(),g=ctx.createGain();s.buffer=noise;fl.type=type;fl.Q.value=o.q||.8;if(o.sweep){fl.frequency.setValueAtTime(o.sweep[0],t);fl.frequency.exponentialRampToValueAtTime(o.sweep[1],t+d);}else fl.frequency.value=f;
-  s.loop=d>.9;s.connect(fl);fl.connect(g);g.connect(o.pump&&pump?pump:master);if(o.rv&&rvb){const s2=ctx.createGain();s2.gain.value=o.rv;g.connect(s2);s2.connect(rvb);}
+  s.loop=d>.9;s.connect(fl);fl.connect(g);g.connect(o.pump&&pump?pump:OUT());if(o.rv&&rvb){const s2=ctx.createGain();s2.gain.value=o.rv;g.connect(s2);s2.connect(rvb);}
   if(o.rise){g.gain.setValueAtTime(.0001,t);g.gain.exponentialRampToValueAtTime(v,t+d*.95);g.gain.exponentialRampToValueAtTime(.0001,t+d);}else env(g,t,o.a||.002,v,d);s.start(t,Math.random()*.4);s.stop(t+d+.05);s.onended=()=>{try{s.disconnect();g.disconnect();}catch{}};}
  function duck(t,sd){if(!pump)return;pump.gain.cancelScheduledValues(t);pump.gain.setValueAtTime(.22,t);pump.gain.linearRampToValueAtTime(1,t+sd*2.6);}
  function setDelay(sd){try{if(dlyT)dlyT.delayTime.setTargetAtTime(sd*3,ctx.currentTime,.1);}catch{}}
@@ -58,9 +58,9 @@ const Music96=(()=>{
  // ---------- nhạc cụ ----------
  function env(g,t,a,v,d){g.gain.setValueAtTime(.0001,t);g.gain.exponentialRampToValueAtTime(Math.max(.0002,v),t+a);g.gain.exponentialRampToValueAtTime(.0001,t+d);}
  function osc(type,f,t,d,v,a=.005,filt=null,q=1,det=0){const o=ctx.createOscillator(),g=ctx.createGain();o.type=type;o.frequency.setValueAtTime(f,t);if(det)o.detune.setValueAtTime(det,t);
-  let n=o;if(filt){const lp=ctx.createBiquadFilter();lp.type='lowpass';lp.frequency.setValueAtTime(filt,t);lp.Q.value=q;o.connect(lp);n=lp;}n.connect(g);g.connect(master);env(g,t,a,v,d);o.start(t);o.stop(t+d+.05);o.onended=()=>{try{o.disconnect();g.disconnect();}catch{}};}
- function kick(t,v){const o=ctx.createOscillator(),g=ctx.createGain();o.type='sine';o.frequency.setValueAtTime(150,t);o.frequency.exponentialRampToValueAtTime(42,t+.12);o.connect(g);g.connect(master);env(g,t,.003,v,.28);o.start(t);o.stop(t+.32);o.onended=()=>{try{o.disconnect();g.disconnect();}catch{}};}
- function nz(t,v,d,type,f){const s=ctx.createBufferSource(),fl=ctx.createBiquadFilter(),g=ctx.createGain();s.buffer=noise;fl.type=type;fl.frequency.value=f;s.connect(fl);fl.connect(g);g.connect(master);env(g,t,.002,v,d);s.start(t,Math.random()*.5);s.stop(t+d+.05);s.onended=()=>{try{s.disconnect();g.disconnect();}catch{}};}
+  let n=o;if(filt){const lp=ctx.createBiquadFilter();lp.type='lowpass';lp.frequency.setValueAtTime(filt,t);lp.Q.value=q;o.connect(lp);n=lp;}n.connect(g);g.connect(OUT());env(g,t,a,v,d);o.start(t);o.stop(t+d+.05);o.onended=()=>{try{o.disconnect();g.disconnect();}catch{}};}
+ function kick(t,v){const o=ctx.createOscillator(),g=ctx.createGain();o.type='sine';o.frequency.setValueAtTime(150,t);o.frequency.exponentialRampToValueAtTime(42,t+.12);o.connect(g);g.connect(OUT());env(g,t,.003,v,.28);o.start(t);o.stop(t+.32);o.onended=()=>{try{o.disconnect();g.disconnect();}catch{}};}
+ function nz(t,v,d,type,f){const s=ctx.createBufferSource(),fl=ctx.createBiquadFilter(),g=ctx.createGain();s.buffer=noise;fl.type=type;fl.frequency.value=f;s.connect(fl);fl.connect(g);g.connect(OUT());env(g,t,.002,v,d);s.start(t,Math.random()*.5);s.stop(t+d+.05);s.onended=()=>{try{s.disconnect();g.disconnect();}catch{}};}
  const snare=(t,v)=>{nz(t,v,.18,'bandpass',1800);osc('triangle',190,t,.1,v*.5);};
  const hat=(t,v,open)=>nz(t,v,open?.16:.04,'highpass',7500);
  function pad(t,notes,d,v){for(const m of notes)for(const det of [-8,8])osc('sawtooth',hz(m),t,d,v,.35,1300,.7,det);}
@@ -95,9 +95,20 @@ const Music96=(()=>{
    if(br%8===7&&st%2===0)osc('square',hz(R+24+ch[(st/2)%3]),t,sd*.6,.02,.003,2600);
    if(p3()&&st%2===1)osc('square',hz(R+36+ch[(st>>1)%3]),t,sd*.5,.016,.002,4200);}}
  function vol(){let m='';try{m=mode;}catch{}return S.vol*.6*((trk&&trk.gain)||1)*(m==='pause'?.4:1);}
+ // V2.2.3 Gói A: chuyển bài hòa tiếng (crossfade ~1,2 s) — bài cũ vẫn chạy và nhỏ dần trên nhánh riêng, bài mới lớn dần. Tắt: window.XF24=false
+ const OUT=()=>tg||master;
+ function newLane(){const g=ctx.createGain();g.gain.value=0;g.connect(master);let p=null;try{p=ctx.createGain();p.gain.value=1;p.connect(g);}catch{}return {g,p};}
+ function xf(w,t){if(oldX){try{oldX.g.disconnect();}catch{}oldX=null;}
+  if(tg){const o={g:tg,p:pump,id:cur,trk,nextT,step,bar,until:t+1.6};o.g.gain.cancelScheduledValues(t);o.g.gain.setTargetAtTime(0,t,.4);oldX=o;}
+  const L=newLane();tg=L.g;if(L.p)pump=L.p;tg.gain.setTargetAtTime(1,t,.35);cur=w;trk=MUSIC96_TRACKS[w];step=0;bar=0;nextT=t+.05;}
+ function runOld(){const o=oldX;if(!o)return;const now=ctx.currentTime;if(now>o.until){try{setTimeout(()=>{try{o.g.disconnect();}catch{}},1500);}catch{}oldX=null;return;}
+  const sv=[tg,pump,trk,cur];tg=o.g;pump=o.p||pump;trk=o.trk;cur=o.id;const sd=60/((o.trk&&o.trk.bpm)||120)/4;let k=0;
+  try{while(o.nextT<now+.25&&o.nextT<o.until&&k++<8){try{play(o.id,o.nextT,o.step,o.bar,sd);}catch{}o.nextT+=sd;o.step++;if(o.step>=16){o.step=0;o.bar++;}}}finally{[tg,pump,trk,cur]=sv;}}
  function sched(){if(!ctx)return;const w=want();
-  if(w!==lastWant){lastWant=w;const t=ctx.currentTime;master.gain.cancelScheduledValues(t);master.gain.setTargetAtTime(0,t,.08);
-   if(w){cur=w;trk=MUSIC96_TRACKS[w];step=0;bar=0;nextT=t+.35;master.gain.setTargetAtTime(vol(),t+.35,.4);}else cur=null;}
+  if(w!==lastWant&&window.XF24!==false&&w&&lastWant&&lastWant!=='__jingle'&&cur&&ctx.state==='running'){lastWant=w;xf(w,ctx.currentTime);}
+  if(w!==lastWant){if(tg){try{const o=tg;o.gain.setTargetAtTime(0,ctx.currentTime,.08);setTimeout(()=>{try{o.disconnect();}catch{}},2000);}catch{}tg=null;}if(oldX){try{oldX.g.disconnect();}catch{}oldX=null;}lastWant=w;const t=ctx.currentTime;master.gain.cancelScheduledValues(t);master.gain.setTargetAtTime(0,t,.08);
+   if(w){cur=w;trk=MUSIC96_TRACKS[w];step=0;bar=0;nextT=t+.35;master.gain.setTargetAtTime(vol(),t+.35,.4);if(window.XF24!==false){try{const L=newLane();tg=L.g;tg.gain.value=1;if(L.p)pump=L.p;}catch{}}}else cur=null;}
+  try{runOld();}catch{}
   if(!cur||ctx.state!=='running')return;master.gain.setTargetAtTime(vol(),ctx.currentTime,.3);
   try{mlp.frequency.setTargetAtTime(trk.lp||18000,ctx.currentTime,.2);}catch{}
   const sd=60/bpmNow()/4;setDelay(sd);if(nextT<ctx.currentTime-.3)nextT=ctx.currentTime+.05;
@@ -121,10 +132,10 @@ const Music96=(()=>{
  setTimeout(firstOn,1500);setInterval(()=>{try{slider();}catch{}},700);
  document.addEventListener('visibilitychange',()=>{try{sched();}catch{}});
  // kết xuất thử ra mảng mẫu (kiểm tra / nghe thử ngoài game)
- async function render(id,sec){const old=[ctx,master,noise];const oc=new OfflineAudioContext(1,Math.round(44100*sec),44100);ctx=oc;master=oc.createGain();master.gain.value=.6*S.vol*(MUSIC96_TRACKS[id].gain||1);
+ async function render(id,sec){const old=[ctx,master,noise],oT=tg;tg=null;const oc=new OfflineAudioContext(1,Math.round(44100*sec),44100);ctx=oc;master=oc.createGain();master.gain.value=.6*S.vol*(MUSIC96_TRACKS[id].gain||1);
   const comp=oc.createDynamicsCompressor();comp.threshold.value=-14;comp.ratio.value=4;const lp=oc.createBiquadFilter();lp.type='lowpass';lp.frequency.value=MUSIC96_TRACKS[id].lp||18000;master.connect(lp);lp.connect(comp);comp.connect(oc.destination);noise=oc.createBuffer(1,44100,44100);const d=noise.getChannelData(0);for(let i=0;i<44100;i++)d[i]=Math.random()*2-1;
   const oldB=[dly,rvb,pump,dlyT];buses(oc,master);const T=MUSIC96_TRACKS[id],sd=60/T.bpm/4;try{dly.delayTime.value=sd*3;}catch{}let t=.05,st=0,br=0;while(t<sec-.3){play(id,t,st,br,sd);t+=sd;st++;if(st>=16){st=0;br++;}}
-  const buf=await oc.startRendering();[ctx,master,noise]=old;[dly,rvb,pump,dlyT]=oldB;return Array.from(buf.getChannelData(0));}
- return {jingle,state:()=>({cur,bar,step,vol:S.vol,ctx:ctx&&ctx.state,en:enabled(),bpm:Math.round(bpmNow()),jw:stat.jw,jl:stat.jl,hold:ctx?Math.max(0,hold-ctx.currentTime):0}),unlock,render,setVol:v=>{S.vol=v;save();},duckFx:(a,d)=>{/* V2.1 EVO21_SFX: hạ nhạc a (0..1) trong d giây rồi trả lại 0,35 s */try{if(!ctx||!dk21||window.EVO21===false)return;const t=ctx.currentTime,g=dk21.gain;g.cancelScheduledValues(t);g.setTargetAtTime(Math.max(.2,1-a),t,.03);g.setTargetAtTime(1,t+Math.max(.1,d),.35);}catch{}},TR:MUSIC96_TRACKS};
+  const buf=await oc.startRendering();[ctx,master,noise]=old;[dly,rvb,pump,dlyT]=oldB;tg=oT;return Array.from(buf.getChannelData(0));}
+ return {jingle,state:()=>({cur,bar,step,vol:S.vol,ctx:ctx&&ctx.state,en:enabled(),bpm:Math.round(bpmNow()),jw:stat.jw,jl:stat.jl,hold:ctx?Math.max(0,hold-ctx.currentTime):0}),unlock,render,setVol:v=>{S.vol=v;save();},xf:()=>({lane:!!tg,old:!!oldX,cur}),duckFx:(a,d)=>{/* V2.1 EVO21_SFX: hạ nhạc a (0..1) trong d giây rồi trả lại 0,35 s */try{if(!ctx||!dk21||window.EVO21===false)return;const t=ctx.currentTime,g=dk21.gain;g.cancelScheduledValues(t);g.setTargetAtTime(Math.max(.2,1-a),t,.03);g.setTargetAtTime(1,t+Math.max(.1,d),.35);}catch{}},TR:MUSIC96_TRACKS};
 })();
 window.Music96=Music96;

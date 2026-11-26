@@ -1254,6 +1254,8 @@ rep("ctx.globalAlpha=.35;const rankColor=","ctx.globalAlpha=(window.RIG23!==fals
 rep("</body>","<script id=\"rig23-js\">"+open('src/rig23.js',encoding='utf-8').read()+"</script></body>")
 # V2.2.3 · CLEAN23 trận sạch + nhẹ (chớp trúng, mảnh vụn, chớp Bạo Tẩu, tia tàu con, DPR theo CSS, HUD/thông báo, Sảnh không nháy) · tắt window.CLEAN23=false
 rep("</body>","<script id=\"clean23-js\">"+open('src/clean23.js',encoding='utf-8').read()+"</script></body>")
+# V2.2.3 Gói A (T24): tương phản đạn, báo laser dọc 0,9 s, X2, mưa tinh thể (chỉ hình + tiếng), âm thanh nhiều lớp. Tắt window.PKA24=false
+rep("</body>","<script id=\"pka24-js\">"+open('src/pka24.js',encoding='utf-8').read()+"</script></body>")
 open('Phi_Doi_Sao_Bang_V74_mau.html','w',encoding='utf-8').write(h)
 # V309 Lượt 15 · giảm dung lượng sau khi dựng: PNG→WebP q90 + gộp ảnh trùng (claude_tools/opt15_assets.py). Bỏ qua: OPT15_ANH=0
 if os.environ.get('OPT15_ANH','1')!='0':
