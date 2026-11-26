@@ -23,6 +23,8 @@ const L5309=(()=>{
   // 3 cung sáng để thấy quay
   g.globalCompositeOperation='lighter';g.lineCap='round';for(let i=0;i<3;i++){const a0=i*TAU/3;g.strokeStyle=i%2?'rgba(249,115,22,.95)':'rgba(239,68,68,.95)';g.lineWidth=5;g.beginPath();g.arc(h,h,h*.74,a0,a0+TAU/7);g.stroke();g.strokeStyle='rgba(255,220,170,.8)';g.lineWidth=1.6;g.beginPath();g.arc(h,h,h*.74,a0+.05,a0+TAU/7-.05);g.stroke();}
   return C.aura=c;}
+ // V2.2.3: dựng sẵn bộ đệm nổ / tinh anh lúc tải (trước đây dựng lần đầu khi hạ quái → tạo canvas giữa trận)
+ try{core();aura();['#fb923c','#ef4444','#fdba74'].forEach(c=>shock(c));ring('#fbbf24',1);setTimeout(()=>{try{for(const k in DCOL)ring(DCOL[k],1);}catch{}},0);}catch{}
  // ---- 1. vật phẩm rơi ----
  const DCOL={power:'#ff7a2e',heal:'#4ade80',shield:'#22d3ee',bomb:'#ff4d4d',drone:'#60a5fa',super:'#c084fc',magnet:'#a78bfa',star:'#fbbf24',weapon:'#e2e8f0'};
  const dOn=()=>window.DROP309!==false&&A.power;

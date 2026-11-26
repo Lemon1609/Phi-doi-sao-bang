@@ -9,7 +9,7 @@ def ck(n,ok,d=None):R.append(ok);print(('ĐẠT ' if ok else 'TRƯỢT ')+n,'' i
 with sync_playwright() as p:
   br=p.chromium.launch(args=['--autoplay-policy=no-user-gesture-required']);pg,errs,o=setup(br,'SS')
   pg.keyboard.press('Shift');pg.wait_for_timeout(400);pg.evaluate("()=>{try{sound=true}catch(e){}}")
-  hk=pg.evaluate("()=>({s:!!window.PKA24S,f:false,k:PKA24S.hooked(),b:!!BloomQualityC.draw.__p24,h:!!PlayerFXB.hostile.__p24,r:!!Render27.projectile.__p24})");hk['f']=pg.evaluate("()=>new Promise(r=>{let n=0;const i=setInterval(()=>{if(Fighters28.draw.__p24||++n>30){clearInterval(i);r(!!Fighters28.draw.__p24)}},50)})");ck('Móc Gói A đã gắn',all(hk.values()),hk)
+  hk=pg.evaluate("()=>({s:!!window.PKA24S,f:false,k:PKA24S.hooked(),b:!!BloomQualityC.draw.__p24,h:!!PlayerFXB.hostile.__p24,r:!!Render27.projectile.__p24})");pg.wait_for_timeout(1500);hk['f']=pg.evaluate('()=>PKA24S.shotsHooked()');hk['w']=pg.evaluate('()=>PKA24S.wraps()');ck('Móc Gói A đã gắn (số lần bọc ≤ 4)',all(v for k,v in hk.items() if k!='w') and hk['w']['shots']<=4 and hk['w']['kill']<=4,hk)
   pg.wait_for_timeout(1200);lob=pg.evaluate("()=>Music96.state().cur")
   pg.evaluate("()=>{window.__xf=[];window.__xi=setInterval(()=>{try{__xf.push(Music96.xf())}catch(e){}},100)}")
   start(pg,12);pg.evaluate("()=>{clearInterval(window.__hz);window.__h0=setInterval(()=>{for(const e of enemies)e.hp=Math.max(e.hp,1e7)},40)}");pg.wait_for_timeout(1500)
@@ -19,7 +19,7 @@ with sync_playwright() as p:
     const one=(e,on)=>{window.PKA24=on?undefined:false;combo=14;e.hp=1;const s0=score,x0=PKA24S.xs(),c0=PKA24S.cry();kill(e);return {d:score-s0,x:PKA24S.xs()-x0,c:PKA24S.cry()-c0};};
     const off=one(A,false),on=one(B,true);window.PKA24=undefined;return {off,on}}""")
   ck('Hạ địch có X2: điểm bằng hệt khi tắt Gói A, có chữ X + tinh thể',bool(d) and d['on']['d']==d['off']['d'] and d['off']['x']==0 and (d['on']['x']>=1 or PK_FULL(d)) ,d)
-  pg.evaluate("()=>{window.__hold=setInterval(()=>{for(const e of enemies)e.hp=Math.max(e.hp,1e7);hp=maxHp},50)}")
+  pg.evaluate("()=>{window.TT24=false;window.__hold=setInterval(()=>{for(const e of enemies)e.hp=Math.max(e.hp,1e7);hp=maxHp},50)}")
   pg.wait_for_timeout(2700);c1=pg.evaluate("()=>({cry:PKA24S.cry()})")
   ck('Tinh thể bay về tàu hết trong 2,7 s (chỉ trang trí)',c1['cry']==0,c1)
   w=pg.evaluate("()=>{beams.push({x:200,y:0,width:18,age:0,warn:.6,duration:.6});return new Promise(r=>setTimeout(()=>r(beams[beams.length-1].warn),300))}")

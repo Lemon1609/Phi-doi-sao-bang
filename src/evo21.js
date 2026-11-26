@@ -122,7 +122,7 @@
  // Chiến Thần (V2.1): tranh GPT ct<i>_dan_<1..3> · ct<i>_canh · ct<i>_ult ; mốc 0:+0..2 → đạn 1 · 1–2 → đạn 2 · 3:+10 → đạn 3
  function robDan(i){if(window.EVO21===false||window.EVO21IMG===false)return null;const m=robM(),b=m===0?1:m===3?3:2,im=IMG[`ct${i+1}_dan_${b}`];return ok(im)?im:null;}
  function robUlt(i){if(window.EVO21===false||window.EVO21IMG===false)return null;const im=IMG[`ct${i+1}_ult`];return ok(im)?im:null;}
- function robWing(g,i,x,y,now){const im=IMG[`ct${i+1}_canh`];if(!ok(im)||window.EVO21===false)return;const br=window.WSTATIC42!==false?1:1+Math.sin(now*3.2)*.04,m=robM(),w=(m===3?330:290)*br,h=w*im.naturalHeight/im.naturalWidth;
+ function robWing(g,i,x,y,now){if(window.RW23!==false&&window.RW23_IMG)return;/* V2.2.3: cánh riêng rw23 thay cánh năng lượng cũ */const im=IMG[`ct${i+1}_canh`];if(!ok(im)||window.EVO21===false)return;const br=window.WSTATIC42!==false?1:1+Math.sin(now*3.2)*.04,m=robM(),w=(m===3?330:290)*br,h=w*im.naturalHeight/im.naturalWidth;
   g.save();g.globalCompositeOperation='lighter';g.globalAlpha=m===3?.9:.75;g.drawImage(im,x-w/2,y-h*.62,w,h);g.restore();}
  const HZ=[];
  function robHazard(i,x,y,w,h,im,un){HZ.push({i,x,y,w,h,im,un:Number.isFinite(un)&&un>0?un:1,acc:0,tl:performance.now(),t0:performance.now(),dur:i===5?1500:1200});if(HZ.length>3)HZ.shift();}

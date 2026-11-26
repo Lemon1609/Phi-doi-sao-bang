@@ -89,7 +89,7 @@ with sync_playwright() as p:
      const d1=Object.getOwnPropertyDescriptor(P,'shadowBlur'),d2=Object.getOwnPropertyDescriptor(P,'filter');
      Object.defineProperty(P,'shadowBlur',{configurable:true,get(){return d1.get.call(this)},set(v){if(S.on&&v>0)S.sb++;d1.set.call(this,v)}});
      Object.defineProperty(P,'filter',{configurable:true,get(){return d2.get.call(this)},set(v){if(S.on&&v&&v!=='none')S.fl++;d2.set.call(this,v)}});
-     const ce=document.createElement.bind(document);document.createElement=function(t,...a){if(S.on&&String(t).toLowerCase()==='canvas')S.cv++;return ce(t,...a)};
+     const ce=document.createElement.bind(document);document.createElement=function(t,...a){if(S.on&&String(t).toLowerCase()==='canvas'){S.cv++;(S.st=S.st||[]).push((new Error().stack||'').split('\\n').slice(2,4).join('|').replace(/file:[^)]*\\//g,'').slice(0,140));}return ce(t,...a)};
      try{const o=Render27.hit;Render27.hit=function(){if(S.on)S.hit++;return o.apply(this,arguments)}}catch(e){}
      window.__sp23=setInterval(()=>{if(mode!=='play')return;const n=enemies.filter(e=>!e.dead).length;for(let i=n;i<15;i++)addEnemy({x:40+Math.random()*400,y:60+Math.random()*260,v:8,type:i%4,large:false,elite:i%7==0,guard:0,hp:25,fire:1.2+Math.random(),age:0,phase:Math.random()*6,dead:false})},200);
      try{activateSuper();superTime=8}catch(e){}}""")

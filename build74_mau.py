@@ -1256,6 +1256,15 @@ rep("</body>","<script id=\"rig23-js\">"+open('src/rig23.js',encoding='utf-8').r
 rep("</body>","<script id=\"clean23-js\">"+open('src/clean23.js',encoding='utf-8').read()+"</script></body>")
 # V2.2.3 Gói A (T24): tương phản đạn, báo laser dọc 0,9 s, X2, mưa tinh thể (chỉ hình + tiếng), âm thanh nhiều lớp. Tắt window.PKA24=false
 rep("</body>","<script id=\"pka24-js\">"+open('src/pka24.js',encoding='utf-8').read()+"</script></body>")
+# V2.2.3 · cánh riêng 7 Chiến Thần (tranh GPT 26/11, cắt claude_tools/rw23_cat.py) + chuyển động riêng từng mẫu. Tắt window.RW23=false
+import base64 as _b64rw
+RW23IMG={os.path.splitext(f)[0]:'data:image/webp;base64,'+_b64rw.b64encode(open('src/rw23img/'+f,'rb').read()).decode() for f in sorted(os.listdir('src/rw23img')) if f.endswith('.webp')}
+rep("</body>","<script id=\"rw23-js\">window.RW23_IMG="+json.dumps(RW23IMG,separators=(',',':'))+";window.RW23_J="+open('src/rw23img/rw23.json',encoding='utf-8').read().replace('\n','')+";"+open('src/rw23.js',encoding='utf-8').read()+"</script></body>")
+rep("function starSpr(big){","setTimeout(()=>{try{starSpr(false);starSpr(true);}catch(e){}},0);/* V2.2.3: dựng sẵn sao rơi (trước đây tạo canvas lần đầu giữa trận) */function starSpr(big){")
+# V2.2.3 · RW23: sao lóe / tia sáng trắng quanh đầu Chiến Thần (superforms-v2) hạ α ≤ .15 khi đang dạng robot
+rep("ctx.globalAlpha=.95;ctx.drawImage(P.stars[g.kind]","ctx.globalAlpha=(window.__rw23on?.15:.95);ctx.drawImage(P.stars[g.kind]")
+rep("else{const s=m.size*(1-u)*2.4;ctx.drawImage(P.stars[m.kind]","else{const s=m.size*(1-u)*2.4;if(window.__rw23on)ctx.globalAlpha=Math.min(ctx.globalAlpha,.15);ctx.drawImage(P.stars[m.kind]")
+rep("g.globalAlpha=strength*(long?.75:.55);g.drawImage(P.rays","g.globalAlpha=strength*(long?.75:.55)*(window.__rw23on?.2:1);g.drawImage(P.rays")
 open('Phi_Doi_Sao_Bang_V74_mau.html','w',encoding='utf-8').write(h)
 # V309 Lượt 15 · giảm dung lượng sau khi dựng: PNG→WebP q90 + gộp ảnh trùng (claude_tools/opt15_assets.py). Bỏ qua: OPT15_ANH=0
 if os.environ.get('OPT15_ANH','1')!='0':

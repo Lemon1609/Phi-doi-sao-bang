@@ -42,7 +42,7 @@
  // hệ số combo tăng: hợp âm rải 3 nốt + tiếng tách
  function up(m){if(!ready())return;stat.up++;const t=ac.currentTime,b=660*Math.pow(2,(m-2)*2/12);[1,1.26,1.5].forEach((r,i)=>tone('triangle',b*r,b*r,t+i*.045,.18,.07));tone('sine',b*3,b*3,t+.09,.14,.03);click(t,.06,4000);}
  // ---------- 1) tương phản đạn ----------
- function hookShots(){try{if(typeof Fighters28==='undefined'||!Fighters28.draw||Fighters28.draw.__p24)return;const o=Fighters28.draw;const f=function(g,s){if(g===ctx&&on('DAN24')&&play()){const a=g.globalAlpha;g.globalAlpha=Math.max(.72,Math.min(.82,a));try{return o.apply(this,arguments);}finally{g.globalAlpha=a;}}return o.apply(this,arguments);};f.__p24=1;Fighters28.draw=f;}catch{}}
+ let wS=0,inS=0;function hookShots(){try{if(typeof Fighters28==='undefined'||!Fighters28.draw||Fighters28.draw.__p24||wS>=4)return;wS++;/* tối đa 4 lần bọc (mô-đun khác có thể bọc đè) */const o=Fighters28.draw;const f=function(g,s){if(inS)return o.apply(this,arguments);if(g===ctx&&on('DAN24')&&play()){inS=1;const a=g.globalAlpha;g.globalAlpha=Math.max(.72,Math.min(.82,a));try{return o.apply(this,arguments);}finally{g.globalAlpha=a;inS=0;}}return o.apply(this,arguments);};f.__p24=1;Fighters28.draw=f;}catch{}}
  function hookHostile(){try{if(typeof Render27!=='undefined'&&Render27.projectile&&!Render27.projectile.__p24){const o=Render27.projectile;const f=function(b){if(on('DAN24')&&b&&!b.dead&&b.r>0){const d=Math.min(40,Math.max(14,b.r*4));ctx.drawImage(HALO,b.x-d/2,b.y-d/2,d,d);}return o.apply(this,arguments);};f.__p24=1;Render27.projectile=f;}}catch{}
   try{if(typeof PlayerFXB!=='undefined'&&PlayerFXB.hostile&&!PlayerFXB.hostile.__p24){const o=PlayerFXB.hostile;const f=function(b){const r=o.apply(this,arguments);if(on('DAN24')&&b&&!b.dead&&b.r>0){const d=Math.min(18,Math.max(7,b.r*1.7));const p=ctx.globalCompositeOperation,a=ctx.globalAlpha;ctx.globalCompositeOperation='source-over';ctx.globalAlpha=1;ctx.drawImage(CORE,b.x-d/2,b.y-d/2,d,d);ctx.globalAlpha=a;ctx.globalCompositeOperation=p;}return r;};f.__p24=1;PlayerFXB.hostile=f;}}catch{}}
  // ---------- 2) báo laser dọc 0,9 s ----------
@@ -67,7 +67,7 @@
   if(any){g.globalCompositeOperation='lighter';for(const G of GL){if(!G.on)continue;const u=(t-G.t0)/180;if(u>=1){G.on=0;continue;}g.globalAlpha=.7*(1-u);const d=18+22*u;g.drawImage(GLINT,G.x-d/2,G.y-d/2,d,d);}g.restore();}}
  // ---------- móc hạ địch ----------
  let bossRef=null,upT=0,hk=0;
- function hookKill(){try{if(typeof kill!=='function'||kill.__p24)return;const o=kill;const f=function(e){const was=!!(e&&e.dead);const r=o.apply(this,arguments);try{if(ON()&&!was&&e&&e.dead&&!e.__p24k&&!e.meteor&&!e.rescue28&&play()){e.__p24k=1;/* chống lặp khi mô-đun khác bọc lại kill */let m=1;try{m=multiplier();}catch{}
+ function hookKill(){try{if(typeof kill!=='function'||kill.__p24||hk>=4)return;const o=kill;const f=function(e){const was=!!(e&&e.dead);const r=o.apply(this,arguments);try{if(ON()&&!was&&e&&e.dead&&!e.__p24k&&!e.meteor&&!e.rescue28&&play()){e.__p24k=1;/* chống lặp khi mô-đun khác bọc lại kill */let m=1;try{m=multiplier();}catch{}
     if(on('X224')&&m>=2){pop(e.x,e.y-6,m,m>lastM);if(m>lastM&&now()-upT>250){upT=now();up(m);}}lastM=m;spawn(e.x,e.y,e.type===4?6:(e.elite?8:4));}}catch{}return r;};f.__p24=1;kill=f;hk++;}catch{}}
  function watchBoss(){let b=null;try{b=boss;}catch{}if(b&&b!==bossRef){bossRef=b;bossRef.__d24=0;}if(bossRef&&!bossRef.__d24&&(bossRef.dead||!(bossRef.hp>0))){bossRef.__d24=1;spawn(bossRef.x||240,bossRef.y||160,24);}
   try{if(lastM>1&&multiplier()<=1)lastM=1;}catch{}}
@@ -78,5 +78,5 @@
  function hookOver(){try{if(typeof BloomQualityC==='undefined'||!BloomQualityC.draw||BloomQualityC.draw.__p24)return;const o=BloomQualityC.draw;const f=function(){const r=o.apply(this,arguments);frame();return r;};f.__p24=1;BloomQualityC.draw=f;}catch{}}
  function all(){hookShots();hookHostile();hookKill();hookOver();}
  all();setInterval(all,1000);
- window.PKA24S={hooked:()=>hk>0,stat,pop,spawn,siren,chime,up,cry:()=>CP.filter(p=>p.on).length,xs:()=>XP.filter(p=>p.on).length};
+ window.PKA24S={hooked:()=>hk>0,wraps:()=>({shots:wS,kill:hk}),shotsHooked:()=>wS>0,stat,pop,spawn,siren,chime,up,cry:()=>CP.filter(p=>p.on).length,xs:()=>XP.filter(p=>p.on).length};
 })();
