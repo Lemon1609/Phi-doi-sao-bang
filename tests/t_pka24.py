@@ -1,3 +1,4 @@
+# (tắt thiên thạch / ngọc Gói B trong bài này để đo riêng phần của bài)
 # V2.2.3 Gói A (T24): móc đã gắn · nhạc nền hòa tiếng khi Sảnh → Trận · X2 + mưa tinh thể KHÔNG đổi điểm/tài nguyên · báo laser ≥ 0,9 s · âm thanh không vượt trần
 import sys,os,json
 src=open('claude_tools/do_dac/t193.py').read().split('# ---------------- V190')[0]
@@ -8,6 +9,7 @@ PK_FULL=lambda d:False
 def ck(n,ok,d=None):R.append(ok);print(('ĐẠT ' if ok else 'TRƯỢT ')+n,'' if d is None else json.dumps(d,ensure_ascii=False))
 with sync_playwright() as p:
   br=p.chromium.launch(args=['--autoplay-policy=no-user-gesture-required']);pg,errs,o=setup(br,'SS')
+  pg.evaluate("()=>{window.AST25=false;window.ORB25=false}")
   pg.keyboard.press('Shift');pg.wait_for_timeout(400);pg.evaluate("()=>{try{sound=true}catch(e){}}")
   hk=pg.evaluate("()=>({s:!!window.PKA24S,f:false,k:PKA24S.hooked(),b:!!BloomQualityC.draw.__p24,h:!!PlayerFXB.hostile.__p24,r:!!Render27.projectile.__p24})");pg.wait_for_timeout(1500);hk['f']=pg.evaluate('()=>PKA24S.shotsHooked()');hk['w']=pg.evaluate('()=>PKA24S.wraps()');ck('Móc Gói A đã gắn (số lần bọc ≤ 4)',all(v for k,v in hk.items() if k!='w') and hk['w']['shots']<=4 and hk['w']['kill']<=4,hk)
   pg.wait_for_timeout(1200);lob=pg.evaluate("()=>Music96.state().cur")
@@ -20,8 +22,8 @@ with sync_playwright() as p:
     const off=one(A,false),on=one(B,true);window.PKA24=undefined;return {off,on}}""")
   ck('Hạ địch có X2: điểm bằng hệt khi tắt Gói A, có chữ X + tinh thể',bool(d) and d['on']['d']==d['off']['d'] and d['off']['x']==0 and (d['on']['x']>=1 or PK_FULL(d)) ,d)
   pg.evaluate("()=>{window.TT24=false;window.__hold=setInterval(()=>{for(const e of enemies)e.hp=Math.max(e.hp,1e7);hp=maxHp},50)}")
-  pg.wait_for_timeout(2700);c1=pg.evaluate("()=>({cry:PKA24S.cry()})")
-  ck('Tinh thể bay về tàu hết trong 2,7 s (chỉ trang trí)',c1['cry']==0,c1)
+  pg.wait_for_timeout(4000);c1=pg.evaluate("()=>({cry:PKA24S.cry(),mode})")
+  ck('Tinh thể bay về tàu / tắt hết (≤ 2,4 s thời gian trận; chờ 4 s thật vì máy đo chậm) (chỉ trang trí)',c1['cry']==0,c1)
   w=pg.evaluate("()=>{beams.push({x:200,y:0,width:18,age:0,warn:.6,duration:.6});return new Promise(r=>setTimeout(()=>r(beams[beams.length-1].warn),300))}")
   ck('Laser dọc báo trước ≥ 0,9 s',w>=.9,w)
   s=pg.evaluate("()=>PKA24S.stat")

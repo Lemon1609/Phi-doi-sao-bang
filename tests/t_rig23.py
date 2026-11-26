@@ -1,3 +1,4 @@
+# (tắt thiên thạch / ngọc Gói B trong bài này để đo riêng phần của bài)
 # V2.2.3 · RIG23: (1) thân tàu (lớp ảnh đậm nhất mỗi khung) không bao giờ mờ < 0,35 / không mất khung khi bất tử nhấp nháy + kích hoạt Bạo Tẩu
 #  (2) cánh năng lượng không đè 2 tàu con (điểm ảnh cánh α>60 trong khung tàu con 40×40 ≤ 3 %) · (3) không lỗi trang
 import sys
@@ -7,7 +8,7 @@ t209=open('tests/v203_v212/t209.py').read();exec(t209[t209.find('def start'):t20
 ok=[];bad=[]
 def chk(n,c,info=''):(ok if c else bad).append(n);print(('ĐẠT ' if c else 'TRƯỢT ')+n,str(info)[:400],flush=True)
 with sync_playwright() as p:
-  br=p.chromium.launch();pg,errs,o=setup(br,'SS');pg.add_style_tag(content='#q307{display:none!important}')
+  br=p.chromium.launch();pg,errs,o=setup(br,'SS');pg.evaluate("()=>{window.AST25=false;window.ORB25=false}");pg.add_style_tag(content='#q307{display:none!important}')
   res={}
   for sid in [3,0,5]:
     pg.evaluate("(i)=>{try{End78.goLobby()}catch{};V70.setTier('craft',i,9);selectCraft((i+1)%13);selectCraft(i)}",sid)

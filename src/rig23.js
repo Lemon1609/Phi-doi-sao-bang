@@ -9,7 +9,7 @@
 (()=>{
  const ON=()=>window.RIG23!==false;
  if(!ON())return;
- if(window.GAP22===undefined)window.GAP22=24;if(window.SPMAX22===undefined)window.SPMAX22=114;
+ if(window.GAP22===undefined)window.GAP22=26;if(window.SPMAX22===undefined)window.SPMAX22=120;/* V2.2.3 Gói B: +6 px để cánh vỗ không chạm tàu con */
  const play=()=>{try{return mode==='play';}catch{return false;}};
  // ---------- màu ----------
  const hx=c=>{c=String(c||'').replace('#','');if(c.length===3)c=c.split('').map(x=>x+x).join('');const n=parseInt(c,16);return [n>>16&255,n>>8&255,n&255];};
