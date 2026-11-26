@@ -34,7 +34,7 @@ const V100=(()=>{
  function boot(){hookEnd();}
  boot();setTimeout(boot,900);setTimeout(boot,3200);
  let lm='';setInterval(()=>{try{const m=mode;if(lm==='play'&&(m==='reward'||m==='win')){const lv=level|0;if(S.lf[lv]){delete S.lf[lv];save();}}lm=m;}catch{}},150);
- setInterval(()=>{try{supply();}catch{}try{sortChallenge();}catch{}},400);
+ (window.__SH26=window.__SH26||[]).push(()=>{try{supply();}catch{}});setInterval(()=>{try{supply();}catch{}try{sortChallenge();}catch{}},400);
  return {state:()=>JSON.parse(JSON.stringify(S))};
 })();
 window.V100=V100;

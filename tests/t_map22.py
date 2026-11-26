@@ -53,6 +53,7 @@ with sync_playwright() as p:
     first=next((k for k,(t,m) in enumerate(seq) if m.startswith('play')),None)
     stable=first is not None and all(m.startswith('play') or m.startswith('pause') for t,m in seq[first:]) and seq[-1][0]-seq[first][0]>=1500
     flick=first is not None and any('MAP' in m for t,m in seq[first:])
+    if not(stable and not flick):print('  chẩn đoán',json.dumps(pg.evaluate("(g)=>{const s=document.querySelector('#cmap .cm-sheet');const n=document.querySelector('#cmap .cm-node.cur');return {go:g,sh:s&&s.className,node:n&&Math.round(n.getBoundingClientRect().top),go26:window.__go26||0,node26:window.__node26||0}}",go)),flush=True)
     res.append('OK' if stable and not flick else 'LOI '+json.dumps(pre,ensure_ascii=False)+' '+'>'.join(str(t)+m for k,(t,m) in enumerate(seq) if k==0 or m!=seq[k-1][1]))
   print('BLK',pg.evaluate('()=>FIX22.blocked()'))
   ok=sum(1 for r in res if r=='OK')

@@ -1264,6 +1264,9 @@ rep("function starSpr(big){","setTimeout(()=>{try{starSpr(false);starSpr(true);}
 # V2.2.3 Gói B (T25): ngọc S / ↑ / 2, đợt thiên thạch có thanh máu, HUD 2 nút tròn + vòng % + cột buff, đua điểm Vô tận, màn tổng kết. Tắt window.PKB25=false
 PKB25IMG={os.path.splitext(f)[0]:'data:image/webp;base64,'+_b64rw.b64encode(open('src/pkb25img/'+f,'rb').read()).decode() for f in sorted(os.listdir('src/pkb25img')) if f.endswith('.webp')}
 rep("</body>","<script id=\"pkb25-js\">window.PKB25_IMG="+json.dumps(PKB25IMG,separators=(',',':'))+";"+open('src/pkb25.js',encoding='utf-8').read()+"</script></body>")
+# V2.2.3 Gói C (T26): nền địa hình parallax + mây (tắt window.PKC26=false)
+PKC26IMG={os.path.splitext(f)[0]:'data:image/webp;base64,'+_b64rw.b64encode(open('src/pkc26img/'+f,'rb').read()).decode() for f in sorted(os.listdir('src/pkc26img')) if f.endswith('.webp')}
+rep("</body>","<script id=\"pkc26-js\">window.PKC26_IMG="+json.dumps(PKC26IMG,separators=(',',':'))+";"+open('src/pkc26.js',encoding='utf-8').read()+"</script></body>")
 # V2.2.3 · RW23: sao lóe / tia sáng trắng quanh đầu Chiến Thần (superforms-v2) hạ α ≤ .15 khi đang dạng robot
 rep("ctx.globalAlpha=.95;ctx.drawImage(P.stars[g.kind]","ctx.globalAlpha=(window.__rw23on?.15:.95);ctx.drawImage(P.stars[g.kind]")
 rep("else{const s=m.size*(1-u)*2.4;ctx.drawImage(P.stars[m.kind]","else{const s=m.size*(1-u)*2.4;if(window.__rw23on)ctx.globalAlpha=Math.min(ctx.globalAlpha,.15);ctx.drawImage(P.stars[m.kind]")

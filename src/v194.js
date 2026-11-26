@@ -11,9 +11,10 @@ const NEN194=(()=>{
  setTimeout(()=>{for(const k in A)im(k);},1500);
  let ym=0,yn=0;
  function layer(img,y,a){const h=Math.round(W*img.naturalHeight/img.naturalWidth),o=((y%h)+h)%h;ctx.globalAlpha=a;ctx.drawImage(img,0,o-h,W,h);if(o<H)ctx.drawImage(img,0,o,W,h);}
- function draw(dt,still){const c=chap();if(!c)return;const g=im('ch'+c+'_giua'),n=im('ch'+c+'_gan');if(!still){ym+=dt*22;yn+=dt*44;}
+ function draw(dt,still){try{if(typeof PKC26!=='undefined'&&PKC26.draw(dt,still))return;}catch{}const c=chap();if(!c)return;const g=im('ch'+c+'_giua'),n=im('ch'+c+'_gan');if(!still){ym+=dt*22;yn+=dt*44;}
   ctx.save();try{if(g)layer(g,ym,1);let lq=false;try{lq=VisualFX.counts().quality==='light';}catch{}if(n&&!lq)layer(n,yn,.85);}catch{}ctx.restore();}
- return {far:lv=>{const c=chap();return c?im('ch'+c+'_xa'):null;},on:()=>!!chap(),draw};
+ const pk=()=>{try{return typeof PKC26!=='undefined'&&PKC26.on();}catch{return false;}};
+ return {far:lv=>{if(pk())return null;const c=chap();return c?im('ch'+c+'_xa'):null;},on:()=>pk()||!!chap(),draw};
 })();
 const Ruong194=(()=>{
  const A=(typeof RUONG194_ART!=='undefined'&&RUONG194_ART)||{};

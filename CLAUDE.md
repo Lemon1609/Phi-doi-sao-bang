@@ -38,6 +38,7 @@ Luật phong cách chi tiết + nhật ký quyết định: `docs_claude/CHUAN_P
 - Chỉ lưu ảnh gốc của bản ĐÃ CHỐT vào `src/ship118_cho/V<số>_*` (lượt bị loại không lưu); ghi quyết định vào `CHUAN_PHONG_CACH_DA_CHOT.md`.
 
 ## Trạng thái (cập nhật 24/11/2026 09:20)
+- **V2.2.3 phiên 2d (26/11)**: Gói C `pkc26.js` (T26, nền parallax 3 địa hình + mây, 139,6 KB) + sửa bấm XUẤT KÍCH / ô ải bị nuốt (`fix22` GO26); kiểm `tests/t_pkc26.py`, `tests/t_go26.py`. Chưa dựng APK.
 - **V2.2.3 phiên 2c (26/11)**: Gói B `pkb25.js` (T25; Vô tận không cộng điểm Gói B, kinh tế giữ nguyên), kiểm `tests/t_pkb25.py`. Kế tiếp: Gói C (T26).
 - **V2.2.3 phiên 2b (26/11)**: Gói A `pka24.js` (T24, chỉ hình + tiếng, kinh tế giữ nguyên) + nhạc nền hòa tiếng (`music96` XF24) + cánh riêng 7 Chiến Thần `rw23.js` (T23b); kiểm `tests/t_pka24.py`, `tests/t_rw23.py`. Chi tiết đầu `docs_claude/BAN_GIAO_V22.md`. Kế tiếp: Gói B (T25) → C (T26).
 - **V2.2.3 phiên 2 BẢN THỬ CHỜ DUYỆT (26/11)**: sửa máy thật (`clean23.js`, DPR NHẸ 1,00), 13 tàu Trắng mới, VFX đợt 1–3 (`vfx23.js` / `vfx23b.js` / `vfx23c.js`), khung chuẩn cánh–tàu con (`rig23.js`); cờ tắt CLEAN23 / VFX23 / VFX23B / VFX23C / RIG23; kiểm thêm `tests/t_rig23.py`. Chi tiết đầu `docs_claude/BAN_GIAO_V22.md`. Kế tiếp: Gói A (T24) → B (T25) → C (T26).

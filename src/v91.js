@@ -112,7 +112,7 @@ const V91=(()=>{
  // =================== vòng lặp giao diện ===================
  function ui(){if(!on())return;try{evBtns();}catch{}try{achBtns();}catch{}try{enRow();}catch{}try{bkBtn();}catch{}try{pactRow();}catch{}}
  function boot(){install();hookReward();bkInstall();}
- boot();setTimeout(boot,600);setTimeout(boot,2500);setInterval(ui,600);
+ boot();setTimeout(boot,600);setTimeout(boot,2500);(window.__SH26=window.__SH26||[]).push(()=>{try{(()=>{if(on())enRow()})();}catch{}});setInterval(ui,600);
  return {state:()=>({S:JSON.parse(JSON.stringify(S)),pact:pick(),run:run&&{ids:[...run.ids],pct:run.pct}}),setPact:ids=>{P.on=ids.slice(0,PACT91.max);saveP();},go,PACT91,_bk:()=>bkBought()};
 })();
 window.V91=V91;

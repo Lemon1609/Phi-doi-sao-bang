@@ -107,7 +107,7 @@ const UX90=(()=>{
  let TH=false;function hookToast(){if(TH)return;try{const o=toast;TH=true;const f=function(m){try{const s=String(m);const mm=/MỞ Ở ẢI\s*(\d+)/i.exec(s);let b=false;try{b=mode==='play'||mode==='pause';}catch{}if(on()&&mm&&!b){lockCard(mm[1]);return;}}catch{}return o.apply(this,arguments);};window.toast=f;try{toast=f;}catch{}}catch{}}
  function install(){hookPause();hookGame();hookCP();hookToast();}
  install();setTimeout(install,400);setTimeout(install,2000);
- setInterval(()=>{try{if(!on())return;sheetRow();questBtns();}catch{}},500);
+ (window.__SH26=window.__SH26||[]).push(()=>{try{(()=>{if(on())sheetRow()})();}catch{}});setInterval(()=>{try{if(!on())return;sheetRow();questBtns();}catch{}},500);
  return {on,tip,buy,refund,blocks:()=>blocks,state:()=>JSON.parse(JSON.stringify(S)),applyStart,_set:o=>{Object.assign(S,o);save();}};
 })();
 window.UX90=UX90;

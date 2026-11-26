@@ -14,7 +14,7 @@ with sync_playwright() as p:
   d=pg.evaluate("""()=>{PKB25S.R.sEnd=0;power=3;PKB25S.apply('up',0,0);const a=power;power=5;superTime=0;PKB25S.apply('up',0,0);return {a,sup:superTime}}""")
   ck('Ngọc ↑: +1 cấp đạn; tối đa thì Bạo Tẩu',d['a']==4 and d['sup']>0,d)
   pg.evaluate("()=>{superTime=0}")
-  d=pg.evaluate("""()=>new Promise(res=>{const L=enemies.filter(x=>!x.dead&&!x.meteor&&!x.rescue28&&!x.elite);let A=null,B=null;for(const a of L){B=L.find(b=>b!==a&&(b.type===4)===(a.type===4));if(B){A=a;break;}}if(!B)return res(null);
+  d=pg.evaluate("""()=>new Promise(res_=>{let res=res_;const L=enemies.filter(x=>!x.dead&&!x.meteor&&!x.rescue28&&!x.elite);let A=null,B=null;for(const a of L){B=L.find(b=>b!==a&&(b.type===4)===(a.type===4));if(B){A=a;break;}}if(!B)return res(null);const g4=setInterval(()=>{for(const x of enemies)if(!x.__t25)x.hp=Math.max(x.hp,1e7);shots.length=0},4);const res0=res;res=v=>{clearInterval(g4);res0(v)};
     const one=(e,cb)=>{combo=0;const s0=score,c0=runCredits,i0=runItems;e.__t25=1;e.hp=1;kill(e);setTimeout(()=>cb({d:score-s0,c:runCredits-c0,i:runItems-i0}),120);};
     PKB25S.R.x2End=0;one(A,off=>{PKB25S.apply('2',0,0);one(B,on=>{PKB25S.R.x2End=0;res({off,on})})})})""")
   ck('Ngọc 2 (chiến dịch): điểm trận ×2, tài nguyên trận không đổi',bool(d) and d['on']['d']==2*d['off']['d'] and d['on']['c']==d['off']['c'] and d['on']['i']==d['off']['i'],d)

@@ -54,7 +54,8 @@
  // ---- Chiến Thần (chiến cơ / robot): vẽ TRƯỚC SSSGame.draw ----
  const robOn=()=>{try{return !!(activeRobot&&activeRobot.super&&superTime>0);}catch{return false;}};
  // ---- đo họng xả trên ảnh (cổng JS của claude_tools/v22_plume_neo.py: mở hình thái bỏ gai mảnh → đường đáy đối xứng → 1–4 họng) ----
- function measure(src,sx,sy,sw,sh,maxn,frac,spread){const N=128,cv=document.createElement('canvas');cv.width=cv.height=N;const g=cv.getContext('2d');g.drawImage(src,sx,sy,sw,sh,0,0,N,N);const d=g.getImageData(0,0,N,N).data,A=new Uint8Array(N*N);
+ let MCV=null,MG=null;try{MCV=document.createElement('canvas');MCV.width=MCV.height=128;MG=MCV.getContext('2d',{willReadFrequently:true});}catch{MCV=null;}/* V2.2.3: 1 canvas đo dùng chung (trước tạo mới mỗi lần đo lại atlas hop309 4 s/lần → t_rw23 đếm được canvas mới trong trận) */
+ function measure(src,sx,sy,sw,sh,maxn,frac,spread){const N=128;if(!MCV){MCV=document.createElement('canvas');MCV.width=MCV.height=N;MG=MCV.getContext('2d',{willReadFrequently:true});}const cv=MCV,g=MG;g.clearRect(0,0,N,N);g.drawImage(src,sx,sy,sw,sh,0,0,N,N);const d=g.getImageData(0,0,N,N).data,A=new Uint8Array(N*N);
   let x0=N,x1=-1,y0=N,y1=-1;for(let y=0;y<N;y++)for(let x=0;x<N;x++)if(d[(y*N+x)*4+3]>110){A[y*N+x]=1;if(x<x0)x0=x;if(x>x1)x1=x;if(y<y0)y0=y;if(y>y1)y1=y;}
   if(x1<0)return [];const bw=x1-x0,bh=y1-y0,r=Math.max(2,Math.round(bw*frac)),I=new Int32Array((N+1)*(N+1)),box=(I,x,y)=>{const a=Math.max(0,x-(r>>1)),b=Math.max(0,y-(r>>1)),c=Math.min(N,a+r),e=Math.min(N,b+r);return I[e*(N+1)+c]-I[b*(N+1)+c]-I[e*(N+1)+a]+I[b*(N+1)+a];};
   const integ=(M,I)=>{for(let y=0;y<N;y++){let s=0;for(let x=0;x<N;x++){s+=M[y*N+x];I[(y+1)*(N+1)+x+1]=I[y*(N+1)+x+1]+s;}}};

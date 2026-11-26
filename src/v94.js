@@ -74,7 +74,7 @@ const V94=(()=>{
  function boot(){hookAdd();hookUpd();hookEnd();hookReset();}
  boot();setTimeout(boot,900);setTimeout(boot,3200);
  let lm94='';setInterval(()=>{try{const m=mode;if(lm94==='play'&&(m==='reward'||m==='win')&&camp()){const lv=level|0;if(S.fail[lv]){delete S.fail[lv];save();}}lm94=m;}catch{}},150);
- setInterval(()=>{if(!on())return;try{aidBanner();}catch{}try{goalBar();}catch{}try{upHint();}catch{}},600);
+ (window.__SH26=window.__SH26||[]).push(()=>{try{(()=>{if(on())aidBanner()})();}catch{}});setInterval(()=>{if(!on())return;try{aidBanner();}catch{}try{goalBar();}catch{}try{upHint();}catch{}},600);
  return {state:()=>({S:JSON.parse(JSON.stringify(S)),Q:Q.length,st:{...st},aid:aidOn}),nextGoal,PERF94};
 })();
 window.V94=V94;

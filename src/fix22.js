@@ -39,6 +39,51 @@ const FIX22=(()=>{
  document.addEventListener('pointerdown',down,true);document.addEventListener('touchstart',down,{capture:true,passive:true});
  document.addEventListener('pointermove',move,{capture:true,passive:true});document.addEventListener('touchmove',move,{capture:true,passive:true});
  document.addEventListener('click',clickCap,true);
+ // (4) V2.2.3 · GO26: bấm XUẤT KÍCH lúc thẻ ải đang trượt lên / vừa đổi bố cục không bị nuốt: lưu vị trí nút trong 900 ms gần nhất
+ //     + vị trí cuối (trừ dịch chuyển đang chạy); chạm rơi ra ngoài thẻ nhưng trúng các vị trí đó → bấm nút. Tắt: window.GO26=false
+ const GR=[];let resc=0;
+ const sheet=()=>document.querySelector('#cmap .cm-sheet.open');
+ const goBtn=sh=>sh&&sh.querySelector('.cm-go:not([disabled])');
+ function rects(){const sh=sheet(),g=goBtn(sh);if(!g)return [];const r=g.getBoundingClientRect(),o=[r];
+  try{const m=new DOMMatrixReadOnly(getComputedStyle(sh).transform);if(m.m42)o.push(new DOMRect(r.left-m.m41,r.top-m.m42,r.width,r.height));}catch{}
+  const t=performance.now();let a=r.top,b=r.bottom;for(const q of GR)if(t-q.t<900){a=Math.min(a,q.r.top);b=Math.max(b,q.r.bottom);}o.push(new DOMRect(r.left,a,r.width,b-a));return o;}/* dải quét dọc: nút chỉ trượt dọc */
+ const inR=(x,y,rs)=>rs.some(r=>r.width>0&&x>=r.left-6&&x<=r.right+6&&y>=r.top-6&&y<=r.bottom+6);
+ setInterval(()=>{if(!on('GO26'))return;try{if(mode==='play')return;}catch{}const g=goBtn(sheet());if(!g){GR.length=0;return;}GR.push({t:performance.now(),r:g.getBoundingClientRect()});if(GR.length>30)GR.shift();},30);
+ function rescue(e){if(!on('GO26')||!on('MAP22'))return;const sh=sheet();if(!sh)return;const t=e.target;if(t&&t.closest&&t.closest('#cmap .cm-sheet')&&t.closest('button,a,input,select,label,[role=button],[data-su90],[onclick],.cm-sheet [class*="-btn"]'))return;/* chạm vào nền thẻ (không phải nút) vẫn cứu được */
+  const p=pt(e);if(p.clientX==null)return;const now=performance.now();
+  const hit=(e.type==='click'&&now-resc<700)||inR(p.clientX,p.clientY,rects());if(!hit)return;
+  e.stopImmediatePropagation();
+  if(e.type==='pointerdown'||e.type==='touchstart'||e.type==='mousedown'){resc=now;return;}
+  if(e.type!=='click')return;e.preventDefault();
+  if(e.type==='click'){resc=0;const g=goBtn(sh);if(g){window.__go26=(window.__go26||0)+1;g.click();}}}
+//     Gốc của việc nút trôi: 5 mô-đun (ux90 tiếp tế · v91 thể lực · v94 trợ giúp · v100 tiếp tế · l11309 Anh Hùng) chèn dòng vào thẻ theo
+ //     nhịp 250–600 ms → nút XUẤT KÍCH bị đẩy lên tới ~0,5 s sau khi thẻ mở. Nay chạy chúng ngay khi thẻ mở / đổi nội dung (trước khung vẽ kế).
+ //     Gốc thứ hai (t_map22): trang nền dài ~11.700 px vẫn cuộn được dưới bản đồ cố định; khi cửa sổ bị cuộn (scrollIntoView / chạm kéo
+ //     trên máy) thì vùng chạm của ô ải lệch khỏi hình → chạm ô ải rơi vào nền bản đồ. Bản đồ mở → giữ cửa sổ ở scrollY 0.
+ const mapOpen=()=>{const m=document.getElementById('cmap');return !!m&&!m.hidden&&m.offsetParent!==null||(!!m&&getComputedStyle(m).display!=='none'&&!m.hidden);};
+ const pin=()=>{if(!on('GO26'))return;try{if((scrollY||scrollX)&&mapOpen())scrollTo(0,0);}catch{}};
+ addEventListener('scroll',pin,{passive:true});setInterval(pin,250);
+ //     Ô ải: bản đồ có thể nhảy ~42 px khi thanh đầu / lề dưới đổi theo nhịp (1–2 s sau khi mở) và đôi khi có lớp không tên đè lên ô.
+ //     Lưu vị trí các ô ải mở trong 900 ms; chạm rơi vào nền bản đồ (không phải nút) mà trúng vị trí ô vừa có → bấm ô đó.
+ const NR=[];
+ setInterval(()=>{if(!on('GO26'))return;try{if(mode==='play')return;}catch{}if(!mapOpen()||sheet()){NR.length=0;return;}const L=[];for(const n of document.querySelectorAll('#cmap .cm-node:not(.lock)')){const r=n.getBoundingClientRect();if(r.width>0&&r.bottom>0&&r.top<innerHeight)L.push([n,r]);}NR.push({t:performance.now(),L});if(NR.length>30)NR.shift();},30);
+ let nres=null;
+ function nodeRescue(e){if(!on('GO26')||!on('MAP22'))return;const t=e.target;if(!t||!t.closest||!t.closest('#cmap')||t.closest('.cm-node,.cm-sheet,button,a,input,[role=button]'))return;if(sheet())return;
+  const p=pt(e);if(p.clientX==null)return;const now=performance.now();let hit=null;
+  if(e.type==='click'&&nres&&now-nres.t<700)hit=nres.n;
+  if(!hit){let bd=48;for(const n of document.querySelectorAll('#cmap .cm-node:not(.lock)')){const r=n.getBoundingClientRect();if(!(r.width>0))continue;const d=Math.hypot(p.clientX-(r.left+r.width/2),p.clientY-(r.top+r.height/2));if(d<bd){bd=d;hit=n;}}}/* vùng chạm ô ải nới tới bán kính 48 px quanh tâm (ô vẽ 46 px) — chạm hụt mép ô / ô vừa nhích vẫn mở đúng ô gần nhất */
+  if(!hit){for(let i=NR.length-1;i>=0&&!hit;i--){if(now-NR[i].t>900)break;for(const [n,r] of NR[i].L)if(n.isConnected&&p.clientX>=r.left-4&&p.clientX<=r.right+4&&p.clientY>=r.top-4&&p.clientY<=r.bottom+4){hit=n;break;}}}
+  if(!hit)return;if(drag&&drag.mv>10)return;
+  e.stopImmediatePropagation();
+  if(e.type==='pointerdown'||e.type==='touchstart'||e.type==='mousedown'){nres={t:now,n:hit};return;}
+  if(e.type!=='click')return;e.preventDefault();nres=null;window.__node26=(window.__node26||0)+1;hit.click();}
+ for(const ty of ['pointerdown','pointerup','touchend','mousedown','mouseup','click'])document.addEventListener(ty,nodeRescue,{capture:true});
+ document.addEventListener('touchstart',nodeRescue,{capture:true,passive:true});
+ let shBusy=false;const fill=()=>{if(shBusy||!on('GO26'))return;shBusy=true;try{for(const f of (window.__SH26||[]))f();}catch{}shBusy=false;};
+ const shObs=new MutationObserver(()=>fill());let shEl=null;
+ setInterval(()=>{const s=document.getElementById('cm-sheet');if(s&&s!==shEl){shEl=s;shObs.disconnect();shObs.observe(s,{childList:true,attributes:true,attributeFilter:['class']});fill();}},300);
+ for(const ty of ['pointerdown','pointerup','touchend','mousedown','mouseup','click'])document.addEventListener(ty,rescue,{capture:true});
+ document.addEventListener('touchstart',rescue,{capture:true,passive:true});
  // ghi mốc vào trận: lúc mode chuyển sang play (kiểm 4 lần/khung không cần — dùng rAF nhẹ 10 Hz)
  let lastM='';setInterval(()=>{let m='';try{m=mode;}catch{}if(m==='play'&&lastM!=='play'&&lastM!=='pause')launchAt=performance.now();lastM=m;hookGuards();},100);
  return {syncMis,blocked:()=>blocked.slice(),launchAt:()=>launchAt};
