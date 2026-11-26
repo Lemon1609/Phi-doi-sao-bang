@@ -18,7 +18,7 @@ with sync_playwright() as p:
     const one=(e,cb)=>{combo=0;const s0=score,c0=runCredits,i0=runItems;e.__t25=1;e.hp=1;kill(e);setTimeout(()=>cb({d:score-s0,c:runCredits-c0,i:runItems-i0}),120);};
     PKB25S.R.x2End=0;one(A,off=>{PKB25S.apply('2',0,0);one(B,on=>{PKB25S.R.x2End=0;res({off,on})})})})""")
   ck('Ngọc 2 (chiến dịch): điểm trận ×2, tài nguyên trận không đổi',bool(d) and d['on']['d']==2*d['off']['d'] and d['on']['c']==d['off']['c'] and d['on']['i']==d['off']['i'],d)
-  d=pg.evaluate("""()=>{window.__gm=gameMode;gameMode='endless';PKB25S.spawnOrb('2',100,100);const k=PKB25S.OB.filter(o=>o.on).map(o=>o.k);PKB25S.OB.forEach(o=>o.on=0);const s0=score;PKB25S.AST.push({K:{k:1,pts:80},x:100,y:100,r:20,hp:0,max:5,dead:false,vx:0,vy:0,a:0,va:0,fl:0});PKB25S.breakAst(PKB25S.AST[PKB25S.AST.length-1]);const ds=score-s0;
+  d=pg.evaluate("""()=>{window.__gm=gameMode;gameMode='endless';PKB25S.OB.forEach(o=>o.on=0);PKB25S.spawnOrb('2',100,100);const k=PKB25S.OB.filter(o=>o.on).map(o=>o.k);PKB25S.OB.forEach(o=>o.on=0);const s0=score;PKB25S.AST.push({K:{k:1,pts:80},x:100,y:100,r:20,hp:0,max:5,dead:false,vx:0,vy:0,a:0,va:0,fl:0});PKB25S.breakAst(PKB25S.AST[PKB25S.AST.length-1]);const ds=score-s0;
     PKB25S.R.x2End=performance.now()+5000;const s1=score;score+=100;return new Promise(r=>setTimeout(()=>{const d2=score-s1;PKB25S.R.x2End=0;gameMode=window.__gm;r({k,ds,d2})},150))}""")
   ck('Vô tận: không rơi ngọc 2, thiên thạch / ×2 không cộng điểm (giữ hạng mùa)',not ('2' in d['k']) and d['ds']==0 and d['d2']==100,d)
   pg.evaluate("()=>{PKB25S.AST.length=0;PKB25S.startWave();window.__w=setInterval(()=>{for(const a of PKB25S.AST)a.y=Math.min(a.y,260)},30)}");pg.wait_for_timeout(3400)

@@ -46,7 +46,7 @@ const OC17=(()=>{
  function cands(it){const L=[];if(!it)return L;const cr=isCraft(it),m=cr?(it.idx|0):it.variant;
   try{for(const c of Evo82.list())if(!c.lk&&c.k===(cr?'craft':'gear')&&c.m==m)L.push({src:'cp',u:c.u,t:c.t|0,lv:c.lv|0,xp:xpLv(c.lv)});}catch{}
   if(!cr){let eq=[];try{eq=Object.values(Progress.v70.equipped()||{});}catch{}
-   try{for(const i of Progress.v70.items())if(i.id!==it.id&&!eq.includes(i.id)&&!i.super&&!i.key&&!i.fusion&&!i.directFusion&&i.kind===it.kind&&i.variant===it.variant&&!oc(i)){let x=0;try{x=NC307.invested(i);}catch{}L.push({src:'it',id:i.id,t:nOf(i),lv:i.level|0||1,xp:x});}}catch{}}
+   try{for(const i of Progress.v70.items())if(i.id!==it.id&&!eq.includes(i.id)&&!i.super&&!i.key&&!i.fusion&&!i.directFusion&&i.kind===it.kind&&i.variant===it.variant&&!oc(i)&&!(window.Lock23&&Lock23.has(i.id))){let x=0;try{x=NC307.invested(i);}catch{}L.push({src:'it',id:i.id,t:nOf(i),lv:i.level|0||1,xp:x});}}catch{}}
   return L.sort((a,b)=>a.t-b.t||a.lv-b.lv||(a.src==='cp'?0:1)-(b.src==='cp'?0:1));}
  const VL=()=>{try{return MAT69.types.map(t=>t.id+'3');}catch{return ['alloy3','crystal3','circuit3','plasma3'];}};
  const vlHave=id=>{try{return V70.have(id)|0;}catch{return 0;}};

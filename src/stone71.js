@@ -230,7 +230,7 @@ const Stone71=(()=>{
   const used=new Set(L.slice(0,C.merge.k).map(s=>s.id));const pp=pos||L[0].pos;S.st=S.st.filter(s=>!used.has(s.id));const s=make(t+1,pp,{ex:t+1>=3?C.merge.exChance:0});give(s);bump();return s;}
  // ---------- tinh hóa trang bị (Lam / Tím) ----------
  function salvageInfo(it){const n=V70.nOf(it)|0;if(n<2)return null;const S_=it.grade==='S'||it.grade==='SS';if(n>=6&&S_)return {k:'timS',cr:C.salvage.timS.cr,txt:'1 đá Tím chuyên dụng (25% ra đá Cam)'};if(n>=6)return {k:'tim',cr:C.salvage.tim.cr,txt:'1 đá Tím (40% chuyên dụng của mẫu này)'};return {k:'lam',cr:C.salvage.lam.cr,txt:'1 đá Lam'};}
- function salvage(id){const it=Progress.v70.get(id);if(!it)return null;const inf=salvageInfo(it);if(!inf){toast('CHỈ TINH HÓA ĐƯỢC TRANG BỊ LAM TRỞ LÊN');return null;}if(Object.values(Progress.v70.equipped()).includes(id)){toast('ĐANG MẶC');return null;}
+ function salvage(id){const it=Progress.v70.get(id);if(!it)return null;if(window.Lock23&&Lock23.has(id)){Lock23.warn(1);return null;}/* V2.3 U1: món KHÓA không tinh hóa */const inf=salvageInfo(it);if(!inf){toast('CHỈ TINH HÓA ĐƯỢC TRANG BỊ LAM TRỞ LÊN');return null;}if(Object.values(Progress.v70.equipped()).includes(id)){toast('ĐANG MẶC');return null;}
   if(Progress.balance()<inf.cr){toast('THIẾU HỢP KIM · cần '+fmt(inf.cr));return null;}if(!Progress.spendCredits(inf.cr))return null;
   for(const s of on('g:'+id))delete s.on;if(!Progress.v70.remove(id)){Progress.grantCredits(inf.cr);return null;}let s;
   if(inf.k==='lam')s=make(2,it.kind);else if(inf.k==='tim')s=make(3,it.kind,Math.random()<C.salvage.tim.ex?{ty:'ex',m:it.variant}:{ex:0});

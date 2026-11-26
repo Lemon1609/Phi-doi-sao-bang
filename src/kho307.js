@@ -32,7 +32,7 @@ const KHO307=(()=>{
  const day=()=>{const d=new Date();return d.getFullYear()+'-'+(d.getMonth()+1)+'-'+d.getDate();};
  const hopUsed=()=>{try{const v=JSON.parse(localStorage.getItem(HOP.K)||'{}');return v.d===day()?(v.n|0):0;}catch{return 0;}};
  const hopAdd=()=>{try{localStorage.setItem(HOP.K,JSON.stringify({d:day(),n:hopUsed()+1}));}catch{}};
- const hopOk=(it,r)=>it&&!eqIds().includes(it.id)&&!it.super&&!it.key&&!it.directFusion&&!it.fusion&&nOf(it)===r.inN;
+ const hopOk=(it,r)=>it&&!eqIds().includes(it.id)&&!(window.Lock23&&Lock23.has(it.id))&&!it.super&&!it.key&&!it.directFusion&&!it.fusion&&nOf(it)===r.inN;
  const baseXp=it=>{try{return NC307CFG.feed[nOf(it)];}catch{return 0;}};
  function refundXp(list){let x=0;for(const it of list)x+=Math.max(0,feed(it)-baseXp(it));return x;}
  function giveStones(xp){if(!(xp>0))return '';const o={};for(const t of [4,3,2]){const v=XPDA307.XP[t];o[t]=Math.floor(xp/v);xp-=o[t]*v;}o[1]=Math.ceil(xp/XPDA307.XP[1]);const out=[];for(const t of [4,3,2,1])if(o[t]){XPDA307.add(t,o[t]);out.push(o[t]+' '+XPDA307.NAME[t]);}return out.join(', ');}

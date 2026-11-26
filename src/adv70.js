@@ -125,12 +125,12 @@ const V70=(()=>{
  // ---------- phân giải trang bị ----------
  function dismantleGain(it){const n=nOf(it)|0;return {c:n>=6?3:n>=2?2:n};}
  function stoneBack(it){let s=0;try{for(let l=1;l<(it.level|0);l++)s+=Workshop.levelCost({...it,level:l}).exp;}catch{}return Math.floor(s/2);}
- function dismantle(id,quiet){const it=Progress.v70.get(id);if(!it)return null;const eq=Object.values(Progress.v70.equipped());if(eq.includes(id)){if(!quiet)toast('ĐANG MẶC · KHÔNG PHÂN GIẢI ĐƯỢC');return null;}
+ function dismantle(id,quiet){const it=Progress.v70.get(id);if(!it)return null;if(window.Lock23&&Lock23.has(id)){if(!quiet)Lock23.warn(1);return null;}/* V2.3 U1 */const eq=Object.values(Progress.v70.equipped());if(eq.includes(id)){if(!quiet)toast('ĐANG MẶC · KHÔNG PHÂN GIẢI ĐƯỢC');return null;}
   const g=dismantleGain(it),sb=stoneBack(it);if(!Progress.v70.remove(id))return null;delete S.g[id];save();
   phAdd('gear',it.variant,g.c,1);if(sb)Workshop.exp70(sb);return Object.assign({sb},g);}
  function junk(){const items=Progress.v70.items(),eq=new Set(Object.values(Progress.v70.equipped())),best={};
   for(const it of items){const k=it.variant,sc=(nOf(it)|0)*1000+(it.level|0);if(!best[k]||sc>best[k].sc)best[k]={id:it.id,sc};}
-  return items.filter(it=>!eq.has(it.id)&&(nOf(it)|0)<=1&&best[it.variant].id!==it.id);}
+  return items.filter(it=>!eq.has(it.id)&&(nOf(it)|0)<=1&&best[it.variant].id!==it.id&&!(window.Lock23&&Lock23.has(it.id)));}
  // ---------- rơi đồ ----------
  const bandOf=stage=>{for(const [mx,p] of T.band)if(stage<=mx)return p;return T.band.at(-1)[1];};
  const roll=p=>{const r=Math.random();return r<p[0]?1:r<p[0]+p[1]?2:3;};

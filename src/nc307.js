@@ -46,7 +46,7 @@ const NC307=(()=>{
  function invested(it){let s=0;for(let L=1;L<(it.level|0||1);L++)s+=C.need(L);return s+xpOf(it.id);}
  const feedXp=it=>C.feed[Math.min(11,nOf(it))]+Math.floor(C.refund*invested(it));
  const NB22=()=>window.NOBS22!==false;/* V2.2.1: nâng cấp chỉ bằng Đá XP (bỏ bản sao/đồ cùng mẫu làm vật liệu) */
-const usable=(it,tg)=>!NB22()&&it&&tg&&it.copy?(!it.copy.lk&&!tg.copy&&(tg.kind==='craft'?it.copy.k==='craft'&&(it.copy.m|0)===tg.idx:it.copy.k==='gear'&&it.copy.m===tg.variant)):it&&tg&&tg.kind!=='craft'&&it.kind!=='craft'&&it.id!==tg.id&&(it.variant||null)===(tg.variant||null)&&it.kind===tg.kind&&!eqIds().includes(it.id)&&!it.super&&!it.key;
+const usable=(it,tg)=>!NB22()&&it&&tg&&it.copy?(!it.copy.lk&&!tg.copy&&(tg.kind==='craft'?it.copy.k==='craft'&&(it.copy.m|0)===tg.idx:it.copy.k==='gear'&&it.copy.m===tg.variant)):it&&tg&&tg.kind!=='craft'&&it.kind!=='craft'&&it.id!==tg.id&&(it.variant||null)===(tg.variant||null)&&it.kind===tg.kind&&!eqIds().includes(it.id)&&!it.super&&!it.key&&!(window.Lock23&&Lock23.has(it.id));/* V2.3 U1: món KHÓA không làm vật liệu */
  const D=XPDA307,T4=D.types;
  const zero=()=>({1:0,2:0,3:0,4:0});
  const stXp=()=>T4.reduce((a,t)=>a+(st[t]|0)*D.XP[t],0),stN=()=>T4.reduce((a,t)=>a+(st[t]|0),0);

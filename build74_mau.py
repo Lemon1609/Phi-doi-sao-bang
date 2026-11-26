@@ -1264,6 +1264,10 @@ rep("function starSpr(big){","setTimeout(()=>{try{starSpr(false);starSpr(true);}
 # V2.2.3 Gói B (T25): ngọc S / ↑ / 2, đợt thiên thạch có thanh máu, HUD 2 nút tròn + vòng % + cột buff, đua điểm Vô tận, màn tổng kết. Tắt window.PKB25=false
 PKB25IMG={os.path.splitext(f)[0]:'data:image/webp;base64,'+_b64rw.b64encode(open('src/pkb25img/'+f,'rb').read()).decode() for f in sorted(os.listdir('src/pkb25img')) if f.endswith('.webp')}
 rep("</body>","<script id=\"pkb25-js\">window.PKB25_IMG="+json.dumps(PKB25IMG,separators=(',',':'))+";"+open('src/pkb25.js',encoding='utf-8').read()+"</script></body>")
+# V2.3 U1 (v23-ui-meta): bảng màu tươi ngoài trận + Kho cổ điển + khóa trang bị + sân khấu sống (tắt window.U1V23=false)
+rep("const r=cv.getBoundingClientRect(),d=Math.min(2,devicePixelRatio||1),w=Math.max(1,Math.round(r.width*d))","const r=cv.getBoundingClientRect(),d=(window.DPRU1?window.DPRU1():Math.min(2,devicePixelRatio||1)),w=Math.max(1,Math.round(r.width*d))")
+_cu1=open('src/u1v23.css',encoding='utf-8').read().replace('@U1','html.u1v23 body:not('+'#_u1'*120+')')
+rep("</body>","<style id=\"u1v23-css\">"+_cu1+"</style><script id=\"u1v23-js\">"+open('src/u1v23.js',encoding='utf-8').read()+"</script></body>")
 # V2.2.3 Gói C (T26): nền địa hình parallax + mây (tắt window.PKC26=false)
 PKC26IMG={os.path.splitext(f)[0]:'data:image/webp;base64,'+_b64rw.b64encode(open('src/pkc26img/'+f,'rb').read()).decode() for f in sorted(os.listdir('src/pkc26img')) if f.endswith('.webp')}
 rep("</body>","<script id=\"pkc26-js\">window.PKC26_IMG="+json.dumps(PKC26IMG,separators=(',',':'))+";"+open('src/pkc26.js',encoding='utf-8').read()+"</script></body>")

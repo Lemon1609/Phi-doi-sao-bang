@@ -62,7 +62,7 @@ const Evo82=(()=>{
   return {k:kind,m,ref,slot:slotOf(kind,m),t,lv:o.level|0,g};}
  // V307 (18/11): trang bị cùng mẫu nằm trong túi (không mặc, không hợp thể) cũng tính là bản sao khi tiến khung — như game cùng thể loại. Tắt: window.TB307V=false
  function virt(kind,ref){if(kind!=='gear'||window.TB307V===false)return [];let eq=[];try{eq=Object.values(Progress.v70.equipped()||{});}catch{}let L=[];try{L=Progress.v70.items();}catch{}
-  return L.filter(i=>i.id!==ref&&!eq.includes(i.id)&&!i.super&&!i.key&&!i.fusion&&!i.directFusion).map(i=>{let t=0;try{t=V70.nOf(i)|0;}catch{}return {u:'i:'+i.id,vi:i.id,k:'gear',m:i.variant,t,lv:i.level|0||1,lk:0,cr:0,st:0};});}
+  return L.filter(i=>i.id!==ref&&!eq.includes(i.id)&&!i.super&&!i.key&&!i.fusion&&!i.directFusion).map(i=>{let t=0;try{t=V70.nOf(i)|0;}catch{}return {u:'i:'+i.id,vi:i.id,k:'gear',m:i.variant,t,lv:i.level|0||1,lk:(window.Lock23&&Lock23.has(i.id))?1:0,cr:0,st:0};});}/* V2.3 U1: món KHÓA hiện nhưng không chọn làm vật liệu tiến bậc */
  const elig=(c,min,ex)=>!c.lk&&c.u!==ex&&c.t>=min.t&&c.lv>=min.lv;
  // V2.2.1 (chủ dự án 24/11 "bỏ hẳn bản sao"): bước nào trước đây đòi bản sao cùng mẫu → đòi bộ nguyên liệu cùng màu (mỗi loại ×n). Tắt: window.NOBS22=false
  const NB22=()=>window.NOBS22!==false,NB22STEP={2:[2,2],3:[2,2],4:[2,4],6:[3,1],7:[3,1],8:[3,2],9:[3,2],10:[3,3]};
