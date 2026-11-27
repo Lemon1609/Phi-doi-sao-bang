@@ -1272,6 +1272,9 @@ _cu1=open('src/u1v23.css',encoding='utf-8').read().replace('@U1','html.u1v23 bod
 import base64 as _b64u1
 _cu1=_cu1.replace('/*U1IMG*/','html.u1v23{'+''.join('--u1'+_k+':url(data:image/webp;base64,'+_b64u1.b64encode(open('src/u1img/'+_n+'.webp','rb').read()).decode()+');' for _k,_n in [('hr','btn_hero_red'),('hg','btn_hero_gold'),('pb','btn_plate_blue'),('pg','btn_plate_gold'),('pe','btn_plate_green'),('ps','btn_plate_steel'),('hd','panel_header_silver')])+'}')
 rep("</body>","<style id=\"u1v23-css\">"+_cu1+"</style><script id=\"u1v23-js\">"+open('src/u1v23.js',encoding='utf-8').read()+"</script></body>")
+# V2.3 U2: thẻ Túi đồ mật độ cao + danh sách phi công (chỉ hiển thị; tắt window.U2V23=false)
+_cu2=open('src/u2v23.css',encoding='utf-8').read().replace('@U2','html.u2v23 body:not('+'#_u2'*124+')')
+rep("</body>","<style id=\"u2v23-css\">"+_cu2+"</style><script id=\"u2v23-js\">"+open('src/u2v23.js',encoding='utf-8').read()+"</script></body>")
 # V2.2.3 Gói C (T26): nền địa hình parallax + mây (tắt window.PKC26=false)
 PKC26IMG={os.path.splitext(f)[0]:'data:image/webp;base64,'+_b64rw.b64encode(open('src/pkc26img/'+f,'rb').read()).decode() for f in sorted(os.listdir('src/pkc26img')) if f.endswith('.webp')}
 rep("</body>","<script id=\"pkc26-js\">window.PKC26_IMG="+json.dumps(PKC26IMG,separators=(',',':'))+";"+open('src/pkc26.js',encoding='utf-8').read()+"</script></body>")
