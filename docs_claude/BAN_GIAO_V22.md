@@ -1,3 +1,10 @@
+# V2.3 · Đợt U1e (27/11 chiều, `v23-ui-meta`; BẢN THỬ, CHỜ DUYỆT, chưa APK) — mặt phi công không bị che / cắt
+- ĐỘI PHI CÔNG (`.pl11`): ẩn hộp nổi `.pl11t` trong tranh; JS tạo dải 1 dòng `.u1rib` ngay DƯỚI khung tranh ("ĐỘI CỘNG · +2.115 LC · Công +68 · Máu/Giáp +4,1/+4,1", tự thu cỡ chữ ≥ 7 px cho vừa); tên / hệ / bậc `.pl11n` thành 1 dải đáy khung. Khung tranh 226 px, tranh 390 px.
+- Khoảng trống trên đầu: `head(img, khung, 12)` đo hàng alpha > 40 đầu tiên của ảnh thật (canvas 96 px, lưu đệm theo src; có tính object-fit contain + object-position) rồi đặt biến `--u1dy` dời ảnh xuống (chỉ dời xuống) → đỉnh đầu cách mép trên khung 12–15 px ở mọi phi công; áp cho `.pl11p` và `.pl67 .pl307-hero` (đệm trên thẻ 14 px). `window.U1HEAD.headTop/alphaTop` để kiểm.
+- Ô đội + hàng chân dung (cả `.pl67-list`): `object-fit:cover; object-position:50% 15%`; nhãn CHÍNH/PHỤ đã ở dải đáy riêng dưới ảnh (U1d).
+- MutationObserver trên `.m63.pl11/.pl67` gọi lại ngay khi hộp vẽ lại (không chờ nhịp 400 ms).
+- `tests/t_u1_v23.py` thêm 2 mục U1e (3 phi công Thiên Lam / Lâm Phương / Mộc Miên: không hộp chữ nào chạm 65 % trên của phần tranh nhìn thấy; đỉnh đầu ≥ 8 px) → 19 mục. Lưu ý: chạm chân dung ở hàng chọn khi đang chọn ô sẽ XẾP phi công vào ô (hành vi gốc của l11309).
+
 # V2.3 · Đợt U1d (27/11 trưa, `v23-ui-meta`; BẢN THỬ, CHỜ DUYỆT, chưa APK) — sửa 2 màn phi công + căn lề tiêu đề
 - Chỉ CSS/JS trong `u1v23.*` (khối "U1d" cuối CSS). PHI CÔNG & TIỀM NĂNG (`.m63.pl67`, mở từ nút PHI CÔNG ở Sảnh): ẩn `h3` "ĐỘI PHI CÔNG" lặp; `.pl67-card` overflow hidden (bệ sáng `::before` + nền sân khấu không tràn), khối chữ dưới tranh nền đặc #0D2454 viền #3CA8FF, z 3, cách 12 px; × mới `.m63-x.u1x67` (bấm ĐÓNG có sẵn); dòng chỉ số `.pl67-st` flex 1 dòng, JS thu cỡ chữ tới khi vừa (hết số "0" lẻ dòng); đệm đáy thẻ 30 px + safe-area.
 - ĐỘI PHI CÔNG (`.pl11`, `Pilot67.open`): nhãn CHÍNH/PHỤ nằm trong ô (ô có đệm đáy 18 px, bỏ cắt); tên hàng chân dung rộng 50 px, không cắt chữ/dấu; sân khấu 270 → 254 px để bù chiều cao; hàng nút dưới tấm thép chữ 10 px, CHI TIẾT 52 % giữa; ĐỘT PHÁ số mảnh thiếu `em.no` viên thuốc #4D0800 chữ #FFE0E0.

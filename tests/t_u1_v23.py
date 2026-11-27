@@ -89,10 +89,20 @@ with sync_playwright() as p:
     const ct=m.querySelector('.pl11l [data-pl=old]'),card=R(m.querySelector('.m63-card'));const x=R(m.querySelector('.m63-x')),hd=R(m.querySelector('.u1hdr'));
     const em=m.querySelector('.b11 em.no');return {lab,nm:nm.every(Boolean),ctW:ct?Math.round(R(ct).width/R(ct.parentElement).width*100):null,xIn:x.right<=hd.right-30&&x.top>=hd.top&&x.bottom<=hd.bottom,em:em?getComputedStyle(em).color:null}}""")
   ck('U1d ĐỘI PHI CÔNG: nhãn CHÍNH/PHỤ nằm trọn trong ô, tên hàng chân dung không cắt, CHI TIẾT rộng 48–55 %, × nằm trong thanh tiêu đề (không đè mũi cánh), số mảnh thiếu chữ #FFE0E0',all(d['lab']) and d['nm'] and d['ctW'] and 48<=d['ctW']<=55 and d['xIn'] and (d['em'] in (None,'rgb(255, 224, 224)')),d)
+  M="""()=>{const m=document.querySelector('.m63.pl11');const st=m.querySelector('.pl11m').getBoundingClientRect(),im=m.querySelector('.pl11p');const h=U1HEAD.headTop(im);
+    const vb=Math.min(st.bottom,im.getBoundingClientRect().bottom),lim=st.top+(vb-st.top)*.65;
+    const ov=[...m.querySelectorAll('.pl11t,.u1rib,.pl11n,.pl11n *')].filter(e=>{const r=e.getBoundingClientRect();return r.width>0&&r.height>0&&getComputedStyle(e).display!=='none'&&r.top<lim&&r.bottom>st.top&&r.left<st.right&&r.right>st.left}).map(e=>e.className||e.tagName);
+    const rb=m.querySelector('.u1rib');return {n:(m.querySelector('.pl11n b')||{}).textContent,head:Math.round((h-st.top)*10)/10,ov,rib:!!rb&&rb.getBoundingClientRect().top>=st.bottom-.5&&rb.firstChild.getBoundingClientRect().width<=rb.clientWidth}}"""
+  R2=[pg.evaluate(M)]
+  for i in (0,5):
+    pg.evaluate("(i)=>document.querySelectorAll('.m63.pl11 .pl11r button')[i].click()",i);pg.wait_for_timeout(1200);R2.append(pg.evaluate(M))
+  ck('U1e ĐỘI PHI CÔNG (3 phi công): không hộp chữ nào đè 65 % trên của tranh, ĐỘI CỘNG thành dải 1 dòng dưới khung (không tràn), đỉnh đầu cách mép trên khung ≥ 8 px',len(set(x['n'] for x in R2))==3 and all(not x['ov'] and x['rib'] and x['head']>=8 for x in R2),R2)
   pg.evaluate("()=>{document.querySelectorAll('.m63').forEach(e=>e.hidden=true)}");pg.wait_for_timeout(400)
   pg.evaluate("()=>document.querySelector('[data-ck9=pilot]').click()");pg.wait_for_timeout(1500)
   d=pg.evaluate("""()=>{const m=document.querySelector('.m63.pl67');const c=m.querySelector('.pl67-card'),inf=c.querySelector(':scope>div:not(.pl307-nav)');const st=[...m.querySelectorAll('.pl67-st')].map(p=>({h:Math.round(p.getBoundingClientRect().height),of:p.scrollWidth>p.clientWidth+1}));
     const cs=getComputedStyle(inf);return {h3:getComputedStyle(m.querySelector('.m63-card > h3')).display,x:!!m.querySelector('.m63-card > .m63-x'),bg:cs.backgroundColor,z:cs.zIndex,ov:getComputedStyle(c).overflow,st}}""")
+  hd=pg.evaluate("()=>{const c=document.querySelector('.m63.pl67 .pl67-card'),im=c.querySelector('img.pl307-hero');return Math.round(U1HEAD.headTop(im)-c.getBoundingClientRect().top)}")
+  ck('U1e PHI CÔNG & TIỀM NĂNG: đầu phi công cách mép trên sân khấu ≥ 8 px',hd>=8,hd)
   ck('U1d PHI CÔNG & TIỀM NĂNG: bỏ tiêu đề lặp, có × đóng, thẻ kỹ năng nền đặc #0D2454 nằm trên sân khấu (bó overflow), dòng chỉ số 1 dòng không tràn',d['h3']=='none' and d['x'] and d['bg']=='rgb(13, 36, 84)' and d['ov']=='hidden' and all(x['h']<=24 and not x['of'] for x in d['st']),d)
   pg.evaluate("()=>document.querySelector('.m63.pl67 .m63-card > .m63-x').click()");pg.wait_for_timeout(700)
   ck('U1d: × đóng màn PHI CÔNG & TIỀM NĂNG',pg.evaluate("()=>{const m=document.querySelector('.m63.pl67');return !m||m.hidden||m.getBoundingClientRect().height<10}"))

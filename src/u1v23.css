@@ -164,3 +164,18 @@ html.u1v23{--rb10:repeating-linear-gradient(0deg,rgba(66,212,255,.09) 0 1px,tran
 @U1 .m63.pl11 .pl11m{height:254px!important}
 @U1 #nc307 .nc307-top .nc307-swap{white-space:nowrap!important;font-size:10px!important;padding:0 10px!important;flex:0 0 auto!important;min-width:0!important}
 @U1 #nc307 .nc307-top > b{min-width:0!important;overflow:hidden!important;text-overflow:clip!important;white-space:nowrap!important;font-size:13px!important}
+/* ---------- U1e · mặt phi công không bị che / cắt ---------- */
+@U1 .m63.pl11 .pl11m{height:226px!important}
+@U1 .m63.pl11 .pl11m .pl11t{display:none!important}
+@U1 .m63.pl11 .pl11a .pl11p{height:390px!important;top:calc(6px + var(--u1dy,0px))!important}
+@U1 .m63.pl11 .pl11n{left:0!important;right:0!important;bottom:0!important;max-width:none!important;flex-direction:row!important;align-items:center!important;flex-wrap:nowrap!important;gap:6px!important;padding:5px 10px!important;
+ background:linear-gradient(180deg,rgba(6,17,42,.55),rgba(6,17,42,.92))!important;box-shadow:inset 0 1px 0 rgba(94,200,255,.45)!important;white-space:nowrap!important;text-shadow:none!important}
+@U1 .m63.pl11 .pl11n b{font-size:13px!important}
+@U1 .m63.pl11 .pl11n small{font-size:9.5px!important}
+@U1 .m63.pl11 .pl11n em{margin-left:auto!important;align-self:center!important;font-size:9.5px!important;line-height:16px!important}
+@U1 .m63.pl11 .u1rib{margin:5px 0 0!important;height:22px!important;display:flex!important;align-items:center!important;justify-content:center!important;padding:0 8px!important;border-radius:11px!important;white-space:nowrap!important;overflow:hidden!important;font-size:var(--u1fs,9.5px)!important;
+ background:linear-gradient(90deg,rgba(12,37,92,.95),rgba(19,61,138,.9))!important;box-shadow:inset 0 0 0 1px rgba(94,228,255,.55)!important;font-weight:800!important;line-height:1!important;font-family:sans-serif!important;color:#DCEAF8!important;letter-spacing:.02em!important}
+@U1 .m63.pl11 :is(.pl11s,.pl11r) button img{object-fit:cover!important;object-position:50% 15%!important}
+@U1 .m63.pl67 .pl67-card{padding-top:14px!important}
+@U1 .m63.pl67 .pl67-card > img.pl307-hero{position:relative!important;top:var(--u1dy,0px)!important}
+@U1 .m63.pl67 .pl67-list button img{object-fit:cover!important;object-position:50% 15%!important}

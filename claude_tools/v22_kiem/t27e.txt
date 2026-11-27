@@ -1,0 +1,5 @@
+Đo bằng Playwright trên bản dựng sạch (101,82 MB):
+• t_u1_v23 19/19 — mới: 3 phi công (Thiên Lam, Lâm Phương, Mộc Miên) không hộp chữ nào chạm 65 % trên của phần tranh nhìn thấy; đỉnh đầu (đo theo alpha ảnh) cách mép trên khung 13–13,4 px; màn PHI CÔNG & TIỀM NĂNG 15 px.
+• Audit giao diện 3 lượt liên tiếp: 28/28 màn, 0 lỗi, 0 chữ bị cắt. t_v22 22/22 (NHẸ DPR 1,00 · 0 shadowBlur · 0 filter · 0 canvas mới) ·
+   t_nobs22 9/9 · t_map22 7/7 · t_go26 2/2 · t_rig23 7/7 · t_pka24 7/7 · t_rw23 8/8 · t_pkb25 10/10 · t_pkc26 9/9 · t156 14/14 · kinh tế không đổi.
+• t209: lượt chạy trong bộ 19→19→18/20 (trượt); chạy lại riêng 2 lần: 19→20/20 và 19→20/20 — mục trượt "Phá trọn cặp (+110 ◈)" là mục trong trận, U1e không chạy trong trận.
