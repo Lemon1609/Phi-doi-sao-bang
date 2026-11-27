@@ -282,7 +282,7 @@ const Ult72=(()=>{
  function fxPlayer23(){const pr=x=>Math.max(0,1-x);
   const tw=B.ents.some(o=>o.ty==='tower');const ad=time-B.dome23;
   if(tw||ad<.6){const a=tw?.42+.16*Math.sin(time*6):pr(ad/.6)*.6;fPut('phaodai_shield',player.x,player.y,(110+8*Math.sin(time*6))*sc()*(ad<.3?.6+ad/.3*.4:1),time*.4,a,true);}
-  const bd=time-B.bar23;if(bd<.7)fPut('phaodai_shield',player.x,player.y,(70+90*bd)*sc(),0,pr(bd/.7)*.8,true);
+  const bd=time-B.bar23;if(bd<.7)fPut('phaodai_shield',player.x,player.y,(70+50*bd)*sc(),0,pr(bd/.7)*.8,true);/* ≤ ~105 px: không phủ tàu con (t_rig23) */
   if(B.blk23)fPut('phaodai_shield',player.x,player.y,60*sc(),time*.6,.22+.08*Math.sin(time*5),true);
   if(B.shp>0&&time<B.shU)fPut('phaodai_shield',player.x,player.y,96*sc(),-time*.5,.35+.1*Math.sin(time*7),true);}
  function draw(){const id=mainW();if(!id)return;ctx.save();const F23=FX23();
