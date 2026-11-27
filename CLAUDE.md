@@ -38,6 +38,7 @@ Luật phong cách chi tiết + nhật ký quyết định: `docs_claude/CHUAN_P
 - Chỉ lưu ảnh gốc của bản ĐÃ CHỐT vào `src/ship118_cho/V<số>_*` (lượt bị loại không lưu); ghi quyết định vào `CHUAN_PHONG_CACH_DA_CHOT.md`.
 
 ## Trạng thái (cập nhật 24/11/2026 09:20)
+- **V2.3 U1b (27/11, `v23-ui-meta`, CHỜ DUYỆT)**: nút kim loại 3D 4 bảng + nút phụ thép + dọn thanh Kho (bỏ TRỞ LẠI, bỏ tab PHI CÔNG|VKTT, dải PHI CÔNG·VKTT·CHIẾN THẦN·XƯỞNG SSS·ĐÁ KHẢM, thanh đáy 1 dòng) + bệ nút Sảnh; chi tiết đầu `docs_claude/BAN_GIAO_V22.md`.
 - **V2.3 U1 (26/11, nhánh `v23-ui-meta`, CHỜ DUYỆT)**: bảng màu tươi + Kho cổ điển + khóa trang bị + sân khấu Sảnh/Kho bể đạn ≤ 36, NHẸ DPR 1 (`src/u1v23.js/.css`, cờ U1V23 / U1PAL / U1STAGE / U1KHO / LOCK23); kiểm `tests/t_u1_v23.py`. Chi tiết đầu `docs_claude/BAN_GIAO_V22.md`. APK chưa dựng: quy trình tạo Release công khai, repo còn công khai.
 - **V2.2.3 phiên 2d (26/11)**: Gói C `pkc26.js` (T26, nền parallax 3 địa hình + mây, 139,6 KB) + sửa bấm XUẤT KÍCH / ô ải bị nuốt (`fix22` GO26); kiểm `tests/t_pkc26.py`, `tests/t_go26.py`. Chưa dựng APK.
 - **V2.2.3 phiên 2c (26/11)**: Gói B `pkb25.js` (T25; Vô tận không cộng điểm Gói B, kinh tế giữ nguyên), kiểm `tests/t_pkb25.py`. Kế tiếp: Gói C (T26).

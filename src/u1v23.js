@@ -27,11 +27,12 @@ const U1V23=(()=>{
  const RULES=[['e',/^(TIẾN BẬC NHANH|TIẾN KHUNG NHANH|GỘP KINH NGHIỆM|BÁN|BÁN \/ PHÂN GIẢI|PHÂN GIẢI|PHÂN GIẢI NHANH|TỰ ĐỘNG HỢP THÀNH|TỰ ĐỘNG CHỌN|CÀN QUÉT|CÀN QUÉT NHANH)$/],
   ['o',/^(VÔ TẬN|KHIÊU CHIẾN|XUẤT KÍCH NHANH)/],
   ['g',/^(CHIẾN ĐẤU|CHIẾN DỊCH|XUẤT KÍCH|NHẬN|NHẬN HẾT|NHẬN THƯỞNG|CƯỜNG HÓA|NÂNG CẤP|TIẾN BẬC|ÉP XUNG|HỢP THÀNH|HỢP THỂ|MỞ|MỞ TẤT CẢ|MỞ HẾT|QUAY|ĐỘT PHÁ)\b/],
-  ['c',/^(PHI CÔNG|KHO ĐỒ|TRANG BỊ|CẢI TẠO|TÚI ĐỒ|VKTT|VŨ KHÍ TỐI THƯỢNG|TRANG PHỤC|MẶC TỐT NHẤT|VỀ|TRỞ LẠI|← TRỞ LẠI|CHI TIẾT|CÂY TIỀM NĂNG|THÔNG TIN)/]];
- const SKIP='.nc307-tabs button,.oc17t button,#k307 .k307-tabs button,#k307 .k9tabs button,#robot-control *,#pause,#tele07 *,.k307-row,.nc307-row,[role=tab],.tb22 button,.m63-x,.nc307-x,[data-k="x"],.h9x,.l22dock,.l22rail *,.hb-slot,.c9sc button,.ar9,.cm-node,#hdr9 .ch9 button,.ck9 .bv9.r,.b11,.u1lk';
+  ['s',/^(MẶC TỐT NHẤT|ĐỔI MÓN|CỬA HÀNG|CHI TIẾT|CÂY TIỀM NĂNG|THÔNG TIN)/],
+  ['c',/^(PHI CÔNG|KHO ĐỒ|TRANG BỊ|CẢI TẠO|TÚI ĐỒ|VKTT|VŨ KHÍ TỐI THƯỢNG|VỀ|TRỞ LẠI|← TRỞ LẠI)/]];
+ const SKIP='#hub40 .c9tp,#k307 .k307-foot button,#k307 .k9foot button,.nc307-tabs button,.oc17t button,#k307 .k307-tabs button,#k307 .k9tabs button,#robot-control *,#pause,#tele07 *,.k307-row,.nc307-row,[role=tab],.tb22 button,.m63-x,.nc307-x,[data-k="x"],.h9x,.l22dock,.l22rail *,.hb-slot,.c9sc button,.ar9,.cm-node,#hdr9 .ch9 button,.ck9 .bv9.r,.b11,.u1lk';
  function classify(){if(!on('U1PAL')||inBattle())return;for(const b of document.querySelectorAll('button,#lob22 [role=button]')){const raw=(b.innerText||'').replace(/\s+/g,' ').trim();if(b.dataset.u1t===raw)continue;b.dataset.u1t=raw;
-   b.classList.remove('u1o','u1g','u1c','u1e','u1b');if(!raw||raw.length>26||b.matches(SKIP))continue;const T=raw.toUpperCase().replace(/[›‹⇄✦◈⬢»«]/g,'').trim();
-   for(const [k,re] of RULES)if(re.test(T)){b.classList.add('u1b','u1'+k);break;}}}
+   b.classList.remove('u1o','u1g','u1c','u1e','u1b','u1s');if(!raw||raw.length>26||b.matches(SKIP))continue;const T=raw.toUpperCase().replace(/[›‹⇄✦◈⬢»«]/g,'').trim();
+   for(const [k,re] of RULES)if(re.test(T)){b.classList.add(k==='s'?'u1s':'u1b','u1'+(k==='s'?'s':k));break;}}}
  // ---------------- 2. sân khấu sống: dừng khi vào trận; bể đạn Sảnh ≤ 36; DPR NHẸ = 1 (canvas Sảnh qua DPRU1) ----------------
  const lite=()=>{try{return VisualFX.counts().quality==='light';}catch{return false;}};
  window.DPRU1=()=>(on('U1STAGE')&&lite())?1:Math.min(2,devicePixelRatio||1);
@@ -52,12 +53,13 @@ const U1V23=(()=>{
   const now=performance.now();if(now-kT>600){kT=now;try{const s=stats();const h=`<p class="u1cp"><small>TỔNG LỰC CHIẾN</small><b>${Math.round(s.cp).toLocaleString('vi-VN')}</b></p><p class="u1oc"><small>Cộng điểm (Siêu Tần Tuần)</small><b>+${s.oc}%</b></p>`+
      `<ul><li>${ICO.atk}<small>Công Chiến cơ</small><b>${f(s.atk)}</b></li><li>${ICO.hp}<small>Máu · Giáp</small><b>${Math.round(s.hp)} · ${Math.round(s.ar)}</b></li><li>${ICO.am}<small>Công Tên lửa</small><b>${f(s.am)}</b></li><li>${ICO.as}<small>Công Tàu con</small><b>${f(s.as)}</b></li></ul>`;if(h!==kLast){kLast=h;p.innerHTML=h;}}catch{}}
   // hàng lối tắt: VKTT hiện lại + TRANG PHỤC
-  const sc=doll.querySelector('.c9sc');if(sc){sc.classList.add('u1sc');if(!sc.querySelector('[data-c9g=tp23]')){const b=document.createElement('button');b.type='button';b.dataset.c9g='tp23';b.innerHTML='<i class="u1ic">✧</i><small>TRANG PHỤC</small>';
-     b.addEventListener('click',e=>{e.stopPropagation();const t=document.querySelector('#hub40 .c9tp');if(t)t.click();});const ss=sc.querySelector('[data-c9g=sss]');sc.insertBefore(b,ss?ss.nextSibling:null);}
+  const sc=doll.querySelector('.c9sc');if(sc){sc.classList.add('u1sc');for(const o of sc.querySelectorAll('[data-c9g=tp23]'))o.remove();
+   if(!sc.querySelector('[data-c9g=pc23]')){const b=document.createElement('button');b.type='button';b.dataset.c9g='pc23';b.innerHTML='<i class="u1ic"><svg viewBox="0 0 16 16" width="15" height="15"><circle cx="8" cy="5" r="3" fill="#fff"/><path d="M2 15c0-3.3 2.7-5.5 6-5.5s6 2.2 6 5.5z" fill="#fff"/></svg></i><small>PHI CÔNG</small>';
+     b.addEventListener('click',e=>{e.stopPropagation();try{Pilot67.open();}catch{try{Nav74.F.pilot&&Nav74.F.pilot();}catch{}}});sc.insertBefore(b,sc.firstChild);}
    const u=sc.querySelector('[data-c9g=ult]');if(u){u.style.setProperty('display','flex','important');const sm=u.querySelector('small');if(sm&&sm.textContent!=='VKTT')sm.textContent='VKTT';}
-   const ord=['ult','sss','tp23','ssss','stones'];for(const id of ord){const b=sc.querySelector('[data-c9g='+id+']');if(b)sc.appendChild(b);}}
+   const ord=['pc23','ult','sss','ssss','stones'];for(const id of ord){const b=sc.querySelector('[data-c9g='+id+']');if(b)sc.appendChild(b);}}
   // nút VỀ ở thanh đáy
-  const bar=document.querySelector('#hb-body .c9bar');if(bar&&!bar.querySelector('.u1ve')){const b=document.createElement('button');b.type='button';b.className='u1ve';b.innerHTML='<small>VỀ</small>';b.addEventListener('click',e=>{e.stopPropagation();const k=document.querySelector('#hub40 .bk22');if(k)k.click();else try{Nav74.tab('home');}catch{}});bar.appendChild(b);}
+  const bar=document.querySelector('#hb-body .c9bar');if(bar&&!bar.querySelector('.u1ve')){const b=document.createElement('button');b.type='button';b.className='u1ve u1b u1c';b.innerHTML='<small>VỀ</small>';b.addEventListener('click',e=>{e.stopPropagation();const k=document.querySelector('#hub40 .bk22');if(k)k.click();else try{Nav74.tab('home');}catch{}});bar.appendChild(b);}
   // ô trang bị: khóa + MAX
   if(on('LOCK23'))for(const sl of doll.querySelectorAll('.hb-slot')){const ref=slotRef(sl);if(!ref)continue;let lk=sl.querySelector(':scope>.u1lk');if(!lk){lk=document.createElement('i');lk.className='u1lk';lk.setAttribute('role','button');sl.appendChild(lk);}
     const L=ref.k==='c'?Lock23.hasC(ref.id):Lock23.has(ref.id);lk.classList.toggle('on',L);lk.dataset.k=ref.k;lk.dataset.id=ref.id;lk.setAttribute('aria-label',L?'Mở khóa':'Khóa');

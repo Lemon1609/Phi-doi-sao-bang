@@ -35,6 +35,7 @@ with sync_playwright() as p:
   d=pg.evaluate("""()=>new Promise(res=>{window.__gm=gameMode;gameMode='endless';const b0=boss;boss=null;setTimeout(()=>{const a=PKC26S.state();boss={x:240,y:-999,hp:1e9,max:1e9,coreHp:1e9,w:1,h:1};
     setTimeout(()=>{const b=PKC26S.state();setTimeout(()=>{const c=PKC26S.state();boss=b0;gameMode=window.__gm;res({a,b,c})},1400)},300)},400)})""")
   ck('Vô tận: boss xuất hiện → chuyển nền kế (hòa 1,2 s)',d['b']['eIdx']==d['a']['eIdx']+1 and d['b']['fade']>0 and d['c']['fade']==0 and d['c']['cur']!=d['a']['cur'],d)
+  pg.evaluate('()=>{superTime=6}');pg.wait_for_timeout(7000)  # khởi động Bạo Tẩu 1 lần: bộ đệm quầng sáng core-v407 tạo canvas lần đầu cho mỗi màu (có từ trước Gói C)
   pg.wait_for_timeout(1200)  # bước trước đổi gameMode tạm → nền sao cũ dựng lại 1 lần (bakeFar, có từ trước Gói C); đo sau đó
   d=pg.evaluate("""()=>new Promise(res=>{const P=CanvasRenderingContext2D.prototype,od=Object.getOwnPropertyDescriptor(P,'shadowBlur'),of=Object.getOwnPropertyDescriptor(P,'filter'),oc=document.createElement;let sb=0,fl=0,cv=0;
       Object.defineProperty(P,'shadowBlur',{configurable:true,get(){return od.get.call(this)},set(v){if(v>0)sb++;od.set.call(this,v)}});Object.defineProperty(P,'filter',{configurable:true,get(){return of.get.call(this)},set(v){if(v&&v!=='none')fl++;of.set.call(this,v)}});
