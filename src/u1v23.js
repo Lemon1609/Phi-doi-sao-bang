@@ -31,8 +31,22 @@ const U1V23=(()=>{
   ['c',/^(PHI CÔNG|KHO ĐỒ|TRANG BỊ|CẢI TẠO|TÚI ĐỒ|VKTT|VŨ KHÍ TỐI THƯỢNG|VỀ|TRỞ LẠI|← TRỞ LẠI)/]];
  const SKIP='#hub40 .c9tp,#k307 .k307-foot button,#k307 .k9foot button,.nc307-tabs button,.oc17t button,#k307 .k307-tabs button,#k307 .k9tabs button,#robot-control *,#pause,#tele07 *,.k307-row,.nc307-row,[role=tab],.tb22 button,.m63-x,.nc307-x,[data-k="x"],.h9x,.l22dock,.l22rail *,.hb-slot,.c9sc button,.ar9,.cm-node,#hdr9 .ch9 button,.ck9 .bv9.r,.b11,.u1lk';
  function classify(){if(!on('U1PAL')||inBattle())return;for(const b of document.querySelectorAll('button,#lob22 [role=button]')){const raw=(b.innerText||'').replace(/\s+/g,' ').trim();if(b.dataset.u1t===raw)continue;b.dataset.u1t=raw;
-   b.classList.remove('u1o','u1g','u1c','u1e','u1b','u1s');if(!raw||raw.length>26||b.matches(SKIP))continue;const T=raw.toUpperCase().replace(/[›‹⇄✦◈⬢»«]/g,'').trim();
+   b.classList.remove('u1o','u1g','u1c','u1e','u1b','u1s');if(!raw||raw.length>26||b.matches(SKIP))continue;const T=raw.toUpperCase().replace(/[›‹⇄⇅✦◈⬢»«]/g,'').trim();
    for(const [k,re] of RULES)if(re.test(T)){b.classList.add(k==='s'?'u1s':'u1b','u1'+(k==='s'?'s':k));break;}}}
+ // ---------------- 1b. U1c: bộ icon SVG trắng chung cho lối tắt Sảnh + Kho; thanh tiêu đề tấm bạc cho bảng .m63 ----------------
+ const D='#123f8f',SV=b=>'<svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true">'+b+'</svg>';
+ const IC={kho:SV('<path d="M3 7.5 12 3l9 4.5v9L12 21l-9-4.5z" fill="#fff"/><path d="M3 7.5 12 12l9-4.5M12 12v9" stroke="'+D+'" stroke-width="1.7" fill="none"/>'),
+  pilot:SV('<circle cx="12" cy="7.5" r="4.2" fill="#fff"/><path d="M3.5 21c.6-4.6 4-7.3 8.5-7.3s7.9 2.7 8.5 7.3z" fill="#fff"/><path d="M8.2 7h7.6" stroke="'+D+'" stroke-width="1.8"/>'),
+  ult:SV('<path d="M12 1.5 15 9l-3 13-3-13z" fill="#fff"/><path d="M5 12.5h14" stroke="#fff" stroke-width="2.6" stroke-linecap="round"/><path d="M12 4.5v11" stroke="'+D+'" stroke-width="1.2"/>'),
+  ct:SV('<path d="M4.5 5h15l-1.2 9.5L12 20l-6.3-5.5z" fill="#fff"/><path d="M7.8 10h8.4" stroke="'+D+'" stroke-width="2.2" stroke-linecap="round"/><path d="M12 14v3" stroke="'+D+'" stroke-width="1.6"/>'),
+  sss:SV('<path d="M2.5 7h13c0 2.6 2 4 5.5 4v2.2h-6.2l2 4.3H6.8l2-4.3H6.5C4 13.2 2.5 10.6 2.5 7z" fill="#fff"/><path d="M6 10h6" stroke="'+D+'" stroke-width="1.5"/>'),
+  da:SV('<path d="M7 3h10l4.2 6L12 21 2.8 9z" fill="#fff"/><path d="M2.8 9h18.4M9.3 3 12 21M14.7 3 12 21" stroke="'+D+'" stroke-width="1.2" fill="none"/>')};
+ const NAVIC={'go:kho':'kho','go:pilot':'pilot','go:ult':'ult'},SCIC={pc23:'pilot',ult:'ult',sss:'ct',ssss:'sss',stones:'da'};
+ function setIc(i,k){if(i&&i.dataset.u1ic!==k){i.dataset.u1ic=k;i.innerHTML=IC[k];}}
+ function u1c(){if(!on('U1PAL'))return;
+  for(const n of document.querySelectorAll('#lob22 .l22row1 > .l22nav')){const k=NAVIC[n.dataset.l22];if(!k)continue;let i=n.querySelector(':scope>i');if(!i){i=document.createElement('i');n.insertBefore(i,n.firstChild);}setIc(i,k);}
+  for(const b of document.querySelectorAll('#hub40 .c9sc.u1sc > button')){const k=SCIC[b.dataset.c9g];if(!k)continue;let i=b.querySelector(':scope>i.u1ic');if(!i){i=document.createElement('i');i.className='u1ic';b.insertBefore(i,b.firstChild);}setIc(i,k);}
+  for(const c of document.querySelectorAll('.m63 > .m63-card')){if(c.querySelector(':scope>.u1hdr'))continue;const h=document.createElement('i');h.className='u1hdr';h.setAttribute('aria-hidden','true');c.appendChild(h);}}/* cuối thẻ: không phá luật :first-child (hop307 đặt con đầu vào thanh tiêu đề) */
  // ---------------- 2. sân khấu sống: dừng khi vào trận; bể đạn Sảnh ≤ 36; DPR NHẸ = 1 (canvas Sảnh qua DPRU1) ----------------
  const lite=()=>{try{return VisualFX.counts().quality==='light';}catch{return false;}};
  window.DPRU1=()=>(on('U1STAGE')&&lite())?1:Math.min(2,devicePixelRatio||1);
@@ -54,7 +68,7 @@ const U1V23=(()=>{
      `<ul><li>${ICO.atk}<small>Công Chiến cơ</small><b>${f(s.atk)}</b></li><li>${ICO.hp}<small>Máu · Giáp</small><b>${Math.round(s.hp)} · ${Math.round(s.ar)}</b></li><li>${ICO.am}<small>Công Tên lửa</small><b>${f(s.am)}</b></li><li>${ICO.as}<small>Công Tàu con</small><b>${f(s.as)}</b></li></ul>`;if(h!==kLast){kLast=h;p.innerHTML=h;}}catch{}}
   // hàng lối tắt: VKTT hiện lại + TRANG PHỤC
   const sc=doll.querySelector('.c9sc');if(sc){sc.classList.add('u1sc');for(const o of sc.querySelectorAll('[data-c9g=tp23]'))o.remove();
-   if(!sc.querySelector('[data-c9g=pc23]')){const b=document.createElement('button');b.type='button';b.dataset.c9g='pc23';b.innerHTML='<i class="u1ic"><svg viewBox="0 0 16 16" width="15" height="15"><circle cx="8" cy="5" r="3" fill="#fff"/><path d="M2 15c0-3.3 2.7-5.5 6-5.5s6 2.2 6 5.5z" fill="#fff"/></svg></i><small>PHI CÔNG</small>';
+   if(!sc.querySelector('[data-c9g=pc23]')){const b=document.createElement('button');b.type='button';b.dataset.c9g='pc23';b.innerHTML='<i class="u1ic"></i><small>PHI CÔNG</small>';
      b.addEventListener('click',e=>{e.stopPropagation();try{Pilot67.open();}catch{try{Nav74.F.pilot&&Nav74.F.pilot();}catch{}}});sc.insertBefore(b,sc.firstChild);}
    const u=sc.querySelector('[data-c9g=ult]');if(u){u.style.setProperty('display','flex','important');const sm=u.querySelector('small');if(sm&&sm.textContent!=='VKTT')sm.textContent='VKTT';}
    const ord=['pc23','ult','sss','ssss','stones'];for(const id of ord){const b=sc.querySelector('[data-c9g='+id+']');if(b)sc.appendChild(b);}}
@@ -73,7 +87,7 @@ const U1V23=(()=>{
   if(e.type!=='click')return;const L=Lock23.toggle(t.dataset.k,t.dataset.id);t.classList.toggle('on',L);try{toast(L?'Đã KHÓA — không bị bán, phân giải hay dùng làm vật liệu.':'Đã MỞ KHÓA.');}catch{}try{bag();kho();}catch{}};
  for(const ty of ['pointerdown','pointerup','mousedown','mouseup','touchend','click'])window.addEventListener(ty,lkTap,{capture:true});/* window: chạy trước bộ bắt chạm ô (v2142 PICK42 ở document) */
  let busy=false;const mo=new MutationObserver(()=>{if(busy||inBattle())return;busy=true;requestAnimationFrame(()=>{busy=false;try{bag();}catch{}});});
- setInterval(()=>{if(!on()||inBattle())return;try{classify();}catch{}try{kho();}catch{}try{const k=document.getElementById('k307');if(k&&!k.__u1){k.__u1=1;mo.observe(k,{childList:true,subtree:true});}bag();}catch{}},400);
- return {classify,kho,bag,stats,slotRef};
+ setInterval(()=>{if(!on()||inBattle())return;try{classify();}catch{}try{u1c();}catch{}try{kho();}catch{}try{const k=document.getElementById('k307');if(k&&!k.__u1){k.__u1=1;mo.observe(k,{childList:true,subtree:true});}bag();}catch{}},400);
+ return {classify,kho,bag,stats,slotRef,u1c,IC};
 })();
 window.U1V23S=U1V23;

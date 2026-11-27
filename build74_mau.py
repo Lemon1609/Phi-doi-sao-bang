@@ -1268,6 +1268,9 @@ rep("const flareCache=new Map();const flareOf=col=>{if(!flareCache.has(col))flar
 # V2.3 U1 (v23-ui-meta): bảng màu tươi ngoài trận + Kho cổ điển + khóa trang bị + sân khấu sống (tắt window.U1V23=false)
 rep("const r=cv.getBoundingClientRect(),d=Math.min(2,devicePixelRatio||1),w=Math.max(1,Math.round(r.width*d))","const r=cv.getBoundingClientRect(),d=(window.DPRU1?window.DPRU1():Math.min(2,devicePixelRatio||1)),w=Math.max(1,Math.round(r.width*d))")
 _cu1=open('src/u1v23.css',encoding='utf-8').read().replace('@U1','html.u1v23 body:not('+'#_u1'*120+')')
+# U1c: 7 tấm nút / thanh tiêu đề (ảnh 90339, cắt bằng claude_tools/u1c_cat.py) → biến CSS --u1hr … (APK: ext22 ghi ra www/assets/ui/<tên>.webp)
+import base64 as _b64u1
+_cu1=_cu1.replace('/*U1IMG*/','html.u1v23{'+''.join('--u1'+_k+':url(data:image/webp;base64,'+_b64u1.b64encode(open('src/u1img/'+_n+'.webp','rb').read()).decode()+');' for _k,_n in [('hr','btn_hero_red'),('hg','btn_hero_gold'),('pb','btn_plate_blue'),('pg','btn_plate_gold'),('pe','btn_plate_green'),('ps','btn_plate_steel'),('hd','panel_header_silver')])+'}')
 rep("</body>","<style id=\"u1v23-css\">"+_cu1+"</style><script id=\"u1v23-js\">"+open('src/u1v23.js',encoding='utf-8').read()+"</script></body>")
 # V2.2.3 Gói C (T26): nền địa hình parallax + mây (tắt window.PKC26=false)
 PKC26IMG={os.path.splitext(f)[0]:'data:image/webp;base64,'+_b64rw.b64encode(open('src/pkc26img/'+f,'rb').read()).decode() for f in sorted(os.listdir('src/pkc26img')) if f.endswith('.webp')}

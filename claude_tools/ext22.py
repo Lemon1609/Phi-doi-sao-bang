@@ -12,12 +12,19 @@ if '--min' in sys.argv:MIN=int(sys.argv[sys.argv.index('--min')+1])
 os.makedirs(os.path.join(W,'assets'),exist_ok=True)
 RX=re.compile(r'data:image/(webp|png|jpeg|jpg|gif|svg\+xml);base64,([A-Za-z0-9+/]+={0,2})')
 EXT={'webp':'webp','png':'png','jpeg':'jpg','jpg':'jpg','gif':'gif','svg+xml':'svg'}
+# V2.3 U1c: 7 tấm nút / thanh tiêu đề (src/u1img) ghi đúng tên vào www/assets/ui/
+NAMED={}
+for _f in sorted(glob.glob(os.path.join(os.path.dirname(os.path.abspath(__file__)),'..','src','u1img','*.webp'))):NAMED[base64.b64encode(open(_f,'rb').read()).decode()]=os.path.basename(_f)
 seen={};st={'files':0,'refs':0,'uniq':0,'bytes_b64':0,'bytes_bin':0,'kept_small':0}
 def proc(path,prefix):
   s=open(path,encoding='utf-8').read();b0=len(s.encode('utf-8'))
   def sub(m):
     b=m.group(2)
     if len(b)<MIN:st['kept_small']+=1;return m.group(0)
+    if b in NAMED:
+      os.makedirs(os.path.join(W,'assets','ui'),exist_ok=True);fn='ui/'+NAMED[b]
+      if fn not in seen:raw=base64.b64decode(b);open(os.path.join(W,'assets',fn),'wb').write(raw);seen[fn]=len(raw);st['uniq']+=1;st['bytes_bin']+=len(raw)
+      st['refs']+=1;st['bytes_b64']+=len(b);return prefix+'assets/'+fn
     h=hashlib.sha1(b.encode()).hexdigest()[:12];e=EXT[m.group(1)];fn=h+'.'+e
     if fn not in seen:
       raw=base64.b64decode(b);open(os.path.join(W,'assets',fn),'wb').write(raw);seen[fn]=len(raw);st['uniq']+=1;st['bytes_bin']+=len(raw)
