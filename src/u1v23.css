@@ -127,3 +127,40 @@ html.u1v23{--rb10:repeating-linear-gradient(0deg,rgba(66,212,255,.09) 0 1px,tran
 @U1 .m63.pl11 .b11::before,@U1 .m63.pl11 .b11::after{display:none!important}
 @U1 .m63.pl11 .b11 :is(b,small){color:inherit!important;-webkit-text-fill-color:inherit!important;text-shadow:inherit!important}
 @U1 .m63.pl11 .b11:active{transform:translateY(1px) scale(.985)!important}
+/* ---------- U1d · sửa màn phi công + căn lề thanh tiêu đề ---------- */
+/* thanh tiêu đề tấm bạc: chừa 2 mũi cánh; × gọn vát góc nằm trong ô phải */
+@U1 :is(#k307 .k307-top,#nc307 .nc307-top){padding:0 40px 0 40px!important}
+@U1 :is(#k307 .k307-top [data-k=x],#nc307 .nc307-top .nc307-x){width:30px!important;height:30px!important;min-width:0!important;font-size:15px!important;line-height:28px!important;padding:0!important;margin:0 -6px 0 6px!important;flex:0 0 30px!important}
+@U1 .m63 > .m63-card > .m63-x{top:14px!important;right:44px!important;width:30px!important;height:30px!important;min-width:0!important;font-size:16px!important;line-height:28px!important;padding:0!important}
+/* nút cánh Sảnh: khối chữ hạ ~2,5 px vào giữa lõi kính */
+@U1 #lob22 .l22row2 > .l22cta{padding-bottom:2px!important}
+/* PHI CÔNG & TIỀM NĂNG (.pl67): bỏ tiêu đề lặp, sân khấu bó trong khung, thẻ kỹ năng nền đặc */
+@U1 .m63.pl67 > .m63-card > h3{display:none!important}
+@U1 .m63.pl67 .pl67-card{overflow:hidden!important}
+@U1 .m63.pl67 .pl67-card > div:not(.pl307-nav){position:relative!important;z-index:3!important;margin-top:12px!important;padding:9px 10px 10px!important;background:#0D2454!important;box-shadow:inset 0 0 0 1px #3CA8FF,0 -6px 10px rgba(4,13,33,.65)!important;border-radius:8px!important}
+@U1 .m63.pl67 .pl67-card ul.psk307 li{background-color:rgba(8,26,66,.9)!important}
+@U1 .m63.pl67 .pl67-st{display:flex!important;flex-wrap:nowrap!important;align-items:center!important;gap:4px!important;white-space:nowrap!important;overflow:hidden!important}
+@U1 .m63.pl67 .pl67-st > :is(img,span){flex:0 0 auto!important;margin:0!important}
+@U1 .m63.pl67 .pl67-card .pl67-act{margin-top:4px!important}
+@U1 .m63.pl67 > .m63-card{padding-bottom:calc(30px + env(safe-area-inset-bottom,0px))!important}
+/* ĐỘI PHI CÔNG (.pl11): nhãn ô đội nằm trong ô (không bị cắt), tên hàng chân dung đủ dấu */
+@U1 .pl11s{margin:2px 0 8px!important;gap:10px!important}
+@U1 .pl11s button{overflow:visible!important;clip-path:none!important;height:auto!important;padding:0 0 18px!important;border-radius:10px!important}
+@U1 .pl11s button img{height:56px!important;width:56px!important}
+@U1 .pl11s button.main img{height:70px!important;width:70px!important}
+@U1 .pl11s button > span{display:block!important;width:56px!important;height:56px!important;line-height:56px!important;text-align:center!important}
+@U1 .pl11s button small{bottom:2px!important;top:auto!important;line-height:14px!important;z-index:2!important}
+@U1 .pl11r{padding:8px 2px 7px!important}
+@U1 .pl11r button{flex:0 0 50px!important}
+@U1 .pl11r button small{max-width:50px!important;line-height:1.35!important;padding-bottom:2px!important;font-size:8.5px!important;overflow:visible!important;text-overflow:clip!important}
+/* nút hàng dưới: tấm thép, chữ gọn trong lõi kính; CHI TIẾT không kéo tràn ngang */
+@U1 .m63.pl11 .pl11l button{border:0 solid transparent!important;border-radius:0!important;border-image:var(--u1ps) 34 40 fill / 12px 14px / 0 stretch!important;background:none!important;box-shadow:none!important;filter:none!important;clip-path:none!important;
+ color:#B8CBE0!important;-webkit-text-fill-color:#B8CBE0!important;text-shadow:0 1px 1px #081224!important;font:900 10px/1 sans-serif!important;letter-spacing:.02em!important;padding:0 14px!important;min-height:34px!important}
+@U1 .m63.pl11 .pl11l button::before,@U1 .m63.pl11 .pl11l button::after{display:none!important}
+@U1 .m63.pl11 .pl11l button:active{transform:translateY(1px) scale(.985)!important}
+@U1 .m63.pl11 .pl11l button[data-pl=old]{flex:0 0 52%!important;margin:0 auto!important}
+/* ĐỘT PHÁ: số mảnh thiếu thành viên thuốc tối chữ hồng sáng */
+@U1 .m63.pl11 .b11 em.no{color:#FFE0E0!important;-webkit-text-fill-color:#FFE0E0!important;text-shadow:0 1px 1px #4D0800!important;background:#4D0800!important;padding:0 4px!important;border-radius:3px!important;font-style:normal!important;box-shadow:inset 0 0 0 1px rgba(255,160,160,.45)!important}
+@U1 .m63.pl11 .pl11m{height:254px!important}
+@U1 #nc307 .nc307-top .nc307-swap{white-space:nowrap!important;font-size:10px!important;padding:0 10px!important;flex:0 0 auto!important;min-width:0!important}
+@U1 #nc307 .nc307-top > b{min-width:0!important;overflow:hidden!important;text-overflow:clip!important;white-space:nowrap!important;font-size:13px!important}

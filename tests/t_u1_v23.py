@@ -80,6 +80,22 @@ with sync_playwright() as p:
   st=pg.evaluate("(ids)=>ids.every(i=>Lock23.has(i))",d['L'])
   ck('Khóa: giữ sau khi tải lại trang',st)
   pg.evaluate("(ids)=>{for(const i of ids)if(Lock23.has(i))Lock23.toggle('g',i)}",d['L']+d['same']);
+  # 4b) U1d: 2 màn phi công
+  pg.evaluate("()=>{document.querySelectorAll('.m63').forEach(e=>e.hidden=true);Nav74.tab('home')}");pg.wait_for_timeout(1200)
+  pg.evaluate("()=>Pilot67.open()");pg.wait_for_timeout(1500)
+  d=pg.evaluate("""()=>{const m=document.querySelector('.m63.pl11');const R=e=>e.getBoundingClientRect();
+    const lab=[...m.querySelectorAll('.pl11s button')].map(b=>{const s=b.querySelector('small'),r=R(s),q=R(b);return r.bottom<=q.bottom+.5&&r.top>=q.top-.5});
+    const nm=[...m.querySelectorAll('.pl11r button small')].map(s=>s.scrollWidth<=s.clientWidth+1);
+    const ct=m.querySelector('.pl11l [data-pl=old]'),card=R(m.querySelector('.m63-card'));const x=R(m.querySelector('.m63-x')),hd=R(m.querySelector('.u1hdr'));
+    const em=m.querySelector('.b11 em.no');return {lab,nm:nm.every(Boolean),ctW:ct?Math.round(R(ct).width/R(ct.parentElement).width*100):null,xIn:x.right<=hd.right-30&&x.top>=hd.top&&x.bottom<=hd.bottom,em:em?getComputedStyle(em).color:null}}""")
+  ck('U1d ĐỘI PHI CÔNG: nhãn CHÍNH/PHỤ nằm trọn trong ô, tên hàng chân dung không cắt, CHI TIẾT rộng 48–55 %, × nằm trong thanh tiêu đề (không đè mũi cánh), số mảnh thiếu chữ #FFE0E0',all(d['lab']) and d['nm'] and d['ctW'] and 48<=d['ctW']<=55 and d['xIn'] and (d['em'] in (None,'rgb(255, 224, 224)')),d)
+  pg.evaluate("()=>{document.querySelectorAll('.m63').forEach(e=>e.hidden=true)}");pg.wait_for_timeout(400)
+  pg.evaluate("()=>document.querySelector('[data-ck9=pilot]').click()");pg.wait_for_timeout(1500)
+  d=pg.evaluate("""()=>{const m=document.querySelector('.m63.pl67');const c=m.querySelector('.pl67-card'),inf=c.querySelector(':scope>div:not(.pl307-nav)');const st=[...m.querySelectorAll('.pl67-st')].map(p=>({h:Math.round(p.getBoundingClientRect().height),of:p.scrollWidth>p.clientWidth+1}));
+    const cs=getComputedStyle(inf);return {h3:getComputedStyle(m.querySelector('.m63-card > h3')).display,x:!!m.querySelector('.m63-card > .m63-x'),bg:cs.backgroundColor,z:cs.zIndex,ov:getComputedStyle(c).overflow,st}}""")
+  ck('U1d PHI CÔNG & TIỀM NĂNG: bỏ tiêu đề lặp, có × đóng, thẻ kỹ năng nền đặc #0D2454 nằm trên sân khấu (bó overflow), dòng chỉ số 1 dòng không tràn',d['h3']=='none' and d['x'] and d['bg']=='rgb(13, 36, 84)' and d['ov']=='hidden' and all(x['h']<=24 and not x['of'] for x in d['st']),d)
+  pg.evaluate("()=>document.querySelector('.m63.pl67 .m63-card > .m63-x').click()");pg.wait_for_timeout(700)
+  ck('U1d: × đóng màn PHI CÔNG & TIỀM NĂNG',pg.evaluate("()=>{const m=document.querySelector('.m63.pl67');return !m||m.hidden||m.getBoundingClientRect().height<10}"))
   # 5) vào trận: cờ dừng sân khấu
   start(pg,12);pg.wait_for_timeout(1200)
   ck('Vào trận: sân khấu dừng (__u1pause)',pg.evaluate("()=>!!window.__u1pause&&mode==='play'"))

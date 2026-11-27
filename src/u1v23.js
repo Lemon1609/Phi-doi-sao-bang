@@ -46,6 +46,11 @@ const U1V23=(()=>{
  function u1c(){if(!on('U1PAL'))return;
   for(const n of document.querySelectorAll('#lob22 .l22row1 > .l22nav')){const k=NAVIC[n.dataset.l22];if(!k)continue;let i=n.querySelector(':scope>i');if(!i){i=document.createElement('i');n.insertBefore(i,n.firstChild);}setIc(i,k);}
   for(const b of document.querySelectorAll('#hub40 .c9sc.u1sc > button')){const k=SCIC[b.dataset.c9g];if(!k)continue;let i=b.querySelector(':scope>i.u1ic');if(!i){i=document.createElement('i');i.className='u1ic';b.insertBefore(i,b.firstChild);}setIc(i,k);}
+  // PHI CÔNG & TIỀM NĂNG: thêm × đóng ở thanh tiêu đề (bấm ĐÓNG có sẵn); dòng chỉ số 1 dòng (thu cỡ chữ cho vừa)
+  for(const c of document.querySelectorAll('.m63.pl67 > .m63-card')){if(!c.querySelector(':scope>.m63-x')){const x=document.createElement('button');x.type='button';x.className='m63-x u1x67';x.setAttribute('aria-label','Đóng');x.textContent='×';
+     x.addEventListener('click',e=>{e.stopPropagation();const g=c.querySelector('.m63-btns .m63-go');if(g)g.click();else{const m=c.closest('.m63');if(m)m.hidden=true;}});c.appendChild(x);}
+   for(const p of c.querySelectorAll('.pl67-st')){if(!p.clientWidth)continue;const k=p.textContent+'|'+p.clientWidth;if(p.dataset.u1f===k)continue;p.style.fontSize='';let fs=parseFloat(getComputedStyle(p).fontSize)||11;
+     while(p.scrollWidth>p.clientWidth+1&&fs>8){fs-=.5;p.style.setProperty('font-size',fs+'px','important');}p.dataset.u1f=k;}}
   for(const c of document.querySelectorAll('.m63 > .m63-card')){if(c.querySelector(':scope>.u1hdr'))continue;const h=document.createElement('i');h.className='u1hdr';h.setAttribute('aria-hidden','true');c.appendChild(h);}}/* cuối thẻ: không phá luật :first-child (hop307 đặt con đầu vào thanh tiêu đề) */
  // ---------------- 2. sân khấu sống: dừng khi vào trận; bể đạn Sảnh ≤ 36; DPR NHẸ = 1 (canvas Sảnh qua DPRU1) ----------------
  const lite=()=>{try{return VisualFX.counts().quality==='light';}catch{return false;}};

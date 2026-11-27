@@ -1,0 +1,5 @@
+Đo bằng Playwright trên bản dựng sạch (101,81 MB):
+• Audit giao diện 3 lượt liên tiếp: 28/28 màn, 0 lỗi, 0 chữ bị cắt, 0 nút tràn khung nhìn, 0 ảnh hỏng. t_u1_v23 17/17
+   (thêm 3 mục U1d: nhãn ô đội nằm trọn trong ô, CHI TIẾT 48–55 %, × trong thanh tiêu đề, thẻ kỹ năng nền #0D2454, dòng chỉ số 1 dòng, × đóng được màn).
+• Hồi quy: t_v22 22/22 (NHẸ DPR 1,00 · 0 shadowBlur · 0 ctx.filter · 0 canvas mới) · t_nobs22 9/9 · t_map22 7/7 · t_go26 2/2 · t_rig23 7/7 · t_pka24 7/7 · t_rw23 8/8 · t_pkb25 10/10 · t_pkc26 9/9 · t156 14/14 · t209 20/20 (lượt đầu). Kinh tế không đổi (mục trong t_u1_v23).
+• Nhìn bằng mắt: bệ sáng bị bó trong khung sân khấu, chữ kỹ năng trên nền đặc; số mảnh thiếu "0/55" chữ hồng sáng trên viên thuốc đỏ sẫm; tiêu đề tấm bạc chừa 2 mũi cánh.

@@ -38,6 +38,7 @@ Luật phong cách chi tiết + nhật ký quyết định: `docs_claude/CHUAN_P
 - Chỉ lưu ảnh gốc của bản ĐÃ CHỐT vào `src/ship118_cho/V<số>_*` (lượt bị loại không lưu); ghi quyết định vào `CHUAN_PHONG_CACH_DA_CHOT.md`.
 
 ## Trạng thái (cập nhật 24/11/2026 09:20)
+- **V2.3 U1d (27/11, `v23-ui-meta`, CHỜ DUYỆT)**: sửa màn PHI CÔNG & TIỀM NĂNG (`.pl67`: bỏ tiêu đề lặp, × đóng, thẻ kỹ năng nền đặc, dòng chỉ số 1 dòng) + ĐỘI PHI CÔNG (`.pl11`: nhãn ô đội, CHI TIẾT 52 %, số mảnh thiếu dễ đọc) + đệm tiêu đề tấm bạc / × trong ô phải; chi tiết đầu `docs_claude/BAN_GIAO_V22.md`.
 - **V2.3 U1c (27/11, `v23-ui-meta`, CHỜ DUYỆT)**: nút tấm kim loại từ ảnh 90339 (7 tấm `src/u1img`, 57,6 KB, cắt `claude_tools/u1c_cat.py`; biến `--u1*`; APK ra `www/assets/ui/`), Sảnh VÔ TẬN/CHIẾN ĐẤU tấm cánh, lối tắt cùng icon SVG, thanh tiêu đề tấm bạc (`.u1hdr` cuối `.m63-card`); chi tiết đầu `docs_claude/BAN_GIAO_V22.md`.
 - **V2.3 U1b (27/11, `v23-ui-meta`, CHỜ DUYỆT)**: nút kim loại 3D 4 bảng + nút phụ thép + dọn thanh Kho (bỏ TRỞ LẠI, bỏ tab PHI CÔNG|VKTT, dải PHI CÔNG·VKTT·CHIẾN THẦN·XƯỞNG SSS·ĐÁ KHẢM, thanh đáy 1 dòng) + bệ nút Sảnh; chi tiết đầu `docs_claude/BAN_GIAO_V22.md`.
 - **V2.3 U1 (26/11, nhánh `v23-ui-meta`, CHỜ DUYỆT)**: bảng màu tươi + Kho cổ điển + khóa trang bị + sân khấu Sảnh/Kho bể đạn ≤ 36, NHẸ DPR 1 (`src/u1v23.js/.css`, cờ U1V23 / U1PAL / U1STAGE / U1KHO / LOCK23); kiểm `tests/t_u1_v23.py`. Chi tiết đầu `docs_claude/BAN_GIAO_V22.md`. APK chưa dựng: quy trình tạo Release công khai, repo còn công khai.
