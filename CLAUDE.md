@@ -37,7 +37,8 @@ Luật phong cách chi tiết + nhật ký quyết định: `docs_claude/CHUAN_P
 - Thân tàu: `claude_tools/tau_v241.py`.
 - Chỉ lưu ảnh gốc của bản ĐÃ CHỐT vào `src/ship118_cho/V<số>_*` (lượt bị loại không lưu); ghi quyết định vào `CHUAN_PHONG_CACH_DA_CHOT.md`.
 
-## Trạng thái (cập nhật 24/11/2026 09:20)
+## Trạng thái (cập nhật 28/11/2026)
+- **V2.3 U4 bước 2 (28/11, `v23-ui-meta`, CHỜ DUYỆT)**: VKTT thiết kế lại (`ult72.js`: E từ Lam, chia vai trò, 4 nội tại trợ chiến, 8 hiệu ứng `src/u4fx` → `U4FX_IMG`; tắt `window.VK23=false` / `U4FX=false`) + Mô-đun 4 phẩm / 4 giao thức 2/4 + đổi save (`chip72.js`, tắt `window.CHIP23=false`; bản cũ `saobang-chip72-v1-bk23`); kiểm `tests/t_u4_v23.py` 25 mục; chi tiết đầu `docs_claude/BAN_GIAO_V22.md`.
 - **V2.3 U4 (27/11, `v23-ui-meta`, CHỜ DUYỆT)**: Bệ 3D VKTT + MÔ-ĐUN SIÊU DUY = giao diện mới của Chip72 (chủ dự án chọn "khoác áo", 0 chỉ số mới) — `src/u4v23.js/.css`, tắt `window.U4V23=false`; kiểm `tests/t_u4_v23.py`. Kèm: càn quét ải thường 3★ miễn phí lại, thẻ mở ải Boss/Anh Hùng; quà đăng nhập ngày 1–7 là rương, mốc lớn có kim cương (`L14CHEST`/`L14GEM`). Chi tiết đầu `docs_claude/BAN_GIAO_V22.md`.
 - **V2.3 U3 (27/11, `v23-ui-meta`, CHỜ DUYỆT)**: Điểm danh tích lũy (băng rôn + rương mốc mỗi 5 ngày, bộ đếm L14) · Thám hiểm Tinh tế 2/4/8 giờ (trần 4/ngày) · Thẻ Kỳ Cựu 600 💎/30 ngày (ngoại lệ kim cương + khóa Càn quét nhanh sau thẻ — chủ dự án duyệt 27/11) — `src/u3v23.js/.css`, tắt `window.U3V23=false`; kiểm `tests/t_u3_v23.py`; chi tiết đầu `docs_claude/BAN_GIAO_V22.md`.
 - **V2.3 U2 (27/11, `v23-ui-meta`, CHỜ DUYỆT)**: thẻ Túi đồ mật độ cao 4 tab (sao dọc, hạng, khóa, xích Chiến Thần, Đặc kỹ, Cộng điểm Siêu Tần Tuần, tấm nút) + phi công (mảnh thật, chấm đỏ `Pilot67.ready`, chú thích luật đội từ `Pilot67.SUB`) — `src/u2v23.js/.css`, tắt `window.U2V23=false`; kiểm `tests/t_u2_v23.py`; chi tiết đầu `docs_claude/BAN_GIAO_V22.md`.

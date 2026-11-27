@@ -63,11 +63,12 @@ const Event83=(()=>{
  const on204=()=>window.EV204!==false;
  const maxCl204=()=>{try{const c=Progress.getState().cleared||[];return c.length?Math.max(...c):0;}catch{return 0;}};
  const shopL=e=>on204()&&maxCl204()>=E204.unl?e.shop.concat(E204.shop):e.shop;
- const QN204=q=>{try{return CHIP72.q[q].n;}catch{return ['Chế thức','Cải lương','Nguyên mẫu','Giao ước Nguyên mẫu','Chiến lược','Giao ước Chiến lược','Tuyệt mật'][q];}};
+ const Q23=q=>{try{return Chip72.mapQ(q);}catch{return q;}};/* V2.3 U4: phẩm cũ 0–6 → 4 phẩm mới */
+ const QN204=q=>{try{return CHIP72.q[Q23(q)].n;}catch{return ['Chế thức','Cải lương','Nguyên mẫu','Giao ước Nguyên mẫu','Chiến lược','Giao ước Chiến lược','Tuyệt mật'][q];}};
  function grant(it){const out=[];
   try{if(it.coder||it.core){const m=Chip72.state().mat;Chip72._set({mat:{coder:(m.coder|0)+(it.coder|0),core:(m.core|0)+(it.core|0)}});if(it.coder)out.push(it.coder+' Bộ mã hóa');if(it.core)out.push(it.core+' Lõi chip');}}catch{}
   try{if(it.sssCore){V70.add('sss_core',it.sssCore);out.push(it.sssCore+' Tinh Hạch');}}catch{}
-  try{if(it.chipQ!=null){const c=Chip72.gen({q:it.chipQ});Chip72._give(c);out.push('1 chip '+QN204(it.chipQ));}}catch{}
+  try{if(it.chipQ!=null){const c=Chip72.gen({q:Q23(it.chipQ)});Chip72._give(c);out.push('1 chip '+QN204(it.chipQ));}}catch{}
   try{if(it.alloy){Progress.grantCredits(it.alloy);out.push(fmt(it.alloy)+' ◈');}}catch{}
   try{if(it.stone){Workshop.exp70(it.stone);out.push(it.stone+' ⬢');}}catch{}
   try{if(it.gem){Econ74.add(it.gem,'SỰ KIỆN');out.push(it.gem+' 💎');}}catch{}

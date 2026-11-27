@@ -1283,6 +1283,10 @@ rep("</body>","<style id=\"u3v23-css\">"+_cu3+"</style><script id=\"u3v23-js\">"
 _cu4=open('src/u4v23.css',encoding='utf-8').read().replace('@U4','html.u4v23 body:not('+'#_u4'*136+')')
 _cu4=_cu4.replace('/*U4IMG*/','html.u4v23{'+''.join('--u4'+_k+':url(data:image/webp;base64,'+_b64u1.b64encode(open('src/u4img/'+_n+'.webp','rb').read()).decode()+');' for _k,_n in [('st','stage_vktt_3d'),('f0','mod_frame_green'),('f1','mod_frame_blue'),('f2','mod_frame_purple'),('f3','mod_frame_gold'),('e','mod_slot_empty'),('cf','mod_core_fire'),('cs','mod_core_struct'),('cl','mod_core_link')])+'}')
 rep("</body>","<style id=\"u4v23-css\">"+_cu4+"</style><script id=\"u4v23-js\">"+open('src/u4v23.js',encoding='utf-8').read()+"</script></body>")
+# V2.3 U4 bước 2: 4 tranh VKTT (src/u4img/vktt_*) + 8 hiệu ứng trận (src/u4fx) → window.U4FX_IMG (ult72 nạp sẵn lúc khởi động, u4v23 vẽ trên bệ)
+import glob as _g4
+_u4fx={os.path.basename(_f)[:-5]:'data:image/webp;base64,'+_b64u1.b64encode(open(_f,'rb').read()).decode() for _f in sorted(_g4.glob('src/u4fx/*.webp'))+sorted(_g4.glob('src/u4img/vktt_*.webp'))}
+rep("<script id=\"u4v23-js\">","<script id=\"u4fx-img-js\">window.U4FX_IMG="+json.dumps(_u4fx)+";</script><script id=\"u4v23-js\">")
 # V2.2.3 Gói C (T26): nền địa hình parallax + mây (tắt window.PKC26=false)
 PKC26IMG={os.path.splitext(f)[0]:'data:image/webp;base64,'+_b64rw.b64encode(open('src/pkc26img/'+f,'rb').read()).decode() for f in sorted(os.listdir('src/pkc26img')) if f.endswith('.webp')}
 rep("</body>","<script id=\"pkc26-js\">window.PKC26_IMG="+json.dumps(PKC26IMG,separators=(',',':'))+";"+open('src/pkc26.js',encoding='utf-8').read()+"</script></body>")

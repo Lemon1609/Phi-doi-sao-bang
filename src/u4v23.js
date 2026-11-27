@@ -13,13 +13,18 @@ const U4V23M=(()=>{
  const T=s=>{try{toast(s);}catch{}};
  const CH=()=>typeof Chip72!=='undefined'?Chip72:null;
  const CC=()=>(CH()||{}).C||{};
- const FR=q=>q<=0?'f0':q===1?'f1':q<=3?'f2':'f3';/* Chế thức Lục · Cải lương Lam · Nguyên mẫu (+Giao ước) Tím · Chiến lược / Giao ước CL / Tuyệt mật Cam */
+ const FR=q=>{try{if(Chip72.C23)return 'f'+Math.max(0,Math.min(3,q|0));}catch{}return q<=0?'f0':q===1?'f1':q<=3?'f2':'f3';};/* Chế thức Lục · Cải lương Lam · Nguyên mẫu (+Giao ước) Tím · Chiến lược / Giao ước CL / Tuyệt mật Cam */
  const QN=['Lục','Lam','Tím','Cam'];
  const CO={fire:'cf',frame:'cs',link:'cl'},SN={fire:'Hỏa lực',frame:'Cấu trúc',link:'Liên kết'};
- const ST={atk:'Công',hp:'Máu',armor:'Giáp',skill:'ST kỹ năng VKTT',charge:'Tốc sạc',boss:'ST lên boss',crit:'ST chí mạng',elite:'ST tinh anh'};
+ const ST={atk:'Công',hp:'Máu',armor:'Giáp',skill:'ST kỹ năng VKTT',charge:'Tốc sạc E',boss:'ST kỹ năng lên Boss',crit:'ST chí mạng',elite:'ST tinh anh',ship:'ST Chiến cơ',missile:'ST Tên lửa',pod:'ST Tàu con',super:'ST khi Bạo Tẩu',bossAll:'ST lên Boss'};
+ const SPR={fortress:'vktt_phaodai',world:'vktt_thegioi',hunter:'vktt_sansao',web:'vktt_luoidien'};
+ const sprite=id=>{try{return (window.U4FX_IMG||{})[SPR[id]]||'';}catch{return '';}};
+ const PAS={fortress:'Mỗi 25 giây: rào chắn xóa đạn gần + chặn 1 đòn',world:'+8% tốc nạp Bạo Tẩu · +0,5 giây Bạo Tẩu',hunter:'+6% ST chí mạng · +15% bán kính hút đồ',web:'+6% ST lên Boss & quái tinh anh'};
+ const ROLEN={fortress:'Phòng thủ · 40% Công · 60% Máu/Giáp',world:'Khống chế · 50% Công · 50% Máu/Giáp',hunter:'Sát thủ · 70% Công · 30% Máu/Giáp',web:'Khóa mục tiêu · 65% Công · 35% Máu/Giáp'};
+ const eTier=r=>r>=10?'E đủ sức + dấu ấn':r>=6?'E tăng cường (×0,85)':r>=2?'E cơ bản (×0,70)':'E mở ở bậc Lam';
  const S=()=>{try{return Chip72.state();}catch{return {ch:[],mat:{cry:0,coder:0,core:0}};}};
  const mval=(c,st)=>((CC().sh[c.sh].main[st]||0)*CC().q[c.q].k*(c.lv/50));
- const mainTxt=c=>['atk','hp','armor'].filter(st=>CC().sh[c.sh].main[st]).map(st=>ST[st]+' +'+pc(mval(c,st))).join(' · ');
+ const mainTxt=c=>Object.keys(CC().sh[c.sh].main).map(st=>ST[st]+' +'+pc(mval(c,st))).join(' · ');
  const hexHTML=(c,cls='')=>c?`<span class="u4h ${cls} ${FR(c.q)}"><i class="${CO[c.sh]}"></i><em>Lv.${c.lv}</em></span>`:`<span class="u4h ${cls} e"></span>`;
  const ART=()=>{try{return (typeof ULT72_ART!=='undefined'?ULT72_ART:window.ULT72_ART)||{};}catch{return {};}};
  const VIM={hunter:'void_greatsword',web:'solar_orbital_laser',fortress:'prism_bastion',world:'chronos_astrolabe'};/* như vktt307 */
@@ -39,7 +44,7 @@ const U4V23M=(()=>{
   return n;}
  function quickOff(w){let n=0;for(const c of onW(w))if(Chip72.unequip(c.id))n++;return n;}
  function rates(){try{const D=CC().drop[Chip72.dropLv()];return D.q.map((v,i)=>QN[i]+' '+Math.round(v*100)+'%').join(' · ');}catch{return '';}}
- function sumTxt(w){try{const A=Chip72.agg(w);return ['atk','hp','armor','skill','charge','boss','crit','elite'].filter(k=>A[k]>0).map(k=>ST[k]+' +'+pc(A[k])).join(' · ')||'Chưa lắp mô-đun';}catch{return '';}}
+ function sumTxt(w){try{const A=Chip72.agg(w);return ['atk','hp','armor','skill','charge','boss','bossAll','crit','elite','ship','missile','pod','super'].filter(k=>A[k]>0).map(k=>ST[k]+' +'+pc(A[k])).join(' · ')||'Chưa lắp mô-đun';}catch{return '';}}
  function html(){const st=S(),C=CC(),cap=C.cap||500,sl=C.slots||[];const isMain=(()=>{try{return Ult72.mainW()===W;}catch{return false;}})();
   const slot=i=>{const c=slotChip(W,i);return `<button type="button" class="u4s ${arm===i?'arm':''}" data-u4="slot" data-i="${i}" aria-label="Khe ${i+1} ${SN[sl[i]]}">${hexHTML(c)}</button>`;};
   const cl=(k,a,b,lab)=>`<div class="u4cl ${k}"><div class="u4cr">${slot(a)}${slot(b)}</div><b>${lab}</b></div>`;
@@ -52,16 +57,18 @@ const U4V23M=(()=>{
   <div class="u4hx">${cl('fire',0,1,'HỎA LỰC')}${cl('link',4,5,'LIÊN KẾT')}${cl('struct',2,3,'CẤU TRÚC')}
    <div class="u4core"><i style="background-image:url('${vIcon(W)}')"></i></div>
    <button type="button" class="u4q l u3p u3pb" data-u4="off">THÁO<br>NHANH</button><button type="button" class="u4q r u3p u3pg" data-u4="fit">LẮP<br>NHANH</button></div>
-  <p class="u4sum">${sumTxt(W)}</p>
+  ${protoHTML()}<p class="u4sum">${sumTxt(W)}</p>
   <div class="u4tabs">${['fire','frame','link'].map(k=>`<button type="button" data-u4="tab" data-k="${k}" aria-pressed="${k===tab}">${SN[k]}</button>`).join('')}<span class="u4cap">${st.ch.length}/${cap}</span></div>
   <div class="u4g">${L.map(c=>`<button type="button" class="u4t ${c.id===sel?'on':''} ${c.eq?(c.eq.w===W?'eq':'eo'):''}" data-u4="pick" data-id="${c.id}">${hexHTML(c)}${c.eq?`<s>${c.eq.w===W?'ĐANG LẮP':'VKTT KHÁC'}</s>`:''}${c.lock?'<u>🔒</u>':''}</button>`).join('')||'<p class="u4em">Chưa có mô-đun loại này · bấm SẢN XUẤT</p>'}</div>
-  <p class="u4det">${sc?`<b class="${FR(sc.q)}">${esc(C.q[sc.q].n)}${sc.set?' · '+esc(C.sets[sc.set].n):''}</b> · ${SN[sc.sh]} Lv.${sc.lv}/50 · ${mainTxt(sc)}${sc.ln&&sc.ln.length?' · '+sc.ln.map(l=>esc(Chip72.LN(l,1))).join(' · '):''}`:arm>=0?`Chọn mô-đun <b>${SN[sl[arm]]}</b> bên dưới để lắp vào khe ${arm+1}`:'Chạm khe để chọn · chạm mô-đun để xem / lắp'}</p>
+  <p class="u4det">${sc?`<b class="${FR(sc.q)}">${esc(C.q[sc.q].n)}${sc.set&&C.sets[sc.set]?' · '+esc(C.sets[sc.set].n):''}</b> · ${SN[sc.sh]} Lv.${sc.lv}/50 · ${mainTxt(sc)}${sc.ln&&sc.ln.length?' · '+sc.ln.map(l=>esc(Chip72.LN(l,1))).join(' · '):''}`:arm>=0?`Chọn mô-đun <b>${SN[sl[arm]]}</b> bên dưới để lắp vào khe ${arm+1}`:'Chạm khe để chọn · chạm mô-đun để xem / lắp'}</p>
   <p class="u4res">Tinh thể <b>${fmt(st.mat.cry)}</b> · Lõi chip <b>${fmt(st.mat.core)}</b> · Sản xuất ${dCry} tinh thể + ${C.prod.cr} ◈ · <span class="u4rt">Tỉ lệ: ${rates()}</span></p>
   <div class="u4bar"><button type="button" class="u3p u3pb" data-u4="sal">PHÂN GIẢI<small>${sc&&!sc.eq&&!sc.lock?'mô-đun đang chọn':'Lục thừa ×'+nG}</small></button>
    <button type="button" class="u3p u3pg" data-u4="prod">SẢN XUẤT<small>×1</small></button>
-   <button type="button" class="u3p ${up?'u3pg':'u3ps'}" data-u4="up" ${up?'':'disabled'}>CẢI TẠO<small>${up?up[0]+' lõi · '+up[1]+' ◈':sc?'Lv 50':'chưa chọn'}</small></button>
+   ${!up&&sc&&sc.q>=(CC().q.length===4?1:2)?`<button type="button" class="u3p u3pg" data-u4="ref">LUYỆN DÒNG<small>${sc.ln.length} dòng · Lv 50</small></button>`:`<button type="button" class="u3p ${up?'u3pg':'u3ps'}" data-u4="up" ${up?'':'disabled'}>CẢI TẠO<small>${up?up[0]+' lõi · '+up[1]+' ◈':sc?'Lv 50':'chưa chọn'}</small></button>`}
    <button type="button" class="u3p u3pb" data-u4="back">VỀ<small>Vũ khí</small></button></div>
   <button type="button" class="u4adv" data-u4="adv">NÂNG CAO › Luyện · Tái tạo · Ghép · Tẩy dòng</button></div>`;}
+ function protoHTML(){let L=[];try{L=Chip72.C23?Chip72.proto(W):[];}catch{}if(!L.length)return '';const C=CC();
+  return `<div class="u4pb">${L.map(p=>{const d=C.sets[p.k];return `<span class="u4pg ${p.two?'on':''} ${p.four?'full':''} ${p.res?'res':''}" title="${esc(d.n)}"><b>${esc(d.n)}</b><em>${p.n}/4</em><i class="${p.two?'on':''}">2</i><i class="${p.four?'on':''}">4</i>${p.res?'<u>CỘNG HƯỞNG</u>':''}</span>`;}).join('')}</div>`;}
  const esc=s=>String(s==null?'':s).replace(/[&<>"]/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'})[m]);
  const name=w=>{try{return ULT72.nm[w];}catch{return w;}};
  function render(){if(!box||box.hidden)return;const y=(box.querySelector('.u4g')||{}).scrollTop||0;box.innerHTML=html();const g=box.querySelector('.u4g');if(g)g.scrollTop=y;}
@@ -79,7 +86,8 @@ const U4V23M=(()=>{
    else sel=sel===id?null:id;}
   else if(k==='fit'){const n=quickFit(W);T(n?'LẮP NHANH · '+n+' mô-đun':'Đã lắp tốt nhất');}
   else if(k==='off'){const n=quickOff(W);T(n?'THÁO NHANH · '+n+' mô-đun':'Chưa lắp mô-đun nào');arm=-1;}
-  else if(k==='prod'){const r=Chip72.produce(1);if(r&&r.length){const c=r[0];sel=c.id;tab=c.sh;T('SẢN XUẤT · '+QN[FR(c.q)[1]]+' '+SN[c.sh]+' Lv.'+c.lv);}}
+  else if(k==='prod'){const r=Chip72.produce(1);if(r&&r.length){const c=r[0];sel=c.id;tab=c.sh;T('SẢN XUẤT · '+QN[FR(c.q)[1]]+' '+SN[c.sh]+' Lv.'+c.lv+(c.set&&CC().sets[c.set]?' · '+CC().sets[c.set].n:''));}}
+  else if(k==='ref'){if(sel){close();try{Chip72.det(sel);}catch{}}return;}
   else if(k==='up'){if(sel&&Chip72.upgrade(sel)){const c=S().ch.find(x=>x.id===sel);T('CẢI TẠO · Lv.'+(c?c.lv:''));}}
   else if(k==='sal'){const st=S();const c=sel&&st.ch.find(x=>x.id===sel);let ids=[];if(c&&!c.eq&&!c.lock)ids=[c.id];else ids=st.ch.filter(x=>x.q===0&&!x.eq&&!x.lock).map(x=>x.id);
    if(!ids.length){T('Không có mô-đun thừa để phân giải (đang lắp / đã khóa giữ lại)');}else{const g=Chip72.salvage(ids);sel=null;T('PHÂN GIẢI '+g.n+' mô-đun · +'+g.cry+' tinh thể'+(g.core?' · +'+g.core+' lõi':''));}}
@@ -93,10 +101,16 @@ const U4V23M=(()=>{
   const strip=document.createElement('div');strip.className='u4sel';
   strip.innerHTML=`<button type="button" class="u4n" data-a="nav" data-v="-1" aria-label="Trước">‹</button><div class="u4ow">${own.map(id=>`<button type="button" class="${id===cur?'on':''} ${id===st.main?'mn':''}" data-a="sel" data-v="${id}" aria-label="${esc(C.nm[id])}"><i style="background-image:url('${vIcon(id)}')"></i></button>`).join('')}</div><button type="button" class="u4n" data-a="nav" data-v="1" aria-label="Sau">›</button>`;
   const top=sr.querySelector('.sr-top');if(top)top.after(strip);
+  // V2.3 U4 bước 2: dải đội hình 1 chủ chiến + 2 trợ chiến (nội tại trợ chiến ghi rõ)
+  try{const so=k=>{try{return Ult72.state&&((Progress.v70.cleared()||[]).reduce((a,b)=>Math.max(a,b),0))>=C.sup[k];}catch{return false;}};
+   const cell=(lab,id,k)=>{const op=k<0||so(k);const ps=k>=0&&id&&op?PAS[id]:k<0&&id?eTier((st.w[id]||{}).r|0):'';return `<button type="button" class="u4fs ${k<0?'mn':''} ${op?'':'lk'} ${id===cur?'on':''}" ${id?`data-a="sel" data-v="${id}"`:''}><small>${lab}</small>${id?`<i style="background-image:url('${sprite(id)||vIcon(id)}')"></i><b>${esc(C.nm[id])}</b>`:`<em>${op?'Trống':'Ải '+C.sup[k]}</em>`}${ps?`<span>${esc(ps)}</span>`:''}</button>`;};
+   const fm=document.createElement('div');fm.className='u4fm';fm.innerHTML=cell('CHỦ CHIẾN · 100%',st.main,-1)+cell('TRỢ CHIẾN 1 · 25%',st.sup&&st.sup[0],0)+cell('TRỢ CHIẾN 2 · 25%',st.sup&&st.sup[1],1);
+   strip.after(fm);}catch(e){console.warn('U4 đội hình',e);}
+  try{const wp=sr.querySelector('.sr-wpn');const sp=sprite(cur);if(wp&&sp){wp.classList.add('u4spr');wp.innerHTML=`<i class="u4spi" style="background-image:url('${sp}')"></i>`;}/* nền, không <img> (vktt307 ghi đè .sr-wpn img) */}catch{}
   if(w&&w.own){let P=0,b=0;try{P=Ult72.P(cur);b=Ult72.bonus();}catch{}
    const sum=document.createElement('div');sum.className='u4box';sum.innerHTML=`<b>Lv.${w.lv}/${C.cap[w.r]}</b><span>Chủ chiến +${pc(P)}</span><span>Đội +${pc(b)}</span>`;
    const stg=sr.querySelector('.sr-stage');if(stg)stg.appendChild(sum);
-   const inf=document.createElement('p');inf.className='u4inf';inf.innerHTML=`<b>Lv.${w.lv}/${C.cap[w.r]}</b> · +${pc(P)} công · máu · giáp (chủ chiến) · <span>Mô-đun: ${esc(sumTxt(cur))}</span>`;
+   const inf=document.createElement('p');inf.className='u4inf';inf.innerHTML=`<b>Lv.${w.lv}/${C.cap[w.r]}</b> · ${esc(ROLEN[cur]||'')} · <b class="u4e">${esc(eTier(w.r))}</b><br><span>Trợ chiến: ${esc(PAS[cur]||'')}</span> · <span>Mô-đun: ${esc(sumTxt(cur))}</span>`;
    const nm=sr.querySelector('.sr-name');if(nm)nm.after(inf);
    // thanh đáy: CƯỜNG HÓA · MÔ-ĐUN SIÊU DUY · VỀ (nút gốc ẩn, bấm hộ)
    const bot=sr.querySelector('.sr-bot');if(bot){const lv=bot.querySelector('[data-a="lv"]'),pro=bot.querySelector('[data-a="pro"]');

@@ -14,7 +14,9 @@ RX=re.compile(r'data:image/(webp|png|jpeg|jpg|gif|svg\+xml);base64,([A-Za-z0-9+/
 EXT={'webp':'webp','png':'png','jpeg':'jpg','jpg':'jpg','gif':'gif','svg+xml':'svg'}
 # V2.3 U1c: 7 tấm nút / thanh tiêu đề (src/u1img) ghi đúng tên vào www/assets/ui/
 NAMED={}
-for _f in sorted(glob.glob(os.path.join(os.path.dirname(os.path.abspath(__file__)),'..','src','u1img','*.webp'))+glob.glob(os.path.join(os.path.dirname(os.path.abspath(__file__)),'..','src','u3img','*.webp'))+glob.glob(os.path.join(os.path.dirname(os.path.abspath(__file__)),'..','src','u4img','*.webp'))):NAMED[base64.b64encode(open(_f,'rb').read()).decode()]=os.path.basename(_f)
+for _f in sorted(glob.glob(os.path.join(os.path.dirname(os.path.abspath(__file__)),'..','src','u1img','*.webp'))+glob.glob(os.path.join(os.path.dirname(os.path.abspath(__file__)),'..','src','u3img','*.webp'))+glob.glob(os.path.join(os.path.dirname(os.path.abspath(__file__)),'..','src','u4img','*.webp'))):NAMED[base64.b64encode(open(_f,'rb').read()).decode()]='ui/'+os.path.basename(_f)
+# V2.3 U4: 8 hiệu ứng trận VKTT (src/u4fx) → www/assets/fx/
+for _f in sorted(glob.glob(os.path.join(os.path.dirname(os.path.abspath(__file__)),'..','src','u4fx','*.webp'))):NAMED[base64.b64encode(open(_f,'rb').read()).decode()]='fx/'+os.path.basename(_f)
 seen={};st={'files':0,'refs':0,'uniq':0,'bytes_b64':0,'bytes_bin':0,'kept_small':0}
 def proc(path,prefix):
   s=open(path,encoding='utf-8').read();b0=len(s.encode('utf-8'))
@@ -22,7 +24,7 @@ def proc(path,prefix):
     b=m.group(2)
     if len(b)<MIN:st['kept_small']+=1;return m.group(0)
     if b in NAMED:
-      os.makedirs(os.path.join(W,'assets','ui'),exist_ok=True);fn='ui/'+NAMED[b]
+      fn=NAMED[b];os.makedirs(os.path.join(W,'assets',os.path.dirname(fn)),exist_ok=True)
       if fn not in seen:raw=base64.b64decode(b);open(os.path.join(W,'assets',fn),'wb').write(raw);seen[fn]=len(raw);st['uniq']+=1;st['bytes_bin']+=len(raw)
       st['refs']+=1;st['bytes_b64']+=len(b);return prefix+'assets/'+fn
     h=hashlib.sha1(b.encode()).hexdigest()[:12];e=EXT[m.group(1)];fn=h+'.'+e

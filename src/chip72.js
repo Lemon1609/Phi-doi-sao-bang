@@ -31,11 +31,40 @@ const CHIP72={unlock:110,cap:500,
  salvage:[[15,0,0],[30,0,0],[50,1,1],[65,1,1],[85,2,2],[100,2,2],[130,3,3]],up:[[2,100],[4,150],[6,200],[8,250]],
  daily:{d:{boss:{cry:30},endless:{cry:30},task:{cry:30,coder:1,core:2,xp:20}},w:{ecl:{cry:100,coder:2,core:5,xp:30}}},
  gift:{cry:300,coder:2,core:4}};
+/* V2.3 U4 (chủ dự án 27/11, thiết kế Gemini): MÔ-ĐUN SIÊU DUY — 7 phẩm → 4 (Lục 0,40 · Lam 0,65 · Tím 0,85 · Cam Tuyệt mật 1,00; Lam trở lên luôn có giao thức),
+   Liên kết = Tốc sạc E + ST kỹ năng VKTT, dòng phụ theo NHÓM (chiến cơ / tên lửa / tàu con / Bạo Tẩu / kỹ năng VKTT / boss / chí mạng / sạc E) thay dòng gắn tên món,
+   8 bộ 3/6 → 4 giao thức 2/4 (mọi VKTT tính chung) + cộng hưởng khi VKTT chủ chiến đúng hệ. Đổi save 1 lần, bản cũ chép ở saobang-chip72-v1-bk23.
+   Tắt (trước khi trang tải): window.CHIP23=false */
+const CHIP23=window.CHIP23!==false;
+if(CHIP23){const D0=CHIP72.drop;Object.assign(CHIP72,{
+ q:[{n:'Lục',c:'#3ee08f',k:.40,l:1,set:0},{n:'Lam',c:'#3aa8ff',k:.65,l:2,set:1},{n:'Tím',c:'#b45cff',k:.85,l:3,set:1},{n:'Cam · Tuyệt mật',c:'#ff9a2e',k:1,l:3,set:1}],
+ sh:{fire:{n:'Hỏa lực',slot:'square',main:{atk:.006}},frame:{n:'Cấu trúc',slot:'hex',main:{hp:.006,armor:.006}},link:{n:'Liên kết',slot:'round',main:{charge:.01,skill:.015}}},
+ aff:[{id:'ship',n:'ST Chiến cơ',min:.01,max:.03,w:16,cap:.12},{id:'missile',n:'ST Tên lửa',min:.015,max:.045,w:14,cap:.20},{id:'pod',n:'ST Tàu con',min:.015,max:.045,w:14,cap:.20},
+  {id:'super',n:'ST khi Bạo Tẩu',min:.015,max:.04,w:12,cap:.15},{id:'skill',n:'ST Kỹ năng VKTT',min:.01,max:.04,w:12,cap:.15},{id:'boss',n:'ST kỹ năng VKTT lên Boss',min:.01,max:.04,w:10,cap:.15},
+  {id:'crit',n:'ST Chí mạng',qr:[[.012,.018],[.02,.028],[.032,.042],[.05,.05]],w:12,cap:.20},{id:'charge',n:'Tốc sạc E',min:.005,max:.02,w:12,cap:.12},
+  /* dòng cũ giữ từ save (không còn quay ra) */
+  {id:'atk',n:'Tấn công',min:.002,max:.006667,w:0},{id:'hp',n:'Máu',min:.002,max:.006667,w:0},{id:'armor',n:'Giáp',min:.002,max:.006667,w:0},
+  {id:'elite',n:'ST quái tinh anh',qr:[[.01,.015],[.018,.024],[.028,.035],[.04,.04]],w:0,cap:.15}],
+ sets:{thanhtri:{w:'fortress',n:'Thành Trì',sym:'fortress_1',s2:'+8% Máu & Giáp · kỹ năng VKTT tồn tại +0,8 giây',s4:'Tuyệt kỹ E: khiên 15% máu tối đa trong 5 giây + xóa đạn',res:'Pháo Đài: mỗi ụ pháo chặn thêm 1 đòn'},
+  thoiluat:{w:'world',n:'Thời Luật',sym:'world_1',s2:'+12% tốc sạc E',s4:'Vào Bạo Tẩu hoàn 15% E (hồi 12 giây) · E đầu trận bất tử 2 giây',res:'Thế Giới: ngưng thời gian +0,5 giây'},
+  cuonglieu:{w:'hunter',n:'Cuồng Liệp',sym:'hunter_1',s2:'+8% ST kỹ năng VKTT · +8% ST chí mạng',s4:'Địch trúng kỹ năng VKTT nhận thêm 10% sát thương trong 5 giây (Trọng thương)',res:'Săn Sao: +1 lưỡi cưa'},
+  thienvong:{w:'web',n:'Thiên Võng',sym:'web_2',s2:'+8% ST lên Boss & quái tinh anh',s4:'Tuyệt kỹ E: +15% ST chiến cơ & tên lửa trong 6 giây · sạc sẵn 15% E kế',res:'Lưới Điện: làm chậm +8%'}},
+ salvage:[[30,0,0],[50,1,1],[85,2,2],[130,3,3]],merge:{k:5,cr:200,up:{0:1,1:2,2:3}},
+ drop:D0.map(d=>{const q=d.q,m=d.mut,tm=q[3]*m[1]*m[2];return Object.assign({},d,{q:[q[0]+q[1],q[2],q[3]-tm,tm],mut:[0,0,0]});})});}
 const Chip72=(()=>{
  const C=CHIP72,U=ULT72,KEY='saobang-chip72-v1',ART=(typeof ULT72_ART!=='undefined'&&ULT72_ART)||{};
  const rd=()=>{try{const v=JSON.parse(localStorage.getItem(KEY)||'null');return v&&typeof v==='object'?v:{};}catch{return {};}};
  const S=Object.assign({v:1,ch:[],mat:{cry:0,coder:0,core:0},xp:0,pity:0,dday:'',gift:0,ser:0,last:[]},rd());if(!Array.isArray(S.ch))S.ch=[];S.mat=Object.assign({cry:0,coder:0,core:0},S.mat||{});
  const save=()=>{try{localStorage.setItem(KEY,JSON.stringify(S));}catch{}};
+ // V2.3 U4 · đổi save 1 lần: phẩm 7→4, bộ 8→4 giao thức (Lam+ chưa có bộ → giao thức theo mã chip, cố định), dòng gắn tên món → dòng nhóm
+ const QM23=[0,0,1,1,2,2,3],SM23={fortress_1:'thanhtri',fortress_2:'thanhtri',world_1:'thoiluat',world_2:'thoiluat',hunter_1:'cuonglieu',hunter_2:'cuonglieu',web_1:'thienvong',web_2:'thienvong'},PK23=['thanhtri','thoiluat','cuonglieu','thienvong'];
+ const hsh23=x=>{let h=7;for(const ch of String(x))h=(h*31+ch.charCodeAt(0))|0;return Math.abs(h);};
+ const NLID23={nd:1,sd:1,fd:1,fs:1,all:1};
+ function ln23(l){if(!l||!NLID23[l.a])return l;const t=String(l.t||'');const bt=l.a==='sd'||l.a==='fs';
+  const a=t==='vktt'?'skill':t==='ships'||(t[0]==='s'&&t[1]!==':')?(bt?'super':'ship'):t==='missiles'||t.startsWith('m:')?'missile':t==='sidearms'||t.startsWith('d:')?'pod':'armor';return {a,u:+l.u||0,o23:l.a+':'+t};}
+ if(CHIP23&&!S.m23){try{localStorage.setItem(KEY+'-bk23',JSON.stringify(S));}catch{}
+  for(const c of S.ch){const oq=Math.max(0,Math.min(6,c.q|0));c.oq=oq;c.q=QM23[oq];c.set=c.q>=1?(SM23[c.set]||PK23[hsh23(c.id)%4]):null;c.ln=(c.ln||[]).map(ln23);}
+  S.m23=1;S.m23n=S.ch.length;save();}
  const esc=s=>String(s==null?'':s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
  const fmt=n=>Math.round(n).toLocaleString('vi-VN');
  const pc=v=>(Math.round(v*10000)/100).toLocaleString('vi-VN')+'%';
@@ -45,11 +74,12 @@ const Chip72=(()=>{
  const rnd=w=>{const s=w.reduce((a,b)=>a+b,0);let r=Math.random()*s;for(let i=0;i<w.length;i++){if(r<w[i])return i;r-=w[i];}return w.length-1;};
  const pick=a=>a[Math.floor(Math.random()*a.length)];
  const SETS=Object.keys(C.sets),SHAPES=Object.keys(C.sh);
+ const C23=CHIP23,TOPQ=C23?3:6,MINR=C23?1:2,MINRN=C23?'LAM':'NGUYÊN MẪU';
  const dropLv=()=>{let k=0;C.drop.forEach((d,i)=>{if(S.xp>=d.xp&&maxStage()>=d.st)k=i;});return k;};
  // ---------- V193 · Phần II-B (Gemini 06/11): DÒNG KHUẾCH ĐẠI GẮN TÊN MÓN. Tắt: window.CHIP193=false ----------
  //  5 họ: ST thường / ST Bạo Tẩu (rổ cơ bản, cộng) · ST cuối / ST cuối Bạo Tẩu / TỔNG (rổ cuối, nhân riêng). (1+cơ bản)×(1+cuối) ≤ 1,14 chiến cơ · ≤ 1,35 tên lửa/vũ khí phụ.
  //  Một dòng mới có 50% là dòng gắn tên (Claude chọn; Gemini chưa nêu tỉ lệ trộn với 6 dòng cũ). Dòng giáp (hiệu lực nội tại) để V194.
- const V193=()=>window.CHIP193!==false;
+ const V193=()=>!C23&&window.CHIP193!==false;
  const NL={rs:[.30,.38,.48,.60,.74,.86,1],cap:{ship:1.14,weapon:1.35},share:.5,
   rsA:[.30,.42,.55,.68,.80,.90,1],capA:.25,capV:1.35,/* V195 (Gemini 06/11): giáp có thang phẩm riêng, trần +25% hiệu lực; TỔNG VKTT trần ×1,35 */
   f:{nd:{n:'ST thường',an:'Hiệu lực nội tại',b:0,sup:0,minQ:0,w:36,ship:[1.0,1.4],weapon:[4.0,5.5],armor:[2.5,4.0]},sd:{n:'ST Bạo Tẩu',an:'Hiệu lực Bạo Tẩu',b:0,sup:1,minQ:0,w:28,ship:[1.4,2.0],weapon:[5.0,7.0],armor:[3.5,5.5]},
@@ -89,8 +119,8 @@ const Chip72=(()=>{
   return rollLine(ex,0,null);}/* q=null → chỉ dòng chung */
  function lines(q,keep=[]){const L=keep.slice();while(L.length<C.q[q].l)L.push(rollLine(L.map(K),0,q));return L;}
  function gen(o={}){const D=C.drop[o.dl!=null?o.dl:dropLv()];let q=o.q;
-  if(q==null){const b=rnd(D.q);q=b===0?0:b===1?1:b===2?(Math.random()<D.mut[0]?3:2):(Math.random()<D.mut[1]?(Math.random()<D.mut[2]?6:5):4);}
-  if(V191()&&q===6&&o.q==null&&maxStage()<UNL191.top)q=5;/* V191: Tuyệt mật mở ở ải 145 */
+  if(q==null){const b=rnd(D.q);q=C23?b:b===0?0:b===1?1:b===2?(Math.random()<D.mut[0]?3:2):(Math.random()<D.mut[1]?(Math.random()<D.mut[2]?6:5):4);}
+  if(V191()&&q===TOPQ&&o.q==null&&maxStage()<UNL191.top)q=TOPQ-1;/* V191: Tuyệt mật mở ở ải 145 */
   const c={id:'c'+Date.now().toString(36)+(++S.ser).toString(36),q,sh:o.sh||pick(SHAPES),set:null,lv:o.lv||10*(1+rnd(D.lv)),ln:[],eq:null,lock:0,ref:0,reb:0,rbi:null,spent:0,mod:0};
   if(C.q[q].set)c.set=o.set||pick(SETS);c.ln=lines(q);return c;}
  const A=id=>C.aff.find(a=>a.id===id);
@@ -99,9 +129,13 @@ const Chip72=(()=>{
  const room=()=>S.ch.length<C.cap;
  // ---------- tổng hợp trên vũ khí ----------
  const onW=w=>S.ch.filter(c=>c.eq&&c.eq.w===w);
- function agg(w){const T={atk:0,hp:0,armor:0,skill:0,charge:0,boss:0,crit:0,elite:0,tm:0,set:{},nl:[]};for(const c of onW(w)){if(c.q===6&&c.lv>=C.tm307.lv)T.tm+=C.tm307.v;for(const st of ['atk','hp','armor'])T[st]+=mval(c,st);for(const l of c.ln){if(isNL(l))T.nl.push([l.a,l.t,lval(c,l)]);else T[l.a]+=lval(c,l);}if(C.q[c.q].set&&c.set&&C.sets[c.set].w===w)T.set[c.set]=(T.set[c.set]|0)+1;}
-  for(const st of ['atk','hp','armor'])T[st]=Math.min(C.statCap,T[st]);for(const a of C.aff)if(a.cap)T[a.id]=Math.min(a.cap,T[a.id]);T.tm=Math.min(C.tm307.cap,T.tm);return T;}
- let cache=null,cAt=0;const mainAgg=()=>{const now=performance.now();if(cache&&now-cAt<500)return cache;const m=Ult72.mainW();cache=m?agg(m):{atk:0,hp:0,armor:0,skill:0,charge:0,boss:0,crit:0,elite:0,tm:0,set:{},nl:[]};cAt=now;return cache;};
+ const T0=()=>{const T={atk:0,hp:0,armor:0,skill:0,charge:0,boss:0,crit:0,elite:0,tm:0,bossAll:0,set:{},nl:[]};for(const a of C.aff)T[a.id]=0;return T;};
+ function agg(w){const T=T0();for(const c of onW(w)){if(c.q===TOPQ&&c.lv>=C.tm307.lv)T.tm+=C.tm307.v;for(const st in C.sh[c.sh].main)T[st]=(T[st]||0)+mval(c,st);for(const l of c.ln){if(isNL(l))T.nl.push([l.a,l.t,lval(c,l)]);else if(A(l.a))T[l.a]=(T[l.a]||0)+lval(c,l);}if(C.q[c.q].set&&c.set&&C.sets[c.set]&&(C23||C.sets[c.set].w===w))T.set[c.set]=(T.set[c.set]|0)+1;}
+  for(const st of ['atk','hp','armor'])T[st]=Math.min(C.statCap,T[st]);for(const a of C.aff)if(a.cap)T[a.id]=Math.min(a.cap,T[a.id]);T.tm=Math.min(C.tm307.cap,T.tm);
+  if(C23){const n=k=>T.set[k]|0;/* thưởng 2 viên giao thức, cộng sau trần dòng (trần chung +18 % ở Ult72) */
+   if(n('thanhtri')>=2){T.hp+=.08;T.armor+=.08;}if(n('thoiluat')>=2)T.charge+=.12;if(n('cuonglieu')>=2){T.skill+=.08;T.crit+=.08;}if(n('thienvong')>=2){T.bossAll+=.08;T.elite+=.08;}}
+  return T;}
+ let cache=null,cAt=0;const mainAgg=()=>{const now=performance.now();if(cache&&now-cAt<500)return cache;const m=Ult72.mainW();cache=m?agg(m):T0();cAt=now;return cache;};
  const bump=()=>{cache=null;try{Combat.render&&Combat.render();}catch{}};
  // ---- V193 · hệ số trong trận (chỉ chip của vũ khí CHỦ CHIẾN) ----
  const sup193=()=>{try{return superTime>0;}catch{return false;}};
@@ -109,15 +143,15 @@ const Chip72=(()=>{
   for(const id of ids){let b=0,f=0;for(const [a,t,v] of T.nl){const F=NL.f[a];if(F.cat||t!==id||(F.sup&&!sp))continue;if(F.b)f+=v;else b+=v;}if(!best||(1+b)*(1+f)>(1+best.b)*(1+best.f))best={b,f};}
   let all=0;for(const [a,t,v] of T.nl)if(NL.f[a].cat&&t===cat)all+=v;const m=(1+(best?best.b:0))*(1+(best?best.f:0)+all);return cap?Math.min(cap,m):m;}
  let sc193={t:0,k:'',v:1};
- function shipM(){const now=performance.now(),k=curShip()+'|'+sup193();if(now-sc193.t<250&&sc193.k===k)return sc193.v;sc193={t:now,k,v:nlMult([curShip()],'ships',NL.cap.ship)};return sc193.v;}
+ function shipM(){if(C23){const T=mainAgg();return 1+Math.min(.12,T.ship||0)+(sup193()?Math.min(.15,T.super||0):0);}const now=performance.now(),k=curShip()+'|'+sup193();if(now-sc193.t<250&&sc193.k===k)return sc193.v;sc193={t:now,k,v:nlMult([curShip()],'ships',NL.cap.ship)};return sc193.v;}
  const gc193={};
- function gearM(it){if(!it||it.kind==='armor')return 1;const now=performance.now(),k=it.variant+'|'+sup193(),o=gc193[k];if(o&&now-o.t<250)return o.v;
+ function gearM(it){if(!it||it.kind==='armor')return 1;if(C23){const T=mainAgg();let k='pod';try{const vk=vKey(it.variant);if(vk&&vk.startsWith('m:'))k='missile';}catch{}return 1+Math.min(.20,T[k]||0);}const now=performance.now(),k=it.variant+'|'+sup193(),o=gc193[k];if(o&&now-o.t<250)return o.v;
   const vk=vKey(it.variant);let v=1;if(vk){const pre=vk.slice(0,2),cat=pre==='m:'?'missiles':'sidearms';let ids=[vk];
    try{const kind=pre==='m:'?'missiles':'sidearm',sid=Gear44.activeId(kind),d=sid&&Gear44.defs().find(x=>x.id===sid);if(d&&d.parents&&d.parents.includes(it.variant))ids=d.parents.map(p=>vKey(p)).filter(Boolean);}catch{}
    v=nlMult(ids,cat,NL.cap.weapon);}gc193[k]={t:now,v};return v;}
  // V195 · hiệu lực nội tại giáp: x = Σ mọi dòng của giáp (Bạo Tẩu chỉ khi đang Bạo Tẩu) + TỔNG mọi giáp; SSS lấy max 2 giáp mẹ; trần +25%
  const ac195={};
- function armorEff(variant){if(!V195())return 1;const sp=sup193(),k=variant+'|'+sp,now=performance.now(),o=ac195[k];if(o&&now-o.t<250)return o.v;
+ function armorEff(variant){if(!V195()||C23)return 1;const sp=sup193(),k=variant+'|'+sp,now=performance.now(),o=ac195[k];if(o&&now-o.t<250)return o.v;
   const T=mainAgg();let v=1;if(T.nl&&T.nl.length){let ids=['a:'+variant];try{const sid=Gear44.activeId('armor'),d=sid&&Gear44.defs().find(x=>x.id===sid);if(d&&d.parents&&(sid===variant||d.parents.includes(variant)))ids=d.parents.map(p=>'a:'+p);}catch{}
    let best=0;for(const id of ids){let x=0;for(const [a,t,val] of T.nl){const F=NL.f[a];if(F.cat||t!==id||(F.sup&&!sp))continue;x+=val;}best=Math.max(best,x);}
    let all=0;for(const [a,t,val] of T.nl)if(NL.f[a].cat&&t==='armors')all+=val;v=1+Math.min(NL.capA,best+all);}
@@ -133,10 +167,11 @@ const Chip72=(()=>{
  // ---- V307 · dòng chí mạng / tinh anh / Tuyệt mật (tắt: window.CHIP307=false) ----
  const ON307=()=>window.CHIP307!==false;
  // Chí mạng gốc (CRIT66) chuẩn hóa trung bình → dòng chip nhân riêng lên đòn chí mạng sau khi đã chuẩn hóa (tăng thật = tỉ lệ chí mạng × dòng)
- try{const os=shot;shot=function(){const r=os.apply(this,arguments);try{const sh=shots.at(-1);if(ON307()&&sh&&sh.crit66&&!sh.c307){sh.c307=1;const v=mainAgg().crit||0;if(v>0)sh.damage*=1+v;}}catch{}return r;};}catch{}
- const critEV=()=>{try{return (CRIT66.chance||0)*(mainAgg().crit||0);}catch{return 0;}};
+ try{const os=shot;shot=function(){const r=os.apply(this,arguments);try{const sh=shots.at(-1);if(ON307()&&sh&&sh.crit66&&!sh.c307){sh.c307=1;const v=(mainAgg().crit||0)+sup23('hunter',.06);if(v>0)sh.damage*=1+v;}}catch{}return r;};}catch{}
+ const critEV=()=>{try{return (CRIT66.chance||0)*((mainAgg().crit||0)+sup23('hunter',.06));}catch{return 0;}};
+ const sup23=(id,v)=>{try{return C23&&Ult72.supOn&&Ult72.supOn(id)?v:0;}catch{return 0;}};
  // Tinh anh: giảm máu quái tinh anh lúc xuất hiện = +x% sát thương lên chúng (mọi nguồn)
- try{const oa=addEnemy;const f=function(e){const r=oa.apply(this,arguments);try{if(ON307()&&e&&e.elite&&!e.bossPart&&e!==boss&&!e.__c307){e.__c307=1;const v=mainAgg().elite||0;if(v>0){e.hp/=1+v;e.maxHp=e.hp;if(e.guard)e.guard/=1+v;}}}catch{}return r;};window.addEnemy=f;try{addEnemy=f;}catch{}}catch{}
+ try{const oa=addEnemy;const f=function(e){const r=oa.apply(this,arguments);try{if(ON307()&&e&&e.elite&&!e.bossPart&&e!==boss&&!e.__c307){e.__c307=1;const v=(mainAgg().elite||0)+sup23('web',.06);if(v>0){e.hp/=1+v;e.maxHp=e.hp;if(e.guard)e.guard/=1+v;}}}catch{}return r;};window.addEnemy=f;try{addEnemy=f;}catch{}}catch{}
  // Tuyệt mật: nhân sát thương toàn đội (ngoài trần khuếch đại)
  const tm=()=>ON307()?(mainAgg().tm||0):0;
  try{const of=Combat.factor;Combat.factor=function(){const v=of.apply(this,arguments);try{return v*(1+tm());}catch{return v;}};}catch{}
@@ -146,7 +181,7 @@ const Chip72=(()=>{
  function unequip(id){const c=S.ch.find(x=>x.id===id);if(!c||!c.eq)return false;c.eq=null;save();bump();return true;}
  function produce(n=1){const out=[];for(let i=0;i<n;i++){if(!room()){toast('KHO CHIP ĐẦY ('+C.cap+')');break;}const disc=S.dday!==today(),cry=disc?C.prod.daily:C.prod.cry;
    if(S.mat.cry<cry){if(!out.length)toast('THIẾU TINH THỂ · cần '+cry);break;}if(Progress.balance()<C.prod.cr){if(!out.length)toast('THIẾU HỢP KIM');break;}if(!Progress.spendCredits(C.prod.cr))break;
-   S.mat.cry-=cry;if(disc)S.dday=today();S.pity++;let c;if(S.pity>=C.prod.pity){S.pity=0;const dl=dropLv();const m=Ult72.mainW();const set=m?pick(SETS.filter(s=>C.sets[s].w===m)):pick(SETS);c=gen({q:dl<=1?3:5,set});}else c=gen();
+   S.mat.cry-=cry;if(disc)S.dday=today();S.pity++;let c;if(S.pity>=C.prod.pity){S.pity=0;const dl=dropLv();const m=Ult72.mainW();const set=m?pick(SETS.filter(s=>C.sets[s].w===m)):pick(SETS);c=gen({q:C23?(dl<=1?1:2):(dl<=1?3:5),set});}else c=gen();
    S.ch.push(c);out.push(c);}S.last=out.map(c=>c.id);save();return out;}
  const canUse=c=>!c.eq&&!c.lock;
  function salvage(ids){let g={cry:0,coder:0,core:0},n=0;for(const id of ids){const c=S.ch.find(x=>x.id===id);if(!c||!canUse(c))continue;const r=C.salvage[c.q];g.cry+=r[0];g.coder+=r[1];g.core+=r[2]+Math.floor((c.spent|0)/2);S.ch=S.ch.filter(x=>x!==c);n++;}
@@ -162,13 +197,13 @@ const Chip72=(()=>{
  const UNL191={cal:110,type:125,top:145};
  const tier191=(T,n)=>T.find(t=>n<=t.to);
  const gemOK=n=>{if(!n)return true;try{return Econ74.spend(n);}catch{toast('KHÔNG TIÊU ĐƯỢC KIM CƯƠNG');return false;}};
- function calib(id,idx){const c=S.ch.find(x=>x.id===id);if(!c||c.q<2){toast('CHỈ CHIP TỪ NGUYÊN MẪU TRỞ LÊN');return null;}if(c.lock){toast('CHIP ĐANG KHÓA BẢO VỆ');return null;}
+ function calib(id,idx){const c=S.ch.find(x=>x.id===id);if(!c||c.q<MINR){toast('CHỈ MÔ-ĐUN TỪ '+MINRN+' TRỞ LÊN');return null;}if(c.lock){toast('CHIP ĐANG KHÓA BẢO VỆ');return null;}
   c.cal=c.cal||[];const n=(c.cal[idx]||0)+1,T=tier191(CAL191,n);
   if(S.mat.cry<T.cry){toast('THIẾU TINH THỂ · cần '+T.cry);return null;}if(S.mat.core<T.core){toast('THIẾU LÕI CHIP · cần '+T.core);return null;}if(Progress.balance()<T.cr){toast('THIẾU HỢP KIM');return null;}
   if(T.gem){let g=0;try{g=Econ74.gems();}catch{g=0;}if(g<T.gem){toast('THIẾU KIM CƯƠNG · cần '+T.gem+' 💎');return null;}}
   if(!Progress.spendCredits(T.cr))return null;if(!gemOK(T.gem))return null;S.mat.cry-=T.cry;S.mat.core-=T.core;c.cal[idx]=n;c.mod=1;
   const old=c.ln[idx];cand={id,idx,line:Object.assign({},old,{u:uRoll(T.floor||0)}),kind:'cal'};save();return cand;}
- function retype(id,idx){const g=ON203()?grp203:'all',xc=g==='all'?0:E203.extra;const c=S.ch.find(x=>x.id===id);if(!c||c.q<2){toast('CHỈ CHIP TỪ NGUYÊN MẪU TRỞ LÊN');return null;}if(c.lock){toast('CHIP ĐANG KHÓA BẢO VỆ');return null;}
+ function retype(id,idx){const g=ON203()?grp203:'all',xc=g==='all'?0:E203.extra;const c=S.ch.find(x=>x.id===id);if(!c||c.q<MINR){toast('CHỈ MÔ-ĐUN TỪ '+MINRN+' TRỞ LÊN');return null;}if(c.lock){toast('CHIP ĐANG KHÓA BẢO VỆ');return null;}
   if(maxStage()<UNL191.type){toast('TẨY DÒNG MỞ Ở ẢI '+UNL191.type);return null;}
   const n=(c.reb||0)+1,T=tier191(RRT191,n);if(S.mat.coder<T.coder+xc||S.mat.core<T.core){toast('THIẾU BỘ MÃ HÓA / LÕI CHIP · cần '+(T.coder+xc)+' / '+T.core);return null;}if(Progress.balance()<T.cr){toast('THIẾU HỢP KIM');return null;}
   if(T.gem){let g=0;try{g=Econ74.gems();}catch{g=0;}if(g<T.gem){toast('THIẾU KIM CƯƠNG · cần '+T.gem+' 💎');return null;}}
@@ -176,10 +211,10 @@ const Chip72=(()=>{
   const old=c.ln[idx],ex=c.ln.filter((_,j)=>j!==idx).map(K);const nl=ON203()?roll203(ex.concat([K(old)]),c.q,g):rollLine(ex.concat([K(old)]),0,c.q);nl.u=old.u;if(ON203()){if(hit203(nl,g))S.pity203=0;else if(eqT203(g).length)S.pity203=(S.pity203|0)+1;}/* giữ phẩm chất (u) */cand={id,idx,line:nl,kind:'type'};save();return cand;}
  function costTxt191(c,idx,k){if(k==='cal'){const n=((c.cal||[])[idx]||0)+1,T=tier191(CAL191,n);return 'lượt '+n+' · '+T.cry+' tinh thể'+(T.core?' + '+T.core+' lõi':'')+' + '+T.cr+' ◈'+(T.gem?' + '+T.gem+' 💎':'')+(T.floor?' · đảm bảo ≥'+Math.round(T.floor*100)+'%':'');}
   const n=(c.reb||0)+1,T=tier191(RRT191,n),xc=ON203()&&grp203!=='all'?E203.extra:0;return 'lượt '+n+' · '+(T.coder+xc)+' mã hóa + '+T.core+' lõi + '+T.cr+' ◈'+(T.gem?' + '+T.gem+' 💎':'');}
- function refine(id,idx){const c=S.ch.find(x=>x.id===id);if(!c||c.q<2){toast('CHỈ CHIP TỪ NGUYÊN MẪU TRỞ LÊN');return null;}if(c.ref>=C.refine.max){toast('ĐÃ HẾT '+C.refine.max+' LẦN LUYỆN');return null;}if(c.lock){toast('CHIP ĐANG KHÓA BẢO VỆ');return null;}
+ function refine(id,idx){const c=S.ch.find(x=>x.id===id);if(!c||c.q<MINR){toast('CHỈ MÔ-ĐUN TỪ '+MINRN+' TRỞ LÊN');return null;}if(c.ref>=C.refine.max){toast('ĐÃ HẾT '+C.refine.max+' LẦN LUYỆN');return null;}if(c.lock){toast('CHIP ĐANG KHÓA BẢO VỆ');return null;}
   if(S.mat.cry<C.refine.cry){toast('THIẾU TINH THỂ · cần '+C.refine.cry);return null;}if(Progress.balance()<C.refine.cr){toast('THIẾU HỢP KIM');return null;}if(!Progress.spendCredits(C.refine.cr))return null;S.mat.cry-=C.refine.cry;c.ref++;c.mod=1;
   const ex=c.ln.filter((_,j)=>j!==idx).map(K);const ln=rollLine(ex,c.ref%C.refine.every===0?C.refine.u:0,c.q);cand={id,idx,line:ln,kind:'ref'};save();return cand;}
- function rebuild(id,idx){const c=S.ch.find(x=>x.id===id);if(!c||c.q<2){toast('CHỈ CHIP TỪ NGUYÊN MẪU TRỞ LÊN');return null;}if(c.reb>=C.rebuild.max){toast('ĐÃ HẾT '+C.rebuild.max+' LẦN TÁI TẠO');return null;}if(c.lock){toast('CHIP ĐANG KHÓA BẢO VỆ');return null;}
+ function rebuild(id,idx){const c=S.ch.find(x=>x.id===id);if(!c||c.q<MINR){toast('CHỈ MÔ-ĐUN TỪ '+MINRN+' TRỞ LÊN');return null;}if(c.reb>=C.rebuild.max){toast('ĐÃ HẾT '+C.rebuild.max+' LẦN TÁI TẠO');return null;}if(c.lock){toast('CHIP ĐANG KHÓA BẢO VỆ');return null;}
   if(c.rbi!=null)idx=c.rbi;const R=C.rebuild;if(S.mat.coder<R.coder||S.mat.core<R.core){toast('THIẾU BỘ MÃ HÓA / LÕI CHIP');return null;}if(Progress.balance()<R.cr){toast('THIẾU HỢP KIM');return null;}if(!Progress.spendCredits(R.cr))return null;
   S.mat.coder-=R.coder;S.mat.core-=R.core;c.reb++;c.mod=1;if(c.rbi==null)c.rbi=idx;c.ref=0;const ex=c.ln.filter((_,j)=>j!==idx).map(K);const ln=rollLine(ex,c.reb%R.every===0?R.u:0,c.q);cand={id,idx,line:ln,kind:'reb'};save();return cand;}
  function accept(take){if(!cand)return;const c=S.ch.find(x=>x.id===cand.id);if(c&&take)c.ln[cand.idx]=cand.line;cand=null;save();bump();}
@@ -209,7 +244,7 @@ const Chip72=(()=>{
    else if(a==='mg'){const [q,sh]=v.split('|');const c=merge(+q,sh);if(c)band('GHÉP → '+C.q[c.q].n.toUpperCase());forge();}});}
  function close(){if(el)el.hidden=true;}
  function band(t){const b=document.createElement('div');b.className='adv-band';b.textContent=t;document.body.appendChild(b);setTimeout(()=>b.remove(),1600);try{tone(880,.18,'triangle',.06);}catch{}}
- function chipIc(c,cls=''){const body=ART['chip_body_'+c.sh],sym=c.set?ART['chip_'+c.set]:null,col=C.q[c.q].c;
+ function chipIc(c,cls=''){const body=ART['chip_body_'+c.sh],sym=c.set?ART['chip_'+((C.sets[c.set]&&C.sets[c.set].sym)||c.set)]:null,col=C.q[c.q].c;
   return `<span class="c72-ic ${cls}" style="--qc:${col}">${body?`<img class="bd" src="${body}" alt="">`:'<i class="bd"></i>'}${sym?`<img class="sy" src="${sym}" alt="">`:''}<b>${c.lv}</b>${c.lock?'<u>🔒</u>':''}</span>`;}
  const matRow=()=>`<div class="c72-mat">${[['cry','chip_mat_energy','Tinh thể'],['coder','chip_mat_coder','Bộ mã hóa'],['core','chip_mat_core','Lõi chip']].map(([k,ic,n])=>`<span title="${n}">${ART[ic]?`<img src="${ART[ic]}" alt="">`:''}<b>${fmt(S.mat[k])}</b><small>${n}</small></span>`).join('')}</div>`;
  function lineTxt(c,l,j){return `<li class="${c.rbi===j?'lk':''}${isNL(l)?' nl193':''}">${esc(LN(l,1))} <b>+${pc(lval(c,l))}</b>${c.rbi===j?' <i>(khóa tái tạo)</i>':''}</li>`;}
@@ -217,7 +252,7 @@ const Chip72=(()=>{
  function home(){if(!el)build();if(!unlocked()){el.innerHTML=`<div class="m63-card adv-card u72-card"><div class="m63-eye">CHIP GIAO THỨC</div><h3>Mở khóa ở ải ${C.unlock}</h3><p class="adv-max">Vượt ải ${C.unlock} để mở chip cho vũ khí tối thượng (tặng ${C.gift.cry} tinh thể, ${C.gift.coder} bộ mã hóa, ${C.gift.core} lõi chip).</p><div class="adv-btns"><button class="adv-x" data-a="back">‹ VŨ KHÍ</button></div></div>`;el.hidden=false;return;}
   const isMain=Ult72.mainW()===W,T=agg(W),L=onW(W);
   const socks=C.slots.map((sh,i)=>{const c=L.find(x=>x.eq.s===i);const bg=ART['mod_slot_'+C.sh[sh].slot];return `<button class="c72-sk" data-a="sock" data-v="${i}">${bg?`<img class="bg" src="${bg}" alt="">`:''}${c?chipIc(c):`<small>${C.sh[sh].n}</small>`}</button>`;}).join('');
-  const sets=SETS.filter(s=>C.sets[s].w===W).map(s=>{const n=T.set[s]|0,S_=C.sets[s];return `<div class="c72-set ${n>=3?'on':''}">${ART['chip_'+s]?`<img src="${ART['chip_'+s]}" alt="">`:''}<div><b>${S_.n} <em>${n}/6</em></b><small class="${n>=3?'on':''}">(3) ${esc(S_.s3)}</small><small class="${n>=6?'on':''}">(6) ${esc(S_.s6)}</small></div></div>`;}).join('');
+  const sets=C23?SETS.map(s=>{const n=T.set[s]|0,S_=C.sets[s],rs=n>=2&&S_.w===W;return `<div class="c72-set ${n>=2?'on':''}">${ART['chip_'+S_.sym]?`<img src="${ART['chip_'+S_.sym]}" alt="">`:''}<div><b>${S_.n} <em>${n}/4</em></b><small class="${n>=2?'on':''}">(2) ${esc(S_.s2)}</small><small class="${n>=4?'on':''}">(4) ${esc(S_.s4)}</small><small class="${rs?'on':''}">Cộng hưởng ${esc(S_.res)}</small></div></div>`;}).join(''):SETS.filter(s=>C.sets[s].w===W).map(s=>{const n=T.set[s]|0,S_=C.sets[s];return `<div class="c72-set ${n>=3?'on':''}">${ART['chip_'+s]?`<img src="${ART['chip_'+s]}" alt="">`:''}<div><b>${S_.n} <em>${n}/6</em></b><small class="${n>=3?'on':''}">(3) ${esc(S_.s3)}</small><small class="${n>=6?'on':''}">(6) ${esc(S_.s6)}</small></div></div>`;}).join('');
   el.innerHTML=`<div class="m63-card adv-card u72-card"><div class="m63-eye">CHIP GIAO THỨC · ${esc(U.nm[W].toUpperCase())}</div><h3>${isMain?'':'<span class="c72-warn">Chỉ có tác dụng khi là CHỦ CHIẾN</span>'}</h3>${matRow()}
    <div class="c72-socks">${socks}</div>
    <div class="adv-cmp"><div><i>CHỈ SỐ TỪ CHIP</i>Tấn công +${pc(T.atk)} · Máu +${pc(T.hp)} · Giáp +${pc(T.armor)} <small>(trần ${pc(C.statCap)})</small></div><div><i>KỸ NĂNG</i>ST +${pc(T.skill)} · Sạc +${pc(T.charge)} · Lên boss +${pc(T.boss)}${T.crit?' · Chí mạng +'+pc(T.crit):''}${T.elite?' · Tinh anh +'+pc(T.elite):''}${T.tm?' · <b style="color:#ffd23a">Tuyệt mật +'+pc(T.tm)+' toàn đội</b>':''}</div></div>
@@ -240,12 +275,12 @@ const Chip72=(()=>{
    ${cur?`<div class="c72-row cur">${chipIc(cur)}<div><b style="color:${C.q[cur.q].c}">${esc(C.q[cur.q].n)}${cur.set?' · '+esc(C.sets[cur.set].n):''}</b><small>${mainTxt(cur)}</small></div><button data-a="uneq" data-v="${cur.id}">THÁO</button></div>`:''}
    <div class="st71-list">${L.slice(0,60).map(c=>`<div class="c72-row">${chipIc(c)}<div><b style="color:${C.q[c.q].c}">${esc(C.q[c.q].n)}${c.set?' · '+esc(C.sets[c.set].n):''}</b><small>${mainTxt(c)} · ${c.ln.map(l=>esc(LN(l,1))+' +'+pc(lval(c,l))).join(' · ')}${c.eq?' · <u>đang lắp ở '+esc(U.nm[c.eq.w])+'</u>':''}</small>${ismain?cmp202(c,slot,cp0):''}</div><button data-a="eq" data-v="${c.id}|${slot}">LẮP</button></div>`).join('')||'<p class="adv-max">Chưa có chip hình '+C.sh[sh].n+'. Vào Lò sản xuất.</p>'}</div>
    <div class="adv-btns"><button class="adv-x" data-a="home">‹ QUAY LẠI</button><button class="m63-go" data-a="forge">LÒ SẢN XUẤT</button></div></div>`;el.hidden=false;}
- function detail(id){const c=S.ch.find(x=>x.id===id);if(!c)return inv();const up=c.lv<50?C.up[c.lv/10-1]:null;const adv=c.q>=2;
+ function detail(id){const c=S.ch.find(x=>x.id===id);if(!c)return inv();const up=c.lv<50?C.up[c.lv/10-1]:null;const adv=c.q>=MINR;
   el.innerHTML=`<div class="m63-card adv-card u72-card"><div class="m63-eye">CHIP · ${esc(C.sh[c.sh].n.toUpperCase())}</div><h3 style="color:${C.q[c.q].c}">${esc(C.q[c.q].n)} <span class="fr70" style="--fc:${C.q[c.q].c}">Lv ${c.lv}</span></h3>
    <div class="c72-big">${chipIc(c,'big')}</div>${c.set?`<p class="adv-cost">Bộ <b>${esc(C.sets[c.set].n)}</b> (${esc(U.nm[C.sets[c.set].w])})</p>`:'<p class="adv-cost">Không tính bộ</p>'}
-   <p class="u72-sk"><b>Tham số chủ</b>${mainTxt(c)}</p><ul class="c72-ln">${c.ln.map((l,j)=>lineTxt(c,l,j)).join('')}</ul>${c.q===6?`<p class="u72-sk" style="color:#ffd23a"><b>Tuyệt mật</b>+1,5% sát thương chuẩn toàn đội${c.lv>=C.tm307.lv?'':' · mở ở cấp '+C.tm307.lv}</p>`:''}
+   <p class="u72-sk"><b>Tham số chủ</b>${mainTxt(c)}</p><ul class="c72-ln">${c.ln.map((l,j)=>lineTxt(c,l,j)).join('')}</ul>${c.q===TOPQ?`<p class="u72-sk" style="color:#ffd23a"><b>Tuyệt mật</b>+1,5% sát thương chuẩn toàn đội${c.lv>=C.tm307.lv?'':' · mở ở cấp '+C.tm307.lv}</p>`:''}
    ${adv?`<p class="adv-cost">Luyện ${c.ref}/${C.refine.max} (${C.refine.cry} tinh thể + ${C.refine.cr} ◈) · Tái tạo ${c.reb}/${C.rebuild.max} (${C.rebuild.coder} mã hóa + ${C.rebuild.core} lõi + ${C.rebuild.cr} ◈)</p>
-    <div class="c72-rr">${c.ln.map((l,j)=>`<button data-a="ref" data-v="${c.id}|${j}">LUYỆN DÒNG ${j+1}</button>`).join('')}${c.ln.map((l,j)=>c.rbi==null||c.rbi===j?`<button class="gold" data-a="reb" data-v="${c.id}|${j}">TÁI TẠO DÒNG ${j+1}</button>`:'').join('')}</div>`.replace(/^[\s\S]*$/,m=>V191()?btn191(c):m):'<p class="adv-cost">Luyện / Tái tạo: chỉ chip từ Nguyên mẫu trở lên.</p>'}
+    <div class="c72-rr">${c.ln.map((l,j)=>`<button data-a="ref" data-v="${c.id}|${j}">LUYỆN DÒNG ${j+1}</button>`).join('')}${c.ln.map((l,j)=>c.rbi==null||c.rbi===j?`<button class="gold" data-a="reb" data-v="${c.id}|${j}">TÁI TẠO DÒNG ${j+1}</button>`:'').join('')}</div>`.replace(/^[\s\S]*$/,m=>V191()?btn191(c):m):'<p class="adv-cost">Luyện / Tái tạo: chỉ từ '+(C23?'Lam':'Nguyên mẫu')+' trở lên.</p>'}
    <div class="u72-acts"><button class="hb-btn cyan" data-a="up" data-v="${c.id}" ${up?'':'disabled'}>NÂNG CẤP<small>${up?up[0]+' lõi · '+up[1]+' ◈':'Lv 50 tối đa'}</small></button><button class="hb-btn" data-a="lock" data-v="${c.id}">${c.lock?'MỞ KHÓA':'KHÓA BẢO VỆ'}<small>chặn phân giải / luyện</small></button>
     <button class="hb-btn gold" data-a="sal" data-v="${c.id}" ${canUse(c)?'':'disabled'}>PHÂN GIẢI<small>+${C.salvage[c.q][0]} tinh thể${C.salvage[c.q][1]?' · +'+C.salvage[c.q][1]+' mã hóa':''}${C.salvage[c.q][2]+Math.floor((c.spent|0)/2)?' · +'+(C.salvage[c.q][2]+Math.floor((c.spent|0)/2))+' lõi':''}</small></button>${c.eq?`<button class="hb-btn" data-a="uneq" data-v="${c.id}">THÁO<small>${esc(U.nm[c.eq.w])}</small></button>`:''}</div>
    <div class="adv-btns"><button class="adv-x" data-a="inv">‹ KHO CHIP</button><button class="adv-x" data-a="home">CHIP VŨ KHÍ</button></div></div>`;el.hidden=false;}
@@ -265,21 +300,23 @@ const Chip72=(()=>{
   el.innerHTML=`<div class="m63-card adv-card u72-card"><div class="m63-eye">KHO CHIP · ${S.ch.length}/${C.cap}</div><h3>Chip giao thức</h3>
    <div class="hb-filter st71-tabs">${[['all','Tất cả'],['fire','Hỏa lực'],['frame','Cấu trúc'],['link','Mạch'],['set','Có bộ']].map(([k,n])=>`<button data-a="inv" data-v="${k}" aria-pressed="${k===filt}">${n}</button>`).join('')}</div>
    <div class="c72-grid">${L.slice(0,120).map(c=>`<button data-a="det" data-v="${c.id}" class="${c.eq?'eq':''}">${chipIc(c)}</button>`).join('')||'<p class="adv-max">Chưa có chip.</p>'}</div>
-   <div class="adv-btns"><button class="adv-x" data-a="salq" data-v="1">PHÂN GIẢI LỤC + LAM</button><button class="adv-x" data-a="home">‹ CHIP VŨ KHÍ</button></div></div>`;el.hidden=false;}
+   <div class="adv-btns"><button class="adv-x" data-a="salq" data-v="${C23?0:1}">${C23?'PHÂN GIẢI LỤC':'PHÂN GIẢI LỤC + LAM'}</button><button class="adv-x" data-a="home">‹ CHIP VŨ KHÍ</button></div></div>`;el.hidden=false;}
  function forge(){const dl=dropLv(),disc=S.dday!==today(),D=C.drop[dl],nx=C.drop[dl+1];
   const mg=[0,1,2].map(q=>SHAPES.map(sh=>{const n=mergeable(q,sh).length;return `<button class="st71-mg ${n>=C.merge.k?'hot':''}" data-a="mg" data-v="${q}|${sh}" style="--tc:${C.q[C.merge.up[q]].c}">${C.sh[sh].n}<small>${C.q[q].n} ${n}/${C.merge.k}</small></button>`;}).join('')).join('');
   const last=S.last.map(id=>S.ch.find(c=>c.id===id)).filter(Boolean);
   el.innerHTML=`<div class="m63-card adv-card u72-card"><div class="m63-eye">LÒ SẢN XUẤT CHIP</div><h3>Cấp rơi ${dl+1}/5</h3>${matRow()}
    <div class="c72-forge">${ART.chip_forge?`<img src="${ART.chip_forge}" alt="">`:''}<div><p class="adv-cost">Mỗi lần: <b>${disc?C.prod.daily+' tinh thể (ưu đãi đầu ngày)':C.prod.cry+' tinh thể'}</b> + ${C.prod.cr} ◈</p>
-    <p class="adv-cost">Bảo hiểm: <b>${S.pity}/${C.prod.pity}</b> → chắc chắn ${dl<=1?'Giao ước Nguyên mẫu':'Giao ước Chiến lược'} thuộc bộ của vũ khí chủ chiến</p>
-    <p class="adv-cost">Tỉ lệ: Lục ${Math.round(D.q[0]*100)}% · Lam ${Math.round(D.q[1]*100)}% · Tím ${Math.round(D.q[2]*100)}% · Cam ${Math.round(D.q[3]*100)}% · Lv50 ${Math.round(D.lv[4]*100)}%</p>
+    <p class="adv-cost">Bảo hiểm: <b>${S.pity}/${C.prod.pity}</b> → chắc chắn ${C23?(dl<=1?'Lam':'Tím')+' có giao thức cộng hưởng vũ khí chủ chiến':dl<=1?'Giao ước Nguyên mẫu':'Giao ước Chiến lược'}</p>
+    <p class="adv-cost">Tỉ lệ: ${C.q.map((x,i)=>(C23?x.n:['Lục','Lam','Tím','Cam'][i]||'')+' '+Math.round((D.q[i]||0)*100)+'%').slice(0,4).join(' · ')} · Lv50 ${Math.round(D.lv[4]*100)}%</p>
     <p class="adv-cost">${nx?`Lên cấp rơi ${dl+2}: XP chip ${S.xp}/${nx.xp} và vượt ải ${nx.st}`:'Cấp rơi tối đa'}</p></div></div>
    <div class="adv-btns"><button class="m63-go" data-a="prod" data-v="1">SẢN XUẤT ×1</button><button class="m63-go" data-a="prod" data-v="10">SẢN XUẤT ×10</button></div>
    ${last.length?`<div class="c72-grid sm">${last.map(c=>`<button data-a="det" data-v="${c.id}">${chipIc(c)}</button>`).join('')}</div>`:''}
    <div class="adv-req-t">GHÉP 5 → 1 (cùng phẩm, cùng hình, chưa luyện)</div><div class="c72-mgs">${mg}</div>
    <div class="adv-btns"><button class="adv-x" data-a="home">‹ CHIP VŨ KHÍ</button><button class="adv-x" data-a="inv" data-v="all">KHO CHIP</button></div></div>`;el.hidden=false;}
  function open(w){if(!el)build();W=w||Ult72.mainW()||'fortress';try{Ult72.close&&Ult72.close();}catch{}document.querySelectorAll('.u72:not(.c72)').forEach(e=>e.hidden=true);home();}
- function summary(w){if(!unlocked())return 'mở ở ải '+C.unlock;const L=onW(w);const T=agg(w);const sets=Object.entries(T.set).filter(([,n])=>n>=3).map(([s,n])=>C.sets[s].n+' '+n);return L.length+'/6 chip'+(sets.length?' · '+sets.join(', '):'');}
- return {_t203:(id,idx,g)=>{grp203=g||'all';const r=retype(id,idx);if(!r)return null;const o={line:r.line,name:LN(r.line,1),hit:hit203(r.line,grp203),pity:S.pity203|0};accept(false);return o;},NL,armorEff,shipM,gearM,nlMult,LN,tgts,C,state:()=>JSON.parse(JSON.stringify(S)),open,summary,gen,produce,equip,unequip,salvage,upgrade,refine,rebuild,accept,merge,agg,dropLv,unlocked,
+ function summary(w){if(!unlocked())return 'mở ở ải '+C.unlock;const L=onW(w);const T=agg(w);const sets=Object.entries(T.set).filter(([,n])=>n>=(C23?2:3)).map(([s,n])=>C.sets[s].n+' '+n);return L.length+'/6 chip'+(sets.length?' · '+sets.join(', '):'');}
+ const proto=w=>{const T=w?agg(w):mainAgg();return SETS.map(k=>({k,n:T.set[k]|0,two:(T.set[k]|0)>=2,four:(T.set[k]|0)>=4,res:(T.set[k]|0)>=2&&C.sets[k].w===(w||Ult72.mainW())}));};
+ const det=id=>{const c=S.ch.find(x=>x.id===id);if(!c)return false;if(!el)build();W=(c.eq&&c.eq.w)||Ult72.mainW()||'fortress';document.querySelectorAll('.u72:not(.c72)').forEach(e=>e.hidden=true);detail(id);return true;};
+ return {det,C23,TOPQ,MINR,proto,ln23,mapQ:q=>C23?QM23[Math.max(0,Math.min(6,q|0))]:q,_t203:(id,idx,g)=>{grp203=g||'all';const r=retype(id,idx);if(!r)return null;const o={line:r.line,name:LN(r.line,1),hit:hit203(r.line,grp203),pity:S.pity203|0};accept(false);return o;},NL,armorEff,shipM,gearM,nlMult,LN,tgts,C,state:()=>JSON.parse(JSON.stringify(S)),open,summary,gen,produce,equip,unequip,salvage,upgrade,refine,rebuild,accept,merge,agg,dropLv,unlocked,
   _set:o=>{for(const k in o){if(k==='mat')Object.assign(S.mat,o.mat);else S[k]=o[k];}save();bump();},_give:c=>{S.ch.push(c);save();bump();return c;}};
 })();

@@ -39,7 +39,9 @@ const Rift307=(()=>{
   if(S.legacy<0&&unlocked()){try{S.legacy=Chip72.dropLv();}catch{S.legacy=0;}save();}
   const L=dropLv();
   CHIP72.drop.forEach((d,i)=>{const q=C.qual[i]||C.qual[0];d.xp=0;d.st=i<=L?0:99999;
+   if(window.CHIP23!==false&&typeof Chip72!=='undefined'&&Chip72.C23){d.q=q4(q);d.mut=[0,0,0];return;}/* V2.3 U4: 4 phẩm Lục · Lam · Tím · Cam */
    const b2=q[2]+q[3],b3=q[4]+q[5]+q[6];d.q=[q[0],q[1],b2,b3];d.mut=[b2?q[3]/b2:0,b3?(q[5]+q[6])/b3:0,(q[5]+q[6])?q[6]/(q[5]+q[6]):0];});}
+ const q4=q=>[q[0]+q[1],q[2]+q[3],q[4]+q[5],q[6]];
  // ---------- trận ----------
  let run=null;
  function start(){roll();if(!ON())return;if(!unlocked()){T('MỞ Ở ẢI '+C.unlock);return;}if(S.best>=C.floors){T('ĐÃ CHINH PHỤC 50 TẦNG');return;}
@@ -85,7 +87,7 @@ const Rift307=(()=>{
  function render(){roll();applyDrop();const f=Math.min(C.floors,S.best+1),L=dropLv(),RL=riftLv(),nxt=C.lvAt.find(t=>t>S.best);
   const left=Math.max(0,C.free-S.used),done=S.best>=C.floors;let cp=0;try{cp=Combat.stats().cp;}catch{}const rq=reqCp(f);
   const ms=Math.ceil(f/5)*5,row=C.first[lvOf(ms)];
-  const lvRows=C.lvAt.map((t,i)=>{const q=C.qual[i].map((v,j)=>v?(CHIP72.q[j].n+' '+Math.round(v*100)+'%'):'').filter(Boolean).join(' · ');
+  const lvRows=C.lvAt.map((t,i)=>{const q=((typeof Chip72!=='undefined'&&Chip72.C23)?q4(C.qual[i]):C.qual[i]).map((v,j)=>v?(CHIP72.q[j].n+' '+Math.round(v*100)+'%'):'').filter(Boolean).join(' · ');
    return `<div class="adv-s ${i===L?'r307-on':''}"><div><b>Cấp rơi ${i+1}${i===L?' · ĐANG Ở':''}</b><small>${i?'Vượt tầng '+t:'Mặc định'} · ${q}</small></div>${i<=L?'<em>✓</em>':'<em class="no">🔒</em>'}</div>`;}).join('');
   el.innerHTML=`<div class="m63-card adv-card r307-card"><div class="m63-eye">KHE NỨT HƯ KHÔNG</div>
    <div style="display:flex;gap:10px;margin:6px 0 4px"><div style="flex:1;padding:8px 10px;border:1px solid #7b5cff66;border-radius:8px;background:#1a1240aa"><small style="display:block;font-size:11px;opacity:.8">TẦNG CAO NHẤT</small><b style="font-size:20px;color:#c9a2ff">${S.best}/${C.floors}</b></div><div style="flex:1;padding:8px 10px;border:1px solid #ffd56a55;border-radius:8px;background:#2a2410aa"><small style="display:block;font-size:11px;opacity:.8">CẤP RƠI CHIP</small><b style="font-size:20px;color:#ffd56a">${L+1}</b><small style="font-size:11px;opacity:.75"> / 5</small></div></div>
