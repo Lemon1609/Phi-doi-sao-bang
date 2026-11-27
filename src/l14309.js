@@ -61,8 +61,11 @@ const L14309=(()=>{
  // ================= 2 · ĐĂNG NHẬP TÍCH LŨY =================
  //  r: hk ◈ · xp{2:n,3:n,4:n} · tb/cc/boss rương · pc mảnh phi công chính · vl{1|2|3:n} nguyên liệu (n món ngẫu nhiên trong 4 loại) · it [kind,model,f]
  const SETLAM={a:['gear','orbital',2],m:['gear','cryo',2],s:['gear','disc',2],c:['craft',2,2]};
- const P1=[{it:SETLAM.a,hk:1500,xp:{2:2}},{it:SETLAM.m,hk:2000,tb:1},{hk:3000,xp:{2:3},tb:1,pc:2},{it:SETLAM.s,hk:3500,vl:{1:2}},
-  {hk:4500,xp:{3:2},cc:1,pc:3},{hk:5500,xp:{3:3},tb:2,vl:{2:2}},{it:SETLAM.c,hk:8000,xp:{4:2},cc:1}];
+ // V2.3 (chủ dự án 27/11): quà đăng nhập là RƯƠNG thay cho trang bị Lam (ngày 1/2/4: +1 Rương Trang Bị; ngày 7: +1 Rương Boss thay chiến cơ Lam). Tắt: window.L14CHEST=false
+ const P1=window.L14CHEST===false?[{it:SETLAM.a,hk:1500,xp:{2:2}},{it:SETLAM.m,hk:2000,tb:1},{hk:3000,xp:{2:3},tb:1,pc:2},{it:SETLAM.s,hk:3500,vl:{1:2}},
+  {hk:4500,xp:{3:2},cc:1,pc:3},{hk:5500,xp:{3:3},tb:2,vl:{2:2}},{it:SETLAM.c,hk:8000,xp:{4:2},cc:1}]
+  :[{tb:1,hk:1500,xp:{2:2}},{tb:2,hk:2000},{hk:3000,xp:{2:3},tb:1,pc:2},{tb:1,hk:3500,vl:{1:2}},
+  {hk:4500,xp:{3:2},cc:1,pc:3},{hk:5500,xp:{3:3},tb:2,vl:{2:2}},{boss:1,hk:8000,xp:{4:2},cc:1}];
  const ROT=[[{hk:2500,xp:{3:2}},{tb:1,pc:2},{hk:3000,vl:{1:2}}],[{hk:3800,xp:{3:2}},{tb:1,pc:3},{hk:4500,vl:{2:2}}],
   [{hk:5500,xp:{3:3}},{cc:1,pc:3},{hk:6500,vl:{3:2}}],[{hk:7500,xp:{4:2}},{cc:1,pc:4},{hk:9000,vl:{3:3}}]];
  const SMALL=[{hk:4000,tb:2,cc:1,xp:{3:3},pc:3},{hk:6000,tb:2,cc:1,vl:{2:2},pc:4},{hk:9000,tb:2,cc:2,vl:{3:2},pc:4},{hk:12000,tb:2,cc:2,vl:{3:3},pc:5}];
@@ -77,17 +80,18 @@ const L14309=(()=>{
   if(d<=7)return {base:P1[d-1],extra:[],tier:0,lab:'NGÀY '+d};
   const t=tierOf(d),base=ROT[t-1][(d-8)%3],extra=[];
   if(isSmall(d))extra.push(Object.assign({mk:'MỐC BÉ'},SMALL[t-1]));
-  if(isBig(d)){const b=Object.assign({mk:'MỐC LỚN'},BIG[t-1]);if(d%30===0)b.boss=(b.boss|0)+1;extra.push(b);}
+  if(isBig(d)){const b=Object.assign({mk:'MỐC LỚN'},BIG[t-1]);if(d%30===0)b.boss=(b.boss|0)+1;if(window.L14GEM!==false)b.gem=[50,60,80,100][t-1]+(d%30===0?50:0);/* V2.3: kim cương ở mốc lớn (chủ dự án duyệt 27/11) */extra.push(b);}
   return {base,extra,tier:t,lab:'NGÀY '+d+' · TẦNG '+t};}
  function mainPilot(){try{const st=Pilot67.state(),own=Object.keys(st.own).map(Number);return st.team[0]&&st.own[st.team[0]]?st.team[0]:own[0];}catch{return 0;}}
  const itName=([k,m])=>{try{return k==='craft'?Fighters28.profiles[m].name:GearCatalog[m].name;}catch{return k==='craft'?'Chiến cơ':'Trang bị';}};
  function rtext(r){const a=[];if(r.it)a.push(itName(r.it)+' '+TN[r.it[2]]+' Lv1');if(r.hk)a.push(fmt(r.hk)+' ◈');if(r.xp)for(const k in r.xp)a.push(r.xp[k]+' Đá XP '+['','I','II','III','IV'][k]);
-  if(r.tb)a.push(r.tb+' Rương TB');if(r.cc)a.push(r.cc+' Rương CC');if(r.boss)a.push(r.boss+' Rương Boss');if(r.pc)a.push(r.pc+' Mảnh PC');if(r.vl)for(const k in r.vl)a.push(r.vl[k]+' VL '+['','Lục','Lam','Tím'][k]);return a.join(' · ');}
+  if(r.tb)a.push(r.tb+' Rương TB');if(r.cc)a.push(r.cc+' Rương CC');if(r.boss)a.push(r.boss+' Rương Boss');if(r.pc)a.push(r.pc+' Mảnh PC');if(r.gem)a.push(r.gem+' 💎');if(r.vl)for(const k in r.vl)a.push(r.vl[k]+' VL '+['','Lục','Lam','Tím'][k]);return a.join(' · ');}
  function give(r,why){const out=[];if(!r)return out;
   try{if(r.it){const g=grantItem(r.it[0],r.it[1],r.it[2],'login14');out.push(itName(r.it)+(g.unlock?' (mở khóa)':' (bản sao)'));}}catch(e){console.warn('L14 it',e);}
   try{if(r.hk)Progress.grantCredits(r.hk);}catch{}
   try{if(r.xp)for(const k in r.xp)XPDA307.add(+k,r.xp[k]);}catch{}
   for(const k of ['tb','cc','boss'])if(r[k])addChest(k,r[k]);
+  try{if(r.gem)Econ74.add(r.gem,why||'Điểm danh mốc lớn');}catch{}
   try{if(r.pc){const mp=mainPilot();if(mp)Pilot67._piece(mp,r.pc);else Progress.grantCredits(r.pc*900);}}catch{}
   try{if(r.vl)for(const k in r.vl)for(let i=0;i<r.vl[k];i++)V70.add(pick(MAT69.types).id+k,1);}catch{}
   try{Progress.render();Lobby.paint();Hub40.dots();}catch{}return out;}

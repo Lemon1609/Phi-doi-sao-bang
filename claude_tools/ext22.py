@@ -14,7 +14,7 @@ RX=re.compile(r'data:image/(webp|png|jpeg|jpg|gif|svg\+xml);base64,([A-Za-z0-9+/
 EXT={'webp':'webp','png':'png','jpeg':'jpg','jpg':'jpg','gif':'gif','svg+xml':'svg'}
 # V2.3 U1c: 7 tấm nút / thanh tiêu đề (src/u1img) ghi đúng tên vào www/assets/ui/
 NAMED={}
-for _f in sorted(glob.glob(os.path.join(os.path.dirname(os.path.abspath(__file__)),'..','src','u1img','*.webp'))+glob.glob(os.path.join(os.path.dirname(os.path.abspath(__file__)),'..','src','u3img','*.webp'))):NAMED[base64.b64encode(open(_f,'rb').read()).decode()]=os.path.basename(_f)
+for _f in sorted(glob.glob(os.path.join(os.path.dirname(os.path.abspath(__file__)),'..','src','u1img','*.webp'))+glob.glob(os.path.join(os.path.dirname(os.path.abspath(__file__)),'..','src','u3img','*.webp'))+glob.glob(os.path.join(os.path.dirname(os.path.abspath(__file__)),'..','src','u4img','*.webp'))):NAMED[base64.b64encode(open(_f,'rb').read()).decode()]=os.path.basename(_f)
 seen={};st={'files':0,'refs':0,'uniq':0,'bytes_b64':0,'bytes_bin':0,'kept_small':0}
 def proc(path,prefix):
   s=open(path,encoding='utf-8').read();b0=len(s.encode('utf-8'))

@@ -3,7 +3,7 @@
 /* ---------- điểm danh (#m40 .mm.u3dm) ---------- */
 @U3 #m40 .mm.u3dm > .x{display:none!important}
 @U3 #m40 .mm.u3dm .u3bn{position:relative;height:150px;margin:0 0 8px;background:#0b1640 var(--u3bn) 50% 10%/cover no-repeat;clip-path:polygon(10px 0,100% 0,100% calc(100% - 10px),calc(100% - 10px) 100%,0 100%,0 10px);box-shadow:inset 0 0 0 1px #5fb4ff88}
-@U3 #m40 .mm.u3dm .u3bn h3{position:absolute!important;right:44px!important;top:12px!important;left:auto!important;width:46%!important;margin:0!important;padding:0!important;text-align:right!important;font:900 17px/1.12 sans-serif!important;letter-spacing:.06em!important;
+@U3 #m40 .mm.u3dm .u3bn h3{position:absolute!important;right:52px!important;top:12px!important;left:auto!important;width:46%!important;margin:0!important;padding:0!important;text-align:right!important;font:900 17px/1.12 sans-serif!important;letter-spacing:.06em!important;
  color:#FFE8A0!important;-webkit-text-fill-color:#FFE8A0!important;text-shadow:0 2px 0 #4D1E00,0 0 8px #000,0 0 14px #2a0a6a!important;background:none!important;border:0!important;box-shadow:none!important;white-space:normal!important;overflow:visible!important}
 @U3 :is(#m40 .mm.u3dm,#u3m) .u3x{position:absolute!important;top:6px!important;right:6px!important;width:32px!important;height:32px!important;min-width:0!important;min-height:0!important;padding:0!important;margin:0!important;border:0!important;border-radius:0!important;
  clip-path:polygon(7px 0,100% 0,100% calc(100% - 7px),calc(100% - 7px) 100%,0 100%,0 7px)!important;background:linear-gradient(180deg,#e9f2ff,#8ea6c4 48%,#4b6385 52%,#9db4d2)!important;box-shadow:inset 0 0 0 2px #1d3a6a!important;

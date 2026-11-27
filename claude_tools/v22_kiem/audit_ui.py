@@ -48,6 +48,7 @@ SC=[
  ('28','U3 · Điểm danh tích lũy',3,HOME+[CL("[data-h9b=pl]"),["w",1200],["js","Meta40.rewardsPanel('daily')"],["w",1200]]),
  ('29','U3 · Thám hiểm Tinh tế',3,HOME+[CL("#lob22 [data-u3r=exp]"),["w",1200]]),
  ('30','U3 · Thẻ Kỳ Cựu',3,HOME+[CL("#lob22 [data-u3r=vet]"),["w",1200]]),
+ ('31','U4 · Mô-đun Siêu Duy',3,[["js",VK+"Nav74.tab('home');Ult72.open();setTimeout(()=>U4V23S.open('world'),900)"],["w",2200]]),
 ]
 PREP="""()=>{try{Safe42(%d)}catch(e){};document.getElementById('tutorial392')?.remove();const q=document.getElementById('q307');if(q)q.style.display='none';
  document.querySelectorAll('.m63').forEach(e=>e.hidden=true);try{Progress.setLocked(false)}catch(e){}}"""%SAFE_T

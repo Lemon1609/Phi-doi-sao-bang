@@ -73,10 +73,11 @@ const U3V23M=(()=>{
  function itemImg([k,m]){try{if(k==='craft'){const u=typeof window.SHIPCUR17==='function'&&SHIPCUR17(m);if(u)return u;}const A=typeof GEAR44_ASSETS!=='undefined'?GEAR44_ASSETS:{};return A[m+'_icon']||A[((GearCatalog[m]||{}).behavior||'')+'_icon']||'';}catch{return '';}}
  const itName=([k,m])=>{try{return k==='craft'?Fighters28.profiles[m].name:GearCatalog[m].name;}catch{return '';}};
  function parts(r){const a=[];if(!r)return a;
+  for(const [k,ik,nm] of [['boss','chest_boss','Rương Boss'],['cc','chest_cc','Rương CC'],['tb','chest_tb','Rương TB']])if(r[k])a.push({u:IC(ik),t:'×'+r[k],n:nm});/* rương lên đầu (quà đăng nhập là rương — chủ dự án 27/11) */
+  if(r.gem)a.push({u:IC('diamond'),t:'×'+r.gem,n:'Kim cương'});
   if(r.it)a.push({u:itemImg(r.it),t:'Lam',n:itName(r.it)});
   if(r.hk)a.push({u:IC('alloy'),t:fmt(r.hk)});
   if(r.xp)for(const t of Object.keys(r.xp).sort((x,y)=>y-x))a.push({u:IC('xp'+t),t:'×'+r.xp[t],n:'Đá XP '+RN[t]});
-  for(const [k,ik,nm] of [['boss','chest_boss','Rương Boss'],['cc','chest_cc','Rương CC'],['tb','chest_tb','Rương TB']])if(r[k])a.push({u:IC(ik),t:'×'+r[k],n:nm});
   if(r.pc)a.push({u:IC('pilot'),t:'×'+r.pc,n:'Mảnh PC'});
   if(r.vl)for(const t of Object.keys(r.vl))a.push({u:IC('crystal'),t:'×'+r.vl[t],n:'VL '+['','Lục','Lam','Tím'][t]});
   return a;}
@@ -117,7 +118,7 @@ const U3V23M=(()=>{
   <p class="u3ft">Đã nhận hôm nay <b>${CAP-cap}/${CAP}</b> · trần cứng ${CAP} lần/ngày${vetOn()?' · <span class="u3v">Thẻ Kỳ Cựu +20 % sản lượng</span>':''}</p></div>`;}
  function liveExp(){if(!box||box.hidden)return;const R=S.ex.run;if(!R)return;const cd=box.querySelector('.u3cd'),bar=box.querySelector('.u3bar i');const left=runLeft();if(left===0){render();return;}if(cd)cd.textContent=hhmmss(left);if(bar)bar.style.width=Math.round(100*(1-left/(R.h*3600000)))+'%';}
  function vetHTML(){const l=vetLeft(),act=l>0,dok=vetDailyOk(),dg=(()=>{try{return Econ74.gems()|0;}catch{return 0;}})();
-  const P=[['+20%','Sản lượng Thám hiểm Tinh tế'],['+1','Lượt Thám hiểm nhanh miễn phí mỗi ngày'],['MỞ','CÀN QUÉT NHANH ải 3★ (vẫn trừ thể lực, đúng trần ngày)'],[VET.backGem+'💎','Quà kích hoạt + '+fmt(VET.backHk)+' Hợp kim (mỗi chu kỳ 30 ngày)'],[VET.dGem+'💎','Quà ngày + '+VET.dXp+' Đá XP II']];
+  const P=[['+20%','Sản lượng Thám hiểm Tinh tế'],['+1','Lượt Thám hiểm nhanh miễn phí mỗi ngày'],['MỞ','CÀN QUÉT ải Boss · Anh Hùng · Sự kiện 3★ (ải thường 3★ miễn phí cho mọi người)'],[VET.backGem+'💎','Quà kích hoạt + '+fmt(VET.backHk)+' Hợp kim (mỗi chu kỳ 30 ngày)'],[VET.dGem+'💎','Quà ngày + '+VET.dXp+' Đá XP II']];
   return `<div class="u3c u3cv"><div class="u3hd"><b>THẺ KỲ CỰU</b><button type="button" class="u3x" data-u3="x" aria-label="Đóng">×</button></div>
   <div class="u3vt"><div class="u3pk">${P.map(([a,b],i)=>`<p><b>${a}</b><span>${b}</span></p>`).join('')}</div><div class="u3vc"><b>KỲ CỰU</b><small>30 NGÀY</small></div></div>
   <p class="u3vs ${act?'on':''}">${act?`Đang hiệu lực · Còn <b>${l}</b> ngày`:'Chưa kích hoạt'} · ${VET.price} 💎 / ${VET.days} ngày · cộng dồn khi gia hạn</p>
@@ -143,10 +144,15 @@ const U3V23M=(()=>{
   vt.classList.toggle('u3on',vetDailyOk());vt.classList.toggle('act',vetOn());}
 
  // ================= khóa CÀN QUÉT NHANH sau Thẻ Kỳ Cựu =================
- function hookSweep(){try{if(typeof Campaign36==='undefined'||Campaign36.__u3)return;const o=Campaign36.sweep;Campaign36.sweep=function(n){if(on()&&window.U3SWEEP!==false&&!vetOn()){T('CÀN QUÉT NHANH cần THẺ KỲ CỰU · Sảnh › THẺ KỲ CỰU');return false;}return o.apply(this,arguments);};Campaign36.__u3=1;}catch(e){console.warn('U3 càn quét',e);}}
+ // Gemini/chủ dự án 27/11 20:25: ải chiến dịch THƯỜNG 3★ càn quét miễn phí cho mọi người; Thẻ Kỳ Cựu mở càn quét ải Boss (major/mini), ải Anh Hùng (+ sự kiện nếu có).
+ let heroRun=0;
+ const bossStage=n=>{try{return !!Campaign36.bossKind(+n);}catch{return false;}};
+ const needVet=n=>on()&&window.U3SWEEP!==false&&!vetOn()&&(heroRun>0||bossStage(n));
+ function hookSweep(){try{if(typeof Campaign36!=='undefined'&&!Campaign36.__u3){const o=Campaign36.sweep;Campaign36.sweep=function(n){if(needVet(n)){T('CÀN QUÉT ải '+(heroRun?'ANH HÙNG':'BOSS')+' cần THẺ KỲ CỰU · Sảnh › THẺ KỲ CỰU');return false;}return o.apply(this,arguments);};Campaign36.__u3=1;}}catch(e){console.warn('U3 càn quét',e);}
+  try{if(typeof L11309!=='undefined'&&L11309.heroSweep&&!L11309.__u3){const h=L11309.heroSweep;L11309.heroSweep=function(){if(on()&&window.U3SWEEP!==false&&!vetOn())return 'CÀN QUÉT ải ANH HÙNG cần THẺ KỲ CỰU';heroRun++;try{return h.apply(this,arguments);}finally{heroRun--;}};L11309.__u3=1;}}catch(e){console.warn('U3 càn quét AH',e);}}
 
  function boot(){if(!on())return;document.documentElement.classList.add('u3v23');hookPanel();hookSweep();paintRail();}
  setTimeout(boot,0);setInterval(()=>{if(!on())return;let m='menu';try{m=mode;}catch{}if(m==='play'||m==='pause')return;hookPanel();hookSweep();paintRail();},1000);
  return {state:()=>JSON.parse(JSON.stringify(S)),_set:o=>{Object.assign(S,o);save();},open,close,
-  vetOn,vetLeft,vetBuy,vetDaily,vetDailyOk,exStart,exClaim,exQuick,exDone,runLeft,capLeft,quickLeft,reward,msWin,msCan,msClaim,MS,days,CAP,VET};
+  needVet,bossStage,vetOn,vetLeft,vetBuy,vetDaily,vetDailyOk,exStart,exClaim,exQuick,exDone,runLeft,capLeft,quickLeft,reward,msWin,msCan,msClaim,MS,days,CAP,VET};
 })();window.U3V23S=U3V23M;

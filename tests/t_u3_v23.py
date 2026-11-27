@@ -26,7 +26,7 @@ with sync_playwright() as p:
    const bx=(x0,y0,x1,y1)=>({l:ox+x0*s,t:oy+y0*s,r:ox+x1*s,b:oy+y1*s});const face=bx(250,40,470,340),hand=bx(630,560,830,720);
    const hit=(a,b)=>!(a.r<=b.left||a.l>=b.right||a.b<=b.top||a.t>=b.bottom);
    const cells=[...m.querySelectorAll('.u3g .u3d')];const d7=m.querySelector('.u3d.d7');
-   return {title:h.textContent,face:hit(face,hr),hand:hit(hand,hr),faceIn:face.b>R.top+8&&face.t<R.bottom,x:!!bn.querySelector('.u3x'),cells:cells.length,d7span:getComputedStyle(d7).gridColumnStart,d7parts:d7.querySelectorAll('.u3pt').length,d7need:Math.min(3,(()=>{const P=L14309.dayPack(+d7.querySelector('b').textContent.replace(/\D/g,''));return [P.base,...P.extra].reduce((a,r)=>a+(r.it?1:0)+(r.hk?1:0)+Object.keys(r.xp||{}).length+['boss','cc','tb'].filter(k=>r[k]).length+(r.pc?1:0)+Object.keys(r.vl||{}).length,0)})()),
+   return {title:h.textContent,face:hit(face,hr),hand:hit(hand,hr),faceIn:face.b>R.top+8&&face.t<R.bottom,x:!!bn.querySelector('.u3x'),cells:cells.length,d7span:getComputedStyle(d7).gridColumnStart,d7parts:d7.querySelectorAll('.u3pt').length,d7need:Math.min(3,(()=>{const P=L14309.dayPack(+d7.querySelector('b').textContent.replace(/\D/g,''));return [P.base,...P.extra].reduce((a,r)=>a+(r.it?1:0)+(r.hk?1:0)+Object.keys(r.xp||{}).length+['boss','cc','tb'].filter(k=>r[k]).length+(r.pc?1:0)+(r.gem?1:0)+Object.keys(r.vl||{}).length,0)})()),
     ch:[...m.querySelectorAll('.u3ch')].map(b=>b.dataset.m+(b.classList.contains('can')?'+':'')+(b.classList.contains('got')?'✓':'')),tot:m.querySelector('.u3tot b').textContent,btn:m.querySelector('#r-claim').className+'|'+m.querySelector('#r-claim').textContent}}""")
   ck('Băng rôn ĐIỂM DANH TÍCH LŨY: tiêu đề không chạm mặt / bàn tay nữ chỉ huy, có ×; lưới 7 ô (Ngày 7 ô đôi, 3 phần quà); 5 rương mốc 5…25; nút NHẬN QUÀ tấm vàng',g and g['title']=='ĐIỂM DANH TÍCH LŨY' and not g['face'] and not g['hand'] and g['faceIn'] and g['x'] and g['cells']==7 and g['d7parts']==g['d7need'] and 'span 2' in g['d7span'] and g['ch']==['5+','10','15','20','25'] and 'u3pg' in g['btn'] and 'NHẬN QUÀ' in g['btn'],g)
   b0=pg.evaluate(B);pk=pg.evaluate("()=>{const P=L14309.dayPack(10);return [P.base,...P.extra].map(r=>r.hk|0).filter(Boolean)}")
@@ -42,16 +42,16 @@ with sync_playwright() as p:
   pg.evaluate("()=>{document.querySelectorAll('#q307,#tutorial392').forEach(e=>e.remove());try{Progress.setLocked(false)}catch{}}")
   # ---------- 2. Thám hiểm ----------
   r=pg.evaluate("""()=>{const o=[];o.push(U3V23S.exStart(2));o.push(U3V23S.exStart(4));o.push(U3V23S.exClaim());const S=U3V23S.state();S.ex.run.t0-=2*3600000+1000;U3V23S._set({ex:S.ex});o.push(U3V23S.exDone());return o}""")
-  b0=pg.evaluate(B);rw=pg.evaluate("()=>U3V23S.reward(2)");c=pg.evaluate("()=>!!U3V23S.exClaim()");b1=pg.evaluate(B)
-  ck('Thám hiểm: cử 2 giờ, không cử chồng chuyến, chưa đủ giờ không nhận; đủ 2 giờ (Date.now) nhận đúng hợp kim + Đá XP',r==[True,False,False,True] and c and b1['cr']-b0['cr']==rw['hk'] and all((b1['xp'][t]-b0['xp'][t])==n for t,n in rw['xp'].items()),{'r':r,'hk':b1['cr']-b0['cr'],'rw':rw})
+  b0=pg.evaluate(B);rw=pg.evaluate("()=>U3V23S.reward(2)");c=pg.evaluate("()=>{window.__gc=[];const o=Progress.grantCredits;Progress.grantCredits=function(n){__gc.push(n);return o.apply(this,arguments)};const r=!!U3V23S.exClaim();Progress.grantCredits=o;return r}");gc=pg.evaluate('()=>__gc');b1=pg.evaluate(B)
+  ck('Thám hiểm: cử 2 giờ, không cử chồng chuyến, chưa đủ giờ không nhận; đủ 2 giờ (Date.now) nhận đúng hợp kim + Đá XP',r==[True,False,False,True] and c and gc[:1]==[rw['hk']] and b1['cr']-b0['cr'] in (rw['hk'],rw['hk']+900) and all((b1['xp'][t]-b0['xp'][t])==n for t,n in rw['xp'].items()),{'r':r,'hk':b1['cr']-b0['cr'],'rw':rw,'gc':gc})
   r=pg.evaluate("""()=>{const o=[];o.push(U3V23S.quickLeft());o.push(!!U3V23S.exQuick());o.push(!!U3V23S.exQuick());
    for(let i=0;i<3;i++){U3V23S.exStart(2);const S=U3V23S.state();if(S.ex.run){S.ex.run.t0-=3*3600000;U3V23S._set({ex:S.ex});}o.push(!!U3V23S.exClaim());}
    o.push(U3V23S.capLeft());o.push(U3V23S.state().ex.n);return o}""")
   ck('Thám hiểm nhanh 1 lượt miễn phí/ngày (không thẻ); TRẦN CỨNG 4 lần nhận/ngày (lần thứ 5 bị chặn)',r==[1,True,False,True,True,False,0,4],r)
   # ---------- 3. Thẻ Kỳ Cựu ----------
   cf0=pg.evaluate("()=>JSON.stringify([Combat.factor(),Combat.stats().attack,Combat.stats().cp])")
-  s=pg.evaluate("()=>{try{Progress.setLocked(false)}catch{};const c=Progress.getState().cleared.filter(k=>k%10!==0);const s=c[Math.floor(c.length/2)]||0;if(s)Campaign36.recordStars(s,3);return Campaign36.getState().stars[s]===3?s:0}")
-  sw0=pg.evaluate("(s)=>{V75.addEn(60);const e=V75.energy(),r=Campaign36.sweep(s);return {r:!!r,de:e-V75.energy()}}",s)
+  s,sb=pg.evaluate("()=>{try{Progress.setLocked(false)}catch{};const c=Progress.getState().cleared;const n=c.filter(k=>!Campaign36.bossKind(k)),b=c.filter(k=>Campaign36.bossKind(k));const s=n[Math.floor(n.length/2)]||0,sb=b[Math.floor(b.length/2)]||0;for(const k of [s,sb])if(k)Campaign36.recordStars(k,3);return [Campaign36.getState().stars[s]===3?s:0,Campaign36.getState().stars[sb]===3?sb:0]}")
+  sw0=pg.evaluate("([s,sb])=>{V75.addEn(60);const e=V75.energy(),rn=Campaign36.sweep(s),e1=V75.energy(),rb=Campaign36.sweep(sb),e2=V75.energy();let h='';try{h=L11309.heroSweep(s)}catch(x){h=String(x)}return {thuong:!!rn,de_thuong:e-e1,boss:!!rb,de_boss:e1-e2,anh_hung:String(h)}}",[s,sb])
   pg.evaluate("()=>Econ74.add(1000)");b0=pg.evaluate(B);hk0=pg.evaluate("()=>U3V23S.reward(2)")
   pg.evaluate("()=>U3V23S.open('vet')");pg.wait_for_timeout(500)
   pg.evaluate("()=>{window.__gc=[];const o=Progress.grantCredits;Progress.grantCredits=function(n){__gc.push([n,(new Error).stack.split(String.fromCharCode(10))[2]]);return o.apply(this,arguments)};document.querySelector('#u3m [data-u3=buy]').click();Progress.grantCredits=o}");pg.wait_for_timeout(500);b1=pg.evaluate(B);gc=pg.evaluate('()=>__gc')
@@ -62,9 +62,10 @@ with sync_playwright() as p:
   hk1=pg.evaluate("()=>U3V23S.reward(2)");ql=pg.evaluate("()=>[U3V23S.state().ex.q,U3V23S.state().ex.n,U3V23S.quickLeft(),U3V23S.capLeft()]")
   ck('+20 % sản lượng Thám hiểm (hợp kim ×1,2 + Đá XP quy đổi) · +1 lượt nhanh (2/ngày) · trần 4 lần vẫn giữ',abs(hk1['hk']/hk0['hk']-1.2)<.01 and ql==[1,4,1,0],{'hk':[hk0['hk'],hk1['hk']],'q':ql})
   pg.evaluate("()=>U3V23S.close()")
-  sw=pg.evaluate("""(s)=>{V75.addEn(60);const max=window.SWEEP92?SWEEP92():10,tk=V75.tickets();const st0=Campaign36.getState().sweep;const e0=V75.energy();const r=Campaign36.sweep(s);const e1=V75.energy();
-   let k=1;while(k<60&&Campaign36.sweep(s)){k++;V75.addEn(6);}return {r:!!r,de:e0-e1,used0:st0.used,k,max,tk,used:Campaign36.getState().sweep.used,tk1:V75.tickets()}}""",s)
-  ck('CÀN QUÉT NHANH: không thẻ bị khóa (0 thể lực mất); có thẻ quét được ải 3★, trừ đúng 6 thể lực, dừng đúng trần ngày',s>0 and sw0=={'r':False,'de':0} and sw['r'] and sw['de']==6 and sw['k']<60 and sw['used']==sw['max'] and sw['tk1']==0,{'s':s,'khong_the':sw0,'co_the':sw})
+  pg.evaluate("(x)=>{window.__sb=x}",sb)
+  sw=pg.evaluate("""(s)=>{V75.addEn(60);const max=window.SWEEP92?SWEEP92():10,tk=V75.tickets();const st0=Campaign36.getState().sweep;const e0=V75.energy();const r=Campaign36.sweep(s);const e1=V75.energy();const rb=!!Campaign36.sweep(window.__sb);
+   let k=1;while(k<60&&Campaign36.sweep(s)){k++;V75.addEn(6);}return {r:!!r,de:e0-e1,used0:st0.used,k,max,tk,used:Campaign36.getState().sweep.used,tk1:V75.tickets(),rb}}""",s)
+  ck('CÀN QUÉT: không thẻ — ải thường 3★ quét được (−6 thể lực), ải Boss + Anh Hùng bị chặn (0 thể lực mất); có thẻ — quét được ải Boss, trừ đúng 6 thể lực, dừng đúng trần ngày',s>0 and sb>0 and sw0['thuong'] and sw0['de_thuong']==6 and not sw0['boss'] and sw0['de_boss']==0 and 'THẺ KỲ CỰU' in sw0['anh_hung'] and sw['r'] and sw['rb'] and sw['de']==6 and sw['k']<60 and sw['used']==sw['max'] and sw['tk1']==0,{'s':s,'sb':sb,'khong_the':sw0,'co_the':sw})
   cf1=pg.evaluate("()=>JSON.stringify([Combat.factor(),Combat.stats().attack,Combat.stats().cp])")
   sc=pg.evaluate("()=>[/U3V23|u3v23/.test(String(Combat.factor)),/U3V23|u3v23/.test(String(Combat.stats))]")
   ck('Thẻ Kỳ Cựu 0 ảnh hưởng điểm Vô tận / chỉ số trận (Combat.factor, công, lực chiến giống hệt trước khi mua)',cf0==cf1 and sc==[False,False],{'truoc':cf0,'sau':cf1})

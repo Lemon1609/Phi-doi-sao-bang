@@ -1279,6 +1279,10 @@ rep("</body>","<style id=\"u2v23-css\">"+_cu2+"</style><script id=\"u2v23-js\">"
 _cu3=open('src/u3v23.css',encoding='utf-8').read().replace('@U3','html.u3v23 body:not('+'#_u3'*132+')')
 _cu3=_cu3.replace('/*U3IMG*/','html.u3v23{'+''.join('--u3'+_k+':url(data:image/webp;base64,'+_b64u1.b64encode(open('src/u3img/'+_n+'.webp','rb').read()).decode()+');' for _k,_n in [('bn','banner_login_u3'),('vc','ui_veteran_card'),('pr','icon_expedition_probe'),('ch','icon_milestone_chest')])+'}')
 rep("</body>","<style id=\"u3v23-css\">"+_cu3+"</style><script id=\"u3v23-js\">"+open('src/u3v23.js',encoding='utf-8').read()+"</script></body>")
+# V2.3 U4: Bệ trưng bày 3D VKTT + Mô-đun Siêu Duy (giao diện mới của Chip72; ảnh src/u4img → biến --u4*, APK ra www/assets/ui/)
+_cu4=open('src/u4v23.css',encoding='utf-8').read().replace('@U4','html.u4v23 body:not('+'#_u4'*136+')')
+_cu4=_cu4.replace('/*U4IMG*/','html.u4v23{'+''.join('--u4'+_k+':url(data:image/webp;base64,'+_b64u1.b64encode(open('src/u4img/'+_n+'.webp','rb').read()).decode()+');' for _k,_n in [('st','stage_vktt_3d'),('f0','mod_frame_green'),('f1','mod_frame_blue'),('f2','mod_frame_purple'),('f3','mod_frame_gold'),('e','mod_slot_empty'),('cf','mod_core_fire'),('cs','mod_core_struct'),('cl','mod_core_link')])+'}')
+rep("</body>","<style id=\"u4v23-css\">"+_cu4+"</style><script id=\"u4v23-js\">"+open('src/u4v23.js',encoding='utf-8').read()+"</script></body>")
 # V2.2.3 Gói C (T26): nền địa hình parallax + mây (tắt window.PKC26=false)
 PKC26IMG={os.path.splitext(f)[0]:'data:image/webp;base64,'+_b64rw.b64encode(open('src/pkc26img/'+f,'rb').read()).decode() for f in sorted(os.listdir('src/pkc26img')) if f.endswith('.webp')}
 rep("</body>","<script id=\"pkc26-js\">window.PKC26_IMG="+json.dumps(PKC26IMG,separators=(',',':'))+";"+open('src/pkc26.js',encoding='utf-8').read()+"</script></body>")

@@ -36,7 +36,8 @@ with sync_playwright() as p:
   print(json.dumps(r,ensure_ascii=False)[:2500])
   chk('95 ngày: mỗi ngày nhận đúng 1 lần, tổng ngày tăng đều', not r['bad'])
   chk('bỏ 3 ngày không mất tiến độ (ngày 96)', r['z'] and r['after']==96)
-  chk('bộ Lam 4 món đã có', all(r['owns'].values()))
+  chk('ngày 1–7 là rương (không còn trang bị): N1/2/4 Rương TB, N7 Rương Boss', all('Rương' in p[2] and 'Lv1' not in p[2] for p in r['packs'] if p[0] in (1,7)) and all('Lv1' not in (L) for L in [str(r['packs'])]))
+  chk('mốc lớn có kim cương (15: 50 · 30: 100+)', any(p[0]==15 and '💎' in ' '.join(p[3]) for p in r['packs']) and any(p[0]==30 and '💎' in ' '.join(p[3]) for p in r['packs']))
   chk('mốc 30 có 2 Rương Boss (1 mốc lớn + 1 mốc tròn 30)', any(p[0]==30 and 'Rương Boss' in ' '.join(p[3]) for p in r['packs']))
   # 4. quy đổi save cũ (chuỗi 12, đã nhận hôm nay) + thành tựu
   r=pg.evaluate("""()=>{L14309._set({days:0,last:-1,mig:0,ach:{},achMig:0});const s=L14309.state();const rows=L14309.achRows();return {days:L14309.state().days,rows:rows.map(r=>[r.id,r.tier,r.fin,r.can,r.v,r.n]),old:Meta40.state().S.ach}}""")
