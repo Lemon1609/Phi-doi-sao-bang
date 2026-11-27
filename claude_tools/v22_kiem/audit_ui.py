@@ -45,6 +45,9 @@ SC=[
  ('26','Hộp thoại Tạm dừng',3,[["st",12],["w",1500],CL("#pause"),["w",900]]),
  ('27a','Kết quả · CHIẾN THẮNG',3,[["st",12],["w",1500],["js","finishStage36(false)"],["w",2700]]),
  ('27b','Kết quả · THẤT BẠI',3,[["st",12],["w",1500],["js","end(false)"],["w",2700]]),
+ ('28','U3 · Điểm danh tích lũy',3,HOME+[CL("[data-h9b=pl]"),["w",1200],["js","Meta40.rewardsPanel('daily')"],["w",1200]]),
+ ('29','U3 · Thám hiểm Tinh tế',3,HOME+[CL("#lob22 [data-u3r=exp]"),["w",1200]]),
+ ('30','U3 · Thẻ Kỳ Cựu',3,HOME+[CL("#lob22 [data-u3r=vet]"),["w",1200]]),
 ]
 PREP="""()=>{try{Safe42(%d)}catch(e){};document.getElementById('tutorial392')?.remove();const q=document.getElementById('q307');if(q)q.style.display='none';
  document.querySelectorAll('.m63').forEach(e=>e.hidden=true);try{Progress.setLocked(false)}catch(e){}}"""%SAFE_T

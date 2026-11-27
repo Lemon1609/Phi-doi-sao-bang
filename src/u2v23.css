@@ -59,3 +59,4 @@
 @U2 .m63.pl67 > .m63-card > .u2rule{overflow:hidden!important}
 @U2 #k307 .k307-row.u2c{padding-top:9px!important;padding-bottom:9px!important}
 @U2 .m63.pl67 .pl67-st span.u2mk{background:none!important;border:0!important;box-shadow:none!important;padding:0!important;margin:0 2px 0 0!important;font-size:inherit!important;color:#FFD54F!important;font-weight:800!important;border-radius:0!important}
+@U2 #k307 .k307-row.u2c:has(.u2eq){padding-bottom:11px!important}

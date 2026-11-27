@@ -1275,6 +1275,10 @@ rep("</body>","<style id=\"u1v23-css\">"+_cu1+"</style><script id=\"u1v23-js\">"
 # V2.3 U2: thẻ Túi đồ mật độ cao + danh sách phi công (chỉ hiển thị; tắt window.U2V23=false)
 _cu2=open('src/u2v23.css',encoding='utf-8').read().replace('@U2','html.u2v23 body:not('+'#_u2'*124+')')
 rep("</body>","<style id=\"u2v23-css\">"+_cu2+"</style><script id=\"u2v23-js\">"+open('src/u2v23.js',encoding='utf-8').read()+"</script></body>")
+# V2.3 U3: Điểm danh tích lũy + rương mốc · Thám hiểm Tinh tế · Thẻ Kỳ Cựu (ảnh src/u3img → biến --u3*, APK ra www/assets/ui/)
+_cu3=open('src/u3v23.css',encoding='utf-8').read().replace('@U3','html.u3v23 body:not('+'#_u3'*132+')')
+_cu3=_cu3.replace('/*U3IMG*/','html.u3v23{'+''.join('--u3'+_k+':url(data:image/webp;base64,'+_b64u1.b64encode(open('src/u3img/'+_n+'.webp','rb').read()).decode()+');' for _k,_n in [('bn','banner_login_u3'),('vc','ui_veteran_card'),('pr','icon_expedition_probe'),('ch','icon_milestone_chest')])+'}')
+rep("</body>","<style id=\"u3v23-css\">"+_cu3+"</style><script id=\"u3v23-js\">"+open('src/u3v23.js',encoding='utf-8').read()+"</script></body>")
 # V2.2.3 Gói C (T26): nền địa hình parallax + mây (tắt window.PKC26=false)
 PKC26IMG={os.path.splitext(f)[0]:'data:image/webp;base64,'+_b64rw.b64encode(open('src/pkc26img/'+f,'rb').read()).decode() for f in sorted(os.listdir('src/pkc26img')) if f.endswith('.webp')}
 rep("</body>","<script id=\"pkc26-js\">window.PKC26_IMG="+json.dumps(PKC26IMG,separators=(',',':'))+";"+open('src/pkc26.js',encoding='utf-8').read()+"</script></body>")

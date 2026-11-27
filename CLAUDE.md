@@ -38,6 +38,7 @@ Luật phong cách chi tiết + nhật ký quyết định: `docs_claude/CHUAN_P
 - Chỉ lưu ảnh gốc của bản ĐÃ CHỐT vào `src/ship118_cho/V<số>_*` (lượt bị loại không lưu); ghi quyết định vào `CHUAN_PHONG_CACH_DA_CHOT.md`.
 
 ## Trạng thái (cập nhật 24/11/2026 09:20)
+- **V2.3 U3 (27/11, `v23-ui-meta`, CHỜ DUYỆT)**: Điểm danh tích lũy (băng rôn + rương mốc mỗi 5 ngày, bộ đếm L14) · Thám hiểm Tinh tế 2/4/8 giờ (trần 4/ngày) · Thẻ Kỳ Cựu 600 💎/30 ngày (ngoại lệ kim cương + khóa Càn quét nhanh sau thẻ — chủ dự án duyệt 27/11) — `src/u3v23.js/.css`, tắt `window.U3V23=false`; kiểm `tests/t_u3_v23.py`; chi tiết đầu `docs_claude/BAN_GIAO_V22.md`.
 - **V2.3 U2 (27/11, `v23-ui-meta`, CHỜ DUYỆT)**: thẻ Túi đồ mật độ cao 4 tab (sao dọc, hạng, khóa, xích Chiến Thần, Đặc kỹ, Cộng điểm Siêu Tần Tuần, tấm nút) + phi công (mảnh thật, chấm đỏ `Pilot67.ready`, chú thích luật đội từ `Pilot67.SUB`) — `src/u2v23.js/.css`, tắt `window.U2V23=false`; kiểm `tests/t_u2_v23.py`; chi tiết đầu `docs_claude/BAN_GIAO_V22.md`.
 - **V2.3 U1e (27/11, `v23-ui-meta`, CHỜ DUYỆT)**: mặt phi công không bị che / cắt — ĐỘI CỘNG thành dải 1 dòng `.u1rib` dưới khung tranh, tên/bậc dải đáy, đầu cách mép trên ≥ 12 px (đo alpha ảnh, `--u1dy`); chi tiết đầu `docs_claude/BAN_GIAO_V22.md`.
 - **V2.3 U1d (27/11, `v23-ui-meta`, CHỜ DUYỆT)**: sửa màn PHI CÔNG & TIỀM NĂNG (`.pl67`: bỏ tiêu đề lặp, × đóng, thẻ kỹ năng nền đặc, dòng chỉ số 1 dòng) + ĐỘI PHI CÔNG (`.pl11`: nhãn ô đội, CHI TIẾT 52 %, số mảnh thiếu dễ đọc) + đệm tiêu đề tấm bạc / × trong ô phải; chi tiết đầu `docs_claude/BAN_GIAO_V22.md`.
