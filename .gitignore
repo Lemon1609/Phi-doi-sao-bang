@@ -1,3 +1,8 @@
 node_modules/
 android/
 *.apk
+
+# Khóa ký nằm ở GitHub Secrets (SIGNING_*), không đưa vào repo công khai
+signing/
+*.keystore
+*.jks
