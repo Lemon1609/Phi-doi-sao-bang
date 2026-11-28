@@ -13,7 +13,7 @@ Luật phong cách chi tiết + nhật ký quyết định: `docs_claude/CHUAN_P
 ## Khóa cứng
 - Không tự tạo tài khoản hay nhập mật khẩu trên trang bên thứ ba. Email chủ dự án là riêng tư.
 - Nhân vật nữ chiến giáp ở mức game mobile phổ thông (không khỏa thân, không gợi dục); bản 18+ đã bị từ chối.
-- Khóa ký APK nằm trong repo riêng Lemon1609/Phi-doi-sao-bang: **repo phải giữ Private**; không đổi phần ký của workflow.
+- Khóa ký APK (chủ dự án quyết 28/11): repo Lemon1609/Phi-doi-sao-bang được để **Public** (tránh trần 500 MB của repo Private) vì khóa ký đã chuyển sang **GitHub Actions Secrets** `SIGNING_KEYSTORE_B64` / `SIGNING_STORE_PASS` / `SIGNING_KEY_ALIAS` / `SIGNING_KEY_PASS` (workflow nhánh `build-apk-v198` giải mã ra `$RUNNER_TEMP`, commit 4892909). Được dựng APK trên repo Public **chỉ khi** cây tệp không có keystore / mật khẩu (`.gitignore` chặn `signing/`, `*.keystore`, `*.jks`). Không bao giờ commit, in nhật ký hay gửi lại khóa. Không tự đổi phần ký nếu chủ dự án chưa yêu cầu. Lưu ý: keystore cũ VẪN nằm trong lịch sử git (các tag V2.2.x trở về trước) — chỉ đổi khóa mới hết rủi ro, nhưng đổi khóa thì bản cũ không cài đè được (chờ chủ dự án quyết).
 - Không đổi tên khóa `saobang-*`. Không tiền thật. Không thêm nguồn kim cương mới.
 - Không cài mã ngoài để lách hạn chế. Game gốc chỉ học phong cách / cách làm, **không chép** tàu, cánh, đạn cụ thể.
 - Tăng số lượng đạn theo bậc giữ nguyên tổng sát thương, trừ khi chủ dự án quyết khác.
@@ -38,6 +38,7 @@ Luật phong cách chi tiết + nhật ký quyết định: `docs_claude/CHUAN_P
 - Chỉ lưu ảnh gốc của bản ĐÃ CHỐT vào `src/ship118_cho/V<số>_*` (lượt bị loại không lưu); ghi quyết định vào `CHUAN_PHONG_CACH_DA_CHOT.md`.
 
 ## Trạng thái (cập nhật 28/11/2026)
+- **Khóa ký sang Secrets (28/11)**: `build-apk-v198` = 4892909 (bỏ `signing/`, workflow đọc 4 Secret; commit có `[skip ci]` nên không chạy). Chờ chủ dự án dán 4 Secret rồi dựng `V2.3.0-rc1` (www đã đóng gói sẵn ở `/tmp/rel23/www` từ bản dựng sạch a606ea5, đủ 59 ảnh U1–U4 / rw23 / pkb25 / pkc26).
 - **V2.3 U4 bước 2 (28/11, `v23-ui-meta`, CHỜ DUYỆT)**: VKTT thiết kế lại (`ult72.js`: E từ Lam, chia vai trò, 4 nội tại trợ chiến, 8 hiệu ứng `src/u4fx` → `U4FX_IMG`; tắt `window.VK23=false` / `U4FX=false`) + Mô-đun 4 phẩm / 4 giao thức 2/4 + đổi save (`chip72.js`, tắt `window.CHIP23=false`; bản cũ `saobang-chip72-v1-bk23`); kiểm `tests/t_u4_v23.py` 25 mục; chi tiết đầu `docs_claude/BAN_GIAO_V22.md`.
 - **V2.3 U4 (27/11, `v23-ui-meta`, CHỜ DUYỆT)**: Bệ 3D VKTT + MÔ-ĐUN SIÊU DUY = giao diện mới của Chip72 (chủ dự án chọn "khoác áo", 0 chỉ số mới) — `src/u4v23.js/.css`, tắt `window.U4V23=false`; kiểm `tests/t_u4_v23.py`. Kèm: càn quét ải thường 3★ miễn phí lại, thẻ mở ải Boss/Anh Hùng; quà đăng nhập ngày 1–7 là rương, mốc lớn có kim cương (`L14CHEST`/`L14GEM`). Chi tiết đầu `docs_claude/BAN_GIAO_V22.md`.
 - **V2.3 U3 (27/11, `v23-ui-meta`, CHỜ DUYỆT)**: Điểm danh tích lũy (băng rôn + rương mốc mỗi 5 ngày, bộ đếm L14) · Thám hiểm Tinh tế 2/4/8 giờ (trần 4/ngày) · Thẻ Kỳ Cựu 600 💎/30 ngày (ngoại lệ kim cương + khóa Càn quét nhanh sau thẻ — chủ dự án duyệt 27/11) — `src/u3v23.js/.css`, tắt `window.U3V23=false`; kiểm `tests/t_u3_v23.py`; chi tiết đầu `docs_claude/BAN_GIAO_V22.md`.
