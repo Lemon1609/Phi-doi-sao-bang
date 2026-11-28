@@ -28,7 +28,7 @@ const U4V23M=(()=>{
  const hexHTML=(c,cls='')=>c?`<span class="u4h ${cls} ${FR(c.q)}"><i class="${CO[c.sh]}"></i><em>Lv.${c.lv}</em></span>`:`<span class="u4h ${cls} e"></span>`;
  const ART=()=>{try{return (typeof ULT72_ART!=='undefined'?ULT72_ART:window.ULT72_ART)||{};}catch{return {};}};
  const VIM={hunter:'void_greatsword',web:'solar_orbital_laser',fortress:'prism_bastion',world:'chronos_astrolabe'};/* như vktt307 */
- const vIcon=id=>{try{const I=window.VKTT307_IMG||{},r=(Ult72.state().w[id]||{}).r|0,f=r>=15?4:r>=10?3:r>=6?2:1;return (VIM[id]&&(I[VIM[id]+'_d'+f]||I[VIM[id]]))||ART()['ult_icon_'+id]||'';}catch{return '';}};
+ const vIcon=id=>{try{const s4=(window.U4FX_IMG||{})[{fortress:'vktt_phaodai',world:'vktt_thegioi',hunter:'vktt_sansao',web:'vktt_luoidien'}[id]];if(s4)return s4;const I=window.VKTT307_IMG||{},r=(Ult72.state().w[id]||{}).r|0,f=r>=15?4:r>=10?3:r>=6?2:1;return (VIM[id]&&(I[VIM[id]+'_d'+f]||I[VIM[id]]))||ART()['ult_icon_'+id]||'';}catch{return '';}};
 
  // ================= MÔ-ĐUN SIÊU DUY =================
  let box=null,W=null,arm=-1,sel=null,tab='fire';
@@ -106,6 +106,7 @@ const U4V23M=(()=>{
    const cell=(lab,id,k)=>{const op=k<0||so(k);const ps=k>=0&&id&&op?PAS[id]:k<0&&id?eTier((st.w[id]||{}).r|0):'';return `<button type="button" class="u4fs ${k<0?'mn':''} ${op?'':'lk'} ${id===cur?'on':''}" ${id?`data-a="sel" data-v="${id}"`:''}><small>${lab}</small>${id?`<i style="background-image:url('${sprite(id)||vIcon(id)}')"></i><b>${esc(C.nm[id])}</b>`:`<em>${op?'Trống':'Ải '+C.sup[k]}</em>`}${ps?`<span>${esc(ps)}</span>`:''}</button>`;};
    const fm=document.createElement('div');fm.className='u4fm';fm.innerHTML=cell('CHỦ CHIẾN · 100%',st.main,-1)+cell('TRỢ CHIẾN 1 · 25%',st.sup&&st.sup[0],0)+cell('TRỢ CHIẾN 2 · 25%',st.sup&&st.sup[1],1);
    strip.after(fm);}catch(e){console.warn('U4 đội hình',e);}
+  try{const nm3=sr.querySelector('.sr-name');if(nm3&&!nm3.querySelector('.u4tag')){const tg=document.createElement('span');tg.className='u4tag';nm3.appendChild(tg);for(const q of nm3.querySelectorAll(':scope > .sr-rk, :scope > .vk7-b'))tg.appendChild(q);new MutationObserver(()=>{for(const q of nm3.querySelectorAll(':scope > .vk7-b'))tg.appendChild(q);}).observe(nm3,{childList:true});}}catch{}
   try{const wp=sr.querySelector('.sr-wpn');const sp=sprite(cur);if(wp&&sp){wp.classList.add('u4spr');wp.innerHTML=`<i class="u4spi" style="background-image:url('${sp}')"></i>`;}/* nền, không <img> (vktt307 ghi đè .sr-wpn img) */}catch{}
   if(w&&w.own){let P=0,b=0;try{P=Ult72.P(cur);b=Ult72.bonus();}catch{}
    const sum=document.createElement('div');sum.className='u4box';sum.innerHTML=`<b>Lv.${w.lv}/${C.cap[w.r]}</b><span>Chủ chiến +${pc(P)}</span><span>Đội +${pc(b)}</span>`;
@@ -119,7 +120,9 @@ const U4V23M=(()=>{
     nb.innerHTML=`<button type="button" class="u3p u3pb u4mod ${dot?'dot':''}" data-u4b="mod">MÔ-ĐUN SIÊU DUY<small>${lock?'mở ở ải '+(CC().unlock||110):(CH()?Chip72.summary(cur).replace('chip','khe'):'')}</small>${dot?'<i class="u4dot">!</i>':''}</button>
      <button type="button" class="u3p ${canLv||canPro?'u3pg':'u3ps'}" data-u4b="up" ${canLv||canPro?'':'disabled'}>CƯỜNG HÓA<small>${canLv?(lv.querySelector('small')||{}).textContent||'':canPro?(pro.firstChild.textContent||'').trim():'Tối đa'}</small></button>
      <button type="button" class="u3p u3pb" data-u4b="back">VỀ<small>Sảnh</small></button>`;
-    bot.after(nb);nb.addEventListener('click',e=>{const x=e.target.closest('[data-u4b]');if(!x||x.disabled)return;e.stopPropagation();const k=x.dataset.u4b;
+    /* V2.3 U4b: thanh nút nằm ngay dưới tấm tên (không dính đáy → không đè chữ), rồi dòng thông tin, rồi khung kỹ năng vktt307 */
+    {const nm2=sr.querySelector('.sr-name');if(nm2){nm2.after(nb);const inf2=sr.querySelector('.u4inf');if(inf2)nb.after(inf2);let ln=sr.querySelector('.vk7-ln');if(!ln){ln=document.createElement('div');ln.className='vk7-ln';}(inf2||nb).after(ln);}else bot.after(nb);}
+    nb.addEventListener('click',e=>{const x=e.target.closest('[data-u4b]');if(!x||x.disabled)return;e.stopPropagation();const k=x.dataset.u4b;
      if(k==='mod')open(cur);else if(k==='up'){(canLv?lv:pro).click();}else if(k==='back'){const c=bot.querySelector('[data-a="close"]');if(c)c.click();}});}}
  }
  function tick(){if(!on())return;document.documentElement.classList.add('u4v23');try{deco();}catch(e){console.warn('U4 bệ',e);}}

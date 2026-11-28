@@ -14,17 +14,17 @@
  let filt='all';
  // dạng tranh theo nấc (GPT 19/11): Trắng–Lam+3 → d1 · Tím–Tím+3 → d2 · Huyền thoại–HT+4 → d3 · HT+5 → d4
  const rOf=id=>{try{return (Ult72.state().w[id]||{}).r|0;}catch{return 0;}};const form=r=>r>=15?4:r>=10?3:r>=6?2:1;
- const src=(id,r)=>{if(!W[id])return null;const k=W[id].img+'_d'+form(r==null?rOf(id):r);return I[k]||I[W[id].img];};
+ const src=(id,r)=>{if(!W[id])return null;try{if(window.U4V23!==false&&window.VK23!==false){const s4=(window.U4FX_IMG||{})[{fortress:'vktt_phaodai',world:'vktt_thegioi',hunter:'vktt_sansao',web:'vktt_luoidien'}[id]];if(s4)return s4;}}catch{}/* V2.3 U4b: 4 tranh VKTT mới */const k=W[id].img+'_d'+form(r==null?rOf(id):r);return I[k]||I[W[id].img];};
  const badge=g=>'<span class="vk7-b" style="--vk:'+G[g][1]+'">'+G[g][0]+'</span>';
  function picks(){for(const b of document.querySelectorAll('.u72-pick button')){const nb=b.querySelector('b');const id=nb&&byName(nb.textContent);if(!id||!W[id])continue;const im=b.querySelector('img');const s0=src(id,0);if(im&&s0&&im.getAttribute('src')!==s0)im.src=s0;if(!b.querySelector('.vk7-b'))b.insertAdjacentHTML('beforeend',badge(W[id].g));}}
  function main(){const root=document.querySelector('.u72.srm .sr');if(!root)return;let id=null;try{id=Ult72.cur();}catch{}if(!id||!W[id]){const nb=root.querySelector('.sr-name b');id=nb&&byName(nb.textContent);}if(!id||!W[id])return;const w=W[id];
   const wi=root.querySelector('.sr-wpn img');if(wi&&src(id)&&wi.getAttribute('src')!==src(id))wi.src=src(id);
-  let st={};try{st=Ult72.state();}catch{}for(const sl of root.querySelectorAll('.sr-slot')){const im=sl.querySelector('img');if(!im)continue;const k=sl.classList.contains('main')?st.main:null;if(k&&src(k)&&im.getAttribute('src')!==src(k))im.src=src(k);}
+  let st={};try{st=Ult72.state();}catch{}for(const sl of root.querySelectorAll('.sr-slot')){const im=sl.querySelector('img');if(!im)continue;const k=sl.dataset.v||(sl.classList.contains('main')?st.main:null);if(k&&src(k)&&im.getAttribute('src')!==src(k))im.src=src(k);}
   root.style.setProperty('--vk',G[w.g][1]);root.classList.add('vk7');{let r=0;try{r=(Ult72.state().w[id]||{}).r|0;}catch{}let tc='#d6e0ea';try{tc=ULT72.fcol[ULT72.rf[r]];}catch{}root.style.setProperty('--vkt',tc);root.dataset.vkr=r;}/* màu nấc (Trắng→Huyền thoại) làm quầng sáng quanh tranh: tranh tiến hóa theo nấc chờ GPT */
   const nm=root.querySelector('.sr-name');if(nm){let bd=nm.querySelector('.vk7-b');if(!bd||bd.dataset.id!==id){if(bd)bd.remove();nm.insertAdjacentHTML('beforeend',badge(w.g));nm.querySelector('.vk7-b').dataset.id=id;}
    let ln=root.querySelector('.vk7-ln');if(!ln){ln=document.createElement('div');ln.className='vk7-ln';nm.insertAdjacentElement('afterend',ln);}
    const up=root.querySelector('.sr-st b.up');const pv=up?up.textContent.trim():'';let sub='';try{sub=ULT72.sub[id];}catch{}
-   const h='<p><b>CHỦ ĐỘNG · TUYỆT KỸ</b> '+(sub?'<i>'+sub+'</i> — ':'')+w.act+'</p><p><b>BỊ ĐỘNG · KHI TRANG BỊ</b> '+(pv||'—')+' tấn công / máu / giáp (Chủ chiến 100 %, Trợ chiến 25 %)</p>';if(ln.__h!==h){ln.innerHTML=h;ln.__h=h;}}
+   const h='<p><b>CHỦ ĐỘNG · TUYỆT KỸ</b> '+(sub?'<i>'+sub+'</i> — ':'')+w.act+'</p><p><b>BỊ ĐỘNG · KHI TRANG BỊ</b> '+(((()=>{try{return Ult72.roleTxt?Ult72.roleTxt(id):'';}catch{return '';}})())||((pv||'—')+' tấn công / máu / giáp (Chủ chiến 100 %, Trợ chiến 25 %)'))+'</p>';if(ln.__h!==h){ln.innerHTML=h;ln.__h=h;}}
   let tb=root.querySelector('.vk7-tabs');if(!tb){tb=document.createElement('div');tb.className='vk7-tabs';tb.innerHTML=[['all','TẤT CẢ'],['atk','TẤN CÔNG'],['def','PHÒNG THỦ'],['uti','ĐA DỤNG']].map(([k,t])=>'<button type="button" data-vk="'+k+'">'+t+'</button>').join('');const top=root.querySelector('.sr-top');(top||root.firstChild).insertAdjacentElement('afterend',tb);
    tb.addEventListener('click',e=>{const b=e.target.closest('[data-vk]');if(!b)return;filt=b.dataset.vk;seek(1);});}
   for(const b of tb.querySelectorAll('button'))b.classList.toggle('on',b.dataset.vk===filt);

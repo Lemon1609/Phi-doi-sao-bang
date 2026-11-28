@@ -42,6 +42,16 @@ with sync_playwright() as p:
   ck('Bệ 3D: nền stage_vktt_3d, TRANH VKTT RIÊNG trôi ±4 px (CSS), dải đội hình 1 chủ chiến + 2 trợ chiến ghi rõ nội tại, dòng vai trò + bậc E; đáy MÔ-ĐUN SIÊU DUY · CƯỜNG HÓA vàng · VỀ lam; 0 ảnh hỏng',
      d and 'data:image/webp' in d['bg'] and d['bad']==0 and d['spr'] and d['sel']==d['own']==3 and d['lv'] in d['box'] and d['an']=='u4fl' and len(d['fm'])==3 and 'CHỦ CHIẾN' in d['fm'][0] and 'chặn 1 đòn' in d['fm'][1] and 'chí mạng' in d['fm'][2] and 'Khống chế' in d['inf'] and 'E đủ sức' in d['inf']
      and d['btn'][1].startswith('u3pg:CƯỜNG HÓA') and d['btn'][2]=='u3pb:VỀ' and 'MÔ-ĐUN SIÊU DUY' in d['btn'][0],d)
+  ov=pg.evaluate("""()=>{const sr=document.querySelector('.u72.srm .sr.u4sr');const bb=sr.querySelector('.u4bb');const R=[...bb.querySelectorAll('button')].map(b=>b.getBoundingClientRect());const hit=[];
+   for(const e of sr.querySelectorAll('*')){if(bb.contains(e)||!e.offsetParent)continue;const q=e.getBoundingClientRect();if(q.width<2||q.height<2)continue;const st=getComputedStyle(e);if(st.visibility==='hidden'||+st.opacity===0)continue;
+    for(const r of R){const ix=Math.min(q.right,r.right)-Math.max(q.left,r.left),iy=Math.min(q.bottom,r.bottom)-Math.max(q.top,r.top);if(ix>1&&iy>1&&!(e.contains(bb))){hit.push(e.className+'|'+(e.textContent||'').trim().slice(0,16));break;}}}
+   const nm=sr.querySelector('.sr-name'),tg=nm&&nm.querySelector('.u4tag'),pl=nm&&nm.querySelector(':scope > b');const a=tg&&tg.getBoundingClientRect(),b=pl&&pl.getBoundingClientRect();
+   const imgs=[...sr.querySelectorAll('.sr-slots .sr-slot img')].map(i=>i.src.slice(0,30)+(Object.values(window.U4FX_IMG||{}).includes(i.src)?'#u4':''));
+   const ln=[...sr.querySelectorAll('.vk7-ln p')].map(p=>p.textContent).join(' ');return {hit,side:!!(a&&b&&a.left>=b.right-1&&a.top<b.bottom&&a.bottom>b.top),imgs,ln:ln.slice(-160)}}""")
+  ck('Màn VKTT không đè nút: nhãn bậc + hệ đứng cạnh tấm tên, 0 phần tử chồng lên MÔ-ĐUN · CƯỜNG HÓA · VỀ; 3 ô đội hình dùng tranh VKTT mới; dòng BỊ ĐỘNG ghi Công · Máu/Giáp theo vai trò',
+     not ov['hit'] and ov['side'] and ov['imgs'] and all(x.endswith('#u4') for x in ov['imgs']) and 'Máu/Giáp +' in ov['ln'] and 'Trợ chiến' in ov['ln'],ov)
+  mc=pg.evaluate("()=>{U4V23S.open('world');const i=document.querySelector('#u4m .u4core i');const ok=i&&Object.values(window.U4FX_IMG||{}).some(v=>getComputedStyle(i).backgroundImage.includes(v.slice(30,90)));U4V23S.close();return ok}")
+  ck('Tâm màn MÔ-ĐUN SIÊU DUY dùng tranh VKTT mới',mc,mc)
   # ---------- 2. chia vai trò + E theo bậc ----------
   r=pg.evaluate("""()=>{const o={};for(const id of ['fortress','world','hunter','web']){Ult72._set({w:{[id]:{own:1,r:6,lv:40,sh:0}},main:id,sup:[null,null]});o[id]=[Ult72.bonusOf('atk'),Ult72.bonusOf('hp'),Ult72.bonusOf('armor'),Ult72.P(id)];}return o;}""")
   rk={k:(round(v[0]/v[3],3),round(v[1]/v[3],3),round(v[2]/v[3],3)) for k,v in r.items()}
