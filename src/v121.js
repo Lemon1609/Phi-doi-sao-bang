@@ -145,7 +145,7 @@
   function hookRank(){try{if(Rank36.__k121)return;const R=Rank36;
       R.activate=function(){return start();};
       R.draw=function(){if(window.WING121===false)return;try{drawWings();}catch{}};
-      const oh=R.hud;R.hud=function(){const r=oh.apply(this,arguments);try{if(activeRobot)return r;const g=gradeOf(),i=shipId();if(!g||!SK[i])return r;const ss=g==='SS';const nm=document.getElementById('robot-skill-name');if(nm)nm.textContent=(ss?'TUYỆT KỸ · ':'KỸ NĂNG S · ')+(ss?SK[i].ss:SK[i].s);
+      const oh=R.hud;R.hud=function(){const r=oh.apply(this,arguments);try{if(activeRobot)return r;const g=gradeOf(),i=shipId();if(!g||!SK[i])return r;const ss=g==='SS';const nm=document.getElementById('robot-skill-name');if(nm){nm.textContent=(ss?'TUYỆT KỸ · ':'KỸ NĂNG S · ')+(ss?SK[i].ss:SK[i].s);nm.__v121=performance.now();}
         const b=document.getElementById('robot-skill');if(b){b.disabled=mode!=='play'||cool>0||!!cur;b.innerHTML='✦<small>'+(cool>0?Math.ceil(cool)+'s':ss?'TUYỆT KỸ':'KỸ NĂNG')+'</small>';}}catch{}return r;};
       const os=R.state;R.state=function(){const s=os.apply(this,arguments);return {...s,cool:cool};};
       R.__k121=1;}catch(e){console.warn('V121 rank',e);}}

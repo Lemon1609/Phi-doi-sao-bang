@@ -21,7 +21,7 @@ const Hud68=(()=>{
   q.push(s);if(q.length>4)q.shift();pump();};
  // ---------- (2) HUD gọn + cảnh báo lực chiến đúng nghĩa ----------
  function rawFactor(){try{const fl=Combat.flight();if(!fl)return 1;return Combat.multiplier(fl.cp,Combat.requirement());}catch{return 1;}}
- function fixTele(){const t=$('tele07');if(!t||t.hidden)return;const cp=t.querySelector('.t7-cp'),sc=t.querySelector('.t7-sc');if(sc)sc.hidden=true;if(!cp)return;
+ function fixTele(){const t=$('tele07');if(!t||t.hidden)return;window.__h68t=performance.now();const cp=t.querySelector('.t7-cp'),sc=t.querySelector('.t7-sc');if(sc)sc.hidden=true;if(!cp)return;
   const f=rawFactor();if(f>=.999){cp.hidden=true;return;}cp.hidden=false;const v='⚠ ST '+Math.round(f*100)+'%';cp.title='Thiếu lực chiến: sát thương còn '+Math.round(f*100)+'%';if(cp.textContent!==v)cp.textContent=v;}
  // ---------- (3) báo trước laser ----------
  function stretch(){try{for(const b of beams){if(b.w68)continue;b.w68=1;if(b.warn!=null&&b.age<b.warn*.5&&b.warn<HUD68.warn)b.warn=HUD68.warn;}}catch{}}

@@ -34,6 +34,7 @@ const PKC26=(()=>{
    if(S.ft>0&&S.prev>=0){const p=im(NAMES[S.prev]);if(p)layer(p,S.y,1);layer(b,S.y,1-Math.max(0,S.ft)/FADE);}else layer(b,S.y,1);
    const c=im('clouds');if(c)layer(c,S.yc,CA);
   }catch{}ctx.restore();return true;}
- return {on,draw,state:()=>({on:on(),cur:S.cur>=0?NAMES[S.cur]:'',k:Math.round(S.k*100)/100,eIdx:S.eIdx,fade:Math.max(0,S.ft),y:Math.round(S.y),n:S.n}),NAMES,CH};
+ function full(){if(!on())return false;const t=biome();if(t<0||!im(NAMES[t]))return false;if(S.ft>0&&S.prev>=0&&!im(NAMES[S.prev]))return false;return true;}
+ return {on,draw,full,state:()=>({on:on(),cur:S.cur>=0?NAMES[S.cur]:'',k:Math.round(S.k*100)/100,eIdx:S.eIdx,fade:Math.max(0,S.ft),y:Math.round(S.y),n:S.n}),NAMES,CH};
 })();
 window.PKC26S=PKC26;

@@ -1,3 +1,10 @@
+# V2.4-A / A2 (28/11, nhánh `v24-combat-feel`, CHỜ DUYỆT)
+- Thanh `FPS: … | DPR | P: B:` (hud22) vốn chỉ hiện khi bật «HIỆN FPS KHI CHƠI» trong Cài đặt (mặc định TẮT) — máy chủ dự án đang lưu BẬT.
+- Nguyên nhân giật đo được: tính lại style 1,5–4 lần/khung (HUD ghi lại cùng giá trị + 3 cặp ghi đè nhau: #robot-control / #robot-skill-name / .t7-cp), tô đè 10,6 màn/khung (4 lớp nền dưới PKC26 đục + 2 lớp tối), shadowBlur + createPattern mỗi khung ở băng cảnh báo, 18–22 gradient mới/khung (tb309).
+- Sửa: xem dòng trạng thái V2.4 trong CLAUDE.md. Kẹt ải khi ép hạ boss trong bài thử là do `rewardStage` trả null (canStart nội bộ) — xảy ra cả khi tắt chuỗi nổ (`V24WIN=false`).
+- Cánh: 90644 (2 cánh lửa + 2 cánh vàng) chưa dùng (không có trong bảng ánh xạ). ct2 giữ khối tròn. Neo tay s0/s12/ct3/ct5 (MANUAL trong wing24_cat.py).
+- Chưa làm / ghi chú: hộ tống tàu #10 không dời đội hình chữ V (sẽ đổi điểm bắn) — chỉ thêm vòng sáng; mô-đun cũ (l3309, v118, evo21-led, btfx218, pcap22, fx215) vẫn dựng canvas lần đầu mỗi tàu vào Bạo Tẩu; nhãn bậc 6 = «SS · MAX» (bậc 5 hiển thị TÍM+5 theo dữ liệu game).
+
 # V2.3 · Đợt U4 bước 2 (28/11, `v23-ui-meta`; BẢN THỬ, CHỜ DUYỆT, chưa APK) — VKTT thiết kế lại + MÔ-ĐUN SIÊU DUY 4 phẩm / 4 giao thức + 4 tranh VKTT + 8 hiệu ứng trận
 - Thay quyết định "khoác áo, 0 chỉ số mới" (27/11) bằng đặc tả Gemini 23:27 chủ dự án chuyển: giữ 4 VKTT, 3 ô (1 chủ 100 % + 2 trợ 25 %), mở ải 90/100/120, 16 bậc, Lv100, kinh tế, trần 12 % (18 % có mô-đun), Vô tận 0 %.
 - `src/ult72.js` (tắt trước khi trang tải `window.VK23=false`): E mở từ Lam (`isE`; Lam ×0,70 sức · sạc ×1,25 · cần thêm 1 sự kiện; Tím ×0,85 · ×1,12; Huyền thoại→+5 đủ sức + dấu ấn: Pháo Đài E xóa đạn cả màn (Lam/Tím 150 px), Thế Giới E đóng băng đạn đủ `u.bul` (Lam/Tím 1 s)); chia chỉ số `ROLE` (Công|Máu·Giáp ×0,8|1,2 · 1|1 · 1,4|0,6 · 1,3|0,7, `wBonus(st)`); Săn Sao E Dễ tổn thương 6 % Lam · 7 % Tím · 8→10 % HT trong 6 s; Lưới Điện E khóa boss / quái nhiều máu nhất, ST lên mục tiêu khóa / boss / tinh anh ×1,2 (HT ×1,35).

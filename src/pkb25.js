@@ -143,7 +143,7 @@
  // ---------- 6) màn tổng kết ----------
  function results(){const rs=document.querySelector('#overlay.rs-on #rs');if(!rs||rs.querySelector('.rs25'))return;const sc=rs.querySelector('.rs-score');if(!sc)return;
   let s=0;try{s=score;}catch{}const fmt=v=>Math.round(v).toLocaleString('vi-VN'),parts=[];
-  const base=Math.max(0,s-R.bonusX2-R.astPts);parts.push('Điểm hạ địch & nhặt đồ <b>'+fmt(base)+'</b> (hệ số combo cao nhất <b>×'+R.maxM+'</b>: mỗi 5 mục tiêu liên tiếp +1, tối đa ×5)');
+  const base=Math.max(0,s-R.bonusX2-R.astPts);parts.push(window.V24!==false?'Điểm hạ địch & nhặt đồ <b>'+fmt(base)+'</b> · combo <b>×'+R.maxM+'</b>':'Điểm hạ địch & nhặt đồ <b>'+fmt(base)+'</b> (hệ số combo cao nhất <b>×'+R.maxM+'</b>: mỗi 5 mục tiêu liên tiếp +1, tối đa ×5)');
   if(R.bonusX2>0)parts.push('Ngọc ×2 <b>+'+fmt(R.bonusX2)+'</b>');if(R.astPts>0)parts.push('Thiên thạch ('+R.astN+') <b>+'+fmt(R.astPts)+'</b>');if(endless())parts.push('Vô tận: điểm Gói B không cộng (giữ hạng mùa)');
   let e={n:0,pp:0},cap=30,pcap=5;try{e=EL81.state();cap=EL81.CAP||30;pcap=EL81.PP||5;}catch{}
   const bar=(lb,v,c)=>'<div class="cap"><span>'+lb+'</span><i><u style="width:'+Math.min(100,v/c*100).toFixed(0)+'%"></u></i><em>'+v+'/'+c+'</em></div>';

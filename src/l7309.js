@@ -56,7 +56,7 @@ const L7309=(()=>{
      g.globalCompositeOperation='lighter';g.globalAlpha=.35;g.strokeStyle='#fb923c';g.lineWidth=m.r*.7;g.lineCap='round';g.beginPath();g.moveTo(0,0);g.lineTo(-m.vx*.18,-m.vy*.18);g.stroke();
      g.globalCompositeOperation='source-over';g.globalAlpha=1;g.rotate(m.a);g.drawImage(rockImg(m.k),-s/2,-s/2,s,s);g.restore();}
    const u=TT()-E.banner;if(E.on&&u>=0&&u<1.5){const a=u<.2?u/.2:u>1.2?(1.5-u)/.3:1,txt='⚠ '+NAME[E.type]+(E.type==='em'?' · BẠO TẨU NẠP +25%':E.type==='rock'?' · BẮN VỠ ĐỂ NHẶT SAO':' · VẬT PHẨM TRÔI');
-     g.save();g.globalAlpha=a;g.font='bold 13px sans-serif';const w=g.measureText(txt).width+26,x=W/2-w/2,y=132;g.fillStyle='rgba(8,14,26,.82)';g.fillRect(x,y,w,24);g.fillStyle=E.type==='em'?'#38bdf8':E.type==='rock'?'#fb923c':'#a78bfa';g.fillRect(x,y,w,2);g.fillRect(x,y+22,w,2);
+     if(window.V24!==false&&typeof V24TXT24==='function'){V24TXT24(g,txt,E.type==='em'?'#38bdf8':E.type==='rock'?'#fb923c':'#a78bfa',W/2,144,a);return;}g.save();g.globalAlpha=a;g.font='bold 13px sans-serif';const w=g.measureText(txt).width+26,x=W/2-w/2,y=132;g.fillStyle='rgba(8,14,26,.82)';g.fillRect(x,y,w,24);g.fillStyle=E.type==='em'?'#38bdf8':E.type==='rock'?'#fb923c':'#a78bfa';g.fillRect(x,y,w,2);g.fillRect(x,y+22,w,2);
      g.fillStyle='#f1f5f9';g.textAlign='center';g.textBaseline='middle';g.fillText(txt,W/2,y+12.5);g.restore();}}
  // =============== nhiệm vụ: sự kiện ===============
  const Q=(ev,n)=>{try{if(window.QUEST7!==false&&typeof Q77!=='undefined')Q77.track(ev,n||1);}catch{}};

@@ -41,7 +41,12 @@
  function put(g,J,key,im,ax,ay,W,rot,sx,sy){const q=J[key];if(!q||!ok(im))return;const k=q.bw*W/q.w;g.save();g.translate(ax,ay);if(rot)g.rotate(rot);g.scale(k*(sx||1),k*(sy||1));g.drawImage(im,-q.px,-q.py);g.restore();}
  // tư thế từng mẫu → danh sách [key, ax, ay, rot, sx, sy] (tọa độ tương đối tâm robot)
  const D2=Math.PI/180;
- function pose(i,t,B,K){const c=CFG[i],J=RW23_J['ct'+(i+1)],W=c.W*K,L=[];if(!J)return {L,W};const y=c.y;
+ // V2.4-A: cánh mới (v24.js nạp, J.R.v24 / J.O.v24): nửa phải + lật gương trái quanh lõi, xuôi xuống `down`°, Bạo Tẩu (bùng) mở thêm `openBT`°
+ function pose24(i,t,B,K){const c=window.RW24CFG[i],J=RW23_J['ct'+(i+1)],W=c.W*K,L=[],y=c.y;
+  if(J.O){const b=1+.03*Math.sin(t*2*Math.PI*.8);L.push(['O',0,y,S.ang,b,b]);return {L,W};}
+  const fl=3*D2*Math.sin(t*2*Math.PI*(i===6?1.2:1.5)),rot=(c.down-c.openBT*S.spread)*D2+fl;
+  L.push(['R',c.sh,y,rot,1,1],['L',-c.sh,y,-rot,-1,1]);return {L,W};}
+ function pose(i,t,B,K){const c=CFG[i],J=RW23_J['ct'+(i+1)],W=c.W*K,L=[];if(!J)return {L,W};const y=c.y;if(window.RW24CFG&&J&&((J.R&&J.R.v24)||(J.O&&J.O.v24)))return pose24(i,t,B,K);
   if(i===0){const s=Math.sin(t*2*Math.PI*1.6),a=Math.sign(s)*Math.pow(Math.abs(s),.35)*5*D2;L.push(['L',-c.sh,y,a,1,1],['R',c.sh,y,-a,1,1]);}
   else if(i===1){L.push(['O',0,y,S.ang,1+.03*Math.sin(t*2*Math.PI*.8),1+.03*Math.sin(t*2*Math.PI*.8)]);}
   else if(i===2){const a=4.5*D2*Math.sin(t*2*Math.PI*1.3),tk=Math.max(0,Math.min(1,-S.vy/500))*7*D2;L.push(['L',-c.sh,y,a-tk,1,1],['R',c.sh,y,-a+tk,1,1]);}
@@ -63,7 +68,7 @@
   const B=boosting();if(B&&!S.bOn){S.surge=now();S.ring=now();}S.bOn=B;
   S.ang+=(B?1.8:.45)*dt;S.spread+=((B?1:0)-S.spread)*Math.min(1,dt*6);
   const K=springK(),P=pose(i,t,B,K),c=CFG[i];stat.f++;
-  {const J=RW23_J['ct'+(i+1)];let ex=0;for(const e of P.L){const q=J[e[0]];if(!q)continue;const kk=q.bw*P.W/q.w;const out=e[0]==='O'?q.w/2*kk:(e[0].slice(-1)==='L'?q.px:q.w-q.px)*kk;ex=Math.max(ex,Math.abs(e[1])+out*(e[4]||1));}S.ext=Math.max(ex/K,(S.ext||0)*.99);}
+  {const J=RW23_J['ct'+(i+1)];let ex=0;for(const e of P.L){const q=J[e[0]];if(!q)continue;const kk=q.bw*P.W/q.w;const out=e[0]==='O'?q.w/2*kk:((e[0].slice(-1)==='L'&&!q.mir)?q.px:q.w-q.px)*kk;ex=Math.max(ex,Math.abs(e[1])+out*(e[4]||1));}S.ext=Math.max(ex/K,(S.ext||0)*.99);}
   // bóng mờ: lưu vị trí mỗi 45 ms
   if(t-S.ht>.045){S.ht=t;S.hist.unshift([x,y]);if(S.hist.length>4)S.hist.length=4;}
   const fast=Math.abs(S.vx)>260;if((fast||B)&&S.hist.length>=3){g.save();g.globalCompositeOperation='lighter';const A=[.22,.15,.08];for(let k=1;k<=3&&k<S.hist.length;k++){const h=S.hist[k];if(Math.abs(h[0]-x)+Math.abs(h[1]-y)<3)continue;drawSet(g,i,h[0],h[1],P,1,A[k-1]);stat.ghost++;}g.restore();}

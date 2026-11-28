@@ -44,7 +44,7 @@ const RV75=(()=>{
   try{const ov=Threat30.velocity;Threat30.velocity=function(b){if(b&&b.fix75)return;return ov.apply(this,arguments);};}catch{}
   try{const od=Loot40.draw;Loot40.draw=function(){try{if(playing())beams();}catch{}return od.apply(this,arguments);};}catch{}
   // GPT V75 #2: tối nền trận (chỉ lớp nền, không phủ đạn/HUD). Tắt: window.BG76=0
-  try{const ob=Report392.background;Report392.background=function(){const r=ob.apply(this,arguments);try{const a=window.BG76??.28;if(a>0&&(mode==='play'||mode==='pause')){ctx.save();ctx.globalCompositeOperation='source-over';ctx.globalAlpha=a;ctx.fillStyle='#071020';ctx.fillRect(-40,-40,(typeof W==='number'?W:480)+80,(typeof H==='number'?H:1100)+80);ctx.restore();}}catch{}return r;};}catch{}
+  try{const ob=Report392.background;Report392.background=function(){const r=ob.apply(this,arguments);try{const a=(window.__dim24f!=null&&window.__dim24f===window.__f24)?0:(window.BG76??.28);if(a>0&&(mode==='play'||mode==='pause')){ctx.save();ctx.globalCompositeOperation='source-over';ctx.globalAlpha=a;ctx.fillStyle='#071020';ctx.fillRect(-40,-40,(typeof W==='number'?W:480)+80,(typeof H==='number'?H:1100)+80);ctx.restore();}}catch{}return r;};}catch{}
   try{const ors=reset;reset=function(){groups.clear();gcount=0;return ors.apply(this,arguments);};}catch{}}
  setTimeout(()=>{try{install();}catch(e){console.warn('RV75 install',e);}},0);
  return {F,state:()=>({groups:groups.size,formed:enemies.filter(e=>e.f75&&!e.dead).map(e=>e.f75.k),near:nearN})};

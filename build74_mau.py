@@ -1294,6 +1294,8 @@ rep("</body>","<script id=\"pkc26-js\">window.PKC26_IMG="+json.dumps(PKC26IMG,se
 rep("ctx.globalAlpha=.95;ctx.drawImage(P.stars[g.kind]","ctx.globalAlpha=(window.__rw23on?.15:.95);ctx.drawImage(P.stars[g.kind]")
 rep("else{const s=m.size*(1-u)*2.4;ctx.drawImage(P.stars[m.kind]","else{const s=m.size*(1-u)*2.4;if(window.__rw23on)ctx.globalAlpha=Math.min(ctx.globalAlpha,.15);ctx.drawImage(P.stars[m.kind]")
 rep("g.globalAlpha=strength*(long?.75:.55);g.drawImage(P.rays","g.globalAlpha=strength*(long?.75:.55)*(window.__rw23on?.2:1);g.drawImage(P.rays")
+# V2.4-A (nhánh v24-combat-feel): PERF24 + cánh Bạo Tẩu riêng WING_CONFIG_BY_ID + hỏa lực / sân khấu Boss — claude_tools/v24_rep.py
+import sys as _s24;_s24.path.insert(0,'claude_tools');import v24_rep as _v24;_v24.apply_build(rep,None)
 open('Phi_Doi_Sao_Bang_V74_mau.html','w',encoding='utf-8').write(h)
 # V309 Lượt 15 · giảm dung lượng sau khi dựng: PNG→WebP q90 + gộp ảnh trùng (claude_tools/opt15_assets.py). Bỏ qua: OPT15_ANH=0
 if os.environ.get('OPT15_ANH','1')!='0':

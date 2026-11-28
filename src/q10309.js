@@ -145,7 +145,7 @@ const Q10309=(()=>{
    let h=0;try{h=Stone71.patrolPreview().h;}catch{}b.querySelector('em').hidden=h<6;const pct=Math.min(100,Math.round(h/12*100))+'%';const s=b.querySelector('s');if(s.textContent!==pct){s.textContent=pct;b.style.setProperty('--p',pct);}}
  // ================= PV10 · Bách khoa bắn thử =================
  let pvS=null;
- function codex(){if(!window.WING10)return;const box=$('.m63.cx7:not([hidden]) .cx7-big');if(!box)return;let c=box.querySelector('canvas.pv10');
+ function codex(){if(!window.WING10)return;const box=$('.m63.cx7:not([hidden]) .cx7-big');if(!box)return;{const _s=(($('.m63.cx7 .cx7-c.sel')||{}).dataset||{}).cx7||'';if(window.V24!==false&&window.V24A2!==false&&window.DG24!==false&&_s[0]==='s'){const old=box.querySelector('canvas.pv10');if(old){old.remove();box.classList.remove('pv10on');pvS=null;}return;}}let c=box.querySelector('canvas.pv10');
    if(!c){c=document.createElement('canvas');c.className='pv10';box.appendChild(c);box.classList.add('pv10on');
      pvS=WING10.Stage(c,{visible:()=>c.isConnected&&vis($('.m63.cx7')),get:()=>{const sel=(($('.m63.cx7 .cx7-c.sel')||{}).dataset||{}).cx7||'';const im0=box.querySelector('img');
        if(sel[0]==='s'){const i=+sel.slice(1);let src='';try{const S=SHIP118[String(i)];src=S.tim||S.thuong;}catch{}return {src,col:WING10.colOf(i),bb:WING10.bbOf(i),sw:.3,sh:.55,cy:.62,key:'cx'+i,arc:(performance.now()%3600)<1100};}
