@@ -30,7 +30,7 @@ const G22={f:-1,n:0};function glow22(){if(window.GLOW22===false)return true;cons
  const tierOf=id=>{try{return Dan299.tierOf(id)||'tim';}catch{return 'tim';}};
  const T=['thuong','luc','lam','tim','tim5','ss'];
  let bank=0,last=-9,tpl=null,bankId=-1;
- function emit(id){const c=CFG[id],bt=typeof superTime!=='undefined'&&superTime>0,ti=Math.max(0,T.indexOf(tierOf(id)));
+ function emit(id){try{if(window.SND24S&&mode==='play')SND24S.shot(id);}catch{}/* V2.4-B tiếng đạn chính */const c=CFG[id],bt=typeof superTime!=='undefined'&&superTime>0,ti=Math.max(0,T.indexOf(tierOf(id)));
   const n=bt?c.bt.rays:c.rays[ti],tot=(bt?c.bt.tot:c.tot[ti])*Math.PI/180,L=bt?c.bt.len:c.len[ti],col=bt?c.bt.col:c.col[window.MAUA309!==false?'tim':T[ti]];
   const dmg=bank/n*(DK[id]||1);bank=0;
   for(let k=0;k<n;k++){const a=n>1?-tot/2+tot*k/(n-1):0,vx=Math.sin(a)*c.speed,vy=-Math.cos(a)*c.speed,x=player.x+(k-(n-1)/2)*4;

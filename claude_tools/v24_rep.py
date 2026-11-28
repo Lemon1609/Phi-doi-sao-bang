@@ -53,7 +53,7 @@ def modules():
     """khối mô-đun chèn (đầu <head> cho perf24, cuối <body> cho phần còn lại)"""
     head='<script id="perf24-js">'+rd('src/perf24.js')+'</script>'
     tail=''
-    for f,sid in (('src/v24.js','v24-js'),):
+    for f,sid in (('src/v24.js','v24-js'),('src/snd24.js','snd24-js')):
         if os.path.exists(os.path.join(ROOT,f)):
             if f=='src/v24.js' and os.path.isdir(os.path.join(ROOT,'src/wing24img')):
                 import base64

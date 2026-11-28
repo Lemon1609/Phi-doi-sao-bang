@@ -24,7 +24,7 @@ with sync_playwright() as p:
   br=p.chromium.launch();pg,errs,o=setup(br,'SS')
   start(pg,12);pg.evaluate("()=>{clearInterval(window.__hz);window.__h0=setInterval(()=>{hp=maxHp;invuln=9;for(const e of enemies)e.hp=Math.max(e.hp,1e7)},40)}");pg.wait_for_timeout(1500)
   m=pg.evaluate("""()=>new Promise(res=>{const o={};const lv0=level;const ch=[];for(let l=1;l<=200;l++){const c=Campaign36.chapter(l)+1;if(!ch[c])ch[c]=l;}
-    const want={1:'valley',2:'orbit',3:'skycity'};let i=0;const ks=[1,2,3];const nx=()=>{if(i>=ks.length){level=lv0;return res(o)}const c=ks[i++];level=ch[c];setTimeout(()=>{o[c]=[PKC26S.state().cur,want[c]];nx()},1600)};nx()})""")
+    const want={1:'valley',2:'lava',3:'skycity'};let i=0;const ks=[1,2,3];const nx=()=>{if(i>=ks.length){level=lv0;return res(o)}const c=ks[i++];level=ch[c];setTimeout(()=>{o[c]=[PKC26S.state().cur,want[c]];nx()},1600)};nx()})""")
   ck('Chiến dịch: chương 1 Thung Lũng · 2 Quỹ Đạo · 3 Thành Phố Mây (hòa 1,2 s khi đổi)',all(v[0]==v[1] for v in m.values()),m)
   d=pg.evaluate("""()=>new Promise(res=>{const o={};const s=()=>PKC26S.state();o.n0=s().k;const y0=s().y,t0=stageTime;
     setTimeout(()=>{o.v=(s().y-y0)/Math.max(.01,stageTime-t0);o.dt=stageTime-t0;superTime=8;setTimeout(()=>{o.bt=s().k;superTime=0;PKB25S.apply('s',player.x,player.y);setTimeout(()=>{o.s=s().k;PKB25S.R.sEnd=0;window.__surgeS25=0;res(o)},1300)},1300)},1000)})""")

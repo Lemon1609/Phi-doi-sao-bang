@@ -23,6 +23,7 @@ MUSIC96_TRACKS.eclipse=Object.assign({},MUSIC96_TRACKS.battle,{bpm:132,shift:-3,
 MUSIC96_TRACKS.endless=Object.assign({},MUSIC96_TRACKS.battle,{bpm:124});
 const Music96=(()=>{
  const on=()=>window.MUSIC96!==false;
+ const M24B=()=>window.MUS24B!==false&&window.V24!==false;/* V2.4-B: thêm bass + nhịp cho nhạc trận / boss; tắt: window.MUS24B=false */
  const KEY='saobang-music96';let S={vol:.55};try{Object.assign(S,JSON.parse(localStorage.getItem(KEY)||'{}'));}catch{}
  const save=()=>{try{localStorage.setItem(KEY,JSON.stringify(S));}catch{}};
  const hz=m=>440*Math.pow(2,(m-69)/12);
@@ -78,6 +79,7 @@ const Music96=(()=>{
    if(br>=4){nz2(t,st%4===2?.012:.006,.03,'highpass',9000);}if(br>=8&&st===0)kick(t,.22);return;}
   if(base==='battle'){let ci=0;try{ci=Campaign36.chapter(level)|0;}catch{}const R=T.roots[ci%T.roots.length]+(T.shift||0),ch=T.chords[br%4],ph=br%16,B=sd*16;
    if(st%4===0){kick(t,.58);duck(t,sd);}
+   if(M24B()){if(st%4===0)syn('sine',hz(R-24+ch[0]),t,sd*3.2,.16,{a:.006,filt:180});if(st===14||(st===6&&ph%2===1))kick(t,.3);if(st===7||st===15)nz2(t,.05,.05,'bandpass',3200,{q:2});if(st%2===0&&ph>=2)nz2(t+sd*.5,.012,.02,'highpass',11000);}/* V2.4-B: bass sâu + nhịp dồn */
    if(ph>=2&&(st===4||st===12)){nz2(t,.16,.12,'bandpass',1500,{rv:.25});nz2(t+.012,.12,.1,'bandpass',1900);}
    nz2(t,st%2===1?.014:.007,.025,'highpass',9500);if(ph>=4&&st%4===2)nz2(t,.028,.14,'highpass',7000);
    const oc=(st%4===3)?12:0;syn('sawtooth',hz(R-12+ch[0]+oc),t,sd*.85,.06,{filt:1,fenv:[1800,240,sd*.8],q:6});
@@ -88,7 +90,7 @@ const Music96=(()=>{
    if(ph===0&&br>0&&st===0)nz2(t,.09,1.6,'lowpass',6000,{rv:.5});
    if(ph===15&&st>=12)nz2(t,.08+(st-12)*.03,.1,'bandpass',1700);return;}
   if(id==='boss'){const R=T.root,ch=T.chords[br%4];
-   if(T.kick[st]==='x')kick(t,.6);if(T.snare[st]==='x'){if(window.MUS115!==false){nz(t,.22,.16,'lowpass',2200);osc('triangle',190,t,.1,.12);}else snare(t,.24);}if(T.hat[st]==='x')hat(t,.04,false);
+   if(T.kick[st]==='x')kick(t,.6);if(M24B()){if(st%2===0)syn('sine',hz(R-24+ch[0]),t,sd*1.9,.24,{a:.005,filt:170});if(st%8===6&&T.kick[st]!=='x')kick(t,.42);if(br%4===3&&st>=12)osc('sine',[196,165,147,110][st-12],t,.16,.12,.003);if(st===3||st===11)nz2(t,.04,.05,'bandpass',2600,{q:2});}/* V2.4-B */if(T.snare[st]==='x'){if(window.MUS115!==false){nz(t,.22,.16,'lowpass',2200);osc('triangle',190,t,.1,.12);}else snare(t,.24);}if(T.hat[st]==='x')hat(t,.04,false);
    osc('sawtooth',hz(R-12+ch[0]+(st%8===7?12:0)),t,sd*.8,.075,.003,420+st*12,6);
    if(st===0)pad(t,ch.map(x=>R+12+x),sd*16*.95,.014);if(st===0&&window.MUS115!==false)for(const x of ch.slice(0,3))syn('sawtooth',hz(R+x),t,sd*16*.98,.012,{a:.25,filt:650,rv:.45});
    const n=T.riff[br%4][st];if(n>=0&&br%8>=2)osc('sawtooth',hz(R+12+T.scale[n]+(window.MUS115!==false&&br%16===15&&st>=8?7:0)),t,sd*1.6,.03,.004,1800,3);
@@ -99,8 +101,8 @@ const Music96=(()=>{
  const OUT=()=>tg||master;
  function newLane(){const g=ctx.createGain();g.gain.value=0;g.connect(master);let p=null;try{p=ctx.createGain();p.gain.value=1;p.connect(g);}catch{}return {g,p};}
  function xf(w,t){if(oldX){try{oldX.g.disconnect();}catch{}oldX=null;}
-  if(tg){const o={g:tg,p:pump,id:cur,trk,nextT,step,bar,until:t+1.6};o.g.gain.cancelScheduledValues(t);o.g.gain.setTargetAtTime(0,t,.4);oldX=o;}
-  const L=newLane();tg=L.g;if(L.p)pump=L.p;tg.gain.setTargetAtTime(1,t,.35);cur=w;trk=MUSIC96_TRACKS[w];step=0;bar=0;nextT=t+.05;}
+  const xl=M24B();if(tg){const o={g:tg,p:pump,id:cur,trk,nextT,step,bar,until:t+(xl?1.3:1.6)};o.g.gain.cancelScheduledValues(t);if(xl){o.g.gain.setValueAtTime(o.g.gain.value,t);o.g.gain.linearRampToValueAtTime(0,t+1.2);}else o.g.gain.setTargetAtTime(0,t,.4);oldX=o;}
+  const L=newLane();tg=L.g;if(L.p)pump=L.p;if(xl){tg.gain.setValueAtTime(0,t);tg.gain.linearRampToValueAtTime(1,t+1.2);}else tg.gain.setTargetAtTime(1,t,.35);/* V2.4-B: hòa tiếng tuyến tính 1,2 s */cur=w;trk=MUSIC96_TRACKS[w];step=0;bar=0;nextT=t+.05;}
  function runOld(){const o=oldX;if(!o)return;const now=ctx.currentTime;if(now>o.until){try{setTimeout(()=>{try{o.g.disconnect();}catch{}},1500);}catch{}oldX=null;return;}
   const sv=[tg,pump,trk,cur];tg=o.g;pump=o.p||pump;trk=o.trk;cur=o.id;const sd=60/((o.trk&&o.trk.bpm)||120)/4;let k=0;
   try{while(o.nextT<now+.25&&o.nextT<o.until&&k++<8){try{play(o.id,o.nextT,o.step,o.bar,sd);}catch{}o.nextT+=sd;o.step++;if(o.step>=16){o.step=0;o.bar++;}}}finally{[tg,pump,trk,cur]=sv;}}

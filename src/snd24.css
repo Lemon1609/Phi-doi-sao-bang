@@ -1,0 +1,8 @@
+/* V2.4-B · nhãn tên bài nhạc góc phải dưới (không backdrop-filter) */
+#mt24{position:fixed;right:8px;bottom:calc(env(safe-area-inset-bottom,0px) + 8px);z-index:2147483300;display:flex;align-items:center;gap:6px;max-width:62vw;
+ padding:4px 10px 4px 7px;border-radius:12px 4px 12px 4px;background:rgba(6,14,30,.78);border:1px solid rgba(110,200,255,.45);
+ color:#dff4ff;font:700 11px/1.2 system-ui,Arial,sans-serif;letter-spacing:.2px;pointer-events:none;opacity:0;transform:translateX(14px);
+ transition:opacity .6s ease,transform .6s ease;white-space:nowrap}
+#mt24 i{font-style:normal;color:#ffd21f;font-size:13px}
+#mt24 b{overflow:hidden;text-overflow:ellipsis;font-weight:700}
+#mt24.on{opacity:1;transform:none;transition:opacity .25s ease,transform .25s ease}

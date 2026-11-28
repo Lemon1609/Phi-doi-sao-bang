@@ -1289,6 +1289,7 @@ _u4fx={os.path.basename(_f)[:-5]:'data:image/webp;base64,'+_b64u1.b64encode(open
 rep("<script id=\"u4v23-js\">","<script id=\"u4fx-img-js\">window.U4FX_IMG="+json.dumps(_u4fx)+";</script><script id=\"u4v23-js\">")
 # V2.2.3 Gói C (T26): nền địa hình parallax + mây (tắt window.PKC26=false)
 PKC26IMG={os.path.splitext(f)[0]:'data:image/webp;base64,'+_b64rw.b64encode(open('src/pkc26img/'+f,'rb').read()).decode() for f in sorted(os.listdir('src/pkc26img')) if f.endswith('.webp')}
+PKC26IMG.update({os.path.splitext(f)[0]:'data:image/webp;base64,'+_b64rw.b64encode(open('src/nen24img/'+f,'rb').read()).decode() for f in sorted(os.listdir('src/nen24img')) if f.endswith('.webp')})  # V2.4-B Vực Dung Nham / Hẻm Băng
 rep("</body>","<script id=\"pkc26-js\">window.PKC26_IMG="+json.dumps(PKC26IMG,separators=(',',':'))+";"+open('src/pkc26.js',encoding='utf-8').read()+"</script></body>")
 # V2.2.3 · RW23: sao lóe / tia sáng trắng quanh đầu Chiến Thần (superforms-v2) hạ α ≤ .15 khi đang dạng robot
 rep("ctx.globalAlpha=.95;ctx.drawImage(P.stars[g.kind]","ctx.globalAlpha=(window.__rw23on?.15:.95);ctx.drawImage(P.stars[g.kind]")
