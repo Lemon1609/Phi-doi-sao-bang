@@ -1,0 +1,23 @@
+/* V2.4-C · nghi thức lật rương ở lưới VẬT PHẨM ĐẠT ĐƯỢC (chỉ transform/opacity, 0 backdrop-filter) */
+#overlay #rs .rs-loot{position:relative}
+#overlay #rs .rs-loot.c24h .rw78{opacity:0!important;transform:scale(.3) translateY(10px)}
+#overlay #rs .rs-loot.c24in .rw78{opacity:1;animation:c24pop .42s cubic-bezier(.2,1.7,.4,1) var(--c24d,0s) both}
+@keyframes c24pop{0%{opacity:0;transform:scale(.3) translateY(26px)}60%{opacity:1}100%{opacity:1;transform:none}}
+#overlay #rs .c24box{position:absolute;left:50%;top:50%;width:96px;height:96px;margin:-58px 0 0 -48px;z-index:3;pointer-events:none}
+#overlay #rs .c24box img{width:100%;height:100%;object-fit:contain;display:block}
+#overlay #rs .c24box .c24f{position:absolute;inset:-30%;border-radius:50%;opacity:0;background:radial-gradient(circle,rgba(255,250,220,.95) 0,rgba(255,214,90,.55) 32%,rgba(255,200,60,0) 66%)}
+#overlay #rs .c24box.c24shake{animation:c24sh .14s linear 4}
+@keyframes c24sh{0%,100%{transform:rotate(0)}25%{transform:rotate(-7deg) translateX(-2px)}75%{transform:rotate(7deg) translateX(2px)}}
+#overlay #rs .c24box.c24flash .c24f{animation:c24fl .5s ease-out both}
+#overlay #rs .c24box.c24flash img{animation:c24op .3s cubic-bezier(.2,1.6,.4,1) both}
+@keyframes c24fl{0%{opacity:0;transform:scale(.4)}25%{opacity:1}100%{opacity:0;transform:scale(1.5)}}
+@keyframes c24op{0%{transform:scale(.85)}100%{transform:scale(1.1)}}
+#overlay #rs .c24box.c24out{transition:opacity .5s ease,transform .5s ease;opacity:0;transform:translateY(-14px) scale(.85)}
+/* V2.4-C · thẻ Mục tiêu Vô tận: avatar phi công + VƯỢT MỐC! */
+html body #game-field .tg307.tg24{padding-left:44px;min-width:136px;max-width:172px;overflow:visible}
+html body #game-field .tg307.tg24 .tg24a{position:absolute;left:5px;top:50%;width:34px;height:34px;margin-top:-17px;border-radius:7px;object-fit:cover;object-position:50% 12%;border:1.5px solid #8fd4ff;background:#0a1630}
+html body #game-field .tg307.tg24 .tg24p{position:absolute;left:50%;top:100%;margin-top:3px;transform:translateX(-50%) scale(.4);opacity:0;white-space:nowrap;font:900 13px/1 'Be Vietnam Pro',Neo,sans-serif;font-style:normal;letter-spacing:.06em;color:#ffe34a;-webkit-text-stroke:3px #3b1800;paint-order:stroke fill;pointer-events:none}
+html body #game-field .tg307.tg24.pass .tg24p{animation:tg24p 1.25s cubic-bezier(.2,1.6,.4,1) both}
+@keyframes tg24p{0%{opacity:0;transform:translateX(-50%) scale(.4)}18%{opacity:1;transform:translateX(-50%) scale(1.2)}30%{transform:translateX(-50%) scale(1)}80%{opacity:1}100%{opacity:0;transform:translateX(-50%) translateY(-4px) scale(1)}}
+html body #game-field .tg307.tg24.slide24 :is(small,b){animation:tg24s .45s ease-out .35s both}
+@keyframes tg24s{0%{opacity:.3;transform:translateX(18px)}100%{opacity:1;transform:none}}

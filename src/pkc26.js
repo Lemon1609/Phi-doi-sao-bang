@@ -24,7 +24,7 @@ const PKC26=(()=>{
   if(gameMode==='campaign'){const c=Campaign36.chapter(level)+1,M=two?CH1:CH0;return M[c]!=null?M[c]:0;}
  }catch{}return -1;}
  const on=()=>{if(off())return false;try{if(mode!=='play'&&mode!=='pause')return false;}catch{return false;}return biome()>=0;};
- function target(){let k=1;try{if(window.__surgeS25>0)k=KS;else if(superTime>0)k=KBT;}catch{}return k;}
+ function target(){let k=1;try{const v=window.V24C!==false&&window.V24!==false;if(window.__surgeS25>0||(v&&window.__blitz24))k=v?2.4:KS;else if(superTime>0)k=KBT;}catch{}return k;}/* V2.4-C: Xung Kích / bứt tốc đầu Vô tận ×2,4 */
  function layer(img,y,a){const h=Math.round(W*img.naturalHeight/img.naturalWidth);if(!h)return;let o=y%h;if(o<0)o+=h;ctx.globalAlpha=a;
   for(let yy=o-h;yy<H;yy+=h)ctx.drawImage(img,0,yy,W,h);}
  function track(){let md='';try{md=mode;}catch{}

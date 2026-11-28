@@ -19,7 +19,7 @@ BASE_PAIRS=[
  ("ctx.shadowColor='#ff2a46';ctx.shadowBlur=14;ctx.fillText('⚠ CẢNH BÁO NGUY HIỂM ⚠',W/2,y-4);ctx.shadowBlur=0;",
   "if(window.PERF24!==false&&typeof WARN24==='function')WARN24(ctx,W/2,y-4);else{ctx.shadowColor='#ff2a46';ctx.shadowBlur=14;ctx.fillText('⚠ CẢNH BÁO NGUY HIỂM ⚠',W/2,y-4);ctx.shadowBlur=0;}",1),
  # BOSS24: boss chiếm 60–70 % bề ngang (lớn 300 px / 480 = 62,5 %, nhỏ 250 = 52 %); cánh phá được + vùng trúng tính theo cùng hệ số k nên khớp hình
- ("k=Math.min((b.major36?212:156)/bb.w,(b.major36?290:230)/bb.h);","k=window.BOSS24!==false?Math.min((b.major36?300:250)/bb.w,(b.major36?340:300)/bb.h):Math.min((b.major36?212:156)/bb.w,(b.major36?290:230)/bb.h);",1),
+ ("k=Math.min((b.major36?212:156)/bb.w,(b.major36?290:230)/bb.h);","k=window.BOSS24!==false?(window.BOSSXL24!==false&&window.V24C!==false?Math.min((b.major36?372:336)/bb.w,(b.major36?430:390)/bb.h):Math.min((b.major36?300:250)/bb.w,(b.major36?340:300)/bb.h)):Math.min((b.major36?212:156)/bb.w,(b.major36?290:230)/bb.h);",1),
  # DOM: 3 cặp ghi đè nhau mỗi khung (đo bằng ngăn xếp 28/11) → mỗi phần tử 1 chủ
  ("function robotHUD(){const box=$('robot-control');box.hidden=!activeRobot;if(!activeRobot){Rank36.hud();return;}",
   "function robotHUD(){const box=$('robot-control');if(!activeRobot){Rank36.hud();return;}box.hidden=false;",1),
@@ -53,13 +53,17 @@ def modules():
     """khối mô-đun chèn (đầu <head> cho perf24, cuối <body> cho phần còn lại)"""
     head='<script id="perf24-js">'+rd('src/perf24.js')+'</script>'
     tail=''
-    for f,sid in (('src/v24.js','v24-js'),('src/snd24.js','snd24-js')):
+    for f,sid in (('src/v24.js','v24-js'),('src/snd24.js','snd24-js'),('src/v24c.js','v24c-js')):
         if os.path.exists(os.path.join(ROOT,f)):
             if f=='src/v24.js' and os.path.isdir(os.path.join(ROOT,'src/wing24img')):
                 import base64
                 J=json.load(open(os.path.join(ROOT,'src/wing24img/wing24.json')))
                 IM={k:'data:image/webp;base64,'+base64.b64encode(open(os.path.join(ROOT,'src/wing24img',k+'.webp'),'rb').read()).decode() for k in J}
                 tail+='<script id="wing24-img-js">window.WING24_IMG='+json.dumps(IM,separators=(',',':'))+';window.WING24_J='+json.dumps(J,separators=(',',':'))+';</script>'
+            if f=='src/v24c.js' and os.path.isdir(os.path.join(ROOT,'src/v24cimg')):
+                import base64
+                IM={k[:-5]:'data:image/webp;base64,'+base64.b64encode(open(os.path.join(ROOT,'src/v24cimg',k),'rb').read()).decode() for k in sorted(os.listdir(os.path.join(ROOT,'src/v24cimg'))) if k.endswith('.webp')}
+                tail+='<script id="v24c-img-js">window.V24C_IMG='+json.dumps(IM,separators=(',',':'))+';</script>'
             css=f[:-3]+'.css'
             if os.path.exists(os.path.join(ROOT,css)):tail+='<style id="'+sid[:-3]+'-css">'+rd(css)+'</style>'
             tail+='<script id="'+sid+'">'+rd(f)+'</script>'

@@ -17,6 +17,8 @@ NAMED={}
 for _f in sorted(glob.glob(os.path.join(os.path.dirname(os.path.abspath(__file__)),'..','src','u1img','*.webp'))+glob.glob(os.path.join(os.path.dirname(os.path.abspath(__file__)),'..','src','u3img','*.webp'))+glob.glob(os.path.join(os.path.dirname(os.path.abspath(__file__)),'..','src','u4img','*.webp'))):NAMED[base64.b64encode(open(_f,'rb').read()).decode()]='ui/'+os.path.basename(_f)
 # V2.4-B: 4 nền parallax 2 lớp (src/nen24img) → www/assets/bg/
 for _f in sorted(glob.glob(os.path.join(os.path.dirname(os.path.abspath(__file__)),'..','src','nen24img','*.webp'))):NAMED[base64.b64encode(open(_f,'rb').read()).decode()]='bg/'+os.path.basename(_f)
+# V2.4-C: 3 VFX Xung Kích → www/assets/fx/, huy hiệu + 2 rương → www/assets/ui/
+for _f in sorted(glob.glob(os.path.join(os.path.dirname(os.path.abspath(__file__)),'..','src','v24cimg','*.webp'))):NAMED[base64.b64encode(open(_f,'rb').read()).decode()]=('fx/' if os.path.basename(_f).startswith('fx_') else 'ui/')+os.path.basename(_f)
 # V2.3 U4: 8 hiệu ứng trận VKTT (src/u4fx) → www/assets/fx/
 for _f in sorted(glob.glob(os.path.join(os.path.dirname(os.path.abspath(__file__)),'..','src','u4fx','*.webp'))):NAMED[base64.b64encode(open(_f,'rb').read()).decode()]='fx/'+os.path.basename(_f)
 seen={};st={'files':0,'refs':0,'uniq':0,'bytes_b64':0,'bytes_bin':0,'kept_small':0}

@@ -136,7 +136,7 @@
  function hookFinish(){try{if(typeof finishStage36!=='function'||finishStage36.__v24)return;const of=finishStage36;
   const f=function(hadBoss){if(CH.on)return;try{if(fxOn()&&window.V24WIN!==false&&hadBoss&&playing()&&gameMode==='campaign'&&!Dungeons.active()&&!(window.Event83&&Event83.inRaid&&Event83.inRaid())&&boss&&!CH.done){
      CH.on=true;CH.done=true;CH.t0=nowS();CH.next=0;CH.x=boss.x;CH.y=boss.y;CH.w=Math.max(160,(boss.r||90)*2.2);CH.args=[...arguments];
-     try{invuln=Math.max(invuln||0,3);}catch{}const self=this;setTimeout(()=>{CH.on=false;try{of.apply(self,CH.args);CH.after=mode;CH.sf=stageFinished36;}catch(e){CH.err=String(e&&e.stack||e).slice(0,300);}},1250);return;}}catch{}
+     try{invuln=Math.max(invuln||0,3);}catch{}const self=this;setTimeout(()=>{CH.on=false;try{of.apply(self,CH.args);CH.after=mode;CH.sf=stageFinished36;}catch(e){CH.err=String(e&&e.stack||e).slice(0,300);}},crestOn()?2000:1250);return;}}catch{}
    return of.apply(this,arguments);};f.__v24=1;finishStage36=f;}catch{}}
  // tầng vào trận mới: cho phép chuỗi nổ lần sau
  setInterval(()=>{try{if(mode!=='play')CH.done=false;}catch{}},500);
@@ -169,7 +169,13 @@
   g.restore();}
  // rung màn nhẹ trong chuỗi nổ: dùng biến shake gốc của trận
  setInterval(()=>{try{if(CH.on)shake=Math.max(shake||0,.25);}catch{}},60);
+ // V2.4-C: sau chuỗi nổ 1,2 s bật huy hiệu ui_victory_crest (0,7 → 1,05 → 1,0) + chữ CHIẾN THẮNG giữa dải bảng xanh; tổng kết lùi tới 2,0 s
+ const crestOn=()=>window.V24C!==false&&window.V24CI&&(()=>{const i=V24CI('ui_victory_crest');return i&&i.complete&&i.naturalWidth>0;})();
+ function drawCrest(g,t){const i=V24CI('ui_victory_crest'),u=(t-CH.t0-1.15)/.85;if(u<0)return;const v=Math.min(1,u/.35),s=v<.6?.7+.35*(v/.6):1.05-.05*Math.min(1,(v-.6)/.4),w=Math.min(W*.86,380)*s,h=w*i.naturalHeight/i.naturalWidth,x=W/2-w/2,y=H*.36-h/2;
+  g.globalAlpha=Math.min(1,u*5);g.globalCompositeOperation='lighter';const cs=coreSpr();g.globalAlpha*=.35;g.drawImage(cs,W/2-w*.6,y-h*.1,w*1.2,h*1.2);g.globalCompositeOperation='source-over';g.globalAlpha=Math.min(1,u*5);g.drawImage(i,x,y,w,h);
+  const im=txt('win','CHIẾN THẮNG','#fff3b0','#ffb000',46),pw=w*.62,ph=pw*im.height/im.width,py=y+h*.795;g.drawImage(im,W/2-pw/2,py-ph/2,pw,ph);}
  function drawWin(){if(!fxOn())return;const g=ctx,t=nowS();g.save();
+  if(crestOn()&&(CH.on||(t-CH.t0<2.0&&CH.done&&playing()))){drawCrest(g,t);g.restore();return;}
   if(CH.on||(t-CH.t0<1.25&&CH.done&&playing())){const u=(t-CH.t0)/1.2;if(u>.25){const v=Math.min(1,(u-.25)/.2),im=txt('win','CHIẾN THẮNG','#fff3b0','#ffb000',46),s=.7+.35*Math.sin(v*Math.PI/2)-(v>=1?.05*Math.min(1,(u-.45)/.3):0),w=im.width*.62*s,h=im.height*.62*s;
     g.globalCompositeOperation='lighter';g.globalAlpha=.35*v;const cs=coreSpr();g.drawImage(cs,W/2-w*.7,H*.38-h*1.1,w*1.4,h*2.2);g.globalCompositeOperation='source-over';g.globalAlpha=v;g.drawImage(im,W/2-w/2,H*.38-h/2,w,h);}}
   g.restore();}
